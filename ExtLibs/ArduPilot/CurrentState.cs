@@ -131,6 +131,7 @@ namespace MissionPlanner
 
         internal bool MONO;
         private float oldalt;
+        public float camera_Storage = 0.0f;
         private MAVState _parent;
 
         [JsonIgnore]
@@ -2614,6 +2615,10 @@ namespace MissionPlanner
                         }
 
                         break;
+                    case (uint)MAVLink.MAVLINK_MSG_ID.PARAM_EXT_VALUE:
+                        var parameter_extract = mavLinkMessage.ToStructure<MAVLink.mavlink_param_ext_value_t>();
+                        Console.WriteLine("Parameters Reading {0} {1} {2} {3}",parameter_extract.param_count,parameter_extract.param_index,parameter_extract.param_value,parameter_extract.param_type);
+                        break;
                     case (uint)MAVLink.MAVLINK_MSG_ID.MOUNT_STATUS:
 
 
@@ -2954,6 +2959,11 @@ namespace MissionPlanner
                         }
 
 
+                        break;
+                    case (uint)MAVLink.MAVLINK_MSG_ID.STORAGE_INFORMATION:
+                        var storagestatus = mavLinkMessage.ToStructure<MAVLink.mavlink_storage_information_t>();
+                        Console.WriteLine("Storage Status" + storagestatus.available_capacity + " " +storagestatus.total_capacity);
+                        camera_Storage = storagestatus.available_capacity;
                         break;
                     case (uint)MAVLink.MAVLINK_MSG_ID.SYS_STATUS:
 
@@ -4490,6 +4500,11 @@ namespace MissionPlanner
 
             return desc;
         }
+
+        // public float campointa()
+        // {
+        //     return campointa;
+        // }
 
 
         /// <summary>

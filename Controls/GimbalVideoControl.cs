@@ -96,11 +96,17 @@ namespace MissionPlanner.Controls
         private GMapOverlay mouseMapMarker;
 
         private readonly System.Timers.Timer AutoConnectTimer;
-        public GimbalVideoControl()
+
+        private FlightData flightData;
+
+        private String selectedCamera1 = "";
+        public GimbalVideoControl(FlightData flightdata)
         {
             InitializeComponent();
 
+            this.flightData = flightdata;
             loadPreferences();
+
 
             yaw_lock = preferences.DefaultLockedMode;
 
@@ -109,6 +115,12 @@ namespace MissionPlanner.Controls
 
             mouseMapMarker = new GMapOverlay("MouseMarker");
             MainV2.instance.FlightData.gMapControl1.Overlays.Add(mouseMapMarker);
+
+            BaseCameraController selectedCameraController = flightData.CameraController;
+
+            Console.WriteLine("Selected Camera Is {0}",selectedCameraController.SelectedCamera);
+
+            this.selectedCamera1 = selectedCameraController.SelectedCamera;
 
             if (!initializeGStreamer())
             {
@@ -119,13 +131,13 @@ namespace MissionPlanner.Controls
             _stream.OnNewImage += RenderFrame;
 
             // Set up the auto-connect timer
-            AutoConnectTimer = new System.Timers.Timer()
-            {
-                Interval = 1000,
-                AutoReset = false
-            };
-            AutoConnectTimer.Elapsed += AutoConnectTimerCallback;
-            AutoConnectTimer.Start();
+            // AutoConnectTimer = new System.Timers.Timer()
+            // {
+            //     Interval = 1000,
+            //     AutoReset = false
+            // };
+            // AutoConnectTimer.Elapsed += AutoConnectTimerCallback;
+            // AutoConnectTimer.Start();
         }
 
         private bool initializeGStreamer()
@@ -400,24 +412,29 @@ namespace MissionPlanner.Controls
             float yaw = 0;
             if (heldKeys.Contains(preferences.SlewDown))
             {
+                flightData.GremsyPitchYawControl(-1,0);
                 pitch -= 1;
             }
             if (heldKeys.Contains(preferences.SlewUp))
             {
+                flightData.GremsyPitchYawControl(1,0);
                 pitch += 1;
             }
             if (heldKeys.Contains(preferences.SlewLeft))
             {
+                flightData.GremsyPitchYawControl(0,-1);
                 yaw -= 1;
             }
             if (heldKeys.Contains(preferences.SlewRight))
             {
+                flightData.GremsyPitchYawControl(0,1);
                 yaw += 1;
             }
 
             float speed = (float)preferences.SlewSpeedNormal;
             if (Control.ModifierKeys == preferences.SlewFastModifier)
             {
+                flightData.GremsyZoomStop();
                 speed = (float)preferences.SlewSpeedFast;
             }
             else if (Control.ModifierKeys == preferences.SlewSlowModifier)
@@ -439,10 +456,12 @@ namespace MissionPlanner.Controls
             float zoom = 0;
             if (heldKeys.Contains(preferences.ZoomIn))
             {
+                flightData.GremsyZoomIn();
                 zoom += 1;
             }
             if (heldKeys.Contains(preferences.ZoomOut))
             {
+                flightData.GremsyZoomOut();
                 zoom -= 1;
             }
 
@@ -501,6 +520,7 @@ namespace MissionPlanner.Controls
             if (key == preferences.Home)
             {
                 Home();
+                flightData.GremsyHomeCommand();
             }
         }
 
@@ -591,6 +611,7 @@ namespace MissionPlanner.Controls
                     dragStartPoint = getMousePosition(e.X, e.Y);
                 }
                 dragEndPoint = getMousePosition(e.X, e.Y);
+                Console.WriteLine($"Drag start: {dragStartPoint?.x}, {dragStartPoint?.y} - Drag end: {dragEndPoint?.x}, {dragEndPoint?.y}");
             }
             else
             {
@@ -604,6 +625,19 @@ namespace MissionPlanner.Controls
             mouseMapMarker.Markers.Clear();
             dragStartPoint = null;
             dragEndPoint = null;
+        }
+
+         public void SendNormalizedTrackingPoint(double xNorm, double yNorm, int width, int height)
+        {
+            // Convert normalized [-1,1] to pixel offset from center
+            int x = (int)(xNorm * (width));
+            int y = (int)(yNorm * (height));
+
+            float x01 = ((float)xNorm + 1f) / 2f;
+            float y01 = ((float)yNorm + 1f) / 2f;
+
+            Console.WriteLine("Converted X Y Point {0} {1}", x01, y01);
+            flightData.GremsyStartTracking(x01, y01);
         }
 
         private void VideoBox_Click(object sender, EventArgs e)
@@ -621,21 +655,25 @@ namespace MissionPlanner.Controls
             // Check the key/button combination to determine the action
             if ((Control.ModifierKeys, me.Button) == preferences.MoveCameraToMouseLocation)
             {
-                var attitude = selectedGimbalManager?.GetAttitude(selectedGimbalID);
-                if (attitude == null)
-                {
-                    return;
-                }
-                var q = selectedCamera?.CalculateImagePointRotation(point.Value.x, point.Value.y);
-                if (q == null)
-                {
-                    return;
-                }
-                q = attitude * q;
-                Console.WriteLine("Attitude: {0:0.0} {1:0.0} {2:0.0}", attitude.get_euler_yaw() * MathHelper.rad2deg, attitude.get_euler_pitch() * MathHelper.rad2deg, attitude.get_euler_roll() * MathHelper.rad2deg);
-                Console.WriteLine("New: {0:0.0} {1:0.0} {2:0.0}", q.get_euler_yaw() * MathHelper.rad2deg, q.get_euler_pitch() * MathHelper.rad2deg, q.get_euler_roll() * MathHelper.rad2deg);
+                // var attitude = selectedGimbalManager?.GetAttitude(selectedGimbalID);
+                // if (attitude == null)
+                // {
+                //     return;
+                // }
+                // var q = selectedCamera?.CalculateImagePointRotation(point.Value.x, point.Value.y);
+                // if (q == null)
+                // {
+                //     return;
+                // }
+                // q = attitude * q;
+                // Console.WriteLine("Attitude: {0:0.0} {1:0.0} {2:0.0}", attitude.get_euler_yaw() * MathHelper.rad2deg, attitude.get_euler_pitch() * MathHelper.rad2deg, attitude.get_euler_roll() * MathHelper.rad2deg);
+                // Console.WriteLine("New: {0:0.0} {1:0.0} {2:0.0}", q.get_euler_yaw() * MathHelper.rad2deg, q.get_euler_pitch() * MathHelper.rad2deg, q.get_euler_roll() * MathHelper.rad2deg);
 
-                selectedGimbalManager?.SetAttitudeAsync(q, yaw_lock, selectedGimbalID);
+                // selectedGimbalManager?.SetAttitudeAsync(q, yaw_lock, selectedGimbalID);
+                var imageWidth = VideoBox.Image.Width;
+                var imageHeight = VideoBox.Image.Height;
+                Console.WriteLine("MoveCameraToMouseLocation {0} {1}", imageWidth, imageHeight);
+                SendNormalizedTrackingPoint(point.Value.x, point.Value.y, 1920, 1080);
                
             }
             else if ((Control.ModifierKeys, me.Button) == preferences.MoveCameraPOIToMouseLocation)
@@ -719,7 +757,7 @@ namespace MissionPlanner.Controls
 
         private void retractToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Retract();
+            this.flightData.ConnectToGimbal("192.168.199.119",2000);
         }
 
         private void neutralToolStripMenuItem_Click(object sender, EventArgs e)

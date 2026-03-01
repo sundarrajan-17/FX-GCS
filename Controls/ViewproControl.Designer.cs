@@ -1,0 +1,187 @@
+namespace MissionPlanner.Controls
+{
+    partial class ViewproControl
+    {
+        private System.ComponentModel.IContainer components = null;
+        private System.Windows.Forms.TableLayoutPanel parentTableLayoutPanel;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
+        private MissionPlanner.Controls.VirtualJoystick virtualJoystick;
+        private System.Windows.Forms.GroupBox camControlGroup;
+        private System.Windows.Forms.TrackBar trackZoom;
+        private System.Windows.Forms.Button btnStartRecording;
+        private System.Windows.Forms.Button btnStopRecording;
+        private System.Windows.Forms.Button btnTakePhoto;
+        private System.Windows.Forms.Button btnOsdOn;
+        private System.Windows.Forms.Button btnOsdOff;
+        private System.Windows.Forms.Button btnAiOsdOn;
+        private System.Windows.Forms.Button btnAiOsdOff;
+        private System.Windows.Forms.Button btnDZoomPlus;
+        private System.Windows.Forms.Button  btnDZoomMinus;
+        private System.Windows.Forms.Button  setEoIrMode;
+        private System.Windows.Forms.ComboBox CMB_setEoIrMode;
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+                components.Dispose();
+            base.Dispose(disposing);
+        }
+        private void InitializeComponent()
+        {
+            this.parentTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.parentTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.parentTableLayoutPanel.RowCount = 3;
+            this.parentTableLayoutPanel.ColumnCount = 2;
+            this.parentTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 31.95876F));
+            this.parentTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 68.04124F));
+            this.parentTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.00F));
+            this.parentTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25.00F));
+            this.parentTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25.00F));
+
+            // tableLayoutPanel1
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1.RowCount = 1;
+            this.tableLayoutPanel1.ColumnCount = 2;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 70.00F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30.00F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.00F));
+
+            // tableLayoutPanel2
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel2.RowCount = 3;
+            this.tableLayoutPanel2.ColumnCount = 4;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.00F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.00F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.00F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.00F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33F));
+
+            //camera control group
+            this.camControlGroup = new System.Windows.Forms.GroupBox();
+            this.camControlGroup.SuspendLayout();
+            // Camera Control Group
+            this.camControlGroup.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.camControlGroup.Name = "camControlGroup";
+            this.camControlGroup.Text = "Camera Controls";
+            this.camControlGroup.Size = new System.Drawing.Size(300, 200);
+            this.camControlGroup.TabIndex = 3;
+            this.camControlGroup.TabStop = false;
+            this.camControlGroup.ForeColor = System.Drawing.Color.White;
+
+            // zoom control
+            this.trackZoom = new System.Windows.Forms.TrackBar();
+            this.trackZoom.Orientation = System.Windows.Forms.Orientation.Vertical;
+            this.trackZoom.Minimum = -100;
+            this.trackZoom.Maximum = 100;
+            this.trackZoom.Value = 0;
+            this.trackZoom.TickFrequency = 20;
+            this.trackZoom.LargeChange = 10;
+            this.trackZoom.SmallChange = 1;
+            this.trackZoom.Height = 80;
+            this.trackZoom.Width = 40;
+            this.trackZoom.Dock = System.Windows.Forms.DockStyle.None;
+            this.trackZoom.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.trackZoom.BackColor = System.Drawing.Color.FromArgb(45, 45, 45);
+            this.trackZoom.ValueChanged += TrackZoom_ValueChanged;
+            this.trackZoom.MouseUp += TrackZoom_MouseUp;
+
+            // start recording button
+
+            this.btnStartRecording = new System.Windows.Forms.Button();
+            this.btnStartRecording.Text = "Start Record";
+            this.btnStartRecording.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnStartRecording.Click += new System.EventHandler(this.BtnStartRecording_Click);
+            // stop recording button
+
+            this.btnStopRecording = new System.Windows.Forms.Button();
+            this.btnStopRecording.Text = "Stop Record";
+            this.btnStopRecording.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnStopRecording.Click += new System.EventHandler(this.BtnStopRecording_Click);
+            // photo button
+
+            this.btnTakePhoto = new System.Windows.Forms.Button();
+            this.btnTakePhoto.Text = "Photo";
+            this.btnTakePhoto.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnTakePhoto.Click += new System.EventHandler(this.BtnTakePhoto_Click);
+            // osd on
+
+            this.btnOsdOn = new System.Windows.Forms.Button();
+            this.btnOsdOn.Text = "OSD On";
+            this.btnOsdOn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnOsdOn.Click += new System.EventHandler(this.BtnOsdOn_Click);
+            // osd off
+
+            this.btnOsdOff = new System.Windows.Forms.Button();
+            this.btnOsdOff.Text = "OSD Off";
+            this.btnOsdOff.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnOsdOff.Click += new System.EventHandler(this.BtnOsdOff_Click);
+
+            // Ai osd on
+
+            this.btnAiOsdOn = new System.Windows.Forms.Button();
+            this.btnAiOsdOn.Text = "AI OSD On";
+            this.btnAiOsdOn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnAiOsdOn.Click += new System.EventHandler(this.BtnAiOsdOn_Click);
+            // Ai osd off
+
+            this.btnAiOsdOff = new System.Windows.Forms.Button();
+            this.btnAiOsdOff.Text = "AI OSD Off";
+            this.btnAiOsdOff.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnAiOsdOff.Click += new System.EventHandler(this.BtnAiOsdOff_Click);
+            // Digital Zoom +
+
+            this.btnDZoomPlus = new System.Windows.Forms.Button();
+            this.btnDZoomPlus.Text = "DZoom +";
+            this.btnDZoomPlus.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnDZoomPlus.Click += new System.EventHandler(this.BtnDZoomPlus_Click);
+            // Digital Zoom -
+
+            this.btnDZoomMinus = new System.Windows.Forms.Button();
+            this.btnDZoomMinus.Text = "DZoom -";
+            this.btnDZoomMinus.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnDZoomMinus.Click += new System.EventHandler(this.BtnDZoomMinus_Click);
+
+            // eo ir selection
+            this.CMB_setEoIrMode = new System.Windows.Forms.ComboBox();
+            this.CMB_setEoIrMode.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CMB_setEoIrMode.DropDownWidth = 150;
+            this.CMB_setEoIrMode.FormattingEnabled = true;
+            this.CMB_setEoIrMode.Items.AddRange(new object[] {"EO","EO+IR WhiteHot","EO+IR BlackHot","EO+IR PseudoHot","IR+EO WhiteHot","IR+EO BlackHot","IR+EO PseudoHot","IR WhiteHot","IR BlackHot","IR PseudoHot"});
+            this.CMB_setEoIrMode.Name = "CMB_setEoIrMode";
+            this.CMB_setEoIrMode.Click += new System.EventHandler(this.CMB_setEoIrMode_Click);
+
+            // eo ir set
+            this.setEoIrMode = new System.Windows.Forms.Button();
+            this.setEoIrMode.Text = "Set Camera Mode";
+            this.setEoIrMode.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.setEoIrMode.Click += new System.EventHandler(this.setEoIrMode_Click);
+
+            // parent controls
+            // this.parentTableLayoutPanel.Controls.Add(this.tableLayoutPanel1,0,0);
+
+            // tableLayoutPanel2 Controls
+            this.tableLayoutPanel2.Controls.Add(this.btnStartRecording,0,0);
+            this.tableLayoutPanel2.Controls.Add(this.btnStopRecording,1,0);
+            this.tableLayoutPanel2.Controls.Add(this.btnTakePhoto,2,0);
+            this.tableLayoutPanel2.Controls.Add(this.btnOsdOn,0,1);
+            this.tableLayoutPanel2.Controls.Add(this.btnOsdOff,1,1);
+            this.tableLayoutPanel2.Controls.Add(this.btnAiOsdOn,2,1);
+            this.tableLayoutPanel2.Controls.Add(this.btnAiOsdOff,3,1);
+            this.tableLayoutPanel2.Controls.Add(this.btnDZoomPlus,0,2);
+            this.tableLayoutPanel2.Controls.Add(this.btnDZoomMinus,1,2);
+            this.tableLayoutPanel2.Controls.Add(this.CMB_setEoIrMode,2,2);
+            this.tableLayoutPanel2.Controls.Add(this.setEoIrMode,3,2);
+
+            // Main Controls
+            this.parentTableLayoutPanel.Controls.Add(tableLayoutPanel2,1,0);
+            this.Controls.Add(this.parentTableLayoutPanel);
+            this.Size = new System.Drawing.Size(600,800);
+        }
+    }
+}

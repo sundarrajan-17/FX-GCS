@@ -29,10 +29,14 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using WebCamService;
 using ZedGraph;
+using System.Net.Sockets;
+using System.Net;
 using LogAnalyzer = MissionPlanner.Utilities.LogAnalyzer;
 using TableLayoutPanelCellPosition = System.Windows.Forms.TableLayoutPanelCellPosition;
 using UnauthorizedAccessException = System.UnauthorizedAccessException;
 using static MissionPlanner.Utilities.LTM;
+using System.Net.Sockets;
+using System.Net;
 
 // written by michael oborne
 
@@ -43,6 +47,7 @@ namespace MissionPlanner.GCSViews
         public static FlightData instance;
         public static GMapOverlay kmlpolygons;
         public static HUD myhud;
+        private String selectedCamera = "";
         public static readonly GStreamer hudGStreamer = new GStreamer();
         public static myGMAP mymap;
         public static bool threadrun;
@@ -54,6 +59,12 @@ namespace MissionPlanner.GCSViews
         internal static GMapOverlay rallypointoverlay;
         internal static GMapOverlay tfrpolygons;
         internal GMapMarker CurrentGMapMarker;
+        private float camPitch = 0.0f;
+        private float camRoll = 0.0f;
+        private float camYaw = 0.0f;
+
+        private float pitch = 0.0f;
+        private float yaw = 0.0f;
 
         internal PointLatLng MouseDownStart;
 
@@ -135,6 +146,9 @@ namespace MissionPlanner.GCSViews
         PropertyInfo list20item;
         double LogPlayBackSpeed = 1.0;
         GMapMarker marker;
+
+        private TcpClient tcpClient;
+        private NetworkStream networkStream;
 
         int messagecount;
 
@@ -233,6 +247,13 @@ namespace MissionPlanner.GCSViews
 
         private bool transponderNeverConnected = true;
 
+        private BaseCameraController _baseCameraController;
+
+        public BaseCameraController CameraController
+        {
+            get { return _baseCameraController; }
+        }
+
         public FlightData()
         {
             log.Info("Ctor Start");
@@ -242,6 +263,7 @@ namespace MissionPlanner.GCSViews
             log.Info("Components Done");
 
             instance = this;
+
 
             this.SubMainLeft.Panel1.ControlAdded += (sender, e) => ManageLeftPanelVisibility();
             this.SubMainLeft.Panel1.ControlRemoved += (sender, e) => ManageLeftPanelVisibility();
@@ -420,6 +442,10 @@ namespace MissionPlanner.GCSViews
             hud1.displayicons = Settings.Instance.GetBoolean("HUD_showicons", false);
 
             tabControlactions.Multiline = Settings.Instance.GetBoolean("tabControlactions_Multiline", false);
+
+            _baseCameraController = new BaseCameraController(this);
+
+            this.tabPayload.Controls.Add(_baseCameraController);
         }
 
         public void Activate()
@@ -3368,6 +3394,8 @@ namespace MissionPlanner.GCSViews
                     updateBindingSource();
                     continue;
                 }
+                // Console.WriteLine("Camera Roll Pitch Yaw: {0}, {1}, {2}", MainV2.comPort.MAV.cs.campointa, MainV2.comPort.MAV.cs.campointb, MainV2.comPort.MAV.cs.campointc);
+
 
                 if (!MainV2.comPort.logreadmode)
                 {
@@ -3380,6 +3408,9 @@ namespace MissionPlanner.GCSViews
                     threadrun = false;
                     break;
                 }
+
+                // Console.WriteLine("Camera Roll Pitch Yaw: {0}, {1}, {2}", MainV2.comPort.MAV.cs.campointa, MainV2.comPort.MAV.cs.campointb, MainV2.comPort.MAV.cs.campointc);
+
 
                 try
                 {
@@ -3623,6 +3654,22 @@ namespace MissionPlanner.GCSViews
                         hud1.criticalvoltagealert = false;
                     }
 
+                    // if(MainV2.comPort.MAV.cs.campointa != null)
+                    // {
+                    //     camPitch = MainV2.comPort.MAV.cs.campointa;
+                    //     Console.WriteLine("Camera Pitch {0}",camPitch);
+                    // }
+                    // if(MainV2.comPort.MAV.cs.campointb != null)
+                    // {
+                    //     camRoll = MainV2.comPort.MAV.cs.campointb;
+                    //     Console.WriteLine("Camera Roll {0}",camRoll);
+                    // }
+                    // if(MainV2.comPort.MAV.cs.campointc != null)
+                    // {
+                    //     camYaw = MainV2.comPort.MAV.cs.campointc;
+                    //     Console.WriteLine("Camera Yaw {0}",camYaw);
+                    // }
+
 
                     // update opengltest
                     if (OpenGLtest.instance != null)
@@ -3648,6 +3695,8 @@ namespace MissionPlanner.GCSViews
                             MainV2.comPort.MAV.cs.vz);
                         OpenGLtest2.instance.WPs = MainV2.comPort.MAV.wps.Values.Select(a => (Locationwp) a).ToList();
                     }
+
+                    // Console.WriteLine("Camera Roll Pitch Yaw: {0}, {1}, {2}", MainV2.comPort.MAV.cs.campointa, MainV2.comPort.MAV.cs.campointb, MainV2.comPort.MAV.cs.campointc);
 
                     // update vario info
                     Vario.SetValue(MainV2.comPort.MAV.cs.climbrate);
@@ -5457,7 +5506,7 @@ namespace MissionPlanner.GCSViews
                     MainV2.comPort.MAV.cs.UpdateCurrentSettings(
                         bindingSourceHud.UpdateDataSource(MainV2.comPort.MAV.cs));
                     //Console.WriteLine("DONE ");
-
+                    // Console.WriteLine("Camera Roll Pitch Yaw: {0} {1} {2}",MainV2.comPort.MAV.cs.campointa, MainV2.comPort.MAV.cs.campointb, MainV2.comPort.MAV.cs.campointc);
                     if (tabControlactions.SelectedTab == tabStatus)
                     {
                         MainV2.comPort.MAV.cs.UpdateCurrentSettings(
@@ -6561,7 +6610,7 @@ namespace MissionPlanner.GCSViews
                 // Check if we need to construct a gimbalVideoControl
                 if (_gimbalVideoControl == null || _gimbalVideoControl.IsDisposed)
                 {
-                    _gimbalVideoControl = new GimbalVideoControl();
+                    _gimbalVideoControl = new GimbalVideoControl(this);
                     _gimbalVideoControl.Dock = DockStyle.Fill;
 
                     // Add option to show/hide minimap
@@ -6731,6 +6780,522 @@ namespace MissionPlanner.GCSViews
             {
                 CustomMessageBox.Show(Strings.CommandFailed + ex.Message, Strings.ERROR);
             }
+        }
+
+        // Camera Speciific Controls And Features Function
+
+        public bool ConnectToGimbal(string ip, int port)
+        {
+            try
+            {
+                tcpClient = new TcpClient();
+                tcpClient.Connect(ip, port);
+                networkStream = tcpClient.GetStream();
+                var message = "Connected To Gimbal Successfully.";
+                CustomMessageBox.Show(
+                    message,
+                    "Connection Status",
+                    MessageBoxButtons.OK,
+                    CustomMessageBox.MessageBoxIcon.Information
+                );
+                return true;
+            }
+            catch (Exception ex)
+            {
+                var message = "Gimbal Connection Failed";
+                CustomMessageBox.Show(
+                    message,
+                    "Connection Status",
+                    MessageBoxButtons.OK,
+                    CustomMessageBox.MessageBoxIcon.Error
+                );
+                return false;
+            }
+        }
+
+        public void SendCommand(byte[] command)
+        {
+            if (networkStream != null && networkStream.CanWrite)
+            {
+                try
+                {
+                    for (int i = 0; i < 2; i++)
+                    {
+                        networkStream.Write(command, 0, command.Length);
+                        networkStream.Flush();
+                        Console.WriteLine("Command sent: " + BitConverter.ToString(command));
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Send failed: " + ex.Message);
+                }
+            }
+            else
+            {
+                // var message = "Please Connect To Gimbal";
+                // CustomMessageBox.Show(
+                //     message,
+                //     "Connection Status",
+                //     MessageBoxButtons.OK,
+                //     CustomMessageBox.MessageBoxIcon.Error
+                // );
+                Console.WriteLine("Stream is not writable.");
+            }
+        }
+
+        public double[] latlon_to_xy_approx(double lat1, double lon1, double lat2, double lon2, double bearing) {
+            double PI = 3.14159265358979323846;
+            double R = 6378137.0;
+
+            double phi1 = lat1 * PI / 180.0;
+            double phi2 = lat2 * PI / 180.0;
+            double dphi = phi2 - phi1;
+            double dlambda = (lon2 - lon1) * PI / 180.0;
+            double mean_phi = 0.5 * (phi1 + phi2);
+            
+            double north = R * dphi;
+            double east  = R *  Math.Cos(mean_phi) * dlambda;
+
+            double dLat = lat2 - lat1;
+            double dLon = lon2 - lon1;
+
+            double latMeanRad = (lat1 + lat2) / 2.0 * Math.PI / 180.0;
+
+            double Y = dLat * Math.PI / 180.0 * R;
+            double X = dLon * Math.PI / 180.0 * R * Math.Cos(latMeanRad);
+
+            double bRad = bearing * Math.PI / 180.0;
+            double cosB = Math.Cos(bRad);
+            double sinB = Math.Sin(bRad);
+
+            double Xb = X * cosB - Y * sinB;
+            double Yb = X * sinB + Y * cosB;
+
+            return new double[] {Xb, Yb};
+        }
+
+        private static byte CalculateSerialChecksum(byte[] buffer)
+        {
+            byte length = buffer[3];
+            byte checksum = length;
+
+            for (int i = 0; i < length - 2; i++)
+            {
+                checksum ^= buffer[4 + i];
+            }
+
+            return checksum;
+        }
+
+        private static byte CalculateTcpChecksum(byte[] buffer)
+        {
+            int sum = 0;
+            foreach (byte b in buffer)
+            {
+                sum += b;
+            }
+            return (byte)(sum % 256);
+        }
+
+        public void BuildTrackingCommand(int x, int y)
+        {
+            // Convert to 2 bytes each, signed, little endian
+            byte[] xBytes = BitConverter.GetBytes((short)x);
+            byte[] yBytes = BitConverter.GetBytes((short)y);
+
+            // serial data
+            byte[] serial = new byte[]
+            {
+                0x55, 0xAA, 0xDC, 0x0D, 0x31,        // Header + length
+                0x00,0x00,0x00,0x00,
+                0x00,                               // Reserved
+                0x0A,
+                xBytes[1], xBytes[0],               // X
+                yBytes[1], yBytes[0],                                // Tracking mode
+            };
+
+            // Add serial checksum
+            byte serialChecksum = CalculateSerialChecksum(serial);
+            byte[] serialFull = new byte[serial.Length + 1];
+            Array.Copy(serial, serialFull, serial.Length);
+            serialFull[serial.Length] = serialChecksum;
+
+            // Add TCP header
+            byte tcpLength = (byte)serialFull.Length; // +1 for tcp checksum
+            byte[] tcpHeader = new byte[] { 0xEB, 0x90, tcpLength };
+
+            // Compose final TCP packet
+            byte[] finalCommand = new byte[tcpHeader.Length + serialFull.Length + 1];
+            Array.Copy(tcpHeader, 0, finalCommand, 0, tcpHeader.Length);
+            Array.Copy(serialFull, 0, finalCommand, tcpHeader.Length, serialFull.Length);
+
+            byte tcpChecksum = CalculateTcpChecksum(serialFull);
+            finalCommand[finalCommand.Length - 1] = tcpChecksum;
+            Console.WriteLine("Command sent: " + BitConverter.ToString(finalCommand));
+            SendCommand(finalCommand);
+        }
+
+        public void BuildPitchYawCommand(int x, int y)
+        {
+            // Convert to 2 bytes each, signed, little endian
+            byte[] xBytes = BitConverter.GetBytes((short)x);
+            byte[] yBytes = BitConverter.GetBytes((short)y);
+            Console.WriteLine("X,Y {0} {1}",BitConverter.ToString(xBytes),BitConverter.ToString(yBytes));
+            // serial data
+            byte[] serial = new byte[]
+            {
+                0x55, 0xAA, 0xDC, 0x11, 0x30,        // Header + length
+                0x01,xBytes[1], xBytes[0],yBytes[1],
+                yBytes[0],                               // Reserved
+                0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00             // Tracking mode
+            };
+
+            // Add serial checksum
+            byte serialChecksum = CalculateSerialChecksum(serial);
+            byte[] serialFull = new byte[serial.Length + 1];
+            Array.Copy(serial, serialFull, serial.Length);
+            serialFull[serial.Length] = serialChecksum;
+
+            // Add TCP header
+            byte tcpLength = (byte)serialFull.Length; // +1 for tcp checksum
+            byte[] tcpHeader = new byte[] { 0xEB, 0x90, tcpLength };
+
+            // Compose final TCP packet
+            byte[] finalCommand = new byte[tcpHeader.Length + serialFull.Length + 1];
+            Array.Copy(tcpHeader, 0, finalCommand, 0, tcpHeader.Length);
+            Array.Copy(serialFull, 0, finalCommand, tcpHeader.Length, serialFull.Length);
+
+            byte tcpChecksum = CalculateTcpChecksum(serialFull);
+            finalCommand[finalCommand.Length - 1] = tcpChecksum;
+            Console.WriteLine("Command sent: " + BitConverter.ToString(finalCommand));
+            SendCommand(finalCommand);
+        }
+
+        public void viewproUpCommand()
+        {
+            var up_command = new byte[]{
+                0xEB, 0x90, 0x14, 0x55, 0xAA, 0xDC, 0x11, 0x30, 0x01, 0x00, 0x00, 0x07, 0xD0, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0xF7, 0xEB
+            };
+            SendCommand(up_command);
+        }
+
+        public void viewproDownCommand()
+        {
+            var down_command = new byte[]{
+                0xEB, 0x90, 0x14, 0x55, 0xAA, 0xDC, 0x11, 0x30, 0x01, 0x00, 0x00, 0xF8, 0x30, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0xE8, 0x2D
+            };
+            SendCommand(down_command);
+        }
+
+        public void viewproLeftCommand()
+        {
+            var left_command = new byte[]{
+                0xEB, 0x90, 0x14, 0x55, 0xAA, 0xDC, 0x11, 0x30, 0x01, 0xF8, 0x30, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0xE8, 0x2D
+            };
+            SendCommand(left_command);
+        }
+
+        public void viewproRightCommand()
+        {
+            var right_command = new byte[]{
+                0xEB, 0x90, 0x14, 0x55, 0xAA, 0xDC, 0x11, 0x30, 0x01, 0x07, 0xD0, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0xF7, 0xEB
+            };
+            SendCommand(right_command);
+        }
+
+        public void viewproPitchYawCommand(double x,double y)
+        {
+            int yaw = (int)(x * 2000);
+            int pitch = (int)(y * 2000);
+            Console.WriteLine("Yaw And Pitch {0} {1}",yaw,pitch);
+            BuildPitchYawCommand(yaw,pitch);
+            // BuildPitchYawCommand(2000,0);
+        }
+
+        public void viewproMoveStopCommand()
+        {
+            var move_stop = new byte[]{
+                0xEB, 0x90, 0x14, 0x55, 0xAA, 0xDC, 0x11, 0x30, 0x01, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x20, 0x3D
+            };
+            SendCommand(move_stop);
+        }
+
+        public void viewproZoomInCommand()
+        {
+            byte[] zoomInCommand = new byte[] {
+                0xEB, 0x90, 0x14, 0x55, 0xAA, 0xDC, 0x11, 0x30, 0x0F, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0x78, 0x00, 0x00, 0x00, 0x54, 0xF9
+            };
+            SendCommand(zoomInCommand);
+        }
+
+        public void viewproZoomOutCommand()
+        {
+            byte[] zoomOutCommand = new byte[] {
+                0xEB, 0x90, 0x14, 0x55, 0xAA, 0xDC, 0x11, 0x30, 0x0F, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0x38, 0x00, 0x00, 0x00, 0x14, 0x79
+            };
+            SendCommand(zoomOutCommand);
+        }
+
+        public void viewproZoomStopCommand()
+        {
+            var zoom_stop = new byte[]{
+                0xEB, 0x90, 0x14, 0x55, 0xAA, 0xDC, 0x11, 0x30, 0x0F, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x40, 0x00, 0x00, 0x00, 0x6E, 0xD9
+            };
+            SendCommand(zoom_stop);
+        }
+
+        public void viewproTakePictureCommand()
+        {
+            var take_PictureCommand = new byte[]{
+                0xEB ,0x90 ,0x14 ,0x55 ,0xAA ,0xDC ,0x11 ,0x30 ,0x0F ,0x00 ,0x00 ,0x00 ,0x00 ,0x00 ,0x00 ,0x00 ,0x00 ,0x04 ,0xD0 ,0x00 ,0x00 ,0x00 ,0xFA ,0xF9
+            };
+            SendCommand(take_PictureCommand);
+        }
+
+        public void viewproStartRecordingCommand()
+        {
+            var start_RecordingCommand = new byte[]{
+                0xEB ,0x90 ,0x14 ,0x55 ,0xAA ,0xDC ,0x11 ,0x30 ,0x0F ,0x00 ,0x00 ,0x00 ,0x00 ,0x00 ,0x00 ,0x00 ,0x00 ,0x05 ,0x10 ,0x00 ,0x00 ,0x00 ,0x3B ,0x7B
+            };
+            SendCommand(start_RecordingCommand);
+        }
+
+        public void viewproStopRecordingCommand()
+        {
+            var stop_RecordingCommand = new byte[]{
+                0xEB ,0x90 ,0x14 ,0x55 ,0xAA ,0xDC ,0x11 ,0x30 ,0x0F ,0x00 ,0x00 ,0x00 ,0x00 ,0x00 ,0x00 ,0x00 ,0x00 ,0x05 ,0x50 ,0x00 ,0x00 ,0x00 ,0x7B ,0xFB
+            };
+            SendCommand(stop_RecordingCommand);
+        }
+
+        public void viewproStopTrackCommand()
+        {
+            var stop_TrackCommand = new byte[]{
+                0xEB, 0x90, 0x14, 0x55, 0xAA, 0xDC, 0x11, 0x30, 0x01, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x01, 0x01, 0x00, 0x20, 0x3F
+            };
+            SendCommand(stop_TrackCommand);
+        }
+        public void viewproEo_Command()
+        {
+            var EOCommand = new byte[]{
+                0xEB, 0x90, 0x14, 0x55, 0xAA, 0xDC, 0x11, 0x30, 0x0F, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x03, 0x81, 0x00, 0x00, 0x00, 0xAC, 0x5B
+            };
+            SendCommand(EOCommand);
+        }
+        public void viewproEoIr_WhiteCommand()
+        {
+            var EO_IR_WHITECommand = new byte[]{
+                0xEB, 0x90, 0x14, 0x55, 0xAA, 0xDC, 0x11, 0x30, 0x0F, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x03, 0x83, 0x00, 0x00, 0x00, 0xAE, 0x5F
+            };
+            SendCommand(EO_IR_WHITECommand);
+        }
+        public void viewproIrEo_WhiteCommand()
+        {
+            var IR_EO_WHITECommand = new byte[]{
+                0xEB, 0x90, 0x14, 0x55, 0xAA, 0xDC, 0x11, 0x30, 0x0F, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x03, 0x84, 0x00, 0x00, 0x00, 0xA9, 0x5B
+            };
+            SendCommand(IR_EO_WHITECommand);
+        }
+        public void viewproIr_WhiteCommand()
+        {
+            var IR_WHITECommand = new byte[]{
+                0xEB, 0x90, 0x14, 0x55, 0xAA, 0xDC, 0x11, 0x30, 0x0F, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x03, 0x82, 0x00, 0x00, 0x00, 0xAF, 0x5F
+            };
+            SendCommand(IR_WHITECommand);
+        }
+
+        public void viewproEoIr_BlackCommand()
+        {
+            var EO_IR_BLACKCommand = new byte[]{
+                0xEB, 0x90, 0x14, 0x55, 0xAA, 0xDC, 0x11, 0x30, 0x0F, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x03, 0xC3, 0x00, 0x00, 0x00, 0xEE, 0xDF
+            };
+            SendCommand(EO_IR_BLACKCommand);
+        }
+        public void viewproIrEo_BlackCommand()
+        {
+            var IR_EO_BLACKCommand = new byte[]{
+                0xEB, 0x90, 0x14, 0x55, 0xAA, 0xDC, 0x11, 0x30, 0x0F, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x03, 0xC4, 0x00, 0x00, 0x00, 0xE9, 0xDB
+            };
+            SendCommand(IR_EO_BLACKCommand);
+        }
+
+        public void viewproIr_BlackCommand()
+        {
+            var IR_BLACKCommand = new byte[]{
+                0xEB, 0x90, 0x14, 0x55, 0xAA, 0xDC, 0x11, 0x30, 0x0F, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x03, 0xC2, 0x00, 0x00, 0x00, 0xEF, 0xDF
+            };
+            SendCommand(IR_BLACKCommand);
+        }
+
+        public void viewproEoIr_PseudoCommand()
+        {
+            var EO_IR_PSEUDOCommand = new byte[]{
+                0xEB, 0x90, 0x14, 0x55, 0xAA, 0xDC, 0x11, 0x30, 0x0F, 0x1F, 0xFE, 0x0E, 0x38, 0x00, 0x00, 0x00, 0x00, 0x04, 0x83, 0x00, 0x00, 0x00, 0x7E, 0x93
+            };
+            SendCommand(EO_IR_PSEUDOCommand);
+        }
+        public void viewproIrEo_PseudoCommand()
+        {
+            var IR_EO_PSEUDOCommand = new byte[]{
+                0xEB, 0x90, 0x14, 0x55, 0xAA, 0xDC, 0x11, 0x30, 0x0F, 0x1F, 0xFE, 0x0E, 0x38, 0x00, 0x00, 0x00, 0x00, 0x04, 0x84, 0x00, 0x00, 0x00, 0x79, 0x8F
+            };
+            SendCommand(IR_EO_PSEUDOCommand);
+        }
+        public void viewproIr_PseudoCommand()
+        {
+            var IR_PSEUDOCommand = new byte[]{
+                0xEB, 0x90, 0x14, 0x55, 0xAA, 0xDC, 0x11, 0x30, 0x0F, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x04, 0x82, 0x00, 0x00, 0x00, 0x7F, 0x93
+            };
+            SendCommand(IR_PSEUDOCommand);
+        }
+
+        public void viewproHomeCommand()
+        {
+            var HomeCommand = new byte[]{
+                0xEB, 0x90, 0x14, 0x55, 0xAA, 0xDC, 0x11, 0x30, 0x04, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x25, 0x45
+            };
+            SendCommand(HomeCommand);
+        }
+        public void viewproOsdOnCommand()
+        {
+            var OsdOn_Command = new byte[]{
+                0xEB, 0x90, 0x08,0x55, 0xAA, 0xDC, 0x05, 0x01, 0x05, 0x00, 0x01,0xE7
+            };
+            SendCommand(OsdOn_Command);
+        }
+        public void viewproOsdOffCommand()
+        {
+            var OsdOff_Command = new byte[]{
+                0xEB, 0x90, 0x08,0x55, 0xAA, 0xDC, 0x05, 0x01, 0x05, 0x01, 0x00,0xE7
+            };
+            SendCommand(OsdOff_Command);
+        }
+
+        public void GremsyStartRecording()
+        {
+            Console.WriteLine("Start Recording Command Sent");
+            MainV2.comPort.doCommand((byte)MainV2.comPort.sysidcurrent, (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_CAMERA,
+                    MAVLink.MAV_CMD.VIDEO_START_CAPTURE, 0, 0, 0, 0, 0, 0,0,true);
+        }
+
+        public void GremsyStopRecording()
+        {
+            Console.WriteLine("Stop Recording Command Sent");
+            MainV2.comPort.doCommand((byte)MainV2.comPort.sysidcurrent, (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_CAMERA,
+                    MAVLink.MAV_CMD.VIDEO_STOP_CAPTURE, 0, 0, 0, 0, 0, 0,0,true);
+        }
+
+        public void GremsyZoomIn()
+        {
+            Console.WriteLine("Zoom In Command Sent");
+            MainV2.comPort.doCommand((byte)MainV2.comPort.sysidcurrent, (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_CAMERA,
+                    MAVLink.MAV_CMD.SET_CAMERA_ZOOM,1,1, 0, 0, 0,0,0,false);
+        }
+
+        public void GremsyZoomOut()
+        {
+            Console.WriteLine("Zoom Out Command Sent");
+            MainV2.comPort.doCommand((byte)MainV2.comPort.sysidcurrent, (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_CAMERA,
+                    MAVLink.MAV_CMD.SET_CAMERA_ZOOM,1,-1, 0, 0, 0,0,0,false);
+        }
+
+        public void GremsyZoomStop()
+        {
+            Console.WriteLine("Zoom Stop Command Sent");
+            MainV2.comPort.doCommand((byte)MainV2.comPort.sysidcurrent, (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_CAMERA,
+                    MAVLink.MAV_CMD.SET_CAMERA_ZOOM,1,0, 0, 0, 0,0,0,false);
+        }
+
+        public void GremsyStartTracking(float x, float y)
+        {
+            // MainV2.comPort.MAV.MAV_COMP_ID_CAMERA
+            Console.WriteLine("Start Tracking Command Sent {0}",(byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_CAMERA);
+            MainV2.comPort.doCommand((byte)MainV2.comPort.sysidcurrent, (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_CAMERA,
+                    MAVLink.MAV_CMD.CAMERA_TRACK_POINT,x,y ,(float)0.1,0, 0, 0,0,false);
+        }
+
+        public void GremsyStopTracking()
+        {
+            Console.WriteLine("Stop Tracking Command Sent");
+            MainV2.comPort.doCommand((byte)MainV2.comPort.sysidcurrent, (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_CAMERA,
+                    MAVLink.MAV_CMD.CAMERA_STOP_TRACKING,0,0 ,0,0, 0, 0,0,false);
+        }
+
+        public void GremsyYawFollowMode()
+        {
+            Console.WriteLine("Yaw Follow Mode Command Sent");
+            MainV2.comPort.doCommand((byte)MainV2.comPort.sysidcurrent, (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_CAMERA,
+                    MAVLink.MAV_CMD.DO_MOUNT_CONFIGURE, 0, 0, 0, 0, 0,0,0,false);
+        }
+        public void GremsyPitchYawControl(int pitchFlag,int yawFlag)
+        {
+            if(pitchFlag == 1) pitch += 5.0f;
+            else if(pitchFlag == -1) pitch -=5.0f;
+            if(yawFlag == 1) yaw += 5.0f;
+            else if(yawFlag == -1) yaw -= 5.0f;
+            Console.WriteLine("Pitch/Yaw Control Command Sent");
+            MainV2.comPort.doCommand((byte)MainV2.comPort.sysidcurrent, (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_CAMERA,
+                   MAVLink.MAV_CMD.DO_MOUNT_CONTROL, pitch, (float)0.0, yaw, 0, 0,0,0,false);
+        }
+
+        public void GremsyHomeCommand()
+        {
+            float roll = 0.0f;
+            pitch = 0.0f;
+            yaw = 0.0f;
+            Console.WriteLine("Home Command Sent");
+            MainV2.comPort.doCommand((byte)MainV2.comPort.sysidcurrent,(byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_CAMERA,
+            MAVLink.MAV_CMD.DO_MOUNT_CONTROL, pitch, roll, yaw, 0, 0,0,0,false);
+        }
+
+        public void GremsyTakePhoto()
+        {
+            Console.WriteLine("Take Photo Command Sent");
+            MainV2.comPort.doCommand((byte)MainV2.comPort.sysidcurrent, (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_CAMERA,
+                    MAVLink.MAV_CMD.IMAGE_START_CAPTURE, 0, 0, 1, 0, 0, 0,0,true);
+        }
+
+        public void GremsySwitchCameraModeToPhoto()
+        {
+            MainV2.comPort.doCommand((byte)MainV2.comPort.sysidcurrent, (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_CAMERA,
+                    MAVLink.MAV_CMD.IMAGE_START_CAPTURE, 0, 0, 0, 0, 0, 0,0,true);
+        }
+
+        public void GremsySwitchCameraModeToVideo()
+        {
+            MainV2.comPort.doCommand((byte)MainV2.comPort.sysidcurrent, (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_CAMERA,
+                    MAVLink.MAV_CMD.IMAGE_START_CAPTURE, 0, 1, 0, 0, 0, 0,0,true);
+            // MainV2.comPort.doCommand((byte)MainV2.comPort.sysidcurrent, (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_CAMERA,
+            //        MAVLink.MAV_CMD.REQUEST_STORAGE_INFORMATION, 0, 1, 0, 0, 0, 0,0);
+        }
+
+        public void GremsyControlPitchYaw(double x,double y)
+        {
+            Console.WriteLine("Pitch/Yaw Control Command Sent"+x+","+y);
+            var msg = new MAVLink.mavlink_gimbal_manager_set_attitude_t
+            {
+                target_system = (byte)MainV2.comPort.sysidcurrent,
+                target_component = (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_GIMBAL,
+                gimbal_device_id = 0,
+
+                flags = 1024,
+
+                q = new float[]
+                {
+            float.NaN, float.NaN, float.NaN, float.NaN
+                },
+
+                angular_velocity_x =0.0f,
+                angular_velocity_y = (float)y,
+                angular_velocity_z =  (float)x
+            };
+
+            MainV2.comPort.sendPacket(
+                msg,
+                (byte)MainV2.comPort.sysidcurrent,
+                (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_GIMBAL
+            );
         }
     }
 }

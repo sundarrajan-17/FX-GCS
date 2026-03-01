@@ -30968,9 +30968,7 @@ public partial class MAVLink
             this.param_id = param_id;
             this.param_value = param_value;
             this.param_type = param_type;
-            
         }
-        
         /// packet xml order
         public static mavlink_param_ext_set_t PopulateXMLOrder(byte target_system,byte target_component,byte[] param_id,byte[] param_value,/*MAV_PARAM_EXT_TYPE*/byte param_type) 
         {

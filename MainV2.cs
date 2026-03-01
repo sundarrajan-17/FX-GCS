@@ -452,6 +452,10 @@ namespace MissionPlanner
         public static bool IOS { get; set; }
         public static bool OSX { get; set; }
 
+        public float camera_roll = 0;
+        public float camera_pitch = 0;
+        public float camera_yaw = 0;
+
 
         /// <summary>
         /// speech engine enable
@@ -2672,6 +2676,7 @@ namespace MissionPlanner
                             }
                         }
                     }
+                    // Console.WriteLine("Camera Roll Pitch Yaw: {0}, {1}, {2}", MainV2.comPort.MAV.cs.campointa, MainV2.comPort.MAV.cs.campointb, MainV2.comPort.MAV.cs.campointc);
 
                     // speech for airspeed alerts
                     if (speechEnabled() && (DateTime.UtcNow - speechlowspeedtime).TotalSeconds > 10 &&

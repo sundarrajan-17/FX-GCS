@@ -90,7 +90,7 @@ namespace MissionPlanner.Controls
             // 
             this.retractToolStripMenuItem.Name = "retractToolStripMenuItem";
             this.retractToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
-            this.retractToolStripMenuItem.Text = "Retract";
+            this.retractToolStripMenuItem.Text = "Connect Gimbal";
             this.retractToolStripMenuItem.Click += new System.EventHandler(this.retractToolStripMenuItem_Click);
             // 
             // neutralToolStripMenuItem

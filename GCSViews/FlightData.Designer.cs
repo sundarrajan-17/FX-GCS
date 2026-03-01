@@ -162,6 +162,9 @@ namespace MissionPlanner.GCSViews
             this.groupBoxPitch = new System.Windows.Forms.GroupBox();
             this.trackBarPitch = new System.Windows.Forms.TrackBar();
             this.TXT_gimbalPitchPos = new System.Windows.Forms.TextBox();
+            this.TXT_gimbalRoll = new System.Windows.Forms.TextBox();
+            this.TXT_gimbalPitch = new System.Windows.Forms.TextBox();
+            this.TXT_gimbalYaw = new System.Windows.Forms.TextBox();
             this.tabTLogs = new System.Windows.Forms.TabPage();
             this.tableLayoutPaneltlogs = new System.Windows.Forms.TableLayoutPanel();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -191,6 +194,7 @@ namespace MissionPlanner.GCSViews
             this.BUT_loganalysis = new MissionPlanner.Controls.MyButton();
             this.tabExternalAHRS = new System.Windows.Forms.TabPage();
             this.eahrsControl1 = new MissionPlanner.Controls.EAHRSControl();
+            // this.baseCamControl1 = new MissionPlanner.Controls.BaseCameraController();
             this.panel_persistent = new System.Windows.Forms.Panel();
             this.tableMap = new System.Windows.Forms.TableLayoutPanel();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
@@ -403,6 +407,7 @@ namespace MissionPlanner.GCSViews
             this.hud1.DataBindings.Add(new System.Windows.Forms.Binding("AOA", this.bindingSourceHud, "AOA", true));
             this.hud1.DataBindings.Add(new System.Windows.Forms.Binding("SSA", this.bindingSourceHud, "SSA", true));
             this.hud1.DataBindings.Add(new System.Windows.Forms.Binding("critAOA", this.bindingSourceHud, "crit_AOA", true));
+            // this.hud1.DataBindings.Add(new System.Windows.Forms.Binding("camPitch", this.bindingSourceHud, "camPitch", true));
             this.hud1.datetime = new System.DateTime(((long)(0)));
             this.hud1.displayAOASSA = false;
             this.hud1.displayCellVoltage = false;
@@ -2101,11 +2106,12 @@ namespace MissionPlanner.GCSViews
             // 
             // tabPayload
             // 
-            this.tabPayload.Controls.Add(this.BUT_GimbalVideo);
-            this.tabPayload.Controls.Add(this.groupBoxRoll);
-            this.tabPayload.Controls.Add(this.groupBoxYaw);
-            this.tabPayload.Controls.Add(this.BUT_resetGimbalPos);
-            this.tabPayload.Controls.Add(this.groupBoxPitch);
+            // this.tabPayload.Controls.Add(this.BUT_GimbalVideo);
+            // this.tabPayload.Controls.Add(this.groupBoxRoll);
+            // this.tabPayload.Controls.Add(this.groupBoxYaw);
+            // this.tabPayload.Controls.Add(this.BUT_resetGimbalPos);
+            // this.tabPayload.Controls.Add(this.groupBoxPitch);
+            // this.tabPayload.Controls.Add(this.baseCamControl1);
             resources.ApplyResources(this.tabPayload, "tabPayload");
             this.tabPayload.Name = "tabPayload";
             this.tabPayload.UseVisualStyleBackColor = true;
@@ -2185,6 +2191,14 @@ namespace MissionPlanner.GCSViews
             resources.ApplyResources(this.groupBoxPitch, "groupBoxPitch");
             this.groupBoxPitch.Name = "groupBoxPitch";
             this.groupBoxPitch.TabStop = false;
+            //roll
+            // this.TXT_gimbalRoll
+            this.TXT_gimbalRoll.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSourcePayloadTab, "campointa", true));
+            this.TXT_gimbalRoll.Name = "Gimbal_Roll";
+            this.TXT_gimbalPitch.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSourcePayloadTab, "campointb", true));
+            this.TXT_gimbalPitch.Name = "Gimbal_Pitch";
+            this.TXT_gimbalYaw.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSourcePayloadTab, "campointc", true));
+            this.TXT_gimbalYaw.Name = "Gimbal_Yaw";
             // 
             // trackBarPitch
             // 
@@ -2209,6 +2223,8 @@ namespace MissionPlanner.GCSViews
             resources.ApplyResources(this.tabTLogs, "tabTLogs");
             this.tabTLogs.Name = "tabTLogs";
             this.tabTLogs.UseVisualStyleBackColor = true;
+
+            // this.tabPayload.DataBindings.Add(new System.Windows.Forms.Binding("Text",this.bindingSourcePayloadTab,"campointa",true));
             // 
             // tableLayoutPaneltlogs
             // 
@@ -3203,6 +3219,9 @@ namespace MissionPlanner.GCSViews
         private System.Windows.Forms.TextBox TXT_gimbalPitchPos;
         private System.Windows.Forms.TextBox TXT_gimbalYawPos;
         private System.Windows.Forms.TextBox TXT_gimbalRollPos;
+        private System.Windows.Forms.TextBox TXT_gimbalRoll;
+        private System.Windows.Forms.TextBox TXT_gimbalPitch;
+        private System.Windows.Forms.TextBox TXT_gimbalYaw;
         private System.Windows.Forms.GroupBox groupBoxRoll;
         private System.Windows.Forms.GroupBox groupBoxYaw;
         private System.Windows.Forms.GroupBox groupBoxPitch;
@@ -3272,6 +3291,7 @@ namespace MissionPlanner.GCSViews
         private ToolStripMenuItem gimbalVideoPopOutToolStripMenuItem;
         public System.Windows.Forms.TabPage tabExternalAHRS;
         private Controls.EAHRSControl eahrsControl1;
+        // private Controls.BaseCameraController baseCamControl1;
         private ToolStripMenuItem imHereToolStripMenuItem;
     }
 }

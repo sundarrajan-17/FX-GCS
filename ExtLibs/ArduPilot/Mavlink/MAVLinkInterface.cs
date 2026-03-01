@@ -2780,18 +2780,19 @@ Mission Planner waits for 2 valid heartbeat packets before connecting
 
                 if (!(start.AddMilliseconds(timeout) > DateTime.Now))
                 {
-                    if (retrys > 0)
-                    {
-                        log.Info("doCommand Retry " + retrys);
-                        req.confirmation++;
-                        generatePacket((byte) MAVLINK_MSG_ID.COMMAND_LONG, req, sysid, compid);
-                        start = DateTime.Now;
-                        retrys--;
-                        continue;
-                    }
+                    // if (retrys > 0)
+                    // {
+                    //     log.Info("doCommand Retry " + retrys);
+                    //     req.confirmation++;
+                    //     generatePacket((byte) MAVLINK_MSG_ID.COMMAND_LONG, req, sysid, compid);
+                    //     start = DateTime.Now;
+                    //     retrys--;
+                    //     continue;
+                    // }
 
                     giveComport = false;
-                    throw new TimeoutException("Timeout on read - doCommand");
+                    // throw new TimeoutException("Timeout on read - doCommand");
+                    return false;
                 }
 
                 buffer = await readPacketAsync().ConfigureAwait(false);
@@ -3031,6 +3032,7 @@ Mission Planner waits for 2 valid heartbeat packets before connecting
                 chan7_raw = rc7,
                 chan8_raw = rc8
             };
+            // MainV2.comPort.sendPacket
 
             sendPacket(rc, rc.target_system, rc.target_component);
         }

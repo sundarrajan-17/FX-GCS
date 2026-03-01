@@ -530,6 +530,7 @@ namespace MissionPlanner.ArduPilot.Mavlink
             // Check capabilities.
             if ((CameraInformation.flags & (int)MAVLink.CAMERA_CAP_FLAGS.HAS_TRACKING_RECTANGLE) == 0)
             {
+                Console.WriteLine("Camera does not support tracking rectangleeeeeeeeeeeeeeee");
                 return Task.FromResult(false);
             }
 
