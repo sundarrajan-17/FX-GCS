@@ -89,19 +89,19 @@ namespace MissionPlanner.Controls
         }
         private void BtnAiOsdOn_Click(object sender,EventArgs e)
         {
-            this._parentController._flightData.viewproStartRecordingCommand();
+            this._parentController._flightData.viewproAiOsdOnCommand();
         }
         private void BtnAiOsdOff_Click(object sender,EventArgs e)
         {
-            this._parentController._flightData.viewproStartRecordingCommand();
+            this._parentController._flightData.viewproAiOsdOffCommand();
         }
         private void BtnDZoomPlus_Click(object sender,EventArgs e)
         {
-            this._parentController._flightData.viewproStartRecordingCommand();
+            this._parentController._flightData.viewproDZoomPlusCommand();
         }
         private void BtnDZoomMinus_Click(object sender,EventArgs e)
         {
-            this._parentController._flightData.viewproStartRecordingCommand();
+            this._parentController._flightData.viewproDZoomMinusCommand();
         }
         private void CMB_setEoIrMode_Click(object sender,EventArgs e)
         {

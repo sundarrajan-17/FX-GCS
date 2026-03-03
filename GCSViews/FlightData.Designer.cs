@@ -2697,8 +2697,8 @@ namespace MissionPlanner.GCSViews
             // 
             this.gimbalVideoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.gimbalVideoFullSizedToolStripMenuItem,
-            this.gimbalVideoMiniToolStripMenuItem,
-            this.gimbalVideoPopOutToolStripMenuItem});
+            this.gimbalVideoMiniToolStripMenuItem});
+            // this.gimbalVideoPopOutToolStripMenuItem});
             this.gimbalVideoToolStripMenuItem.Name = "gimbalVideoToolStripMenuItem";
             resources.ApplyResources(this.gimbalVideoToolStripMenuItem, "gimbalVideoToolStripMenuItem");
             // 

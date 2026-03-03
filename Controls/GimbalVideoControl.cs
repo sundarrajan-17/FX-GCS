@@ -757,7 +757,7 @@ namespace MissionPlanner.Controls
 
         private void retractToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.flightData.ConnectToGimbal("192.168.199.119",2000);
+            this.flightData.GimbalConnectStartThread();
         }
 
         private void neutralToolStripMenuItem_Click(object sender, EventArgs e)

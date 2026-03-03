@@ -6784,10 +6784,28 @@ namespace MissionPlanner.GCSViews
 
         // Camera Speciific Controls And Features Function
 
-        public bool ConnectToGimbal(string ip, int port)
+        private Thread workerThread;
+        private bool GimbalConnectStop = false;
+
+        public void GimbalConnectStartThread()
+        {
+            GimbalConnectStop = true;
+            workerThread = new Thread(ConnectToGimbal);
+            workerThread.Start();
+        }
+
+        public void GimbalConnectStopThread()
+        {
+            GimbalConnectStop = false;
+            workerThread?.Join();  
+        }
+
+        public void ConnectToGimbal()
         {
             try
             {
+                string ip = "192.168.199.119";
+                int port = 2000;
                 tcpClient = new TcpClient();
                 tcpClient.Connect(ip, port);
                 networkStream = tcpClient.GetStream();
@@ -6798,7 +6816,7 @@ namespace MissionPlanner.GCSViews
                     MessageBoxButtons.OK,
                     CustomMessageBox.MessageBoxIcon.Information
                 );
-                return true;
+                GimbalConnectStopThread();
             }
             catch (Exception ex)
             {
@@ -6809,7 +6827,7 @@ namespace MissionPlanner.GCSViews
                     MessageBoxButtons.OK,
                     CustomMessageBox.MessageBoxIcon.Error
                 );
-                return false;
+                GimbalConnectStopThread();
             }
         }
 
@@ -7171,6 +7189,37 @@ namespace MissionPlanner.GCSViews
             };
             SendCommand(OsdOff_Command);
         }
+        public void viewproAiOsdOnCommand()
+        {
+            var AiOsdOn_Command = new byte[]
+            {
+                0xEB, 0x90, 0x14, 0x55, 0xAA, 0xDC, 0x11, 0x30, 0x0F, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x05, 0x01, 0x2A,0x5B
+            };
+            SendCommand(AiOsdOn_Command);
+        }
+        public void viewproAiOsdOffCommand()
+        {
+            var AiOsdOff_Command = new byte[]
+            {
+                0xEB, 0x90, 0x14, 0x55, 0xAA, 0xDC, 0x11, 0x30, 0x0F, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x05, 0x00, 0x2B,0x5B
+            };
+            SendCommand(AiOsdOff_Command);
+        }
+
+        public void viewproDZoomPlusCommand()
+        {
+            var DzoomPlus_Command = new byte[]{
+                0xEB, 0x90, 0x14, 0x55, 0xAA, 0xDC, 0x11, 0x30, 0x0F, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x06, 0xD0, 0x00, 0x00, 0x00, 0xF8, 0xF9
+            };
+            SendCommand(DzoomPlus_Command);
+        }
+        public void viewproDZoomMinusCommand()
+        {
+            var DzoomMinus_Command = new byte[]{
+                0xEB, 0x90, 0x14, 0x55, 0xAA, 0xDC, 0x11, 0x30, 0x0F, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x07, 0x10, 0x00, 0x00, 0x00, 0x39, 0x7B
+            };
+            SendCommand(DzoomMinus_Command);
+        }
 
         public void GremsyStartRecording()
         {
@@ -7278,19 +7327,14 @@ namespace MissionPlanner.GCSViews
                 target_system = (byte)MainV2.comPort.sysidcurrent,
                 target_component = (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_GIMBAL,
                 gimbal_device_id = 0,
-
                 flags = 1024,
-
-                q = new float[]
-                {
-            float.NaN, float.NaN, float.NaN, float.NaN
+                q = new float[]{
+                    float.NaN, float.NaN, float.NaN, float.NaN
                 },
-
                 angular_velocity_x =0.0f,
                 angular_velocity_y = (float)y,
                 angular_velocity_z =  (float)x
             };
-
             MainV2.comPort.sendPacket(
                 msg,
                 (byte)MainV2.comPort.sysidcurrent,
