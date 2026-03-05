@@ -6,6 +6,7 @@ namespace MissionPlanner.Controls
         private System.Windows.Forms.TableLayoutPanel parentTableLayoutPanel;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private MissionPlanner.Controls.VirtualJoystick virtualJoystick;
         private System.Windows.Forms.GroupBox camControlGroup;
         private System.Windows.Forms.TrackBar trackZoom;
@@ -20,6 +21,8 @@ namespace MissionPlanner.Controls
         private System.Windows.Forms.Button  btnDZoomMinus;
         private System.Windows.Forms.Button  setEoIrMode;
         private System.Windows.Forms.ComboBox CMB_setEoIrMode;
+        private System.Windows.Forms.Button btnCalculateDooaf;
+        private System.Windows.Forms.Button btnCalculateTargetDistance;
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -60,19 +63,16 @@ namespace MissionPlanner.Controls
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33F));
 
-            //camera control group
-            this.camControlGroup = new System.Windows.Forms.GroupBox();
-            this.camControlGroup.SuspendLayout();
-            // Camera Control Group
-            this.camControlGroup.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.camControlGroup.Name = "camControlGroup";
-            this.camControlGroup.Text = "Camera Controls";
-            this.camControlGroup.Size = new System.Drawing.Size(300, 200);
-            this.camControlGroup.TabIndex = 3;
-            this.camControlGroup.TabStop = false;
-            this.camControlGroup.ForeColor = System.Drawing.Color.White;
+            // tablelayoutpanell3
+            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel3.RowCount = 1;
+            this.tableLayoutPanel3.ColumnCount = 4;
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.00F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.00F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.00F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.00F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.00F));
 
             // zoom control
             this.trackZoom = new System.Windows.Forms.TrackBar();
@@ -162,6 +162,18 @@ namespace MissionPlanner.Controls
             this.setEoIrMode.Dock = System.Windows.Forms.DockStyle.Fill;
             this.setEoIrMode.Click += new System.EventHandler(this.setEoIrMode_Click);
 
+            // calculate dooaf
+            this.btnCalculateDooaf = new System.Windows.Forms.Button();
+            this.btnCalculateDooaf.Text = "Calculate Dooaf";
+            this.btnCalculateDooaf.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnCalculateDooaf.Click += new System.EventHandler(this.BtnCalculateDooaf_Click);
+
+            // calculate target distance
+            this.btnCalculateTargetDistance = new System.Windows.Forms.Button();
+            this.btnCalculateTargetDistance.Text = "Calculate Target Distance";
+            this.btnCalculateTargetDistance.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnCalculateTargetDistance.Click += new System.EventHandler(this.BtnCalculateTargetDistance_Click);
+
             // parent controls
             // this.parentTableLayoutPanel.Controls.Add(this.tableLayoutPanel1,0,0);
 
@@ -178,8 +190,13 @@ namespace MissionPlanner.Controls
             this.tableLayoutPanel2.Controls.Add(this.CMB_setEoIrMode,2,2);
             this.tableLayoutPanel2.Controls.Add(this.setEoIrMode,3,2);
 
+            // tablelayoutPanel3 Controls
+            this.tableLayoutPanel3.Controls.Add(this.btnCalculateDooaf,0,0);
+            this.tableLayoutPanel3.Controls.Add(this.btnCalculateTargetDistance,1,0);
+
             // Main Controls
             this.parentTableLayoutPanel.Controls.Add(tableLayoutPanel2,1,0);
+            this.parentTableLayoutPanel.Controls.Add(tableLayoutPanel3,1,1);
             this.Controls.Add(this.parentTableLayoutPanel);
             this.Size = new System.Drawing.Size(600,800);
         }

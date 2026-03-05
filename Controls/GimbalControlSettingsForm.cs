@@ -341,7 +341,7 @@ namespace MissionPlanner.Controls
         public Keys SetLock { get; set; }
         [Preferences("Set Follow", ControlType.KeyBindingButton)]
         public Keys SetFollow { get; set; }
-        [Preferences("Retract", ControlType.KeyBindingButton)]
+        [Preferences("Stop Track", ControlType.KeyBindingButton)]
         public Keys Retract { get; set; }
         [Preferences("Neutral", ControlType.KeyBindingButton)]
         public Keys Neutral { get; set; }
@@ -400,7 +400,7 @@ namespace MissionPlanner.Controls
             ToggleLockFollow = Keys.L;
             SetLock = Keys.None;
             SetFollow = Keys.None;
-            Retract = Keys.None;
+            Retract = Keys.Space;
             Neutral = Keys.N;
             PointDown = Keys.None;
             Home = Keys.H;

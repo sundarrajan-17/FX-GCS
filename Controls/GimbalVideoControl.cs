@@ -520,7 +520,14 @@ namespace MissionPlanner.Controls
             if (key == preferences.Home)
             {
                 Home();
-                flightData.GremsyHomeCommand();
+                if(this.selectedCamera1 == "Rhythm")
+                {
+                    flightData.GremsyHomeCommand();
+                }
+                else
+                {
+                    flightData.viewproHomeCommand();
+                }
             }
         }
 
@@ -556,8 +563,9 @@ namespace MissionPlanner.Controls
 
         private void Retract()
         {
-            Console.WriteLine("Retract");
-            selectedGimbalManager?.RetractAsync();
+            // Console.WriteLine("Retract");
+            // selectedGimbalManager?.RetractAsync();
+            flightData.viewproStopTrackCommand();
         }
 
         private void Neutral()
@@ -633,11 +641,19 @@ namespace MissionPlanner.Controls
             int x = (int)(xNorm * (width));
             int y = (int)(yNorm * (height));
 
-            float x01 = ((float)xNorm + 1f) / 2f;
-            float y01 = ((float)yNorm + 1f) / 2f;
+            if(this.selectedCamera1 == "Rhythm")
+            {
+                float x01 = ((float)xNorm + 1f) / 2f;
+                float y01 = ((float)yNorm + 1f) / 2f;
 
-            Console.WriteLine("Converted X Y Point {0} {1}", x01, y01);
-            flightData.GremsyStartTracking(x01, y01);
+                Console.WriteLine("Converted X Y Point {0} {1}", x01, y01);
+                flightData.GremsyStartTracking(x01, y01);
+            }else
+            {
+                int x01 = (int)(xNorm * (width / 2));
+                int y01 = (int)(yNorm * (height / 2));
+                flightData.BuildTrackingCommand(x01, y01);
+            }
         }
 
         private void VideoBox_Click(object sender, EventArgs e)

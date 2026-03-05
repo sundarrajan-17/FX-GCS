@@ -2780,15 +2780,15 @@ Mission Planner waits for 2 valid heartbeat packets before connecting
 
                 if (!(start.AddMilliseconds(timeout) > DateTime.Now))
                 {
-                    // if (retrys > 0)
-                    // {
-                    //     log.Info("doCommand Retry " + retrys);
-                    //     req.confirmation++;
-                    //     generatePacket((byte) MAVLINK_MSG_ID.COMMAND_LONG, req, sysid, compid);
-                    //     start = DateTime.Now;
-                    //     retrys--;
-                    //     continue;
-                    // }
+                    if (retrys > 0)
+                    {
+                        log.Info("doCommand Retry " + retrys);
+                        req.confirmation++;
+                        generatePacket((byte) MAVLINK_MSG_ID.COMMAND_LONG, req, sysid, compid);
+                        start = DateTime.Now;
+                        retrys--;
+                        continue;
+                    }
 
                     giveComport = false;
                     // throw new TimeoutException("Timeout on read - doCommand");

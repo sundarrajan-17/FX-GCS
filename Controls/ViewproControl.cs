@@ -154,5 +154,13 @@ namespace MissionPlanner.Controls
                 this._parentController._flightData.viewproIr_PseudoCommand();
             }
         }
+        private void BtnCalculateDooaf_Click(object sender, EventArgs e)
+        {
+            this._parentController._flightData.calculateDooaf();
+        }
+        private void BtnCalculateTargetDistance_Click(object sender, EventArgs e)
+        {
+            this._parentController._flightData.calculateTargetDistance();
+        }
     }
 }

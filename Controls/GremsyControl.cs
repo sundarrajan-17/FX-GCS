@@ -31,7 +31,70 @@ namespace MissionPlanner.Controls
         // private int AI_OSD = 0;
         // private string AI_SOURCE = "eo";
 
-        public Dictionary<string, object> cameraSettings = new Dictionary<string, object>();
+        // public Dictionary<string, object> cameraSettings = new Dictionary<string, object>();
+        public Dictionary<string, object> cameraSettings = new Dictionary<string, object>()
+        {
+            // ===== EO (Electro Optical) =====
+            { "EO_EV", 7 },                         // int32
+            { "EO_WB", 0 },                         // int32
+            // { "EO_SPOTAE", (uint)0 },               // uint32
+            { "EO_HS", false },                     // bool
+            { "EO_VIDEO_QUALITY", 20 },             // int32
+            { "EO_RESOLUTION", 0 },                 // int32
+            { "EO_BITRATE", 2.5f },                 // float
+            { "EO_ZOOM_MODE", 4 },                  // int32
+            // { "EO_DZOOM", 1.0f },                   // float
+            // { "EO_COMMAND", "" },                   // string (writeonly)
+
+            // ===== IR (Infrared) =====
+            { "IR_PALETTE", 0 },                    // int32
+            { "IR_ZOOM", 1.0f },                    // float
+            { "IR_GAIN", true },                    // bool
+            { "IR_THERMOMETRY", false },            // bool
+            // { "IR_TEMP_POINT", "" },                // custom
+            // { "IR_TEMP_LINE", "" },                 // custom
+            // { "IR_TEMP_RECT", "" },                 // custom
+            // { "IR_TEMP_DATA", "" },                 // readonly custom
+
+            // ===== Gimbal =====
+            { "GB_SPEED", 50 },                     // int32
+            { "YAW_SMOOTH", 50 },                   // int32
+            { "YAW_MODE", 0 },                      // int32
+
+            // ===== Landing =====
+            // { "LANDING_MODE", false },              // bool
+            // { "LANDMODE_SWITCH", 0 },               // int32
+
+            // ===== Tracking =====
+            { "TRACK_GAIN", 50 },                   // int32
+            { "TRACK_ALGORITHM", "None" },          // string
+            { "SMART_SELECT", "None" },             // string
+            // { "TRACK_PLUGINS", "" },                // readonly string
+            // { "DETECT_PLUGINS", "" },               // readonly string
+
+            // ===== AI / NV =====
+            { "AI_RESOLUTION", 1 },                 // int32
+            { "AI_OSD", false },                    // bool
+            { "AI_SOURCE", "eo" },                  // string
+
+            { "NV_POWER_MODE", 1 },                 // int32
+            // { "NV_STATUS", "" },                    // readonly custom
+            // { "NV_DEBUG", false },                  // bool
+
+            // ===== System =====
+            // { "TIME_ZONE", "" },                    // string
+            { "UUID", "" },                         // readonly string
+            // { "FACTORY_CALI", 0 },                  // int32
+            // { "FACTORY_DATA", "" },                 // readonly custom
+            // { "CALIBRATE_FLAGS", 0 },               // readonly int32
+            // { "JSON_TR_REQ", "" },                  // readonly string
+            { "CAM_FLIP", false },                  // bool
+            { "TOF_EN", false },                    // bool
+
+            // ===== Detection =====
+            // { "DETECT_OBJECTS", "" },               // readonly custom
+            // { "DETECT_STATS", "" }                  // readonly custom
+        };
         // this.cameraSettings["EO_EV"] = 0;
         // cameraSettings["EO_WB"] = 0;
 
@@ -40,33 +103,11 @@ namespace MissionPlanner.Controls
             InitializeComponent();
             this._parentController = parentController;
             this._virtualJoystick = new VirtualJoystick(this._parentController);
-            this.tableLayoutPanel3.Controls.Add(this._virtualJoystick,0,0);
-            this.camControlGroup.Text = "Camera Controls";
-            this.camControlGroup.Controls.Add(this.tableLayoutPanel3);
-            this.mainFlow.Controls.Add(this.camControlGroup,1,0);
-            // this.mainFlow.Controls.Add(this.tblGremsy);
+            this.tableLayoutPanel1.Controls.Add(this._virtualJoystick,0,0);
+            this.tableLayoutPanel1.Controls.Add(this.trackZoom,1,0);
+            this.parentTableLayoutPanel.Controls.Add(this.tableLayoutPanel1,1,0);
             MainV2.comPort.OnPacketReceived += LoadCameraParameters;
-            this.cameraSettings["EO_EV"] = 0;
-            this.cameraSettings["EO_WB"] = 0;
-            this.cameraSettings["EO_HS"] = 0;
-            this.cameraSettings["EO_VIDEO_QUALITY"] = 20;
-            this.cameraSettings["EO_RESOLUTION"] = 0;
-            this.cameraSettings["EO_BITRATE"] = 0.0f;
-            this.cameraSettings["EO_ZOOM_MODE"]= 2;
-            this.cameraSettings["EO_DZOOM"] = 1.0f;
-            this.cameraSettings["IR_THERMOMETRY"] = 0;
-            this.cameraSettings["IR_PALETTE"] = 0;
-            this.cameraSettings["IR_ZOOM"] = 1.0f;
-            this.cameraSettings["YAW_MODE"] = 0;
-            this.cameraSettings["AI_RESOLUTION"] = 0;
-            this.cameraSettings["AI_OSD"] = 0;
-            this.cameraSettings["AI_SOURCE"] = "eo";
         }
-
-        // private void BtnGremsy_Click(object sender, EventArgs e)
-        // {
-        //     Console.WriteLine("Gremsy Camera Settings Applied.");
-        // }
 
         public void LoadCameraParameters(object sender,MAVLink.MAVLinkMessage packet)
         {
@@ -83,12 +124,63 @@ namespace MissionPlanner.Controls
                     Console.WriteLine("Camera Settings" + camerasettings.mode_id + " " +camerasettings.zoomLevel);
                     break;
                 case (uint)MAVLink.MAVLINK_MSG_ID.PARAM_EXT_VALUE:
+
                     var paramextvalue = packet.ToStructure<MAVLink.mavlink_param_ext_value_t>();
-                    Console.WriteLine("Param Ext Value" + paramextvalue.param_id + " " +paramextvalue.param_value);
-                    if(this.cameraSettings.ContainsKey(Encoding.ASCII.GetString(paramextvalue.param_id)))
+
+                    // 1️⃣ Clean parameter name
+                    string paramName = Encoding.ASCII.GetString(paramextvalue.param_id).Trim('\0').Trim();
+
+                    if (!this.cameraSettings.ContainsKey(paramName))
                     {
-                        this.cameraSettings[Encoding.ASCII.GetString(paramextvalue.param_id)] = paramextvalue.param_value;
-                    }   
+                        Console.WriteLine($"Unknown parameter received: {paramName}");
+                        break;
+                    }
+
+                    byte[] rawValue = paramextvalue.param_value;
+                    object currentTypeValue = this.cameraSettings[paramName];
+                    object decodedValue = null;
+
+                    // 2️⃣ Decode based on initialized type
+                    switch (currentTypeValue)
+                    {
+                        case int _:
+                            decodedValue = BitConverter.ToInt32(rawValue, 0);
+                            break;
+
+                        case uint _:
+                            decodedValue = BitConverter.ToUInt32(rawValue, 0);
+                            break;
+
+                        case float _:
+                            decodedValue = BitConverter.ToSingle(rawValue, 0);
+                            break;
+
+                        case bool _:
+                            decodedValue = BitConverter.ToInt32(rawValue, 0) == 1;
+                            break;
+
+                        case string _:
+                            decodedValue = Encoding.ASCII.GetString(rawValue).Trim('\0');
+                            break;
+
+                        default:
+                            decodedValue = rawValue; // fallback
+                            break;
+                    }
+
+                    // 3️⃣ Update dictionary
+                    this.cameraSettings[paramName] = decodedValue;
+
+                    if(paramName == "IR_ZOOM")
+                    {
+                        foreach (var item in cameraSettings)
+                        {
+                            Console.WriteLine($"{item.Key} : {item.Value}");
+                        }
+                    }
+                    // 4️⃣ Print clean output
+                    Console.WriteLine($"Updated {paramName} → {decodedValue}");
+
                     break;
                 default:
                     break;   
@@ -136,33 +228,67 @@ namespace MissionPlanner.Controls
         private void BtnStartRecording_Click(object sender, EventArgs e)
         {
             Console.WriteLine("Gremsy Camera Recording Started.");
-            this._parentController._flightData.GremsyStartRecording();
+            bool result =this._parentController._flightData.GremsyStartRecording();
+            if (result)            {
+                Console.WriteLine("Start Recording Command Acknowledged.");
+            }
+            else
+            {
+                CustomMessageBox.Show(
+                    "Failed to Send Start Recording Check Camera Mode and Try Again",
+                    "Recording Status",
+                    MessageBoxButtons.OK,
+                    CustomMessageBox.MessageBoxIcon.Error
+                );
+            }
         }
 
         private void BtnStopRecording_Click(object sender, EventArgs e)
         {
             Console.WriteLine("Gremsy Camera Recording Stopped.");
-            this._parentController._flightData.GremsyStopRecording();
+            bool result = this._parentController._flightData.GremsyStopRecording();
+            if (result)            {
+                Console.WriteLine("Stop Recording Command Acknowledged.");
+            }
+            else
+            {
+                CustomMessageBox.Show(
+                    "Failed to Send Stop Recording Check Camera Mode and Try Again",
+                    "Recording Status",
+                    MessageBoxButtons.OK,
+                    CustomMessageBox.MessageBoxIcon.Error
+                );
+            }
         }
         private void BtnTakePhoto_Click(object sender, EventArgs e)
         {
             Console.WriteLine("Gremsy Camera Photo Taken.");
-            this._parentController._flightData.GremsyTakePhoto();
+            bool result = this._parentController._flightData.GremsyTakePhoto();
+            if (result)            {
+                Console.WriteLine("Take Photo Command Acknowledged.");
+            }
+            else
+            {
+                CustomMessageBox.Show(
+                    "Failed to Send Take Photo Check Camera Mode and Try Again",
+                    "Photo Status",
+                    MessageBoxButtons.OK,
+                    CustomMessageBox.MessageBoxIcon.Error
+                );
+            }
         }
         private void BtnCameraSettings_Click(object sender, EventArgs e)
         {
             Console.WriteLine("Gremsy Camera Settings Applied.");
             // PARAM_EXT_REQUEST_LIST
-            var msg = new MAVLink.mavlink_param_ext_request_list_t
-            {
-                target_system = (byte)MainV2.comPort.sysidcurrent,
-                target_component = (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_GIMBAL,
-            };
-
+            var msg = new MAVLink.mavlink_param_ext_request_list_t();
+            msg.target_system = (byte)MainV2.comPort.sysidcurrent;
+            msg.target_component = (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_CAMERA;
+            Console.WriteLine("Requesting Camera Parameters... {0}",msg);
             MainV2.comPort.sendPacket(
                 msg,
                 (byte)MainV2.comPort.sysidcurrent,
-                (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_GIMBAL
+                (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_CAMERA
             );
             using (CameraSettingsForm settings = new CameraSettingsForm(this))
             {
@@ -224,30 +350,55 @@ namespace MissionPlanner.Controls
         {
             if (btnGremsyTest.Text == "Photo Mode")
             {
-                btnGremsyTest.Text = "Recording Mode";
+                bool result = StartRecordingMode();
+                if (result)
+                {
+                    btnGremsyTest.Text = "Recording Mode";
+                }
+                else
+                {
+                    CustomMessageBox.Show(
+                    "Failed to Switch to Video Mode Try Again",
+                    "Camera Mode Status",
+                    MessageBoxButtons.OK,
+                    CustomMessageBox.MessageBoxIcon.Error
+                    );
+                }
                 
                 // Send gimbal command → start video recording mode
-                StartRecordingMode();
             }
             else
-            {
-                btnGremsyTest.Text = "Photo Mode";
-                
+            {   
                 // Send gimbal command → photo mode
-                SetPhotoMode();
+                bool result = SetPhotoMode();
+                if (result)
+                {
+                    btnGremsyTest.Text = "Photo Mode";
+                }
+                else
+                {
+                    CustomMessageBox.Show(
+                    "Failed to Switch to Photo Mode Try Again",
+                    "Camera Mode Status",
+                    MessageBoxButtons.OK,
+                    CustomMessageBox.MessageBoxIcon.Error
+                    );
+                }
             }
         }
-        private void StartRecordingMode()
+        private bool StartRecordingMode()
         {
             // Example: call your Gremsy / Viewpro / MAVLink command
             Console.WriteLine("Recording Mode Enabled");
-            this._parentController._flightData.GremsySwitchCameraModeToVideo();
+            bool result = this._parentController._flightData.GremsySwitchCameraModeToVideo();
+            return result;
         }
 
-        private void SetPhotoMode()
+        private bool SetPhotoMode()
         {
             Console.WriteLine("Photo Mode Enabled");
-           this._parentController._flightData.GremsySwitchCameraModeToPhoto();
+            bool result = this._parentController._flightData.GremsySwitchCameraModeToPhoto();
+            return result;
         }
 
 

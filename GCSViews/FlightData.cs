@@ -15,6 +15,7 @@ using MissionPlanner.Utilities;
 using MissionPlanner.Warnings;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Drawing2D;
@@ -213,6 +214,11 @@ namespace MissionPlanner.GCSViews
             Engine_Start,
             Engine_Stop,
         }
+
+        private double target_latitude = 0.0;
+        private double target_longitude = 0.0;
+        private double hfov = 0.0;
+        private double vfov = 0.0;
 
         private Dictionary<int, string> NIC_table = new Dictionary<int, string>()
         {
@@ -439,6 +445,8 @@ namespace MissionPlanner.GCSViews
             myhud.skyColor2 = ThemeManager.HudSkyBot;
             myhud.hudcolor = ThemeManager.HudText;
 
+            MainV2.comPort.OnPacketReceived += loadTargetLatLon;
+
             hud1.displayicons = Settings.Instance.GetBoolean("HUD_showicons", false);
 
             tabControlactions.Multiline = Settings.Instance.GetBoolean("tabControlactions_Multiline", false);
@@ -446,6 +454,23 @@ namespace MissionPlanner.GCSViews
             _baseCameraController = new BaseCameraController(this);
 
             this.tabPayload.Controls.Add(_baseCameraController);
+        }
+
+        public void loadTargetLatLon(object sender,MAVLink.MAVLinkMessage packet)
+        {
+            switch (packet.msgid)
+            {
+                case (uint)MAVLink.MAVLINK_MSG_ID.CAMERA_FOV_STATUS:
+                    var gimbaltrackdata = packet.ToStructure<MAVLink.mavlink_camera_fov_status_t>();
+                    target_latitude = gimbaltrackdata.lat_image;
+                    target_longitude = gimbaltrackdata.lon_image;
+                    hfov = gimbaltrackdata.hfov;
+                    vfov = gimbaltrackdata.vfov;
+                    // Console.WriteLine("Target Latitude Longitude: " + gimbaltrackdata.lat_image + ", " + gimbaltrackdata.lon_image);
+                    break; 
+                default:
+                    break;
+            }
         }
 
         public void Activate()
@@ -3351,10 +3376,10 @@ namespace MissionPlanner.GCSViews
                 MainH.Panel1Collapsed = false;
         }
 
-        private void loadFileToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            POI.POILoad();
-        }
+        // private void loadFileToolStripMenuItem_Click(object sender, EventArgs e)
+        // {
+        //     POI.POILoad();
+        // }
 
         private void mainloop()
         {
@@ -3375,6 +3400,8 @@ namespace MissionPlanner.GCSViews
 
             DateTime transponderUpdate = DateTime.Now;
 
+            // Console.WriteLine("Target Latitude Longitude: " + target_latitude + ", " + target_longitude);
+ 
             DateTime tsreal = DateTime.Now;
             double taketime = 0;
             double timeerror = 0;
@@ -3387,6 +3414,7 @@ namespace MissionPlanner.GCSViews
 
             while (threadrun)
             {
+                // Console.WriteLine("Target Latitude Longitude: " + target_latitude + ", " + target_longitude);
                 if (MainV2.comPort.giveComport)
                 {
                     //await Task.Delay(50);
@@ -3653,23 +3681,6 @@ namespace MissionPlanner.GCSViews
                     {
                         hud1.criticalvoltagealert = false;
                     }
-
-                    // if(MainV2.comPort.MAV.cs.campointa != null)
-                    // {
-                    //     camPitch = MainV2.comPort.MAV.cs.campointa;
-                    //     Console.WriteLine("Camera Pitch {0}",camPitch);
-                    // }
-                    // if(MainV2.comPort.MAV.cs.campointb != null)
-                    // {
-                    //     camRoll = MainV2.comPort.MAV.cs.campointb;
-                    //     Console.WriteLine("Camera Roll {0}",camRoll);
-                    // }
-                    // if(MainV2.comPort.MAV.cs.campointc != null)
-                    // {
-                    //     camYaw = MainV2.comPort.MAV.cs.campointc;
-                    //     Console.WriteLine("Camera Yaw {0}",camYaw);
-                    // }
-
 
                     // update opengltest
                     if (OpenGLtest.instance != null)
@@ -4547,43 +4558,43 @@ namespace MissionPlanner.GCSViews
             }
         }
 
-        private void pointCameraHereToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            if (!MainV2.comPort.BaseStream.IsOpen)
-            {
-                CustomMessageBox.Show("Please Connect First");
-                return;
-            }
+        // private void pointCameraHereToolStripMenuItem_Click(object sender, EventArgs e)
+        // {
+        //     if (!MainV2.comPort.BaseStream.IsOpen)
+        //     {
+        //         CustomMessageBox.Show("Please Connect First");
+        //         return;
+        //     }
 
-            string alt = "0";
-            if (DialogResult.Cancel == InputBox.Show("Enter Alt",
-                "Enter Target Alt (Relative to home)", ref alt))
-                return;
+        //     string alt = "0";
+        //     if (DialogResult.Cancel == InputBox.Show("Enter Alt",
+        //         "Enter Target Alt (Relative to home)", ref alt))
+        //         return;
 
-            if (!float.TryParse(alt, out var intalt))
-            {
-                CustomMessageBox.Show("Bad Alt");
-                return;
-            }
+        //     if (!float.TryParse(alt, out var intalt))
+        //     {
+        //         CustomMessageBox.Show("Bad Alt");
+        //         return;
+        //     }
 
-            if (MouseDownStart.Lat == 0.0 || MouseDownStart.Lng == 0.0)
-            {
-                CustomMessageBox.Show("Bad Lat/Long");
-                return;
-            }
+        //     if (MouseDownStart.Lat == 0.0 || MouseDownStart.Lng == 0.0)
+        //     {
+        //         CustomMessageBox.Show("Bad Lat/Long");
+        //         return;
+        //     }
 
-            try
-            {
-                MainV2.comPort.doCommandInt((byte) MainV2.comPort.sysidcurrent, (byte) MainV2.comPort.compidcurrent,
-                    MAVLink.MAV_CMD.DO_SET_ROI, 0, 0, 0, 0, (int) (MouseDownStart.Lat * 1e7),
-                    (int) (MouseDownStart.Lng * 1e7),  ((intalt / CurrentState.multiplieralt)),
-                    frame: MAVLink.MAV_FRAME.GLOBAL_RELATIVE_ALT);
-            }
-            catch
-            {
-                CustomMessageBox.Show(Strings.CommandFailed, Strings.ERROR);
-            }
-        }
+        //     try
+        //     {
+        //         MainV2.comPort.doCommandInt((byte) MainV2.comPort.sysidcurrent, (byte) MainV2.comPort.compidcurrent,
+        //             MAVLink.MAV_CMD.DO_SET_ROI, 0, 0, 0, 0, (int) (MouseDownStart.Lat * 1e7),
+        //             (int) (MouseDownStart.Lng * 1e7),  ((intalt / CurrentState.multiplieralt)),
+        //             frame: MAVLink.MAV_FRAME.GLOBAL_RELATIVE_ALT);
+        //     }
+        //     catch
+        //     {
+        //         CustomMessageBox.Show(Strings.CommandFailed, Strings.ERROR);
+        //     }
+        // }
 
         private void quickView_DoubleClick(object sender, EventArgs e)
         {
@@ -6837,7 +6848,7 @@ namespace MissionPlanner.GCSViews
             {
                 try
                 {
-                    for (int i = 0; i < 2; i++)
+                    for (int i = 0; i < 1; i++)
                     {
                         networkStream.Write(command, 0, command.Length);
                         networkStream.Flush();
@@ -6851,13 +6862,13 @@ namespace MissionPlanner.GCSViews
             }
             else
             {
-                // var message = "Please Connect To Gimbal";
-                // CustomMessageBox.Show(
-                //     message,
-                //     "Connection Status",
-                //     MessageBoxButtons.OK,
-                //     CustomMessageBox.MessageBoxIcon.Error
-                // );
+                var message = "Please Connect To Gimbal";
+                CustomMessageBox.Show(
+                    message,
+                    "Connection Status",
+                    MessageBoxButtons.OK,
+                    CustomMessageBox.MessageBoxIcon.Error
+                );
                 Console.WriteLine("Stream is not writable.");
             }
         }
@@ -6921,6 +6932,7 @@ namespace MissionPlanner.GCSViews
             // Convert to 2 bytes each, signed, little endian
             byte[] xBytes = BitConverter.GetBytes((short)x);
             byte[] yBytes = BitConverter.GetBytes((short)y);
+            Console.WriteLine("X,Y {0} {1}",x,y);
 
             // serial data
             byte[] serial = new byte[]
@@ -6989,6 +7001,36 @@ namespace MissionPlanner.GCSViews
             Console.WriteLine("Command sent: " + BitConverter.ToString(finalCommand));
             SendCommand(finalCommand);
         }
+
+        public static (double distance, double bearingDegrees) DistanceAndBearing(double homeLatitude, double homeLongitude, double destinationLatitude, double destinationLongitude)
+        {
+            const double R = 6371000; // Radius of Earth in meters
+
+            double rlat1 = homeLatitude * Math.PI / 180.0;
+            double rlat2 = destinationLatitude * Math.PI / 180.0;
+            double dlat = (destinationLatitude - homeLatitude) * Math.PI / 180.0;
+            double dlon = (destinationLongitude - homeLongitude) * Math.PI / 180.0;
+
+            // Haversine formula
+            double a = Math.Sin(dlat / 2) * Math.Sin(dlat / 2) +
+                    Math.Cos(rlat1) * Math.Cos(rlat2) *
+                    Math.Sin(dlon / 2) * Math.Sin(dlon / 2);
+
+            double c = 2 * Math.Atan2(Math.Sqrt(a), Math.Sqrt(1 - a));
+            double distance = R * c;
+
+            // Bearing calculation
+            double y = Math.Sin(dlon) * Math.Cos(rlat2);
+            double x = Math.Cos(rlat1) * Math.Sin(rlat2) -
+                    Math.Sin(rlat1) * Math.Cos(rlat2) * Math.Cos(dlon);
+
+            double targetbearing = Math.Atan2(y, x);
+            // Console.WriteLine("Target Bearingggggg {0}", targetbearing);
+            double bearingDegrees = (targetbearing * 180.0 / Math.PI + 360) % 360; // Normalize to 0–360°
+
+            return (distance, bearingDegrees);
+        }
+
 
         public void viewproUpCommand()
         {
@@ -7163,7 +7205,7 @@ namespace MissionPlanner.GCSViews
         public void viewproIr_PseudoCommand()
         {
             var IR_PSEUDOCommand = new byte[]{
-                0xEB, 0x90, 0x14, 0x55, 0xAA, 0xDC, 0x11, 0x30, 0x0F, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x04, 0x82, 0x00, 0x00, 0x00, 0x7F, 0x93
+                0xEB, 0x90, 0x14, 0x55, 0xAA, 0xDC, 0x11, 0x30, 0x0F, 0x1F, 0xFE, 0x0E, 0x38, 0x00, 0x00, 0x00, 0x00, 0x04, 0x82, 0x00, 0x00, 0x00, 0x7F, 0x93
             };
             SendCommand(IR_PSEUDOCommand);
         }
@@ -7220,19 +7262,267 @@ namespace MissionPlanner.GCSViews
             };
             SendCommand(DzoomMinus_Command);
         }
-
-        public void GremsyStartRecording()
+        private void pointCameraHereToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Console.WriteLine("Start Recording Command Sent");
-            MainV2.comPort.doCommand((byte)MainV2.comPort.sysidcurrent, (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_CAMERA,
-                    MAVLink.MAV_CMD.VIDEO_START_CAPTURE, 0, 0, 0, 0, 0, 0,0,true);
+            if (!MainV2.comPort.BaseStream.IsOpen)
+            {
+                CustomMessageBox.Show("Please Connect First");
+                return;
+            }
+
+            if (MouseDownStart.Lat == 0.0 || MouseDownStart.Lng == 0.0)
+            {
+                CustomMessageBox.Show("Bad Lat/Long");
+                return;
+            }
+
+            try
+            {
+                var drone_latitude = coords1.Lat;
+                var drone_longitude = coords1.Lng;
+                double drone_altitude = coords1.Alt;
+                var target_latitude = MouseDownStart.Lat;
+                var target_longitude = MouseDownStart.Lng;
+
+                var (distance, targetYaw) = DistanceAndBearing(drone_latitude, drone_longitude, target_latitude, target_longitude);
+
+                var droneYaw = MainV2.comPort.MAV.cs.yaw;
+
+                var finalYaw = (targetYaw - droneYaw + 360)%360;
+
+                if (finalYaw > 180) finalYaw -= 360;
+
+                var commandValue = 0;
+
+                if (finalYaw < 0)
+                {
+                    finalYaw += 180;
+                    commandValue = Math.Abs((int)(Math.Abs(finalYaw) / 1.40625));
+                    commandValue += 128;
+                }
+                else
+                {
+                    commandValue = Math.Abs((int)(finalYaw / 1.40625));
+                }
+
+                var finalPitch = 0;
+
+                double hypotenuse = Math.Sqrt((drone_altitude * drone_altitude) + (distance * distance));
+                double angleRad = Math.Asin(drone_altitude / hypotenuse);
+
+                // Convert to degrees
+                double angleDeg = angleRad * (180 / Math.PI);
+
+                finalPitch = Math.Abs((int)(angleDeg / 1.40625));
+
+                byte[] finalPitchByte = BitConverter.GetBytes((short)finalPitch);
+
+                byte[] finalCommandBytes = BitConverter.GetBytes((short)commandValue);
+
+                var point_camera_serial = new byte[]{
+                    0x55, 0xAA, 0xDC, 0x11, 0x30, 0x0B, finalCommandBytes[0], finalCommandBytes[1], finalPitchByte[0], finalPitchByte[1], 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+                };
+
+                byte serialChecksum = CalculateSerialChecksum(point_camera_serial);
+                byte[] serialFull = new byte[point_camera_serial.Length + 1];
+                Array.Copy(point_camera_serial, serialFull, point_camera_serial.Length);
+                serialFull[point_camera_serial.Length] = serialChecksum;
+
+                // Add TCP header
+                byte tcpLength = (byte)serialFull.Length; // +1 for tcp checksum
+                byte[] tcpHeader = new byte[] { 0xEB, 0x90, tcpLength };
+
+                // Compose final TCP packet
+                byte[] point_camera = new byte[tcpHeader.Length + serialFull.Length + 1];
+                Array.Copy(tcpHeader, 0, point_camera, 0, tcpHeader.Length);
+                Array.Copy(serialFull, 0, point_camera, tcpHeader.Length, serialFull.Length);
+
+                byte tcpChecksum = CalculateTcpChecksum(serialFull);
+                point_camera[point_camera.Length - 1] = tcpChecksum;
+
+                SendCommand(point_camera);
+            }
+            catch
+            {
+                CustomMessageBox.Show(Strings.CommandFailed, Strings.ERROR);
+            }
         }
 
-        public void GremsyStopRecording()
+        public class DooafCoordinates
+        {
+            public double Latitude { get; set; }
+            public double Longitude { get; set; }
+            public double Altitude { get; set; }
+
+            public DooafCoordinates(double lat, double lon, double alt)
+            {
+                Latitude = lat;
+                Longitude = lon;
+                Altitude = alt;
+            }
+
+            public override string ToString()
+            {
+                return $"Lat: {Latitude}, Lon: {Longitude}, Alt: {Altitude}";
+            }
+        }
+
+        public void calculateDooaf()
+        {
+            ObservableCollection<PointLatLngAlt> result = POI.GetPOIS();
+            List<DooafCoordinates> dooafPoints = new List<DooafCoordinates>();
+            bool ArtilleryFlag = false;
+            bool HomeFlag = false;
+            bool TargetFlag = false;
+            foreach (var item in result)
+            {
+                PointLatLngAlt pnt = item;
+
+                var Tag = pnt.Tag + "\n" + pnt.ToString();
+                // Console.WriteLine(pnt + item.Tag);
+                if(item.Tag.ToString().Contains("Artillery"))
+                {
+                    dooafPoints.Insert(0, new DooafCoordinates(pnt.Lat, pnt.Lng, pnt.Alt));
+                    ArtilleryFlag = true;
+                }
+                if (item.Tag.ToString().Contains("Home"))
+                {
+                    if(dooafPoints.Count > 0)dooafPoints.Insert(1, new DooafCoordinates(pnt.Lat, pnt.Lng, pnt.Alt));
+                    else dooafPoints.Add(new DooafCoordinates(pnt.Lat, pnt.Lng, pnt.Alt));
+                    HomeFlag = true;
+                }
+                if(item.Tag.ToString().Contains("Target"))
+                {
+                    if(dooafPoints.Count > 1) dooafPoints.Insert(2, new DooafCoordinates(pnt.Lat, pnt.Lng, pnt.Alt));
+                    else if(dooafPoints.Count == 1) dooafPoints.Insert(1, new DooafCoordinates(pnt.Lat, pnt.Lng, pnt.Alt));
+                    else dooafPoints.Add(new DooafCoordinates(pnt.Lat, pnt.Lng, pnt.Alt));
+                    TargetFlag = true;
+                }
+            }
+            for (int i = result.Count - 1; i >= 0; i--)
+            {
+                PointLatLngAlt pnt = result[i];
+
+                string tag = pnt.Tag?.ToString() ?? "";
+
+                if (!tag.Contains("Artillery") &&
+                    !tag.Contains("Home") &&
+                    !tag.Contains("Target"))
+                {
+                    // If you want to insert
+                    dooafPoints.Add(new DooafCoordinates(pnt.Lat, pnt.Lng, pnt.Alt));
+                    break; // stop after first match
+                }
+            }
+            if(ArtilleryFlag && HomeFlag && TargetFlag && dooafPoints.Count > 3)
+            {
+                for (int i = 0; i < dooafPoints.Count; i++)
+                {
+                    Console.WriteLine($"Point {i}: {dooafPoints[i]}");
+                }
+                DooafCoordinates artillery = dooafPoints[0];
+                DooafCoordinates home = dooafPoints[1];
+                DooafCoordinates target = dooafPoints[2];
+                DooafCoordinates dropped = dooafPoints[3];
+                var firingPointLat = artillery.Latitude;
+                var firingPointLon = artillery.Longitude;
+                var targetPointLat1 = target.Latitude;
+                var targetPointLon1 = target.Longitude;
+                var targetPointLat2 = dropped.Latitude;
+                var targetPointLon2 = dropped.Longitude;
+                var (distance, bearing) = DistanceAndBearing(firingPointLat, firingPointLon, targetPointLat1, targetPointLon1);
+                var doOffval = latlon_to_xy_approx(targetPointLat2, targetPointLon2, targetPointLat1, targetPointLon1,bearing);
+                double roundedDooafX = Math.Round(doOffval[0], 4);
+                double roundedDooafY = Math.Round(doOffval[1], 4);
+                var dooffx = "DOOAF X : " + roundedDooafX.ToString() + " m";
+                var dooffy = "DOOAF Y : " + roundedDooafY.ToString() + " m";
+                (distance, bearing) = DistanceAndBearing(targetPointLat2, targetPointLon2, targetPointLat1, targetPointLon1);
+                var dooffdistance = "Distance : " + distance.ToString() + " m";
+                if (DooafX.InvokeRequired){
+                    DooafX.Invoke((MethodInvoker)delegate
+                    {
+                        DooafX.Text = dooffx;
+                    });
+                }else{
+                    DooafX.Text = dooffx;
+                }
+                if (DooafY.InvokeRequired){
+                    DooafY.Invoke((MethodInvoker)delegate
+                    {
+                        DooafY.Text = dooffy;
+                    });
+                }else{
+                    DooafY.Text = dooffy;
+                }
+                if (TargetDistance.InvokeRequired){
+                    TargetDistance.Invoke((MethodInvoker)delegate
+                    {
+                        TargetDistance.Text = dooffdistance;
+                    });
+                }else{
+                    TargetDistance.Text = dooffdistance;
+                }
+            }
+            else
+            {
+                CustomMessageBox.Show("Please ensure that Artillery, Home, Target and Dropped points are all marked on the map.");
+            }
+        }
+
+        public void calculateTargetDistance()
+        {
+            Console.WriteLine("Calculating Target Distance...");
+            if (!MainV2.comPort.BaseStream.IsOpen)
+            {
+                CustomMessageBox.Show("Please Connect First");
+                return;
+            }
+
+            if (MouseDownStart.Lat == 0.0 || MouseDownStart.Lng == 0.0)
+            {
+                CustomMessageBox.Show("Bad Lat/Long");
+                return;
+            }
+
+            try
+            {
+                var drone_latitude = coords1.Lat;
+                var drone_longitude = coords1.Lng;
+
+                var (distance, targetYaw) = DistanceAndBearing(drone_latitude, drone_longitude, target_latitude, target_longitude);
+                var targetDistance = "Target Distance : " + distance.ToString() + " m";
+                if (TargetDistance.InvokeRequired)
+                {
+                    TargetDistance.Invoke((MethodInvoker)delegate
+                    {
+                        TargetDistance.Text = targetDistance;
+                    });
+                }
+                else
+                {
+                    TargetDistance.Text = targetDistance;
+                }
+            }
+            catch
+            {
+                CustomMessageBox.Show(Strings.CommandFailed, Strings.ERROR);
+            }
+        }
+
+        public bool GremsyStartRecording()
+        {
+            Console.WriteLine("Start Recording Command Sent");
+            bool result = MainV2.comPort.doCommand((byte)MainV2.comPort.sysidcurrent, (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_CAMERA,
+                    MAVLink.MAV_CMD.VIDEO_START_CAPTURE, 0, 0, 0, 0, 0, 0,0,true);
+            return result;
+        }
+
+        public bool GremsyStopRecording()
         {
             Console.WriteLine("Stop Recording Command Sent");
-            MainV2.comPort.doCommand((byte)MainV2.comPort.sysidcurrent, (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_CAMERA,
+            bool result =MainV2.comPort.doCommand((byte)MainV2.comPort.sysidcurrent, (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_CAMERA,
                     MAVLink.MAV_CMD.VIDEO_STOP_CAPTURE, 0, 0, 0, 0, 0, 0,0,true);
+            return result;
         }
 
         public void GremsyZoomIn()
@@ -7298,23 +7588,26 @@ namespace MissionPlanner.GCSViews
             MAVLink.MAV_CMD.DO_MOUNT_CONTROL, pitch, roll, yaw, 0, 0,0,0,false);
         }
 
-        public void GremsyTakePhoto()
+        public bool GremsyTakePhoto()
         {
             Console.WriteLine("Take Photo Command Sent");
-            MainV2.comPort.doCommand((byte)MainV2.comPort.sysidcurrent, (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_CAMERA,
+            bool result = MainV2.comPort.doCommand((byte)MainV2.comPort.sysidcurrent, (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_CAMERA,
                     MAVLink.MAV_CMD.IMAGE_START_CAPTURE, 0, 0, 1, 0, 0, 0,0,true);
+            return result;
         }
 
-        public void GremsySwitchCameraModeToPhoto()
+        public bool GremsySwitchCameraModeToPhoto()
         {
-            MainV2.comPort.doCommand((byte)MainV2.comPort.sysidcurrent, (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_CAMERA,
+            bool result = MainV2.comPort.doCommand((byte)MainV2.comPort.sysidcurrent, (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_CAMERA,
                     MAVLink.MAV_CMD.IMAGE_START_CAPTURE, 0, 0, 0, 0, 0, 0,0,true);
+            return result;
         }
 
-        public void GremsySwitchCameraModeToVideo()
+        public bool GremsySwitchCameraModeToVideo()
         {
-            MainV2.comPort.doCommand((byte)MainV2.comPort.sysidcurrent, (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_CAMERA,
+            bool result = MainV2.comPort.doCommand((byte)MainV2.comPort.sysidcurrent, (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_CAMERA,
                     MAVLink.MAV_CMD.IMAGE_START_CAPTURE, 0, 1, 0, 0, 0, 0,0,true);
+            return result;
             // MainV2.comPort.doCommand((byte)MainV2.comPort.sysidcurrent, (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_CAMERA,
             //        MAVLink.MAV_CMD.REQUEST_STORAGE_INFORMATION, 0, 1, 0, 0, 0, 0,0);
         }
@@ -7325,7 +7618,7 @@ namespace MissionPlanner.GCSViews
             var msg = new MAVLink.mavlink_gimbal_manager_set_attitude_t
             {
                 target_system = (byte)MainV2.comPort.sysidcurrent,
-                target_component = (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_GIMBAL,
+                target_component = (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_CAMERA,
                 gimbal_device_id = 0,
                 flags = 1024,
                 q = new float[]{
@@ -7333,12 +7626,12 @@ namespace MissionPlanner.GCSViews
                 },
                 angular_velocity_x =0.0f,
                 angular_velocity_y = (float)y,
-                angular_velocity_z =  (float)x
+                angular_velocity_z =  (float)-x
             };
             MainV2.comPort.sendPacket(
                 msg,
                 (byte)MainV2.comPort.sysidcurrent,
-                (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_GIMBAL
+                (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_CAMERA
             );
         }
     }

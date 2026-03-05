@@ -5,6 +5,9 @@ namespace MissionPlanner.Controls
         private System.Windows.Forms.TableLayoutPanel mainFlow;
         private System.Windows.Forms.TableLayoutPanel cameraSettingsLayoutPanel;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
+        private System.Windows.Forms.TableLayoutPanel parentTableLayoutPanel;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.ComponentModel.IContainer components = null;
         private System.Windows.Forms.Button btnGremsyTest;
         private System.Windows.Forms.Button btnGremsyStartRecording;
@@ -39,13 +42,65 @@ namespace MissionPlanner.Controls
         {
             this.components = new System.ComponentModel.Container();
 
+            this.parentTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.parentTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.parentTableLayoutPanel.ColumnCount = 2; 
+            this.parentTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 65.00F));
+            this.parentTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 35.00F));
+            this.parentTableLayoutPanel.RowCount = 2;
+            this.parentTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 60.00F));
+            this.parentTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 40.00F));
+
+            // tableLayoutPanel1
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1.RowCount = 1;
+            this.tableLayoutPanel1.ColumnCount = 2;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 70.00F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30.00F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.00F));
+
+            // tableLayoutPanel2
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel2.RowCount = 3;
+            this.tableLayoutPanel2.ColumnCount = 4;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.00F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.00F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.00F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.00F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33F));
+
+            // trackzoom
+
+            this.trackZoom = new System.Windows.Forms.TrackBar();
+            this.trackZoom.Orientation = System.Windows.Forms.Orientation.Vertical;
+            this.trackZoom.Minimum = -100;
+            this.trackZoom.Maximum = 100;
+            this.trackZoom.Value = 0;
+            this.trackZoom.TickFrequency = 20;
+            this.trackZoom.LargeChange = 10;
+            this.trackZoom.SmallChange = 1;
+            this.trackZoom.Dock = System.Windows.Forms.DockStyle.None;
+            this.trackZoom.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.trackZoom.Height = 80;
+            this.trackZoom.Width = 30;
+            this.trackZoom.BackColor = System.Drawing.Color.FromArgb(45, 45, 45);
+            this.trackZoom.ValueChanged += TrackZoom_ValueChanged;
+            this.trackZoom.MouseUp += TrackZoom_MouseUp;
+
+            //
+            
+
             // Create buttons
             this.mainFlow = new System.Windows.Forms.TableLayoutPanel();
             this.mainFlow.Dock = System.Windows.Forms.DockStyle.Fill;
             this.mainFlow.Name = "mainFlow";
             this.mainFlow.ColumnCount = 2;
-            this.mainFlow.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 68.04124F));
-            this.mainFlow.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 31.95876F));
+            this.mainFlow.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.00F));
+            this.mainFlow.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.00F));
             // this.mainFlow.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
             // this.mainFlow.Controls.Add(this.cameraSettingsLayoutPanel, 0, 0);
             // this.mainFlow.Controls.Add(this.tableLayoutPanel2, 0, 1);
@@ -54,8 +109,8 @@ namespace MissionPlanner.Controls
             this.mainFlow.Location = new System.Drawing.Point(0, 0);
             // this.mainFlow.Name = "mainFlow";
             this.mainFlow.RowCount = 2;
-            this.mainFlow.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 77.72926F));
-            this.mainFlow.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 22.27074F));
+            this.mainFlow.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 60.00F));
+            this.mainFlow.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 40.00F));
             this.mainFlow.Size = new System.Drawing.Size(562, 250);
             this.mainFlow.TabIndex = 0;
             // this.mainFlow.Size = new System.Drawing.Size(1200, 800);
@@ -85,11 +140,6 @@ namespace MissionPlanner.Controls
             this.btnGremsyZoomOut = new System.Windows.Forms.Button();
             this.btnGremsyZoomStop = new System.Windows.Forms.Button();
             this.btnGremsyTrackStop = new System.Windows.Forms.Button();
-            // this.btnGremsyDoUp = new System.Windows.Forms.Button();
-            // this.btnGremsyDoDown = new System.Windows.Forms.Button();
-            // this.btnGremsyDoLeft = new System.Windows.Forms.Button();
-            // this.btnGremsyDoRight = new System.Windows.Forms.Button();
-            // this.btnGremsyDoStop = new System.Windows.Forms.Button();
             this.recordingPhotoMode = new System.Windows.Forms.Label();
             this.chkRecordMode = new System.Windows.Forms.CheckBox();
             this.camControlGroup = new System.Windows.Forms.GroupBox();
@@ -100,13 +150,10 @@ namespace MissionPlanner.Controls
             this.camControlGroup.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.camControlGroup.Location = new System.Drawing.Point(255, 3);
             this.camControlGroup.Name = "camControlGroup";
-            this.camControlGroup.Size = new System.Drawing.Size(180, 140);
             this.camControlGroup.TabIndex = 3;
             this.camControlGroup.TabStop = false;
             this.camControlGroup.ForeColor = System.Drawing.Color.White;
-            // this.camControlGroup.Text = "Camera Control";
 
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -116,12 +163,10 @@ namespace MissionPlanner.Controls
             this.tableLayoutPanel3.ColumnCount = 2;
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(6, 18);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 2;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(150, 140);
             this.tableLayoutPanel3.TabIndex = 0;
 
             this.trackZoom = new System.Windows.Forms.TrackBar();
@@ -134,10 +179,13 @@ namespace MissionPlanner.Controls
             this.trackZoom.LargeChange = 10;
             this.trackZoom.SmallChange = 1;
 
-            this.trackZoom.Height = 70;
-            this.trackZoom.Width = 30;
+            // this.trackZoom.Height = 70;
+            // this.trackZoom.Width = 30;
 
             this.trackZoom.Dock = System.Windows.Forms.DockStyle.None;
+            this.trackZoom.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.trackZoom.Height = 80;
+            this.trackZoom.Width = 40;
             this.trackZoom.BackColor = System.Drawing.Color.FromArgb(45, 45, 45);
 
             // EVENTS
@@ -195,6 +243,16 @@ namespace MissionPlanner.Controls
             this.cameraSettingsLayoutPanel.Controls.Add(this.btnGremsyZoomStop, 2,1);
             this.cameraSettingsLayoutPanel.Controls.Add(this.btnGremsyTrackStop, 3,1);
 
+            //
+            this.tableLayoutPanel2.Controls.Add(this.btnGremsyTest, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.btnGremsyStartRecording, 1, 0);
+            this.tableLayoutPanel2.Controls.Add(this.btnGremsyStopRecording, 2, 0);
+            this.tableLayoutPanel2.Controls.Add(this.btnGremsyTakePhoto, 3, 0);
+            this.tableLayoutPanel2.Controls.Add(this.btnGremsyZoomIn, 0, 1);
+            this.tableLayoutPanel2.Controls.Add(this.btnGremsyZoomOut, 1,1);    
+            this.tableLayoutPanel2.Controls.Add(this.btnGremsyZoomStop, 2,1);
+            this.tableLayoutPanel2.Controls.Add(this.btnGremsyTrackStop, 3,1);
+
             // this.groupSmartTracker = new System.Windows.Forms.GroupBox();
             // this.groupSmartTracker.Text = "Gimbal Control";
             // this.groupSmartTracker.ForeColor = System.Drawing.Color.White;
@@ -206,12 +264,13 @@ namespace MissionPlanner.Controls
             // ---- Add TableLayoutPanel to Control ----
             // this.mainFlow.Controls.Add(this.groupSmartTracker);
             // this.mainFlow.Controls.Add(this.virtualJoystick);
-            this.mainFlow.Controls.Add(this.cameraSettingsLayoutPanel, 0, 0);
-            this.tableLayoutPanel3.Controls.Add(this.trackZoom, 1, 0);
-            this.Controls.Add(this.mainFlow);
+            // this.mainFlow.Controls.Add(this.cameraSettingsLayoutPanel, 0, 0);
+            // this.tableLayoutPanel3.Controls.Add(this.trackZoom, 1, 0);
+            this.parentTableLayoutPanel.Controls.Add(this.tableLayoutPanel2,0,0);
+            this.Controls.Add(this.parentTableLayoutPanel);
             // // ---- GremsyControl ----
             // this.Name = "GremsyControl";
-            // this.Size = new System.Drawing.Size(650, 800);
+            this.Size = new System.Drawing.Size(650, 800);
         }
 
         // Helper method for adding rows

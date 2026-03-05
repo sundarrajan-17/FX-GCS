@@ -2600,7 +2600,7 @@ namespace MissionPlanner.GCSViews
             this.addPoiToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.deleteToolStripMenuItem,
             this.saveFileToolStripMenuItem,
-            this.loadFileToolStripMenuItem,
+            // this.loadFileToolStripMenuItem,
             this.poiatcoordsToolStripMenuItem});
             this.addPoiToolStripMenuItem.Name = "addPoiToolStripMenuItem";
             resources.ApplyResources(this.addPoiToolStripMenuItem, "addPoiToolStripMenuItem");
@@ -2620,9 +2620,9 @@ namespace MissionPlanner.GCSViews
             // 
             // loadFileToolStripMenuItem
             // 
-            this.loadFileToolStripMenuItem.Name = "loadFileToolStripMenuItem";
-            resources.ApplyResources(this.loadFileToolStripMenuItem, "loadFileToolStripMenuItem");
-            this.loadFileToolStripMenuItem.Click += new System.EventHandler(this.loadFileToolStripMenuItem_Click);
+            // this.loadFileToolStripMenuItem.Name = "loadFileToolStripMenuItem";
+            // resources.ApplyResources(this.loadFileToolStripMenuItem, "loadFileToolStripMenuItem");
+            // this.loadFileToolStripMenuItem.Click += new System.EventHandler(this.loadFileToolStripMenuItem_Click);
             // 
             // poiatcoordsToolStripMenuItem
             // 
@@ -2942,6 +2942,38 @@ namespace MissionPlanner.GCSViews
             this.toolTip1.SetToolTip(this.CB_tuning, resources.GetString("CB_tuning.ToolTip"));
             this.CB_tuning.UseVisualStyleBackColor = true;
             this.CB_tuning.CheckedChanged += new System.EventHandler(this.CB_tuning_CheckedChanged);
+            //
+            // Dooaf-x
+            //
+            this.DooafX = new System.Windows.Forms.Label();
+            this.DooafX.AutoSize = true;
+            this.DooafX.Name = "DO-OAF X";
+            this.DooafX.Text = "DOOAF X : 0.00 m";
+            this.DooafX.ForeColor = System.Drawing.Color.White;
+            this.DooafX.Location = new System.Drawing.Point(this.CHK_autopan.Right + 20, this.CHK_autopan.Top + 3);
+            //
+            // Dooaf-y
+            //
+            this.DooafY = new System.Windows.Forms.Label();
+            this.DooafY.AutoSize = true;
+            this.DooafY.Name = "DO-OAF Y";
+            this.DooafY.Text = "DOOAF Y : 0.00 m";
+            this.DooafY.ForeColor = System.Drawing.Color.White;
+            this.DooafY.Location = new System.Drawing.Point(this.DooafX.Right + 60, this.CHK_autopan.Top + 3);
+            //
+            // targetDistance
+            //
+            this.TargetDistance = new System.Windows.Forms.Label();
+            this.TargetDistance.AutoSize = true;
+            this.TargetDistance.Name = "Target Distance";
+            this.TargetDistance.Text = "Target Distance : 0.00 m";
+            this.TargetDistance.ForeColor = System.Drawing.Color.White;
+            this.TargetDistance.Location = new System.Drawing.Point(this.DooafY.Right + 60, this.CHK_autopan.Top + 3);
+            //
+            this.panel1.Controls.Add(this.DooafX);
+            this.panel1.Controls.Add(this.DooafY);
+            this.panel1.Controls.Add(this.TargetDistance);
+            //
             // 
             // ZedGraphTimer
             // 
@@ -3293,5 +3325,8 @@ namespace MissionPlanner.GCSViews
         private Controls.EAHRSControl eahrsControl1;
         // private Controls.BaseCameraController baseCamControl1;
         private ToolStripMenuItem imHereToolStripMenuItem;
+        private System.Windows.Forms.Label DooafX;
+        private System.Windows.Forms.Label DooafY;
+        private System.Windows.Forms.Label TargetDistance;
     }
 }

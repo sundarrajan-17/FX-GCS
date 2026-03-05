@@ -18,6 +18,8 @@ namespace MissionPlanner.Utilities
         /// </summary>
         static ObservableCollection<PointLatLngAlt> POIs = new ObservableCollection<PointLatLngAlt>();
 
+        // private Dictionary<string, PointLatLngAlt> DoOafPoints = new Dictionary<string, PointLatLngAlt>();
+
         private static EventHandler _POIModified;
 
         public static event EventHandler POIModified
@@ -221,6 +223,11 @@ namespace MissionPlanner.Utilities
                     ToolTipText = pnt.Tag
                 });
             }
+        }
+
+        public static ObservableCollection<PointLatLngAlt> GetPOIS()
+        {
+            return POI.POIs;
         }
     }
 }
