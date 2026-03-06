@@ -57,6 +57,8 @@ namespace MissionPlanner.GCSViews
         internal static GMapOverlay photosoverlay;
         internal static GMapOverlay poioverlay = new GMapOverlay("POI");
         internal static GMapOverlay cameraBounds;
+        private GMapMarkerCamera camMarker;
+        private GMapMarkerCamTarget camTargetMarker;
         internal static GMapOverlay rallypointoverlay;
         internal static GMapOverlay tfrpolygons;
         internal GMapMarker CurrentGMapMarker;
@@ -66,6 +68,8 @@ namespace MissionPlanner.GCSViews
 
         private float pitch = 0.0f;
         private float yaw = 0.0f;
+        private Thread _cameraUpdateThread;
+        private bool _cameraUpdateRunning = false;
 
         internal PointLatLng MouseDownStart;
 
@@ -398,6 +402,14 @@ namespace MissionPlanner.GCSViews
             gMapControl1.OnMarkerEnter += gMapControl1_OnMarkerEnter;
             gMapControl1.OnMarkerLeave += gMapControl1_OnMarkerLeave;
 
+            PointLatLng vehiclePos = new PointLatLng(12.9466595, 80.1377307);
+            PointLatLng targetPos = new PointLatLng(12.9469141, 80.1366053);
+            float yawDegrees = 20f;
+            GMapMarkerCamera camMarker = new GMapMarkerCamera(vehiclePos, yawDegrees);
+            GMapMarkerCamTarget camTargetMarker = new GMapMarkerCamTarget(targetPos);
+            // camTargetMarker.updateYaw(yawDegrees);
+            // camTargetMarker.updateAltitude(100);
+
             gMapControl1.RoutesEnabled = true;
             gMapControl1.PolygonsEnabled = true;
 
@@ -417,6 +429,8 @@ namespace MissionPlanner.GCSViews
             gMapControl1.Overlays.Add(photosoverlay);
 
             cameraBounds = new GMapOverlay("camera bounds");
+            cameraBounds.Markers.Add(camMarker);
+            cameraBounds.Markers.Add(camTargetMarker);
             gMapControl1.Overlays.Add(cameraBounds);
 
             routes = new GMapOverlay("routes");
@@ -462,11 +476,12 @@ namespace MissionPlanner.GCSViews
             {
                 case (uint)MAVLink.MAVLINK_MSG_ID.CAMERA_FOV_STATUS:
                     var gimbaltrackdata = packet.ToStructure<MAVLink.mavlink_camera_fov_status_t>();
-                    target_latitude = gimbaltrackdata.lat_image;
-                    target_longitude = gimbaltrackdata.lon_image;
+                    target_latitude = gimbaltrackdata.lat_image * 1e-7;
+                    target_longitude = gimbaltrackdata.lon_image * 1e-7;
+                    // Console.WriteLine("Target Latitude Longitude: " + gimbaltrackdata.lat_image + ", " + gimbaltrackdata.lon_image);
                     hfov = gimbaltrackdata.hfov;
                     vfov = gimbaltrackdata.vfov;
-                    // Console.WriteLine("Target Latitude Longitude: " + gimbaltrackdata.lat_image + ", " + gimbaltrackdata.lon_image);
+                    // Console.WriteLine("Target Latitude Longitude: " + gimbaltrackdata.hfov + ", " + gimbaltrackdata.vfov);
                     break; 
                 default:
                     break;
@@ -4504,21 +4519,21 @@ namespace MissionPlanner.GCSViews
             });
         }
 
-        private void onOffCameraOverlapToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            CameraOverlap = onOffCameraOverlapToolStripMenuItem.Checked;
+        // private void onOffCameraOverlapToolStripMenuItem_Click(object sender, EventArgs e)
+        // {
+        //     CameraOverlap = onOffCameraOverlapToolStripMenuItem.Checked;
 
-            foreach (var mark in photosoverlay.Markers.ToArray())
-            {
-                if (mark is GMapMarkerPhoto)
-                {
-                    if (!CameraOverlap)
-                    {
-                        photosoverlay.Markers.Remove(mark);
-                    }
-                }
-            }
-        }
+        //     foreach (var mark in photosoverlay.Markers.ToArray())
+        //     {
+        //         if (mark is GMapMarkerPhoto)
+        //         {
+        //             if (!CameraOverlap)
+        //             {
+        //                 photosoverlay.Markers.Remove(mark);
+        //             }
+        //         }
+        //     }
+        // }
 
         void POI_POIModified(object sender, EventArgs e)
         {
@@ -6794,6 +6809,136 @@ namespace MissionPlanner.GCSViews
         }
 
         // Camera Speciific Controls And Features Function
+
+        public void StartCameraUpdateThread()
+        {
+            if (_cameraUpdateRunning)
+                return;
+
+            _cameraUpdateRunning = true;
+
+            _cameraUpdateThread = new Thread(() =>
+            {
+                while (_cameraUpdateRunning)
+                {
+                    try
+                    {
+                        // Run the async task synchronously (on a thread, this is OK)
+                        UpdateCameraAndTarget();
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine("❌ Thread error: " + ex.Message);
+                    }
+
+                    Thread.Sleep(1000); // Delay between updates (in milliseconds)
+                }
+            });
+
+            _cameraUpdateThread.IsBackground = true; // ensures the thread doesn't block app exit
+            _cameraUpdateThread.Start();
+        }
+
+        public void StopCameraUpdateThread()
+        {
+            _cameraUpdateRunning = false;
+
+            if (_cameraUpdateThread != null && _cameraUpdateThread.IsAlive)
+            {
+                _cameraUpdateThread.Join(); // wait for the thread to finish
+                _cameraUpdateThread = null;
+                cameraBounds.Markers.Clear();
+                camMarker = null;
+                camTargetMarker = null;
+            }
+        }
+        private void UpdateCameraAndTarget()
+        {
+
+            // Console.WriteLine("Enter Camera Update Function ");
+        
+            try
+            {
+                var drone_latitude = coords1.Lat;
+                var drone_longitude = coords1.Lng;
+                var drone_altitude = coords1.Alt;
+                var Target_Latitude = target_latitude;
+                var Target_Longitude = target_longitude;
+                PointLatLng? cameraPos = new PointLatLng(drone_latitude, drone_longitude);
+                PointLatLng? targetPos = new PointLatLng(Target_Latitude, Target_Longitude);
+                var (distance, targetYaw) = DistanceAndBearing(drone_latitude, drone_longitude, Target_Latitude, Target_Longitude);
+
+                double droneYaw = MainV2.comPort.MAV.cs.yaw;
+
+                double finalYaw = (targetYaw - droneYaw + 360)%360;
+
+                if (finalYaw > 180) finalYaw -= 360;
+
+                this.BeginInvokeIfRequired(() =>
+                {
+                    cameraBounds.Markers.Clear();
+                    camMarker = null;
+                    camTargetMarker = null;
+
+                    if (cameraPos.HasValue)
+
+                    {
+                        // Console.WriteLine("Toooooooooool {0}", cameraPos.Value);
+
+                        if (camMarker == null)
+                        {
+                            camMarker = new GMapMarkerCamera(new PointLatLng(coords1.Lat, coords1.Lng), finalYaw);
+                        }
+                        else
+                        {
+                            camMarker.Position = cameraPos.Value;
+                            // Console.WriteLine("Entered to else update ");
+                            camMarker.UpdateYaw(yaw);
+                        }
+                        cameraBounds.Markers.Add(camMarker);
+
+
+                    }
+
+                    if (targetPos.HasValue)
+                    {
+                        if (camTargetMarker == null)
+                        {
+                            // PointLatLng fakeTarget = GenerateFakeTarget(new PointLatLng(coords1.Lat, coords1.Lng), yaw, pitch);
+                            PointLatLng fakeTarget = new PointLatLng(target_latitude, target_longitude);
+                            // Console.WriteLine("Fake Target: {0}", fakeTarget);
+
+                            //camTargetMarker = new GMapMarkerCamTarget(targetPos.Value);
+                            camTargetMarker = new GMapMarkerCamTarget(fakeTarget);
+                            // camTargetMarker.updateYaw(finalYaw);
+                            // camTargetMarker.updateAltitude(MainV2.comPort.MAV.cs.alt);
+                            // Console.WriteLine("Distanceeeeee {0}",distance);
+                            camTargetMarker.updatePolygonData(this.hfov,this.vfov,distance,this.target_latitude,this.target_longitude,finalYaw);
+                        }
+                        else
+                        {
+                            camTargetMarker.Position = targetPos.Value;
+                        }
+                        cameraBounds.Markers.Add(camTargetMarker);
+                    }
+                });
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("❌ Error: " + ex.Message);
+            }
+        }
+
+        private void onOffCameraOverlapToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CameraOverlap = onOffCameraOverlapToolStripMenuItem.Checked;
+
+            if(CameraOverlap){
+                StartCameraUpdateThread();
+            }else{
+                StopCameraUpdateThread();
+            }
+        }
 
         private Thread workerThread;
         private bool GimbalConnectStop = false;
