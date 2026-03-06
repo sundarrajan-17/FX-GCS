@@ -21,6 +21,7 @@ namespace MissionPlanner.Utilities
         // private Dictionary<string, PointLatLngAlt> DoOafPoints = new Dictionary<string, PointLatLngAlt>();
 
         private static EventHandler _POIModified;
+        private static bool initializePOI = false;
 
         public static event EventHandler POIModified
         {
@@ -29,8 +30,15 @@ namespace MissionPlanner.Utilities
                 _POIModified += value;
                 try
                 {
-                    if (File.Exists(filename))
-                        LoadFile(filename);
+                    if(!initializePOI)
+                    {
+                        initializePOI = true;
+                        if (File.Exists(filename))
+                            File.WriteAllText(filename, "");
+                    }else{
+                        if (File.Exists(filename))
+                            LoadFile(filename);
+                    }
                 }
                 catch
                 {

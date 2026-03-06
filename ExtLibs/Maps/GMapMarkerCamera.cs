@@ -154,7 +154,7 @@ namespace MissionPlanner.Maps
 
             double hfov = hfovDeg * Math.PI / 180.0;
             double vfov = vfovDeg * Math.PI / 180.0;
-            double yaw = Yaw * Math.PI / 180.0;
+            double yaw = -Yaw * Math.PI / 180.0;
 
             double width = 2 * distance * Math.Tan(hfov / 2);
             double height = 2 * distance * Math.Tan(vfov / 2);
@@ -173,15 +173,35 @@ namespace MissionPlanner.Maps
             foreach (var c in corners1)
             {
                 // rotate
-                double xr = c.x * Math.Cos(yaw) - c.y * Math.Sin(yaw);
-                double yr = c.x * Math.Sin(yaw) + c.y * Math.Cos(yaw);
+                // double xr = c.x * Math.Cos(yaw) - c.y * Math.Sin(yaw);
+                // double yr = c.x * Math.Sin(yaw) + c.y * Math.Cos(yaw);
 
-                double latOffset = yr / 111320.0;
-                double lonOffset = xr / (111320.0 * Math.Cos(targetLat * Math.PI / 180));
+                double latOffset = c.y / 111320.0;
+                double lonOffset = c.x / (111320.0 * Math.Cos(targetLat * Math.PI / 180));
+
+                // Console.WriteLine($"Corner offset (lat, lon): ({latOffset}, {lonOffset})");
 
                 corners.Add(new PointLatLng(
                     targetLat + latOffset,
                     targetLon + lonOffset));
+            }
+
+            List<PointLatLng> rotated = new List<PointLatLng>();
+
+            double angleRad = -Yaw * Math.PI / 180.0;
+
+            foreach (var p in corners)
+            {
+                double x = p.Lng;
+                double y = p.Lat;
+
+                double cx = targetLon;
+                double cy = targetLat;
+
+                double xr = cx + (x - cx) * Math.Cos(angleRad) - (y - cy) * Math.Sin(angleRad);
+                double yr = cy + (x - cx) * Math.Sin(angleRad) + (y - cy) * Math.Cos(angleRad);
+
+                rotated.Add(new PointLatLng(yr, xr));
             }
 
             // Convert map coordinates to screen space
@@ -191,7 +211,7 @@ namespace MissionPlanner.Maps
             double yawRad = Yaw * Math.PI / 180.0;
 
             List<PointF> screenPoints = new List<PointF>();
-            foreach (var corner in corners)
+            foreach (var corner in rotated)
             {
                 GPoint pt = map.FromLatLngToLocal(corner);
                 float dx = (float)(pt.X - centerGP.X);

@@ -1075,7 +1075,8 @@ namespace MissionPlanner.GCSViews
 
         private void addPoiToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            POI.POIAdd(MouseDownStart);
+            PointLatLng pos = new PointLatLng(target_latitude, target_longitude);
+            POI.POIAdd(pos);
         }
 
         private void BUT_abort_script_Click(object sender, EventArgs e)
@@ -6868,11 +6869,12 @@ namespace MissionPlanner.GCSViews
                 PointLatLng? targetPos = new PointLatLng(Target_Latitude, Target_Longitude);
                 var (distance, targetYaw) = DistanceAndBearing(drone_latitude, drone_longitude, Target_Latitude, Target_Longitude);
 
-                double droneYaw = MainV2.comPort.MAV.cs.yaw;
+                // double droneYaw = MainV2.comPort.MAV.cs.yaw;
 
-                double finalYaw = (targetYaw - droneYaw + 360)%360;
+                // double finalYaw = (targetYaw - droneYaw + 360)%360;
 
-                if (finalYaw > 180) finalYaw -= 360;
+                // if (finalYaw > 180) finalYaw -= 360;
+                double finalYaw = targetYaw;
 
                 this.BeginInvokeIfRequired(() =>
                 {
@@ -6893,11 +6895,9 @@ namespace MissionPlanner.GCSViews
                         {
                             camMarker.Position = cameraPos.Value;
                             // Console.WriteLine("Entered to else update ");
-                            camMarker.UpdateYaw(yaw);
+                            camMarker.UpdateYaw(finalYaw);
                         }
                         cameraBounds.Markers.Add(camMarker);
-
-
                     }
 
                     if (targetPos.HasValue)
@@ -7406,6 +7406,30 @@ namespace MissionPlanner.GCSViews
                 0xEB, 0x90, 0x14, 0x55, 0xAA, 0xDC, 0x11, 0x30, 0x0F, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x07, 0x10, 0x00, 0x00, 0x00, 0x39, 0x7B
             };
             SendCommand(DzoomMinus_Command);
+        }
+        public void viewproSetLockFollowCommand(string message)
+        {
+            // 0xEB, 0x90, 0x14, 0x55, 0xAA, 0xDC, 0x11, 0x30, 0x03, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x22, 0x41
+            if(message == "follow"){
+                var Yawfollow_Command = new byte[]{
+                    0xEB, 0x90, 0x14, 0x55, 0xAA, 0xDC, 0x11, 0x30, 0x03, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x22, 0x41
+                };
+                SendCommand(Yawfollow_Command);
+            }else{   
+                var Yawlock_Command = new byte[]
+                {
+                    0xEB, 0x90, 0x14, 0x55, 0xAA, 0xDC, 0x11, 0x30, 0x0A, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x2B, 0x51
+                };
+                SendCommand(Yawlock_Command);
+            }
+        }
+        public void viewproPointDownCommand()
+        {
+            var HomeCommand = new byte[]{
+                0xEB, 0x90, 0x14, 0x55, 0xAA, 0xDC, 0x11, 0x30, 0x04, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x25, 0x45
+            };
+            SendCommand(HomeCommand);
+            SendCommand(HomeCommand);
         }
         private void pointCameraHereToolStripMenuItem_Click(object sender, EventArgs e)
         {

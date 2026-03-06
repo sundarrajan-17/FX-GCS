@@ -334,14 +334,15 @@ namespace MissionPlanner.Controls
                 }
             }
 
-            var form = new VideoStreamSelector()
-            {
-                StartPosition = FormStartPosition.CenterParent,
-            };
-            if (form.ShowDialog() == DialogResult.OK)
-            {
-                _stream.Start(form.gstreamer_pipeline);
-            }
+            // var form = new VideoStreamSelector()
+            // {
+            //     StartPosition = FormStartPosition.CenterParent,
+            // };
+            // if (form.ShowDialog() == DialogResult.OK)
+            // {
+            //     _stream.Start(form.gstreamer_pipeline);
+            // }
+            _stream.Start("rtspsrc location=rtsp://192.168.199.119:554/ latency=0 dulation=-1 ! decodebin ! videoconvert ! video/x-raw,format=BGRA ! appsink name=outsink");
         }
 
         public bool PreFilterMessage(ref Message m)
@@ -520,14 +521,6 @@ namespace MissionPlanner.Controls
             if (key == preferences.Home)
             {
                 Home();
-                if(this.selectedCamera1 == "Rhythm")
-                {
-                    flightData.GremsyHomeCommand();
-                }
-                else
-                {
-                    flightData.viewproHomeCommand();
-                }
             }
         }
 
@@ -558,7 +551,15 @@ namespace MissionPlanner.Controls
             Console.WriteLine($"Set yaw {message}");
             yaw_lock = locked;
             yawLockToolStripMenuItem.Checked = locked;
-            selectedGimbalManager?.SetRatesCommandAsync(previousPitchRate, previousYawRate, yaw_lock, selectedGimbalID);
+            // selectedGimbalManager?.SetRatesCommandAsync(previousPitchRate, previousYawRate, yaw_lock, selectedGimbalID);
+            if(this.selectedCamera1 == "Rhythm")
+            {
+                // flightData.GremsyHomeCommand();
+            }
+            else
+            {
+                flightData.viewproSetLockFollowCommand(message);
+            }
         }
 
         private void Retract()
@@ -577,14 +578,33 @@ namespace MissionPlanner.Controls
         private void PointDown()
         {
             Console.WriteLine("Point down");
-            selectedGimbalManager?.SetAnglesCommandAsync(-90, 0, false, selectedGimbalID);
+            // selectedGimbalManager?.SetAnglesCommandAsync(-90, 0, false, selectedGimbalID);
+            if(this.selectedCamera1 == "Rhythm")
+            {
+                // flightData.GremsyPointDownCommand();
+            }
+            else
+            {
+                flightData.viewproPointDownCommand();
+            }
+             // flightData.
+            // viewproPointDownCommand()
         }
 
         private void Home()
         {
             Console.WriteLine("Home");
-            var loc = MainV2.comPort?.MAV?.cs.HomeLocation;
-            selectedGimbalManager?.SetROILocationAsync(loc.Lat, loc.Lng, loc.Alt, frame: MAV_FRAME.GLOBAL);
+            // var loc = MainV2.comPort?.MAV?.cs.HomeLocation;
+            // selectedGimbalManager?.SetROILocationAsync(loc.Lat, loc.Lng, loc.Alt, frame: MAV_FRAME.GLOBAL);
+            if(this.selectedCamera1 == "Rhythm")
+            {
+                flightData.GremsyHomeCommand();
+            }
+            else
+            {
+                flightData.viewproHomeCommand();
+            }
+
         }
     
         private DateTime lastMouseMove = DateTime.MinValue;
