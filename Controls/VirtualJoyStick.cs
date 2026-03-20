@@ -131,21 +131,6 @@ namespace MissionPlanner.Controls
             }
             else
             {
-                // if(YValue > 0)
-                // {
-                //     this._parentControl._flightData.viewproUpCommand();
-                // }else
-                // {
-                //     this._parentControl._flightData.viewproDownCommand();
-                // }
-                // if(XValue > 0)
-                // {
-                //     this._parentControl._flightData.viewproRightCommand();
-                // }
-                // else
-                // {
-                //     this._parentControl._flightData.viewproLeftCommand();
-                // }
                 this._parentControl._flightData.viewproPitchYawCommand(XValue,YValue);
             }
         }

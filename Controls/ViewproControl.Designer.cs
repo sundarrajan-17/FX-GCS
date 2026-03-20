@@ -33,13 +33,13 @@ namespace MissionPlanner.Controls
         {
             this.parentTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.parentTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.parentTableLayoutPanel.RowCount = 3;
+            this.parentTableLayoutPanel.RowCount = 2;
             this.parentTableLayoutPanel.ColumnCount = 2;
             this.parentTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 31.95876F));
             this.parentTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 68.04124F));
-            this.parentTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.00F));
-            this.parentTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25.00F));
-            this.parentTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25.00F));
+            this.parentTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 65.00F));
+            this.parentTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 35.00F));
+            // this.parentTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25.00F));
 
             // tableLayoutPanel1
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
@@ -54,11 +54,12 @@ namespace MissionPlanner.Controls
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.RowCount = 3;
-            this.tableLayoutPanel2.ColumnCount = 4;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.00F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.00F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.00F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.00F));
+            this.tableLayoutPanel2.ColumnCount = 5;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20.00F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20.00F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20.00F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20.00F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20.00F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33F));
@@ -191,14 +192,14 @@ namespace MissionPlanner.Controls
             this.tableLayoutPanel2.Controls.Add(this.setEoIrMode,3,2);
 
             // tablelayoutPanel3 Controls
-            this.tableLayoutPanel3.Controls.Add(this.btnCalculateDooaf,0,0);
-            this.tableLayoutPanel3.Controls.Add(this.btnCalculateTargetDistance,1,0);
+            this.tableLayoutPanel2.Controls.Add(this.btnCalculateDooaf,4,0);
+            this.tableLayoutPanel2.Controls.Add(this.btnCalculateTargetDistance,4,1);
 
             // Main Controls
             this.parentTableLayoutPanel.Controls.Add(tableLayoutPanel2,1,0);
-            this.parentTableLayoutPanel.Controls.Add(tableLayoutPanel3,1,1);
+            // this.parentTableLayoutPanel.Controls.Add(tableLayoutPanel3,1,1);
             this.Controls.Add(this.parentTableLayoutPanel);
-            this.Size = new System.Drawing.Size(600,800);
+            this.Size = new System.Drawing.Size(600,280);
         }
     }
 }

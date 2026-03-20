@@ -69,6 +69,36 @@ namespace MissionPlanner.Controls
             AddButton("Reset Camera Defaults");
         }
 
+        private void RefreshUI()
+        {
+            table.Controls.Clear();
+            table.RowStyles.Clear();
+            table.RowCount = 0;
+
+            AddCombo("Camera", new[] { "R1", "R2", "R3" });
+            AddCombo("Camera EV", new[] {"-4.5","-3", "-1.5", "0", "+1.5", "+3","4.5"});
+            AddCombo("White Balance", new[] { "Auto", "Indoor", "Outdoor" });
+            AddToggle("High Sensitivity", (bool)_parentControl.cameraSettings["EO_HS"]);
+            AddCombo("Video Quality", new[] { "Default", "Medium", "High" });
+            AddCombo("RTSP Resolution", new[] { "720p", "1080p" });
+            AddCombo("Zoom Feature", new[] { "Normal", "Super Resolution" });
+            AddToggle("IR Thermometry", (bool)_parentControl.cameraSettings["IR_THERMOMETRY"]);
+            AddCombo("Infrared Palette", new[] { "White Hot","Sepia","Ironbow","Rainbow","Night","Aurora","Red Hot","Jungle","Medical","Black Hot","Glory Hot" });
+            AddCombo("Yaw Mode", new[] { "Head", "Global" });
+            AddCombo("Track Algorithm", new[] { "None", "Nano", "SiamRpn" });
+            AddCombo("Smart Select", new[] {"None","Yolov11","Yolov8","Yolov5"});
+            AddCombo("AI Resolution", new[] {"640X480","1280X720","1920X1080"});
+            AddToggle("AI OSD", (bool)_parentControl.cameraSettings["AI_OSD"]);
+            AddToggle("RangeFinder", (bool)_parentControl.cameraSettings["TOF_EN"]);
+
+            if (!(bool)_parentControl.cameraSettings["AI_OSD"])
+            {
+                AddCombo("AI Video Source", new[] { "EO", "IR" });
+            }
+
+            AddButton("Reset Camera Defaults");
+        }
+
         private void ApplyAIVideoSource(string source)
         {
             Console.WriteLine($"Applying AI Video Source: {source}");
@@ -175,6 +205,7 @@ namespace MissionPlanner.Controls
                     (byte)MainV2.comPort.sysidcurrent,
                     (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_CAMERA
                 );
+                RefreshUI();
             }
         }
         private void ApplyVideoQuality(string quality)
@@ -375,6 +406,46 @@ namespace MissionPlanner.Controls
             );
         }
 
+        private void ApplyYawMode(int yawmode)
+        {
+            string text = "YAW_MODE";
+            byte[] id_bytes = Encoding.ASCII.GetBytes(text);
+            byte[] value_bytes = BitConverter.GetBytes(yawmode);
+
+            var msg = new MAVLink.mavlink_param_ext_set_t();
+            msg.target_system = (byte)MainV2.comPort.sysidcurrent;
+            msg.target_component = (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_CAMERA;
+            msg.param_id = id_bytes;
+            msg.param_value = value_bytes;
+            msg.param_type = 6;
+
+            MainV2.comPort.sendPacket(
+                msg,
+                (byte)MainV2.comPort.sysidcurrent,
+                (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_CAMERA
+            );
+        }
+
+        private void ApplyAIResolution(int resolution)
+        {
+            string text = "AI_RESOLUTION";
+            byte[] id_bytes = Encoding.ASCII.GetBytes(text);
+            byte[] value_bytes = BitConverter.GetBytes(resolution);
+
+            var msg = new MAVLink.mavlink_param_ext_set_t();
+            msg.target_system = (byte)MainV2.comPort.sysidcurrent;
+            msg.target_component = (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_CAMERA;
+            msg.param_id = id_bytes;
+            msg.param_value = value_bytes;
+            msg.param_type = 6;
+
+            MainV2.comPort.sendPacket(
+                msg,
+                (byte)MainV2.comPort.sysidcurrent,
+                (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_CAMERA
+            );
+        }
+
         private void Combo_SelectedIndexChanged(object sender, EventArgs e)
         {
             ComboBox cmb = (ComboBox)sender;
@@ -412,13 +483,16 @@ namespace MissionPlanner.Controls
                 ApplyInfraredPalette(index);
             }else if(settingName == "Yaw Mode")
             {
-                // ApplyYawMode(value);
+                ApplyYawMode(index);
             }else if(settingName == "Track Algorithm")
             {
                 ApplyTrackAlgorithm(value);
             }else if(settingName == "Smart Select")
             {
                 ApplySmartSelect(value);
+            }else if(settingName == "AI Resolution")
+            {
+                ApplyAIResolution(index);
             }
         }
         // ---------- Helpers ----------
@@ -449,6 +523,7 @@ namespace MissionPlanner.Controls
             bool value = chk.Checked;
 
             Console.WriteLine($"{settingName} toggled → {(value ? "On" : "Off")}");
+            chk.Text = value ? "On" : "Off";
 
             // Example: immediate action
             if (settingName == "High Sensitivity")

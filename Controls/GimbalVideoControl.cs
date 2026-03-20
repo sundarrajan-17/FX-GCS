@@ -99,6 +99,8 @@ namespace MissionPlanner.Controls
 
         private FlightData flightData;
 
+        private BaseCameraController selectedCameraController;
+
         private String selectedCamera1 = "";
         public GimbalVideoControl(FlightData flightdata)
         {
@@ -113,10 +115,12 @@ namespace MissionPlanner.Controls
             // Register the global key handler
             Application.AddMessageFilter(this);
 
-            mouseMapMarker = new GMapOverlay("MouseMarker");
-            MainV2.instance.FlightData.gMapControl1.Overlays.Add(mouseMapMarker);
+            // mouseMapMarker = new GMapOverlay("MouseMarker");
+            // MainV2.instance.FlightData.gMapControl1.Overlays.Add(mouseMapMarker);
 
-            BaseCameraController selectedCameraController = flightData.CameraController;
+            mouseMapMarker = flightdata.mouseMapMarker1;
+
+            selectedCameraController = flightData._baseCameraController;
 
             Console.WriteLine("Selected Camera Is {0}",selectedCameraController.SelectedCamera);
 
@@ -316,7 +320,7 @@ namespace MissionPlanner.Controls
 
         public void Stop()
         {
-            _stream.OnNewImage -= RenderFrame;
+            // _stream.OnNewImage -= RenderFrame;
             _stream.Stop();
         }
 
@@ -333,16 +337,15 @@ namespace MissionPlanner.Controls
                     return;
                 }
             }
-
-            // var form = new VideoStreamSelector()
-            // {
-            //     StartPosition = FormStartPosition.CenterParent,
-            // };
-            // if (form.ShowDialog() == DialogResult.OK)
-            // {
-            //     _stream.Start(form.gstreamer_pipeline);
-            // }
-            _stream.Start("rtspsrc location=rtsp://192.168.199.119:554/ latency=0 dulation=-1 ! decodebin ! videoconvert ! video/x-raw,format=BGRA ! appsink name=outsink");
+            Console.WriteLine("Selected Cameraaaaa {0}",this.selectedCameraController.SelectedCamera);
+            if(this.selectedCameraController.SelectedCamera == "Rhythm")
+            {
+                _stream.Start("rtspsrc location=rtsp://192.168.199.119:8554/eo latency=0 dulation=-1 ! decodebin ! videoconvert ! video/x-raw,format=BGRA ! appsink name=outsink");
+            }else
+            {
+                _stream.Start("rtspsrc location=rtsp://192.168.199.119:554/stream0 latency=0 dulation=-1 ! decodebin ! videoconvert ! video/x-raw,format=BGRA ! appsink name=outsink");
+            }
+            // _stream.Start("rtspsrc location=rtsp://192.168.199.119:554/stream0 latency=0 dulation=-1 ! decodebin ! videoconvert ! video/x-raw,format=BGRA ! appsink name=outsink");
         }
 
         public bool PreFilterMessage(ref Message m)
@@ -552,7 +555,7 @@ namespace MissionPlanner.Controls
             yaw_lock = locked;
             yawLockToolStripMenuItem.Checked = locked;
             // selectedGimbalManager?.SetRatesCommandAsync(previousPitchRate, previousYawRate, yaw_lock, selectedGimbalID);
-            if(this.selectedCamera1 == "Rhythm")
+            if(this.selectedCameraController.SelectedCamera == "Rhythm")
             {
                 // flightData.GremsyHomeCommand();
             }
@@ -579,7 +582,7 @@ namespace MissionPlanner.Controls
         {
             Console.WriteLine("Point down");
             // selectedGimbalManager?.SetAnglesCommandAsync(-90, 0, false, selectedGimbalID);
-            if(this.selectedCamera1 == "Rhythm")
+            if(this.selectedCameraController.SelectedCamera == "Rhythm")
             {
                 // flightData.GremsyPointDownCommand();
             }
@@ -596,7 +599,7 @@ namespace MissionPlanner.Controls
             Console.WriteLine("Home");
             // var loc = MainV2.comPort?.MAV?.cs.HomeLocation;
             // selectedGimbalManager?.SetROILocationAsync(loc.Lat, loc.Lng, loc.Alt, frame: MAV_FRAME.GLOBAL);
-            if(this.selectedCamera1 == "Rhythm")
+            if(this.selectedCameraController.SelectedCamera == "Rhythm")
             {
                 flightData.GremsyHomeCommand();
             }
@@ -606,6 +609,7 @@ namespace MissionPlanner.Controls
             }
 
         }
+
     
         private DateTime lastMouseMove = DateTime.MinValue;
         private (double x, double y)? dragStartPoint = null;
@@ -661,7 +665,7 @@ namespace MissionPlanner.Controls
             int x = (int)(xNorm * (width));
             int y = (int)(yNorm * (height));
 
-            if(this.selectedCamera1 == "Rhythm")
+            if(this.selectedCameraController.SelectedCamera == "Rhythm")
             {
                 float x01 = ((float)xNorm + 1f) / 2f;
                 float y01 = ((float)yNorm + 1f) / 2f;
@@ -834,6 +838,11 @@ namespace MissionPlanner.Controls
                 Settings.Instance["GimbalControlPreferences"] = Newtonsoft.Json.JsonConvert.SerializeObject(form.preferences);
                 loadPreferences();
             }
+        }
+
+        private void closeStreamToolStripMenuItem_Click(object sender,EventArgs e)
+        {
+            Stop();
         }
 
         private void AutoConnectTimerCallback(object sender, System.Timers.ElapsedEventArgs e)

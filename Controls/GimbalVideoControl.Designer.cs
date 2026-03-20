@@ -31,6 +31,7 @@ namespace MissionPlanner.Controls
             this.stopRecordingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
             this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.closeStreamToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ControlInfoTooltip = new System.Windows.Forms.ToolTip(this.components);
             this.UITimer = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.VideoBox)).BeginInit();
@@ -47,7 +48,7 @@ namespace MissionPlanner.Controls
             this.VideoBox.Location = new System.Drawing.Point(0, 0);
             this.VideoBox.Margin = new System.Windows.Forms.Padding(0);
             this.VideoBox.Name = "VideoBox";
-            this.VideoBox.Size = new System.Drawing.Size(640, 480);
+            this.VideoBox.Size = new System.Drawing.Size(750, 500);
             this.VideoBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.VideoBox.TabIndex = 0;
             this.VideoBox.TabStop = false;
@@ -59,6 +60,7 @@ namespace MissionPlanner.Controls
             // 
             this.VideoBoxContextMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.videoStreamToolStripMenuItem,
+            this.closeStreamToolStripMenuItem,
             this.toolStripMenuItem1,
             this.retractToolStripMenuItem,
             this.neutralToolStripMenuItem,
@@ -78,7 +80,7 @@ namespace MissionPlanner.Controls
             // 
             this.videoStreamToolStripMenuItem.Name = "videoStreamToolStripMenuItem";
             this.videoStreamToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
-            this.videoStreamToolStripMenuItem.Text = "Video Stream";
+            this.videoStreamToolStripMenuItem.Text = "Start Stream";
             this.videoStreamToolStripMenuItem.Click += new System.EventHandler(this.videoStreamToolStripMenuItem_Click);
             // 
             // toolStripMenuItem1
@@ -158,6 +160,13 @@ namespace MissionPlanner.Controls
             this.settingsToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
             this.settingsToolStripMenuItem.Text = "Settings";
             this.settingsToolStripMenuItem.Click += new System.EventHandler(this.settingsToolStripMenuItem_Click);
+            //
+            // closestreamtoolstripmenuitem
+            //
+            this.closeStreamToolStripMenuItem.Name = "closeStreamToolStripMenuItem";
+            this.closeStreamToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
+            this.closeStreamToolStripMenuItem.Text = "Stop Stream";
+            this.closeStreamToolStripMenuItem.Click += new System.EventHandler(this.closeStreamToolStripMenuItem_Click);
             // 
             // UITimer
             // 
@@ -172,7 +181,7 @@ namespace MissionPlanner.Controls
             this.Controls.Add(this.VideoBox);
             this.Margin = new System.Windows.Forms.Padding(0);
             this.Name = "GimbalVideoControl";
-            this.Size = new System.Drawing.Size(640, 480);
+            this.Size = new System.Drawing.Size(750, 500);
             ((System.ComponentModel.ISupportInitialize)(this.VideoBox)).EndInit();
             this.VideoBoxContextMenu.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -182,6 +191,7 @@ namespace MissionPlanner.Controls
         #endregion
         private System.Windows.Forms.ToolTip ControlInfoTooltip;
         private System.Windows.Forms.ToolStripMenuItem videoStreamToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem closeStreamToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem retractToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem neutralToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem1;

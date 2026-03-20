@@ -55,6 +55,7 @@ namespace MissionPlanner.GCSViews
         public SplitContainer MainHcopy;
         internal static GMapOverlay geofence;
         internal static GMapOverlay photosoverlay;
+        public GMapOverlay mouseMapMarker1;
         internal static GMapOverlay poioverlay = new GMapOverlay("POI");
         internal static GMapOverlay cameraBounds;
         private GMapMarkerCamera camMarker;
@@ -70,7 +71,7 @@ namespace MissionPlanner.GCSViews
         private float yaw = 0.0f;
         private Thread _cameraUpdateThread;
         private bool _cameraUpdateRunning = false;
-
+        GimbalVideoControl _gimbalVideoControl;
         internal PointLatLng MouseDownStart;
 
         //The file path of the selected script
@@ -255,9 +256,11 @@ namespace MissionPlanner.GCSViews
             {11, "<3m" }
         };
 
+        public string rtsp_url_camera = "";
+
         private bool transponderNeverConnected = true;
 
-        private BaseCameraController _baseCameraController;
+        public BaseCameraController _baseCameraController;
 
         public BaseCameraController CameraController
         {
@@ -428,6 +431,9 @@ namespace MissionPlanner.GCSViews
             photosoverlay = new GMapOverlay("photos overlay");
             gMapControl1.Overlays.Add(photosoverlay);
 
+            mouseMapMarker1 = new GMapOverlay("MouseMarker");
+            gMapControl1.Overlays.Add(mouseMapMarker1);
+
             cameraBounds = new GMapOverlay("camera bounds");
             cameraBounds.Markers.Add(camMarker);
             cameraBounds.Markers.Add(camTargetMarker);
@@ -465,9 +471,14 @@ namespace MissionPlanner.GCSViews
 
             tabControlactions.Multiline = Settings.Instance.GetBoolean("tabControlactions_Multiline", false);
 
+
             _baseCameraController = new BaseCameraController(this);
 
-            this.tabPayload.Controls.Add(_baseCameraController);
+            // this.tabPayload.Controls.Add(_baseCameraController);
+            this.BottomSplit.Panel1.Controls.Add(_baseCameraController);
+            _gimbalVideoControl = new GimbalVideoControl(this);
+            _gimbalVideoControl.Dock = DockStyle.Fill;
+            this.TopSplit.Panel1.Controls.Add(_gimbalVideoControl);
         }
 
         public void loadTargetLatLon(object sender,MAVLink.MAVLinkMessage packet)
@@ -1950,7 +1961,7 @@ namespace MissionPlanner.GCSViews
             }
 
             // Fire the splitContainer1_Panel2_Resize event
-            splitContainer1_Panel2_Resize(null, null);
+            // splitContainer1_Panel2_Resize(null, null);
         }
 
         private void CheckAndBindPreFlightData()
@@ -3325,8 +3336,8 @@ namespace MissionPlanner.GCSViews
             if (hud1.Parent == this.SubMainLeft.Panel1)
             {
                 var ht = SubMainLeft.SplitterDistance;
-                if (ht >= hud1.Height + 5 || ht <= hud1.Height - 5)
-                    SubMainLeft.SplitterDistance = hud1.Height;
+                if (ht >= hud1.Width + 5 || ht <= hud1.Width - 5)
+                    SubMainLeft.SplitterDistance = hud1.Width;
             }
         }
 
@@ -6601,181 +6612,181 @@ namespace MissionPlanner.GCSViews
         ToolStripMenuItem gimbalVideoSwapPosition = new ToolStripMenuItem("Swap with map");
         ToolStripMenuItem gimbalVideoClose = new ToolStripMenuItem("Close");
         bool gimbalMenuHandlersInitialized = false;
-        GimbalVideoControl _gimbalVideoControl;
-        GimbalVideoControl gimbalVideoControl
-        {
-            get
-            {
-                // If this is the first call, create the handlers for the context menu items
-                if (!gimbalMenuHandlersInitialized)
-                {
-                    gimbalMenuHandlersInitialized = true;
-                    gimbalVideoShowMiniMap.CheckedChanged += (s, ev) =>
-                    {
-                        gMapControl1.Visible = gimbalVideoShowMiniMap.Checked;
-                        gimbalVideoSwapPosition.Visible = gimbalVideoShowMiniMap.Checked;
-                    };
-                    gimbalVideoSwapPosition.Click += (s, ev) =>
-                    {
-                        if (gimbalVideoControl.Dock == DockStyle.None)
-                        {
-                            gimbalVideoFullSizedToolStripMenuItem_Click(null, null);
-                        }
-                        else
-                        {
-                            gimbalVideoMiniToolStripMenuItem_Click(null, null);
-                        }
-                    };
-                    gimbalVideoClose.Click += (s, ev) =>
-                    {
-                        gimbalVideoMiniToolStripMenuItem_Click(null, null);
-                        gimbalVideoControl.Visible = false;
-                        gimbalVideoControl.Stop();
-                        gimbalVideoControl.Dispose();
-                    };
-                }
-                // Check if we need to construct a gimbalVideoControl
-                if (_gimbalVideoControl == null || _gimbalVideoControl.IsDisposed)
-                {
-                    _gimbalVideoControl = new GimbalVideoControl(this);
-                    _gimbalVideoControl.Dock = DockStyle.Fill;
+        
+        // GimbalVideoControl gimbalVideoControl
+        // {
+        //     get
+        //     {
+        //         // If this is the first call, create the handlers for the context menu items
+        //         if (!gimbalMenuHandlersInitialized)
+        //         {
+        //             gimbalMenuHandlersInitialized = true;
+        //             gimbalVideoShowMiniMap.CheckedChanged += (s, ev) =>
+        //             {
+        //                 gMapControl1.Visible = gimbalVideoShowMiniMap.Checked;
+        //                 gimbalVideoSwapPosition.Visible = gimbalVideoShowMiniMap.Checked;
+        //             };
+        //             gimbalVideoSwapPosition.Click += (s, ev) =>
+        //             {
+        //                 if (gimbalVideoControl.Dock == DockStyle.None)
+        //                 {
+        //                     gimbalVideoFullSizedToolStripMenuItem_Click(null, null);
+        //                 }
+        //                 else
+        //                 {
+        //                     gimbalVideoMiniToolStripMenuItem_Click(null, null);
+        //                 }
+        //             };
+        //             gimbalVideoClose.Click += (s, ev) =>
+        //             {
+        //                 gimbalVideoMiniToolStripMenuItem_Click(null, null);
+        //                 gimbalVideoControl.Visible = false;
+        //                 gimbalVideoControl.Stop();
+        //                 gimbalVideoControl.Dispose();
+        //             };
+        //         }
+        //         // Check if we need to construct a gimbalVideoControl
+        //         if (_gimbalVideoControl == null || _gimbalVideoControl.IsDisposed)
+        //         {
+        //             _gimbalVideoControl = new GimbalVideoControl(this);
+        //             _gimbalVideoControl.Dock = DockStyle.Fill;
 
-                    // Add option to show/hide minimap
-                    gimbalVideoShowMiniMap.CheckOnClick = true;
-                    gimbalVideoShowMiniMap.Checked = true;
+        //             // Add option to show/hide minimap
+        //             gimbalVideoShowMiniMap.CheckOnClick = true;
+        //             gimbalVideoShowMiniMap.Checked = true;
 
-                    _gimbalVideoControl.VideoBoxContextMenu.Items.Add(gimbalVideoShowMiniMap);
-                    _gimbalVideoControl.VideoBoxContextMenu.Items.Add(gimbalVideoSwapPosition);
-                    _gimbalVideoControl.VideoBoxContextMenu.Items.Add(gimbalVideoClose);
-                }
+        //             _gimbalVideoControl.VideoBoxContextMenu.Items.Add(gimbalVideoShowMiniMap);
+        //             _gimbalVideoControl.VideoBoxContextMenu.Items.Add(gimbalVideoSwapPosition);
+        //             _gimbalVideoControl.VideoBoxContextMenu.Items.Add(gimbalVideoClose);
+        //         }
 
-                return _gimbalVideoControl;
-            }
-        }
+        //         return _gimbalVideoControl;
+        //     }
+        // }
 
         // Resize the mini video or mini map when the container is resized
-        private void splitContainer1_Panel2_Resize(object sender, EventArgs e)
-        {
-            bool miniVideo = splitContainer1.Panel2.Contains(_gimbalVideoControl)
-                && _gimbalVideoControl?.Dock == DockStyle.None
-                && _gimbalVideoControl.Visible;
-            bool miniMap = gMapControl1.Dock == DockStyle.None && gMapControl1.Visible;
-            if (miniVideo)
-            {
-                var width = (int)(splitContainer1.Panel2.Width * 0.3);
-                var height = (int)(splitContainer1.Panel2.Height * 0.3);
-                var aspectRatio = _gimbalVideoControl.VideoBox.Image.Width / (double)_gimbalVideoControl.VideoBox.Image.Height;
-                (width, height) = (
-                    Math.Min(width, (int)(height * aspectRatio)),
-                    Math.Min(height, (int)(width / aspectRatio))
-                );
-                var x = splitContainer1.Panel2.Width - width - TRK_zoom.Width;
-                var y = splitContainer1.Panel2.Height - height;
-                _gimbalVideoControl.Location = new Point(x, y);
-                _gimbalVideoControl.Size = new Size(width, height);
-            }
-            else if (miniMap)
-            {
-                var width = (int)(splitContainer1.Panel2.Width * 0.3);
-                var height = (int)(splitContainer1.Panel2.Height * 0.3);
-                var x = splitContainer1.Panel2.Width - width;
-                var y = splitContainer1.Panel2.Height - height;
-                gMapControl1.Location = new Point(x, y);
-                gMapControl1.Size = new Size(width, height);
-            }
+        // private void splitContainer1_Panel2_Resize(object sender, EventArgs e)
+        // {
+        //     bool miniVideo = splitContainer1.Panel2.Contains(_gimbalVideoControl)
+        //         && _gimbalVideoControl?.Dock == DockStyle.None
+        //         && _gimbalVideoControl.Visible;
+        //     bool miniMap = gMapControl1.Dock == DockStyle.None && gMapControl1.Visible;
+        //     if (miniVideo)
+        //     {
+        //         var width = (int)(splitContainer1.Panel2.Width * 0.3);
+        //         var height = (int)(splitContainer1.Panel2.Height * 0.3);
+        //         var aspectRatio = _gimbalVideoControl.VideoBox.Image.Width / (double)_gimbalVideoControl.VideoBox.Image.Height;
+        //         (width, height) = (
+        //             Math.Min(width, (int)(height * aspectRatio)),
+        //             Math.Min(height, (int)(width / aspectRatio))
+        //         );
+        //         var x = splitContainer1.Panel2.Width - width - TRK_zoom.Width;
+        //         var y = splitContainer1.Panel2.Height - height;
+        //         _gimbalVideoControl.Location = new Point(x, y);
+        //         _gimbalVideoControl.Size = new Size(width, height);
+        //     }
+        //     else if (miniMap)
+        //     {
+        //         var width = (int)(splitContainer1.Panel2.Width * 0.3);
+        //         var height = (int)(splitContainer1.Panel2.Height * 0.3);
+        //         var x = splitContainer1.Panel2.Width - width;
+        //         var y = splitContainer1.Panel2.Height - height;
+        //         gMapControl1.Location = new Point(x, y);
+        //         gMapControl1.Size = new Size(width, height);
+        //     }
 
-            Invalidate();
-        }
+        //     Invalidate();
+        // }
 
-        private void gimbalVideoFullSizedToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            // If the gimbal video is in its own window, close it
-            var containingForm = gimbalVideoControl.Parent as Form;
+        // private void gimbalVideoFullSizedToolStripMenuItem_Click(object sender, EventArgs e)
+        // {
+        //     // If the gimbal video is in its own window, close it
+        //     var containingForm = gimbalVideoControl.Parent as Form;
 
-            // Fill the panel with the gimbal video control
-            splitContainer1.Panel2.Controls.Add(gimbalVideoControl);
-            gimbalVideoControl.Dock = DockStyle.Fill;
-            gimbalVideoControl.BringToFront(); // Place on top of all map overlay controls
-            gimbalVideoControl.Visible = true;
+        //     // Fill the panel with the gimbal video control
+        //     splitContainer1.Panel2.Controls.Add(gimbalVideoControl);
+        //     gimbalVideoControl.Dock = DockStyle.Fill;
+        //     gimbalVideoControl.BringToFront(); // Place on top of all map overlay controls
+        //     gimbalVideoControl.Visible = true;
 
-            // Add the map panel to the mini map panel
-            gMapControl1.Dock = DockStyle.None;
-            gMapControl1.BringToFront();
-            gMapControl1.Visible = gimbalVideoShowMiniMap.Checked;
+        //     // Add the map panel to the mini map panel
+        //     gMapControl1.Dock = DockStyle.None;
+        //     gMapControl1.BringToFront();
+        //     gMapControl1.Visible = gimbalVideoShowMiniMap.Checked;
 
-            // Call resize to correctly position the mini map
-            splitContainer1_Panel2_Resize(null, null);
+        //     // Call resize to correctly position the mini map
+        //     splitContainer1_Panel2_Resize(null, null);
 
-            // Reconfigure context menu controls
-            gimbalVideoShowMiniMap.Visible = true;
-            gimbalVideoSwapPosition.Visible = gimbalVideoShowMiniMap.Checked;
-            gimbalVideoClose.Visible = true;
+        //     // Reconfigure context menu controls
+        //     gimbalVideoShowMiniMap.Visible = true;
+        //     gimbalVideoSwapPosition.Visible = gimbalVideoShowMiniMap.Checked;
+        //     gimbalVideoClose.Visible = true;
 
-            containingForm?.Close();
-        }
+        //     containingForm?.Close();
+        // }
 
-        private void gimbalVideoMiniToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            // If the gimbal video is in its own window, close it
-            var containingForm = gimbalVideoControl.Parent as Form;
+        // private void gimbalVideoMiniToolStripMenuItem_Click(object sender, EventArgs e)
+        // {
+        //     // If the gimbal video is in its own window, close it
+        //     var containingForm = gimbalVideoControl.Parent as Form;
 
-            // Fill the panel with the map
-            gMapControl1.Dock = DockStyle.Fill;
-            gMapControl1.Visible = true;
-            gMapControl1.SendToBack(); // Behind the map overlay controls
+        //     // Fill the panel with the map
+        //     gMapControl1.Dock = DockStyle.Fill;
+        //     gMapControl1.Visible = true;
+        //     gMapControl1.SendToBack(); // Behind the map overlay controls
 
-            // Add the gimbal video control to the mini video panel
-            splitContainer1.Panel2.Controls.Add(gimbalVideoControl);
-            gimbalVideoControl.Dock = DockStyle.None;
-            gimbalVideoControl.BringToFront();
-            gimbalVideoControl.Visible = true;
+        //     // Add the gimbal video control to the mini video panel
+        //     splitContainer1.Panel2.Controls.Add(gimbalVideoControl);
+        //     gimbalVideoControl.Dock = DockStyle.None;
+        //     gimbalVideoControl.BringToFront();
+        //     gimbalVideoControl.Visible = true;
 
-            // Call resize to correctly position the mini video
-            splitContainer1_Panel2_Resize(null, null);
+        //     // Call resize to correctly position the mini video
+        //     splitContainer1_Panel2_Resize(null, null);
 
-            // Reconfigure context menu controls
-            gimbalVideoShowMiniMap.Visible = false;
-            gimbalVideoSwapPosition.Visible = true;
-            gimbalVideoClose.Visible = true;
+        //     // Reconfigure context menu controls
+        //     gimbalVideoShowMiniMap.Visible = false;
+        //     gimbalVideoSwapPosition.Visible = true;
+        //     gimbalVideoClose.Visible = true;
 
-            containingForm?.Close();
-        }
+        //     containingForm?.Close();
+        // }
 
-        private void gimbalVideoPopOutToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            // See if the gimbal video is already in its own window
-            if (gimbalVideoControl.Parent is Form)
-            {
-                // Remove from the form and dispose the form
-                // (in case the form has ended up off screen or something)
-                var ParentForm = gimbalVideoControl.Parent as Form;
-                ParentForm.Controls.Remove(gimbalVideoControl);
-                ParentForm.Close();
-            }
+        // private void gimbalVideoPopOutToolStripMenuItem_Click(object sender, EventArgs e)
+        // {
+        //     // See if the gimbal video is already in its own window
+        //     if (gimbalVideoControl.Parent is Form)
+        //     {
+        //         // Remove from the form and dispose the form
+        //         // (in case the form has ended up off screen or something)
+        //         var ParentForm = gimbalVideoControl.Parent as Form;
+        //         ParentForm.Controls.Remove(gimbalVideoControl);
+        //         ParentForm.Close();
+        //     }
 
-            // Restore the map to full sized if necessary
-            gMapControl1.Dock = DockStyle.Fill;
-            gMapControl1.SendToBack();
-            gMapControl1.Visible = true;
+        //     // Restore the map to full sized if necessary
+        //     gMapControl1.Dock = DockStyle.Fill;
+        //     gMapControl1.SendToBack();
+        //     gMapControl1.Visible = true;
 
-            var form = new Form()
-            {
-                Text = "Gimbal Control",
-                Size = new Size(600, 400),
-                StartPosition = FormStartPosition.CenterParent
-            };
-            form.Controls.Add(gimbalVideoControl);
-            gimbalVideoControl.Dock = DockStyle.Fill;
-            gimbalVideoControl.Visible = true;
+        //     var form = new Form()
+        //     {
+        //         Text = "Gimbal Control",
+        //         Size = new Size(600, 400),
+        //         StartPosition = FormStartPosition.CenterParent
+        //     };
+        //     form.Controls.Add(gimbalVideoControl);
+        //     gimbalVideoControl.Dock = DockStyle.Fill;
+        //     gimbalVideoControl.Visible = true;
 
-            // Reconfigure context menu controls
-            gimbalVideoShowMiniMap.Visible = false;
-            gimbalVideoSwapPosition.Visible = false;
-            gimbalVideoClose.Visible = false;
+        //     // Reconfigure context menu controls
+        //     gimbalVideoShowMiniMap.Visible = false;
+        //     gimbalVideoSwapPosition.Visible = false;
+        //     gimbalVideoClose.Visible = false;
 
-            // Pass `this` to keep the pop-out always on top
-            form.Show(this);
-        }
+        //     // Pass `this` to keep the pop-out always on top
+        //     form.Show(this);
+        // }
 
         private void imHereToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -7007,13 +7018,13 @@ namespace MissionPlanner.GCSViews
             }
             else
             {
-                var message = "Please Connect To Gimbal";
-                CustomMessageBox.Show(
-                    message,
-                    "Connection Status",
-                    MessageBoxButtons.OK,
-                    CustomMessageBox.MessageBoxIcon.Error
-                );
+                // var message = "Please Connect To Gimbal";
+                // CustomMessageBox.Show(
+                //     message,
+                //     "Connection Status",
+                //     MessageBoxButtons.OK,
+                //     CustomMessageBox.MessageBoxIcon.Error
+                // );
                 Console.WriteLine("Stream is not writable.");
             }
         }
@@ -7549,18 +7560,18 @@ namespace MissionPlanner.GCSViews
 
                 var Tag = pnt.Tag + "\n" + pnt.ToString();
                 // Console.WriteLine(pnt + item.Tag);
-                if(item.Tag.ToString().Contains("Artillery"))
+                if(item.Tag.ToString().Contains("Artillery") || item.Tag.ToString().Contains("artillery"))
                 {
                     dooafPoints.Insert(0, new DooafCoordinates(pnt.Lat, pnt.Lng, pnt.Alt));
                     ArtilleryFlag = true;
                 }
-                if (item.Tag.ToString().Contains("Home"))
+                if (item.Tag.ToString().Contains("Home") || item.Tag.ToString().Contains("home"))
                 {
                     if(dooafPoints.Count > 0)dooafPoints.Insert(1, new DooafCoordinates(pnt.Lat, pnt.Lng, pnt.Alt));
                     else dooafPoints.Add(new DooafCoordinates(pnt.Lat, pnt.Lng, pnt.Alt));
                     HomeFlag = true;
                 }
-                if(item.Tag.ToString().Contains("Target"))
+                if(item.Tag.ToString().Contains("Target") || item.Tag.ToString().Contains("target"))
                 {
                     if(dooafPoints.Count > 1) dooafPoints.Insert(2, new DooafCoordinates(pnt.Lat, pnt.Lng, pnt.Alt));
                     else if(dooafPoints.Count == 1) dooafPoints.Insert(1, new DooafCoordinates(pnt.Lat, pnt.Lng, pnt.Alt));
@@ -7603,10 +7614,16 @@ namespace MissionPlanner.GCSViews
                 var doOffval = latlon_to_xy_approx(targetPointLat2, targetPointLon2, targetPointLat1, targetPointLon1,bearing);
                 double roundedDooafX = Math.Round(doOffval[0], 4);
                 double roundedDooafY = Math.Round(doOffval[1], 4);
-                var dooffx = "DOOAF X : " + roundedDooafX.ToString() + " m";
-                var dooffy = "DOOAF Y : " + roundedDooafY.ToString() + " m";
-                (distance, bearing) = DistanceAndBearing(targetPointLat2, targetPointLon2, targetPointLat1, targetPointLon1);
-                var dooffdistance = "Distance : " + distance.ToString() + " m";
+                // roundedDooafX = 30.292737483;
+                // roundedDooafY = 29.26193993;
+                roundedDooafX = Math.Round(roundedDooafX,2);
+                roundedDooafY = Math.Round(roundedDooafY,2);
+                var dooffx = "DOOAFX: " + roundedDooafX.ToString() + " m";
+                var dooffy = "DOOAFY: " + roundedDooafY.ToString() + " m";
+                (double distance1, double bearing1) = DistanceAndBearing(targetPointLat2, targetPointLon2, targetPointLat1, targetPointLon1);
+                // distance1 = 30.20283839;
+                int distance2 = (int)distance1;
+                var dooffdistance = "Distance: " + distance2.ToString() + " m";
                 if (DooafX.InvokeRequired){
                     DooafX.Invoke((MethodInvoker)delegate
                     {
@@ -7659,7 +7676,7 @@ namespace MissionPlanner.GCSViews
                 var drone_longitude = coords1.Lng;
 
                 var (distance, targetYaw) = DistanceAndBearing(drone_latitude, drone_longitude, target_latitude, target_longitude);
-                var targetDistance = "Target Distance : " + distance.ToString() + " m";
+                var targetDistance = "Distance : " + distance.ToString() + " m";
                 if (TargetDistance.InvokeRequired)
                 {
                     TargetDistance.Invoke((MethodInvoker)delegate
@@ -7717,7 +7734,6 @@ namespace MissionPlanner.GCSViews
 
         public void GremsyStartTracking(float x, float y)
         {
-            // MainV2.comPort.MAV.MAV_COMP_ID_CAMERA
             Console.WriteLine("Start Tracking Command Sent {0}",(byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_CAMERA);
             MainV2.comPort.doCommand((byte)MainV2.comPort.sysidcurrent, (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_CAMERA,
                     MAVLink.MAV_CMD.CAMERA_TRACK_POINT,x,y ,(float)0.1,0, 0, 0,0,false);

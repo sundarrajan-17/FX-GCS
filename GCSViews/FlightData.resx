@@ -138,7 +138,7 @@
     <value>0, 0, 0, 0</value>
   </data>
   <data name="SubMainLeft.Orientation" type="System.Windows.Forms.Orientation, System.Windows.Forms">
-    <value>Horizontal</value>
+    <value>Vertical</value>
   </data>
   <metadata name="contextMenuStripHud.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>714, 17</value>
@@ -255,7 +255,7 @@
     <value>4, 5, 4, 5</value>
   </data>
   <data name="hud1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>298, 216</value>
+    <value>120, 120</value>
   </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="hud1.TabIndex" type="System.Int32, mscorlib">
@@ -5314,12 +5314,12 @@
   <data name="&gt;&gt;SubMainLeft.Panel2.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="SubMainLeft.Size" type="System.Drawing.Size, System.Drawing">
+  <!-- <data name="SubMainLeft.Size" type="System.Drawing.Size, System.Drawing">
     <value>300, 447</value>
   </data>
   <data name="SubMainLeft.SplitterDistance" type="System.Int32, mscorlib">
-    <value>218</value>
-  </data>
+    <value>250</value>
+  </data> -->
   <data name="SubMainLeft.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
@@ -5330,7 +5330,7 @@
     <value>System.Windows.Forms.SplitContainer, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;SubMainLeft.Parent" xml:space="preserve">
-    <value>MainH.Panel1</value>
+    <value>BottomSplit.Panel2</value>
   </data>
   <data name="&gt;&gt;SubMainLeft.ZOrder" xml:space="preserve">
     <value>0</value>
@@ -6083,7 +6083,7 @@
     <value>NoControl</value>
   </data>
   <data name="CHK_autopan.Location" type="System.Drawing.Point, System.Drawing">
-    <value>325, 0</value>
+    <value>260, 0</value>
   </data>
   <data name="CHK_autopan.Size" type="System.Drawing.Size, System.Drawing">
     <value>83, 20</value>
@@ -6145,6 +6145,75 @@
   <data name="&gt;&gt;CB_tuning.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
+    <!-- <data name="DooafX.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Left</value>
+  </data>
+  <data name="DooafX.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="DooafX.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="DooafX.Location" type="System.Drawing.Point, System.Drawing">
+    <value>410, 0</value>
+  </data>
+  <data name="DooafX.Size" type="System.Drawing.Size, System.Drawing">
+    <value>70, 20</value>
+  </data>
+  <data name="DooafX.TabIndex" type="System.Int32, mscorlib">
+    <value>62</value>
+  </data>
+  <data name="DooafX.Text" xml:space="preserve">
+    <value>DOOAF X: 0.00 m</value>
+  </data>
+  <data name="DooafX.ToolTip" xml:space="preserve">
+    <value>Show the tunning graph, chowing target attitudes vs actual</value>
+  </data>
+  <data name="&gt;&gt;DooafX.Name" xml:space="preserve">
+    <value>DO-OAF X</value>
+  </data>
+  <data name="&gt;&gt;DooafX.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;DooafX.Parent" xml:space="preserve">
+    <value>panel1</value>
+  </data>
+  <data name="&gt;&gt;DooafX.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+    <data name="DooafY.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Left</value>
+  </data>
+  <data name="DooafY.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="DooafY.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="DooafY.Location" type="System.Drawing.Point, System.Drawing">
+    <value>480, 0</value>
+  </data>
+  <data name="DooafY.Size" type="System.Drawing.Size, System.Drawing">
+    <value>70, 20</value>
+  </data>
+  <data name="DooafY.TabIndex" type="System.Int32, mscorlib">
+    <value>62</value>
+  </data>
+  <data name="DooafY.Text" xml:space="preserve">
+    <value>DOOAF Y: 0.0 m</value>
+  </data>
+  <data name="&gt;&gt;DooafY.Name" xml:space="preserve">
+    <value>DO-OAF Y</value>
+  </data>
+  <data name="&gt;&gt;DooafY.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;DooafY.Parent" xml:space="preserve">
+    <value>panel1</value>
+  </data>
+  <data name="&gt;&gt;DooafY.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data> -->
   <data name="panel1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
   </data>
@@ -6194,7 +6263,7 @@
     <value>System.Windows.Forms.TableLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;tableMap.Parent" xml:space="preserve">
-    <value>MainH.Panel2</value>
+    <value>TopSplit.Panel2</value>
   </data>
   <data name="&gt;&gt;tableMap.ZOrder" xml:space="preserve">
     <value>0</value>

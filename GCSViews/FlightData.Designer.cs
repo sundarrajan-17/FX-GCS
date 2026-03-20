@@ -317,11 +317,12 @@ namespace MissionPlanner.GCSViews
             // 
             // MainH.Panel1
             // 
-            this.MainH.Panel1.Controls.Add(this.SubMainLeft);
+            // this.MainH.Panel1.Controls.Add(this.SubMainLeft);
             // 
             // MainH.Panel2
             // 
-            this.MainH.Panel2.Controls.Add(this.tableMap);
+            // this.MainH.Panel2.Controls.Add(this.tableMap);
+            this.MainH.Orientation = Orientation.Horizontal;
             // 
             // SubMainLeft
             // 
@@ -475,7 +476,7 @@ namespace MissionPlanner.GCSViews
             this.setAspectRatioToolStripMenuItem,
             this.userItemsToolStripMenuItem,
             this.russianHudToolStripMenuItem,
-            this.swapWithMapToolStripMenuItem,
+            // this.swapWithMapToolStripMenuItem,
             this.groundColorToolStripMenuItem,
             this.setBatteryCellCountToolStripMenuItem,
             this.showIconsToolStripMenuItem});
@@ -2122,7 +2123,7 @@ namespace MissionPlanner.GCSViews
             this.BUT_GimbalVideo.Name = "BUT_GimbalVideo";
             this.BUT_GimbalVideo.TextColorNotEnabled = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(87)))), ((int)(((byte)(4)))));
             this.BUT_GimbalVideo.UseVisualStyleBackColor = true;
-            this.BUT_GimbalVideo.Click += new System.EventHandler(this.gimbalVideoPopOutToolStripMenuItem_Click);
+            // this.BUT_GimbalVideo.Click += new System.EventHandler(this.gimbalVideoPopOutToolStripMenuItem_Click);
             // 
             // groupBoxRoll
             // 
@@ -2541,7 +2542,7 @@ namespace MissionPlanner.GCSViews
             this.splitContainer1.Panel2.Controls.Add(this.lbl_hdop);
             this.splitContainer1.Panel2.Controls.Add(this.lbl_sats);
             this.splitContainer1.Panel2.Controls.Add(this.gMapControl1);
-            this.splitContainer1.Panel2.Resize += new System.EventHandler(this.splitContainer1_Panel2_Resize);
+            // this.splitContainer1.Panel2.Resize += new System.EventHandler(this.splitContainer1_Panel2_Resize);
             // 
             // zg1
             // 
@@ -2572,7 +2573,7 @@ namespace MissionPlanner.GCSViews
             this.takeOffToolStripMenuItem,
             this.onOffCameraOverlapToolStripMenuItem,
             this.jumpToTagToolStripMenuItem,
-            this.gimbalVideoToolStripMenuItem,
+            // this.gimbalVideoToolStripMenuItem,
             this.imHereToolStripMenuItem});
             this.contextMenuStripMap.Name = "contextMenuStrip1";
             resources.ApplyResources(this.contextMenuStripMap, "contextMenuStripMap");
@@ -2706,19 +2707,19 @@ namespace MissionPlanner.GCSViews
             // 
             this.gimbalVideoFullSizedToolStripMenuItem.Name = "gimbalVideoFullSizedToolStripMenuItem";
             resources.ApplyResources(this.gimbalVideoFullSizedToolStripMenuItem, "gimbalVideoFullSizedToolStripMenuItem");
-            this.gimbalVideoFullSizedToolStripMenuItem.Click += new System.EventHandler(this.gimbalVideoFullSizedToolStripMenuItem_Click);
+            // this.gimbalVideoFullSizedToolStripMenuItem.Click += new System.EventHandler(this.gimbalVideoFullSizedToolStripMenuItem_Click);
             // 
             // gimbalVideoMiniToolStripMenuItem
             // 
             this.gimbalVideoMiniToolStripMenuItem.Name = "gimbalVideoMiniToolStripMenuItem";
             resources.ApplyResources(this.gimbalVideoMiniToolStripMenuItem, "gimbalVideoMiniToolStripMenuItem");
-            this.gimbalVideoMiniToolStripMenuItem.Click += new System.EventHandler(this.gimbalVideoMiniToolStripMenuItem_Click);
+            // this.gimbalVideoMiniToolStripMenuItem.Click += new System.EventHandler(this.gimbalVideoMiniToolStripMenuItem_Click);
             // 
             // gimbalVideoPopOutToolStripMenuItem
             // 
             this.gimbalVideoPopOutToolStripMenuItem.Name = "gimbalVideoPopOutToolStripMenuItem";
             resources.ApplyResources(this.gimbalVideoPopOutToolStripMenuItem, "gimbalVideoPopOutToolStripMenuItem");
-            this.gimbalVideoPopOutToolStripMenuItem.Click += new System.EventHandler(this.gimbalVideoPopOutToolStripMenuItem_Click);
+            // this.gimbalVideoPopOutToolStripMenuItem.Click += new System.EventHandler(this.gimbalVideoPopOutToolStripMenuItem_Click);
             // 
             // label1
             // 
@@ -2908,7 +2909,7 @@ namespace MissionPlanner.GCSViews
             resources.ApplyResources(this.panel1, "panel1");
             this.panel1.Controls.Add(this.coords1);
             this.panel1.Controls.Add(this.CHK_autopan);
-            this.panel1.Controls.Add(this.CB_tuning);
+            // this.panel1.Controls.Add(this.CB_tuning);
             this.panel1.Name = "panel1";
             // 
             // coords1
@@ -2946,29 +2947,31 @@ namespace MissionPlanner.GCSViews
             // Dooaf-x
             //
             this.DooafX = new System.Windows.Forms.Label();
-            this.DooafX.AutoSize = true;
+            // resources.ApplyResources(this.DooafX, "DO-OAF X");
+            // this.DooafX.AutoSize = true;
             this.DooafX.Name = "DO-OAF X";
-            this.DooafX.Text = "DOOAF X : 0.00 m";
+            this.DooafX.Text = "DOOAF X: 0.00 m";
             this.DooafX.ForeColor = System.Drawing.Color.White;
-            this.DooafX.Location = new System.Drawing.Point(this.CHK_autopan.Right + 20, this.CHK_autopan.Top + 3);
+            this.DooafX.Location = new System.Drawing.Point(this.CHK_autopan.Right + 2, this.CHK_autopan.Top + 3);
             //
             // Dooaf-y
             //
             this.DooafY = new System.Windows.Forms.Label();
-            this.DooafY.AutoSize = true;
+            // resources.ApplyResources(this.DooafY, "DO-OAF Y");
+            // this.DooafY.AutoSize = true;
             this.DooafY.Name = "DO-OAF Y";
-            this.DooafY.Text = "DOOAF Y : 0.00 m";
+            this.DooafY.Text = "DOOAF Y: 0.00 m";
             this.DooafY.ForeColor = System.Drawing.Color.White;
-            this.DooafY.Location = new System.Drawing.Point(this.DooafX.Right + 60, this.CHK_autopan.Top + 3);
+            this.DooafY.Location = new System.Drawing.Point(this.DooafX.Right + 11, this.CHK_autopan.Top + 3);
             //
             // targetDistance
             //
             this.TargetDistance = new System.Windows.Forms.Label();
-            this.TargetDistance.AutoSize = true;
-            this.TargetDistance.Name = "Target Distance";
-            this.TargetDistance.Text = "Target Distance : 0.00 m";
+            // this.TargetDistance.AutoSize = true;
+            this.TargetDistance.Name = "Distance";
+            this.TargetDistance.Text = "Distance: 0.00 m";
             this.TargetDistance.ForeColor = System.Drawing.Color.White;
-            this.TargetDistance.Location = new System.Drawing.Point(this.DooafY.Right + 60, this.CHK_autopan.Top + 3);
+            this.TargetDistance.Location = new System.Drawing.Point(this.DooafY.Right + 11, this.CHK_autopan.Top + 3);
             //
             this.panel1.Controls.Add(this.DooafX);
             this.panel1.Controls.Add(this.DooafY);
@@ -3000,6 +3003,36 @@ namespace MissionPlanner.GCSViews
             // bindingSourceStatusTab
             // 
             this.bindingSourceStatusTab.DataSource = typeof(MissionPlanner.CurrentState);
+            //
+            // split container
+            //
+            this.TopSplit = new System.Windows.Forms.SplitContainer();
+            this.TopSplit.Dock = DockStyle.Fill;
+            this.TopSplit.Orientation = Orientation.Vertical;
+            this.TopSplit.SplitterDistance = (int)(this.TopSplit.Width * 0.56);
+            this.TopSplit.IsSplitterFixed = true;
+            // this.SubMainLeft.SplitterDistance = (int)(this.SubMainLeft.Width * 0.45);
+            this.TopSplit.Panel2.Controls.Add(this.tableMap);
+            //
+            // MainH LeftPanel
+            //
+            this.BottomSplit =new System.Windows.Forms.SplitContainer();
+            this.BottomSplit.Dock = DockStyle.Fill;
+            this.BottomSplit.Orientation = Orientation.Vertical;
+            this.BottomSplit.SplitterDistance = (int)(this.BottomSplit.Width * 0.40);
+            // this.BottomSplit.IsSplitterFixed = true;
+            //
+            // MainH Bottom
+            //
+            // this.SubMainLeft.SplitterDistance = (int)(this.SubMainLeft.Width * 0.25);
+            this.BottomSplit.Panel2.Controls.Add(this.SubMainLeft);
+            //
+            // MainH Panel
+            //
+            this.MainH.SplitterDistance = (int)(MainH.Height * 0.65);
+            // this.MainH.IsSplitterFixed = true;
+            this.MainH.Panel1.Controls.Add(this.TopSplit);
+            this.MainH.Panel2.Controls.Add(this.BottomSplit);
             // 
             // FlightData
             // 
@@ -3089,6 +3122,8 @@ namespace MissionPlanner.GCSViews
         private System.Windows.Forms.Timer ZedGraphTimer;
         private System.Windows.Forms.SplitContainer MainH;
         private System.Windows.Forms.SplitContainer SubMainLeft;
+        private System.Windows.Forms.SplitContainer TopSplit;
+        private System.Windows.Forms.SplitContainer BottomSplit;
         private System.Windows.Forms.ToolStripMenuItem goHereToolStripMenuItem;
         private Controls.HUD hud1;
         private Controls.MyButton BUT_clear_track;

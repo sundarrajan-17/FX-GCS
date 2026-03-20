@@ -24,7 +24,7 @@ namespace MissionPlanner.Controls
         {
             _cameraFactories = new Dictionary<string, Func<UserControl>>
             {
-                { "Viewpro", () => new ViewproControl(this) },
+                { "XagCam", () => new ViewproControl(this) },
                 { "Rhythm", () => new GremsyControl(this) },
                 // { "SIYI", () => new SiyiControl() },
                 // { "Custom", () => new CustomControl() },
@@ -33,7 +33,7 @@ namespace MissionPlanner.Controls
 
             cmbCameraSelect.Items.AddRange(new object[]
             {
-                "Viewpro",
+                "XagCam",
                 "Rhythm",
                 // "SIYI",
                 // "Custom",
