@@ -275,9 +275,8 @@ namespace MissionPlanner
             if (IconFile != null)
                 Splash.Icon = Icon.FromHandle(((Bitmap) IconFile).GetHicon());
 
-            string strVersion = File.Exists("version.txt")
-                ? File.ReadAllText("version.txt")
-                : System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();
+            string strVersion = "1.0";
+            Console.WriteLine("String Versionnnnnn" + strVersion);
             Splash.Text = name + " " + Application.ProductVersion + " build " + strVersion;
             Console.WriteLine("Splash.Show()");
             Splash.Show();

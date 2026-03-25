@@ -321,29 +321,46 @@ namespace MissionPlanner.Controls
         public void Stop()
         {
             // _stream.OnNewImage -= RenderFrame;
-            _stream.Stop();
+            try
+            {
+                _stream.Stop();
+            }
+            catch (Exception ex)
+            {
+                // log.Debug(ex);
+                CustomMessageBox.Show("Unable To Stop Stream Try Again", "Video Stream Status");
+            }
         }
 
         private void videoStreamToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            GStreamer.GstLaunch = GStreamer.LookForGstreamer();
 
-            if (!GStreamer.GstLaunchExists)
+            try
             {
-                GStreamerUI.DownloadGStreamer();
+                GStreamer.GstLaunch = GStreamer.LookForGstreamer();
 
                 if (!GStreamer.GstLaunchExists)
                 {
-                    return;
+                    GStreamerUI.DownloadGStreamer();
+
+                    if (!GStreamer.GstLaunchExists)
+                    {
+                        return;
+                    }
+                }
+                Console.WriteLine("Selected Cameraaaaa {0}",this.selectedCameraController.SelectedCamera);
+                if(this.selectedCameraController.SelectedCamera == "XAGCAM2")
+                {
+                    _stream.Start("rtspsrc location=rtsp://192.168.199.119:8554/eo latency=0 dulation=-1 ! decodebin ! videoconvert ! video/x-raw,format=BGRA ! appsink name=outsink");
+                }else
+                {
+                    _stream.Start("rtspsrc location=rtsp://192.168.199.119:554/stream0 latency=0 dulation=-1 ! decodebin ! videoconvert ! video/x-raw,format=BGRA ! appsink name=outsink");
                 }
             }
-            Console.WriteLine("Selected Cameraaaaa {0}",this.selectedCameraController.SelectedCamera);
-            if(this.selectedCameraController.SelectedCamera == "Rhythm")
+            catch (Exception ex)
             {
-                _stream.Start("rtspsrc location=rtsp://192.168.199.119:8554/eo latency=0 dulation=-1 ! decodebin ! videoconvert ! video/x-raw,format=BGRA ! appsink name=outsink");
-            }else
-            {
-                _stream.Start("rtspsrc location=rtsp://192.168.199.119:554/stream0 latency=0 dulation=-1 ! decodebin ! videoconvert ! video/x-raw,format=BGRA ! appsink name=outsink");
+                // log.Debug(ex);
+                CustomMessageBox.Show("Unable To Start Stream Try Again", "Video Stream Status");
             }
             // _stream.Start("rtspsrc location=rtsp://192.168.199.119:554/stream0 latency=0 dulation=-1 ! decodebin ! videoconvert ! video/x-raw,format=BGRA ! appsink name=outsink");
         }
@@ -555,7 +572,7 @@ namespace MissionPlanner.Controls
             yaw_lock = locked;
             yawLockToolStripMenuItem.Checked = locked;
             // selectedGimbalManager?.SetRatesCommandAsync(previousPitchRate, previousYawRate, yaw_lock, selectedGimbalID);
-            if(this.selectedCameraController.SelectedCamera == "Rhythm")
+            if(this.selectedCameraController.SelectedCamera == "XAGCAM2")
             {
                 // flightData.GremsyHomeCommand();
             }
@@ -582,7 +599,7 @@ namespace MissionPlanner.Controls
         {
             Console.WriteLine("Point down");
             // selectedGimbalManager?.SetAnglesCommandAsync(-90, 0, false, selectedGimbalID);
-            if(this.selectedCameraController.SelectedCamera == "Rhythm")
+            if(this.selectedCameraController.SelectedCamera == "XAGCAM2")
             {
                 // flightData.GremsyPointDownCommand();
             }
@@ -599,7 +616,7 @@ namespace MissionPlanner.Controls
             Console.WriteLine("Home");
             // var loc = MainV2.comPort?.MAV?.cs.HomeLocation;
             // selectedGimbalManager?.SetROILocationAsync(loc.Lat, loc.Lng, loc.Alt, frame: MAV_FRAME.GLOBAL);
-            if(this.selectedCameraController.SelectedCamera == "Rhythm")
+            if(this.selectedCameraController.SelectedCamera == "XAGCAM2")
             {
                 flightData.GremsyHomeCommand();
             }
@@ -665,7 +682,7 @@ namespace MissionPlanner.Controls
             int x = (int)(xNorm * (width));
             int y = (int)(yNorm * (height));
 
-            if(this.selectedCameraController.SelectedCamera == "Rhythm")
+            if(this.selectedCameraController.SelectedCamera == "XAGCAM2")
             {
                 float x01 = ((float)xNorm + 1f) / 2f;
                 float y01 = ((float)yNorm + 1f) / 2f;
