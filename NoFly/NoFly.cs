@@ -2,8 +2,8 @@
 using GMap.NET;
 using GMap.NET.WindowsForms;
 using Ionic.Zip;
-using MissionPlanner.Maps;
-using MissionPlanner.Utilities;
+using XagSurveillanceGCS.Maps;
+using XagSurveillanceGCS.Utilities;
 using SharpKml.Dom;
 using System;
 using System.Collections.Generic;
@@ -11,7 +11,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 
-namespace MissionPlanner.NoFly
+namespace XagSurveillanceGCS.NoFly
 {
     public class NoFly
     {

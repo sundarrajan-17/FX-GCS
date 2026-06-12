@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.txt_File = new System.Windows.Forms.TextBox();
-            this.but_browse = new MissionPlanner.Controls.MyButton();
+            this.but_browse = new XagSurveillanceGCS.Controls.MyButton();
             this.SuspendLayout();
             // 
             // txt_File
@@ -64,6 +64,6 @@
         #endregion
 
         private System.Windows.Forms.TextBox txt_File;
-        private MissionPlanner.Controls.MyButton but_browse;
+        private XagSurveillanceGCS.Controls.MyButton but_browse;
     }
 }

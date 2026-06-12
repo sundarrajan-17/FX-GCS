@@ -1,11 +1,11 @@
 
 set PATH=%PATH%;C:\Program Files\Microsoft Visual Studio\2022\Community\Msbuild\Current\Bin;C:\Program Files (x86)\Microsoft Visual Studio\2019\Preview\MSBuild\Current\Bin;C:\Program Files (x86)\Microsoft Visual Studio\Preview\Community\MSBuild\15.0\Bin;C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\MSBuild\15.0\Bin
 
-del bin\release\MissionPlannerBeta.zip
+del bin\release\XagSurveillanceGCSBeta.zip
 
-.nuget\nuget.exe restore MissionPlanner.sln
+.nuget\nuget.exe restore XagSurveillanceGCS.sln
 
-MSBuild.exe MissionPlanner.sln /restore /m /p:Configuration=Release /verbosity:n
+MSBuild.exe XagSurveillanceGCS.sln /restore /m /p:Configuration=Release /verbosity:n
 
 echo create appx?
 pause
@@ -18,10 +18,10 @@ cd ..
 cd ..
 cd ..
 
-"C:\Program Files (x86)\Windows Kits\10\Tools\bin\i386\makeappx" pack /d bin\release\net461 /p MissionPlanner.appx
+"C:\Program Files (x86)\Windows Kits\10\Tools\bin\i386\makeappx" pack /d bin\release\net461 /p XagSurveillanceGCS.appx
 
-"C:\Program Files (x86)\Windows Kits\10\Tools\bin\i386\signtool" sign /a /v /fd SHA256 /t http://timestamp.verisign.com/scripts/timestamp.dll /n "michael oborne" MissionPlanner.appx
+"C:\Program Files (x86)\Windows Kits\10\Tools\bin\i386\signtool" sign /a /v /fd SHA256 /t http://timestamp.verisign.com/scripts/timestamp.dll /n "michael oborne" XagSurveillanceGCS.appx
 
-c:\cygwin\bin\rsync.exe -Pv -e '/usr/bin/ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -i /cygdrive/c/Users/michael/sitl' MissionPlanner.appx michael@mega.ardupilot.org:MissionPlanner/
+c:\cygwin\bin\rsync.exe -Pv -e '/usr/bin/ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -i /cygdrive/c/Users/michael/sitl' XagSurveillanceGCS.appx michael@mega.ardupilot.org:XagSurveillanceGCS/
 
 pause

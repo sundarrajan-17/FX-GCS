@@ -11,7 +11,7 @@ using log4net;
 // dns, ip address
 // tcplistner
 
-namespace MissionPlanner.Comms
+namespace XagSurveillanceGCS.Comms
 {
     public class UdpSerialConnect : CommsBase, ICommsSerial, IDisposable
     {

@@ -1,8 +1,8 @@
 ﻿using log4net;
-using MissionPlanner.Comms;
-using MissionPlanner.Controls;
-using MissionPlanner.Log;
-using MissionPlanner.Utilities;
+using XagSurveillanceGCS.Comms;
+using XagSurveillanceGCS.Controls;
+using XagSurveillanceGCS.Log;
+using XagSurveillanceGCS.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,9 +11,9 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using SerialPort = MissionPlanner.Comms.SerialPort;
+using SerialPort = XagSurveillanceGCS.Comms.SerialPort;
 
-namespace MissionPlanner.GCSViews.ConfigurationView
+namespace XagSurveillanceGCS.GCSViews.ConfigurationView
 {
     public partial class ConfigTerminal : MyUserControl, IActivate, IDeactivate
     {

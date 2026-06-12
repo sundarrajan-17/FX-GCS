@@ -1,6 +1,6 @@
 ﻿using log4net;
-using MissionPlanner.Controls;
-using MissionPlanner.Utilities;
+using XagSurveillanceGCS.Controls;
+using XagSurveillanceGCS.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -12,7 +12,7 @@ using System.Threading;
 using System.Timers;
 using System.Windows.Forms;
 
-namespace MissionPlanner.GCSViews.ConfigurationView
+namespace XagSurveillanceGCS.GCSViews.ConfigurationView
 {
     public partial class ConfigADSB : MyUserControl, IActivate, IDeactivate
     {

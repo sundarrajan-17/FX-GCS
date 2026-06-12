@@ -1,1 +1,1 @@
-namespace MissionPlanner.Warnings { public partial class WarningControl{public WarningControl(){this.InitializeComponent();}}}
+namespace XagSurveillanceGCS.Warnings { public partial class WarningControl{public WarningControl(){this.InitializeComponent();}}}

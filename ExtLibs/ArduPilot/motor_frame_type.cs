@@ -1,4 +1,4 @@
-﻿namespace MissionPlanner.ArduPilot
+﻿namespace XagSurveillanceGCS.ArduPilot
 {
     /// <summary>
     /// https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_Motors/AP_Motors_Class.h

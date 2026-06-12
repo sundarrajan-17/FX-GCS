@@ -5,7 +5,7 @@ using System.Reflection;
 using System.Text;
 using log4net;
 
-namespace MissionPlanner.ArduPilot
+namespace XagSurveillanceGCS.ArduPilot
 {
     public class AIS
     {

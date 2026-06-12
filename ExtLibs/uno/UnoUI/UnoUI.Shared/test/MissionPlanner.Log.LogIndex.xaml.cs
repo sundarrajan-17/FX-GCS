@@ -1,1 +1,1 @@
-namespace MissionPlanner.Log { public partial class LogIndex{public LogIndex(){this.InitializeComponent();}}}
+namespace XagSurveillanceGCS.Log { public partial class LogIndex{public LogIndex(){this.InitializeComponent();}}}

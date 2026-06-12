@@ -1,5 +1,5 @@
-﻿using MissionPlanner.Controls;
-using MissionPlanner.Utilities;
+﻿using XagSurveillanceGCS.Controls;
+using XagSurveillanceGCS.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,7 +10,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace MissionPlanner.plugins
+namespace XagSurveillanceGCS.plugins
 {
     public class example19_linkforward : Plugin.Plugin
     {

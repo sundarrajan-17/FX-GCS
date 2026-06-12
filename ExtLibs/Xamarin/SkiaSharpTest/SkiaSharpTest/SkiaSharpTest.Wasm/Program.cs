@@ -26,7 +26,7 @@ namespace SkiaSharpTest.Wasm
             var test = System.Drawing.FillMode.Alternate;
             var test2 = System.Drawing.Color.White;
 
-            //new MissionPlanner.Drawing.Common.Common();
+            //new XagSurveillanceGCS.Drawing.Common.Common();
             Console.WriteLine("Main 2");
             Windows.UI.Xaml.Application.Start(_ => _app = new App());
             Console.WriteLine("Main 3");

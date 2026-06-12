@@ -1,1 +1,1 @@
-namespace MissionPlanner.Swarm.Sequence { public partial class LayoutEditor{public LayoutEditor(){this.InitializeComponent();}}}
+namespace XagSurveillanceGCS.Swarm.Sequence { public partial class LayoutEditor{public LayoutEditor(){this.InitializeComponent();}}}

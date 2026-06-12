@@ -139,7 +139,7 @@
     <value>BUT_redokml</value>
   </data>
   <data name="&gt;&gt;BUT_redokml.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.MyButton, MissionPlanner.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>XagSurveillanceGCS.Controls.MyButton, XagSurveillanceGCS.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;BUT_redokml.Parent" xml:space="preserve">
     <value>$this</value>
@@ -193,7 +193,7 @@
     <value>BUT_humanreadable</value>
   </data>
   <data name="&gt;&gt;BUT_humanreadable.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.MyButton, MissionPlanner.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>XagSurveillanceGCS.Controls.MyButton, XagSurveillanceGCS.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;BUT_humanreadable.Parent" xml:space="preserve">
     <value>$this</value>
@@ -223,7 +223,7 @@
     <value>BUT_graphmavlog</value>
   </data>
   <data name="&gt;&gt;BUT_graphmavlog.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.MyButton, MissionPlanner.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>XagSurveillanceGCS.Controls.MyButton, XagSurveillanceGCS.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;BUT_graphmavlog.Parent" xml:space="preserve">
     <value>$this</value>
@@ -277,7 +277,7 @@
     <value>BUT_convertcsv</value>
   </data>
   <data name="&gt;&gt;BUT_convertcsv.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.MyButton, MissionPlanner.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>XagSurveillanceGCS.Controls.MyButton, XagSurveillanceGCS.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;BUT_convertcsv.Parent" xml:space="preserve">
     <value>$this</value>
@@ -307,7 +307,7 @@
     <value>BUT_paramsfromlog</value>
   </data>
   <data name="&gt;&gt;BUT_paramsfromlog.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.MyButton, MissionPlanner.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>XagSurveillanceGCS.Controls.MyButton, XagSurveillanceGCS.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;BUT_paramsfromlog.Parent" xml:space="preserve">
     <value>$this</value>
@@ -337,7 +337,7 @@
     <value>BUT_getwpsfromlog</value>
   </data>
   <data name="&gt;&gt;BUT_getwpsfromlog.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.MyButton, MissionPlanner.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>XagSurveillanceGCS.Controls.MyButton, XagSurveillanceGCS.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;BUT_getwpsfromlog.Parent" xml:space="preserve">
     <value>$this</value>
@@ -367,7 +367,7 @@
     <value>BUT_matlab</value>
   </data>
   <data name="&gt;&gt;BUT_matlab.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.MyButton, MissionPlanner.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>XagSurveillanceGCS.Controls.MyButton, XagSurveillanceGCS.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;BUT_matlab.Parent" xml:space="preserve">
     <value>$this</value>
@@ -472,7 +472,7 @@
     <value>but_cs</value>
   </data>
   <data name="&gt;&gt;but_cs.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.MyButton, MissionPlanner.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>XagSurveillanceGCS.Controls.MyButton, XagSurveillanceGCS.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;but_cs.Parent" xml:space="preserve">
     <value>$this</value>

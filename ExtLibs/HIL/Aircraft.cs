@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using MissionPlanner.HIL;
-using MissionPlanner.Utilities;
+using XagSurveillanceGCS.HIL;
+using XagSurveillanceGCS.Utilities;
 
-namespace MissionPlanner.HIL
+namespace XagSurveillanceGCS.HIL
 {
     public class Aircraft : Utils
     {

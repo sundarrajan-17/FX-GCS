@@ -1,15 +1,15 @@
 using log4net;
-using MissionPlanner.ArduPilot;
-using MissionPlanner.Controls;
-using MissionPlanner.Controls.BackstageView;
-using MissionPlanner.GCSViews.ConfigurationView;
-using MissionPlanner.Utilities;
+using XagSurveillanceGCS.ArduPilot;
+using XagSurveillanceGCS.Controls;
+using XagSurveillanceGCS.Controls.BackstageView;
+using XagSurveillanceGCS.GCSViews.ConfigurationView;
+using XagSurveillanceGCS.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Reflection;
 using System.Windows.Forms;
 
-namespace MissionPlanner.GCSViews
+namespace XagSurveillanceGCS.GCSViews
 {
     public partial class SoftwareConfig : MyUserControl, IActivate
     {

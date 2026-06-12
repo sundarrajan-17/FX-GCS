@@ -1,17 +1,17 @@
-﻿namespace MissionPlanner.Wizard
+﻿namespace XagSurveillanceGCS.Wizard
 {
     class Class1
     {
         
     }
 }
-namespace MissionPlanner.Controls
+namespace XagSurveillanceGCS.Controls
 {
     class Class2
     {
     }
 }
-namespace MissionPlanner.Controls.BackstageView
+namespace XagSurveillanceGCS.Controls.BackstageView
 {
     class Class3
     {

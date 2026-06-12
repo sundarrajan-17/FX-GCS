@@ -2,14 +2,14 @@
 using System.Drawing;
 using GMap.NET;
 using GMap.NET.WindowsForms;
-using MissionPlanner.Utilities;
+using XagSurveillanceGCS.Utilities;
 
-namespace MissionPlanner.Maps
+namespace XagSurveillanceGCS.Maps
 {
     [Serializable]
     public class GMapMarkerAntennaTracker : GMapMarker
     {
-        private readonly Bitmap icon = global::MissionPlanner.Maps.Resources.Antenna_Tracker_01;
+        private readonly Bitmap icon = global::XagSurveillanceGCS.Maps.Resources.Antenna_Tracker_01;
 
         float heading = 0;
         private float target = 0;

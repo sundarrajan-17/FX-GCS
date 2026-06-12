@@ -1,4 +1,4 @@
-﻿namespace MissionPlanner.GCSViews.ConfigurationView
+﻿namespace XagSurveillanceGCS.GCSViews.ConfigurationView
 {
     partial class ConfigUserDefined
     {

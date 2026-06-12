@@ -2,11 +2,11 @@
 using System.Globalization;
 using System.IO;
 using System.Windows.Forms;
-using MissionPlanner.ArduPilot;
-using MissionPlanner.Comms;
-using MissionPlanner.Utilities;
+using XagSurveillanceGCS.ArduPilot;
+using XagSurveillanceGCS.Comms;
+using XagSurveillanceGCS.Utilities;
 
-namespace MissionPlanner.Controls
+namespace XagSurveillanceGCS.Controls
 {
     public partial class FollowMe : Form
     {
@@ -37,7 +37,7 @@ namespace MissionPlanner.Controls
                 CMB_updaterate.Text = updaterate.ToString();
             }
 
-            MissionPlanner.Utilities.Tracking.AddPage(
+            XagSurveillanceGCS.Utilities.Tracking.AddPage(
                 System.Reflection.MethodBase.GetCurrentMethod().DeclaringType.ToString(),
                 System.Reflection.MethodBase.GetCurrentMethod().Name);
         }

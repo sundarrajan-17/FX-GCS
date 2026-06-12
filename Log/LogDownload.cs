@@ -1,14 +1,14 @@
 ﻿using log4net;
-using MissionPlanner.Comms;
-using MissionPlanner.Utilities;
+using XagSurveillanceGCS.Comms;
+using XagSurveillanceGCS.Utilities;
 using System;
 using System.IO;
 using System.Reflection;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
-using MissionPlanner.GCSViews.ConfigurationView;
+using XagSurveillanceGCS.GCSViews.ConfigurationView;
 
-namespace MissionPlanner.Log
+namespace XagSurveillanceGCS.Log
 {
     public partial class LogDownload : Form
     {
@@ -41,7 +41,7 @@ namespace MissionPlanner.Log
         {
             InitializeComponent();
 
-            MissionPlanner.Utilities.Tracking.AddPage(this.GetType().ToString(), this.Text);
+            XagSurveillanceGCS.Utilities.Tracking.AddPage(this.GetType().ToString(), this.Text);
         }
 
         private void waitandsleep(int time)

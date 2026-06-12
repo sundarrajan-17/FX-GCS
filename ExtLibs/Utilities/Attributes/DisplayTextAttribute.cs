@@ -5,7 +5,7 @@ using System.ComponentModel;
 
 #endregion
 
-namespace MissionPlanner.Attributes
+namespace XagSurveillanceGCS.Attributes
 {
     public sealed class GroupText : DisplayNameAttribute
     {
@@ -46,7 +46,7 @@ namespace MissionPlanner.Attributes
       /// <value>The text.</value>
       public string Text
       {
-         get { return MissionPlanner.Utilities.L10NU.GetString(_text); }
+         get { return XagSurveillanceGCS.Utilities.L10NU.GetString(_text); }
       }
 
    }

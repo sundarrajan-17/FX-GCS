@@ -2,12 +2,12 @@ using System;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using MissionPlanner;
+using XagSurveillanceGCS;
 using Resources = AltitudeAngelWings.Plugin.Properties.Resources;
 
 namespace AltitudeAngelWings.Plugin
 {
-    public class MissionPlannerAdapter : IMissionPlanner
+    public class XagSurveillanceGCSAdapter : IXagSurveillanceGCS
     {
         private readonly IUiThreadInvoke _uiThreadInvoke;
         private readonly ISettings _settings;
@@ -15,7 +15,7 @@ namespace AltitudeAngelWings.Plugin
         public IMap FlightDataMap { get; }
         public ProductInfoHeaderValue VersionHeader { get; }
 
-        public MissionPlannerAdapter(IUiThreadInvoke uiThreadInvoke, IMap flightDataMap, IMap flightPlanningMap, ISettings settings, string titleVersionString)
+        public XagSurveillanceGCSAdapter(IUiThreadInvoke uiThreadInvoke, IMap flightDataMap, IMap flightPlanningMap, ISettings settings, string titleVersionString)
         {
             FlightDataMap = flightDataMap;
             FlightPlanningMap = flightPlanningMap;
@@ -29,11 +29,11 @@ namespace AltitudeAngelWings.Plugin
 
             try
             {
-                VersionHeader = new ProductInfoHeaderValue("MissionPlanner", titleVersionString);
+                VersionHeader = new ProductInfoHeaderValue("XagSurveillanceGCS", titleVersionString);
             }
             catch (FormatException)
             {
-                VersionHeader = new ProductInfoHeaderValue("MissionPlanner", "unknown");
+                VersionHeader = new ProductInfoHeaderValue("XagSurveillanceGCS", "unknown");
             }
         }
 
@@ -62,11 +62,11 @@ namespace AltitudeAngelWings.Plugin
 
         /// <inheritdoc />
         public Task NotifyConflict(string message)
-            => ShowMessageBox(message, Resources.MissionPlannerAdapterNotifyMessageTitle);
+            => ShowMessageBox(message, Resources.XagSurveillanceGCSAdapterNotifyMessageTitle);
 
         /// <inheritdoc />
         public Task NotifyConflictResolved(string message)
-            => ShowMessageBox(message, Resources.MissionPlannerAdapterNotifyMessageTitle);
+            => ShowMessageBox(message, Resources.XagSurveillanceGCSAdapterNotifyMessageTitle);
 
         /// <inheritdoc />
         public Task Disarm()
@@ -76,7 +76,7 @@ namespace AltitudeAngelWings.Plugin
         {
             if (string.IsNullOrEmpty(caption))
             {
-                caption = Resources.MissionPlannerAdapterMessageBoxDefaultCaption;
+                caption = Resources.XagSurveillanceGCSAdapterMessageBoxDefaultCaption;
             }
             return _uiThreadInvoke.Invoke(() => CustomMessageBox.Show(message, caption));
         }
@@ -85,7 +85,7 @@ namespace AltitudeAngelWings.Plugin
         {
             if (string.IsNullOrEmpty(caption))
             {
-                caption = Resources.MissionPlannerAdapterMessageBoxDefaultCaption;
+                caption = Resources.XagSurveillanceGCSAdapterMessageBoxDefaultCaption;
             }
             return _uiThreadInvoke.Invoke(() =>
                 CustomMessageBox.Show(message, caption, MessageBoxButtons.YesNo) == (int)DialogResult.Yes);

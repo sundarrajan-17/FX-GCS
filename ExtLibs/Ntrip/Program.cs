@@ -1,5 +1,5 @@
-﻿using MissionPlanner.Comms;
-using MissionPlanner.Utilities;
+﻿using XagSurveillanceGCS.Comms;
+using XagSurveillanceGCS.Utilities;
 using Mono.Unix;
 using System;
 using System.IO;

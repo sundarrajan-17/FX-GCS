@@ -1,4 +1,4 @@
-﻿namespace MissionPlanner.Controls
+﻿namespace XagSurveillanceGCS.Controls
 {
     partial class DistanceBar
     {

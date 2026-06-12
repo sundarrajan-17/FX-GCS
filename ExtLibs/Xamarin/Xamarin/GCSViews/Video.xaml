@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             mc:Ignorable="d" xmlns:video="clr-namespace:FormsVideoLibrary" xmlns:controls="clr-namespace:MissionPlanner.Controls;assembly=Xamarin"
+             mc:Ignorable="d" xmlns:video="clr-namespace:FormsVideoLibrary" xmlns:controls="clr-namespace:XagSurveillanceGCS.Controls;assembly=Xamarin"
              x:Class="Xamarin.GCSViews.Video">
     <ContentPage.Content>
         <AbsoluteLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">

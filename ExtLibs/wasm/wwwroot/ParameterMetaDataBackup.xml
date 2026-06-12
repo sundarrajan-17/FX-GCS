@@ -10344,7 +10344,7 @@
     <SYSID_MYGCS>
       <DisplayName>My ground station number</DisplayName>
       <Description>Allows restricting radio overrides to only come from my ground station</Description>
-      <Values>255:Mission Planner and DroidPlanner, 252: AP Planner 2</Values>
+      <Values>255:XagSurveillanceGCS and DroidPlanner, 252: AP Planner 2</Values>
       <User>Advanced</User>
     </SYSID_MYGCS>
     <SYSID_SW_MREV>

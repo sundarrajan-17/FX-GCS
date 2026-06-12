@@ -1,1 +1,1 @@
-namespace MissionPlanner.Controls { public partial class PictureBoxWithPseudoOpacity{public PictureBoxWithPseudoOpacity(){this.InitializeComponent();}}}
+namespace XagSurveillanceGCS.Controls { public partial class PictureBoxWithPseudoOpacity{public PictureBoxWithPseudoOpacity(){this.InitializeComponent();}}}

@@ -1,10 +1,10 @@
-﻿using MissionPlanner.Controls;
-using MissionPlanner.Utilities;
+﻿using XagSurveillanceGCS.Controls;
+using XagSurveillanceGCS.Utilities;
 using System;
 using System.Linq;
 using System.Windows.Forms;
 
-namespace MissionPlanner.GCSViews.ConfigurationView
+namespace XagSurveillanceGCS.GCSViews.ConfigurationView
 {
     public partial class ConfigRadioOutput : MyUserControl, IActivate, IDeactivate
     {
@@ -43,7 +43,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
                 Minimum = 800, Maximum = 2200, Value = 1500, DrawLabel = true, Name = "BAR" + servono,
                 Dock = DockStyle.Fill
             };
-            var rev1 = new MissionPlanner.Controls.MavlinkCheckBox()
+            var rev1 = new XagSurveillanceGCS.Controls.MavlinkCheckBox()
                 {Enabled = false, Dock = DockStyle.Fill, AutoSize = true};
             var func1 = new MavlinkComboBox()
             { Enabled = false, Dock = DockStyle.Fill, DropDownStyle = ComboBoxStyle.DropDownList, Width = 160 };

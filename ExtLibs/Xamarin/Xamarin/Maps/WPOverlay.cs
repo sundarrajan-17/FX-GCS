@@ -1,16 +1,16 @@
 ﻿using GMap.NET;
 using GMap.NET.WindowsForms;
 using GMap.NET.WindowsForms.Markers;
-using MissionPlanner.Controls.Waypoints;
-using MissionPlanner.Maps;
-using MissionPlanner.Utilities;
+using XagSurveillanceGCS.Controls.Waypoints;
+using XagSurveillanceGCS.Maps;
+using XagSurveillanceGCS.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Linq;
 
-namespace MissionPlanner.ArduPilot
+namespace XagSurveillanceGCS.ArduPilot
 {
     public class WPOverlay
     {
@@ -321,7 +321,7 @@ namespace MissionPlanner.ArduPilot
                     m.Tag = tag;
                 }
 
-                //MissionPlanner.GMapMarkerRectWPRad mBorders = new MissionPlanner.GMapMarkerRectWPRad(point, (int)float.Parse(TXT_WPRad.Text), MainMap);
+                //XagSurveillanceGCS.GMapMarkerRectWPRad mBorders = new XagSurveillanceGCS.GMapMarkerRectWPRad(point, (int)float.Parse(TXT_WPRad.Text), MainMap);
                 GMapMarkerRect mBorders = new GMapMarkerRect(point);
                 {
                     mBorders.InnerMarker = m;

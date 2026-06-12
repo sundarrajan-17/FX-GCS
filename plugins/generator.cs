@@ -1,5 +1,5 @@
-﻿using MissionPlanner;
-using MissionPlanner.GCSViews;
+﻿using XagSurveillanceGCS;
+using XagSurveillanceGCS.GCSViews;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
@@ -82,7 +82,7 @@ namespace generator
             // aGaugeSpeed
             // 
             this.aGaugeSpeed.BackColor = System.Drawing.Color.Transparent;
-            this.aGaugeSpeed.BackgroundImage = global::MissionPlanner.Properties.Resources.Gaugebg;
+            this.aGaugeSpeed.BackgroundImage = global::XagSurveillanceGCS.Properties.Resources.Gaugebg;
             this.aGaugeSpeed.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.aGaugeSpeed.BaseArcColor = System.Drawing.Color.Transparent;
             this.aGaugeSpeed.BaseArcRadius = 70;
@@ -359,7 +359,7 @@ namespace generator
         internal System.Windows.Forms.Label nextMainTimeTxt;
 
 
-        public class Plugin : MissionPlanner.Plugin.Plugin
+        public class Plugin : XagSurveillanceGCS.Plugin.Plugin
         {
             public override string Name
             {

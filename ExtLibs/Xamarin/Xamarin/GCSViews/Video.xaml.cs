@@ -1,12 +1,12 @@
 ﻿using FormsVideoLibrary;
-using MissionPlanner.Utilities;
+using XagSurveillanceGCS.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-using MissionPlanner;
+using XagSurveillanceGCS;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 

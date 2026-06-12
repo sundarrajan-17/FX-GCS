@@ -1,4 +1,4 @@
-﻿namespace MissionPlanner.Controls
+﻿namespace XagSurveillanceGCS.Controls
 {
     partial class ModifyandSet
     {
@@ -30,7 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ModifyandSet));
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-            this.myButton1 = new MissionPlanner.Controls.MyButton();
+            this.myButton1 = new XagSurveillanceGCS.Controls.MyButton();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.flowLayoutPanel1.SuspendLayout();

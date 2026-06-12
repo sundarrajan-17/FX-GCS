@@ -4,15 +4,15 @@ using System.Globalization;
 using System.IO;
 using System.Net.Sockets;
 using System.Windows.Forms;
-using MissionPlanner.Comms;
-using MissionPlanner.Utilities;
+using XagSurveillanceGCS.Comms;
+using XagSurveillanceGCS.Utilities;
 using System.Drawing;
 using System.Diagnostics;
-using static MissionPlanner.Utilities.LTM;
+using static XagSurveillanceGCS.Utilities.LTM;
 using System.Runtime.InteropServices;
 
 
-namespace MissionPlanner.Controls
+namespace XagSurveillanceGCS.Controls
 {
     public partial class OpenDroneID_UI : UserControl
     {

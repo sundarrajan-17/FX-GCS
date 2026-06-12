@@ -7,11 +7,11 @@ using System.Threading;
 using System.Threading.Tasks;
 using AppKit;
 using Foundation;
-using MissionPlanner.ArduPilot;
+using XagSurveillanceGCS.ArduPilot;
 using Xamarin.Forms.Platform.MacOS;
 using Xamarin.Forms;
-using MissionPlanner.Comms;
-using MissionPlanner.Utilities;
+using XagSurveillanceGCS.Comms;
+using XagSurveillanceGCS.Utilities;
 using Xamarin.GCSViews;
 using Device = Xamarin.Forms.Device;
 
@@ -25,7 +25,7 @@ namespace Xamarin.MacOS
             var style = NSWindowStyle.Closable | NSWindowStyle.Resizable | NSWindowStyle.Titled;
             var rect = new CoreGraphics.CGRect(200,200,1024,768);
             mainWindow = new NSWindow(rect, style, NSBackingStore.Buffered, false);
-            mainWindow.Title = "Mission Planner on Mac!";
+            mainWindow.Title = "XagSurveillanceGCS on Mac!";
             mainWindow.TitleVisibility = NSWindowTitleVisibility.Hidden;
             mainWindow.DidResize += MainWindow_DidResize;
             mainWindow.WillClose += MainWindow_WillClose;

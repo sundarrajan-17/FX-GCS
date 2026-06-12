@@ -5,14 +5,14 @@ using GMap.NET.WindowsForms;
 using GMap.NET.WindowsForms.Markers;
 using log4net;
 using Microsoft.Scripting.Utils;
-using MissionPlanner.ArduPilot;
-using MissionPlanner.Controls;
-using MissionPlanner.GeoRef;
-using MissionPlanner.Joystick;
-using MissionPlanner.Log;
-using MissionPlanner.Maps;
-using MissionPlanner.Utilities;
-using MissionPlanner.Warnings;
+using XagSurveillanceGCS.ArduPilot;
+using XagSurveillanceGCS.Controls;
+using XagSurveillanceGCS.GeoRef;
+using XagSurveillanceGCS.Joystick;
+using XagSurveillanceGCS.Log;
+using XagSurveillanceGCS.Maps;
+using XagSurveillanceGCS.Utilities;
+using XagSurveillanceGCS.Warnings;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -32,16 +32,17 @@ using WebCamService;
 using ZedGraph;
 using System.Net.Sockets;
 using System.Net;
-using LogAnalyzer = MissionPlanner.Utilities.LogAnalyzer;
+using LogAnalyzer = XagSurveillanceGCS.Utilities.LogAnalyzer;
 using TableLayoutPanelCellPosition = System.Windows.Forms.TableLayoutPanelCellPosition;
 using UnauthorizedAccessException = System.UnauthorizedAccessException;
-using static MissionPlanner.Utilities.LTM;
+using static XagSurveillanceGCS.Utilities.LTM;
 using System.Net.Sockets;
 using System.Net;
+using XagSurveillanceGCS.GCSViews.ConfigurationView;
 
 // written by michael oborne
 
-namespace MissionPlanner.GCSViews
+namespace XagSurveillanceGCS.GCSViews
 {
     public partial class FlightData : MyUserControl, IActivate, IDeactivate
     {
@@ -63,9 +64,6 @@ namespace MissionPlanner.GCSViews
         internal static GMapOverlay rallypointoverlay;
         internal static GMapOverlay tfrpolygons;
         internal GMapMarker CurrentGMapMarker;
-        private float camPitch = 0.0f;
-        private float camRoll = 0.0f;
-        private float camYaw = 0.0f;
 
         private float pitch = 0.0f;
         private float yaw = 0.0f;
@@ -186,12 +184,8 @@ namespace MissionPlanner.GCSViews
         List<Color> listQuickView = new List<Color>();
         //works well for dark background
         Color[] colorsForDefaultQuickView = new Color[] { Color.Blue, Color.Yellow, Color.Pink, Color.LimeGreen, Color.Orange, Color.Aqua, Color.LightCoral, Color.LightSteelBlue, Color.DarkKhaki, Color.LightYellow, Color.Violet, Color.YellowGreen, Color.OrangeRed, Color.Tomato, Color.Teal, Color.CornflowerBlue };
-
         Thread thisthread;
-
         int tickStart;
-        //      private DockStateSerializer _serializer = null;
-
         List<PointLatLng> trackPoints = new List<PointLatLng>();
         volatile int updateBindingSourcecount;
 
@@ -267,6 +261,8 @@ namespace MissionPlanner.GCSViews
             get { return _baseCameraController; }
         }
 
+        public MotorTestPanel motorTest;
+
         public FlightData()
         {
             log.Info("Ctor Start");
@@ -284,10 +280,7 @@ namespace MissionPlanner.GCSViews
             this.tabControlactions.ControlRemoved += (sender, e) => ManageLeftPanelVisibility();
             this.panel_persistent.ControlAdded += (sender, e) => ManageLeftPanelVisibility();
             this.panel_persistent.ControlRemoved += (sender, e) => ManageLeftPanelVisibility();
-            //    _serializer = new DockStateSerializer(dockContainer1);
-            //    _serializer.SavePath = Application.StartupPath + Path.DirectorySeparatorChar + "FDscreen.xml";
-            //    dockContainer1.PreviewRenderer = new PreviewRenderer();
-            //
+            
             mymap = gMapControl1;
             myhud = hud1;
             MainHcopy = MainH;
@@ -410,8 +403,6 @@ namespace MissionPlanner.GCSViews
             float yawDegrees = 20f;
             GMapMarkerCamera camMarker = new GMapMarkerCamera(vehiclePos, yawDegrees);
             GMapMarkerCamTarget camTargetMarker = new GMapMarkerCamTarget(targetPos);
-            // camTargetMarker.updateYaw(yawDegrees);
-            // camTargetMarker.updateAltitude(100);
 
             gMapControl1.RoutesEnabled = true;
             gMapControl1.PolygonsEnabled = true;
@@ -479,6 +470,10 @@ namespace MissionPlanner.GCSViews
             _gimbalVideoControl = new GimbalVideoControl(this);
             _gimbalVideoControl.Dock = DockStyle.Fill;
             this.TopSplit.Panel1.Controls.Add(_gimbalVideoControl);
+
+            motorTest = new MotorTestPanel();
+            motorTest.Activate();
+            this.tabGauges.Controls.Add(motorTest);
         }
 
         public void loadTargetLatLon(object sender,MAVLink.MAVLinkMessage packet)
@@ -588,7 +583,7 @@ namespace MissionPlanner.GCSViews
             // make sure the hud user items/warnings/checklist are using the current state
             HUD.Custom.src = MainV2.comPort.MAV.cs;
             CustomWarning.defaultsrc = MainV2.comPort.MAV.cs;
-            MissionPlanner.Controls.PreFlight.CheckListItem.defaultsrc = MainV2.comPort.MAV.cs;
+            XagSurveillanceGCS.Controls.PreFlight.CheckListItem.defaultsrc = MainV2.comPort.MAV.cs;
 
             if (Settings.Instance["maplast_lat"] != "")
             {
@@ -698,21 +693,7 @@ namespace MissionPlanner.GCSViews
             myPane.YAxis.MajorGrid.IsZeroLine = true;
             // Align the Y axis labels so they are flush to the axis
             myPane.YAxis.Scale.Align = AlignP.Inside;
-            // Manually set the axis range
-            //myPane.YAxis.Scale.Min = -1;
-            //myPane.YAxis.Scale.Max = 1;
-
-            // Fill the axis background with a gradient
-            //myPane.Chart.Fill = new Fill(Color.White, Color.LightGray, 45.0f);
-
-            // Sample at 50ms intervals
             ZedGraphTimer.Interval = 200;
-            //timer1.Enabled = true;
-            //timer1.Start();
-
-
-            // Calculate the Axis Scale Ranges
-            //zgc.AxisChange();
 
             tickStart = Environment.TickCount;
         }
@@ -879,7 +860,7 @@ namespace MissionPlanner.GCSViews
 
                 scriptChecker_Tick(null, null);
 
-                MissionPlanner.Utilities.Tracking.AddPage(
+                XagSurveillanceGCS.Utilities.Tracking.AddPage(
                     System.Reflection.MethodBase.GetCurrentMethod().DeclaringType.ToString(),
                     System.Reflection.MethodBase.GetCurrentMethod().Name);
             }
@@ -3208,7 +3189,7 @@ namespace MissionPlanner.GCSViews
                 }
             }
 
-            GCSViews.FlightData.hudGStreamer.Start(url);
+            // GCSViews.FlightData.hudGStreamer.Start(url);
         }
 
         private void hud_UserItem(object sender, EventArgs e)
@@ -4913,7 +4894,7 @@ namespace MissionPlanner.GCSViews
 
                 try
                 {
-                    hudGStreamer.Start(url);
+                    // hudGStreamer.Start(url);
                 }
                 catch (Exception ex)
                 {
@@ -6612,181 +6593,6 @@ namespace MissionPlanner.GCSViews
         ToolStripMenuItem gimbalVideoSwapPosition = new ToolStripMenuItem("Swap with map");
         ToolStripMenuItem gimbalVideoClose = new ToolStripMenuItem("Close");
         bool gimbalMenuHandlersInitialized = false;
-        
-        // GimbalVideoControl gimbalVideoControl
-        // {
-        //     get
-        //     {
-        //         // If this is the first call, create the handlers for the context menu items
-        //         if (!gimbalMenuHandlersInitialized)
-        //         {
-        //             gimbalMenuHandlersInitialized = true;
-        //             gimbalVideoShowMiniMap.CheckedChanged += (s, ev) =>
-        //             {
-        //                 gMapControl1.Visible = gimbalVideoShowMiniMap.Checked;
-        //                 gimbalVideoSwapPosition.Visible = gimbalVideoShowMiniMap.Checked;
-        //             };
-        //             gimbalVideoSwapPosition.Click += (s, ev) =>
-        //             {
-        //                 if (gimbalVideoControl.Dock == DockStyle.None)
-        //                 {
-        //                     gimbalVideoFullSizedToolStripMenuItem_Click(null, null);
-        //                 }
-        //                 else
-        //                 {
-        //                     gimbalVideoMiniToolStripMenuItem_Click(null, null);
-        //                 }
-        //             };
-        //             gimbalVideoClose.Click += (s, ev) =>
-        //             {
-        //                 gimbalVideoMiniToolStripMenuItem_Click(null, null);
-        //                 gimbalVideoControl.Visible = false;
-        //                 gimbalVideoControl.Stop();
-        //                 gimbalVideoControl.Dispose();
-        //             };
-        //         }
-        //         // Check if we need to construct a gimbalVideoControl
-        //         if (_gimbalVideoControl == null || _gimbalVideoControl.IsDisposed)
-        //         {
-        //             _gimbalVideoControl = new GimbalVideoControl(this);
-        //             _gimbalVideoControl.Dock = DockStyle.Fill;
-
-        //             // Add option to show/hide minimap
-        //             gimbalVideoShowMiniMap.CheckOnClick = true;
-        //             gimbalVideoShowMiniMap.Checked = true;
-
-        //             _gimbalVideoControl.VideoBoxContextMenu.Items.Add(gimbalVideoShowMiniMap);
-        //             _gimbalVideoControl.VideoBoxContextMenu.Items.Add(gimbalVideoSwapPosition);
-        //             _gimbalVideoControl.VideoBoxContextMenu.Items.Add(gimbalVideoClose);
-        //         }
-
-        //         return _gimbalVideoControl;
-        //     }
-        // }
-
-        // Resize the mini video or mini map when the container is resized
-        // private void splitContainer1_Panel2_Resize(object sender, EventArgs e)
-        // {
-        //     bool miniVideo = splitContainer1.Panel2.Contains(_gimbalVideoControl)
-        //         && _gimbalVideoControl?.Dock == DockStyle.None
-        //         && _gimbalVideoControl.Visible;
-        //     bool miniMap = gMapControl1.Dock == DockStyle.None && gMapControl1.Visible;
-        //     if (miniVideo)
-        //     {
-        //         var width = (int)(splitContainer1.Panel2.Width * 0.3);
-        //         var height = (int)(splitContainer1.Panel2.Height * 0.3);
-        //         var aspectRatio = _gimbalVideoControl.VideoBox.Image.Width / (double)_gimbalVideoControl.VideoBox.Image.Height;
-        //         (width, height) = (
-        //             Math.Min(width, (int)(height * aspectRatio)),
-        //             Math.Min(height, (int)(width / aspectRatio))
-        //         );
-        //         var x = splitContainer1.Panel2.Width - width - TRK_zoom.Width;
-        //         var y = splitContainer1.Panel2.Height - height;
-        //         _gimbalVideoControl.Location = new Point(x, y);
-        //         _gimbalVideoControl.Size = new Size(width, height);
-        //     }
-        //     else if (miniMap)
-        //     {
-        //         var width = (int)(splitContainer1.Panel2.Width * 0.3);
-        //         var height = (int)(splitContainer1.Panel2.Height * 0.3);
-        //         var x = splitContainer1.Panel2.Width - width;
-        //         var y = splitContainer1.Panel2.Height - height;
-        //         gMapControl1.Location = new Point(x, y);
-        //         gMapControl1.Size = new Size(width, height);
-        //     }
-
-        //     Invalidate();
-        // }
-
-        // private void gimbalVideoFullSizedToolStripMenuItem_Click(object sender, EventArgs e)
-        // {
-        //     // If the gimbal video is in its own window, close it
-        //     var containingForm = gimbalVideoControl.Parent as Form;
-
-        //     // Fill the panel with the gimbal video control
-        //     splitContainer1.Panel2.Controls.Add(gimbalVideoControl);
-        //     gimbalVideoControl.Dock = DockStyle.Fill;
-        //     gimbalVideoControl.BringToFront(); // Place on top of all map overlay controls
-        //     gimbalVideoControl.Visible = true;
-
-        //     // Add the map panel to the mini map panel
-        //     gMapControl1.Dock = DockStyle.None;
-        //     gMapControl1.BringToFront();
-        //     gMapControl1.Visible = gimbalVideoShowMiniMap.Checked;
-
-        //     // Call resize to correctly position the mini map
-        //     splitContainer1_Panel2_Resize(null, null);
-
-        //     // Reconfigure context menu controls
-        //     gimbalVideoShowMiniMap.Visible = true;
-        //     gimbalVideoSwapPosition.Visible = gimbalVideoShowMiniMap.Checked;
-        //     gimbalVideoClose.Visible = true;
-
-        //     containingForm?.Close();
-        // }
-
-        // private void gimbalVideoMiniToolStripMenuItem_Click(object sender, EventArgs e)
-        // {
-        //     // If the gimbal video is in its own window, close it
-        //     var containingForm = gimbalVideoControl.Parent as Form;
-
-        //     // Fill the panel with the map
-        //     gMapControl1.Dock = DockStyle.Fill;
-        //     gMapControl1.Visible = true;
-        //     gMapControl1.SendToBack(); // Behind the map overlay controls
-
-        //     // Add the gimbal video control to the mini video panel
-        //     splitContainer1.Panel2.Controls.Add(gimbalVideoControl);
-        //     gimbalVideoControl.Dock = DockStyle.None;
-        //     gimbalVideoControl.BringToFront();
-        //     gimbalVideoControl.Visible = true;
-
-        //     // Call resize to correctly position the mini video
-        //     splitContainer1_Panel2_Resize(null, null);
-
-        //     // Reconfigure context menu controls
-        //     gimbalVideoShowMiniMap.Visible = false;
-        //     gimbalVideoSwapPosition.Visible = true;
-        //     gimbalVideoClose.Visible = true;
-
-        //     containingForm?.Close();
-        // }
-
-        // private void gimbalVideoPopOutToolStripMenuItem_Click(object sender, EventArgs e)
-        // {
-        //     // See if the gimbal video is already in its own window
-        //     if (gimbalVideoControl.Parent is Form)
-        //     {
-        //         // Remove from the form and dispose the form
-        //         // (in case the form has ended up off screen or something)
-        //         var ParentForm = gimbalVideoControl.Parent as Form;
-        //         ParentForm.Controls.Remove(gimbalVideoControl);
-        //         ParentForm.Close();
-        //     }
-
-        //     // Restore the map to full sized if necessary
-        //     gMapControl1.Dock = DockStyle.Fill;
-        //     gMapControl1.SendToBack();
-        //     gMapControl1.Visible = true;
-
-        //     var form = new Form()
-        //     {
-        //         Text = "Gimbal Control",
-        //         Size = new Size(600, 400),
-        //         StartPosition = FormStartPosition.CenterParent
-        //     };
-        //     form.Controls.Add(gimbalVideoControl);
-        //     gimbalVideoControl.Dock = DockStyle.Fill;
-        //     gimbalVideoControl.Visible = true;
-
-        //     // Reconfigure context menu controls
-        //     gimbalVideoShowMiniMap.Visible = false;
-        //     gimbalVideoSwapPosition.Visible = false;
-        //     gimbalVideoClose.Visible = false;
-
-        //     // Pass `this` to keep the pop-out always on top
-        //     form.Show(this);
-        // }
 
         private void imHereToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -6820,8 +6626,9 @@ namespace MissionPlanner.GCSViews
             }
         }
 
-        // Camera Speciific Controls And Features Function
-
+        //**************************************************************
+        // Addition Functions for Camera Speciific Controls And Features
+        //**************************************************************
         public void StartCameraUpdateThread()
         {
             if (_cameraUpdateRunning)
@@ -6847,7 +6654,7 @@ namespace MissionPlanner.GCSViews
                 }
             });
 
-            _cameraUpdateThread.IsBackground = true; // ensures the thread doesn't block app exit
+            _cameraUpdateThread.IsBackground = true; 
             _cameraUpdateThread.Start();
         }
 
@@ -6857,7 +6664,7 @@ namespace MissionPlanner.GCSViews
 
             if (_cameraUpdateThread != null && _cameraUpdateThread.IsAlive)
             {
-                _cameraUpdateThread.Join(); // wait for the thread to finish
+                _cameraUpdateThread.Join(); 
                 _cameraUpdateThread = null;
                 cameraBounds.Markers.Clear();
                 camMarker = null;
@@ -6866,9 +6673,6 @@ namespace MissionPlanner.GCSViews
         }
         private void UpdateCameraAndTarget()
         {
-
-            // Console.WriteLine("Enter Camera Update Function ");
-        
             try
             {
                 var drone_latitude = coords1.Lat;
@@ -6880,11 +6684,6 @@ namespace MissionPlanner.GCSViews
                 PointLatLng? targetPos = new PointLatLng(Target_Latitude, Target_Longitude);
                 var (distance, targetYaw) = DistanceAndBearing(drone_latitude, drone_longitude, Target_Latitude, Target_Longitude);
 
-                // double droneYaw = MainV2.comPort.MAV.cs.yaw;
-
-                // double finalYaw = (targetYaw - droneYaw + 360)%360;
-
-                // if (finalYaw > 180) finalYaw -= 360;
                 double finalYaw = targetYaw;
 
                 this.BeginInvokeIfRequired(() =>
@@ -6896,7 +6695,6 @@ namespace MissionPlanner.GCSViews
                     if (cameraPos.HasValue)
 
                     {
-                        // Console.WriteLine("Toooooooooool {0}", cameraPos.Value);
 
                         if (camMarker == null)
                         {
@@ -6905,7 +6703,6 @@ namespace MissionPlanner.GCSViews
                         else
                         {
                             camMarker.Position = cameraPos.Value;
-                            // Console.WriteLine("Entered to else update ");
                             camMarker.UpdateYaw(finalYaw);
                         }
                         cameraBounds.Markers.Add(camMarker);
@@ -6915,15 +6712,8 @@ namespace MissionPlanner.GCSViews
                     {
                         if (camTargetMarker == null)
                         {
-                            // PointLatLng fakeTarget = GenerateFakeTarget(new PointLatLng(coords1.Lat, coords1.Lng), yaw, pitch);
                             PointLatLng fakeTarget = new PointLatLng(target_latitude, target_longitude);
-                            // Console.WriteLine("Fake Target: {0}", fakeTarget);
-
-                            //camTargetMarker = new GMapMarkerCamTarget(targetPos.Value);
                             camTargetMarker = new GMapMarkerCamTarget(fakeTarget);
-                            // camTargetMarker.updateYaw(finalYaw);
-                            // camTargetMarker.updateAltitude(MainV2.comPort.MAV.cs.alt);
-                            // Console.WriteLine("Distanceeeeee {0}",distance);
                             camTargetMarker.updatePolygonData(this.hfov,this.vfov,distance,this.target_latitude,this.target_longitude,finalYaw);
                         }
                         else
@@ -7018,13 +6808,6 @@ namespace MissionPlanner.GCSViews
             }
             else
             {
-                // var message = "Please Connect To Gimbal";
-                // CustomMessageBox.Show(
-                //     message,
-                //     "Connection Status",
-                //     MessageBoxButtons.OK,
-                //     CustomMessageBox.MessageBoxIcon.Error
-                // );
                 Console.WriteLine("Stream is not writable.");
             }
         }
@@ -7085,7 +6868,6 @@ namespace MissionPlanner.GCSViews
 
         public void BuildTrackingCommand(int x, int y)
         {
-            // Convert to 2 bytes each, signed, little endian
             byte[] xBytes = BitConverter.GetBytes((short)x);
             byte[] yBytes = BitConverter.GetBytes((short)y);
             Console.WriteLine("X,Y {0} {1}",x,y);
@@ -7093,12 +6875,12 @@ namespace MissionPlanner.GCSViews
             // serial data
             byte[] serial = new byte[]
             {
-                0x55, 0xAA, 0xDC, 0x0D, 0x31,        // Header + length
+                0x55, 0xAA, 0xDC, 0x0D, 0x31,        
                 0x00,0x00,0x00,0x00,
-                0x00,                               // Reserved
+                0x00,                              
                 0x0A,
-                xBytes[1], xBytes[0],               // X
-                yBytes[1], yBytes[0],                                // Tracking mode
+                xBytes[1], xBytes[0],               
+                yBytes[1], yBytes[0],                              
             };
 
             // Add serial checksum
@@ -7124,17 +6906,16 @@ namespace MissionPlanner.GCSViews
 
         public void BuildPitchYawCommand(int x, int y)
         {
-            // Convert to 2 bytes each, signed, little endian
             byte[] xBytes = BitConverter.GetBytes((short)x);
             byte[] yBytes = BitConverter.GetBytes((short)y);
             Console.WriteLine("X,Y {0} {1}",BitConverter.ToString(xBytes),BitConverter.ToString(yBytes));
             // serial data
             byte[] serial = new byte[]
             {
-                0x55, 0xAA, 0xDC, 0x11, 0x30,        // Header + length
+                0x55, 0xAA, 0xDC, 0x11, 0x30,        
                 0x01,xBytes[1], xBytes[0],yBytes[1],
-                yBytes[0],                               // Reserved
-                0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00             // Tracking mode
+                yBytes[0],                               
+                0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00           
             };
 
             // Add serial checksum
@@ -7144,7 +6925,7 @@ namespace MissionPlanner.GCSViews
             serialFull[serial.Length] = serialChecksum;
 
             // Add TCP header
-            byte tcpLength = (byte)serialFull.Length; // +1 for tcp checksum
+            byte tcpLength = (byte)serialFull.Length; 
             byte[] tcpHeader = new byte[] { 0xEB, 0x90, tcpLength };
 
             // Compose final TCP packet
@@ -7181,14 +6962,13 @@ namespace MissionPlanner.GCSViews
                     Math.Sin(rlat1) * Math.Cos(rlat2) * Math.Cos(dlon);
 
             double targetbearing = Math.Atan2(y, x);
-            // Console.WriteLine("Target Bearingggggg {0}", targetbearing);
-            double bearingDegrees = (targetbearing * 180.0 / Math.PI + 360) % 360; // Normalize to 0–360°
+            double bearingDegrees = (targetbearing * 180.0 / Math.PI + 360) % 360;
 
             return (distance, bearingDegrees);
         }
 
 
-        public void viewproUpCommand()
+        public void XagCamUpCommand()
         {
             var up_command = new byte[]{
                 0xEB, 0x90, 0x14, 0x55, 0xAA, 0xDC, 0x11, 0x30, 0x01, 0x00, 0x00, 0x07, 0xD0, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0xF7, 0xEB
@@ -7196,7 +6976,7 @@ namespace MissionPlanner.GCSViews
             SendCommand(up_command);
         }
 
-        public void viewproDownCommand()
+        public void XagCamDownCommand()
         {
             var down_command = new byte[]{
                 0xEB, 0x90, 0x14, 0x55, 0xAA, 0xDC, 0x11, 0x30, 0x01, 0x00, 0x00, 0xF8, 0x30, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0xE8, 0x2D
@@ -7204,7 +6984,7 @@ namespace MissionPlanner.GCSViews
             SendCommand(down_command);
         }
 
-        public void viewproLeftCommand()
+        public void XagCamLeftCommand()
         {
             var left_command = new byte[]{
                 0xEB, 0x90, 0x14, 0x55, 0xAA, 0xDC, 0x11, 0x30, 0x01, 0xF8, 0x30, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0xE8, 0x2D
@@ -7212,7 +6992,7 @@ namespace MissionPlanner.GCSViews
             SendCommand(left_command);
         }
 
-        public void viewproRightCommand()
+        public void XagCamRightCommand()
         {
             var right_command = new byte[]{
                 0xEB, 0x90, 0x14, 0x55, 0xAA, 0xDC, 0x11, 0x30, 0x01, 0x07, 0xD0, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0xF7, 0xEB
@@ -7220,16 +7000,15 @@ namespace MissionPlanner.GCSViews
             SendCommand(right_command);
         }
 
-        public void viewproPitchYawCommand(double x,double y)
+        public void XagCamPitchYawCommand(double x,double y)
         {
             int yaw = (int)(x * 2000);
             int pitch = (int)(y * 2000);
             Console.WriteLine("Yaw And Pitch {0} {1}",yaw,pitch);
             BuildPitchYawCommand(yaw,pitch);
-            // BuildPitchYawCommand(2000,0);
         }
 
-        public void viewproMoveStopCommand()
+        public void XagCamMoveStopCommand()
         {
             var move_stop = new byte[]{
                 0xEB, 0x90, 0x14, 0x55, 0xAA, 0xDC, 0x11, 0x30, 0x01, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x20, 0x3D
@@ -7237,7 +7016,7 @@ namespace MissionPlanner.GCSViews
             SendCommand(move_stop);
         }
 
-        public void viewproZoomInCommand()
+        public void XagCamZoomInCommand()
         {
             byte[] zoomInCommand = new byte[] {
                 0xEB, 0x90, 0x14, 0x55, 0xAA, 0xDC, 0x11, 0x30, 0x0F, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0x78, 0x00, 0x00, 0x00, 0x54, 0xF9
@@ -7245,7 +7024,7 @@ namespace MissionPlanner.GCSViews
             SendCommand(zoomInCommand);
         }
 
-        public void viewproZoomOutCommand()
+        public void XagCamZoomOutCommand()
         {
             byte[] zoomOutCommand = new byte[] {
                 0xEB, 0x90, 0x14, 0x55, 0xAA, 0xDC, 0x11, 0x30, 0x0F, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0x38, 0x00, 0x00, 0x00, 0x14, 0x79
@@ -7253,7 +7032,7 @@ namespace MissionPlanner.GCSViews
             SendCommand(zoomOutCommand);
         }
 
-        public void viewproZoomStopCommand()
+        public void XagCamZoomStopCommand()
         {
             var zoom_stop = new byte[]{
                 0xEB, 0x90, 0x14, 0x55, 0xAA, 0xDC, 0x11, 0x30, 0x0F, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x40, 0x00, 0x00, 0x00, 0x6E, 0xD9
@@ -7261,7 +7040,7 @@ namespace MissionPlanner.GCSViews
             SendCommand(zoom_stop);
         }
 
-        public void viewproTakePictureCommand()
+        public void XagCamTakePictureCommand()
         {
             var take_PictureCommand = new byte[]{
                 0xEB ,0x90 ,0x14 ,0x55 ,0xAA ,0xDC ,0x11 ,0x30 ,0x0F ,0x00 ,0x00 ,0x00 ,0x00 ,0x00 ,0x00 ,0x00 ,0x00 ,0x04 ,0xD0 ,0x00 ,0x00 ,0x00 ,0xFA ,0xF9
@@ -7269,7 +7048,7 @@ namespace MissionPlanner.GCSViews
             SendCommand(take_PictureCommand);
         }
 
-        public void viewproStartRecordingCommand()
+        public void XagCamStartRecordingCommand()
         {
             var start_RecordingCommand = new byte[]{
                 0xEB ,0x90 ,0x14 ,0x55 ,0xAA ,0xDC ,0x11 ,0x30 ,0x0F ,0x00 ,0x00 ,0x00 ,0x00 ,0x00 ,0x00 ,0x00 ,0x00 ,0x05 ,0x10 ,0x00 ,0x00 ,0x00 ,0x3B ,0x7B
@@ -7277,7 +7056,7 @@ namespace MissionPlanner.GCSViews
             SendCommand(start_RecordingCommand);
         }
 
-        public void viewproStopRecordingCommand()
+        public void XagCamStopRecordingCommand()
         {
             var stop_RecordingCommand = new byte[]{
                 0xEB ,0x90 ,0x14 ,0x55 ,0xAA ,0xDC ,0x11 ,0x30 ,0x0F ,0x00 ,0x00 ,0x00 ,0x00 ,0x00 ,0x00 ,0x00 ,0x00 ,0x05 ,0x50 ,0x00 ,0x00 ,0x00 ,0x7B ,0xFB
@@ -7285,35 +7064,35 @@ namespace MissionPlanner.GCSViews
             SendCommand(stop_RecordingCommand);
         }
 
-        public void viewproStopTrackCommand()
+        public void XagCamStopTrackCommand()
         {
             var stop_TrackCommand = new byte[]{
                 0xEB, 0x90, 0x14, 0x55, 0xAA, 0xDC, 0x11, 0x30, 0x01, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x01, 0x01, 0x00, 0x20, 0x3F
             };
             SendCommand(stop_TrackCommand);
         }
-        public void viewproEo_Command()
+        public void XagCamEo_Command()
         {
             var EOCommand = new byte[]{
                 0xEB, 0x90, 0x14, 0x55, 0xAA, 0xDC, 0x11, 0x30, 0x0F, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x03, 0x81, 0x00, 0x00, 0x00, 0xAC, 0x5B
             };
             SendCommand(EOCommand);
         }
-        public void viewproEoIr_WhiteCommand()
+        public void XagCamEoIr_WhiteCommand()
         {
             var EO_IR_WHITECommand = new byte[]{
                 0xEB, 0x90, 0x14, 0x55, 0xAA, 0xDC, 0x11, 0x30, 0x0F, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x03, 0x83, 0x00, 0x00, 0x00, 0xAE, 0x5F
             };
             SendCommand(EO_IR_WHITECommand);
         }
-        public void viewproIrEo_WhiteCommand()
+        public void XagCamIrEo_WhiteCommand()
         {
             var IR_EO_WHITECommand = new byte[]{
                 0xEB, 0x90, 0x14, 0x55, 0xAA, 0xDC, 0x11, 0x30, 0x0F, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x03, 0x84, 0x00, 0x00, 0x00, 0xA9, 0x5B
             };
             SendCommand(IR_EO_WHITECommand);
         }
-        public void viewproIr_WhiteCommand()
+        public void XagCamIr_WhiteCommand()
         {
             var IR_WHITECommand = new byte[]{
                 0xEB, 0x90, 0x14, 0x55, 0xAA, 0xDC, 0x11, 0x30, 0x0F, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x03, 0x82, 0x00, 0x00, 0x00, 0xAF, 0x5F
@@ -7321,14 +7100,14 @@ namespace MissionPlanner.GCSViews
             SendCommand(IR_WHITECommand);
         }
 
-        public void viewproEoIr_BlackCommand()
+        public void XagCamEoIr_BlackCommand()
         {
             var EO_IR_BLACKCommand = new byte[]{
                 0xEB, 0x90, 0x14, 0x55, 0xAA, 0xDC, 0x11, 0x30, 0x0F, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x03, 0xC3, 0x00, 0x00, 0x00, 0xEE, 0xDF
             };
             SendCommand(EO_IR_BLACKCommand);
         }
-        public void viewproIrEo_BlackCommand()
+        public void XagCamIrEo_BlackCommand()
         {
             var IR_EO_BLACKCommand = new byte[]{
                 0xEB, 0x90, 0x14, 0x55, 0xAA, 0xDC, 0x11, 0x30, 0x0F, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x03, 0xC4, 0x00, 0x00, 0x00, 0xE9, 0xDB
@@ -7336,7 +7115,7 @@ namespace MissionPlanner.GCSViews
             SendCommand(IR_EO_BLACKCommand);
         }
 
-        public void viewproIr_BlackCommand()
+        public void XagCamIr_BlackCommand()
         {
             var IR_BLACKCommand = new byte[]{
                 0xEB, 0x90, 0x14, 0x55, 0xAA, 0xDC, 0x11, 0x30, 0x0F, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x03, 0xC2, 0x00, 0x00, 0x00, 0xEF, 0xDF
@@ -7344,21 +7123,21 @@ namespace MissionPlanner.GCSViews
             SendCommand(IR_BLACKCommand);
         }
 
-        public void viewproEoIr_PseudoCommand()
+        public void XagCamEoIr_PseudoCommand()
         {
             var EO_IR_PSEUDOCommand = new byte[]{
                 0xEB, 0x90, 0x14, 0x55, 0xAA, 0xDC, 0x11, 0x30, 0x0F, 0x1F, 0xFE, 0x0E, 0x38, 0x00, 0x00, 0x00, 0x00, 0x04, 0x83, 0x00, 0x00, 0x00, 0x7E, 0x93
             };
             SendCommand(EO_IR_PSEUDOCommand);
         }
-        public void viewproIrEo_PseudoCommand()
+        public void XagCamIrEo_PseudoCommand()
         {
             var IR_EO_PSEUDOCommand = new byte[]{
                 0xEB, 0x90, 0x14, 0x55, 0xAA, 0xDC, 0x11, 0x30, 0x0F, 0x1F, 0xFE, 0x0E, 0x38, 0x00, 0x00, 0x00, 0x00, 0x04, 0x84, 0x00, 0x00, 0x00, 0x79, 0x8F
             };
             SendCommand(IR_EO_PSEUDOCommand);
         }
-        public void viewproIr_PseudoCommand()
+        public void XagCamIr_PseudoCommand()
         {
             var IR_PSEUDOCommand = new byte[]{
                 0xEB, 0x90, 0x14, 0x55, 0xAA, 0xDC, 0x11, 0x30, 0x0F, 0x1F, 0xFE, 0x0E, 0x38, 0x00, 0x00, 0x00, 0x00, 0x04, 0x82, 0x00, 0x00, 0x00, 0x7F, 0x93
@@ -7366,28 +7145,28 @@ namespace MissionPlanner.GCSViews
             SendCommand(IR_PSEUDOCommand);
         }
 
-        public void viewproHomeCommand()
+        public void XagCamHomeCommand()
         {
             var HomeCommand = new byte[]{
                 0xEB, 0x90, 0x14, 0x55, 0xAA, 0xDC, 0x11, 0x30, 0x04, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x25, 0x45
             };
             SendCommand(HomeCommand);
         }
-        public void viewproOsdOnCommand()
+        public void XagCamOsdOnCommand()
         {
             var OsdOn_Command = new byte[]{
                 0xEB, 0x90, 0x08,0x55, 0xAA, 0xDC, 0x05, 0x01, 0x05, 0x00, 0x01,0xE7
             };
             SendCommand(OsdOn_Command);
         }
-        public void viewproOsdOffCommand()
+        public void XagCamOsdOffCommand()
         {
             var OsdOff_Command = new byte[]{
                 0xEB, 0x90, 0x08,0x55, 0xAA, 0xDC, 0x05, 0x01, 0x05, 0x01, 0x00,0xE7
             };
             SendCommand(OsdOff_Command);
         }
-        public void viewproAiOsdOnCommand()
+        public void XagCamAiOsdOnCommand()
         {
             var AiOsdOn_Command = new byte[]
             {
@@ -7395,7 +7174,7 @@ namespace MissionPlanner.GCSViews
             };
             SendCommand(AiOsdOn_Command);
         }
-        public void viewproAiOsdOffCommand()
+        public void XagCamAiOsdOffCommand()
         {
             var AiOsdOff_Command = new byte[]
             {
@@ -7404,23 +7183,22 @@ namespace MissionPlanner.GCSViews
             SendCommand(AiOsdOff_Command);
         }
 
-        public void viewproDZoomPlusCommand()
+        public void XagCamDZoomPlusCommand()
         {
             var DzoomPlus_Command = new byte[]{
                 0xEB, 0x90, 0x14, 0x55, 0xAA, 0xDC, 0x11, 0x30, 0x0F, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x06, 0xD0, 0x00, 0x00, 0x00, 0xF8, 0xF9
             };
             SendCommand(DzoomPlus_Command);
         }
-        public void viewproDZoomMinusCommand()
+        public void XagCamDZoomMinusCommand()
         {
             var DzoomMinus_Command = new byte[]{
                 0xEB, 0x90, 0x14, 0x55, 0xAA, 0xDC, 0x11, 0x30, 0x0F, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x07, 0x10, 0x00, 0x00, 0x00, 0x39, 0x7B
             };
             SendCommand(DzoomMinus_Command);
         }
-        public void viewproSetLockFollowCommand(string message)
+        public void XagCamSetLockFollowCommand(string message)
         {
-            // 0xEB, 0x90, 0x14, 0x55, 0xAA, 0xDC, 0x11, 0x30, 0x03, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x22, 0x41
             if(message == "follow"){
                 var Yawfollow_Command = new byte[]{
                     0xEB, 0x90, 0x14, 0x55, 0xAA, 0xDC, 0x11, 0x30, 0x03, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x22, 0x41
@@ -7434,7 +7212,7 @@ namespace MissionPlanner.GCSViews
                 SendCommand(Yawlock_Command);
             }
         }
-        public void viewproPointDownCommand()
+        public void XagCamPointDownCommand()
         {
             var HomeCommand = new byte[]{
                 0xEB, 0x90, 0x14, 0x55, 0xAA, 0xDC, 0x11, 0x30, 0x04, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x25, 0x45
@@ -7474,6 +7252,7 @@ namespace MissionPlanner.GCSViews
 
                 var commandValue = 0;
 
+
                 if (finalYaw < 0)
                 {
                     finalYaw += 180;
@@ -7494,6 +7273,23 @@ namespace MissionPlanner.GCSViews
                 double angleDeg = angleRad * (180 / Math.PI);
 
                 finalPitch = Math.Abs((int)(angleDeg / 1.40625));
+
+                var msg = new MAVLink.mavlink_gimbal_manager_set_attitude_t
+                {
+                    target_system = (byte)MainV2.comPort.sysidcurrent,
+                    target_component = (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_GIMBAL,
+                    gimbal_device_id = 0,
+                    flags = 1024,
+                    q = mavlink_euler_to_quaternion(0.0f,(float)finalPitch,(float)commandValue),
+                    angular_velocity_x = 0.0f,
+                    angular_velocity_y = 0.0f,
+                    angular_velocity_z = 0.0f
+                };
+                MainV2.comPort.sendPacket(
+                    msg,
+                    (byte)MainV2.comPort.sysidcurrent,
+                    (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_GIMBAL
+                );
 
                 byte[] finalPitchByte = BitConverter.GetBytes((short)finalPitch);
 
@@ -7559,7 +7355,6 @@ namespace MissionPlanner.GCSViews
                 PointLatLngAlt pnt = item;
 
                 var Tag = pnt.Tag + "\n" + pnt.ToString();
-                // Console.WriteLine(pnt + item.Tag);
                 if(item.Tag.ToString().Contains("Artillery") || item.Tag.ToString().Contains("artillery"))
                 {
                     dooafPoints.Insert(0, new DooafCoordinates(pnt.Lat, pnt.Lng, pnt.Alt));
@@ -7614,39 +7409,36 @@ namespace MissionPlanner.GCSViews
                 var doOffval = latlon_to_xy_approx(targetPointLat2, targetPointLon2, targetPointLat1, targetPointLon1,bearing);
                 double roundedDooafX = Math.Round(doOffval[0], 4);
                 double roundedDooafY = Math.Round(doOffval[1], 4);
-                // roundedDooafX = 30.292737483;
-                // roundedDooafY = 29.26193993;
                 roundedDooafX = Math.Round(roundedDooafX,2);
                 roundedDooafY = Math.Round(roundedDooafY,2);
                 var dooffx = "DOOAFX: " + roundedDooafX.ToString() + " m";
                 var dooffy = "DOOAFY: " + roundedDooafY.ToString() + " m";
                 (double distance1, double bearing1) = DistanceAndBearing(targetPointLat2, targetPointLon2, targetPointLat1, targetPointLon1);
-                // distance1 = 30.20283839;
                 int distance2 = (int)distance1;
                 var dooffdistance = "Distance: " + distance2.ToString() + " m";
-                if (DooafX.InvokeRequired){
-                    DooafX.Invoke((MethodInvoker)delegate
+                if (this._baseCameraController.DooafX.InvokeRequired){
+                    this._baseCameraController.DooafX.Invoke((MethodInvoker)delegate
                     {
-                        DooafX.Text = dooffx;
+                        this._baseCameraController.DooafX.Text = dooffx;
                     });
                 }else{
-                    DooafX.Text = dooffx;
+                    this._baseCameraController.DooafX.Text = dooffx;
                 }
-                if (DooafY.InvokeRequired){
-                    DooafY.Invoke((MethodInvoker)delegate
+                if (this._baseCameraController.DooafY.InvokeRequired){
+                    this._baseCameraController.DooafY.Invoke((MethodInvoker)delegate
                     {
-                        DooafY.Text = dooffy;
+                        this._baseCameraController.DooafY.Text = dooffy;
                     });
                 }else{
-                    DooafY.Text = dooffy;
+                    this._baseCameraController.DooafY.Text = dooffy;
                 }
-                if (TargetDistance.InvokeRequired){
-                    TargetDistance.Invoke((MethodInvoker)delegate
+                if (this._baseCameraController.TargetDistance.InvokeRequired){
+                    this._baseCameraController.TargetDistance.Invoke((MethodInvoker)delegate
                     {
-                        TargetDistance.Text = dooffdistance;
+                        this._baseCameraController.TargetDistance.Text = dooffdistance;
                     });
                 }else{
-                    TargetDistance.Text = dooffdistance;
+                    this._baseCameraController.TargetDistance.Text = dooffdistance;
                 }
             }
             else
@@ -7677,16 +7469,16 @@ namespace MissionPlanner.GCSViews
 
                 var (distance, targetYaw) = DistanceAndBearing(drone_latitude, drone_longitude, target_latitude, target_longitude);
                 var targetDistance = "Distance : " + distance.ToString() + " m";
-                if (TargetDistance.InvokeRequired)
+                if (this._baseCameraController.TargetDistance.InvokeRequired)
                 {
-                    TargetDistance.Invoke((MethodInvoker)delegate
+                    this._baseCameraController.TargetDistance.Invoke((MethodInvoker)delegate
                     {
-                        TargetDistance.Text = targetDistance;
+                        this._baseCameraController.TargetDistance.Text = targetDistance;
                     });
                 }
                 else
                 {
-                    TargetDistance.Text = targetDistance;
+                    this._baseCameraController.TargetDistance.Text = targetDistance;
                 }
             }
             catch
@@ -7763,14 +7555,73 @@ namespace MissionPlanner.GCSViews
                    MAVLink.MAV_CMD.DO_MOUNT_CONTROL, pitch, (float)0.0, yaw, 0, 0,0,0,false);
         }
 
+        public float[] mavlink_euler_to_quaternion(float roll, float pitch, float yaw)
+        {
+            float cosPhi_2 = Utils.cosf(roll / 2);
+            float sinPhi_2 = Utils.sinf(roll / 2);
+            float cosTheta_2 = Utils.cosf(pitch / 2);
+            float sinTheta_2 = Utils.sinf(pitch / 2);
+            float cosPsi_2 = Utils.cosf(yaw / 2);
+            float sinPsi_2 = Utils.sinf(yaw / 2);
+            float[] quaternion = new float[4];
+            quaternion[0] = (cosPhi_2 * cosTheta_2 * cosPsi_2 +
+                             sinPhi_2 * sinTheta_2 * sinPsi_2);
+            quaternion[1] = (sinPhi_2 * cosTheta_2 * cosPsi_2 -
+                             cosPhi_2 * sinTheta_2 * sinPsi_2);
+            quaternion[2] = (cosPhi_2 * sinTheta_2 * cosPsi_2 +
+                             sinPhi_2 * cosTheta_2 * sinPsi_2);
+            quaternion[3] = (cosPhi_2 * cosTheta_2 * sinPsi_2 -
+                             sinPhi_2 * sinTheta_2 * cosPsi_2);
+            return quaternion;
+        }
+
         public void GremsyHomeCommand()
         {
-            float roll = 0.0f;
-            pitch = 0.0f;
-            yaw = 0.0f;
-            Console.WriteLine("Home Command Sent");
-            MainV2.comPort.doCommand((byte)MainV2.comPort.sysidcurrent,(byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_CAMERA,
-            MAVLink.MAV_CMD.DO_MOUNT_CONTROL, pitch, roll, yaw, 0, 0,0,0,false);
+            
+            var msg = new MAVLink.mavlink_gimbal_manager_set_attitude_t
+            {
+                target_system = (byte)MainV2.comPort.sysidcurrent,
+                target_component = (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_GIMBAL,
+                gimbal_device_id = 0,
+                flags = 1024,
+                q = mavlink_euler_to_quaternion(0.0f,0.0f,0.0f),
+                angular_velocity_x =0.0f,
+                angular_velocity_y = 0.0f,
+                angular_velocity_z =  0.0f
+            };
+            MainV2.comPort.sendPacket(
+                msg,
+                (byte)MainV2.comPort.sysidcurrent,
+                (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_GIMBAL
+            );
+        }
+
+        public void GremsyPointDownCommand()
+        {
+            
+            var msg = new MAVLink.mavlink_gimbal_manager_set_attitude_t
+            {
+                target_system = (byte)MainV2.comPort.sysidcurrent,
+                target_component = (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_GIMBAL,
+                gimbal_device_id = 0,
+                flags = 1024,
+                q = mavlink_euler_to_quaternion(0.0f,-90.0f,0.0f),
+                angular_velocity_x = 0.0f,
+                angular_velocity_y = 0.0f,
+                angular_velocity_z = 0.0f
+            };
+            MainV2.comPort.sendPacket(
+                msg,
+                (byte)MainV2.comPort.sysidcurrent,
+                (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_GIMBAL
+            );
+        }
+
+        public void GremsyRectangleTracking(float x1,float y1,float x2,float y2)
+        {
+            Console.WriteLine("Rectangle Tracking is Goinggggggg");
+            MainV2.comPort.doCommand((byte)MainV2.comPort.sysidcurrent,(byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_CAMERA,MAVLink.MAV_CMD.CAMERA_TRACK_RECTANGLE,
+                x1, y1, x2, y2, 0, 0, 0,false);
         }
 
         public bool GremsyTakePhoto()
@@ -7784,17 +7635,15 @@ namespace MissionPlanner.GCSViews
         public bool GremsySwitchCameraModeToPhoto()
         {
             bool result = MainV2.comPort.doCommand((byte)MainV2.comPort.sysidcurrent, (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_CAMERA,
-                    MAVLink.MAV_CMD.IMAGE_START_CAPTURE, 0, 0, 0, 0, 0, 0,0,true);
+                    MAVLink.MAV_CMD.SET_CAMERA_MODE, 0, 0, 0, 0, 0, 0,0,true);
             return result;
         }
 
         public bool GremsySwitchCameraModeToVideo()
         {
             bool result = MainV2.comPort.doCommand((byte)MainV2.comPort.sysidcurrent, (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_CAMERA,
-                    MAVLink.MAV_CMD.IMAGE_START_CAPTURE, 0, 1, 0, 0, 0, 0,0,true);
+                    MAVLink.MAV_CMD.SET_CAMERA_MODE, 0, 1, 0, 0, 0, 0,0,true);
             return result;
-            // MainV2.comPort.doCommand((byte)MainV2.comPort.sysidcurrent, (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_CAMERA,
-            //        MAVLink.MAV_CMD.REQUEST_STORAGE_INFORMATION, 0, 1, 0, 0, 0, 0,0);
         }
 
         public void GremsyControlPitchYaw(double x,double y)
@@ -7803,7 +7652,7 @@ namespace MissionPlanner.GCSViews
             var msg = new MAVLink.mavlink_gimbal_manager_set_attitude_t
             {
                 target_system = (byte)MainV2.comPort.sysidcurrent,
-                target_component = (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_CAMERA,
+                target_component = (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_GIMBAL,
                 gimbal_device_id = 0,
                 flags = 1024,
                 q = new float[]{
@@ -7816,8 +7665,16 @@ namespace MissionPlanner.GCSViews
             MainV2.comPort.sendPacket(
                 msg,
                 (byte)MainV2.comPort.sysidcurrent,
-                (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_CAMERA
+                (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_GIMBAL
             );
+        }
+
+        public void GremsyControlCommand(double x,double y)
+        {
+            Console.WriteLine("Command is Sent");
+            var q = new float[]{
+                    float.NaN, float.NaN, float.NaN, float.NaN
+                };
         }
     }
 }

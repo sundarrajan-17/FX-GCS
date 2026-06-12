@@ -3,9 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>CFBundleName</key>
-	<string>MissionPlanner</string>
+	<string>XagSurveillanceGCS</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.MichaelOborne.MissionPlanner</string>
+	<string>com.MichaelOborne.XagSurveillanceGCS</string>
 	<key>CFBundleShortVersionString</key>
 	<string>1.0</string>
 	<key>CFBundleVersion</key>

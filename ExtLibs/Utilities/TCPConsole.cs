@@ -5,7 +5,7 @@ using System.Text;
 using System.Net;
 using System.Net.Sockets;
 
-namespace MissionPlanner.Utilities
+namespace XagSurveillanceGCS.Utilities
 {
     public static class TCPConsole
     {

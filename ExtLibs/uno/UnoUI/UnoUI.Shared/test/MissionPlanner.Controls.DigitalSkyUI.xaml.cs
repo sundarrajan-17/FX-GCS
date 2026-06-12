@@ -1,1 +1,1 @@
-namespace MissionPlanner.Controls { public partial class DigitalSkyUI{public DigitalSkyUI(){this.InitializeComponent();}}}
+namespace XagSurveillanceGCS.Controls { public partial class DigitalSkyUI{public DigitalSkyUI(){this.InitializeComponent();}}}

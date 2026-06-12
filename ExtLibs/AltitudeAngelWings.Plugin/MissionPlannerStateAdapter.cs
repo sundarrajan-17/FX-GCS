@@ -2,17 +2,17 @@
 using System.Collections.Generic;
 using AltitudeAngelWings.Clients.Flight.Model;
 using AltitudeAngelWings.Model;
-using MissionPlanner;
+using XagSurveillanceGCS;
 
 namespace AltitudeAngelWings.Plugin
 {
-    internal class MissionPlannerStateAdapter : IMissionPlannerState
+    internal class XagSurveillanceGCSStateAdapter : IXagSurveillanceGCSState
     {
         private readonly Func<CurrentState> _getCurrentState;
         private readonly Func<IList<FlightPlanWaypoint>> _getCurrentWaypoints;
         private readonly Func<FlightCapability> _getFlightCapability;
 
-        public MissionPlannerStateAdapter(Func<CurrentState> getCurrentState, Func<IList<FlightPlanWaypoint>> getCurrentWaypoints, Func<FlightCapability> getFlightCapability)
+        public XagSurveillanceGCSStateAdapter(Func<CurrentState> getCurrentState, Func<IList<FlightPlanWaypoint>> getCurrentWaypoints, Func<FlightCapability> getFlightCapability)
         {
             _getCurrentState = getCurrentState;
             _getCurrentWaypoints = getCurrentWaypoints;

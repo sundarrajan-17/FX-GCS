@@ -153,7 +153,7 @@
     <value>BUT_Low</value>
   </data>
   <data name="&gt;&gt;BUT_Low.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.MyButton, MissionPlanner.Controls, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>XagSurveillanceGCS.Controls.MyButton, XagSurveillanceGCS.Controls, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;BUT_Low.Parent" xml:space="preserve">
     <value>$this</value>
@@ -177,7 +177,7 @@
     <value>BUT_High</value>
   </data>
   <data name="&gt;&gt;BUT_High.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.MyButton, MissionPlanner.Controls, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>XagSurveillanceGCS.Controls.MyButton, XagSurveillanceGCS.Controls, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;BUT_High.Parent" xml:space="preserve">
     <value>$this</value>
@@ -201,7 +201,7 @@
     <value>BUT_Repeat</value>
   </data>
   <data name="&gt;&gt;BUT_Repeat.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.MyButton, MissionPlanner.Controls, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>XagSurveillanceGCS.Controls.MyButton, XagSurveillanceGCS.Controls, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;BUT_Repeat.Parent" xml:space="preserve">
     <value>$this</value>

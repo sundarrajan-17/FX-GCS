@@ -4,14 +4,14 @@ using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 
-namespace MissionPlanner.Controls
+namespace XagSurveillanceGCS.Controls
 {
     public partial class DistanceBar : UserControl
     {
         private readonly Brush _brushbar = new SolidBrush(Color.FromArgb(50, Color.White));
 
 
-        private readonly Bitmap icon = global::MissionPlanner.Properties.Resources.marker_05;
+        private readonly Bitmap icon = global::XagSurveillanceGCS.Properties.Resources.marker_05;
 
         private float _traveleddist = 0;
 

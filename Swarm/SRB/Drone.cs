@@ -1,4 +1,4 @@
-﻿namespace MissionPlanner.Swarm.SRB
+﻿namespace XagSurveillanceGCS.Swarm.SRB
 {
     public class Drone : DroneBase
     {

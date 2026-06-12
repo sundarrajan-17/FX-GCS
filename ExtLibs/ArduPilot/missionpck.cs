@@ -5,13 +5,13 @@ using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Text;
 using log4net;
-using MissionPlanner.Utilities;
+using XagSurveillanceGCS.Utilities;
 using uint16_t = System.UInt16;
 using uint8_t = System.Byte;
 using uint32_t = System.UInt32;
 using System.IO;
 
-namespace MissionPlanner.ArduPilot
+namespace XagSurveillanceGCS.ArduPilot
 {
     public static class missionpck
     {

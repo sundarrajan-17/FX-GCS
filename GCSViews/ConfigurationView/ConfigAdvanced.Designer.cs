@@ -1,4 +1,4 @@
-﻿namespace MissionPlanner.GCSViews.ConfigurationView
+﻿namespace XagSurveillanceGCS.GCSViews.ConfigurationView
 {
     partial class ConfigAdvanced
     {
@@ -30,17 +30,17 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ConfigAdvanced));
             this.label1 = new System.Windows.Forms.Label();
-            this.but_mavinspector = new MissionPlanner.Controls.MyButton();
-            this.but_warningmanager = new MissionPlanner.Controls.MyButton();
-            this.but_proximity = new MissionPlanner.Controls.MyButton();
-            this.but_signkey = new MissionPlanner.Controls.MyButton();
-            this.BUT_outputMavlink = new MissionPlanner.Controls.MyButton();
-            this.BUT_outputnmea = new MissionPlanner.Controls.MyButton();
+            this.but_mavinspector = new XagSurveillanceGCS.Controls.MyButton();
+            this.but_warningmanager = new XagSurveillanceGCS.Controls.MyButton();
+            this.but_proximity = new XagSurveillanceGCS.Controls.MyButton();
+            this.but_signkey = new XagSurveillanceGCS.Controls.MyButton();
+            this.BUT_outputMavlink = new XagSurveillanceGCS.Controls.MyButton();
+            this.BUT_outputnmea = new XagSurveillanceGCS.Controls.MyButton();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.label14 = new System.Windows.Forms.Label();
-            this.BUT_supportproxy = new MissionPlanner.Controls.MyButton();
-            this.BUT_spect = new MissionPlanner.Controls.MyButton();
-            this.but_fft = new MissionPlanner.Controls.MyButton();
+            this.BUT_supportproxy = new XagSurveillanceGCS.Controls.MyButton();
+            this.BUT_spect = new XagSurveillanceGCS.Controls.MyButton();
+            this.but_fft = new XagSurveillanceGCS.Controls.MyButton();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -48,13 +48,13 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
-            this.BUT_follow_me = new MissionPlanner.Controls.MyButton();
+            this.BUT_follow_me = new XagSurveillanceGCS.Controls.MyButton();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.BUT_paramgen = new MissionPlanner.Controls.MyButton();
+            this.BUT_paramgen = new XagSurveillanceGCS.Controls.MyButton();
             this.label10 = new System.Windows.Forms.Label();
-            this.BUT_movingbase = new MissionPlanner.Controls.MyButton();
-            this.but_anonlog = new MissionPlanner.Controls.MyButton();
+            this.BUT_movingbase = new XagSurveillanceGCS.Controls.MyButton();
+            this.but_anonlog = new XagSurveillanceGCS.Controls.MyButton();
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();

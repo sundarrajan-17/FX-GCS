@@ -1,7 +1,7 @@
-﻿using MissionPlanner.Utilities;
+﻿using XagSurveillanceGCS.Utilities;
 using Newtonsoft.Json;
 
-namespace MissionPlanner.GCSViews.ConfigurationView
+namespace XagSurveillanceGCS.GCSViews.ConfigurationView
 {
     public class DeviceInfo
     {

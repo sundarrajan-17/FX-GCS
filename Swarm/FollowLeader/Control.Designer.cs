@@ -1,4 +1,4 @@
-﻿namespace MissionPlanner.Swarm.FollowLeader
+﻿namespace XagSurveillanceGCS.Swarm.FollowLeader
 {
     partial class Control
     {
@@ -28,20 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.but_arm = new MissionPlanner.Controls.MyButton();
-            this.but_takeoff = new MissionPlanner.Controls.MyButton();
-            this.but_auto = new MissionPlanner.Controls.MyButton();
-            this.but_master = new MissionPlanner.Controls.MyButton();
+            this.but_arm = new XagSurveillanceGCS.Controls.MyButton();
+            this.but_takeoff = new XagSurveillanceGCS.Controls.MyButton();
+            this.but_auto = new XagSurveillanceGCS.Controls.MyButton();
+            this.but_master = new XagSurveillanceGCS.Controls.MyButton();
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
-            this.but_start = new MissionPlanner.Controls.MyButton();
-            this.but_guided = new MissionPlanner.Controls.MyButton();
+            this.but_start = new XagSurveillanceGCS.Controls.MyButton();
+            this.but_guided = new XagSurveillanceGCS.Controls.MyButton();
             this.label3 = new System.Windows.Forms.Label();
             this.numericUpDown3 = new System.Windows.Forms.NumericUpDown();
-            this.but_navguided = new MissionPlanner.Controls.MyButton();
-            this.but_airmaster = new MissionPlanner.Controls.MyButton();
+            this.but_navguided = new XagSurveillanceGCS.Controls.MyButton();
+            this.but_airmaster = new XagSurveillanceGCS.Controls.MyButton();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).BeginInit();

@@ -1,6 +1,6 @@
 ﻿using System.Windows.Forms;
 using System.Drawing;
-namespace MissionPlanner.Controls
+namespace XagSurveillanceGCS.Controls
 {
     partial class FlashMessage
     {

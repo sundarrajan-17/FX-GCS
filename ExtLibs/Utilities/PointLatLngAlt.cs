@@ -13,7 +13,7 @@ using GeoUtility.GeoSystem;
 using System.Collections;
 using GeoAPI.Geometries;
 
-namespace MissionPlanner.Utilities
+namespace XagSurveillanceGCS.Utilities
 {
 
     public class PointLatLngAlt: IComparable

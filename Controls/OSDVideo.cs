@@ -11,7 +11,7 @@ using AviFile;
 using DirectShowLib;
 using DirectShowLib.DES;
 
-namespace MissionPlanner.Controls
+namespace XagSurveillanceGCS.Controls
 {
     public partial class OSDVideo : Form, ISampleGrabberCB
     {
@@ -80,7 +80,7 @@ namespace MissionPlanner.Controls
 
             hud1.SixteenXNine = true;
 
-            MissionPlanner.Utilities.Tracking.AddPage(this.GetType().ToString(), this.Text);
+            XagSurveillanceGCS.Utilities.Tracking.AddPage(this.GetType().ToString(), this.Text);
         }
 
         void OSDVideo_camimage(Image camimage)

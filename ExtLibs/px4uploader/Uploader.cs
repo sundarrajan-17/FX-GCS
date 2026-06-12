@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 using System.Reflection;
 using System.Threading;
 using System.Xml;
-using MissionPlanner.Comms;
+using XagSurveillanceGCS.Comms;
 
 namespace px4uploader
 {

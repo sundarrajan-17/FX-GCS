@@ -1,6 +1,6 @@
 using System;
 
-namespace MissionPlanner.Utilities
+namespace XagSurveillanceGCS.Utilities
 {
     public interface IBrowserOpen
     {

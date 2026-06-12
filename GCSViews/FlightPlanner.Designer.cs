@@ -1,7 +1,7 @@
 ﻿using System.Windows.Forms;
-using MissionPlanner.Controls;
+using XagSurveillanceGCS.Controls;
 
-namespace MissionPlanner.GCSViews
+namespace XagSurveillanceGCS.GCSViews
 {
     partial class FlightPlanner
     {
@@ -61,9 +61,9 @@ namespace MissionPlanner.GCSViews
             this.TXT_loiterrad = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.but_writewpfast = new MissionPlanner.Controls.MyButton();
-            this.BUT_write = new MissionPlanner.Controls.MyButton();
-            this.BUT_read = new MissionPlanner.Controls.MyButton();
+            this.but_writewpfast = new XagSurveillanceGCS.Controls.MyButton();
+            this.BUT_write = new XagSurveillanceGCS.Controls.MyButton();
+            this.BUT_read = new XagSurveillanceGCS.Controls.MyButton();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.LinkLabel();
             this.label3 = new System.Windows.Forms.Label();
@@ -75,16 +75,16 @@ namespace MissionPlanner.GCSViews
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
             this.label6 = new System.Windows.Forms.Label();
-            this.coords1 = new MissionPlanner.Controls.Coords();
+            this.coords1 = new XagSurveillanceGCS.Controls.Coords();
             this.lbl_status = new System.Windows.Forms.Label();
             this.panelWaypoints = new System.Windows.Forms.Panel();
             this.chk_usemavftp = new System.Windows.Forms.CheckBox();
-            this.but_mincommands = new MissionPlanner.Controls.MyButton();
+            this.but_mincommands = new XagSurveillanceGCS.Controls.MyButton();
             this.CMB_altmode = new System.Windows.Forms.ComboBox();
             this.CHK_splinedefault = new System.Windows.Forms.CheckBox();
             this.label17 = new System.Windows.Forms.Label();
             this.TXT_altwarn = new System.Windows.Forms.TextBox();
-            this.Commands = new MissionPlanner.Controls.MyDataGridView();
+            this.Commands = new XagSurveillanceGCS.Controls.MyDataGridView();
             this.Command = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.Param1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Param2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -106,31 +106,31 @@ namespace MissionPlanner.GCSViews
             this.Dist = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.AZ = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TagData = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.BUT_Add = new MissionPlanner.Controls.MyButton();
+            this.BUT_Add = new XagSurveillanceGCS.Controls.MyButton();
             this.splitter1 = new System.Windows.Forms.Splitter();
             this.panelAction = new System.Windows.Forms.Panel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.progressBarInjectCustomMap = new System.Windows.Forms.ProgressBar();
-            this.BUT_InjectCustomMap = new MissionPlanner.Controls.MyButton();
+            this.BUT_InjectCustomMap = new XagSurveillanceGCS.Controls.MyButton();
             this.chk_grid = new System.Windows.Forms.CheckBox();
             this.comboBoxMapType = new System.Windows.Forms.ComboBox();
             this.lnk_kml = new System.Windows.Forms.LinkLabel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.lbl_wpfile = new System.Windows.Forms.Label();
-            this.BUT_loadwpfile = new MissionPlanner.Controls.MyButton();
-            this.BUT_saveWPFile = new MissionPlanner.Controls.MyButton();
+            this.BUT_loadwpfile = new XagSurveillanceGCS.Controls.MyButton();
+            this.BUT_saveWPFile = new XagSurveillanceGCS.Controls.MyButton();
             this.splitter2 = new System.Windows.Forms.Splitter();
             this.panelMap = new System.Windows.Forms.Panel();
             this.lbl_homedist = new System.Windows.Forms.Label();
             this.lbl_prevdist = new System.Windows.Forms.Label();
             this.Zoomlevel = new System.Windows.Forms.NumericUpDown();
-            this.TRK_zoom = new MissionPlanner.Controls.MyTrackBar();
+            this.TRK_zoom = new XagSurveillanceGCS.Controls.MyTrackBar();
             this.label11 = new System.Windows.Forms.Label();
             this.lbl_distance = new System.Windows.Forms.Label();
             this.cmb_missiontype = new System.Windows.Forms.ComboBox();
-            this.MainMap = new MissionPlanner.Controls.myGMAP();
+            this.MainMap = new XagSurveillanceGCS.Controls.myGMAP();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.deleteWPToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.insertWpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();

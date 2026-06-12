@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Diagnostics;
 using System.Windows.Forms;
-using MissionPlanner;
-using MissionPlanner.Comms;
-using MissionPlanner.Radio;
-using MissionPlanner.Utilities;
+using XagSurveillanceGCS;
+using XagSurveillanceGCS.Comms;
+using XagSurveillanceGCS.Radio;
+using XagSurveillanceGCS.Utilities;
 using Microsoft.VisualBasic;
 
 namespace SikRadio
@@ -29,7 +29,7 @@ namespace SikRadio
             // default
             CMB_Baudrate.SelectedIndex = CMB_Baudrate.Items.IndexOf("57600");
 
-            MissionPlanner.Comms.CommsBase.InputBoxShow += CommsBaseOnInputBoxShow;
+            XagSurveillanceGCS.Comms.CommsBase.InputBoxShow += CommsBaseOnInputBoxShow;
 
             settingsToolStripMenuItem_Click(null, null);
         }

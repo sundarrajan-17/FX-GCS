@@ -2,21 +2,21 @@
 using System.Drawing;
 using GMap.NET;
 using GMap.NET.WindowsForms;
-using MissionPlanner.Utilities;
+using XagSurveillanceGCS.Utilities;
 
-namespace MissionPlanner.Maps
+namespace XagSurveillanceGCS.Maps
 {
     [Serializable]
     public class GMapMarkerPlane : GMapMarkerBase
     {
-        private readonly Bitmap icon = global::MissionPlanner.Maps.Resources.planeicon;
+        private readonly Bitmap icon = global::XagSurveillanceGCS.Maps.Resources.planeicon;
 
-        private readonly Bitmap icon1 = global::MissionPlanner.Maps.Resources.planeicon1;
-        private readonly Bitmap icon2 = global::MissionPlanner.Maps.Resources.planeicon2;
-        private readonly Bitmap icon3 = global::MissionPlanner.Maps.Resources.planeicon3;
-        private readonly Bitmap icon4 = global::MissionPlanner.Maps.Resources.planeicon4;
-        private readonly Bitmap icon5 = global::MissionPlanner.Maps.Resources.planeicon5;
-        private readonly Bitmap icon6 = global::MissionPlanner.Maps.Resources.planeicon6;
+        private readonly Bitmap icon1 = global::XagSurveillanceGCS.Maps.Resources.planeicon1;
+        private readonly Bitmap icon2 = global::XagSurveillanceGCS.Maps.Resources.planeicon2;
+        private readonly Bitmap icon3 = global::XagSurveillanceGCS.Maps.Resources.planeicon3;
+        private readonly Bitmap icon4 = global::XagSurveillanceGCS.Maps.Resources.planeicon4;
+        private readonly Bitmap icon5 = global::XagSurveillanceGCS.Maps.Resources.planeicon5;
+        private readonly Bitmap icon6 = global::XagSurveillanceGCS.Maps.Resources.planeicon6;
 
         float cog = -1;
         float heading = 0;

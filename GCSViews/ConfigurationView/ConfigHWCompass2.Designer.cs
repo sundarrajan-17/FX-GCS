@@ -1,4 +1,4 @@
-﻿namespace MissionPlanner.GCSViews.ConfigurationView
+﻿namespace XagSurveillanceGCS.GCSViews.ConfigurationView
 {
     partial class ConfigHWCompass2
     {
@@ -38,28 +38,28 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.mavlinkComboBoxfitness = new MissionPlanner.Controls.MavlinkComboBox();
+            this.mavlinkComboBoxfitness = new XagSurveillanceGCS.Controls.MavlinkComboBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.horizontalProgressBar3 = new MissionPlanner.Controls.HorizontalProgressBar();
-            this.horizontalProgressBar2 = new MissionPlanner.Controls.HorizontalProgressBar();
-            this.horizontalProgressBar1 = new MissionPlanner.Controls.HorizontalProgressBar();
+            this.horizontalProgressBar3 = new XagSurveillanceGCS.Controls.HorizontalProgressBar();
+            this.horizontalProgressBar2 = new XagSurveillanceGCS.Controls.HorizontalProgressBar();
+            this.horizontalProgressBar1 = new XagSurveillanceGCS.Controls.HorizontalProgressBar();
             this.lbl_obmagresult = new System.Windows.Forms.TextBox();
-            this.BUT_OBmagcalaccept = new MissionPlanner.Controls.MyButton();
-            this.BUT_OBmagcalcancel = new MissionPlanner.Controls.MyButton();
-            this.BUT_OBmagcalstart = new MissionPlanner.Controls.MyButton();
+            this.BUT_OBmagcalaccept = new XagSurveillanceGCS.Controls.MyButton();
+            this.BUT_OBmagcalcancel = new XagSurveillanceGCS.Controls.MyButton();
+            this.BUT_OBmagcalstart = new XagSurveillanceGCS.Controls.MyButton();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.label3 = new System.Windows.Forms.Label();
-            this.but_largemagcal = new MissionPlanner.Controls.MyButton();
+            this.but_largemagcal = new XagSurveillanceGCS.Controls.MyButton();
             this.label4 = new System.Windows.Forms.Label();
-            this.but_reboot = new MissionPlanner.Controls.MyButton();
+            this.but_reboot = new XagSurveillanceGCS.Controls.MyButton();
             this.label5 = new System.Windows.Forms.Label();
-            this.mavlinkCheckBoxUseCompass3 = new MissionPlanner.Controls.MavlinkCheckBox();
-            this.mavlinkCheckBoxUseCompass2 = new MissionPlanner.Controls.MavlinkCheckBox();
-            this.CHK_compass_learn = new MissionPlanner.Controls.MavlinkCheckBox();
-            this.mavlinkCheckBoxUseCompass1 = new MissionPlanner.Controls.MavlinkCheckBox();
-            this.myDataGridView1 = new MissionPlanner.Controls.MyDataGridView();
+            this.mavlinkCheckBoxUseCompass3 = new XagSurveillanceGCS.Controls.MavlinkCheckBox();
+            this.mavlinkCheckBoxUseCompass2 = new XagSurveillanceGCS.Controls.MavlinkCheckBox();
+            this.CHK_compass_learn = new XagSurveillanceGCS.Controls.MavlinkCheckBox();
+            this.mavlinkCheckBoxUseCompass1 = new XagSurveillanceGCS.Controls.MavlinkCheckBox();
+            this.myDataGridView1 = new XagSurveillanceGCS.Controls.MyDataGridView();
             this.Priority = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.devIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.busTypeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -72,7 +72,7 @@
             this.Up = new System.Windows.Forms.DataGridViewImageColumn();
             this.Down = new System.Windows.Forms.DataGridViewImageColumn();
             this.compassDeviceInfoBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.but_missing = new MissionPlanner.Controls.MyButton();
+            this.but_missing = new XagSurveillanceGCS.Controls.MyButton();
             this.groupBoxonboardcalib.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -520,7 +520,7 @@
             // Up
             // 
             this.Up.HeaderText = "Up";
-            this.Up.Image = global::MissionPlanner.Properties.Resources.up;
+            this.Up.Image = global::XagSurveillanceGCS.Properties.Resources.up;
             this.Up.Name = "Up";
             this.Up.ReadOnly = true;
             this.Up.Width = 40;
@@ -528,14 +528,14 @@
             // Down
             // 
             this.Down.HeaderText = "Down";
-            this.Down.Image = global::MissionPlanner.Properties.Resources.down;
+            this.Down.Image = global::XagSurveillanceGCS.Properties.Resources.down;
             this.Down.Name = "Down";
             this.Down.ReadOnly = true;
             this.Down.Width = 40;
             // 
             // compassDeviceInfoBindingSource
             // 
-            this.compassDeviceInfoBindingSource.DataSource = typeof(MissionPlanner.GCSViews.ConfigurationView.ConfigHWCompass2.CompassDeviceInfo);
+            this.compassDeviceInfoBindingSource.DataSource = typeof(XagSurveillanceGCS.GCSViews.ConfigurationView.ConfigHWCompass2.CompassDeviceInfo);
             this.compassDeviceInfoBindingSource.CurrentChanged += new System.EventHandler(this.compassDeviceInfoBindingSource_CurrentChanged);
             // 
             // but_missing

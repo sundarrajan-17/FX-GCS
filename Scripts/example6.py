@@ -7,10 +7,10 @@ from math import sqrt
 import clr
 import time
 import re, string
-clr.AddReference("MissionPlanner.Utilities")
-import MissionPlanner #import *
-clr.AddReference("MissionPlanner.Utilities") #includes the Utilities class
-from MissionPlanner.Utilities import Locationwp
+clr.AddReference("XagSurveillanceGCS.Utilities")
+import XagSurveillanceGCS #import *
+clr.AddReference("XagSurveillanceGCS.Utilities") #includes the Utilities class
+from XagSurveillanceGCS.Utilities import Locationwp
 
 
 HOST = 'localhost'   # Symbolic name meaning all available interfaces
@@ -39,7 +39,7 @@ print 'Starting Follow'
 Script.ChangeMode("Guided")                     # changes mode to "Guided"
 print 'Guided Mode'
 
-#keep talking with the Mission Planner server 
+#keep talking with the XagSurveillanceGCS server 
 while 1:     
 
     msg = rsock.recv(1024)
@@ -95,11 +95,11 @@ while 1:
        print(float_alt)
 
        """Writing Waypoints"""
-       item = MissionPlanner.Utilities.Locationwp() # creating waypoint
-       MissionPlanner.Utilities.Locationwp.lat.SetValue(item,float_lat)
-       MissionPlanner.Utilities.Locationwp.lng.SetValue(item,float_lng)
-       #MissionPlanner.Utilities.Locationwp.groundcourse.SetValue(item,float_heading)
-       MissionPlanner.Utilities.Locationwp.alt.SetValue(item,float_alt) #Can only use lat,lng, or alt
+       item = XagSurveillanceGCS.Utilities.Locationwp() # creating waypoint
+       XagSurveillanceGCS.Utilities.Locationwp.lat.SetValue(item,float_lat)
+       XagSurveillanceGCS.Utilities.Locationwp.lng.SetValue(item,float_lng)
+       #XagSurveillanceGCS.Utilities.Locationwp.groundcourse.SetValue(item,float_heading)
+       XagSurveillanceGCS.Utilities.Locationwp.alt.SetValue(item,float_alt) #Can only use lat,lng, or alt
        MAV.setGuidedModeWP(item) #set waypoint
        print 'Waypoint Sent'
        print time.strftime('%X %x %Z')

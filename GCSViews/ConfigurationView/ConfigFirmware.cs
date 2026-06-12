@@ -1,8 +1,8 @@
 ﻿using log4net;
-using MissionPlanner.ArduPilot;
-using MissionPlanner.Comms;
-using MissionPlanner.Controls;
-using MissionPlanner.Utilities;
+using XagSurveillanceGCS.ArduPilot;
+using XagSurveillanceGCS.Comms;
+using XagSurveillanceGCS.Controls;
+using XagSurveillanceGCS.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -13,7 +13,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace MissionPlanner.GCSViews.ConfigurationView
+namespace XagSurveillanceGCS.GCSViews.ConfigurationView
 {
     public partial class ConfigFirmware : MyUserControl, IActivate, IDeactivate
     {
@@ -114,7 +114,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
             if (keyData == (Keys.Control | Keys.Q))
             {
                 CustomMessageBox.Show(Strings.TrunkWarning, Strings.Trunk);
-                firmwareurl = "https://github.com/ArduPilot/binary/raw/master/dev/firmwarelatest.xml;https://firmware.ardupilot.org/Tools/MissionPlanner/dev/firmwarelatest.xml";
+                firmwareurl = "https://github.com/ArduPilot/binary/raw/master/dev/firmwarelatest.xml;https://firmware.ardupilot.org/Tools/XagSurveillanceGCS/dev/firmwarelatest.xml";
 
                 softwares.Clear();
                 UpdateFWList();
@@ -597,7 +597,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
         private void lbl_devfw_Click(object sender, EventArgs e)
         {
             CustomMessageBox.Show(Strings.BetaWarning, Strings.Beta);
-            firmwareurl = "https://github.com/ArduPilot/binary/raw/master/dev/firmware2.xml;https://firmware.ardupilot.org/Tools/MissionPlanner/dev/firmware2.xml";
+            firmwareurl = "https://github.com/ArduPilot/binary/raw/master/dev/firmware2.xml;https://firmware.ardupilot.org/Tools/XagSurveillanceGCS/dev/firmware2.xml";
             softwares.Clear();
             UpdateFWList();
             CMB_history.Visible = false;
@@ -654,11 +654,11 @@ namespace MissionPlanner.GCSViews.ConfigurationView
         {
             try
             {
-                Process.Start(@"http://www.proficnc.com/?utm_source=missionplanner&utm_medium=click&utm_campaign=mission");
+                Process.Start(@"http://www.proficnc.com/?utm_source=XagSurveillanceGCS&utm_medium=click&utm_campaign=mission");
             }
             catch
             {
-                CustomMessageBox.Show("http://www.proficnc.com/?utm_source=missionplanner&utm_medium=click&utm_campaign=mission", Strings.ERROR);
+                CustomMessageBox.Show("http://www.proficnc.com/?utm_source=XagSurveillanceGCS&utm_medium=click&utm_campaign=mission", Strings.ERROR);
             }
         }
 

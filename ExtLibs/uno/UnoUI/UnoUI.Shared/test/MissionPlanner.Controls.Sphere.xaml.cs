@@ -1,1 +1,1 @@
-namespace MissionPlanner.Controls { public partial class Sphere{public Sphere(){this.InitializeComponent();}}}
+namespace XagSurveillanceGCS.Controls { public partial class Sphere{public Sphere(){this.InitializeComponent();}}}

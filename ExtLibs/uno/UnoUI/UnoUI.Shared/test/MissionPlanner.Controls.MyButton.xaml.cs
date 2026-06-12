@@ -1,1 +1,1 @@
-namespace MissionPlanner.Controls { public partial class MyButton{public MyButton(){this.InitializeComponent();}}}
+namespace XagSurveillanceGCS.Controls { public partial class MyButton{public MyButton(){this.InitializeComponent();}}}

@@ -1,12 +1,12 @@
 ﻿using log4net;
-using MissionPlanner.Utilities;
+using XagSurveillanceGCS.Utilities;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace MissionPlanner.Controls
+namespace XagSurveillanceGCS.Controls
 {
     public partial class DefaultSettings : UserControl, IActivate
     {

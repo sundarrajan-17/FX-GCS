@@ -1,1 +1,1 @@
-namespace MissionPlanner.GCSViews.ConfigurationView { public partial class ConfigHWOptFlow{public ConfigHWOptFlow(){this.InitializeComponent();}}}
+namespace XagSurveillanceGCS.GCSViews.ConfigurationView { public partial class ConfigHWOptFlow{public ConfigHWOptFlow(){this.InitializeComponent();}}}

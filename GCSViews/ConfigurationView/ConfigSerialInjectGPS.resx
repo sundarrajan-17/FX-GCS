@@ -615,7 +615,7 @@ Once the survey is completed, you are ready to go.
     <value>button_septentriortcminterval</value>
   </data>
   <data name="&gt;&gt;button_septentriortcminterval.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.MyButton, MissionPlanner.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>XagSurveillanceGCS.Controls.MyButton, XagSurveillanceGCS.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;button_septentriortcminterval.Parent" xml:space="preserve">
     <value>panel_septentrio</value>
@@ -907,7 +907,7 @@ Once the survey is completed, you are ready to go.
     <value>button_septentriosetposition</value>
   </data>
   <data name="&gt;&gt;button_septentriosetposition.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.MyButton, MissionPlanner.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>XagSurveillanceGCS.Controls.MyButton, XagSurveillanceGCS.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;button_septentriosetposition.Parent" xml:space="preserve">
     <value>panel_septentrio</value>
@@ -985,7 +985,7 @@ Once the survey is completed, you are ready to go.
     <value>but_restartsvin</value>
   </data>
   <data name="&gt;&gt;but_restartsvin.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.MyButton, MissionPlanner.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>XagSurveillanceGCS.Controls.MyButton, XagSurveillanceGCS.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;but_restartsvin.Parent" xml:space="preserve">
     <value>panel2</value>
@@ -1048,7 +1048,7 @@ Once the survey is completed, you are ready to go.
     <value>but_save_basepos</value>
   </data>
   <data name="&gt;&gt;but_save_basepos.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.MyButton, MissionPlanner.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>XagSurveillanceGCS.Controls.MyButton, XagSurveillanceGCS.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;but_save_basepos.Parent" xml:space="preserve">
     <value>panel2</value>
@@ -1114,7 +1114,7 @@ Once the survey is completed, you are ready to go.
     <value>dg_basepos</value>
   </data>
   <data name="&gt;&gt;dg_basepos.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.MyDataGridView, MissionPlanner, Version=1.3.9262.41886, Culture=neutral, PublicKeyToken=null</value>
+    <value>XagSurveillanceGCS.Controls.MyDataGridView, XagSurveillanceGCS, Version=1.3.9262.41886, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;dg_basepos.Parent" xml:space="preserve">
     <value>panel2</value>
@@ -2241,7 +2241,7 @@ rtcm0000</value>
     <value>BUT_connect</value>
   </data>
   <data name="&gt;&gt;BUT_connect.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.MyButton, MissionPlanner.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>XagSurveillanceGCS.Controls.MyButton, XagSurveillanceGCS.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;BUT_connect.Parent" xml:space="preserve">
     <value>$this</value>
@@ -2265,7 +2265,7 @@ rtcm0000</value>
     <value>myGMAP1</value>
   </data>
   <data name="&gt;&gt;myGMAP1.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.myGMAP, MissionPlanner.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>XagSurveillanceGCS.Controls.myGMAP, XagSurveillanceGCS.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;myGMAP1.Parent" xml:space="preserve">
     <value>$this</value>

@@ -3,8 +3,8 @@ using GMap.NET.Internals;
 using GMap.NET.MapProviders;
 using GMap.NET.WindowsForms;
 using Microsoft.Scripting.Utils;
-using MissionPlanner.GCSViews;
-using MissionPlanner.Utilities;
+using XagSurveillanceGCS.GCSViews;
+using XagSurveillanceGCS.Utilities;
 using OpenTK;
 using OpenTK.Graphics;
 using OpenTK.Graphics.ES20;
@@ -22,12 +22,12 @@ using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using System.Threading;
 using System.Windows.Forms;
-using MathHelper = MissionPlanner.Utilities.MathHelper;
+using MathHelper = XagSurveillanceGCS.Utilities.MathHelper;
 using MouseEventArgs = System.Windows.Forms.MouseEventArgs;
 using Timer = System.Windows.Forms.Timer;
 using Vector3 = OpenTK.Vector3;
 
-namespace MissionPlanner.Controls
+namespace XagSurveillanceGCS.Controls
 {
     public class OpenGLtest2 : GLControl, IDeactivate
     {
@@ -81,11 +81,11 @@ namespace MissionPlanner.Controls
             }
         }
 
-        private MissionPlanner.Utilities.Vector3 _velocity = new MissionPlanner.Utilities.Vector3();
+        private XagSurveillanceGCS.Utilities.Vector3 _velocity = new XagSurveillanceGCS.Utilities.Vector3();
 
-        MissionPlanner.Utilities.Vector3 _rpy = new MissionPlanner.Utilities.Vector3();
+        XagSurveillanceGCS.Utilities.Vector3 _rpy = new XagSurveillanceGCS.Utilities.Vector3();
 
-        public MissionPlanner.Utilities.Vector3 rpy
+        public XagSurveillanceGCS.Utilities.Vector3 rpy
         {
             get { return _rpy; }
             set
@@ -449,7 +449,7 @@ namespace MissionPlanner.Controls
                 if (!chk_locktomav.Checked)
                 {
                     campos = mypos;
-                    rpy = new MissionPlanner.Utilities.Vector3((float) myrpy.X, (float) myrpy.Y, (float) myrpy.Z);
+                    rpy = new XagSurveillanceGCS.Utilities.Vector3((float) myrpy.X, (float) myrpy.Y, (float) myrpy.Z);
                     KeyboardState input = Keyboard.GetState();
                     float speed = (1.5f);
                     Vector3 position = new Vector3((float) campos[0], (float) campos[1], (float) campos[2]);

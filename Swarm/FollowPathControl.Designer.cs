@@ -1,4 +1,4 @@
-﻿namespace MissionPlanner.Swarm
+﻿namespace XagSurveillanceGCS.Swarm
 {
     partial class FollowPathControl
     {

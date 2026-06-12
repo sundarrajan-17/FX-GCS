@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Text.RegularExpressions;
 
-namespace MissionPlanner.Controls.PreFlight
+namespace XagSurveillanceGCS.Controls.PreFlight
 {
     public class CheckListItem
     {

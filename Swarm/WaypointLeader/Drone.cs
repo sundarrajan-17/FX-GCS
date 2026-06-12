@@ -1,4 +1,4 @@
-﻿namespace MissionPlanner.Swarm.WaypointLeader
+﻿namespace XagSurveillanceGCS.Swarm.WaypointLeader
 {
     public class Drone : DroneBase
     {

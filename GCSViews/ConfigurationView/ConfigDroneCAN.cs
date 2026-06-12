@@ -1,6 +1,6 @@
-﻿using MissionPlanner.Comms;
-using MissionPlanner.Controls;
-using MissionPlanner.Utilities;
+﻿using XagSurveillanceGCS.Comms;
+using XagSurveillanceGCS.Controls;
+using XagSurveillanceGCS.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -18,13 +18,13 @@ using Timer = System.Windows.Forms.Timer;
 using static DroneCAN.DroneCAN;
 using System.ComponentModel;
 using System.Drawing;
-using MissionPlanner.ArduPilot;
+using XagSurveillanceGCS.ArduPilot;
 using System.Runtime.InteropServices;
 using System.Net.NetworkInformation;
 
-namespace MissionPlanner.GCSViews.ConfigurationView
+namespace XagSurveillanceGCS.GCSViews.ConfigurationView
 {
-    public partial class ConfigDroneCAN : MyUserControl, MissionPlanner.Controls.IDeactivate, IActivate
+    public partial class ConfigDroneCAN : MyUserControl, XagSurveillanceGCS.Controls.IDeactivate, IActivate
     {
         public ConfigDroneCAN()
         {

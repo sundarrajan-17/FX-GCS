@@ -1,5 +1,5 @@
 ﻿using log4net;
-using MissionPlanner.Utilities;
+using XagSurveillanceGCS.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -7,7 +7,7 @@ using System.IO;
 using System.Reflection;
 using System.Windows.Forms;
 
-namespace MissionPlanner.Controls
+namespace XagSurveillanceGCS.Controls
 {
     public partial class EAHRSControl : UserControl
     {
@@ -28,13 +28,13 @@ namespace MissionPlanner.Controls
             this.components = new System.ComponentModel.Container();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.EAHRSButtonsTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
-            this.BUT_externalAHRS_gnss_enable = new MissionPlanner.Controls.MyButton();
-            this.BUT_externalAHRS_gnss_disable = new MissionPlanner.Controls.MyButton();
-            this.BUT_externalAHRS_vg3dclb_flight_start = new MissionPlanner.Controls.MyButton();
-            this.BUT_externalAHRS_vg3dclb_flight_stop = new MissionPlanner.Controls.MyButton();
-            this.BUT_externalAHRS_start = new MissionPlanner.Controls.MyButton();
-            this.BUT_externalAHRS_stop = new MissionPlanner.Controls.MyButton();
-            this.BUT_externalAHRS_aiding_data = new MissionPlanner.Controls.MyButton();
+            this.BUT_externalAHRS_gnss_enable = new XagSurveillanceGCS.Controls.MyButton();
+            this.BUT_externalAHRS_gnss_disable = new XagSurveillanceGCS.Controls.MyButton();
+            this.BUT_externalAHRS_vg3dclb_flight_start = new XagSurveillanceGCS.Controls.MyButton();
+            this.BUT_externalAHRS_vg3dclb_flight_stop = new XagSurveillanceGCS.Controls.MyButton();
+            this.BUT_externalAHRS_start = new XagSurveillanceGCS.Controls.MyButton();
+            this.BUT_externalAHRS_stop = new XagSurveillanceGCS.Controls.MyButton();
+            this.BUT_externalAHRS_aiding_data = new XagSurveillanceGCS.Controls.MyButton();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.CB_gnss_position = new System.Windows.Forms.CheckBox();
             this.CB_ins_pos_estimation = new System.Windows.Forms.CheckBox();
@@ -42,14 +42,14 @@ namespace MissionPlanner.Controls
             this.NUD_gcs_distance_around = new System.Windows.Forms.NumericUpDown();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-            this.quickView1 = new MissionPlanner.Controls.QuickView();
-            this.quickView2 = new MissionPlanner.Controls.QuickView();
-            this.quickView3 = new MissionPlanner.Controls.QuickView();
+            this.quickView1 = new XagSurveillanceGCS.Controls.QuickView();
+            this.quickView2 = new XagSurveillanceGCS.Controls.QuickView();
+            this.quickView3 = new XagSurveillanceGCS.Controls.QuickView();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
-            this.quickView4 = new MissionPlanner.Controls.QuickView();
-            this.quickView5 = new MissionPlanner.Controls.QuickView();
-            this.quickView6 = new MissionPlanner.Controls.QuickView();
+            this.quickView4 = new XagSurveillanceGCS.Controls.QuickView();
+            this.quickView5 = new XagSurveillanceGCS.Controls.QuickView();
+            this.quickView6 = new XagSurveillanceGCS.Controls.QuickView();
             this.updateTimer = new System.Windows.Forms.Timer(this.components);
             this.tableLayoutPanel1.SuspendLayout();
             this.EAHRSButtonsTableLayoutPanel.SuspendLayout();

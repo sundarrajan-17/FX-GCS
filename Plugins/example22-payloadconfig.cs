@@ -1,15 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
-using MissionPlanner.Controls;
-using MissionPlanner.GCSViews;
-using MissionPlanner.Plugin;
+using XagSurveillanceGCS.Controls;
+using XagSurveillanceGCS.GCSViews;
+using XagSurveillanceGCS.Plugin;
 using log4net;
 
-namespace MissionPlanner.plugins
+namespace XagSurveillanceGCS.plugins
 {
 /// <summary>
-/// This plugin adds a "Payload Selection" page to Mission Planner's Config tab.
+/// This plugin adds a "Payload Selection" page to XagSurveillanceGCS's Config tab.
 /// It allows users to select various payload configurations, such as gimbals or cameras, 
 /// by checking boxes associated with each payload type. Each payload setting adjusts 
 /// specific parameters and reverts to defaults when unchecked. Parameter adjustments

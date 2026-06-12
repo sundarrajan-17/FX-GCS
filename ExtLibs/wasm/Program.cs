@@ -15,8 +15,8 @@ using System.Threading.Tasks;
 using Blazor.IndexedDB.Framework;
 using BlazorWorker.Core;
 using GMap.NET.MapProviders;
-using MissionPlanner.ArduPilot;
-using MissionPlanner.Utilities;
+using XagSurveillanceGCS.ArduPilot;
+using XagSurveillanceGCS.Utilities;
 using Sotsera.Blazor.Toaster.Core.Models;
 using Tewr.Blazor.FileReader;
 using Toolbelt.Blazor.Extensions.DependencyInjection;
@@ -162,7 +162,7 @@ namespace wasm
                     return CustomMessageBox.DialogResult.OK;
                 };
 
-                MissionPlanner.Utilities.Download.RequestModification += Download_RequestModification;
+                XagSurveillanceGCS.Utilities.Download.RequestModification += Download_RequestModification;
             }
 
             var app = builder.Build();

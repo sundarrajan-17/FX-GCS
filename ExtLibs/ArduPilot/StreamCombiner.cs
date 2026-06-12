@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Net;
 using System.Net.Sockets;
 using System.Threading;
-using MissionPlanner.Comms;
+using XagSurveillanceGCS.Comms;
 
-namespace MissionPlanner.Utilities
+namespace XagSurveillanceGCS.Utilities
 {
     public class StreamCombiner
     {

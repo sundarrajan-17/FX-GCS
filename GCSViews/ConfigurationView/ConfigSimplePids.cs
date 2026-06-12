@@ -1,6 +1,6 @@
 ﻿using log4net;
-using MissionPlanner.Controls;
-using MissionPlanner.Utilities;
+using XagSurveillanceGCS.Controls;
+using XagSurveillanceGCS.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -9,7 +9,7 @@ using System.Reflection;
 using System.Windows.Forms;
 using System.Xml;
 
-namespace MissionPlanner.GCSViews.ConfigurationView
+namespace XagSurveillanceGCS.GCSViews.ConfigurationView
 {
     public partial class ConfigSimplePids : MyUserControl, IActivate
     {

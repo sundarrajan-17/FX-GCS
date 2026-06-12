@@ -1,22 +1,22 @@
-﻿// This example program uses Mission Planner's on the fly compiled plugin system
+﻿// This example program uses XagSurveillanceGCS's on the fly compiled plugin system
 // 
 // Initial parameters calculation based on Leonard Hall's excellent Tuning Guide 
 // And it's excel sheet implementation by Shawn aka xfacta on Ardupilot Discuss forum.
 //
-// Copy this file as it is to the Mission Planner/Plugins directory
+// Copy this file as it is to the XagSurveillanceGCS/Plugins directory
 // When connected to an Arduopter press ALT+A to start calculator
 
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using MissionPlanner.Utilities;
+using XagSurveillanceGCS.Utilities;
 using System.Reactive.Linq;
 using System.Windows.Forms;
-using MissionPlanner.Controls;
+using XagSurveillanceGCS.Controls;
 
-namespace MissionPlanner.InitialParamCalc
+namespace XagSurveillanceGCS.InitialParamCalc
 {
-    public class InitialParamPlugin : MissionPlanner.Plugin.Plugin
+    public class InitialParamPlugin : XagSurveillanceGCS.Plugin.Plugin
     {
         //Variables for calculating initial paramateres
 
@@ -53,7 +53,7 @@ namespace MissionPlanner.InitialParamCalc
 
 
         //Additional variables 
-        MissionPlanner.Controls.MyButton button;
+        XagSurveillanceGCS.Controls.MyButton button;
 
         public override string Name
         {
@@ -139,10 +139,10 @@ namespace MissionPlanner.InitialParamCalc
 
 
             // Get input parameters
-            if (MissionPlanner.Controls.InputBox.Show("Initial parameter calculator", "Enter airscrew size in inch", ref prop) != DialogResult.OK) return;
-            if (MissionPlanner.Controls.InputBox.Show("Initial parameter calculator", "Enter battery cellcount", ref cellcount) != DialogResult.OK) return;
-            if (MissionPlanner.Controls.InputBox.Show("Initial parameter calculator", "Enter battery cell fully charged voltage\r\nLiPo - 4.2, LipoHV - 4.35, LiIon - 4.1 or 4.2", ref cellmax) != DialogResult.OK) return;
-            if (MissionPlanner.Controls.InputBox.Show("Initial parameter calculator", "Enter battery cell fully discharged voltage\r\nLiPo/LipoHV - 3.3, LiIon - 2.8", ref cellmin) != DialogResult.OK) return;
+            if (XagSurveillanceGCS.Controls.InputBox.Show("Initial parameter calculator", "Enter airscrew size in inch", ref prop) != DialogResult.OK) return;
+            if (XagSurveillanceGCS.Controls.InputBox.Show("Initial parameter calculator", "Enter battery cellcount", ref cellcount) != DialogResult.OK) return;
+            if (XagSurveillanceGCS.Controls.InputBox.Show("Initial parameter calculator", "Enter battery cell fully charged voltage\r\nLiPo - 4.2, LipoHV - 4.35, LiIon - 4.1 or 4.2", ref cellmax) != DialogResult.OK) return;
+            if (XagSurveillanceGCS.Controls.InputBox.Show("Initial parameter calculator", "Enter battery cell fully discharged voltage\r\nLiPo/LipoHV - 3.3, LiIon - 2.8", ref cellmin) != DialogResult.OK) return;
 
 
 
@@ -207,7 +207,7 @@ namespace MissionPlanner.InitialParamCalc
 
             Form paramCompareForm = new ParamCompare(null, MainV2.comPort.MAV.param, new_params);
             ThemeManager.ApplyThemeTo(paramCompareForm);
-            button = paramCompareForm.Controls.Find("BUT_save", true).FirstOrDefault() as MissionPlanner.Controls.MyButton;
+            button = paramCompareForm.Controls.Find("BUT_save", true).FirstOrDefault() as XagSurveillanceGCS.Controls.MyButton;
             button.Text = "Write to FC";
 
             paramCompareForm.ShowDialog();

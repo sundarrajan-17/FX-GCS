@@ -1,1 +1,1 @@
-namespace MissionPlanner.Controls { public partial class ProgressReporterDialogue{public ProgressReporterDialogue(){this.InitializeComponent();}}}
+namespace XagSurveillanceGCS.Controls { public partial class ProgressReporterDialogue{public ProgressReporterDialogue(){this.InitializeComponent();}}}

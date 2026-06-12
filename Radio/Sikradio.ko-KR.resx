@@ -4758,7 +4758,7 @@ ecc: 유효 패킷 CRC 결과를 내며
     <value>BUT_SetPPMFailSafe</value>
   </data>
   <data name="&gt;&gt;BUT_SetPPMFailSafe.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.MyButton, SikRadio, Version=0.0.7428.29620, Culture=neutral, PublicKeyToken=null</value>
+    <value>XagSurveillanceGCS.Controls.MyButton, SikRadio, Version=0.0.7428.29620, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;BUT_SetPPMFailSafe.Parent" xml:space="preserve">
     <value>$this</value>
@@ -4785,7 +4785,7 @@ ecc: 유효 패킷 CRC 결과를 내며
     <value>BUT_loadcustom</value>
   </data>
   <data name="&gt;&gt;BUT_loadcustom.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.MyButton, SikRadio, Version=0.0.7428.29620, Culture=neutral, PublicKeyToken=null</value>
+    <value>XagSurveillanceGCS.Controls.MyButton, SikRadio, Version=0.0.7428.29620, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;BUT_loadcustom.Parent" xml:space="preserve">
     <value>$this</value>
@@ -4812,7 +4812,7 @@ ecc: 유효 패킷 CRC 결과를 내며
     <value>BUT_resettodefault</value>
   </data>
   <data name="&gt;&gt;BUT_resettodefault.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.MyButton, SikRadio, Version=0.0.7428.29620, Culture=neutral, PublicKeyToken=null</value>
+    <value>XagSurveillanceGCS.Controls.MyButton, SikRadio, Version=0.0.7428.29620, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;BUT_resettodefault.Parent" xml:space="preserve">
     <value>$this</value>
@@ -4842,7 +4842,7 @@ ecc: 유효 패킷 CRC 결과를 내며
     <value>BUT_savesettings</value>
   </data>
   <data name="&gt;&gt;BUT_savesettings.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.MyButton, SikRadio, Version=0.0.7428.29620, Culture=neutral, PublicKeyToken=null</value>
+    <value>XagSurveillanceGCS.Controls.MyButton, SikRadio, Version=0.0.7428.29620, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;BUT_savesettings.Parent" xml:space="preserve">
     <value>$this</value>
@@ -4869,7 +4869,7 @@ ecc: 유효 패킷 CRC 결과를 내며
     <value>BUT_getcurrent</value>
   </data>
   <data name="&gt;&gt;BUT_getcurrent.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.MyButton, SikRadio, Version=0.0.7428.29620, Culture=neutral, PublicKeyToken=null</value>
+    <value>XagSurveillanceGCS.Controls.MyButton, SikRadio, Version=0.0.7428.29620, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;BUT_getcurrent.Parent" xml:space="preserve">
     <value>$this</value>
@@ -4896,7 +4896,7 @@ ecc: 유효 패킷 CRC 결과를 내며
     <value>BUT_upload</value>
   </data>
   <data name="&gt;&gt;BUT_upload.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.MyButton, SikRadio, Version=0.0.7428.29620, Culture=neutral, PublicKeyToken=null</value>
+    <value>XagSurveillanceGCS.Controls.MyButton, SikRadio, Version=0.0.7428.29620, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;BUT_upload.Parent" xml:space="preserve">
     <value>$this</value>
@@ -4926,7 +4926,7 @@ ecc: 유효 패킷 CRC 결과를 내며
     <value>BUT_Syncoptions</value>
   </data>
   <data name="&gt;&gt;BUT_Syncoptions.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.MyButton, SikRadio, Version=0.0.7428.29620, Culture=neutral, PublicKeyToken=null</value>
+    <value>XagSurveillanceGCS.Controls.MyButton, SikRadio, Version=0.0.7428.29620, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;BUT_Syncoptions.Parent" xml:space="preserve">
     <value>$this</value>

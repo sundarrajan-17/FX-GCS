@@ -219,7 +219,7 @@ public partial class MAVLink
             return message;
         }
 
-        public byte[] GenerateMAVLinkPacket10(MAVLINK_MSG_ID messageType, object indata, byte sysid = 255, byte compid = (byte)MAV_COMPONENT.MAV_COMP_ID_MISSIONPLANNER, int sequence = -1)
+        public byte[] GenerateMAVLinkPacket10(MAVLINK_MSG_ID messageType, object indata, byte sysid = 255, byte compid = (byte)MAV_COMPONENT.MAV_COMP_ID_XagSurveillanceGCS, int sequence = -1)
         {
             byte[] data;
 
@@ -262,7 +262,7 @@ public partial class MAVLink
             return packet;
         }
 
-        public byte[] GenerateMAVLinkPacket20(MAVLINK_MSG_ID messageType, object indata, bool sign = false, byte sysid = 255, byte compid= (byte)MAV_COMPONENT.MAV_COMP_ID_MISSIONPLANNER, int sequence = -1)
+        public byte[] GenerateMAVLinkPacket20(MAVLINK_MSG_ID messageType, object indata, bool sign = false, byte sysid = 255, byte compid= (byte)MAV_COMPONENT.MAV_COMP_ID_XagSurveillanceGCS, int sequence = -1)
         {
             byte[] data;
 

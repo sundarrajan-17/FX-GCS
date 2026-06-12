@@ -1,1 +1,1 @@
-namespace MissionPlanner.GCSViews.ConfigurationView { public partial class ConfigFailSafe{public ConfigFailSafe(){this.InitializeComponent();}}}
+namespace XagSurveillanceGCS.GCSViews.ConfigurationView { public partial class ConfigFailSafe{public ConfigFailSafe(){this.InitializeComponent();}}}

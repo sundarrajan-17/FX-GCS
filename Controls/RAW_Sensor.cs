@@ -1,10 +1,10 @@
-﻿using MissionPlanner.Utilities;
+﻿using XagSurveillanceGCS.Utilities;
 using System;
 using System.Drawing;
 using System.Windows.Forms;
 using ZedGraph;
 
-namespace MissionPlanner.Controls
+namespace XagSurveillanceGCS.Controls
 {
     public partial class RAW_Sensor : Form
     {
@@ -25,7 +25,7 @@ namespace MissionPlanner.Controls
 
             CreateChart(zg1, "Raw Sensors", "Time", "Raw Data");
 
-            MissionPlanner.Utilities.Tracking.AddPage(this.GetType().ToString(), this.Text);
+            XagSurveillanceGCS.Utilities.Tracking.AddPage(this.GetType().ToString(), this.Text);
         }
 
         public struct plot
@@ -158,7 +158,7 @@ namespace MissionPlanner.Controls
 
             if (chkax.Checked)
             {
-                list1.Add(time, MissionPlanner.MainV2.comPort.MAV.cs.ax);
+                list1.Add(time, XagSurveillanceGCS.MainV2.comPort.MAV.cs.ax);
             }
             else
             {
@@ -166,7 +166,7 @@ namespace MissionPlanner.Controls
             }
             if (chkay.Checked)
             {
-                list2.Add(time, MissionPlanner.MainV2.comPort.MAV.cs.ay);
+                list2.Add(time, XagSurveillanceGCS.MainV2.comPort.MAV.cs.ay);
             }
             else
             {
@@ -174,7 +174,7 @@ namespace MissionPlanner.Controls
             }
             if (chkaz.Checked)
             {
-                list3.Add(time, MissionPlanner.MainV2.comPort.MAV.cs.az);
+                list3.Add(time, XagSurveillanceGCS.MainV2.comPort.MAV.cs.az);
             }
             else
             {
@@ -182,7 +182,7 @@ namespace MissionPlanner.Controls
             }
             if (chkgx.Checked)
             {
-                list4.Add(time, MissionPlanner.MainV2.comPort.MAV.cs.gx);
+                list4.Add(time, XagSurveillanceGCS.MainV2.comPort.MAV.cs.gx);
             }
             else
             {
@@ -190,7 +190,7 @@ namespace MissionPlanner.Controls
             }
             if (chkgy.Checked)
             {
-                list5.Add(time, MissionPlanner.MainV2.comPort.MAV.cs.gy);
+                list5.Add(time, XagSurveillanceGCS.MainV2.comPort.MAV.cs.gy);
             }
             else
             {
@@ -198,7 +198,7 @@ namespace MissionPlanner.Controls
             }
             if (chkgz.Checked)
             {
-                list6.Add(time, MissionPlanner.MainV2.comPort.MAV.cs.gz);
+                list6.Add(time, XagSurveillanceGCS.MainV2.comPort.MAV.cs.gz);
             }
             else
             {
@@ -250,13 +250,13 @@ namespace MissionPlanner.Controls
                 //comPort.Open();
                 //comPort.stopall(true); // ensure off
 
-                //comPort.requestDatastream((byte)MissionPlanner.MAVLink09.MAV_DATA_STREAM.EXTENDED_STATUS, 0); // mode gps raw
-                //comPort.requestDatastream((byte)MissionPlanner.MAVLink09.MAV_DATA_STREAM.POSITION, 3); // request location
-                //comPort.requestDatastream((byte)MissionPlanner.MAVLink09.MAV_DATA_STREAM.EXTRA1, 3); // request attitude
-                //comPort.requestDatastream((byte)MissionPlanner.MAVLink09.MAV_DATA_STREAM.EXTRA2, 3); // request vfr
+                //comPort.requestDatastream((byte)XagSurveillanceGCS.MAVLink09.MAV_DATA_STREAM.EXTENDED_STATUS, 0); // mode gps raw
+                //comPort.requestDatastream((byte)XagSurveillanceGCS.MAVLink09.MAV_DATA_STREAM.POSITION, 3); // request location
+                //comPort.requestDatastream((byte)XagSurveillanceGCS.MAVLink09.MAV_DATA_STREAM.EXTRA1, 3); // request attitude
+                //comPort.requestDatastream((byte)XagSurveillanceGCS.MAVLink09.MAV_DATA_STREAM.EXTRA2, 3); // request vfr
                 MainV2.comPort.requestDatastream(MAVLink.MAV_DATA_STREAM.RAW_SENSORS, MainV2.comPort.MAV.cs.ratesensors);
                 // request raw sensor
-                //comPort.requestDatastream((byte)MissionPlanner.MAVLink09.MAV_DATA_STREAM.RC_CHANNELS, 3); // request rc info
+                //comPort.requestDatastream((byte)XagSurveillanceGCS.MAVLink09.MAV_DATA_STREAM.RC_CHANNELS, 3); // request rc info
             }
             catch
             {

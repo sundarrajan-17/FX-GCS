@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 
-namespace MissionPlanner.Joystick
+namespace XagSurveillanceGCS.Joystick
 {
     public class JoystickAxis : UserControl
     {
@@ -88,11 +88,11 @@ namespace MissionPlanner.Joystick
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.BUT_detch = new MissionPlanner.Controls.MyButton();
+            this.BUT_detch = new XagSurveillanceGCS.Controls.MyButton();
             this.revCH = new System.Windows.Forms.CheckBox();
             this.label13 = new System.Windows.Forms.Label();
             this.expo_ch = new System.Windows.Forms.TextBox();
-            this.ProgressBarCH = new MissionPlanner.Controls.HorizontalProgressBar();
+            this.ProgressBarCH = new XagSurveillanceGCS.Controls.HorizontalProgressBar();
             this.CMB_CH = new System.Windows.Forms.ComboBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();

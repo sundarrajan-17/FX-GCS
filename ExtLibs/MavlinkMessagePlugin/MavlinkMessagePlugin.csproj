@@ -49,9 +49,9 @@
     <Compile Update="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\MissionPlanner.csproj">
+    <ProjectReference Include="..\..\XagSurveillanceGCS.csproj">
       <Project>{a2e22272-95fe-47b6-b050-9ae7e2055bf5}</Project>
-      <Name>MissionPlanner</Name>
+      <Name>XagSurveillanceGCS</Name>
       <Private>False</Private>
     </ProjectReference>
     <ProjectReference Include="..\Mavlink\MAVLink.csproj">

@@ -1,4 +1,4 @@
-﻿namespace MissionPlanner.Swarm
+﻿namespace XagSurveillanceGCS.Swarm
 {
     partial class FormationControl
     {
@@ -31,20 +31,20 @@
             this.components = new System.ComponentModel.Container();
             this.CMB_mavs = new System.Windows.Forms.ComboBox();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.grid1 = new MissionPlanner.Swarm.Grid();
-            this.BUT_Start = new MissionPlanner.Controls.MyButton();
-            this.BUT_leader = new MissionPlanner.Controls.MyButton();
-            this.BUT_Land = new MissionPlanner.Controls.MyButton();
-            this.BUT_Takeoff = new MissionPlanner.Controls.MyButton();
-            this.BUT_Disarm = new MissionPlanner.Controls.MyButton();
-            this.BUT_Arm = new MissionPlanner.Controls.MyButton();
+            this.grid1 = new XagSurveillanceGCS.Swarm.Grid();
+            this.BUT_Start = new XagSurveillanceGCS.Controls.MyButton();
+            this.BUT_leader = new XagSurveillanceGCS.Controls.MyButton();
+            this.BUT_Land = new XagSurveillanceGCS.Controls.MyButton();
+            this.BUT_Takeoff = new XagSurveillanceGCS.Controls.MyButton();
+            this.BUT_Disarm = new XagSurveillanceGCS.Controls.MyButton();
+            this.BUT_Arm = new XagSurveillanceGCS.Controls.MyButton();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.BUT_Updatepos = new MissionPlanner.Controls.MyButton();
+            this.BUT_Updatepos = new XagSurveillanceGCS.Controls.MyButton();
             this.PNL_status = new System.Windows.Forms.FlowLayoutPanel();
             this.timer_status = new System.Windows.Forms.Timer(this.components);
-            this.but_guided = new MissionPlanner.Controls.MyButton();
-            this.but_auto = new MissionPlanner.Controls.MyButton();
+            this.but_guided = new XagSurveillanceGCS.Controls.MyButton();
+            this.but_auto = new XagSurveillanceGCS.Controls.MyButton();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -68,7 +68,7 @@
             this.grid1.Size = new System.Drawing.Size(755, 388);
             this.grid1.TabIndex = 8;
             this.grid1.Vertical = false;
-            this.grid1.UpdateOffsets += new MissionPlanner.Swarm.Grid.UpdateOffsetsEvent(this.grid1_UpdateOffsets);
+            this.grid1.UpdateOffsets += new XagSurveillanceGCS.Swarm.Grid.UpdateOffsetsEvent(this.grid1_UpdateOffsets);
             // 
             // BUT_Start
             // 

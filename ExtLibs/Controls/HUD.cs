@@ -16,11 +16,11 @@ using OpenTK.Graphics;
 using OpenTK.Graphics.OpenGL;
 using System.Linq;
 using System.Runtime.InteropServices;
-using MissionPlanner.Utilities;
+using XagSurveillanceGCS.Utilities;
 #if !LIB
 using SvgNet.SvgGdi;
 #endif
-using MathHelper = MissionPlanner.Utilities.MathHelper;
+using MathHelper = XagSurveillanceGCS.Utilities.MathHelper;
 using PixelFormat = OpenTK.Graphics.OpenGL.PixelFormat;
 using SkiaSharp.Views.Desktop;
 using SkiaSharp;
@@ -29,7 +29,7 @@ using SkiaSharp;
 // Control written by Michael Oborne 2011
 // dual opengl and GDI+
 
-namespace MissionPlanner.Controls
+namespace XagSurveillanceGCS.Controls
 {
     public class HUD2 : HUD
     {

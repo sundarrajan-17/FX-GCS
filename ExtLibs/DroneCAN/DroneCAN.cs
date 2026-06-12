@@ -383,8 +383,8 @@ namespace DroneCAN
                     gnires.software_version.minor = (byte)fvi.ProductMinorPart;
                     gnires.software_version.vcs_commit = uint.Parse(fvi.ProductBuildPart.ToString(), NumberStyles.HexNumber);
                     gnires.hardware_version.major = (byte)0;
-                    gnires.hardware_version.unique_id = ASCIIEncoding.ASCII.GetBytes(("MissionPlanner").PadRight(16, '\x0'));
-                    gnires.name = ASCIIEncoding.ASCII.GetBytes("org.missionplanner");
+                    gnires.hardware_version.unique_id = ASCIIEncoding.ASCII.GetBytes(("XagSurveillanceGCS").PadRight(16, '\x0'));
+                    gnires.name = ASCIIEncoding.ASCII.GetBytes("org.XagSurveillanceGCS");
                     gnires.name_len = (byte)gnires.name.Length;
                     gnires.status = new DroneCAN.uavcan_protocol_NodeStatus()
                     { health = (byte)DroneCAN.uavcan_protocol_NodeStatus.UAVCAN_PROTOCOL_NODESTATUS_HEALTH_OK, mode = (byte)DroneCAN.uavcan_protocol_NodeStatus.UAVCAN_PROTOCOL_NODESTATUS_MODE_OPERATIONAL, sub_mode = 0, uptime_sec = (uint)(DateTime.Now - uptime).TotalSeconds, vendor_specific_status_code = 0 };

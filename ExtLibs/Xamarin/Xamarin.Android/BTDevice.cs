@@ -13,8 +13,8 @@ using Android.Util;
 using BruTile.Wms;
 using Java.Nio;
 using Java.Util;
-using MissionPlanner.ArduPilot;
-using MissionPlanner.Comms;
+using XagSurveillanceGCS.ArduPilot;
+using XagSurveillanceGCS.Comms;
 using static Android.Renderscripts.Sampler;
 
 namespace Xamarin.Droid

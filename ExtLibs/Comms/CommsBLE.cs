@@ -10,7 +10,7 @@ using size_t = System.Int64;
 
 using simpleble_adapter_t = System.IntPtr;
 using simpleble_peripheral_t = System.IntPtr;
-using static MissionPlanner.Comms.CommsBLE.NativeMethods;
+using static XagSurveillanceGCS.Comms.CommsBLE.NativeMethods;
 using System.Linq;
 using System.Threading;
 using System.IO;
@@ -18,7 +18,7 @@ using System.Threading.Tasks;
 
 #pragma warning disable IDE1006 // Naming Styles
 
-namespace MissionPlanner.Comms
+namespace XagSurveillanceGCS.Comms
 {    
     public unsafe class CommsBLE : Stream, ICommsSerial
     {

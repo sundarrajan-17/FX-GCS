@@ -1,4 +1,4 @@
-﻿namespace MissionPlanner.Controls
+﻿namespace XagSurveillanceGCS.Controls
 {
     partial class Vibration
     {
@@ -30,9 +30,9 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Vibration));
-            this.VibBarX = new MissionPlanner.Controls.VerticalProgressBar2();
-            this.VibBarZ = new MissionPlanner.Controls.VerticalProgressBar2();
-            this.VibBarY = new MissionPlanner.Controls.VerticalProgressBar2();
+            this.VibBarX = new XagSurveillanceGCS.Controls.VerticalProgressBar2();
+            this.VibBarZ = new XagSurveillanceGCS.Controls.VerticalProgressBar2();
+            this.VibBarY = new XagSurveillanceGCS.Controls.VerticalProgressBar2();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();

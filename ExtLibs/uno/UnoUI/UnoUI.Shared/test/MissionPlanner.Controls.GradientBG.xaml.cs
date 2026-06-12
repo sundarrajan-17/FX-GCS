@@ -1,1 +1,1 @@
-namespace MissionPlanner.Controls { public partial class GradientBG{public GradientBG(){this.InitializeComponent();}}}
+namespace XagSurveillanceGCS.Controls { public partial class GradientBG{public GradientBG(){this.InitializeComponent();}}}

@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.IO;
 using System.Threading;
 using System.Threading.Tasks;
-using MissionPlanner.Utilities;
+using XagSurveillanceGCS.Utilities;
 
-namespace MissionPlanner.Warnings
+namespace XagSurveillanceGCS.Warnings
 {
     public class WarningEngine
     {

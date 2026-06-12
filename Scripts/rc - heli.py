@@ -5,10 +5,10 @@ import time
 import System
 from System import Byte
 
-clr.AddReference("MissionPlanner")
-import MissionPlanner
-clr.AddReference("MissionPlanner.Utilities") # includes the Utilities class
-from MissionPlanner.Utilities import Locationwp
+clr.AddReference("XagSurveillanceGCS")
+import XagSurveillanceGCS
+clr.AddReference("XagSurveillanceGCS.Utilities") # includes the Utilities class
+from XagSurveillanceGCS.Utilities import Locationwp
 clr.AddReference("MAVLink") # includes the Utilities class
 import MAVLink
 

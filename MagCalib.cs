@@ -1,6 +1,6 @@
 ﻿using log4net;
-using MissionPlanner.Controls;
-using MissionPlanner.Utilities;
+using XagSurveillanceGCS.Controls;
+using XagSurveillanceGCS.Utilities;
 using netDxf.Entities;
 using netDxf.Tables;
 using System;
@@ -11,7 +11,7 @@ using System.Reflection;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace MissionPlanner
+namespace XagSurveillanceGCS
 {
     public class MagCalib
     {
@@ -303,7 +303,7 @@ namespace MissionPlanner
             return true;
         }
 
-        public static async Task test(string file = @"C:\Users\mich1\Documents\Mission Planner\logs\ADSB\1\2022-07-26 22-25-37.tlog")
+        public static async Task test(string file = @"C:\Users\mich1\Documents\XagSurveillanceGCS\logs\ADSB\1\2022-07-26 22-25-37.tlog")
         {
             await getOffsets(file);
 

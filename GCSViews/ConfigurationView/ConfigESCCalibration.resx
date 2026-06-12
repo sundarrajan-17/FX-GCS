@@ -226,7 +226,7 @@ After pushing this button:
     <value>buttonStart</value>
   </data>
   <data name="&gt;&gt;buttonStart.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.MyButton, MissionPlanner.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>XagSurveillanceGCS.Controls.MyButton, XagSurveillanceGCS.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;buttonStart.Parent" xml:space="preserve">
     <value>$this</value>
@@ -250,7 +250,7 @@ After pushing this button:
     <value>mavlinkComboBox1</value>
   </data>
   <data name="&gt;&gt;mavlinkComboBox1.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.MavlinkComboBox, MissionPlanner, Version=1.3.7305.28812, Culture=neutral, PublicKeyToken=null</value>
+    <value>XagSurveillanceGCS.Controls.MavlinkComboBox, XagSurveillanceGCS, Version=1.3.7305.28812, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;mavlinkComboBox1.Parent" xml:space="preserve">
     <value>$this</value>
@@ -349,7 +349,7 @@ After pushing this button:
     <value>mavlinkNumericUpDown1</value>
   </data>
   <data name="&gt;&gt;mavlinkNumericUpDown1.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.MavlinkNumericUpDown, MissionPlanner, Version=1.3.7305.28812, Culture=neutral, PublicKeyToken=null</value>
+    <value>XagSurveillanceGCS.Controls.MavlinkNumericUpDown, XagSurveillanceGCS, Version=1.3.7305.28812, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;mavlinkNumericUpDown1.Parent" xml:space="preserve">
     <value>$this</value>
@@ -373,7 +373,7 @@ After pushing this button:
     <value>mavlinkNumericUpDown2</value>
   </data>
   <data name="&gt;&gt;mavlinkNumericUpDown2.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.MavlinkNumericUpDown, MissionPlanner, Version=1.3.7305.28812, Culture=neutral, PublicKeyToken=null</value>
+    <value>XagSurveillanceGCS.Controls.MavlinkNumericUpDown, XagSurveillanceGCS, Version=1.3.7305.28812, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;mavlinkNumericUpDown2.Parent" xml:space="preserve">
     <value>$this</value>
@@ -397,7 +397,7 @@ After pushing this button:
     <value>mavlinkNumericUpDown3</value>
   </data>
   <data name="&gt;&gt;mavlinkNumericUpDown3.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.MavlinkNumericUpDown, MissionPlanner, Version=1.3.7305.28812, Culture=neutral, PublicKeyToken=null</value>
+    <value>XagSurveillanceGCS.Controls.MavlinkNumericUpDown, XagSurveillanceGCS, Version=1.3.7305.28812, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;mavlinkNumericUpDown3.Parent" xml:space="preserve">
     <value>$this</value>
@@ -421,7 +421,7 @@ After pushing this button:
     <value>mavlinkNumericUpDown4</value>
   </data>
   <data name="&gt;&gt;mavlinkNumericUpDown4.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.MavlinkNumericUpDown, MissionPlanner, Version=1.3.7305.28812, Culture=neutral, PublicKeyToken=null</value>
+    <value>XagSurveillanceGCS.Controls.MavlinkNumericUpDown, XagSurveillanceGCS, Version=1.3.7305.28812, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;mavlinkNumericUpDown4.Parent" xml:space="preserve">
     <value>$this</value>
@@ -445,7 +445,7 @@ After pushing this button:
     <value>mavlinkNumericUpDown5</value>
   </data>
   <data name="&gt;&gt;mavlinkNumericUpDown5.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.MavlinkNumericUpDown, MissionPlanner, Version=1.3.7305.28812, Culture=neutral, PublicKeyToken=null</value>
+    <value>XagSurveillanceGCS.Controls.MavlinkNumericUpDown, XagSurveillanceGCS, Version=1.3.7305.28812, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;mavlinkNumericUpDown5.Parent" xml:space="preserve">
     <value>$this</value>
@@ -763,6 +763,6 @@ After pushing this button:
     <value>ConfigESCCalibration</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>System.Windows.Forms.MyUserControl, MissionPlanner.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>System.Windows.Forms.MyUserControl, XagSurveillanceGCS.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
 </root>

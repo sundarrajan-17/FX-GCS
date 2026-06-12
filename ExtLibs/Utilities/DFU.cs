@@ -12,7 +12,7 @@ using DeviceProgramming.Memory;
 using LibUsbDotNet;
 using LibUsbDotNet.Info;
 
-namespace MissionPlanner.Utilities
+namespace XagSurveillanceGCS.Utilities
 {
     public class DFU
     {

@@ -4,7 +4,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using log4net;
 
-namespace MissionPlanner.ArduPilot
+namespace XagSurveillanceGCS.ArduPilot
 {
     public class RetryTimeout
     {

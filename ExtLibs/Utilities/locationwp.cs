@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using static MAVLink;
 
-namespace MissionPlanner.Utilities
+namespace XagSurveillanceGCS.Utilities
 {
     /// <summary>
     /// Struct as used in Ardupilot 

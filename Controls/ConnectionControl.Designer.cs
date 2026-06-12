@@ -1,4 +1,4 @@
-﻿namespace MissionPlanner.Controls
+﻿namespace XagSurveillanceGCS.Controls
 {
     partial class ConnectionControl
     {
@@ -92,7 +92,7 @@
             // 
             // ConnectionControl
             // 
-            this.BackgroundImage = global::MissionPlanner.Properties.Resources.bgdark;
+            this.BackgroundImage = global::XagSurveillanceGCS.Properties.Resources.bgdark;
             this.Controls.Add(this.cmb_sysid);
             this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.cmb_Connection);

@@ -1,5 +1,5 @@
-using MissionPlanner;
-using MissionPlanner.Utilities;
+using XagSurveillanceGCS;
+using XagSurveillanceGCS.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -8,11 +8,11 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.Net.Sockets;
-using MissionPlanner.Comms;
+using XagSurveillanceGCS.Comms;
 
 namespace Forwarding
 {
-    public class Plugin : MissionPlanner.Plugin.Plugin
+    public class Plugin : XagSurveillanceGCS.Plugin.Plugin
     {
         public override string Name
         {

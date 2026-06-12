@@ -12,7 +12,7 @@ using Accord.IO;
 using Accord.Math;
 using Accord.Statistics.Models.Fields.Features;
 
-namespace MissionPlanner.Utilities
+namespace XagSurveillanceGCS.Utilities
 {
     public class ImageMatch
     {

@@ -28,440 +28,440 @@
     <Compile Include="$(MSBuildThisFileDirectory)test\DecimalUpDown.xaml.cs">
       <DependentUpon>DecimalUpDown.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)test\MissionPlanner.Antenna.Tracker.xaml.cs">
-      <DependentUpon>MissionPlanner.Antenna.Tracker.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.Antenna.Tracker.xaml.cs">
+      <DependentUpon>XagSurveillanceGCS.Antenna.Tracker.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)test\MissionPlanner.ConnectionOptions.xaml.cs">
-      <DependentUpon>MissionPlanner.ConnectionOptions.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.ConnectionOptions.xaml.cs">
+      <DependentUpon>XagSurveillanceGCS.ConnectionOptions.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)test\MissionPlanner.Controls.AuthKeys.xaml.cs">
-      <DependentUpon>MissionPlanner.Controls.AuthKeys.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.Controls.AuthKeys.xaml.cs">
+      <DependentUpon>XagSurveillanceGCS.Controls.AuthKeys.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)test\MissionPlanner.Controls.BackstageView.BackstageView.xaml.cs">
-      <DependentUpon>MissionPlanner.Controls.BackstageView.BackstageView.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.Controls.BackstageView.BackstageView.xaml.cs">
+      <DependentUpon>XagSurveillanceGCS.Controls.BackstageView.BackstageView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)test\MissionPlanner.Controls.BackstageView.BackstageViewButton.xaml.cs">
-      <DependentUpon>MissionPlanner.Controls.BackstageView.BackstageViewButton.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.Controls.BackstageView.BackstageViewButton.xaml.cs">
+      <DependentUpon>XagSurveillanceGCS.Controls.BackstageView.BackstageViewButton.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)test\MissionPlanner.Controls.BackstageView.BackStageViewMenuPanel.xaml.cs">
-      <DependentUpon>MissionPlanner.Controls.BackstageView.BackStageViewMenuPanel.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.Controls.BackstageView.BackStageViewMenuPanel.xaml.cs">
+      <DependentUpon>XagSurveillanceGCS.Controls.BackstageView.BackStageViewMenuPanel.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)test\MissionPlanner.Controls.ConnectionControl.xaml.cs">
-      <DependentUpon>MissionPlanner.Controls.ConnectionControl.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.Controls.ConnectionControl.xaml.cs">
+      <DependentUpon>XagSurveillanceGCS.Controls.ConnectionControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)test\MissionPlanner.Controls.ConnectionStats.xaml.cs">
-      <DependentUpon>MissionPlanner.Controls.ConnectionStats.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.Controls.ConnectionStats.xaml.cs">
+      <DependentUpon>XagSurveillanceGCS.Controls.ConnectionStats.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)test\MissionPlanner.Controls.Coords.xaml.cs">
-      <DependentUpon>MissionPlanner.Controls.Coords.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.Controls.Coords.xaml.cs">
+      <DependentUpon>XagSurveillanceGCS.Controls.Coords.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)test\MissionPlanner.Controls.DefaultSettings.xaml.cs">
-      <DependentUpon>MissionPlanner.Controls.DefaultSettings.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.Controls.DefaultSettings.xaml.cs">
+      <DependentUpon>XagSurveillanceGCS.Controls.DefaultSettings.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)test\MissionPlanner.Controls.DigitalSkyUI.xaml.cs">
-      <DependentUpon>MissionPlanner.Controls.DigitalSkyUI.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.Controls.DigitalSkyUI.xaml.cs">
+      <DependentUpon>XagSurveillanceGCS.Controls.DigitalSkyUI.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)test\MissionPlanner.Controls.DistanceBar.xaml.cs">
-      <DependentUpon>MissionPlanner.Controls.DistanceBar.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.Controls.DistanceBar.xaml.cs">
+      <DependentUpon>XagSurveillanceGCS.Controls.DistanceBar.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)test\MissionPlanner.Controls.EKFStatus.xaml.cs">
-      <DependentUpon>MissionPlanner.Controls.EKFStatus.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.Controls.EKFStatus.xaml.cs">
+      <DependentUpon>XagSurveillanceGCS.Controls.EKFStatus.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)test\MissionPlanner.Controls.fftui.xaml.cs">
-      <DependentUpon>MissionPlanner.Controls.fftui.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.Controls.fftui.xaml.cs">
+      <DependentUpon>XagSurveillanceGCS.Controls.fftui.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)test\MissionPlanner.Controls.FileBrowse.xaml.cs">
-      <DependentUpon>MissionPlanner.Controls.FileBrowse.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.Controls.FileBrowse.xaml.cs">
+      <DependentUpon>XagSurveillanceGCS.Controls.FileBrowse.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)test\MissionPlanner.Controls.FlashMessage.xaml.cs">
-      <DependentUpon>MissionPlanner.Controls.FlashMessage.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.Controls.FlashMessage.xaml.cs">
+      <DependentUpon>XagSurveillanceGCS.Controls.FlashMessage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)test\MissionPlanner.Controls.GradientBG.xaml.cs">
-      <DependentUpon>MissionPlanner.Controls.GradientBG.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.Controls.GradientBG.xaml.cs">
+      <DependentUpon>XagSurveillanceGCS.Controls.GradientBG.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)test\MissionPlanner.Controls.HorizontalProgressBar.xaml.cs">
-      <DependentUpon>MissionPlanner.Controls.HorizontalProgressBar.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.Controls.HorizontalProgressBar.xaml.cs">
+      <DependentUpon>XagSurveillanceGCS.Controls.HorizontalProgressBar.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)test\MissionPlanner.Controls.HorizontalProgressBar2.xaml.cs">
-      <DependentUpon>MissionPlanner.Controls.HorizontalProgressBar2.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.Controls.HorizontalProgressBar2.xaml.cs">
+      <DependentUpon>XagSurveillanceGCS.Controls.HorizontalProgressBar2.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)test\MissionPlanner.Controls.HSI.xaml.cs">
-      <DependentUpon>MissionPlanner.Controls.HSI.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.Controls.HSI.xaml.cs">
+      <DependentUpon>XagSurveillanceGCS.Controls.HSI.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)test\MissionPlanner.Controls.HUD.xaml.cs">
-      <DependentUpon>MissionPlanner.Controls.HUD.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.Controls.HUD.xaml.cs">
+      <DependentUpon>XagSurveillanceGCS.Controls.HUD.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)test\MissionPlanner.Controls.ImageLabel.xaml.cs">
-      <DependentUpon>MissionPlanner.Controls.ImageLabel.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.Controls.ImageLabel.xaml.cs">
+      <DependentUpon>XagSurveillanceGCS.Controls.ImageLabel.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)test\MissionPlanner.Controls.LabelWithPseudoOpacity.xaml.cs">
-      <DependentUpon>MissionPlanner.Controls.LabelWithPseudoOpacity.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.Controls.LabelWithPseudoOpacity.xaml.cs">
+      <DependentUpon>XagSurveillanceGCS.Controls.LabelWithPseudoOpacity.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)test\MissionPlanner.Controls.LineSeparator.xaml.cs">
-      <DependentUpon>MissionPlanner.Controls.LineSeparator.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.Controls.LineSeparator.xaml.cs">
+      <DependentUpon>XagSurveillanceGCS.Controls.LineSeparator.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)test\MissionPlanner.Controls.Loading.xaml.cs">
-      <DependentUpon>MissionPlanner.Controls.Loading.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.Controls.Loading.xaml.cs">
+      <DependentUpon>XagSurveillanceGCS.Controls.Loading.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)test\MissionPlanner.Controls.MavlinkCheckBox.xaml.cs">
-      <DependentUpon>MissionPlanner.Controls.MavlinkCheckBox.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.Controls.MavlinkCheckBox.xaml.cs">
+      <DependentUpon>XagSurveillanceGCS.Controls.MavlinkCheckBox.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)test\MissionPlanner.Controls.MavlinkCheckBoxBitMask.xaml.cs">
-      <DependentUpon>MissionPlanner.Controls.MavlinkCheckBoxBitMask.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.Controls.MavlinkCheckBoxBitMask.xaml.cs">
+      <DependentUpon>XagSurveillanceGCS.Controls.MavlinkCheckBoxBitMask.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)test\MissionPlanner.Controls.MavlinkComboBox.xaml.cs">
-      <DependentUpon>MissionPlanner.Controls.MavlinkComboBox.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.Controls.MavlinkComboBox.xaml.cs">
+      <DependentUpon>XagSurveillanceGCS.Controls.MavlinkComboBox.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)test\MissionPlanner.Controls.MavlinkNumericUpDown.xaml.cs">
-      <DependentUpon>MissionPlanner.Controls.MavlinkNumericUpDown.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.Controls.MavlinkNumericUpDown.xaml.cs">
+      <DependentUpon>XagSurveillanceGCS.Controls.MavlinkNumericUpDown.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)test\MissionPlanner.Controls.ModifyandSet.xaml.cs">
-      <DependentUpon>MissionPlanner.Controls.ModifyandSet.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.Controls.ModifyandSet.xaml.cs">
+      <DependentUpon>XagSurveillanceGCS.Controls.ModifyandSet.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)test\MissionPlanner.Controls.MyButton.xaml.cs">
-      <DependentUpon>MissionPlanner.Controls.MyButton.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.Controls.MyButton.xaml.cs">
+      <DependentUpon>XagSurveillanceGCS.Controls.MyButton.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)test\MissionPlanner.Controls.MyDataGridView.xaml.cs">
-      <DependentUpon>MissionPlanner.Controls.MyDataGridView.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.Controls.MyDataGridView.xaml.cs">
+      <DependentUpon>XagSurveillanceGCS.Controls.MyDataGridView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)test\MissionPlanner.Controls.myGMAP.xaml.cs">
-      <DependentUpon>MissionPlanner.Controls.myGMAP.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.Controls.myGMAP.xaml.cs">
+      <DependentUpon>XagSurveillanceGCS.Controls.myGMAP.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)test\MissionPlanner.Controls.MyLabel.xaml.cs">
-      <DependentUpon>MissionPlanner.Controls.MyLabel.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.Controls.MyLabel.xaml.cs">
+      <DependentUpon>XagSurveillanceGCS.Controls.MyLabel.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)test\MissionPlanner.Controls.MyProgressBar.xaml.cs">
-      <DependentUpon>MissionPlanner.Controls.MyProgressBar.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.Controls.MyProgressBar.xaml.cs">
+      <DependentUpon>XagSurveillanceGCS.Controls.MyProgressBar.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)test\MissionPlanner.Controls.MyTrackBar.xaml.cs">
-      <DependentUpon>MissionPlanner.Controls.MyTrackBar.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.Controls.MyTrackBar.xaml.cs">
+      <DependentUpon>XagSurveillanceGCS.Controls.MyTrackBar.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)test\MissionPlanner.Controls.OpenGLtest.xaml.cs">
-      <DependentUpon>MissionPlanner.Controls.OpenGLtest.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.Controls.OpenGLtest.xaml.cs">
+      <DependentUpon>XagSurveillanceGCS.Controls.OpenGLtest.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)test\MissionPlanner.Controls.OpenGLtest2.xaml.cs">
-      <DependentUpon>MissionPlanner.Controls.OpenGLtest2.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.Controls.OpenGLtest2.xaml.cs">
+      <DependentUpon>XagSurveillanceGCS.Controls.OpenGLtest2.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)test\MissionPlanner.Controls.OptionForm.xaml.cs">
-      <DependentUpon>MissionPlanner.Controls.OptionForm.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.Controls.OptionForm.xaml.cs">
+      <DependentUpon>XagSurveillanceGCS.Controls.OptionForm.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)test\MissionPlanner.Controls.PictureBoxMouseOver.xaml.cs">
-      <DependentUpon>MissionPlanner.Controls.PictureBoxMouseOver.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.Controls.PictureBoxMouseOver.xaml.cs">
+      <DependentUpon>XagSurveillanceGCS.Controls.PictureBoxMouseOver.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)test\MissionPlanner.Controls.PictureBoxWithPseudoOpacity.xaml.cs">
-      <DependentUpon>MissionPlanner.Controls.PictureBoxWithPseudoOpacity.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.Controls.PictureBoxWithPseudoOpacity.xaml.cs">
+      <DependentUpon>XagSurveillanceGCS.Controls.PictureBoxWithPseudoOpacity.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)test\MissionPlanner.Controls.PreFlight.CheckListControl.xaml.cs">
-      <DependentUpon>MissionPlanner.Controls.PreFlight.CheckListControl.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.Controls.PreFlight.CheckListControl.xaml.cs">
+      <DependentUpon>XagSurveillanceGCS.Controls.PreFlight.CheckListControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)test\MissionPlanner.Controls.ProgressReporterDialogue.xaml.cs">
-      <DependentUpon>MissionPlanner.Controls.ProgressReporterDialogue.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.Controls.ProgressReporterDialogue.xaml.cs">
+      <DependentUpon>XagSurveillanceGCS.Controls.ProgressReporterDialogue.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)test\MissionPlanner.Controls.ProgressReporterSphere.xaml.cs">
-      <DependentUpon>MissionPlanner.Controls.ProgressReporterSphere.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.Controls.ProgressReporterSphere.xaml.cs">
+      <DependentUpon>XagSurveillanceGCS.Controls.ProgressReporterSphere.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)test\MissionPlanner.Controls.ProgressStep.xaml.cs">
-      <DependentUpon>MissionPlanner.Controls.ProgressStep.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.Controls.ProgressStep.xaml.cs">
+      <DependentUpon>XagSurveillanceGCS.Controls.ProgressStep.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)test\MissionPlanner.Controls.PropagationSettings.xaml.cs">
-      <DependentUpon>MissionPlanner.Controls.PropagationSettings.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.Controls.PropagationSettings.xaml.cs">
+      <DependentUpon>XagSurveillanceGCS.Controls.PropagationSettings.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)test\MissionPlanner.Controls.QuickView.xaml.cs">
-      <DependentUpon>MissionPlanner.Controls.QuickView.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.Controls.QuickView.xaml.cs">
+      <DependentUpon>XagSurveillanceGCS.Controls.QuickView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)test\MissionPlanner.Controls.RadialGradientBG.xaml.cs">
-      <DependentUpon>MissionPlanner.Controls.RadialGradientBG.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.Controls.RadialGradientBG.xaml.cs">
+      <DependentUpon>XagSurveillanceGCS.Controls.RadialGradientBG.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)test\MissionPlanner.Controls.RangeControl.xaml.cs">
-      <DependentUpon>MissionPlanner.Controls.RangeControl.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.Controls.RangeControl.xaml.cs">
+      <DependentUpon>XagSurveillanceGCS.Controls.RangeControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)test\MissionPlanner.Controls.RelayOptions.xaml.cs">
-      <DependentUpon>MissionPlanner.Controls.RelayOptions.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.Controls.RelayOptions.xaml.cs">
+      <DependentUpon>XagSurveillanceGCS.Controls.RelayOptions.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)test\MissionPlanner.Controls.ScriptConsole.xaml.cs">
-      <DependentUpon>MissionPlanner.Controls.ScriptConsole.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.Controls.ScriptConsole.xaml.cs">
+      <DependentUpon>XagSurveillanceGCS.Controls.ScriptConsole.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)test\MissionPlanner.Controls.SerialOutputMD.xaml.cs">
-      <DependentUpon>MissionPlanner.Controls.SerialOutputMD.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.Controls.SerialOutputMD.xaml.cs">
+      <DependentUpon>XagSurveillanceGCS.Controls.SerialOutputMD.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)test\MissionPlanner.Controls.SerialOutputNMEA.xaml.cs">
-      <DependentUpon>MissionPlanner.Controls.SerialOutputNMEA.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.Controls.SerialOutputNMEA.xaml.cs">
+      <DependentUpon>XagSurveillanceGCS.Controls.SerialOutputNMEA.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)test\MissionPlanner.Controls.SerialOutputPass.xaml.cs">
-      <DependentUpon>MissionPlanner.Controls.SerialOutputPass.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.Controls.SerialOutputPass.xaml.cs">
+      <DependentUpon>XagSurveillanceGCS.Controls.SerialOutputPass.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)test\MissionPlanner.Controls.ServoOptions.xaml.cs">
-      <DependentUpon>MissionPlanner.Controls.ServoOptions.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.Controls.ServoOptions.xaml.cs">
+      <DependentUpon>XagSurveillanceGCS.Controls.ServoOptions.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)test\MissionPlanner.Controls.Sphere.xaml.cs">
-      <DependentUpon>MissionPlanner.Controls.Sphere.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.Controls.Sphere.xaml.cs">
+      <DependentUpon>XagSurveillanceGCS.Controls.Sphere.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)test\MissionPlanner.Controls.ThemeColors.xaml.cs">
-      <DependentUpon>MissionPlanner.Controls.ThemeColors.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.Controls.ThemeColors.xaml.cs">
+      <DependentUpon>XagSurveillanceGCS.Controls.ThemeColors.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)test\MissionPlanner.Controls.ValuesControl.xaml.cs">
-      <DependentUpon>MissionPlanner.Controls.ValuesControl.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.Controls.ValuesControl.xaml.cs">
+      <DependentUpon>XagSurveillanceGCS.Controls.ValuesControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)test\MissionPlanner.Controls.VerticalProgressBar.xaml.cs">
-      <DependentUpon>MissionPlanner.Controls.VerticalProgressBar.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.Controls.VerticalProgressBar.xaml.cs">
+      <DependentUpon>XagSurveillanceGCS.Controls.VerticalProgressBar.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)test\MissionPlanner.Controls.VerticalProgressBar2.xaml.cs">
-      <DependentUpon>MissionPlanner.Controls.VerticalProgressBar2.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.Controls.VerticalProgressBar2.xaml.cs">
+      <DependentUpon>XagSurveillanceGCS.Controls.VerticalProgressBar2.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)test\MissionPlanner.Controls.Vibration.xaml.cs">
-      <DependentUpon>MissionPlanner.Controls.Vibration.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.Controls.Vibration.xaml.cs">
+      <DependentUpon>XagSurveillanceGCS.Controls.Vibration.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)test\MissionPlanner.Controls.Video.xaml.cs">
-      <DependentUpon>MissionPlanner.Controls.Video.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.Controls.Video.xaml.cs">
+      <DependentUpon>XagSurveillanceGCS.Controls.Video.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)test\MissionPlanner.Controls.WindDir.xaml.cs">
-      <DependentUpon>MissionPlanner.Controls.WindDir.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.Controls.WindDir.xaml.cs">
+      <DependentUpon>XagSurveillanceGCS.Controls.WindDir.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)test\MissionPlanner.FollowMe.xaml.cs">
-      <DependentUpon>MissionPlanner.FollowMe.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.FollowMe.xaml.cs">
+      <DependentUpon>XagSurveillanceGCS.FollowMe.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)test\MissionPlanner.GCSViews.ConfigurationView.ConfigAccelerometerCalibration.xaml.cs">
-      <DependentUpon>MissionPlanner.GCSViews.ConfigurationView.ConfigAccelerometerCalibration.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.GCSViews.ConfigurationView.ConfigAccelerometerCalibration.xaml.cs">
+      <DependentUpon>XagSurveillanceGCS.GCSViews.ConfigurationView.ConfigAccelerometerCalibration.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)test\MissionPlanner.GCSViews.ConfigurationView.ConfigAC_Fence.xaml.cs">
-      <DependentUpon>MissionPlanner.GCSViews.ConfigurationView.ConfigAC_Fence.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.GCSViews.ConfigurationView.ConfigAC_Fence.xaml.cs">
+      <DependentUpon>XagSurveillanceGCS.GCSViews.ConfigurationView.ConfigAC_Fence.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)test\MissionPlanner.GCSViews.ConfigurationView.ConfigADSB.xaml.cs">
-      <DependentUpon>MissionPlanner.GCSViews.ConfigurationView.ConfigADSB.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.GCSViews.ConfigurationView.ConfigADSB.xaml.cs">
+      <DependentUpon>XagSurveillanceGCS.GCSViews.ConfigurationView.ConfigADSB.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)test\MissionPlanner.GCSViews.ConfigurationView.ConfigAntennaTracker.xaml.cs">
-      <DependentUpon>MissionPlanner.GCSViews.ConfigurationView.ConfigAntennaTracker.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.GCSViews.ConfigurationView.ConfigAntennaTracker.xaml.cs">
+      <DependentUpon>XagSurveillanceGCS.GCSViews.ConfigurationView.ConfigAntennaTracker.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)test\MissionPlanner.GCSViews.ConfigurationView.ConfigArducopter.xaml.cs">
-      <DependentUpon>MissionPlanner.GCSViews.ConfigurationView.ConfigArducopter.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.GCSViews.ConfigurationView.ConfigArducopter.xaml.cs">
+      <DependentUpon>XagSurveillanceGCS.GCSViews.ConfigurationView.ConfigArducopter.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)test\MissionPlanner.GCSViews.ConfigurationView.ConfigArduplane.xaml.cs">
-      <DependentUpon>MissionPlanner.GCSViews.ConfigurationView.ConfigArduplane.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.GCSViews.ConfigurationView.ConfigArduplane.xaml.cs">
+      <DependentUpon>XagSurveillanceGCS.GCSViews.ConfigurationView.ConfigArduplane.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)test\MissionPlanner.GCSViews.ConfigurationView.ConfigArdurover.xaml.cs">
-      <DependentUpon>MissionPlanner.GCSViews.ConfigurationView.ConfigArdurover.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.GCSViews.ConfigurationView.ConfigArdurover.xaml.cs">
+      <DependentUpon>XagSurveillanceGCS.GCSViews.ConfigurationView.ConfigArdurover.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)test\MissionPlanner.GCSViews.ConfigurationView.ConfigAteryx.xaml.cs">
-      <DependentUpon>MissionPlanner.GCSViews.ConfigurationView.ConfigAteryx.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.GCSViews.ConfigurationView.ConfigAteryx.xaml.cs">
+      <DependentUpon>XagSurveillanceGCS.GCSViews.ConfigurationView.ConfigAteryx.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)test\MissionPlanner.GCSViews.ConfigurationView.ConfigAteryxSensors.xaml.cs">
-      <DependentUpon>MissionPlanner.GCSViews.ConfigurationView.ConfigAteryxSensors.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.GCSViews.ConfigurationView.ConfigAteryxSensors.xaml.cs">
+      <DependentUpon>XagSurveillanceGCS.GCSViews.ConfigurationView.ConfigAteryxSensors.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)test\MissionPlanner.GCSViews.ConfigurationView.ConfigBatteryMonitoring.xaml.cs">
-      <DependentUpon>MissionPlanner.GCSViews.ConfigurationView.ConfigBatteryMonitoring.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.GCSViews.ConfigurationView.ConfigBatteryMonitoring.xaml.cs">
+      <DependentUpon>XagSurveillanceGCS.GCSViews.ConfigurationView.ConfigBatteryMonitoring.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)test\MissionPlanner.GCSViews.ConfigurationView.ConfigBatteryMonitoring2.xaml.cs">
-      <DependentUpon>MissionPlanner.GCSViews.ConfigurationView.ConfigBatteryMonitoring2.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.GCSViews.ConfigurationView.ConfigBatteryMonitoring2.xaml.cs">
+      <DependentUpon>XagSurveillanceGCS.GCSViews.ConfigurationView.ConfigBatteryMonitoring2.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)test\MissionPlanner.GCSViews.ConfigurationView.ConfigCompassMot.xaml.cs">
-      <DependentUpon>MissionPlanner.GCSViews.ConfigurationView.ConfigCompassMot.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.GCSViews.ConfigurationView.ConfigCompassMot.xaml.cs">
+      <DependentUpon>XagSurveillanceGCS.GCSViews.ConfigurationView.ConfigCompassMot.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)test\MissionPlanner.GCSViews.ConfigurationView.ConfigESCCalibration.xaml.cs">
-      <DependentUpon>MissionPlanner.GCSViews.ConfigurationView.ConfigESCCalibration.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.GCSViews.ConfigurationView.ConfigESCCalibration.xaml.cs">
+      <DependentUpon>XagSurveillanceGCS.GCSViews.ConfigurationView.ConfigESCCalibration.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)test\MissionPlanner.GCSViews.ConfigurationView.ConfigFailSafe.xaml.cs">
-      <DependentUpon>MissionPlanner.GCSViews.ConfigurationView.ConfigFailSafe.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.GCSViews.ConfigurationView.ConfigFailSafe.xaml.cs">
+      <DependentUpon>XagSurveillanceGCS.GCSViews.ConfigurationView.ConfigFailSafe.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)test\MissionPlanner.GCSViews.ConfigurationView.ConfigFirmware.xaml.cs">
-      <DependentUpon>MissionPlanner.GCSViews.ConfigurationView.ConfigFirmware.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.GCSViews.ConfigurationView.ConfigFirmware.xaml.cs">
+      <DependentUpon>XagSurveillanceGCS.GCSViews.ConfigurationView.ConfigFirmware.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)test\MissionPlanner.GCSViews.ConfigurationView.ConfigFirmwareDisabled.xaml.cs">
-      <DependentUpon>MissionPlanner.GCSViews.ConfigurationView.ConfigFirmwareDisabled.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.GCSViews.ConfigurationView.ConfigFirmwareDisabled.xaml.cs">
+      <DependentUpon>XagSurveillanceGCS.GCSViews.ConfigurationView.ConfigFirmwareDisabled.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)test\MissionPlanner.GCSViews.ConfigurationView.ConfigFirmwareManifest.xaml.cs">
-      <DependentUpon>MissionPlanner.GCSViews.ConfigurationView.ConfigFirmwareManifest.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.GCSViews.ConfigurationView.ConfigFirmwareManifest.xaml.cs">
+      <DependentUpon>XagSurveillanceGCS.GCSViews.ConfigurationView.ConfigFirmwareManifest.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)test\MissionPlanner.GCSViews.ConfigurationView.ConfigFlightModes.xaml.cs">
-      <DependentUpon>MissionPlanner.GCSViews.ConfigurationView.ConfigFlightModes.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.GCSViews.ConfigurationView.ConfigFlightModes.xaml.cs">
+      <DependentUpon>XagSurveillanceGCS.GCSViews.ConfigurationView.ConfigFlightModes.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)test\MissionPlanner.GCSViews.ConfigurationView.ConfigFrameClassType.xaml.cs">
-      <DependentUpon>MissionPlanner.GCSViews.ConfigurationView.ConfigFrameClassType.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.GCSViews.ConfigurationView.ConfigFrameClassType.xaml.cs">
+      <DependentUpon>XagSurveillanceGCS.GCSViews.ConfigurationView.ConfigFrameClassType.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)test\MissionPlanner.GCSViews.ConfigurationView.ConfigFrameType.xaml.cs">
-      <DependentUpon>MissionPlanner.GCSViews.ConfigurationView.ConfigFrameType.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.GCSViews.ConfigurationView.ConfigFrameType.xaml.cs">
+      <DependentUpon>XagSurveillanceGCS.GCSViews.ConfigurationView.ConfigFrameType.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)test\MissionPlanner.GCSViews.ConfigurationView.ConfigFriendlyParams.xaml.cs">
-      <DependentUpon>MissionPlanner.GCSViews.ConfigurationView.ConfigFriendlyParams.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.GCSViews.ConfigurationView.ConfigFriendlyParams.xaml.cs">
+      <DependentUpon>XagSurveillanceGCS.GCSViews.ConfigurationView.ConfigFriendlyParams.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)test\MissionPlanner.GCSViews.ConfigurationView.ConfigFriendlyParamsAdv.xaml.cs">
-      <DependentUpon>MissionPlanner.GCSViews.ConfigurationView.ConfigFriendlyParamsAdv.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.GCSViews.ConfigurationView.ConfigFriendlyParamsAdv.xaml.cs">
+      <DependentUpon>XagSurveillanceGCS.GCSViews.ConfigurationView.ConfigFriendlyParamsAdv.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)test\MissionPlanner.GCSViews.ConfigurationView.ConfigHWAirspeed.xaml.cs">
-      <DependentUpon>MissionPlanner.GCSViews.ConfigurationView.ConfigHWAirspeed.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.GCSViews.ConfigurationView.ConfigHWAirspeed.xaml.cs">
+      <DependentUpon>XagSurveillanceGCS.GCSViews.ConfigurationView.ConfigHWAirspeed.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)test\MissionPlanner.GCSViews.ConfigurationView.ConfigHWBT.xaml.cs">
-      <DependentUpon>MissionPlanner.GCSViews.ConfigurationView.ConfigHWBT.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.GCSViews.ConfigurationView.ConfigHWBT.xaml.cs">
+      <DependentUpon>XagSurveillanceGCS.GCSViews.ConfigurationView.ConfigHWBT.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)test\MissionPlanner.GCSViews.ConfigurationView.ConfigHWCAN.xaml.cs">
-      <DependentUpon>MissionPlanner.GCSViews.ConfigurationView.ConfigHWCAN.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.GCSViews.ConfigurationView.ConfigHWCAN.xaml.cs">
+      <DependentUpon>XagSurveillanceGCS.GCSViews.ConfigurationView.ConfigHWCAN.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)test\MissionPlanner.GCSViews.ConfigurationView.ConfigHWCompass.xaml.cs">
-      <DependentUpon>MissionPlanner.GCSViews.ConfigurationView.ConfigHWCompass.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.GCSViews.ConfigurationView.ConfigHWCompass.xaml.cs">
+      <DependentUpon>XagSurveillanceGCS.GCSViews.ConfigurationView.ConfigHWCompass.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)test\MissionPlanner.GCSViews.ConfigurationView.ConfigHWESP8266.xaml.cs">
-      <DependentUpon>MissionPlanner.GCSViews.ConfigurationView.ConfigHWESP8266.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.GCSViews.ConfigurationView.ConfigHWESP8266.xaml.cs">
+      <DependentUpon>XagSurveillanceGCS.GCSViews.ConfigurationView.ConfigHWESP8266.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)test\MissionPlanner.GCSViews.ConfigurationView.ConfigHWIDs.xaml.cs">
-      <DependentUpon>MissionPlanner.GCSViews.ConfigurationView.ConfigHWIDs.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.GCSViews.ConfigurationView.ConfigHWIDs.xaml.cs">
+      <DependentUpon>XagSurveillanceGCS.GCSViews.ConfigurationView.ConfigHWIDs.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)test\MissionPlanner.GCSViews.ConfigurationView.ConfigHWOptFlow.xaml.cs">
-      <DependentUpon>MissionPlanner.GCSViews.ConfigurationView.ConfigHWOptFlow.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.GCSViews.ConfigurationView.ConfigHWOptFlow.xaml.cs">
+      <DependentUpon>XagSurveillanceGCS.GCSViews.ConfigurationView.ConfigHWOptFlow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)test\MissionPlanner.GCSViews.ConfigurationView.ConfigHWOSD.xaml.cs">
-      <DependentUpon>MissionPlanner.GCSViews.ConfigurationView.ConfigHWOSD.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.GCSViews.ConfigurationView.ConfigHWOSD.xaml.cs">
+      <DependentUpon>XagSurveillanceGCS.GCSViews.ConfigurationView.ConfigHWOSD.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)test\MissionPlanner.GCSViews.ConfigurationView.ConfigHWParachute.xaml.cs">
-      <DependentUpon>MissionPlanner.GCSViews.ConfigurationView.ConfigHWParachute.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.GCSViews.ConfigurationView.ConfigHWParachute.xaml.cs">
+      <DependentUpon>XagSurveillanceGCS.GCSViews.ConfigurationView.ConfigHWParachute.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)test\MissionPlanner.GCSViews.ConfigurationView.ConfigHWPX4Flow.xaml.cs">
-      <DependentUpon>MissionPlanner.GCSViews.ConfigurationView.ConfigHWPX4Flow.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.GCSViews.ConfigurationView.ConfigHWPX4Flow.xaml.cs">
+      <DependentUpon>XagSurveillanceGCS.GCSViews.ConfigurationView.ConfigHWPX4Flow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)test\MissionPlanner.GCSViews.ConfigurationView.ConfigHWRangeFinder.xaml.cs">
-      <DependentUpon>MissionPlanner.GCSViews.ConfigurationView.ConfigHWRangeFinder.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.GCSViews.ConfigurationView.ConfigHWRangeFinder.xaml.cs">
+      <DependentUpon>XagSurveillanceGCS.GCSViews.ConfigurationView.ConfigHWRangeFinder.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)test\MissionPlanner.GCSViews.ConfigurationView.ConfigMandatory.xaml.cs">
-      <DependentUpon>MissionPlanner.GCSViews.ConfigurationView.ConfigMandatory.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.GCSViews.ConfigurationView.ConfigMandatory.xaml.cs">
+      <DependentUpon>XagSurveillanceGCS.GCSViews.ConfigurationView.ConfigMandatory.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)test\MissionPlanner.GCSViews.ConfigurationView.ConfigMotorTest.xaml.cs">
-      <DependentUpon>MissionPlanner.GCSViews.ConfigurationView.ConfigMotorTest.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.GCSViews.ConfigurationView.ConfigMotorTest.xaml.cs">
+      <DependentUpon>XagSurveillanceGCS.GCSViews.ConfigurationView.ConfigMotorTest.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)test\MissionPlanner.GCSViews.ConfigurationView.ConfigMount.xaml.cs">
-      <DependentUpon>MissionPlanner.GCSViews.ConfigurationView.ConfigMount.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.GCSViews.ConfigurationView.ConfigMount.xaml.cs">
+      <DependentUpon>XagSurveillanceGCS.GCSViews.ConfigurationView.ConfigMount.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)test\MissionPlanner.GCSViews.ConfigurationView.ConfigOptional.xaml.cs">
-      <DependentUpon>MissionPlanner.GCSViews.ConfigurationView.ConfigOptional.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.GCSViews.ConfigurationView.ConfigOptional.xaml.cs">
+      <DependentUpon>XagSurveillanceGCS.GCSViews.ConfigurationView.ConfigOptional.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)test\MissionPlanner.GCSViews.ConfigurationView.ConfigOSD.xaml.cs">
-      <DependentUpon>MissionPlanner.GCSViews.ConfigurationView.ConfigOSD.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.GCSViews.ConfigurationView.ConfigOSD.xaml.cs">
+      <DependentUpon>XagSurveillanceGCS.GCSViews.ConfigurationView.ConfigOSD.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)test\MissionPlanner.GCSViews.ConfigurationView.ConfigPlanner.xaml.cs">
-      <DependentUpon>MissionPlanner.GCSViews.ConfigurationView.ConfigPlanner.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.GCSViews.ConfigurationView.ConfigPlanner.xaml.cs">
+      <DependentUpon>XagSurveillanceGCS.GCSViews.ConfigurationView.ConfigPlanner.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)test\MissionPlanner.GCSViews.ConfigurationView.ConfigPlannerAdv.xaml.cs">
-      <DependentUpon>MissionPlanner.GCSViews.ConfigurationView.ConfigPlannerAdv.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.GCSViews.ConfigurationView.ConfigPlannerAdv.xaml.cs">
+      <DependentUpon>XagSurveillanceGCS.GCSViews.ConfigurationView.ConfigPlannerAdv.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)test\MissionPlanner.GCSViews.ConfigurationView.ConfigRadioInput.xaml.cs">
-      <DependentUpon>MissionPlanner.GCSViews.ConfigurationView.ConfigRadioInput.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.GCSViews.ConfigurationView.ConfigRadioInput.xaml.cs">
+      <DependentUpon>XagSurveillanceGCS.GCSViews.ConfigurationView.ConfigRadioInput.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)test\MissionPlanner.GCSViews.ConfigurationView.ConfigRadioOutput.xaml.cs">
-      <DependentUpon>MissionPlanner.GCSViews.ConfigurationView.ConfigRadioOutput.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.GCSViews.ConfigurationView.ConfigRadioOutput.xaml.cs">
+      <DependentUpon>XagSurveillanceGCS.GCSViews.ConfigurationView.ConfigRadioOutput.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)test\MissionPlanner.GCSViews.ConfigurationView.ConfigRawParams.xaml.cs">
-      <DependentUpon>MissionPlanner.GCSViews.ConfigurationView.ConfigRawParams.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.GCSViews.ConfigurationView.ConfigRawParams.xaml.cs">
+      <DependentUpon>XagSurveillanceGCS.GCSViews.ConfigurationView.ConfigRawParams.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)test\MissionPlanner.GCSViews.ConfigurationView.ConfigRawParamsTree.xaml.cs">
-      <DependentUpon>MissionPlanner.GCSViews.ConfigurationView.ConfigRawParamsTree.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.GCSViews.ConfigurationView.ConfigRawParamsTree.xaml.cs">
+      <DependentUpon>XagSurveillanceGCS.GCSViews.ConfigurationView.ConfigRawParamsTree.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)test\MissionPlanner.GCSViews.ConfigurationView.ConfigSerialInjectGPS.xaml.cs">
-      <DependentUpon>MissionPlanner.GCSViews.ConfigurationView.ConfigSerialInjectGPS.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.GCSViews.ConfigurationView.ConfigSerialInjectGPS.xaml.cs">
+      <DependentUpon>XagSurveillanceGCS.GCSViews.ConfigurationView.ConfigSerialInjectGPS.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)test\MissionPlanner.GCSViews.ConfigurationView.ConfigSimplePids.xaml.cs">
-      <DependentUpon>MissionPlanner.GCSViews.ConfigurationView.ConfigSimplePids.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.GCSViews.ConfigurationView.ConfigSimplePids.xaml.cs">
+      <DependentUpon>XagSurveillanceGCS.GCSViews.ConfigurationView.ConfigSimplePids.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)test\MissionPlanner.GCSViews.ConfigurationView.ConfigTradHeli.xaml.cs">
-      <DependentUpon>MissionPlanner.GCSViews.ConfigurationView.ConfigTradHeli.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.GCSViews.ConfigurationView.ConfigTradHeli.xaml.cs">
+      <DependentUpon>XagSurveillanceGCS.GCSViews.ConfigurationView.ConfigTradHeli.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)test\MissionPlanner.GCSViews.ConfigurationView.ConfigUAVCAN.xaml.cs">
-      <DependentUpon>MissionPlanner.GCSViews.ConfigurationView.ConfigUAVCAN.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.GCSViews.ConfigurationView.ConfigUAVCAN.xaml.cs">
+      <DependentUpon>XagSurveillanceGCS.GCSViews.ConfigurationView.ConfigUAVCAN.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)test\MissionPlanner.GCSViews.ConfigurationView.ConfigUserDefined.xaml.cs">
-      <DependentUpon>MissionPlanner.GCSViews.ConfigurationView.ConfigUserDefined.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.GCSViews.ConfigurationView.ConfigUserDefined.xaml.cs">
+      <DependentUpon>XagSurveillanceGCS.GCSViews.ConfigurationView.ConfigUserDefined.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)test\MissionPlanner.GCSViews.FlightData.xaml.cs">
-      <DependentUpon>MissionPlanner.GCSViews.FlightData.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.GCSViews.FlightData.xaml.cs">
+      <DependentUpon>XagSurveillanceGCS.GCSViews.FlightData.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)test\MissionPlanner.GCSViews.FlightPlanner.xaml.cs">
-      <DependentUpon>MissionPlanner.GCSViews.FlightPlanner.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.GCSViews.FlightPlanner.xaml.cs">
+      <DependentUpon>XagSurveillanceGCS.GCSViews.FlightPlanner.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)test\MissionPlanner.GCSViews.Help.xaml.cs">
-      <DependentUpon>MissionPlanner.GCSViews.Help.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.GCSViews.Help.xaml.cs">
+      <DependentUpon>XagSurveillanceGCS.GCSViews.Help.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)test\MissionPlanner.GCSViews.InitialSetup.xaml.cs">
-      <DependentUpon>MissionPlanner.GCSViews.InitialSetup.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.GCSViews.InitialSetup.xaml.cs">
+      <DependentUpon>XagSurveillanceGCS.GCSViews.InitialSetup.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)test\MissionPlanner.GCSViews.SITL.xaml.cs">
-      <DependentUpon>MissionPlanner.GCSViews.SITL.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.GCSViews.SITL.xaml.cs">
+      <DependentUpon>XagSurveillanceGCS.GCSViews.SITL.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)test\MissionPlanner.GCSViews.SoftwareConfig.xaml.cs">
-      <DependentUpon>MissionPlanner.GCSViews.SoftwareConfig.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.GCSViews.SoftwareConfig.xaml.cs">
+      <DependentUpon>XagSurveillanceGCS.GCSViews.SoftwareConfig.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)test\MissionPlanner.GCSViews.Terminal.xaml.cs">
-      <DependentUpon>MissionPlanner.GCSViews.Terminal.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.GCSViews.Terminal.xaml.cs">
+      <DependentUpon>XagSurveillanceGCS.GCSViews.Terminal.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)test\MissionPlanner.GeoRef.Georefimage.xaml.cs">
-      <DependentUpon>MissionPlanner.GeoRef.Georefimage.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.GeoRef.Georefimage.xaml.cs">
+      <DependentUpon>XagSurveillanceGCS.GeoRef.Georefimage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)test\MissionPlanner.Joystick.JoystickAxis.xaml.cs">
-      <DependentUpon>MissionPlanner.Joystick.JoystickAxis.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.Joystick.JoystickAxis.xaml.cs">
+      <DependentUpon>XagSurveillanceGCS.Joystick.JoystickAxis.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)test\MissionPlanner.Joystick.JoystickSetup.xaml.cs">
-      <DependentUpon>MissionPlanner.Joystick.JoystickSetup.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.Joystick.JoystickSetup.xaml.cs">
+      <DependentUpon>XagSurveillanceGCS.Joystick.JoystickSetup.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)test\MissionPlanner.Log.LogBrowse.xaml.cs">
-      <DependentUpon>MissionPlanner.Log.LogBrowse.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.Log.LogBrowse.xaml.cs">
+      <DependentUpon>XagSurveillanceGCS.Log.LogBrowse.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)test\MissionPlanner.Log.LogDownload.xaml.cs">
-      <DependentUpon>MissionPlanner.Log.LogDownload.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.Log.LogDownload.xaml.cs">
+      <DependentUpon>XagSurveillanceGCS.Log.LogDownload.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)test\MissionPlanner.Log.LogDownloadMavLink.xaml.cs">
-      <DependentUpon>MissionPlanner.Log.LogDownloadMavLink.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.Log.LogDownloadMavLink.xaml.cs">
+      <DependentUpon>XagSurveillanceGCS.Log.LogDownloadMavLink.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)test\MissionPlanner.Log.LogDownloadscp.xaml.cs">
-      <DependentUpon>MissionPlanner.Log.LogDownloadscp.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.Log.LogDownloadscp.xaml.cs">
+      <DependentUpon>XagSurveillanceGCS.Log.LogDownloadscp.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)test\MissionPlanner.Log.LogIndex.xaml.cs">
-      <DependentUpon>MissionPlanner.Log.LogIndex.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.Log.LogIndex.xaml.cs">
+      <DependentUpon>XagSurveillanceGCS.Log.LogIndex.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)test\MissionPlanner.Log.MavlinkLog.xaml.cs">
-      <DependentUpon>MissionPlanner.Log.MavlinkLog.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.Log.MavlinkLog.xaml.cs">
+      <DependentUpon>XagSurveillanceGCS.Log.MavlinkLog.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)test\MissionPlanner.MainV2.xaml.cs">
-      <DependentUpon>MissionPlanner.MainV2.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.MainV2.xaml.cs">
+      <DependentUpon>XagSurveillanceGCS.MainV2.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)test\MissionPlanner.MovingBase.xaml.cs">
-      <DependentUpon>MissionPlanner.MovingBase.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.MovingBase.xaml.cs">
+      <DependentUpon>XagSurveillanceGCS.MovingBase.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)test\MissionPlanner.OSDVideo.xaml.cs">
-      <DependentUpon>MissionPlanner.OSDVideo.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.OSDVideo.xaml.cs">
+      <DependentUpon>XagSurveillanceGCS.OSDVideo.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)test\MissionPlanner.Plugin.PluginUI.xaml.cs">
-      <DependentUpon>MissionPlanner.Plugin.PluginUI.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.Plugin.PluginUI.xaml.cs">
+      <DependentUpon>XagSurveillanceGCS.Plugin.PluginUI.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)test\MissionPlanner.Radio.Sikradio.xaml.cs">
-      <DependentUpon>MissionPlanner.Radio.Sikradio.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.Radio.Sikradio.xaml.cs">
+      <DependentUpon>XagSurveillanceGCS.Radio.Sikradio.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)test\MissionPlanner.Splash.xaml.cs">
-      <DependentUpon>MissionPlanner.Splash.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.Splash.xaml.cs">
+      <DependentUpon>XagSurveillanceGCS.Splash.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)test\MissionPlanner.Swarm.FollowLeader.Control.xaml.cs">
-      <DependentUpon>MissionPlanner.Swarm.FollowLeader.Control.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.Swarm.FollowLeader.Control.xaml.cs">
+      <DependentUpon>XagSurveillanceGCS.Swarm.FollowLeader.Control.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)test\MissionPlanner.Swarm.FollowPathControl.xaml.cs">
-      <DependentUpon>MissionPlanner.Swarm.FollowPathControl.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.Swarm.FollowPathControl.xaml.cs">
+      <DependentUpon>XagSurveillanceGCS.Swarm.FollowPathControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)test\MissionPlanner.Swarm.FormationControl.xaml.cs">
-      <DependentUpon>MissionPlanner.Swarm.FormationControl.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.Swarm.FormationControl.xaml.cs">
+      <DependentUpon>XagSurveillanceGCS.Swarm.FormationControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)test\MissionPlanner.Swarm.Grid.xaml.cs">
-      <DependentUpon>MissionPlanner.Swarm.Grid.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.Swarm.Grid.xaml.cs">
+      <DependentUpon>XagSurveillanceGCS.Swarm.Grid.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)test\MissionPlanner.Swarm.Sequence.LayoutEditor.xaml.cs">
-      <DependentUpon>MissionPlanner.Swarm.Sequence.LayoutEditor.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.Swarm.Sequence.LayoutEditor.xaml.cs">
+      <DependentUpon>XagSurveillanceGCS.Swarm.Sequence.LayoutEditor.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)test\MissionPlanner.Swarm.SRB.Control.xaml.cs">
-      <DependentUpon>MissionPlanner.Swarm.SRB.Control.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.Swarm.SRB.Control.xaml.cs">
+      <DependentUpon>XagSurveillanceGCS.Swarm.SRB.Control.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)test\MissionPlanner.Swarm.Status.xaml.cs">
-      <DependentUpon>MissionPlanner.Swarm.Status.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.Swarm.Status.xaml.cs">
+      <DependentUpon>XagSurveillanceGCS.Swarm.Status.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)test\MissionPlanner.temp.xaml.cs">
-      <DependentUpon>MissionPlanner.temp.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.temp.xaml.cs">
+      <DependentUpon>XagSurveillanceGCS.temp.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)test\MissionPlanner.Warnings.WarningControl.xaml.cs">
-      <DependentUpon>MissionPlanner.Warnings.WarningControl.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.Warnings.WarningControl.xaml.cs">
+      <DependentUpon>XagSurveillanceGCS.Warnings.WarningControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)test\MissionPlanner.Warnings.WarningsManager.xaml.cs">
-      <DependentUpon>MissionPlanner.Warnings.WarningsManager.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.Warnings.WarningsManager.xaml.cs">
+      <DependentUpon>XagSurveillanceGCS.Warnings.WarningsManager.xaml</DependentUpon>
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)test\resedit.Form1.xaml.cs">
       <DependentUpon>resedit.Form1.xaml</DependentUpon>
@@ -480,583 +480,583 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)test\MissionPlanner.Antenna.Tracker.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.Antenna.Tracker.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)test\MissionPlanner.ConnectionOptions.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.ConnectionOptions.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)test\MissionPlanner.Controls.AuthKeys.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.Controls.AuthKeys.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)test\MissionPlanner.Controls.BackstageView.BackstageView.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.Controls.BackstageView.BackstageView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)test\MissionPlanner.Controls.BackstageView.BackstageViewButton.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.Controls.BackstageView.BackstageViewButton.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)test\MissionPlanner.Controls.BackstageView.BackStageViewMenuPanel.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.Controls.BackstageView.BackStageViewMenuPanel.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)test\MissionPlanner.Controls.ConnectionControl.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.Controls.ConnectionControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)test\MissionPlanner.Controls.ConnectionStats.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.Controls.ConnectionStats.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)test\MissionPlanner.Controls.Coords.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.Controls.Coords.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)test\MissionPlanner.Controls.DefaultSettings.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.Controls.DefaultSettings.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)test\MissionPlanner.Controls.DigitalSkyUI.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.Controls.DigitalSkyUI.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)test\MissionPlanner.Controls.DistanceBar.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.Controls.DistanceBar.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)test\MissionPlanner.Controls.EKFStatus.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.Controls.EKFStatus.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)test\MissionPlanner.Controls.fftui.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.Controls.fftui.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)test\MissionPlanner.Controls.FileBrowse.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.Controls.FileBrowse.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)test\MissionPlanner.Controls.FlashMessage.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.Controls.FlashMessage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)test\MissionPlanner.Controls.GradientBG.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.Controls.GradientBG.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)test\MissionPlanner.Controls.HorizontalProgressBar.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.Controls.HorizontalProgressBar.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)test\MissionPlanner.Controls.HorizontalProgressBar2.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.Controls.HorizontalProgressBar2.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)test\MissionPlanner.Controls.HSI.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.Controls.HSI.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)test\MissionPlanner.Controls.HUD.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.Controls.HUD.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)test\MissionPlanner.Controls.ImageLabel.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.Controls.ImageLabel.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)test\MissionPlanner.Controls.LabelWithPseudoOpacity.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.Controls.LabelWithPseudoOpacity.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)test\MissionPlanner.Controls.LineSeparator.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.Controls.LineSeparator.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)test\MissionPlanner.Controls.Loading.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.Controls.Loading.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)test\MissionPlanner.Controls.MavlinkCheckBox.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.Controls.MavlinkCheckBox.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)test\MissionPlanner.Controls.MavlinkCheckBoxBitMask.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.Controls.MavlinkCheckBoxBitMask.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)test\MissionPlanner.Controls.MavlinkComboBox.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.Controls.MavlinkComboBox.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)test\MissionPlanner.Controls.MavlinkNumericUpDown.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.Controls.MavlinkNumericUpDown.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)test\MissionPlanner.Controls.ModifyandSet.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.Controls.ModifyandSet.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)test\MissionPlanner.Controls.MyButton.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.Controls.MyButton.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)test\MissionPlanner.Controls.MyDataGridView.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.Controls.MyDataGridView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)test\MissionPlanner.Controls.myGMAP.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.Controls.myGMAP.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)test\MissionPlanner.Controls.MyLabel.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.Controls.MyLabel.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)test\MissionPlanner.Controls.MyProgressBar.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.Controls.MyProgressBar.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)test\MissionPlanner.Controls.MyTrackBar.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.Controls.MyTrackBar.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)test\MissionPlanner.Controls.OpenGLtest.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.Controls.OpenGLtest.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)test\MissionPlanner.Controls.OpenGLtest2.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.Controls.OpenGLtest2.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)test\MissionPlanner.Controls.OptionForm.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.Controls.OptionForm.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)test\MissionPlanner.Controls.PictureBoxMouseOver.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.Controls.PictureBoxMouseOver.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)test\MissionPlanner.Controls.PictureBoxWithPseudoOpacity.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.Controls.PictureBoxWithPseudoOpacity.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)test\MissionPlanner.Controls.PreFlight.CheckListControl.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.Controls.PreFlight.CheckListControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)test\MissionPlanner.Controls.ProgressReporterDialogue.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.Controls.ProgressReporterDialogue.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)test\MissionPlanner.Controls.ProgressReporterSphere.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.Controls.ProgressReporterSphere.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)test\MissionPlanner.Controls.ProgressStep.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.Controls.ProgressStep.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)test\MissionPlanner.Controls.PropagationSettings.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.Controls.PropagationSettings.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)test\MissionPlanner.Controls.QuickView.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.Controls.QuickView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)test\MissionPlanner.Controls.RadialGradientBG.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.Controls.RadialGradientBG.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)test\MissionPlanner.Controls.RangeControl.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.Controls.RangeControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)test\MissionPlanner.Controls.RelayOptions.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.Controls.RelayOptions.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)test\MissionPlanner.Controls.ScriptConsole.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.Controls.ScriptConsole.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)test\MissionPlanner.Controls.SerialOutputMD.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.Controls.SerialOutputMD.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)test\MissionPlanner.Controls.SerialOutputNMEA.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.Controls.SerialOutputNMEA.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)test\MissionPlanner.Controls.SerialOutputPass.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.Controls.SerialOutputPass.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)test\MissionPlanner.Controls.ServoOptions.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.Controls.ServoOptions.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)test\MissionPlanner.Controls.Sphere.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.Controls.Sphere.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)test\MissionPlanner.Controls.ThemeColors.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.Controls.ThemeColors.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)test\MissionPlanner.Controls.ValuesControl.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.Controls.ValuesControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)test\MissionPlanner.Controls.VerticalProgressBar.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.Controls.VerticalProgressBar.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)test\MissionPlanner.Controls.VerticalProgressBar2.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.Controls.VerticalProgressBar2.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)test\MissionPlanner.Controls.Vibration.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.Controls.Vibration.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)test\MissionPlanner.Controls.Video.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.Controls.Video.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)test\MissionPlanner.Controls.WindDir.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.Controls.WindDir.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)test\MissionPlanner.FollowMe.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.FollowMe.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)test\MissionPlanner.GCSViews.ConfigurationView.ConfigAccelerometerCalibration.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.GCSViews.ConfigurationView.ConfigAccelerometerCalibration.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)test\MissionPlanner.GCSViews.ConfigurationView.ConfigAC_Fence.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.GCSViews.ConfigurationView.ConfigAC_Fence.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)test\MissionPlanner.GCSViews.ConfigurationView.ConfigADSB.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.GCSViews.ConfigurationView.ConfigADSB.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)test\MissionPlanner.GCSViews.ConfigurationView.ConfigAntennaTracker.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.GCSViews.ConfigurationView.ConfigAntennaTracker.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)test\MissionPlanner.GCSViews.ConfigurationView.ConfigArducopter.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.GCSViews.ConfigurationView.ConfigArducopter.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)test\MissionPlanner.GCSViews.ConfigurationView.ConfigArduplane.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.GCSViews.ConfigurationView.ConfigArduplane.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)test\MissionPlanner.GCSViews.ConfigurationView.ConfigArdurover.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.GCSViews.ConfigurationView.ConfigArdurover.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)test\MissionPlanner.GCSViews.ConfigurationView.ConfigAteryx.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.GCSViews.ConfigurationView.ConfigAteryx.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)test\MissionPlanner.GCSViews.ConfigurationView.ConfigAteryxSensors.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.GCSViews.ConfigurationView.ConfigAteryxSensors.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)test\MissionPlanner.GCSViews.ConfigurationView.ConfigBatteryMonitoring.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.GCSViews.ConfigurationView.ConfigBatteryMonitoring.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)test\MissionPlanner.GCSViews.ConfigurationView.ConfigBatteryMonitoring2.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.GCSViews.ConfigurationView.ConfigBatteryMonitoring2.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)test\MissionPlanner.GCSViews.ConfigurationView.ConfigCompassMot.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.GCSViews.ConfigurationView.ConfigCompassMot.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)test\MissionPlanner.GCSViews.ConfigurationView.ConfigESCCalibration.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.GCSViews.ConfigurationView.ConfigESCCalibration.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)test\MissionPlanner.GCSViews.ConfigurationView.ConfigFailSafe.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.GCSViews.ConfigurationView.ConfigFailSafe.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)test\MissionPlanner.GCSViews.ConfigurationView.ConfigFirmware.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.GCSViews.ConfigurationView.ConfigFirmware.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)test\MissionPlanner.GCSViews.ConfigurationView.ConfigFirmwareDisabled.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.GCSViews.ConfigurationView.ConfigFirmwareDisabled.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)test\MissionPlanner.GCSViews.ConfigurationView.ConfigFirmwareManifest.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.GCSViews.ConfigurationView.ConfigFirmwareManifest.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)test\MissionPlanner.GCSViews.ConfigurationView.ConfigFlightModes.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.GCSViews.ConfigurationView.ConfigFlightModes.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)test\MissionPlanner.GCSViews.ConfigurationView.ConfigFrameClassType.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.GCSViews.ConfigurationView.ConfigFrameClassType.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)test\MissionPlanner.GCSViews.ConfigurationView.ConfigFrameType.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.GCSViews.ConfigurationView.ConfigFrameType.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)test\MissionPlanner.GCSViews.ConfigurationView.ConfigFriendlyParams.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.GCSViews.ConfigurationView.ConfigFriendlyParams.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)test\MissionPlanner.GCSViews.ConfigurationView.ConfigFriendlyParamsAdv.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.GCSViews.ConfigurationView.ConfigFriendlyParamsAdv.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)test\MissionPlanner.GCSViews.ConfigurationView.ConfigHWAirspeed.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.GCSViews.ConfigurationView.ConfigHWAirspeed.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)test\MissionPlanner.GCSViews.ConfigurationView.ConfigHWBT.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.GCSViews.ConfigurationView.ConfigHWBT.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)test\MissionPlanner.GCSViews.ConfigurationView.ConfigHWCAN.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.GCSViews.ConfigurationView.ConfigHWCAN.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)test\MissionPlanner.GCSViews.ConfigurationView.ConfigHWCompass.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.GCSViews.ConfigurationView.ConfigHWCompass.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)test\MissionPlanner.GCSViews.ConfigurationView.ConfigHWESP8266.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.GCSViews.ConfigurationView.ConfigHWESP8266.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)test\MissionPlanner.GCSViews.ConfigurationView.ConfigHWIDs.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.GCSViews.ConfigurationView.ConfigHWIDs.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)test\MissionPlanner.GCSViews.ConfigurationView.ConfigHWOptFlow.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.GCSViews.ConfigurationView.ConfigHWOptFlow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)test\MissionPlanner.GCSViews.ConfigurationView.ConfigHWOSD.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.GCSViews.ConfigurationView.ConfigHWOSD.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)test\MissionPlanner.GCSViews.ConfigurationView.ConfigHWParachute.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.GCSViews.ConfigurationView.ConfigHWParachute.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)test\MissionPlanner.GCSViews.ConfigurationView.ConfigHWPX4Flow.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.GCSViews.ConfigurationView.ConfigHWPX4Flow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)test\MissionPlanner.GCSViews.ConfigurationView.ConfigHWRangeFinder.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.GCSViews.ConfigurationView.ConfigHWRangeFinder.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)test\MissionPlanner.GCSViews.ConfigurationView.ConfigMandatory.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.GCSViews.ConfigurationView.ConfigMandatory.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)test\MissionPlanner.GCSViews.ConfigurationView.ConfigMotorTest.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.GCSViews.ConfigurationView.ConfigMotorTest.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)test\MissionPlanner.GCSViews.ConfigurationView.ConfigMount.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.GCSViews.ConfigurationView.ConfigMount.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)test\MissionPlanner.GCSViews.ConfigurationView.ConfigOptional.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.GCSViews.ConfigurationView.ConfigOptional.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)test\MissionPlanner.GCSViews.ConfigurationView.ConfigOSD.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.GCSViews.ConfigurationView.ConfigOSD.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)test\MissionPlanner.GCSViews.ConfigurationView.ConfigPlanner.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.GCSViews.ConfigurationView.ConfigPlanner.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)test\MissionPlanner.GCSViews.ConfigurationView.ConfigPlannerAdv.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.GCSViews.ConfigurationView.ConfigPlannerAdv.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)test\MissionPlanner.GCSViews.ConfigurationView.ConfigRadioInput.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.GCSViews.ConfigurationView.ConfigRadioInput.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)test\MissionPlanner.GCSViews.ConfigurationView.ConfigRadioOutput.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.GCSViews.ConfigurationView.ConfigRadioOutput.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)test\MissionPlanner.GCSViews.ConfigurationView.ConfigRawParams.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.GCSViews.ConfigurationView.ConfigRawParams.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)test\MissionPlanner.GCSViews.ConfigurationView.ConfigRawParamsTree.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.GCSViews.ConfigurationView.ConfigRawParamsTree.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)test\MissionPlanner.GCSViews.ConfigurationView.ConfigSerialInjectGPS.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.GCSViews.ConfigurationView.ConfigSerialInjectGPS.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)test\MissionPlanner.GCSViews.ConfigurationView.ConfigSimplePids.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.GCSViews.ConfigurationView.ConfigSimplePids.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)test\MissionPlanner.GCSViews.ConfigurationView.ConfigTradHeli.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.GCSViews.ConfigurationView.ConfigTradHeli.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)test\MissionPlanner.GCSViews.ConfigurationView.ConfigUAVCAN.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.GCSViews.ConfigurationView.ConfigUAVCAN.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)test\MissionPlanner.GCSViews.ConfigurationView.ConfigUserDefined.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.GCSViews.ConfigurationView.ConfigUserDefined.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)test\MissionPlanner.GCSViews.FlightData.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.GCSViews.FlightData.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)test\MissionPlanner.GCSViews.FlightPlanner.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.GCSViews.FlightPlanner.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)test\MissionPlanner.GCSViews.Help.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.GCSViews.Help.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)test\MissionPlanner.GCSViews.InitialSetup.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.GCSViews.InitialSetup.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)test\MissionPlanner.GCSViews.SITL.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.GCSViews.SITL.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)test\MissionPlanner.GCSViews.SoftwareConfig.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.GCSViews.SoftwareConfig.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)test\MissionPlanner.GCSViews.Terminal.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.GCSViews.Terminal.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)test\MissionPlanner.GeoRef.Georefimage.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.GeoRef.Georefimage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)test\MissionPlanner.Joystick.JoystickAxis.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.Joystick.JoystickAxis.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)test\MissionPlanner.Joystick.JoystickSetup.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.Joystick.JoystickSetup.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)test\MissionPlanner.Log.LogBrowse.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.Log.LogBrowse.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)test\MissionPlanner.Log.LogDownload.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.Log.LogDownload.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)test\MissionPlanner.Log.LogDownloadMavLink.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.Log.LogDownloadMavLink.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)test\MissionPlanner.Log.LogDownloadscp.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.Log.LogDownloadscp.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)test\MissionPlanner.Log.LogIndex.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.Log.LogIndex.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)test\MissionPlanner.Log.MavlinkLog.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.Log.MavlinkLog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)test\MissionPlanner.MainV2.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.MainV2.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)test\MissionPlanner.MovingBase.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.MovingBase.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)test\MissionPlanner.OSDVideo.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.OSDVideo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)test\MissionPlanner.Plugin.PluginUI.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.Plugin.PluginUI.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)test\MissionPlanner.Radio.Sikradio.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.Radio.Sikradio.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)test\MissionPlanner.Splash.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.Splash.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)test\MissionPlanner.Swarm.FollowLeader.Control.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.Swarm.FollowLeader.Control.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)test\MissionPlanner.Swarm.FollowPathControl.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.Swarm.FollowPathControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)test\MissionPlanner.Swarm.FormationControl.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.Swarm.FormationControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)test\MissionPlanner.Swarm.Grid.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.Swarm.Grid.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)test\MissionPlanner.Swarm.Sequence.LayoutEditor.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.Swarm.Sequence.LayoutEditor.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)test\MissionPlanner.Swarm.SRB.Control.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.Swarm.SRB.Control.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)test\MissionPlanner.Swarm.Status.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.Swarm.Status.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)test\MissionPlanner.temp.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.temp.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)test\MissionPlanner.Warnings.WarningControl.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.Warnings.WarningControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)test\MissionPlanner.Warnings.WarningsManager.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)test\XagSurveillanceGCS.Warnings.WarningsManager.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

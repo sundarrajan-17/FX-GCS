@@ -5,10 +5,10 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
-using MissionPlanner.ArduPilot.Mavlink;
-using MissionPlanner.Utilities;
+using XagSurveillanceGCS.ArduPilot.Mavlink;
+using XagSurveillanceGCS.Utilities;
 
-namespace MissionPlanner.ArduPilot
+namespace XagSurveillanceGCS.ArduPilot
 {
     public class AP_REPL
     {

@@ -1,11 +1,11 @@
-﻿using MissionPlanner.Controls;
-using MissionPlanner.Properties;
-using MissionPlanner.Utilities;
+﻿using XagSurveillanceGCS.Controls;
+using XagSurveillanceGCS.Properties;
+using XagSurveillanceGCS.Utilities;
 using System;
 using System.Diagnostics;
 using System.Windows.Forms;
 
-namespace MissionPlanner.Controls
+namespace XagSurveillanceGCS.Controls
 {
     public partial class AidingData : Form
     {

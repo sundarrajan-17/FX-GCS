@@ -3,53 +3,53 @@ image: Visual Studio 2019
 configuration: Release
 clone_folder: c:\MP\
 build_script:
-- cmd: >-
-    git config -f .gitmodules submodule.mono.shallow true
+  - cmd: >-
+      git config -f .gitmodules submodule.mono.shallow true
 
-    git submodule update --init --depth 2 --no-single-branch 
+      git submodule update --init --depth 2 --no-single-branch 
 
-    dotnet --info
+      dotnet --info
 
-    msbuild -v:m -restore /m -t:Build -p:Configuration=Release MissionPlanner.sln /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll"
-    
-    dir c:\mp\bin\Release\net461
+      msbuild -v:m -restore /m -t:Build -p:Configuration=Release XagSurveillanceGCS.sln /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll"
 
-    cd bin\Release\net461
-    
-    powershell -command "ls plugins -recurse | ForEach-Object { if (Test-Path ($_.fullname -replace '\\plugins\\','\') -PathType Leaf) { $_.fullname }} | ForEach-Object { del $_ }"
+      dir c:\mp\bin\Release\net461
 
-    copy version.txt c:\mp\
-    
-    rem del gdal dlls /s /f /q
+      cd bin\Release\net461
 
-    7z a -tzip ..\..\..\MissionPlannerBeta.zip *
+      powershell -command "ls plugins -recurse | ForEach-Object { if (Test-Path ($_.fullname -replace '\\plugins\\','\') -PathType Leaf) { $_.fullname }} | ForEach-Object { del $_ }"
 
-    cd ..
+      copy version.txt c:\mp\
 
-    md5sum.exe net461 > checksums.txt
+      rem del gdal dlls /s /f /q
 
-    copy checksums.txt c:\mp\
+      7z a -tzip ..\..\..\XagSurveillanceGCSBeta.zip *
 
-    cd c:\mp\
+      cd ..
 
-    cd msi 
+      md5sum.exe net461 > checksums.txt
 
-    rem wix.exe ..\bin\release\net461\ 
+      copy checksums.txt c:\mp\
 
-    rem "%wix%\bin\candle" installer.wxs -ext WiXNetFxExtension -ext WixDifxAppExtension -ext WixUIExtension.dll -ext WixUtilExtension -ext WixIisExtension 
-  
-    rem "%wix%\bin\light" installer.wixobj "%wix%\bin\difxapp_x86.wixlib" -sval -o MissionPlanner-latest.msi -ext WiXNetFxExtension -ext WixDifxAppExtension -ext WixUIExtension.dll -ext WixUtilExtension -ext WixIisExtension 
+      cd c:\mp\
+
+      cd msi 
+
+      rem wix.exe ..\bin\release\net461\ 
+
+      rem "%wix%\bin\candle" installer.wxs -ext WiXNetFxExtension -ext WixDifxAppExtension -ext WixUIExtension.dll -ext WixUtilExtension -ext WixIisExtension 
+
+      rem "%wix%\bin\light" installer.wixobj "%wix%\bin\difxapp_x86.wixlib" -sval -o XagSurveillanceGCS-latest.msi -ext WiXNetFxExtension -ext WixDifxAppExtension -ext WixUIExtension.dll -ext WixUtilExtension -ext WixIisExtension
 
 test: off
 artifacts:
-- path: MissionPlannerCov-int.zip
-- path: MissionPlannerBeta.zip
-- path: checksums.txt
-- path: version.txt
-- path: ChangeLog.txt
+  - path: XagSurveillanceGCSCov-int.zip
+  - path: XagSurveillanceGCSBeta.zip
+  - path: checksums.txt
+  - path: version.txt
+  - path: ChangeLog.txt
 deploy: off
 notifications:
-- provider: GitHubPullRequest
-  on_build_success: true
-  on_build_failure: true
-  on_build_status_changed: false
+  - provider: GitHubPullRequest
+    on_build_success: true
+    on_build_failure: true
+    on_build_status_changed: false

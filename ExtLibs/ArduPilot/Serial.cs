@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Text;
 
-namespace MissionPlanner
+namespace XagSurveillanceGCS
 {
     public class Serial
     {

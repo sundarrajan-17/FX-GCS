@@ -7,13 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using MissionPlanner.Controls;
-using MissionPlanner.Utilities;
+using XagSurveillanceGCS.Controls;
+using XagSurveillanceGCS.Utilities;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
-using MissionPlanner.GCSViews;
+using XagSurveillanceGCS.GCSViews;
 
-namespace MissionPlanner.Controls
+namespace XagSurveillanceGCS.Controls
 {
     public partial class MavCommandSelection : Form
     {

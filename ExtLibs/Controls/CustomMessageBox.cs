@@ -3,11 +3,11 @@ using System.Drawing;
 using System.Windows.Forms;
 using System.Text;
 using System.Text.RegularExpressions;
-using MissionPlanner.Controls;
+using XagSurveillanceGCS.Controls;
 using System.Threading;
 using TextBox = System.Windows.Forms.TextBox;
 
-namespace MissionPlanner.MsgBox
+namespace XagSurveillanceGCS.MsgBox
 {
     public static class CustomMessageBox
     {

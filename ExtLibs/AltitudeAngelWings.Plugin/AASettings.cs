@@ -12,8 +12,8 @@ using AltitudeAngelWings.Clients.Auth;
 using AltitudeAngelWings.Clients.Auth.Model;
 using AltitudeAngelWings.Plugin.Properties;
 using AltitudeAngelWings.Service;
-using MissionPlanner;
-using MissionPlanner.Utilities;
+using XagSurveillanceGCS;
+using XagSurveillanceGCS.Utilities;
 
 namespace AltitudeAngelWings.Plugin
 {
@@ -21,7 +21,7 @@ namespace AltitudeAngelWings.Plugin
     {
         private readonly ISettings _settings;
         private readonly IAltitudeAngelService _altitudeAngelService;
-        private readonly IMissionPlanner _missionPlanner;
+        private readonly IXagSurveillanceGCS _XagSurveillanceGCS;
         private readonly IAuthClient _authClient;
 
         private static readonly object InstanceLock = new object();
@@ -30,7 +30,7 @@ namespace AltitudeAngelWings.Plugin
         private AASettings()
             : this(ServiceLocator.GetService<ISettings>(),
                 ServiceLocator.GetService<IAltitudeAngelService>(),
-                ServiceLocator.GetService<IMissionPlanner>(),
+                ServiceLocator.GetService<IXagSurveillanceGCS>(),
                 ServiceLocator.GetService<IAuthClient>())
         {
         }
@@ -50,16 +50,16 @@ namespace AltitudeAngelWings.Plugin
             }
         }
 
-        private AASettings(ISettings settings, IAltitudeAngelService altitudeAngelService, IMissionPlanner missionPlanner, IAuthClient authClient)
+        private AASettings(ISettings settings, IAltitudeAngelService altitudeAngelService, IXagSurveillanceGCS XagSurveillanceGCS, IAuthClient authClient)
         {
             _settings = settings;
             _altitudeAngelService = altitudeAngelService;
-            _missionPlanner = missionPlanner;
+            _XagSurveillanceGCS = XagSurveillanceGCS;
             _authClient = authClient;
             InitializeComponent();
             _altitudeAngelService.IsSignedIn.ObserveOn(MainV2.instance).SubscribeWithAsync(OnSignInChange);
-            _missionPlanner.FlightDataMap.MapChanged.ObserveOn(MainV2.instance).Subscribe(OnMapChanged);
-            _missionPlanner.FlightPlanningMap.MapChanged.ObserveOn(MainV2.instance).Subscribe(OnMapChanged);
+            _XagSurveillanceGCS.FlightDataMap.MapChanged.ObserveOn(MainV2.instance).Subscribe(OnMapChanged);
+            _XagSurveillanceGCS.FlightPlanningMap.MapChanged.ObserveOn(MainV2.instance).Subscribe(OnMapChanged);
 
             ThemeManager.ApplyThemeTo(this);
             Icon = Resources.AAIconBlack;
@@ -315,8 +315,8 @@ namespace AltitudeAngelWings.Plugin
 
         private void ProcessMapsFromCache(bool resetFilters = false)
         {
-            _altitudeAngelService.ProcessAllFromCache(_missionPlanner.FlightDataMap, resetFilters);
-            _altitudeAngelService.ProcessAllFromCache(_missionPlanner.FlightPlanningMap, resetFilters);
+            _altitudeAngelService.ProcessAllFromCache(_XagSurveillanceGCS.FlightDataMap, resetFilters);
+            _altitudeAngelService.ProcessAllFromCache(_XagSurveillanceGCS.FlightPlanningMap, resetFilters);
         }
 
         private void AddUpdateFilterInfoTree(TreeNode parent = null)

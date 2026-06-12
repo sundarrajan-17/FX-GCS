@@ -1,1 +1,1 @@
-namespace MissionPlanner.Controls { public partial class myGMAP{public myGMAP(){this.InitializeComponent();}}}
+namespace XagSurveillanceGCS.Controls { public partial class myGMAP{public myGMAP(){this.InitializeComponent();}}}

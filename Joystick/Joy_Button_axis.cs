@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 
-namespace MissionPlanner.Joystick
+namespace XagSurveillanceGCS.Joystick
 {
     public partial class Joy_Button_axis : Form
     {

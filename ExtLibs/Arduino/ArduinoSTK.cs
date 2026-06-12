@@ -3,11 +3,11 @@ using System.IO.Ports;
 using System.Reflection;
 using System.Threading;
 using log4net;
-using MissionPlanner.Comms;
+using XagSurveillanceGCS.Comms;
 
 // Written by Michael Oborne
 
-namespace MissionPlanner.Arduino
+namespace XagSurveillanceGCS.Arduino
 {
     public class ArduinoSTK : Comms.SerialPort, IArduinoComms
     {

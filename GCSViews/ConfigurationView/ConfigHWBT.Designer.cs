@@ -1,4 +1,4 @@
-﻿namespace MissionPlanner.GCSViews.ConfigurationView
+﻿namespace XagSurveillanceGCS.GCSViews.ConfigurationView
 {
     partial class ConfigHWBT
     {
@@ -32,7 +32,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.BUT_btsettings = new MissionPlanner.Controls.MyButton();
+            this.BUT_btsettings = new XagSurveillanceGCS.Controls.MyButton();
             this.cmb_baud = new System.Windows.Forms.ComboBox();
             this.txt_name = new System.Windows.Forms.TextBox();
             this.txt_pin = new System.Windows.Forms.TextBox();
@@ -56,10 +56,10 @@
             // pictureBox5
             // 
             this.pictureBox5.BackColor = System.Drawing.Color.White;
-            this.pictureBox5.BackgroundImage = global::MissionPlanner.Properties.Resources.MinimOSD;
+            this.pictureBox5.BackgroundImage = global::XagSurveillanceGCS.Properties.Resources.MinimOSD;
             resources.ApplyResources(this.pictureBox5, "pictureBox5");
             this.pictureBox5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox5.Image = global::MissionPlanner.Properties.Resources.BT_hc06;
+            this.pictureBox5.Image = global::XagSurveillanceGCS.Properties.Resources.BT_hc06;
             this.pictureBox5.Name = "pictureBox5";
             this.pictureBox5.TabStop = false;
             // 

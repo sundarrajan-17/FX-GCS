@@ -19,6 +19,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Interfaces\Interfaces.csproj" />
-    <ProjectReference Include="..\MissionPlanner.Drawing\MissionPlanner.Drawing.csproj" />
+    <ProjectReference Include="..\XagSurveillanceGCS.Drawing\XagSurveillanceGCS.Drawing.csproj" />
   </ItemGroup>
 </Project>

@@ -6,7 +6,7 @@ using System.Net;
 using System.Net.Http;
 using log4net;
 
-namespace MissionPlanner.Utilities
+namespace XagSurveillanceGCS.Utilities
 {
     public class Tracking
     {

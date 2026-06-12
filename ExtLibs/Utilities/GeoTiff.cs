@@ -16,7 +16,7 @@ using ProjNet.CoordinateSystems.Transformations;
 using GeoAPI.CoordinateSystems;
 using DotSpatial.Projections;
 
-namespace MissionPlanner.Utilities
+namespace XagSurveillanceGCS.Utilities
 {
     public class GeoTiff
     {

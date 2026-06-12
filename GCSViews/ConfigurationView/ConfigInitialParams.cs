@@ -1,13 +1,13 @@
-﻿using MissionPlanner.Controls;
-using MissionPlanner.Utilities;
+﻿using XagSurveillanceGCS.Controls;
+using XagSurveillanceGCS.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
 using System.Linq;
 using System.Drawing;
-using MissionPlanner.ArduPilot;
+using XagSurveillanceGCS.ArduPilot;
 
-namespace MissionPlanner.GCSViews.ConfigurationView
+namespace XagSurveillanceGCS.GCSViews.ConfigurationView
 {
     public partial class ConfigInitialParams : MyUserControl, IActivate
     {
@@ -221,7 +221,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
             Form paramCompareForm = new ParamCompare(null, MainV2.comPort.MAV.param, new_params);
             ThemeManager.ApplyThemeTo(paramCompareForm);
 
-            MissionPlanner.Controls.MyButton button = paramCompareForm.Controls.Find("BUT_save", true).FirstOrDefault() as MissionPlanner.Controls.MyButton;
+            XagSurveillanceGCS.Controls.MyButton button = paramCompareForm.Controls.Find("BUT_save", true).FirstOrDefault() as XagSurveillanceGCS.Controls.MyButton;
             button.Text = "Write to FC";
             paramCompareForm.StartPosition = FormStartPosition.CenterParent;
             paramCompareForm.ShowDialog();

@@ -1,6 +1,6 @@
 ﻿using System.Drawing;
 
-namespace MissionPlanner.Utilities
+namespace XagSurveillanceGCS.Utilities
 {
     public class XTermRBGColors
     {

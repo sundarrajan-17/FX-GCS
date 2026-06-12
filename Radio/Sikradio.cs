@@ -9,14 +9,14 @@ using System.Text.RegularExpressions;
 using System.Threading;
 using System.Windows.Forms;
 using log4net;
-using MissionPlanner.Comms;
-using MissionPlanner.Controls;
-using MissionPlanner.MsgBox;
-using MissionPlanner.Radio;
-using MissionPlanner.Utilities;
+using XagSurveillanceGCS.Comms;
+using XagSurveillanceGCS.Controls;
+using XagSurveillanceGCS.MsgBox;
+using XagSurveillanceGCS.Radio;
+using XagSurveillanceGCS.Utilities;
 using Microsoft.VisualBasic;
 
-namespace MissionPlanner.Radio
+namespace XagSurveillanceGCS.Radio
 {
     public partial class Sikradio : UserControl, SikRadio.ISikRadioForm
     {
@@ -283,7 +283,7 @@ S15: MAX_WINDOW=131
                 S.PutIntoTransparentMode();
             }
             EndSession();
-            MissionPlanner.Radio.ComPort.FinishedWithComPortForSiKRadio();
+            XagSurveillanceGCS.Radio.ComPort.FinishedWithComPortForSiKRadio();
         }
 
         void DisposedEvtHdlr(object sender, EventArgs e)
@@ -2438,7 +2438,7 @@ red LED solid - in firmware update mode");
             {
                 try
                 {
-                    var p = MissionPlanner.Radio.ComPort.GetComPortForSiKRadio();
+                    var p = XagSurveillanceGCS.Radio.ComPort.GetComPortForSiKRadio();
 
                     if (p != null)
                     {

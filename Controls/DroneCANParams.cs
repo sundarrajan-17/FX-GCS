@@ -1,5 +1,5 @@
 ﻿using log4net;
-using MissionPlanner.Utilities;
+using XagSurveillanceGCS.Utilities;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -15,7 +15,7 @@ using System.Timers;
 using System.Windows.Forms;
 using DroneCAN;
 
-namespace MissionPlanner.Controls
+namespace XagSurveillanceGCS.Controls
 {
     public partial class DroneCANParams : MyUserControl, IActivate, IDeactivate
     {

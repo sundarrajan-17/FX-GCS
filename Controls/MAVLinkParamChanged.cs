@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace MissionPlanner.Controls
+namespace XagSurveillanceGCS.Controls
 {
     public class MAVLinkParamChanged : EventArgs
     {

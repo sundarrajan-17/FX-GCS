@@ -1,7 +1,7 @@
 ﻿using BrightIdeasSoftware;
 using log4net;
-using MissionPlanner.Controls;
-using MissionPlanner.Utilities;
+using XagSurveillanceGCS.Controls;
+using XagSurveillanceGCS.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -11,7 +11,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace MissionPlanner.Log
+namespace XagSurveillanceGCS.Log
 {
     public partial class LogIndex : Form
     {

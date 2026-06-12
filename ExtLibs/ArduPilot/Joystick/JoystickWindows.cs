@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using MissionPlanner.Utilities;
+using XagSurveillanceGCS.Utilities;
 using SharpDX.DirectInput;
 
-namespace MissionPlanner.Joystick
+namespace XagSurveillanceGCS.Joystick
 {
     public class JoystickWindows: JoystickBase, IDisposable
     {

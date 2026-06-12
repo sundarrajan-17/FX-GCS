@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MissionPlanner.Maps
+namespace XagSurveillanceGCS.Maps
 {
     public static class ExtensionsMaps
     {

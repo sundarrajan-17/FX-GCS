@@ -1,10 +1,10 @@
-﻿using MissionPlanner.Mavlink;
-using MissionPlanner.Utilities;
+﻿using XagSurveillanceGCS.Mavlink;
+using XagSurveillanceGCS.Utilities;
 using System;
 using System.Linq;
 using System.Windows.Forms;
 
-namespace MissionPlanner.Controls
+namespace XagSurveillanceGCS.Controls
 {
     public partial class AuthKeys : Form
     {

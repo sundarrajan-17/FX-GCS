@@ -475,11 +475,11 @@
   <data name="MinimOSD" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\MinimOSD.jpg;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="missionplannerlogo" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\missionplannerlogo.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="XagSurveillanceGCSlogo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\XagSurveillanceGCSlogo.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="missionplannerlogodark" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\missionplannerlogodark.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="XagSurveillanceGCSlogodark" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\XagSurveillanceGCSlogodark.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="new_3DR_04" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\new-3DR-04.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>

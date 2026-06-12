@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using MissionPlanner.Comms;
+using XagSurveillanceGCS.Comms;
 
-namespace MissionPlanner.Antenna
+namespace XagSurveillanceGCS.Antenna
 {
     public class ArduTracker : ITrackerOutput
     {

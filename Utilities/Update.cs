@@ -1,6 +1,6 @@
 ﻿using ICSharpCode.SharpZipLib.Checksum;
 using log4net;
-using MissionPlanner.Controls;
+using XagSurveillanceGCS.Controls;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -17,7 +17,7 @@ using System.Windows.Forms;
 using Org.BouncyCastle.Crypto.Digests;
 using System.Reflection;
 
-namespace MissionPlanner.Utilities
+namespace XagSurveillanceGCS.Utilities
 {
     class Update
     {
@@ -692,7 +692,7 @@ namespace MissionPlanner.Utilities
 
                 if (dns.Length != 0)
                 {
-                    if (MissionPlanner.Utilities.Update.dobeta)
+                    if (XagSurveillanceGCS.Utilities.Update.dobeta)
                         ParameterMetaDataParser.GetParameterInformation(
                             ConfigurationManager.AppSettings["ParameterLocationsBleeding"], "ParameterMetaData.xml");
                     else

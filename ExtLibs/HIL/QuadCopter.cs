@@ -5,12 +5,12 @@ using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Text;
 using log4net;
-using MissionPlanner.ArduPilot;
-using MissionPlanner.HIL;
-using MissionPlanner.Utilities;
+using XagSurveillanceGCS.ArduPilot;
+using XagSurveillanceGCS.HIL;
+using XagSurveillanceGCS.Utilities;
 
 
-namespace MissionPlanner.HIL
+namespace XagSurveillanceGCS.HIL
 {
     public class Motor : Utils
     {

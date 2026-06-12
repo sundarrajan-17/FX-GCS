@@ -41,7 +41,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Comms\MissionPlanner.Comms.csproj" />
+    <ProjectReference Include="..\Comms\XagSurveillanceGCS.Comms.csproj" />
     <ProjectReference Include="..\Interfaces\Interfaces.csproj" />
   </ItemGroup>
 

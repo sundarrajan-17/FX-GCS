@@ -1,7 +1,7 @@
 ﻿using System;
 using DroneCAN;
 
-namespace MissionPlanner.GCSViews.ConfigurationView
+namespace XagSurveillanceGCS.GCSViews.ConfigurationView
 {
     public class DroneCANModel
     {

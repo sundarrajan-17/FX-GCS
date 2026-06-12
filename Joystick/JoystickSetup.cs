@@ -1,5 +1,5 @@
-﻿using MissionPlanner.Controls;
-using MissionPlanner.Utilities;
+﻿using XagSurveillanceGCS.Controls;
+using XagSurveillanceGCS.Utilities;
 using SharpDX.DirectInput;
 using System;
 using System.Drawing;
@@ -7,7 +7,7 @@ using System.Linq;
 using System.Windows.Forms;
 
 
-namespace MissionPlanner.Joystick
+namespace XagSurveillanceGCS.Joystick
 {
     public partial class JoystickSetup : MyUserControl, IDeactivate
     {
@@ -20,7 +20,7 @@ namespace MissionPlanner.Joystick
         {
             InitializeComponent();
 
-            MissionPlanner.Utilities.Tracking.AddPage(this.GetType().ToString(), this.Text);
+            XagSurveillanceGCS.Utilities.Tracking.AddPage(this.GetType().ToString(), this.Text);
         }
 
         private void Joystick_Load(object sender, EventArgs e)

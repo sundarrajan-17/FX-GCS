@@ -4,9 +4,9 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using log4net;
-using MissionPlanner.Utilities;
+using XagSurveillanceGCS.Utilities;
 
-namespace MissionPlanner.ArduPilot
+namespace XagSurveillanceGCS.ArduPilot
 {
     public static class parampck
     {

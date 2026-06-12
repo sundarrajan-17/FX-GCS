@@ -1,6 +1,6 @@
 using ICSharpCode.SharpZipLib.Zip;
 using log4net;
-using MissionPlanner.Controls;
+using XagSurveillanceGCS.Controls;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -8,7 +8,7 @@ using System.IO;
 using System.Text;
 using System.Xml;
 
-namespace MissionPlanner.Utilities
+namespace XagSurveillanceGCS.Utilities
 {
     public class LogAnalyzer
     {
@@ -40,13 +40,13 @@ namespace MissionPlanner.Utilities
                 if (Environment.Is64BitOperatingSystem)
                 {
                     gotit = Download.getFilefromNet(
-                        "https://firmware.ardupilot.org/Tools/MissionPlanner/LogAnalyzer/LogAnalyzer64.zip",
+                        "https://firmware.ardupilot.org/Tools/XagSurveillanceGCS/LogAnalyzer/LogAnalyzer64.zip",
                         zip);
                 }
                 else
                 {
                     gotit = Download.getFilefromNet(
-                        "https://firmware.ardupilot.org/Tools/MissionPlanner/LogAnalyzer/LogAnalyzer.zip",
+                        "https://firmware.ardupilot.org/Tools/XagSurveillanceGCS/LogAnalyzer/LogAnalyzer.zip",
                         zip);
                 }
 

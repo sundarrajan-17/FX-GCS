@@ -8,7 +8,7 @@ using BitMiracle.LibTiff.Classic;
 using GMap.NET;
 using log4net;
 
-namespace MissionPlanner.Utilities
+namespace XagSurveillanceGCS.Utilities
 {
     public class DTED
     {

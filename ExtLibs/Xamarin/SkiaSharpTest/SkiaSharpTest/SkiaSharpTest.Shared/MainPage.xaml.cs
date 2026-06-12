@@ -25,11 +25,11 @@ using log4net.Core;
 using log4net.Layout;
 using log4net.Repository.Hierarchy;
 using log4net.Util;
-using MissionPlanner;
-using MissionPlanner.Controls;
+using XagSurveillanceGCS;
+using XagSurveillanceGCS.Controls;
 using Microsoft.Scripting.Utils;
-using MissionPlanner.Utilities;
-using MissionPlanner.Comms;
+using XagSurveillanceGCS.Utilities;
+using XagSurveillanceGCS.Comms;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
@@ -110,7 +110,7 @@ namespace SkiaSharpTest
             try
             {
 
-                MissionPlanner.Program.Main(new string[] { });
+                XagSurveillanceGCS.Program.Main(new string[] { });
 
             }
             catch (Exception ex)

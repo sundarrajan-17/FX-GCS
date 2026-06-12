@@ -1,4 +1,4 @@
-﻿namespace MissionPlanner.GCSViews.ConfigurationView
+﻿namespace XagSurveillanceGCS.GCSViews.ConfigurationView
 {
     partial class ConfigDroneCAN
     {
@@ -41,7 +41,7 @@
             this.menu_passthrough = new System.Windows.Forms.MenuItem();
             this.menu_passthrough4 = new System.Windows.Forms.MenuItem();
             this.label1 = new System.Windows.Forms.Label();
-            this.but_uavcaninspector = new MissionPlanner.Controls.MyButton();
+            this.but_uavcaninspector = new XagSurveillanceGCS.Controls.MyButton();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.textBox13 = new System.Windows.Forms.TextBox();
@@ -66,13 +66,13 @@
             this.Source = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.UAVText = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.chk_canonclose = new System.Windows.Forms.CheckBox();
-            this.but_filter = new MissionPlanner.Controls.MyButton();
-            this.but_stats = new MissionPlanner.Controls.MyButton();
+            this.but_filter = new XagSurveillanceGCS.Controls.MyButton();
+            this.but_stats = new XagSurveillanceGCS.Controls.MyButton();
             this.cmb_interfacetype = new System.Windows.Forms.ComboBox();
             this.cmb_networkinterface = new System.Windows.Forms.ComboBox();
-            this.but_connect = new MissionPlanner.Controls.MyButton();
+            this.but_connect = new XagSurveillanceGCS.Controls.MyButton();
             this.uAVCANModelBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.myDataGridView1 = new MissionPlanner.Controls.MyDataGridView();
+            this.myDataGridView1 = new XagSurveillanceGCS.Controls.MyDataGridView();
             this.iDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.modeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -486,7 +486,7 @@
             // uAVCANModelBindingSource
             // 
             this.uAVCANModelBindingSource.AllowNew = true;
-            this.uAVCANModelBindingSource.DataSource = typeof(MissionPlanner.GCSViews.ConfigurationView.DroneCANModel);
+            this.uAVCANModelBindingSource.DataSource = typeof(XagSurveillanceGCS.GCSViews.ConfigurationView.DroneCANModel);
             // 
             // myDataGridView1
             // 

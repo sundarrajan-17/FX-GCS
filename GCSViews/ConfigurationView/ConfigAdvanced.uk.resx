@@ -184,7 +184,7 @@
     <value>Використовувати зовнішний NMEA GPS та надсилати ППМ режиму наведення до М-БпЛА на основі його місцезнаходження</value>
   </data>
   <data name="label9.Text" xml:space="preserve">
-    <value>Регенерувати інфо про параметри, яки використовуються в MissionPlanner</value>
+    <value>Регенерувати інфо про параметри, яки використовуються в XagSurveillanceGCS</value>
   </data>
   <data name="but_anonlog.Text" xml:space="preserve">
     <value>Анон.журнал</value>
@@ -223,7 +223,7 @@
     <value>Використовувати зовнішний NMEA GPS та надсилати ППМ режиму наведення до М-БпЛА на основі його місцезнаходження</value>
   </data>
   <data name="label9.Text" xml:space="preserve">
-    <value>Регенерувати інфо про параметри, яки використовуються в MissionPlanner</value>
+    <value>Регенерувати інфо про параметри, яки використовуються в XagSurveillanceGCS</value>
   </data>
   <data name="but_anonlog.Text" xml:space="preserve">
     <value>Анон.журнал</value>

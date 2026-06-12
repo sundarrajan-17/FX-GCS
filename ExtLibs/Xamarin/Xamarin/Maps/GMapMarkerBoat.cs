@@ -3,9 +3,9 @@ using System.Drawing;
 using GMap.NET;
 using GMap.NET.Drawing;
 using GMap.NET.WindowsForms;
-using MissionPlanner.Utilities;
+using XagSurveillanceGCS.Utilities;
 
-namespace MissionPlanner.Maps
+namespace XagSurveillanceGCS.Maps
 {
     [Serializable]
     public class GMapMarkerBoat : GMapMarkerBase

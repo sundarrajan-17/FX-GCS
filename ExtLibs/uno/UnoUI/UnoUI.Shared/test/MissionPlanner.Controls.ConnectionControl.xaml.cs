@@ -1,1 +1,1 @@
-namespace MissionPlanner.Controls { public partial class ConnectionControl{public ConnectionControl(){this.InitializeComponent();}}}
+namespace XagSurveillanceGCS.Controls { public partial class ConnectionControl{public ConnectionControl(){this.InitializeComponent();}}}

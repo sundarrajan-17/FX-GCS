@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Text;
 using uint8_t = System.Byte;
 
-namespace MissionPlanner.Utilities
+namespace XagSurveillanceGCS.Utilities
 {
     public static class AP_GeodesicGrid
     {

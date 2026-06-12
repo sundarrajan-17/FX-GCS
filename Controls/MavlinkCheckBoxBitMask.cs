@@ -1,9 +1,9 @@
-﻿using MissionPlanner.Utilities;
+﻿using XagSurveillanceGCS.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
 
-namespace MissionPlanner.Controls
+namespace XagSurveillanceGCS.Controls
 {
     public class MavlinkCheckBoxBitMask : MyUserControl
     {
@@ -164,7 +164,7 @@ namespace MissionPlanner.Controls
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.myLabel1 = new MissionPlanner.Controls.MyLabel();
+            this.myLabel1 = new XagSurveillanceGCS.Controls.MyLabel();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 

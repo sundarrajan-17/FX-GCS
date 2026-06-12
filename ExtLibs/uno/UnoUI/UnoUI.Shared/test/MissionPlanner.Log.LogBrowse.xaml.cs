@@ -1,1 +1,1 @@
-namespace MissionPlanner.Log { public partial class LogBrowse{public LogBrowse(){this.InitializeComponent();}}}
+namespace XagSurveillanceGCS.Log { public partial class LogBrowse{public LogBrowse(){this.InitializeComponent();}}}

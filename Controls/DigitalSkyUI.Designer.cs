@@ -1,4 +1,4 @@
-﻿namespace MissionPlanner.Controls
+﻿namespace XagSurveillanceGCS.Controls
 {
     partial class DigitalSkyUI
     {
@@ -31,10 +31,10 @@
             this.cmb_drones = new System.Windows.Forms.ComboBox();
             this.cmb_applications = new System.Windows.Forms.ComboBox();
             this.lbl_approvedstatus = new System.Windows.Forms.Label();
-            this.but_dlartifact = new MissionPlanner.Controls.MyButton();
-            this.but_login = new MissionPlanner.Controls.MyButton();
-            this.myGMAP1 = new MissionPlanner.Controls.myGMAP();
-            this.but_uploadflightlog = new MissionPlanner.Controls.MyButton();
+            this.but_dlartifact = new XagSurveillanceGCS.Controls.MyButton();
+            this.but_login = new XagSurveillanceGCS.Controls.MyButton();
+            this.myGMAP1 = new XagSurveillanceGCS.Controls.myGMAP();
+            this.but_uploadflightlog = new XagSurveillanceGCS.Controls.MyButton();
             this.SuspendLayout();
             // 
             // cmb_drones

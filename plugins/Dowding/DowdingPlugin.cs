@@ -8,13 +8,13 @@ using Dowding.Model;
 using GMap.NET;
 using GMap.NET.WindowsForms;
 using GMap.NET.WindowsForms.Markers;
-using MissionPlanner;
-using MissionPlanner.Controls;
-using MissionPlanner.GCSViews;
-using MissionPlanner.Maps;
-using MissionPlanner.Plugin;
-using MissionPlanner.Utilities;
-using MissionPlanner.WebAPIs;
+using XagSurveillanceGCS;
+using XagSurveillanceGCS.Controls;
+using XagSurveillanceGCS.GCSViews;
+using XagSurveillanceGCS.Maps;
+using XagSurveillanceGCS.Plugin;
+using XagSurveillanceGCS.Utilities;
+using XagSurveillanceGCS.WebAPIs;
 
 namespace Dowding
 {
@@ -71,7 +71,7 @@ namespace Dowding
             {
                 try
                 {
-                    var dowd = new MissionPlanner.WebAPIs.Dowding();
+                    var dowd = new XagSurveillanceGCS.WebAPIs.Dowding();
                     if (Settings.Instance.ContainsKey("Dowding_username") &&
                         Settings.Instance.ContainsKey("Dowding_password") &&
                         Settings.Instance.ContainsKey("Dowding_server"))
@@ -192,7 +192,7 @@ namespace Dowding
                 };
             }
 
-            FlightData.instance.updateMarkersAsNeeded<VehicleTick, GMarkerGoogle>(MissionPlanner.WebAPIs.Dowding.Vehicles.Values,
+            FlightData.instance.updateMarkersAsNeeded<VehicleTick, GMarkerGoogle>(XagSurveillanceGCS.WebAPIs.Dowding.Vehicles.Values,
                 overlay, tick =>
                 {
                     return tick.Serial ?? tick.Id;

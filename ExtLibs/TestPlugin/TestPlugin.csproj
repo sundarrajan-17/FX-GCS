@@ -112,19 +112,19 @@
     <Compile Update="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\MissionPlanner.csproj">
+    <ProjectReference Include="..\..\XagSurveillanceGCS.csproj">
       <Project>{a2e22272-95fe-47b6-b050-9ae7e2055bf5}</Project>
-      <Name>MissionPlanner</Name>
+      <Name>XagSurveillanceGCS</Name>
       <Private>False</Private>
     </ProjectReference>
-    <ProjectReference Include="..\Comms\MissionPlanner.Comms.csproj">
+    <ProjectReference Include="..\Comms\XagSurveillanceGCS.Comms.csproj">
       <Project>{825e7a10-390c-4a2b-b3a8-491d14966912}</Project>
-      <Name>MissionPlanner.Comms</Name>
+      <Name>XagSurveillanceGCS.Comms</Name>
       <Private>False</Private>
     </ProjectReference>
-    <ProjectReference Include="..\Controls\MissionPlanner.Controls.csproj">
+    <ProjectReference Include="..\Controls\XagSurveillanceGCS.Controls.csproj">
       <Project>{c8b88795-6d01-494d-83ad-6944bd4c5023}</Project>
-      <Name>MissionPlanner.Controls</Name>
+      <Name>XagSurveillanceGCS.Controls</Name>
       <Private>False</Private>
     </ProjectReference>
     <ProjectReference Include="..\Mavlink\MAVLink.csproj">
@@ -132,9 +132,9 @@
       <Name>MAVLink</Name>
       <Private>False</Private>
     </ProjectReference>
-    <ProjectReference Include="..\Utilities\MissionPlanner.Utilities.csproj">
+    <ProjectReference Include="..\Utilities\XagSurveillanceGCS.Utilities.csproj">
       <Project>{1378a66c-38e4-46f5-a05f-dc04ef7d4d16}</Project>
-      <Name>MissionPlanner.Utilities</Name>
+      <Name>XagSurveillanceGCS.Utilities</Name>
       <Private>False</Private>
     </ProjectReference>
   </ItemGroup>

@@ -2,7 +2,7 @@
 using Android.Bluetooth;
 using Android.Content;
 
-namespace MissionPlanner.Comms
+namespace XagSurveillanceGCS.Comms
 {
     [BroadcastReceiver(Enabled = true, Exported = false)]
     public class DeviceDiscoveredReceiver : BroadcastReceiver

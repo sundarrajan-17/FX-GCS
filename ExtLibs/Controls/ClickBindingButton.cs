@@ -4,7 +4,7 @@ using System.Drawing;
 using System.Windows.Forms;
 
 
-namespace MissionPlanner.Controls
+namespace XagSurveillanceGCS.Controls
 {
     /// <summary>
     /// Custom button control for binding a mouse click (with optional modifier keys) to a function.

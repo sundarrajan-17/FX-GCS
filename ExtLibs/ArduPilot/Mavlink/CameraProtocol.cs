@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 using Core.Geometry;
 using GeoAPI.DataStructures;
 using log4net;
-using MissionPlanner.Utilities;
+using XagSurveillanceGCS.Utilities;
 
-namespace MissionPlanner.ArduPilot.Mavlink
+namespace XagSurveillanceGCS.ArduPilot.Mavlink
 {
     /// <summary>
     /// Handles communication and control for camera operations via MAVLink protocol. 

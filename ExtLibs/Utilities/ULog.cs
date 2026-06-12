@@ -9,7 +9,7 @@ using uint64_t = System.UInt64;
 using uint8_t = System.Byte;
 using int8_t = System.SByte;
 
-namespace MissionPlanner.Utilities
+namespace XagSurveillanceGCS.Utilities
 {
     public class ULog
     {

@@ -2,7 +2,7 @@
 using System.Drawing;
 using System.Windows.Forms;
 
-namespace MissionPlanner.Warnings
+namespace XagSurveillanceGCS.Warnings
 {
     public partial class WarningsManager : Form
     {

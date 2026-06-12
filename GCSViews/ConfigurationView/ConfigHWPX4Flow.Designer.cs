@@ -1,4 +1,4 @@
-﻿namespace MissionPlanner.GCSViews.ConfigurationView
+﻿namespace XagSurveillanceGCS.GCSViews.ConfigurationView
 {
     partial class ConfigHWPX4Flow
     {
@@ -33,7 +33,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.imagebox = new System.Windows.Forms.PictureBox();
-            this.but_focusmode = new MissionPlanner.Controls.MyButton();
+            this.but_focusmode = new XagSurveillanceGCS.Controls.MyButton();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imagebox)).BeginInit();
             this.SuspendLayout();
@@ -41,7 +41,7 @@
             // pictureBox2
             // 
             this.pictureBox2.BackColor = System.Drawing.Color.White;
-            this.pictureBox2.BackgroundImage = global::MissionPlanner.Properties.Resources.PX4FLOW1;
+            this.pictureBox2.BackgroundImage = global::XagSurveillanceGCS.Properties.Resources.PX4FLOW1;
             resources.ApplyResources(this.pictureBox2, "pictureBox2");
             this.pictureBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pictureBox2.Name = "pictureBox2";

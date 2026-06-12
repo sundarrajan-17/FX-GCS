@@ -69,8 +69,8 @@ jobs:
         run: |
           npm install --global create-dmg
           cd ExtLibs/Xamarin/Xamarin.MacOS/bin/Release/
-          create-dmg 'Mission Planner.app' --dmg-title='Mission Planner'
-          
+          create-dmg 'XagSurveillanceGCS.app' --dmg-title='XagSurveillanceGCS'
+
       - uses: actions/upload-artifact@v4
         with:
           name: osx
@@ -84,4 +84,4 @@ jobs:
           automatic_release_tag: "osxlatest"
           prerelease: true
           title: "OSX Development Build"
-          files: '**/*.dmg'
+          files: "**/*.dmg"

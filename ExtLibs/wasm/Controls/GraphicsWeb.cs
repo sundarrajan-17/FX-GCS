@@ -16,7 +16,7 @@ using RectangleF = System.Drawing.RectangleF;
 using Point = System.Drawing.Point;
 using SizeF = System.Drawing.SizeF;
 
-namespace MissionPlanner.Controls
+namespace XagSurveillanceGCS.Controls
 {
     public class GraphicsWeb : IGraphics
     {

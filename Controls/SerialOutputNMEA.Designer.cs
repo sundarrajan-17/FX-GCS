@@ -1,4 +1,4 @@
-﻿namespace MissionPlanner.Controls
+﻿namespace XagSurveillanceGCS.Controls
 {
     partial class SerialOutputNMEA
     {
@@ -30,7 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SerialOutputNMEA));
             this.CMB_serialport = new System.Windows.Forms.ComboBox();
-            this.BUT_connect = new MissionPlanner.Controls.MyButton();
+            this.BUT_connect = new XagSurveillanceGCS.Controls.MyButton();
             this.CMB_baudrate = new System.Windows.Forms.ComboBox();
             this.CMB_updaterate = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();

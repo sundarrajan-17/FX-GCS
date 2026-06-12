@@ -12,7 +12,7 @@ using Org.Gdal.Gdal;
 using Org.Gdal.Gdalconst;
 using Org.Gdal.Osr;
 using GMap.NET.MapProviders;
-using MissionPlanner.Utilities;
+using XagSurveillanceGCS.Utilities;
 using Bitmap = MyDrawing::System.Drawing.Bitmap;
 using Graphics = MyDrawing::System.Drawing.Graphics;
 using PixelFormat = MyDrawing::System.Drawing.Imaging.PixelFormat;
@@ -28,7 +28,7 @@ namespace GDAL
         static GDAL()
         {
             // seed the assembly load
-            //new MissionPlanner.Drawing.Common.Common();
+            //new XagSurveillanceGCS.Drawing.Common.Common();
 
             log.InfoFormat("GDAL static ctor");
             //GdalConfiguration.ConfigureGdal();

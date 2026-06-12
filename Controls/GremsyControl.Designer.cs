@@ -1,4 +1,4 @@
-namespace MissionPlanner.Controls
+namespace XagSurveillanceGCS.Controls
 {
     partial class GremsyControl
     {
@@ -26,7 +26,7 @@ namespace MissionPlanner.Controls
         private System.Windows.Forms.CheckBox chkRecordMode;
         private System.Windows.Forms.Label recordingPhotoMode;
         // private System.Windows.Forms.GroupBox groupSmartTracker;
-        private MissionPlanner.Controls.VirtualJoystick virtualJoystick;    
+        private XagSurveillanceGCS.Controls.VirtualJoystick virtualJoystick;    
         private System.Windows.Forms.GroupBox camControlGroup;
         private System.Windows.Forms.TrackBar trackZoom;
 
@@ -144,7 +144,7 @@ namespace MissionPlanner.Controls
             this.chkRecordMode = new System.Windows.Forms.CheckBox();
             this.camControlGroup = new System.Windows.Forms.GroupBox();
             this.camControlGroup.SuspendLayout();
-            // this.virtualJoystick = new MissionPlanner.Controls.VirtualJoystick();
+            // this.virtualJoystick = new XagSurveillanceGCS.Controls.VirtualJoystick();
 
             // Camera Control Group
             this.camControlGroup.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -219,12 +219,12 @@ namespace MissionPlanner.Controls
             this.btnGremsyZoomIn.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnGremsyZoomIn.Click += new System.EventHandler(this.BtnCameraSettings_Click);
 
-            this.btnGremsyZoomOut.Text = "Zoom -";
+            this.btnGremsyZoomOut.Text = "Point Home";
             this.btnGremsyZoomOut.Height = 35;
             this.btnGremsyZoomOut.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnGremsyZoomOut.Click += new System.EventHandler(this.BtnZoomOut_Click);
 
-            this.btnGremsyZoomStop.Text = "Zoom Stop";
+            this.btnGremsyZoomStop.Text = "Point Down";
             this.btnGremsyZoomStop.Height = 35;
             this.btnGremsyZoomStop.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnGremsyZoomStop.Click += new System.EventHandler(this.BtnZoomStop_Click);

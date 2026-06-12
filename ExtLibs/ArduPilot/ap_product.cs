@@ -1,6 +1,6 @@
-﻿using MissionPlanner.Attributes;
+﻿using XagSurveillanceGCS.Attributes;
 
-namespace MissionPlanner.ArduPilot
+namespace XagSurveillanceGCS.ArduPilot
 {
     public enum ap_product
     {

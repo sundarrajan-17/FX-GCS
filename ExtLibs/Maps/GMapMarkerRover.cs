@@ -2,16 +2,16 @@
 using System.Drawing;
 using GMap.NET;
 using GMap.NET.WindowsForms;
-using MissionPlanner.Utilities;
+using XagSurveillanceGCS.Utilities;
 
-namespace MissionPlanner.Maps
+namespace XagSurveillanceGCS.Maps
 {
     [Serializable]
     public class GMapMarkerRover : GMapMarkerBase
     {
         static readonly System.Drawing.Size SizeSt =
-            new System.Drawing.Size(global::MissionPlanner.Maps.Resources.rover.Width,
-                global::MissionPlanner.Maps.Resources.rover.Height);
+            new System.Drawing.Size(global::XagSurveillanceGCS.Maps.Resources.rover.Width,
+                global::XagSurveillanceGCS.Maps.Resources.rover.Height);
 
         float heading = 0;
         float cog = -1;
@@ -96,7 +96,7 @@ namespace MissionPlanner.Maps
             }
             g.DrawImage(img, new Rectangle(-img.Width / 2, -img.Width / 2, img.Width, img.Height), 0, 0, img.Width, img.Height, GraphicsUnit.Pixel, ia);
 #else
-            g.DrawImageUnscaled(global::MissionPlanner.Maps.Resources.rover,
+            g.DrawImageUnscaled(global::XagSurveillanceGCS.Maps.Resources.rover,
                 Size.Width / -2,
                 Size.Height / -2);
 #endif

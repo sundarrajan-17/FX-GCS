@@ -1,1 +1,1 @@
-namespace MissionPlanner.GCSViews.ConfigurationView { public partial class ConfigHWCompass{public ConfigHWCompass(){this.InitializeComponent();}}}
+namespace XagSurveillanceGCS.GCSViews.ConfigurationView { public partial class ConfigHWCompass{public ConfigHWCompass(){this.InitializeComponent();}}}

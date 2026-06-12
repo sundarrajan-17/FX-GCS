@@ -10,11 +10,11 @@ using log4net;
 using System.Threading;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
-using static MissionPlanner.Utilities.rtcm3;
+using static XagSurveillanceGCS.Utilities.rtcm3;
 using Flurl.Http;
 using System.Diagnostics;
 
-namespace MissionPlanner.Utilities
+namespace XagSurveillanceGCS.Utilities
 {
     public class adsb
     {
@@ -31,7 +31,7 @@ namespace MissionPlanner.Utilities
         /// <summary>
         /// When a plane position has been updated. you will need to age your own entries
         /// </summary>
-        public static event EventHandler<MissionPlanner.Utilities.adsb.PointLatLngAltHdg> UpdatePlanePosition;
+        public static event EventHandler<XagSurveillanceGCS.Utilities.adsb.PointLatLngAltHdg> UpdatePlanePosition;
 
         public static PointLatLngAlt CurrentPosition = PointLatLngAlt.Zero;
 

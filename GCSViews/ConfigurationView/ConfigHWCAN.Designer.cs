@@ -1,4 +1,4 @@
-﻿namespace MissionPlanner.GCSViews.ConfigurationView
+﻿namespace XagSurveillanceGCS.GCSViews.ConfigurationView
 {
     partial class ConfigHWCAN
     {
@@ -32,12 +32,12 @@
             this.label6 = new System.Windows.Forms.Label();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.but_startenum = new MissionPlanner.Controls.MyButton();
-            this.but_stopenum = new MissionPlanner.Controls.MyButton();
-            this.but_saveconfig = new MissionPlanner.Controls.MyButton();
-            this.but_factoryreset = new MissionPlanner.Controls.MyButton();
+            this.but_startenum = new XagSurveillanceGCS.Controls.MyButton();
+            this.but_stopenum = new XagSurveillanceGCS.Controls.MyButton();
+            this.but_saveconfig = new XagSurveillanceGCS.Controls.MyButton();
+            this.but_factoryreset = new XagSurveillanceGCS.Controls.MyButton();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.mavlinkComboBox_can = new MissionPlanner.Controls.MavlinkComboBox();
+            this.mavlinkComboBox_can = new XagSurveillanceGCS.Controls.MavlinkComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();

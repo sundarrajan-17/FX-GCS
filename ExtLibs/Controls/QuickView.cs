@@ -9,7 +9,7 @@ using System.Text;
 using System.Windows.Forms;
 using SkiaSharp.Views.Desktop;
 
-namespace MissionPlanner.Controls
+namespace XagSurveillanceGCS.Controls
 {
     public partial class QuickView : SkiaSharp.Views.Desktop.SKControl
     {

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace MissionPlanner.Comms
+namespace XagSurveillanceGCS.Comms
 {
     public class BluetoothDiscoveryModeArgs: EventArgs 
     {

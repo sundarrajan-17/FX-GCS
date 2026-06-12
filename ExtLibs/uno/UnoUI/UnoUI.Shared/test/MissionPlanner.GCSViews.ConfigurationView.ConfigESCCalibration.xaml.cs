@@ -1,1 +1,1 @@
-namespace MissionPlanner.GCSViews.ConfigurationView { public partial class ConfigESCCalibration{public ConfigESCCalibration(){this.InitializeComponent();}}}
+namespace XagSurveillanceGCS.GCSViews.ConfigurationView { public partial class ConfigESCCalibration{public ConfigESCCalibration(){this.InitializeComponent();}}}

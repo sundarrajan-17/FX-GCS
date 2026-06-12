@@ -13,9 +13,9 @@ using KMLib;
 using KMLib.Feature;
 using KMLib.Geometry;
 using log4net;
-using MissionPlanner.Utilities;
+using XagSurveillanceGCS.Utilities;
 
-namespace MissionPlanner.Log
+namespace XagSurveillanceGCS.Log
 {
     public class LogOutput
     {
@@ -376,7 +376,7 @@ namespace MissionPlanner.Log
                     Path.GetFileNameWithoutExtension(filename) + ".gpx", Encoding.ASCII);
 
             xw.WriteStartElement("gpx");
-            xw.WriteAttributeString("creator", "Mission Planner");
+            xw.WriteAttributeString("creator", "XagSurveillanceGCS");
             xw.WriteAttributeString("xmlns", "http://www.topografix.com/GPX/1/1");
 
             xw.WriteStartElement("trk");

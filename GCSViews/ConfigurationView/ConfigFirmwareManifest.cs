@@ -1,9 +1,9 @@
 ﻿using log4net;
-using MissionPlanner.ArduPilot;
-using MissionPlanner.Comms;
-using MissionPlanner.Controls;
-using MissionPlanner.test;
-using MissionPlanner.Utilities;
+using XagSurveillanceGCS.ArduPilot;
+using XagSurveillanceGCS.Comms;
+using XagSurveillanceGCS.Controls;
+using XagSurveillanceGCS.test;
+using XagSurveillanceGCS.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -16,7 +16,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace MissionPlanner.GCSViews.ConfigurationView
+namespace XagSurveillanceGCS.GCSViews.ConfigurationView
 {
     public partial class ConfigFirmwareManifest : UserControl, IActivate, IDeactivate
     {
@@ -325,7 +325,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
                         return;
                     }
 
-                    MissionPlanner.Utilities.Tracking.AddFW(mavtype.ToString(), deviceInfo.board);
+                    XagSurveillanceGCS.Utilities.Tracking.AddFW(mavtype.ToString(), deviceInfo.board);
 
                     var fw = new Firmware();
                     fw.Progress += fw_Progress1;

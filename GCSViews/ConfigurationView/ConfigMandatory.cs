@@ -1,7 +1,7 @@
-﻿using MissionPlanner.Controls;
+﻿using XagSurveillanceGCS.Controls;
 using System.Windows.Forms;
 
-namespace MissionPlanner.GCSViews.ConfigurationView
+namespace XagSurveillanceGCS.GCSViews.ConfigurationView
 {
     public partial class ConfigMandatory : MyUserControl, IActivate
     {

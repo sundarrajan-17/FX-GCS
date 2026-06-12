@@ -1,4 +1,4 @@
-﻿namespace MissionPlanner.Controls
+﻿namespace XagSurveillanceGCS.Controls
 {
     partial class DefaultSettings
     {
@@ -30,7 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DefaultSettings));
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.BUT_paramfileload = new MissionPlanner.Controls.MyButton();
+            this.BUT_paramfileload = new XagSurveillanceGCS.Controls.MyButton();
             this.CMB_paramfiles = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 

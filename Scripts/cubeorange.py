@@ -1,6 +1,6 @@
 ﻿
 import clr
-import MissionPlanner
+import XagSurveillanceGCS
 clr.AddReference("MAVLink")
 from System import Byte
 from System import Func

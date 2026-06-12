@@ -21,7 +21,7 @@
     <Configurations>Debug;Release</Configurations>
     <FileVersion>1.0.7.0</FileVersion>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
-    <RepositoryUrl>https://github.com/ArduPilot/MissionPlanner/tree/master/ExtLibs/Mavlink</RepositoryUrl>
+    <RepositoryUrl>https://github.com/ArduPilot/XagSurveillanceGCS/tree/master/ExtLibs/Mavlink</RepositoryUrl>
     <RepositoryType>Git</RepositoryType>
   </PropertyGroup>
 

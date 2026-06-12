@@ -2,15 +2,15 @@
 using System.Drawing;
 using GMap.NET;
 using GMap.NET.WindowsForms;
-using MissionPlanner.Utilities;
+using XagSurveillanceGCS.Utilities;
 using Org.BouncyCastle.Crypto.Signers;
 
-namespace MissionPlanner.Maps
+namespace XagSurveillanceGCS.Maps
 {
     [Serializable]
     public class GMapMarkerQuad : GMapMarkerBase
     {
-        private readonly Bitmap icon = global::MissionPlanner.Maps.Resources.quadicon;
+        private readonly Bitmap icon = global::XagSurveillanceGCS.Maps.Resources.quadicon;
 
         float heading = 0;
         float cog = -1;

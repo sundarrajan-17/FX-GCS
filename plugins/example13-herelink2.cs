@@ -2,23 +2,23 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using MissionPlanner.Utilities;
-using MissionPlanner.Controls;
+using XagSurveillanceGCS.Utilities;
+using XagSurveillanceGCS.Controls;
 using System.IO;
 using System.Windows.Forms;
 using System.Diagnostics;
-using MissionPlanner;
+using XagSurveillanceGCS;
 using System.Drawing;
 using GMap.NET.WindowsForms;
-using MissionPlanner.GCSViews;
-using MissionPlanner.Maps;
-using MissionPlanner.Comms;
+using XagSurveillanceGCS.GCSViews;
+using XagSurveillanceGCS.Maps;
+using XagSurveillanceGCS.Comms;
 using System.Net.Sockets;
 using System.Net;
 
 namespace CameraControl
 {
-    public class PluginCC : MissionPlanner.Plugin.Plugin
+    public class PluginCC : XagSurveillanceGCS.Plugin.Plugin
     {
         private KeyValuePair<MAVLink.MAVLINK_MSG_ID, Func<MAVLink.MAVLinkMessage, bool>>? sub;
         private KeyValuePair<MAVLink.MAVLINK_MSG_ID, Func<MAVLink.MAVLinkMessage, bool>>? sub1;

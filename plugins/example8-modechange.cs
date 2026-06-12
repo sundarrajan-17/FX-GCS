@@ -2,17 +2,17 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using MissionPlanner.Utilities;
+using XagSurveillanceGCS.Utilities;
 using System.IO;
 using System.Windows.Forms;
 using System.Diagnostics;
 using System.Drawing;
-using MissionPlanner;
-using MissionPlanner.Controls;
+using XagSurveillanceGCS;
+using XagSurveillanceGCS.Controls;
 
 namespace ModeChange
 {
-    public class Plugin : MissionPlanner.Plugin.Plugin
+    public class Plugin : XagSurveillanceGCS.Plugin.Plugin
     {
         private int hashcode;
         private ToolStripComboBox modecmb;

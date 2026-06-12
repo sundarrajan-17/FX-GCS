@@ -1,1 +1,1 @@
-namespace MissionPlanner.Plugin { public partial class PluginUI{public PluginUI(){this.InitializeComponent();}}}
+namespace XagSurveillanceGCS.Plugin { public partial class PluginUI{public PluginUI(){this.InitializeComponent();}}}

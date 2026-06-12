@@ -9,7 +9,7 @@ using System.Runtime.InteropServices;
 using uint8_t = System.Byte;
 using System.Diagnostics;
 
-namespace MissionPlanner.Utilities
+namespace XagSurveillanceGCS.Utilities
 {
     /// <summary>
     /// Convert a binary log to an assci log

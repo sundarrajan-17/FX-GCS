@@ -1,1 +1,1 @@
-namespace MissionPlanner.Radio { public partial class Sikradio{public Sikradio(){this.InitializeComponent();}}}
+namespace XagSurveillanceGCS.Radio { public partial class Sikradio{public Sikradio(){this.InitializeComponent();}}}

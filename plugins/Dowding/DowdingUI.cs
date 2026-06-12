@@ -17,12 +17,12 @@ using System.Xml.Serialization;
 using com;
 using Dowding.Model;
 using GMap.NET;
-using MissionPlanner;
-using MissionPlanner.ArduPilot;
-using MissionPlanner.Comms;
-using MissionPlanner.Controls;
-using MissionPlanner.Utilities;
-using MissionPlanner.Utilities.CoT;
+using XagSurveillanceGCS;
+using XagSurveillanceGCS.ArduPilot;
+using XagSurveillanceGCS.Comms;
+using XagSurveillanceGCS.Controls;
+using XagSurveillanceGCS.Utilities;
+using XagSurveillanceGCS.Utilities.CoT;
 using Onvif;
 
 namespace Dowding
@@ -97,14 +97,14 @@ namespace Dowding
                 but_onvif.Text = Strings.Stop;
             }
 
-            MissionPlanner.Utilities.Tracking.AddPage(this.GetType().ToString(), this.Text);
+            XagSurveillanceGCS.Utilities.Tracking.AddPage(this.GetType().ToString(), this.Text);
         }
 
         private async void but_verify_Click(object sender, EventArgs e)
         {
             try
             {
-                await new MissionPlanner.WebAPIs.Dowding().Auth(txt_username.Text, txt_password.Text, cmb_server.Text);
+                await new XagSurveillanceGCS.WebAPIs.Dowding().Auth(txt_username.Text, txt_password.Text, cmb_server.Text);
 
                 Settings.Instance["Dowding_username"] = txt_username.Text;
                 Settings.Instance["Dowding_password"] = crypto.EncryptString(txt_password.Text);
@@ -628,7 +628,7 @@ namespace Dowding
                 double.Parse(data.point.lon, CultureInfo.InvariantCulture),
                 double.Parse(data.point.hae, CultureInfo.InvariantCulture));
 
-            MissionPlanner.WebAPIs.Dowding.Vehicles[data.uid] = new VehicleTick(Ts:
+            XagSurveillanceGCS.WebAPIs.Dowding.Vehicles[data.uid] = new VehicleTick(Ts:
                 ((long)DateTime.Parse(data.time).toUnixTime() * 1000L ), Lat: (decimal) plla.Lat,
                 Lon: (decimal) plla.Lng, Hae: (decimal) plla.Alt, CorrelationId: data.uid, AgentId: "",
                 ContactId: data.uid, Id: data.uid, Serial: data.uid, Model: data.type, Vendor: "CoT");

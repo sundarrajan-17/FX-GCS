@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace MissionPlanner.Controls.BackstageView
+namespace XagSurveillanceGCS.Controls.BackstageView
 {
     /// <summary>
     /// Data structure to hold information about a 'tab' in the <see cref="BackstageView"/>

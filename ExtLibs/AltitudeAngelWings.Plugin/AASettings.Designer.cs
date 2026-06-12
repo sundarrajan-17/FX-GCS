@@ -1,5 +1,5 @@
 ﻿using System.Windows.Forms;
-using MissionPlanner.Controls;
+using XagSurveillanceGCS.Controls;
 
 namespace AltitudeAngelWings.Plugin
 {
@@ -35,8 +35,8 @@ namespace AltitudeAngelWings.Plugin
             this.tabPageAccount = new System.Windows.Forms.TabPage();
             this.lst_FlightTelemetry = new System.Windows.Forms.ComboBox();
             this.chk_FlightsEnable = new System.Windows.Forms.CheckBox();
-            this.but_Disable = new MissionPlanner.Controls.MyButton();
-            this.but_Enable = new MissionPlanner.Controls.MyButton();
+            this.but_Disable = new XagSurveillanceGCS.Controls.MyButton();
+            this.but_Enable = new XagSurveillanceGCS.Controls.MyButton();
             this.lbl_UserDetails = new System.Windows.Forms.Label();
             this.lbl_OverrideClientSuffix = new System.Windows.Forms.Label();
             this.txt_OverrideClientSuffix = new System.Windows.Forms.TextBox();
@@ -46,15 +46,15 @@ namespace AltitudeAngelWings.Plugin
             this.txt_OverrideClientId = new System.Windows.Forms.TextBox();
             this.chk_OverrideClientSettings = new System.Windows.Forms.CheckBox();
             this.chk_FlightPlansEnable = new System.Windows.Forms.CheckBox();
-            this.but_SignOut = new MissionPlanner.Controls.MyButton();
-            this.but_SignIn = new MissionPlanner.Controls.MyButton();
+            this.but_SignOut = new XagSurveillanceGCS.Controls.MyButton();
+            this.but_SignIn = new XagSurveillanceGCS.Controls.MyButton();
             this.tabPageMap = new System.Windows.Forms.TabPage();
             this.lbl_AltitudeDisplay = new System.Windows.Forms.Label();
             this.lbl_AltitudeFilter = new System.Windows.Forms.Label();
             this.trk_AltitudeFilter = new System.Windows.Forms.TrackBar();
             this.chk_EnablePlanMap = new System.Windows.Forms.CheckBox();
             this.chk_EnableDataMap = new System.Windows.Forms.CheckBox();
-            this.btn_DefaultLayers = new MissionPlanner.Controls.MyButton();
+            this.btn_DefaultLayers = new XagSurveillanceGCS.Controls.MyButton();
             this.trv_MapLayers = new System.Windows.Forms.TreeView();
             this.lbl_OpacityAdjust = new System.Windows.Forms.Label();
             this.trk_OpacityAdjust = new System.Windows.Forms.TrackBar();

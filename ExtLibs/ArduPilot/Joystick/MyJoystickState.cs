@@ -2,7 +2,7 @@
 using System.Linq;
 using SharpDX.DirectInput;
 
-namespace MissionPlanner.Joystick
+namespace XagSurveillanceGCS.Joystick
 {
 
     public class LinuxJoystickState : IMyJoystickState

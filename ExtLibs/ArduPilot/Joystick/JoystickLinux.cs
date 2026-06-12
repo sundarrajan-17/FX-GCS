@@ -5,10 +5,10 @@ using System.Linq;
 using System.Runtime.InteropServices;
 using System.Threading;
 using System.Threading.Tasks;
-using MissionPlanner.Utilities;
+using XagSurveillanceGCS.Utilities;
 using SharpDX.DirectInput;
 
-namespace MissionPlanner.Joystick
+namespace XagSurveillanceGCS.Joystick
 {
     public class JoystickLinux : JoystickBase
     {

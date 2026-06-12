@@ -12,10 +12,10 @@ using Newtonsoft.Json;
 using uint8_t = System.Byte;
 using uint16_t = System.UInt16;
 using uint32_t = System.UInt32;
-using MissionPlanner.Utilities;
+using XagSurveillanceGCS.Utilities;
 using System.Reactive.Linq;
 
-namespace MissionPlanner.ArduPilot.Mavlink
+namespace XagSurveillanceGCS.ArduPilot.Mavlink
 {
     public class MAVFtp
     {

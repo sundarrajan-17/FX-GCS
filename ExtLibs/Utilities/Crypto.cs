@@ -6,7 +6,7 @@ using System.Net.NetworkInformation;
 using System.Security.Cryptography;
 using System.Text;
 
-namespace MissionPlanner.Utilities
+namespace XagSurveillanceGCS.Utilities
 {
     public sealed class Crypto : IDisposable
     {

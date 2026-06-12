@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Configuration;
 using System.IO;
-using MissionPlanner.Controls;
+using XagSurveillanceGCS.Controls;
 using System.Windows.Forms;
-using MissionPlanner.Utilities;
-using MissionPlanner.Warnings;
+using XagSurveillanceGCS.Utilities;
+using XagSurveillanceGCS.Warnings;
 
-namespace MissionPlanner.GCSViews.ConfigurationView
+namespace XagSurveillanceGCS.GCSViews.ConfigurationView
 {
     public partial class ConfigAdvanced : MyUserControl, IActivate
     {

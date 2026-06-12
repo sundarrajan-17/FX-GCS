@@ -1,4 +1,4 @@
-﻿namespace MissionPlanner.GCSViews.ConfigurationView
+﻿namespace XagSurveillanceGCS.GCSViews.ConfigurationView
 {
     partial class ConfigCubeID
     {
@@ -28,15 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.but_upfw = new MissionPlanner.Controls.MyButton();
+            this.but_upfw = new XagSurveillanceGCS.Controls.MyButton();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.mavnumtimeout = new MissionPlanner.Controls.MavlinkNumericUpDown();
-            this.mavpasscombo = new MissionPlanner.Controls.MavlinkComboBox();
+            this.mavnumtimeout = new XagSurveillanceGCS.Controls.MavlinkNumericUpDown();
+            this.mavpasscombo = new XagSurveillanceGCS.Controls.MavlinkComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.CHK_forcebaud = new System.Windows.Forms.CheckBox();
-            this.but_customfw = new MissionPlanner.Controls.MyButton();
+            this.but_customfw = new XagSurveillanceGCS.Controls.MyButton();
             ((System.ComponentModel.ISupportInitialize)(this.mavnumtimeout)).BeginInit();
             this.SuspendLayout();
             // 

@@ -1,0 +1,218 @@
+version=1
+
+# This file caches language service data to improve the performance of C# Dev Kit.
+# It is not intended for manual editing. It can safely be deleted and will be
+# regenerated automatically. For more information, see https://aka.ms/lscache
+#
+# To control where cache files are stored, use the following VS Code setting:
+#   "dotnet.projectsystem.cacheInProjectFolder": true
+
+[project]
+language=C#
+primary
+lastDtbSucceeded
+
+[properties]
+RootNamespace=XagSurveillanceGCS
+
+[commandLineArguments]
+/noconfig
+/unsafe-
+/checked-
+/nowarn:1701,1702,1701,1702
+/fullpaths
+/nostdlib+
+/errorreport:prompt
+/define:DEBUG;TRACE;DEBUG;NETSTANDARD;NETSTANDARD2_0;NETSTANDARD1_0_OR_GREATER;NETSTANDARD1_1_OR_GREATER;NETSTANDARD1_2_OR_GREATER;NETSTANDARD1_3_OR_GREATER;NETSTANDARD1_4_OR_GREATER;NETSTANDARD1_5_OR_GREATER;NETSTANDARD1_6_OR_GREATER;NETSTANDARD2_0_OR_GREATER
+/highentropyva+
+/debug+
+/debug:portable
+/filealign:512
+/optimize-
+/out:obj\Debug\netstandard2.0\Xamarin.dll
+/target:library
+/warnaserror-
+/utf8output
+/deterministic+
+/langversion:7.3
+/warnaserror+:NU1605
+
+[sourceFiles]
+../../../Controls/
+ MavlinkCheckBox.cs
+  @folderNames=GCSViews
+ MavlinkCheckBoxBitMask.cs
+  @folderNames=GCSViews
+ MavlinkComboBox.cs
+  @folderNames=GCSViews
+ MAVLinkParamChanged.cs
+  @folderNames=GCSViews
+ MyDataGridView.cs
+  @folderNames=GCSViews
+ paramcompare.cs
+  @folderNames=GCSViews
+ paramcompare.Designer.cs
+  @folderNames=GCSViews
+../../../GCSViews/ConfigurationView/
+ ConfigRawParams.cs
+  @folderNames=GCSViews,ConfigurationView
+ ConfigRawParams.Designer.cs
+  @folderNames=GCSViews,ConfigurationView
+../../
+ ../test/FirmwareSelection.xaml.cs
+  @folderNames=Linked
+ Controls/
+  IDynamicParameterControl.cs
+   @folderNames=GCSViews
+  MyButton.cs
+   @folderNames=GCSViews
+  MyUserControl.cs
+   @folderNames=GCSViews
+App.xaml.cs
+Controls/
+ AGauge.cs
+ Extensions.cs
+ HUD.cs
+ HUDT.Designer.cs
+ MySKCanvasView.cs
+ shim.cs
+files.Designer.cs
+FormsVideoLibrary/
+ FileVideoSource.cs
+ IVideoPicker.cs
+ IVideoPlayerController.cs
+ PositionSlider.cs
+ ResourceVideoSource.cs
+ UriVideoSource.cs
+ VideoInfo.cs
+ VideoPlayer.cs
+ VideoSource.cs
+ VideoSourceConverter.cs
+ VideoStatus.cs
+GCSViews/
+ Firmware.xaml.cs
+ Video.xaml.cs
+ WinForms.xaml.cs
+ITest.cs
+Linked/
+ GCSViews.cs
+ httpserver.cs
+MainPage.xaml.cs
+Maps/
+ Custom.cs
+ Earthbuilder.cs
+ Eniro_Topo.cs
+ GMapMarkerADSBPlane.cs
+ GMapMarkerAirport.cs
+ GMapMarkerAISBoat.cs
+ GMapMarkerAntennaTracker.cs
+ GMapMarkerBase.cs
+ GMapMarkerBoat.cs
+ GMapMarkerDistance.cs
+ GMapMarkerElevation.cs
+ GMapMarkerHeli.cs
+ GMapMarkerOverlapCount.cs
+ GMapMarkerPhoto.cs
+ GMapMarkerPlane.cs
+ GMapMarkerPlus.cs
+ GMapMarkerPOI.cs
+ GMapMarkerQuad.cs
+ GMapMarkerRallyPt.cs
+ GMapMarkerRect.cs
+ GMapMarkerRover.cs
+ GMapMarkerSingle.cs
+ GMapMarkerSub.cs
+ GMapMarkerWP.cs
+ Japan.cs
+ Japan_1974.cs
+ Japan_1979.cs
+ Japan_1984.cs
+ Japan_1988.cs
+ Japan_Lake.cs
+ Japan_Relief.cs
+ Japan_Sea.cs
+ Japan_Slopezone.cs
+ Mapbox.cs
+ MapboxNoFly.cs
+ MapboxUser.cs
+ MyImageCache.cs
+ Propagation.cs
+ SpriteLoader.cs
+ Statkart_Topo2.cs
+ WMSProvider.cs
+ WPOverlay.cs
+MasterDetailPage1Detail.xaml.cs
+MasterDetailPage1Master.xaml.cs
+MasterDetailPage1MenuItem.cs
+Mavlinksvc.cs
+MonoSerialPort.cs
+obj/Debug/netstandard2.0/
+ .NETStandard,Version=v2.0.AssemblyAttributes.cs
+ Xamarin.AssemblyInfo.cs
+ProgressReporterDialogue.cs
+Properties/ResourcesX.Designer.cs
+RTSP/
+ AACPayload.cs
+ AMRPayload.cs
+ Authentication.cs
+ BitStream.cs
+ G711Payload.cs
+ H264Payload.cs
+ H265Payload.cs
+ IRTSPTransport.cs
+ Messages/
+  PortCouple.cs
+  RTSPChunk.cs
+  RTSPData.cs
+  RTSPHeaderNames.cs
+  RTSPMessage.cs
+  RTSPRequest.cs
+  RTSPRequestAnnounce.cs
+  RTSPRequestDescribe.cs
+  RTSPRequestGetParameter.cs
+  RTSPRequestOptions.cs
+  RTSPRequestPause.cs
+  RTSPRequestPlay.cs
+  RTSPRequestRecord.cs
+  RTSPRequestSetup.cs
+  RTSPRequestTeardown.cs
+  RTSPResponse.cs
+  RTSPTransport.cs
+ RTSPListener.cs
+ RTSPMessageEventArgs.cs
+ RTSPTCPTransport.cs
+ RTSPUtils.cs
+ Sdp/
+  Attribut.cs
+  AttributFmtp.cs
+  AttributRtpMap.cs
+  Bandwidth.cs
+  Connection.cs
+  ConnectionIP4.cs
+  ConnectionIP6.cs
+  EncriptionKey.cs
+  H264Parameter.cs
+  H265Parameter.cs
+  Media.cs
+  Origin.cs
+  SdpFile.cs
+  SdpTimeZone.cs
+  Timing.cs
+ UdpSocket.cs
+RTSPClient.cs
+
+[metadataReferences]
+../../
+ 7zip/bin/Debug/netstandard2.0/7zip.dll
+ alglibnet/bin/Debug/netstandard2.0/alglibnet.dll
+ GeoUtility/bin/Debug/netstandard2.0/GeoUtility.dll
+ GMap.NET.Core/bin/Debug/netstandard2.0/GMap.NET.Core.dll
+ ICSharpCode.SharpZipLib/bin/Debug/netstandard2.0/ICSharpCode.SharpZipLib.dll
+ Interfaces/bin/Debug/netstandard2.0/Interfaces.dll
+ Mavlink/bin/Debug/netstandard2.0/MAVLink.dll
+ mono/mcs/class/lib/net_4_x-win32/netstandard2.0/System.Windows.Forms.dll
+ px4uploader/bin/Debug/netstandard2.0/px4uploader.dll
+
+[analyzerConfigFiles]
+../../../.editorconfig
+obj/Debug/netstandard2.0/Xamarin.GeneratedMSBuildEditorConfig.editorconfig

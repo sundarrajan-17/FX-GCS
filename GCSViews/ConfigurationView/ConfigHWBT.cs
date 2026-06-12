@@ -1,13 +1,13 @@
 ﻿using log4net;
-using MissionPlanner.Comms;
-using MissionPlanner.Controls;
+using XagSurveillanceGCS.Comms;
+using XagSurveillanceGCS.Controls;
 using System;
 using System.Collections.Generic;
 using System.Reflection;
 using System.Threading;
 using System.Windows.Forms;
 
-namespace MissionPlanner.GCSViews.ConfigurationView
+namespace XagSurveillanceGCS.GCSViews.ConfigurationView
 {
     public partial class ConfigHWBT : MyUserControl, IActivate
     {

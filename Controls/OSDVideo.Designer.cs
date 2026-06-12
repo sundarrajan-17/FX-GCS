@@ -1,4 +1,4 @@
-﻿namespace MissionPlanner.Controls
+﻿namespace XagSurveillanceGCS.Controls
 {
     partial class OSDVideo
     {
@@ -34,11 +34,11 @@
             this.txt_tlog = new System.Windows.Forms.TextBox();
             this.trackBar1 = new System.Windows.Forms.TrackBar();
             this.trackBar_mediapos = new System.Windows.Forms.TrackBar();
-            this.BUT_tlogfile = new MissionPlanner.Controls.MyButton();
-            this.hud1 = new MissionPlanner.Controls.HUD();
+            this.BUT_tlogfile = new XagSurveillanceGCS.Controls.MyButton();
+            this.hud1 = new XagSurveillanceGCS.Controls.HUD();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.BUT_start = new MissionPlanner.Controls.MyButton();
-            this.BUT_vidfile = new MissionPlanner.Controls.MyButton();
+            this.BUT_start = new XagSurveillanceGCS.Controls.MyButton();
+            this.BUT_vidfile = new XagSurveillanceGCS.Controls.MyButton();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.CHK_fullres = new System.Windows.Forms.CheckBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -173,7 +173,7 @@
             // 
             // bindingSource1
             // 
-            this.bindingSource1.DataSource = typeof(MissionPlanner.CurrentState);
+            this.bindingSource1.DataSource = typeof(XagSurveillanceGCS.CurrentState);
             // 
             // BUT_start
             // 

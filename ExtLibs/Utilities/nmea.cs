@@ -5,10 +5,10 @@ using uint16_t = System.UInt16;
 using int32_t = System.Int32;
 using uint32_t = System.UInt32;
 using int8_t = System.SByte;
-using MissionPlanner.Comms;
+using XagSurveillanceGCS.Comms;
 using System.Runtime.InteropServices;
 
-namespace MissionPlanner.Utilities
+namespace XagSurveillanceGCS.Utilities
 {
     public class nmea : ICorrections
     {

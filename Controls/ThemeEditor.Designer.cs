@@ -1,4 +1,4 @@
-﻿namespace MissionPlanner.Controls
+﻿namespace XagSurveillanceGCS.Controls
 {
     partial class ThemeEditor
     {
@@ -32,15 +32,15 @@
             this.lblItemName = new System.Windows.Forms.Label();
             this.lblColorName = new System.Windows.Forms.Label();
             this.colorPatch = new System.Windows.Forms.Panel();
-            this.btnCopy = new MissionPlanner.Controls.MyButton();
-            this.btnPreview = new MissionPlanner.Controls.MyButton();
+            this.btnCopy = new XagSurveillanceGCS.Controls.MyButton();
+            this.btnPreview = new XagSurveillanceGCS.Controls.MyButton();
             this.colorSelectDialog = new System.Windows.Forms.ColorDialog();
             this.label4 = new System.Windows.Forms.Label();
             this.lblThemeName = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.btnCancel = new MissionPlanner.Controls.MyButton();
-            this.btnSaveApply = new MissionPlanner.Controls.MyButton();
-            this.btnRestore = new MissionPlanner.Controls.MyButton();
+            this.btnCancel = new XagSurveillanceGCS.Controls.MyButton();
+            this.btnSaveApply = new XagSurveillanceGCS.Controls.MyButton();
+            this.btnRestore = new XagSurveillanceGCS.Controls.MyButton();
             this.cbIconSet = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();

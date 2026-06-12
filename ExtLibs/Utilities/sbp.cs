@@ -9,7 +9,7 @@ using s32 = System.Int32;
 using u32 = System.UInt32;
 using s64 = System.Int64;
 
-namespace MissionPlanner.Utilities
+namespace XagSurveillanceGCS.Utilities
 {
     public class sbp : ICorrections
     {

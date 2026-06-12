@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace MissionPlanner.Maps {
+namespace XagSurveillanceGCS.Maps {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace MissionPlanner.Maps {
         public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("MissionPlanner.Maps.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("XagSurveillanceGCS.Maps.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -834,7 +834,7 @@ namespace MissionPlanner.Maps {
         ///   Looks up a localized string similar to {\rtf1\ansi\ansicpg1252\deff0\deflang3081\deflangfe3081{\fonttbl{\f0\fswiss\fprq2\fcharset0 Calibri;}}
         ///{\colortbl ;\red0\green0\blue255;}
         ///{\*\generator Msftedit 5.41.21.2510;}\viewkind4\uc1\pard\nowidctlpar\sa200\sl276\slmult1\f0\fs22\par
-        ///\tab Welcome to the \b Mission Planner\b0 , mission planning for Unmanned Aerial Vehicles (\b UAV\b0 ).\par
+        ///\tab Welcome to the \b XagSurveillanceGCS\b0 , mission planning for Unmanned Aerial Vehicles (\b UAV\b0 ).\par
         ///\pard\nowidctlpar\fi720\b Help:\par
         ///Arduplane: {\field{\*\fldinst{HYPERLINK &quot;http://ardupilot.org/plane&quot;}}{\fldrslt{\ul\cf1 http://ardupilot.org/plane}}}\f0\fs2 [rest of string was truncated]&quot;;.
         /// </summary>
@@ -1147,7 +1147,7 @@ namespace MissionPlanner.Maps {
         /// <summary>
         ///   Looks up a localized string similar to == MAVLink Parameters == (this is a copy fo the wiki page FYI)
         ///
-        ///This is a list of all the user-modifiable MAVLink parameters and what they do. You can modify them via the MAVLink parameters window in any compatible GCS, such as the Mission Planner, HK GCS or !QGroundControl.
+        ///This is a list of all the user-modifiable MAVLink parameters and what they do. You can modify them via the MAVLink parameters window in any compatible GCS, such as the XagSurveillanceGCS, HK GCS or !QGroundControl.
         ///
         ///It includes both fixed wing (APM) and rotary wing (!ArduCopter) parameters. Some may only be relevant for one platform or another.
         ///
@@ -1172,9 +1172,9 @@ namespace MissionPlanner.Maps {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap missionplannerlogo {
+        public static System.Drawing.Bitmap XagSurveillanceGCSlogo {
             get {
-                object obj = ResourceManager.GetObject("missionplannerlogo", resourceCulture);
+                object obj = ResourceManager.GetObject("XagSurveillanceGCSlogo", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -1182,9 +1182,9 @@ namespace MissionPlanner.Maps {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap missionplannerlogodark {
+        public static System.Drawing.Bitmap XagSurveillanceGCSlogodark {
             get {
-                object obj = ResourceManager.GetObject("missionplannerlogodark", resourceCulture);
+                object obj = ResourceManager.GetObject("XagSurveillanceGCSlogodark", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

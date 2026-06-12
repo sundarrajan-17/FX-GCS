@@ -11,9 +11,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GMap.NET.Drawing", "..\..\G
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GMap.NET.Core", "..\..\GMap.NET.Core\GMap.NET.Core.csproj", "{F0B58309-D8AF-4F8C-B37A-C5988D88CF0A}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MissionPlanner.Drawing", "..\..\MissionPlanner.Drawing\MissionPlanner.Drawing.csproj", "{2C128981-4274-42E5-8CF9-DA6E85BF39F4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "XagSurveillanceGCS.Drawing", "..\..\XagSurveillanceGCS.Drawing\XagSurveillanceGCS.Drawing.csproj", "{2C128981-4274-42E5-8CF9-DA6E85BF39F4}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MissionPlanner.Drawing.Common", "..\..\MissionPlanner.Drawing.Common\MissionPlanner.Drawing.Common.csproj", "{9C263135-FFEA-4E6D-87D9-071182F519B8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "XagSurveillanceGCS.Drawing.Common", "..\..\XagSurveillanceGCS.Drawing.Common\XagSurveillanceGCS.Drawing.Common.csproj", "{9C263135-FFEA-4E6D-87D9-071182F519B8}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Interfaces", "..\..\Interfaces\Interfaces.csproj", "{2FF05B09-64CA-4076-ACBE-1EC434FC6F46}"
 EndProject

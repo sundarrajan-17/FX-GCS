@@ -1,9 +1,9 @@
 ﻿using System;
-using MissionPlanner.Utilities;
+using XagSurveillanceGCS.Utilities;
 using uint32_t = System.UInt32;
 using int32_t = System.Int32;
 
-namespace MissionPlanner.Controls.Waypoints
+namespace XagSurveillanceGCS.Controls.Waypoints
 {
     public class Spline2 : Utils
     {

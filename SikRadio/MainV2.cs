@@ -1,7 +1,7 @@
 ﻿using System;
-using MissionPlanner.Comms;
+using XagSurveillanceGCS.Comms;
 
-namespace MissionPlanner
+namespace XagSurveillanceGCS
 {
     internal class Settings
     {

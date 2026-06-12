@@ -1,4 +1,4 @@
-﻿using MissionPlanner.ArduPilot.Mavlink;
+﻿using XagSurveillanceGCS.ArduPilot.Mavlink;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using static MAVLink;
 
-namespace MissionPlanner.Controls
+namespace XagSurveillanceGCS.Controls
 {
     public partial class VideoStreamSelector : Form
     {

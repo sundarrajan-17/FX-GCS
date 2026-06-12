@@ -4,7 +4,7 @@ using AltitudeAngelWings.Model;
 
 namespace AltitudeAngelWings
 {
-    public interface IMissionPlannerState
+    public interface IXagSurveillanceGCSState
     {
         bool IsArmed { get; }
         double Longitude { get; }

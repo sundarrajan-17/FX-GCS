@@ -1,1 +1,1 @@
-namespace MissionPlanner.GCSViews.ConfigurationView { public partial class ConfigFirmwareManifest{public ConfigFirmwareManifest(){this.InitializeComponent();}}}
+namespace XagSurveillanceGCS.GCSViews.ConfigurationView { public partial class ConfigFirmwareManifest{public ConfigFirmwareManifest(){this.InitializeComponent();}}}

@@ -18,7 +18,7 @@ jobs:
           $msbuildPath = Split-Path (& "${env:ProgramFiles(x86)}\Microsoft Visual Studio\Installer\vswhere.exe" -latest -requires Microsoft.Component.MSBuild -find MSBuild\Current\Bin\amd64\MSBuild.exe | Select-Object -First 1) -Parent
           $env:PATH = $msbuildPath + ';' + $env:PATH
           nuget locals all -clear
-          msbuild -v:m -restore -t:Build -p:Configuration=Release MissionPlanner.sln
+          msbuild -v:m -restore -t:Build -p:Configuration=Release XagSurveillanceGCS.sln
 
       - name: Cleanup
         shell: pwsh
@@ -27,15 +27,15 @@ jobs:
           gci plugins | ForEach-Object {                 if (Test-Path $_.Name -PathType Leaf)                {                    Write-Host "Remove" $_.FullName   ;                 Remove-Item $_.FullName                            } else {                    Write-Host $_.Name                }            }
 
           copy version.txt ..\..\..\
-          7z a -tzip ..\..\..\MissionPlannerBeta.zip *
+          7z a -tzip ..\..\..\XagSurveillanceGCSBeta.zip *
           cd ..
           .\md5sum.exe net461 > ..\..\checksums.txt
-          
+
       - uses: actions/upload-artifact@v4
         with:
-          name: MissionPlannerBeta
+          name: XagSurveillanceGCSBeta
           path: bin\Release\net461
-          
+
       - uses: "marvinpinto/action-automatic-releases@v1.2.1"
         if: ${{ github.ref == 'refs/tags/beta' }}
         with:
@@ -44,11 +44,10 @@ jobs:
           prerelease: true
           title: "Beta Build"
           files: |
-            MissionPlannerBeta.zip
+            XagSurveillanceGCSBeta.zip
             checksums.txt
             version.txt
             ChangeLog.txt
-
 
   buildDebug:
     name: Build Debug
@@ -73,7 +72,7 @@ jobs:
           $msbuildPath = Split-Path (& "${env:ProgramFiles(x86)}\Microsoft Visual Studio\Installer\vswhere.exe" -latest -requires Microsoft.Component.MSBuild -find MSBuild\Current\Bin\amd64\MSBuild.exe | Select-Object -First 1) -Parent
           $env:PATH = $msbuildPath + ';' + $env:PATH
           nuget locals all -clear
-          msbuild -v:m -restore -t:Build -p:Configuration=Debug MissionPlanner.sln
+          msbuild -v:m -restore -t:Build -p:Configuration=Debug XagSurveillanceGCS.sln
 
       - name: Cleanup
         shell: pwsh

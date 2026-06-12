@@ -1,7 +1,7 @@
-﻿using MissionPlanner.Controls;
+﻿using XagSurveillanceGCS.Controls;
 using System;
 
-namespace MissionPlanner.Utilities
+namespace XagSurveillanceGCS.Utilities
 {
     public class GStreamerUI
     {

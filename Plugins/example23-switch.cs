@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
-using MissionPlanner.Controls;
-using MissionPlanner.GCSViews;
-using MissionPlanner.Plugin;
+using XagSurveillanceGCS.Controls;
+using XagSurveillanceGCS.GCSViews;
+using XagSurveillanceGCS.Plugin;
 using log4net;
 using System.Linq;
 using DeviceProgramming;
@@ -13,7 +13,7 @@ using Xamarin.Forms.PlatformConfiguration;
 //loadassembly: DeviceProgramming
 //loadassembly: log4net
 
-namespace MissionPlanner.plugins
+namespace XagSurveillanceGCS.plugins
 {
     public class ConfigSwitch : UserControl, IActivate
     {

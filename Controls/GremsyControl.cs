@@ -1,5 +1,5 @@
 using log4net;
-using MissionPlanner.Utilities;
+using XagSurveillanceGCS.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -8,7 +8,7 @@ using System.Text;
 using System.Reflection;
 using System.Windows.Forms;
 
-namespace MissionPlanner.Controls
+namespace XagSurveillanceGCS.Controls
 {
     public partial class GremsyControl : UserControl
     {
@@ -90,6 +90,8 @@ namespace MissionPlanner.Controls
             // { "JSON_TR_REQ", "" },                  // readonly string
             { "CAM_FLIP", false },                  // bool
             { "TOF_EN", false },                    // bool
+            {"TRACK_MODE",0},
+            {"MERGE_DISPLAY",0}
 
             // ===== Detection =====
             // { "DETECT_OBJECTS", "" },               // readonly custom
@@ -107,6 +109,7 @@ namespace MissionPlanner.Controls
             this.tableLayoutPanel1.Controls.Add(this.trackZoom,1,0);
             this.parentTableLayoutPanel.Controls.Add(this.tableLayoutPanel1,1,0);
             MainV2.comPort.OnPacketReceived += LoadCameraParameters;
+            // this._parentController._flightData.GremsySwitchCameraModeToPhoto();
         }
 
         public void LoadCameraParameters(object sender,MAVLink.MAVLinkMessage packet)
@@ -180,15 +183,18 @@ namespace MissionPlanner.Controls
                     }
                     // 4️⃣ Print clean output
                     Console.WriteLine($"Updated {paramName} → {decodedValue}");
-
                     break;
+                case (uint)MAVLink.MAVLINK_MSG_ID.CAMERA_TRACKING_GEO_STATUS:
+                    var camGeoStatus = packet.ToStructure<MAVLink.mavlink_camera_tracking_geo_status_t>();
+                    Console.WriteLine("Camera Geo Status {0} {1} {2}",camGeoStatus.tracking_status,camGeoStatus.lat,camGeoStatus.dist);
+                    break; 
                 default:
                     break;   
             } 
         }
         private void TrackZoom_ValueChanged(object sender, EventArgs e)
         {
-            if (trackZoom.Value > 10)
+            if (trackZoom.Value > 25)
             {
                 if (!zoomInActive)
                 {
@@ -198,7 +204,7 @@ namespace MissionPlanner.Controls
                     zoomOutActive = false;
                 }
             }
-            else if (trackZoom.Value < -10)
+            else if (trackZoom.Value < -25)
             {
                 if (!zoomOutActive)
                 {
@@ -229,7 +235,7 @@ namespace MissionPlanner.Controls
         {
             Console.WriteLine("Gremsy Camera Recording Started.");
             bool result =this._parentController._flightData.GremsyStartRecording();
-            if (result)            {
+            if (result){
                 Console.WriteLine("Start Recording Command Acknowledged.");
             }
             else
@@ -308,13 +314,13 @@ namespace MissionPlanner.Controls
         private void BtnZoomOut_Click(object sender, EventArgs e)
         {
             Console.WriteLine("Gremsy Camera Zooming Out.");
-            this._parentController._flightData.GremsyZoomOut();
+            this._parentController._flightData.GremsyHomeCommand();
         }
 
         private void BtnZoomStop_Click(object sender, EventArgs e)
         {
             Console.WriteLine("Gremsy Camera Zoom Stopped.");
-            this._parentController._flightData.GremsyZoomStop();
+            this._parentController._flightData.GremsyPointDownCommand();
         }
         private void BtnStopTracking_Click(object sender, EventArgs e)
         {

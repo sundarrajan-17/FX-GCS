@@ -1,1 +1,1 @@
-namespace MissionPlanner.Swarm { public partial class Grid{public Grid(){this.InitializeComponent();}}}
+namespace XagSurveillanceGCS.Swarm { public partial class Grid{public Grid(){this.InitializeComponent();}}}

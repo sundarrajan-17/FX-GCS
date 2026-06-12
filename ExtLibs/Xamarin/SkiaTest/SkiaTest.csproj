@@ -46,7 +46,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\ExtLibs\MissionPlanner.Drawing.Common\MissionPlanner.Drawing.Common.csproj">
+    <ProjectReference Include="..\..\..\ExtLibs\XagSurveillanceGCS.Drawing.Common\XagSurveillanceGCS.Drawing.Common.csproj">
       <Private>true</Private>
       <CopyLocalSatelliteAssemblies>true</CopyLocalSatelliteAssemblies>
     </ProjectReference>
@@ -54,7 +54,7 @@
     <ProjectReference Include="..\..\..\ExtLibs\System.Drawing.android\System.Drawing.android.csproj">
       <Private>true</Private>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\MissionPlannerLib.csproj">
+    <ProjectReference Include="..\..\..\XagSurveillanceGCSLib.csproj">
       <IncludeAssets></IncludeAssets>
       <ReferenceOutputAssembly>true</ReferenceOutputAssembly>
       <PrivateAssets>true</PrivateAssets>

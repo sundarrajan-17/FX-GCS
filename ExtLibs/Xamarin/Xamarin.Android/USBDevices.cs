@@ -12,9 +12,9 @@ using Hoho.Android.UsbSerial;
 using Hoho.Android.UsbSerial.Driver;
 using Hoho.Android.UsbSerial.Util;
 using Java.Lang;
-using MissionPlanner.ArduPilot;
-using MissionPlanner.Comms;
-using MissionPlanner.Utilities;
+using XagSurveillanceGCS.ArduPilot;
+using XagSurveillanceGCS.Comms;
+using XagSurveillanceGCS.Utilities;
 using Exception = System.Exception;
 using String = System.String;
 

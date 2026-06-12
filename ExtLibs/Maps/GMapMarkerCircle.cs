@@ -4,7 +4,7 @@ using System.Drawing.Drawing2D;
 using GMap.NET;
 using GMap.NET.WindowsForms;
 
-namespace MissionPlanner.Maps
+namespace XagSurveillanceGCS.Maps
 {
     [Serializable]
     public class GMapMarkerCircle : GMapMarker

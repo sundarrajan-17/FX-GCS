@@ -2452,7 +2452,7 @@
     <value>BUT_uncheckall</value>
   </data>
   <data name="&gt;&gt;BUT_uncheckall.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.MyButton, MissionPlanner.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>XagSurveillanceGCS.Controls.MyButton, XagSurveillanceGCS.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;BUT_uncheckall.Parent" xml:space="preserve">
     <value>$this</value>
@@ -2482,7 +2482,7 @@
     <value>BUT_close</value>
   </data>
   <data name="&gt;&gt;BUT_close.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.MyButton, MissionPlanner.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>XagSurveillanceGCS.Controls.MyButton, XagSurveillanceGCS.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;BUT_close.Parent" xml:space="preserve">
     <value>$this</value>
@@ -2512,7 +2512,7 @@
     <value>BUT_sendtoahrs</value>
   </data>
   <data name="&gt;&gt;BUT_sendtoahrs.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.MyButton, MissionPlanner.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>XagSurveillanceGCS.Controls.MyButton, XagSurveillanceGCS.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;BUT_sendtoahrs.Parent" xml:space="preserve">
     <value>$this</value>

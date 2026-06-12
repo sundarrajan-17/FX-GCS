@@ -1,5 +1,5 @@
-using MissionPlanner;
-using MissionPlanner.Utilities;
+using XagSurveillanceGCS;
+using XagSurveillanceGCS.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -7,14 +7,14 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using MissionPlanner.Controls;
+using XagSurveillanceGCS.Controls;
 using Newtonsoft.Json;
 using DroneCAN;
 //loadassembly: DroneCAN
 
 namespace CANLogExtract
 {
-    public class Plugin : MissionPlanner.Plugin.Plugin
+    public class Plugin : XagSurveillanceGCS.Plugin.Plugin
     {
         public override string Name
         {

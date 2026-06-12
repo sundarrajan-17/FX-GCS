@@ -7,7 +7,7 @@ using GeoAPI.CoordinateSystems.Transformations;
 using ProjNet.CoordinateSystems;
 using ProjNet.CoordinateSystems.Transformations;
 
-namespace MissionPlanner.Utilities
+namespace XagSurveillanceGCS.Utilities
 {
     public struct utmpos
     {

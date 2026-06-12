@@ -10,7 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using log4net;
-using MissionPlanner.Utilities;
+using XagSurveillanceGCS.Utilities;
 using System.Configuration;
 using System.Text.RegularExpressions;
 using System.IO.Compression;
@@ -33,7 +33,7 @@ namespace Installer
         private static readonly ILog log =
             LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
-        private string installlocation = @"C:\Program Files (x86)\Mission Planner";
+        private string installlocation = @"C:\Program Files (x86)\XagSurveillanceGCS";
 
         private string md5s = "";
         private string zip = "";

@@ -1,11 +1,11 @@
-﻿using MissionPlanner.Controls;
-using MissionPlanner.Properties;
-using MissionPlanner.Utilities;
+﻿using XagSurveillanceGCS.Controls;
+using XagSurveillanceGCS.Properties;
+using XagSurveillanceGCS.Utilities;
 using System;
 using System.Diagnostics;
 using System.Windows.Forms;
 
-namespace MissionPlanner.GCSViews
+namespace XagSurveillanceGCS.GCSViews
 {
     public partial class Help : MyUserControl, IActivate
     {
@@ -60,7 +60,7 @@ namespace MissionPlanner.GCSViews
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            Process.Start("https://firmware.ardupilot.org/Tools/MissionPlanner/upgrade/ChangeLog.txt");
+            Process.Start("https://firmware.ardupilot.org/Tools/XagSurveillanceGCS/upgrade/ChangeLog.txt");
         }
 
         private void BUT_betaupdate_Click(object sender, EventArgs e)

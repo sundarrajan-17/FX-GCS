@@ -2,14 +2,14 @@
 using System.Drawing;
 using GMap.NET;
 using GMap.NET.WindowsForms;
-using MissionPlanner.Utilities;
+using XagSurveillanceGCS.Utilities;
 
-namespace MissionPlanner.Maps
+namespace XagSurveillanceGCS.Maps
 {
     [Serializable]
     public class GMapMarkerHeli : GMapMarkerBase
     {
-        private readonly Bitmap icon = global::MissionPlanner.Maps.Resources.heli;
+        private readonly Bitmap icon = global::XagSurveillanceGCS.Maps.Resources.heli;
 
         float heading = 0;
         float cog = -1;

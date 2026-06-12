@@ -2,7 +2,7 @@
 using System.ComponentModel;
 using System.Windows.Forms;
 
-namespace MissionPlanner.Controls
+namespace XagSurveillanceGCS.Controls
 {
     partial class ProgressReporterDialogue
     {
@@ -35,11 +35,11 @@ namespace MissionPlanner.Controls
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProgressReporterDialogue));
-            this.progressBar1 = new MissionPlanner.Controls.MyProgressBar();
+            this.progressBar1 = new XagSurveillanceGCS.Controls.MyProgressBar();
             this.lblProgressMessage = new System.Windows.Forms.Label();
-            this.btnCancel = new MissionPlanner.Controls.MyButton();
+            this.btnCancel = new XagSurveillanceGCS.Controls.MyButton();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
-            this.btnClose = new MissionPlanner.Controls.MyButton();
+            this.btnClose = new XagSurveillanceGCS.Controls.MyButton();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.imgWarning = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.imgWarning)).BeginInit();
@@ -90,7 +90,7 @@ namespace MissionPlanner.Controls
             // 
             // imgWarning
             // 
-            this.imgWarning.Image = global::MissionPlanner.Controls.Properties.Resources.iconWarning48;
+            this.imgWarning.Image = global::XagSurveillanceGCS.Controls.Properties.Resources.iconWarning48;
             resources.ApplyResources(this.imgWarning, "imgWarning");
             this.imgWarning.Name = "imgWarning";
             this.imgWarning.TabStop = false;

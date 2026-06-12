@@ -1,5 +1,5 @@
 ﻿
-namespace MissionPlanner.Controls
+namespace XagSurveillanceGCS.Controls
 {
     partial class MavCommandSelection
     {
@@ -30,10 +30,10 @@ namespace MissionPlanner.Controls
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MavCommandSelection));
-            this.btn_AddLine = new MissionPlanner.Controls.MyButton();
-            this.btn_Save = new MissionPlanner.Controls.MyButton();
+            this.btn_AddLine = new XagSurveillanceGCS.Controls.MyButton();
+            this.btn_Save = new XagSurveillanceGCS.Controls.MyButton();
             this.label1 = new System.Windows.Forms.Label();
-            this.myDataGridView1 = new MissionPlanner.Controls.MyDataGridView();
+            this.myDataGridView1 = new XagSurveillanceGCS.Controls.MyDataGridView();
             this.msgid = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.msgname = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.param1 = new System.Windows.Forms.DataGridViewTextBoxColumn();

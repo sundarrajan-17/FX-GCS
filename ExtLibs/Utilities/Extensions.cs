@@ -14,10 +14,10 @@ using System.Text.RegularExpressions;
 using System.Threading;
 using System.Threading.Tasks;
 using GMap.NET;
-using MissionPlanner.Comms;
+using XagSurveillanceGCS.Comms;
 using Newtonsoft.Json;
 
-namespace MissionPlanner.Utilities
+namespace XagSurveillanceGCS.Utilities
 {
 
     [StructLayout(LayoutKind.Explicit, Size = 8, Pack = 1)]

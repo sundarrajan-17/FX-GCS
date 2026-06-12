@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace MissionPlanner {
+namespace XagSurveillanceGCS {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace MissionPlanner {
         public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("MissionPlanner.files", typeof(files).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("XagSurveillanceGCS.files", typeof(files).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -309,8 +309,8 @@ namespace MissionPlanner {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to using MissionPlanner;
-        ///using MissionPlanner.Utilities;
+        ///   Looks up a localized string similar to using XagSurveillanceGCS;
+        ///using XagSurveillanceGCS.Utilities;
         ///using System;
         ///using System.Collections.Generic;
         ///using System.Drawing;
@@ -318,14 +318,14 @@ namespace MissionPlanner {
         ///using System.Linq;
         ///using System.Text;
         ///using System.Windows.Forms;
-        ///using MissionPlanner.Controls;
+        ///using XagSurveillanceGCS.Controls;
         ///using Newtonsoft.Json;
         ///using DroneCAN;
         /////loadassembly: DroneCAN
         ///
         ///namespace CANLogExtract
         ///{
-        ///    public class Plugin : MissionPlanner.Plugin.Plugin
+        ///    public class Plugin : XagSurveillanceGCS.Plugin.Plugin
         ///    {
         ///        public override string Name
         ///        {
@@ -341,8 +341,8 @@ namespace MissionPlanner {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to using MissionPlanner;
-        ///using MissionPlanner.Utilities;
+        ///   Looks up a localized string similar to using XagSurveillanceGCS;
+        ///using XagSurveillanceGCS.Utilities;
         ///using System;
         ///using System.Collections.Generic;
         ///using System.Drawing;
@@ -350,12 +350,12 @@ namespace MissionPlanner {
         ///using System.Linq;
         ///using System.Text;
         ///using System.Windows.Forms;
-        ///using MissionPlanner.Controls;
+        ///using XagSurveillanceGCS.Controls;
         ///using Newtonsoft.Json;
         ///
         ///namespace tracemp
         ///{
-        ///    public class Plugin : MissionPlanner.Plugin.Plugin
+        ///    public class Plugin : XagSurveillanceGCS.Plugin.Plugin
         ///    {
         ///        public override string Name
         ///        {
@@ -377,23 +377,24 @@ namespace MissionPlanner {
         ///using System.Collections.Generic;
         ///using System.Linq;
         ///using System.Text;
-        ///using MissionPlanner.Utilities;
-        ///using MissionPlanner.Controls;
+        ///using XagSurveillanceGCS.Utilities;
+        ///using XagSurveillanceGCS.Controls;
         ///using System.IO;
         ///using System.Windows.Forms;
         ///using System.Diagnostics;
-        ///using MissionPlanner;
+        ///using XagSurveillanceGCS;
         ///using System.Drawing;
         ///using System.Threading.Tasks;
         ///using GMap.NET.WindowsForms;
-        ///using MissionPlanner.ArduPilot;
-        ///using MissionPlanner.GCSViews;
-        ///using MissionPlanner.Maps;
+        ///using XagSurveillanceGCS.ArduPilot;
+        ///using XagSurveillanceGCS.GCSViews;
+        ///using XagSurveillanceGCS.Maps;
         ///
         ///
         ///namespace FenceDist
         ///{
-        ///    public class Plugin : MissionPlanner.Plugin.Plugin        /// [rest of string was truncated]&quot;;.
+        ///    public class Plugin : XagSurveillanceGCS.Plugin.Plugin
+        /// [rest of string was truncated]&quot;;.
         /// </summary>
         public static string example3_fencedist {
             get {
@@ -405,35 +406,36 @@ namespace MissionPlanner {
         ///   Looks up a localized string similar to using System;
         ///using System.Collections.Generic;
         ///using System.Linq;
-        ///using System.Text;
-        ///using MissionPlanner.Utilities;
-        ///using MissionPlanner.Controls;
+        ///using XagSurveillanceGCS
+        ///using XagSurveillanceGCS.Utilities;
+        ///using XagSurveillanceGCS.Controls;
         ///using System.IO;
         ///using System.Windows.Forms;
-        ///using System.Diagnostics;
-        ///using MissionPlanner;
+        ///using XagSurveillanceGCStics;
+        ///using XagSurveillanceGCS;
         ///using System.Drawing;
-        ///using GMap.NET.WindowsForms;
-        ///using MissionPlanner.GCSViews;
-        ///using MissionPlanner.Maps;
+        ///using XagSurveillanceGCSwsForms;
+        ///using XagSurveillanceGCS.GCSViews;
+        ///using XagSurveillanceGCS.Maps;
         ///
         ///
         ///namespace CameraControl
-        ///{
-        ///    public class Plugin : MissionPlanner.Plugin.Plugin
+        ///{XagSurveillanceGCS
+        ///    public class Plugin : XagSurveillanceGCS.Plugin.Plugin
         ///    {
         ///        private int sub;
-        ///        private int sub1;        /// [rest of string was truncated]&quot;;.
+        ///        private int sub1;
+        /// [rest of string was truncated]&quot;;.
         /// </summary>
         public static string example4_herelink {
             get {
                 return ResourceManager.GetString("example4_herelink", resourceCulture);
             }
         }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to using MissionPlanner;
-        ///using MissionPlanner.Utilities;
+        XagSurveillanceGCS
+        /// <summXagSurveillanceGCS
+        ///   Looks up a localized string similar to using XagSurveillanceGCS;
+        ///using XagSurveillanceGCS.Utilities;
         ///using System;
         ///using System.Collections.Generic;
         ///using System.Drawing;
@@ -443,9 +445,9 @@ namespace MissionPlanner {
         ///using System.Windows.Forms;
         ///
         ///
-        ///namespace LatencyTracker
+        ///namespace LatencyTrackerXagSurveillanceGCS
         ///{
-        ///    public class Plugin : MissionPlanner.Plugin.Plugin
+        ///    public class Plugin : XagSurveillanceGCS.Plugin.Plugin
         ///    {
         ///        private List&lt;MAVLink.mavlink_gps_raw_int_t&gt; gpsraw = new List&lt;MAVLink.mavlink_gps_raw_int_t&gt;();
         ///        private List&lt;MAVLink.mavlink_system_time_t&gt; systemtime = new List&lt;MAVLink.mavlink_syste [rest of string was truncated]&quot;;.
@@ -455,21 +457,21 @@ namespace MissionPlanner {
                 return ResourceManager.GetString("example5_latencytracker", resourceCulture);
             }
         }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to using MissionPlanner;
-        ///using MissionPlanner.Utilities;
+        XagSurveillanceGCS
+        /// <summXagSurveillanceGCS
+        ///   Looks up a localized string similar to using XagSurveillanceGCS;
+        ///using XagSurveillanceGCS.Utilities;
         ///using System;
         ///using System.Collections.Generic;
         ///using System.Drawing;
-        ///using System.Linq;
+        ///using XagSurveillanceGCS
         ///using System.Windows.Forms;
-        ///using MissionPlanner.Controls;
+        ///using XagSurveillanceGCS.Controls;
         ///
         ///
-        ///namespace MapIconDesc
+        ///namespace MapIconDescXagSurveillanceGCS
         ///{
-        ///    public class Plugin : MissionPlanner.Plugin.Plugin
+        ///    public class Plugin : XagSurveillanceGCS.Plugin.Plugin
         ///    {
         ///        public override string Name
         ///        {
@@ -488,23 +490,23 @@ namespace MissionPlanner {
                 return ResourceManager.GetString("example6_mapicondesc", resourceCulture);
             }
         }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to using MissionPlanner;
-        ///using MissionPlanner.Utilities;
+        XagSurveillanceGCS
+        /// <summXagSurveillanceGCS
+        ///   Looks up a localized string similar to using XagSurveillanceGCS;
+        ///using XagSurveillanceGCS.Utilities;
         ///using System;
         ///using System.Collections.Generic;
         ///using System.Drawing;
         ///using System.IO;
-        ///using System.Linq;
+        ///using XagSurveillanceGCS
         ///using System.Windows.Forms;
-        ///using MissionPlanner.Controls;
+        ///using XagSurveillanceGCS.Controls;
         ///using DroneCAN;
         /////loadassembly: DroneCAN
         ///
-        ///namespace CANRTCMExtract
+        ///namespace CANRTCMExtractXagSurveillanceGCS
         ///{
-        ///    public class Plugin : MissionPlanner.Plugin.Plugin
+        ///    public class Plugin : XagSurveillanceGCS.Plugin.Plugin
         ///    {
         ///        public override string Name
         ///        {
@@ -522,19 +524,19 @@ namespace MissionPlanner {
         /// <summary>
         ///   Looks up a localized string similar to using System;
         ///using System.Collections.Generic;
-        ///using System.Linq;
+        ///using XagSurveillanceGCS
         ///using System.Text;
-        ///using MissionPlanner.Utilities;
+        ///using XagSurveillanceGCS.Utilities;
         ///using System.IO;
         ///using System.Windows.Forms;
-        ///using System.Diagnostics;
-        ///using System.Drawing;
-        ///using MissionPlanner;
-        ///using MissionPlanner.Controls;
+        ///using XagSurveillanceGCStics;
+        ///using XagSurveillanceGCS;
+        ///using XagSurveillanceGCS;
+        ///using XagSurveillanceGCS.Controls;
         ///
-        ///namespace ModeChange
+        ///namespace ModeChangeXagSurveillanceGCS
         ///{
-        ///    public class Plugin : MissionPlanner.Plugin.Plugin
+        ///    public class Plugin : XagSurveillanceGCS.Plugin.Plugin
         ///    {
         ///        private int hashcode;
         ///        private ToolStripComboBox modecmb;
@@ -551,23 +553,23 @@ namespace MissionPlanner {
         /// <summary>
         ///   Looks up a localized string similar to using System;
         ///using System.Collections.Generic;
-        ///using System.Linq;
-        ///using System.Text;
-        ///using MissionPlanner.Utilities;
-        ///using MissionPlanner.Controls;
+        ///using XagSurveillanceGCS
+        ///using XagSurveillanceGCS
+        ///using XagSurveillanceGCS.Utilities;
+        ///using XagSurveillanceGCS.Controls;
         ///using System.IO;
-        ///using System.Windows.Forms;
+        ///using XagSurveillanceGCS.Forms;
         ///using System.Diagnostics;
-        ///using MissionPlanner;
-        ///using System.Drawing;
-        ///using GMap.NET.WindowsForms;
-        ///using MissionPlanner.GCSViews;
-        ///using MissionPlanner.Maps;
+        ///using XagSurveillanceGCS;
+        ///using XagSurveillanceGCS;
+        ///using XagSurveillanceGCSwsForms;
+        ///using XagSurveillanceGCS.GCSViews;
+        ///using XagSurveillanceGCS.Maps;
         ///
         ///
-        ///namespace hudonoff
+        ///namespace hudonoffXagSurveillanceGCS
         ///{
-        ///    public class Plugin : MissionPlanner.Plugin.Plugin
+        ///    public class Plugin : XagSurveillanceGCS.Plugin.Plugin
         ///    {
         ///
         ///        public override string Name
@@ -592,10 +594,10 @@ namespace MissionPlanner {
                 return ResourceManager.GetString("FirmwareHistory", resourceCulture);
             }
         }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to using MissionPlanner;
-        ///using MissionPlanner.GCSViews;
+        XagSurveillanceGCS
+        /// <summXagSurveillanceGCS
+        ///   Looks up a localized string similar to using XagSurveillanceGCS;
+        ///using XagSurveillanceGCS.GCSViews;
         ///using System;
         ///using System.Collections.Generic;
         ///using System.Windows.Forms;

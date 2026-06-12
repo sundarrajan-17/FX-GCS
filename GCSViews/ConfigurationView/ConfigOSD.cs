@@ -1,4 +1,4 @@
-﻿using MissionPlanner.Controls;
+﻿using XagSurveillanceGCS.Controls;
 using OSDConfigurator.Models;
 using System;
 using System.Collections.Generic;
@@ -6,7 +6,7 @@ using System.Data;
 using System.Diagnostics;
 using System.Linq;
 using System.Windows.Forms;
-using MissionPlanner.Utilities;
+using XagSurveillanceGCS.Utilities;
 using OSDConfigurator.GUI;
 using System.Text.RegularExpressions;
 using System.Collections.Concurrent;
@@ -16,7 +16,7 @@ using OSDConfigurator;
 using OSDConfigurator.GUI.Osd56ItemsSetup;
 using OSDConfigurator.Extensions;
 
-namespace MissionPlanner.GCSViews.ConfigurationView
+namespace XagSurveillanceGCS.GCSViews.ConfigurationView
 {
     public partial class ConfigOSD : MyUserControl, IActivate, IDeactivate
     {
@@ -104,7 +104,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
 
             var dialog = new SetupDialog(allparameterNames.ToArray(), config.Screens, assignedFunctions);
 
-            MissionPlanner.Utilities.ThemeManager.ApplyThemeTo(dialog);
+            XagSurveillanceGCS.Utilities.ThemeManager.ApplyThemeTo(dialog);
 
             if (dialog.ShowDialog() != DialogResult.OK)
                 return;
@@ -227,7 +227,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
 
             osdUserControl.ApplySettings(osdSettings.ToList<IOSDSetting>());
 
-            MissionPlanner.Utilities.ThemeManager.ApplyThemeTo(this);
+            XagSurveillanceGCS.Utilities.ThemeManager.ApplyThemeTo(this);
         }
 
         public void Deactivate()

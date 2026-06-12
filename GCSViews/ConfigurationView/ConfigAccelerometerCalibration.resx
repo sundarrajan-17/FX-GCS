@@ -222,7 +222,7 @@ This requires you to place your autopilot flat and level.</value>
     <value>460, 37</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>System.Windows.Forms.MyUserControl, MissionPlanner.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>System.Windows.Forms.MyUserControl, XagSurveillanceGCS.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="lbl_Accel_user.Location" type="System.Drawing.Point, System.Drawing">
     <value>7, 96</value>
@@ -235,7 +235,7 @@ This requires you to place your autopilot flat and level.</value>
     <value>NoControl</value>
   </data>
   <data name="&gt;&gt;lineSeparator2.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.LineSeparator, MissionPlanner.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>XagSurveillanceGCS.Controls.LineSeparator, XagSurveillanceGCS.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
     <value>743, 50</value>
@@ -304,7 +304,7 @@ This requires you to place your autopilot flat and level.</value>
     <value>188, 72</value>
   </data>
   <data name="&gt;&gt;BUT_level.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.MyButton, MissionPlanner.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>XagSurveillanceGCS.Controls.MyButton, XagSurveillanceGCS.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="label1.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -319,7 +319,7 @@ This requires you to place your autopilot flat and level.</value>
     <value>True</value>
   </data>
   <data name="&gt;&gt;BUT_simpleAccelCal.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.MyButton, MissionPlanner.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>XagSurveillanceGCS.Controls.MyButton, XagSurveillanceGCS.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;label5.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -337,7 +337,7 @@ This requires you to place your autopilot flat and level.</value>
     <value>$this</value>
   </data>
   <data name="&gt;&gt;BUT_calib_accell.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.MyButton, MissionPlanner.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>XagSurveillanceGCS.Controls.MyButton, XagSurveillanceGCS.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;lineSeparator2.Name" xml:space="preserve">
     <value>lineSeparator2</value>

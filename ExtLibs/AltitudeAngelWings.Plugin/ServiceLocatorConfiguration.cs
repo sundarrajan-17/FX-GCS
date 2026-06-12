@@ -8,9 +8,9 @@ using AltitudeAngelWings.Clients.Api;
 using AltitudeAngelWings.Clients.Auth;
 using AltitudeAngelWings.Model;
 using AltitudeAngelWings.Service.Messaging;
-using MissionPlanner.GCSViews;
-using MissionPlanner.Plugin;
-using MissionPlanner.Utilities;
+using XagSurveillanceGCS.GCSViews;
+using XagSurveillanceGCS.Plugin;
+using XagSurveillanceGCS.Utilities;
 
 namespace AltitudeAngelWings.Plugin
 {
@@ -34,7 +34,7 @@ namespace AltitudeAngelWings.Plugin
                 }));
             ServiceLocator.Register<IUiThreadInvoke>(l => new UiThreadInvoke(
                 action => Task.Factory.FromAsync(l.Resolve<PluginHost>().MainForm.BeginInvoke(action), result => l.Resolve<PluginHost>().MainForm.EndInvoke(result))));
-            ServiceLocator.Register<IMissionPlanner>(l => new MissionPlannerAdapter(
+            ServiceLocator.Register<IXagSurveillanceGCS>(l => new XagSurveillanceGCSAdapter(
                 l.Resolve<IUiThreadInvoke>(),
                 new MapAdapter(l.Resolve<PluginHost>().FDGMapControl,
                     () => l.Resolve<ISettings>().EnableDataMap,
@@ -56,7 +56,7 @@ namespace AltitudeAngelWings.Plugin
                     true),
                 l.Resolve<ISettings>(),
                 l.Resolve<PluginHost>().MainForm.Text));
-            ServiceLocator.Register<IMissionPlannerState>(l => new MissionPlannerStateAdapter(
+            ServiceLocator.Register<IXagSurveillanceGCSState>(l => new XagSurveillanceGCSStateAdapter(
                 () => l.Resolve<PluginHost>().comPort.MAV.cs,
                 () => GetCurrentWaypoints(l.Resolve<PluginHost>().MainForm.FlightPlanner),
                 () => l.Resolve<PluginHost>().comPort.MAV.ToFlightCapability()));

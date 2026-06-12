@@ -1,4 +1,4 @@
-﻿using MissionPlanner.Comms;
+﻿using XagSurveillanceGCS.Comms;
 
 namespace Xamarin
 {

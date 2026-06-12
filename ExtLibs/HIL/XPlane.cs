@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Net;
 using System.Net.Sockets;
-using MissionPlanner.Utilities;
+using XagSurveillanceGCS.Utilities;
 
-namespace MissionPlanner.HIL
+namespace XagSurveillanceGCS.HIL
 {
     public delegate void sendPacketHandler(object packet, int sysid, int compid);
 

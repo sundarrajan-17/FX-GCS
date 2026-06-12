@@ -1,1 +1,1 @@
-namespace MissionPlanner.Controls { public partial class RangeControl{public RangeControl(){this.InitializeComponent();}}}
+namespace XagSurveillanceGCS.Controls { public partial class RangeControl{public RangeControl(){this.InitializeComponent();}}}

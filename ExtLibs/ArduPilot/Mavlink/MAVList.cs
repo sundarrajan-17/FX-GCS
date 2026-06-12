@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace MissionPlanner.Mavlink
+namespace XagSurveillanceGCS.Mavlink
 {
     public class MAVList : IEnumerable<MAVState>, IDisposable
     {

@@ -16,9 +16,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Comms\MissionPlanner.Comms.csproj" />
+    <ProjectReference Include="..\Comms\XagSurveillanceGCS.Comms.csproj" />
     <ProjectReference Include="..\DroneCAN\DroneCAN.csproj" />
-    <ProjectReference Include="..\Utilities\MissionPlanner.Utilities.csproj" />
+    <ProjectReference Include="..\Utilities\XagSurveillanceGCS.Utilities.csproj" />
   </ItemGroup>
 
 </Project>

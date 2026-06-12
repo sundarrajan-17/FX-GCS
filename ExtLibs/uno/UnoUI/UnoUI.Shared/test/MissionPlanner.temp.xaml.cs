@@ -1,1 +1,1 @@
-namespace MissionPlanner { public partial class temp{public temp(){this.InitializeComponent();}}}
+namespace XagSurveillanceGCS { public partial class temp{public temp(){this.InitializeComponent();}}}

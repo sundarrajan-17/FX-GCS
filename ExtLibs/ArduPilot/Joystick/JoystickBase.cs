@@ -6,10 +6,10 @@ using System.Linq;
 using System.Reflection;
 using System.Threading;
 using log4net;
-using MissionPlanner.ArduPilot;
-using MissionPlanner.Utilities;
+using XagSurveillanceGCS.ArduPilot;
+using XagSurveillanceGCS.Utilities;
 
-namespace MissionPlanner.Joystick
+namespace XagSurveillanceGCS.Joystick
 {
     public abstract class JoystickBase: IDisposable
     {

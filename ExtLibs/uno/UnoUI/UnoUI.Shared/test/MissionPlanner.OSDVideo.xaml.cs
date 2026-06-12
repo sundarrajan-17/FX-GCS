@@ -1,1 +1,1 @@
-namespace MissionPlanner { public partial class OSDVideo{public OSDVideo(){this.InitializeComponent();}}}
+namespace XagSurveillanceGCS { public partial class OSDVideo{public OSDVideo(){this.InitializeComponent();}}}

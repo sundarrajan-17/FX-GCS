@@ -1,1 +1,1 @@
-namespace MissionPlanner.Controls { public partial class OptionForm{public OptionForm(){this.InitializeComponent();}}}
+namespace XagSurveillanceGCS.Controls { public partial class OptionForm{public OptionForm(){this.InitializeComponent();}}}

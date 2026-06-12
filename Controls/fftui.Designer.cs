@@ -1,4 +1,4 @@
-﻿namespace MissionPlanner.Controls
+﻿namespace XagSurveillanceGCS.Controls
 {
     partial class fftui
     {
@@ -36,11 +36,11 @@
             this.label2 = new System.Windows.Forms.Label();
             this.NUM_startfreq = new System.Windows.Forms.NumericUpDown();
             this.chk_mag = new System.Windows.Forms.CheckBox();
-            this.but_ISBH = new MissionPlanner.Controls.MyButton();
-            this.but_fftimu13 = new MissionPlanner.Controls.MyButton();
-            this.BUT_accgyrall = new MissionPlanner.Controls.MyButton();
-            this.but_accgyr1 = new MissionPlanner.Controls.MyButton();
-            this.BUT_runwav = new MissionPlanner.Controls.MyButton();
+            this.but_ISBH = new XagSurveillanceGCS.Controls.MyButton();
+            this.but_fftimu13 = new XagSurveillanceGCS.Controls.MyButton();
+            this.BUT_accgyrall = new XagSurveillanceGCS.Controls.MyButton();
+            this.but_accgyr1 = new XagSurveillanceGCS.Controls.MyButton();
+            this.BUT_runwav = new XagSurveillanceGCS.Controls.MyButton();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NUM_bins)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NUM_startfreq)).BeginInit();

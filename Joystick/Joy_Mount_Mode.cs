@@ -1,9 +1,9 @@
-﻿using MissionPlanner.Utilities;
+﻿using XagSurveillanceGCS.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
 
-namespace MissionPlanner.Joystick
+namespace XagSurveillanceGCS.Joystick
 {
     public partial class Joy_Mount_Mode : Form
     {

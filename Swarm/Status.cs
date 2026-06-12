@@ -1,6 +1,6 @@
 ﻿using System.Windows.Forms;
 
-namespace MissionPlanner.Swarm
+namespace XagSurveillanceGCS.Swarm
 {
     public partial class Status : UserControl
     {

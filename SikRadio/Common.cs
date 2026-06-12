@@ -1,5 +1,5 @@
 ﻿
 
-namespace MissionPlanner
+namespace XagSurveillanceGCS
 {
 }

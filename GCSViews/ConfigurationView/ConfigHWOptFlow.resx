@@ -667,7 +667,7 @@
     <value>mavlinkNumericUpDownHGTOVR</value>
   </data>
   <data name="&gt;&gt;mavlinkNumericUpDownHGTOVR.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.MavlinkNumericUpDown, MissionPlanner, Version=1.3.8720.21293, Culture=neutral, PublicKeyToken=null</value>
+    <value>XagSurveillanceGCS.Controls.MavlinkNumericUpDown, XagSurveillanceGCS, Version=1.3.8720.21293, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;mavlinkNumericUpDownHGTOVR.Parent" xml:space="preserve">
     <value>$this</value>
@@ -691,7 +691,7 @@
     <value>mavlinkNumericUpDownZ</value>
   </data>
   <data name="&gt;&gt;mavlinkNumericUpDownZ.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.MavlinkNumericUpDown, MissionPlanner, Version=1.3.8720.21293, Culture=neutral, PublicKeyToken=null</value>
+    <value>XagSurveillanceGCS.Controls.MavlinkNumericUpDown, XagSurveillanceGCS, Version=1.3.8720.21293, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;mavlinkNumericUpDownZ.Parent" xml:space="preserve">
     <value>$this</value>
@@ -715,7 +715,7 @@
     <value>mavlinkNumericUpDownY</value>
   </data>
   <data name="&gt;&gt;mavlinkNumericUpDownY.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.MavlinkNumericUpDown, MissionPlanner, Version=1.3.8720.21293, Culture=neutral, PublicKeyToken=null</value>
+    <value>XagSurveillanceGCS.Controls.MavlinkNumericUpDown, XagSurveillanceGCS, Version=1.3.8720.21293, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;mavlinkNumericUpDownY.Parent" xml:space="preserve">
     <value>$this</value>
@@ -739,7 +739,7 @@
     <value>mavlinkNumericUpDownX</value>
   </data>
   <data name="&gt;&gt;mavlinkNumericUpDownX.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.MavlinkNumericUpDown, MissionPlanner, Version=1.3.8720.21293, Culture=neutral, PublicKeyToken=null</value>
+    <value>XagSurveillanceGCS.Controls.MavlinkNumericUpDown, XagSurveillanceGCS, Version=1.3.8720.21293, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;mavlinkNumericUpDownX.Parent" xml:space="preserve">
     <value>$this</value>
@@ -763,7 +763,7 @@
     <value>mavlinkNumericUpDownFY</value>
   </data>
   <data name="&gt;&gt;mavlinkNumericUpDownFY.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.MavlinkNumericUpDown, MissionPlanner, Version=1.3.8720.21293, Culture=neutral, PublicKeyToken=null</value>
+    <value>XagSurveillanceGCS.Controls.MavlinkNumericUpDown, XagSurveillanceGCS, Version=1.3.8720.21293, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;mavlinkNumericUpDownFY.Parent" xml:space="preserve">
     <value>$this</value>
@@ -787,7 +787,7 @@
     <value>mavlinkNumericUpDownFX</value>
   </data>
   <data name="&gt;&gt;mavlinkNumericUpDownFX.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.MavlinkNumericUpDown, MissionPlanner, Version=1.3.8720.21293, Culture=neutral, PublicKeyToken=null</value>
+    <value>XagSurveillanceGCS.Controls.MavlinkNumericUpDown, XagSurveillanceGCS, Version=1.3.8720.21293, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;mavlinkNumericUpDownFX.Parent" xml:space="preserve">
     <value>$this</value>
@@ -811,7 +811,7 @@
     <value>mavlinkNumericUpDown_yaw</value>
   </data>
   <data name="&gt;&gt;mavlinkNumericUpDown_yaw.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.MavlinkNumericUpDown, MissionPlanner, Version=1.3.8720.21293, Culture=neutral, PublicKeyToken=null</value>
+    <value>XagSurveillanceGCS.Controls.MavlinkNumericUpDown, XagSurveillanceGCS, Version=1.3.8720.21293, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;mavlinkNumericUpDown_yaw.Parent" xml:space="preserve">
     <value>$this</value>
@@ -835,7 +835,7 @@
     <value>DROP_optflowtype</value>
   </data>
   <data name="&gt;&gt;DROP_optflowtype.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.MavlinkComboBox, MissionPlanner, Version=1.3.8720.21293, Culture=neutral, PublicKeyToken=null</value>
+    <value>XagSurveillanceGCS.Controls.MavlinkComboBox, XagSurveillanceGCS, Version=1.3.8720.21293, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;DROP_optflowtype.Parent" xml:space="preserve">
     <value>$this</value>
@@ -865,7 +865,7 @@
     <value>CHK_enableoptflow</value>
   </data>
   <data name="&gt;&gt;CHK_enableoptflow.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.MavlinkCheckBox, MissionPlanner, Version=1.3.8720.21293, Culture=neutral, PublicKeyToken=null</value>
+    <value>XagSurveillanceGCS.Controls.MavlinkCheckBox, XagSurveillanceGCS, Version=1.3.8720.21293, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;CHK_enableoptflow.Parent" xml:space="preserve">
     <value>$this</value>
@@ -883,6 +883,6 @@
     <value>ConfigHWOptFlow</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>System.Windows.Forms.MyUserControl, MissionPlanner.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>System.Windows.Forms.MyUserControl, XagSurveillanceGCS.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
 </root>

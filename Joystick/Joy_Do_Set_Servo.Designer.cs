@@ -1,4 +1,4 @@
-﻿namespace MissionPlanner.Joystick
+﻿namespace XagSurveillanceGCS.Joystick
 {
     partial class Joy_Do_Set_Servo
     {

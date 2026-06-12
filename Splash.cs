@@ -2,7 +2,7 @@
 using System.Reflection;
 using System.Windows.Forms;
 
-namespace MissionPlanner
+namespace XagSurveillanceGCS
 {
     public partial class Splash : Form
     {
@@ -18,7 +18,7 @@ namespace MissionPlanner
 
             if (Program.Logo != null)
             {
-                pictureBox1.BackgroundImage = MissionPlanner.Properties.Resources.bgdark;
+                pictureBox1.BackgroundImage = XagSurveillanceGCS.Properties.Resources.bgdark;
                 pictureBox1.Image = Program.Logo;
                 pictureBox1.Visible = true;
             }

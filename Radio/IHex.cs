@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 
-namespace MissionPlanner.Radio
+namespace XagSurveillanceGCS.Radio
 {
     public class IHex : SortedList<uint, byte[]>
     {

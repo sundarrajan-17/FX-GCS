@@ -1,4 +1,4 @@
-﻿namespace MissionPlanner.Radio
+﻿namespace XagSurveillanceGCS.Radio
 {
     partial class Sikradio
     {
@@ -203,18 +203,18 @@
             this.label10 = new System.Windows.Forms.Label();
             this.dlgSave = new System.Windows.Forms.SaveFileDialog();
             this.dlgOpen = new System.Windows.Forms.OpenFileDialog();
-            this.BUT_loadcustom = new MissionPlanner.Controls.MyButton();
-            this.BUT_resettodefault = new MissionPlanner.Controls.MyButton();
-            this.btnRemoteLoadFromFile = new MissionPlanner.Controls.MyButton();
-            this.btnRemoteSaveToFile = new MissionPlanner.Controls.MyButton();
-            this.BUT_SetPPMFailSafeRemote = new MissionPlanner.Controls.MyButton();
-            this.BUT_SetPPMFailSafe = new MissionPlanner.Controls.MyButton();
-            this.BUT_savesettings = new MissionPlanner.Controls.MyButton();
-            this.BUT_getcurrent = new MissionPlanner.Controls.MyButton();
-            this.BUT_upload = new MissionPlanner.Controls.MyButton();
-            this.BUT_Syncoptions = new MissionPlanner.Controls.MyButton();
-            this.btnSaveToFile = new MissionPlanner.Controls.MyButton();
-            this.btnLoadFromFile = new MissionPlanner.Controls.MyButton();
+            this.BUT_loadcustom = new XagSurveillanceGCS.Controls.MyButton();
+            this.BUT_resettodefault = new XagSurveillanceGCS.Controls.MyButton();
+            this.btnRemoteLoadFromFile = new XagSurveillanceGCS.Controls.MyButton();
+            this.btnRemoteSaveToFile = new XagSurveillanceGCS.Controls.MyButton();
+            this.BUT_SetPPMFailSafeRemote = new XagSurveillanceGCS.Controls.MyButton();
+            this.BUT_SetPPMFailSafe = new XagSurveillanceGCS.Controls.MyButton();
+            this.BUT_savesettings = new XagSurveillanceGCS.Controls.MyButton();
+            this.BUT_getcurrent = new XagSurveillanceGCS.Controls.MyButton();
+            this.BUT_upload = new XagSurveillanceGCS.Controls.MyButton();
+            this.BUT_Syncoptions = new XagSurveillanceGCS.Controls.MyButton();
+            this.btnSaveToFile = new XagSurveillanceGCS.Controls.MyButton();
+            this.btnLoadFromFile = new XagSurveillanceGCS.Controls.MyButton();
             this.groupBoxLocal.SuspendLayout();
             this.groupBoxRemote.SuspendLayout();
             this.SuspendLayout();

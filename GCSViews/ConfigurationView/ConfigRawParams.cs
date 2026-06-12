@@ -1,6 +1,6 @@
 using log4net;
-using MissionPlanner.Controls;
-using MissionPlanner.Utilities;
+using XagSurveillanceGCS.Controls;
+using XagSurveillanceGCS.Utilities;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -19,7 +19,7 @@ using System.Windows.Forms;
 using org.mariuszgromada.math.mxparser;
 using System.Runtime.CompilerServices;
 
-namespace MissionPlanner.GCSViews.ConfigurationView
+namespace XagSurveillanceGCS.GCSViews.ConfigurationView
 {
     public partial class ConfigRawParams : MyUserControl, IActivate, IDeactivate
     {

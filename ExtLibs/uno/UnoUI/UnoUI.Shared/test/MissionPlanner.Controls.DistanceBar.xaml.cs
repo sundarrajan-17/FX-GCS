@@ -1,1 +1,1 @@
-namespace MissionPlanner.Controls { public partial class DistanceBar{public DistanceBar(){this.InitializeComponent();}}}
+namespace XagSurveillanceGCS.Controls { public partial class DistanceBar{public DistanceBar(){this.InitializeComponent();}}}

@@ -1,1 +1,1 @@
-namespace MissionPlanner.GCSViews.ConfigurationView { public partial class ConfigBatteryMonitoring{public ConfigBatteryMonitoring(){this.InitializeComponent();}}}
+namespace XagSurveillanceGCS.GCSViews.ConfigurationView { public partial class ConfigBatteryMonitoring{public ConfigBatteryMonitoring(){this.InitializeComponent();}}}

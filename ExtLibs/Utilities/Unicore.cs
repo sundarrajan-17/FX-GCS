@@ -1,11 +1,11 @@
 ﻿using log4net;
-using MissionPlanner.Comms;
+using XagSurveillanceGCS.Comms;
 using System;
 using System.Diagnostics;
 using System.IO;
 using System.Threading.Tasks;
 
-namespace MissionPlanner.Utilities
+namespace XagSurveillanceGCS.Utilities
 {
     public class Unicore
     {

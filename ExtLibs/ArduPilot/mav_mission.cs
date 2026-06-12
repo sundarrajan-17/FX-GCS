@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Reflection;
 using System.Threading.Tasks;
 using log4net;
-using MissionPlanner.Utilities;
+using XagSurveillanceGCS.Utilities;
 
-namespace MissionPlanner.ArduPilot
+namespace XagSurveillanceGCS.ArduPilot
 {
     public class mav_mission
     {

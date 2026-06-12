@@ -15,8 +15,8 @@ using System.Text;
 using System.Threading;
 using System.Windows.Forms;
 using Microsoft.Scripting.Hosting;
-using MissionPlanner;
-using MissionPlanner.Utilities;
+using XagSurveillanceGCS;
+using XagSurveillanceGCS.Utilities;
 using SkiaSharp;
 
 public class FormsRender
@@ -506,9 +506,9 @@ namespace IronPython.Hosting
 public class OpenGLtest: UserControl
 {
     public static OpenGLtest instance;   
-    public MissionPlanner.Utilities.Vector3 rpy;
+    public XagSurveillanceGCS.Utilities.Vector3 rpy;
     
-    public MissionPlanner.Utilities.Vector3 Velocity;
+    public XagSurveillanceGCS.Utilities.Vector3 Velocity;
 
     public PointLatLngAlt LocationCenter { get; set; }
 
@@ -927,7 +927,7 @@ public class SKControl : Control
 }
 }
 
-namespace MissionPlanner.Log
+namespace XagSurveillanceGCS.Log
 {
     public partial class LogIndex : Form
     {

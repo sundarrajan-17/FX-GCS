@@ -1,4 +1,4 @@
-﻿namespace MissionPlanner.Controls
+﻿namespace XagSurveillanceGCS.Controls
 {
     partial class DevopsUI
     {
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.but_doit = new MissionPlanner.Controls.MyButton();
+            this.but_doit = new XagSurveillanceGCS.Controls.MyButton();
             this.num_sysid = new System.Windows.Forms.NumericUpDown();
             this.num_compid = new System.Windows.Forms.NumericUpDown();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
@@ -46,7 +46,7 @@
             this.label7 = new System.Windows.Forms.Label();
             this.num_count = new System.Windows.Forms.NumericUpDown();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.but_test = new MissionPlanner.Controls.MyButton();
+            this.but_test = new XagSurveillanceGCS.Controls.MyButton();
             ((System.ComponentModel.ISupportInitialize)(this.num_sysid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.num_compid)).BeginInit();
             this.flowLayoutPanel1.SuspendLayout();

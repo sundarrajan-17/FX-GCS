@@ -1,9 +1,9 @@
 using System;
 using System.Linq;
 using System.Threading;
-using MissionPlanner.Comms;
+using XagSurveillanceGCS.Comms;
 
-namespace MissionPlanner.Radio
+namespace XagSurveillanceGCS.Radio
 {
     public class Uploader
     {

@@ -1,1 +1,1 @@
-namespace MissionPlanner.Controls { public partial class MyDataGridView{public MyDataGridView(){this.InitializeComponent();}}}
+namespace XagSurveillanceGCS.Controls { public partial class MyDataGridView{public MyDataGridView(){this.InitializeComponent();}}}

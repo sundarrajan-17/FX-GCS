@@ -1,4 +1,4 @@
-﻿namespace MissionPlanner
+﻿namespace XagSurveillanceGCS
 {
     partial class NMEA_Viewer
     {

@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 using System.Drawing.Drawing2D;
 
-namespace MissionPlanner.Controls
+namespace XagSurveillanceGCS.Controls
 {
     public class MyButton : Button
     {

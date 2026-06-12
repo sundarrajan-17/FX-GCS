@@ -1,4 +1,4 @@
-﻿namespace MissionPlanner.GCSViews.ConfigurationView
+﻿namespace XagSurveillanceGCS.GCSViews.ConfigurationView
 {
     partial class ConfigHWIDs
     {
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.myDataGridView1 = new MissionPlanner.Controls.MyDataGridView();
+            this.myDataGridView1 = new XagSurveillanceGCS.Controls.MyDataGridView();
             this.deviceInfoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.paramNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.devIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -65,7 +65,7 @@
             // 
             // deviceInfoBindingSource
             // 
-            this.deviceInfoBindingSource.DataSource = typeof(MissionPlanner.GCSViews.ConfigurationView.DeviceInfo);
+            this.deviceInfoBindingSource.DataSource = typeof(XagSurveillanceGCS.GCSViews.ConfigurationView.DeviceInfo);
             // 
             // paramNameDataGridViewTextBoxColumn
             // 

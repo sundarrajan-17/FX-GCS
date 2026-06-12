@@ -52,8 +52,8 @@ namespace AltitudeAngelWings
                 l.Resolve<IEncryptionAlgorithm>()));
             ServiceLocator.Register<IMessagesService>(l => new MessagesService(
                 l.Resolve<IMessageDisplay>()));
-            ServiceLocator.Register<IFlightDataProvider>(l => new MissionPlannerFlightDataProvider(
-                l.Resolve<IMissionPlannerState>()));
+            ServiceLocator.Register<IFlightDataProvider>(l => new XagSurveillanceGCSFlightDataProvider(
+                l.Resolve<IXagSurveillanceGCSState>()));
             ServiceLocator.Register<IFlightDataService>(l => new FlightDataService(
                 l.Resolve<ISettings>().MinimumPollInterval,
                 l.Resolve<IFlightDataProvider>()));
@@ -66,7 +66,7 @@ namespace AltitudeAngelWings
             ServiceLocator.Register<IHttpClientFactory>("Auth",
                 l => new DelegatingHttpHandlerFactory(() => new PolicyHandler(l.Resolve<IAsyncPolicy>())
                 {
-                    InnerHandler = new UserAgentHandler(l.Resolve<IMissionPlanner>().VersionHeader)
+                    InnerHandler = new UserAgentHandler(l.Resolve<IXagSurveillanceGCS>().VersionHeader)
                     {
                         InnerHandler = new HttpClientHandler
                         {
@@ -79,7 +79,7 @@ namespace AltitudeAngelWings
                 {
                     InnerHandler = new BearerTokenHttpMessageHandler(l.Resolve<ITokenProvider>())
                     {
-                        InnerHandler = new UserAgentHandler(l.Resolve<IMissionPlanner>().VersionHeader)
+                        InnerHandler = new UserAgentHandler(l.Resolve<IXagSurveillanceGCS>().VersionHeader)
                         {
                             InnerHandler = new HttpClientHandler
                             {
@@ -119,14 +119,14 @@ namespace AltitudeAngelWings
                 l.Resolve<IHttpClientFactory>("Auth"),
                 l.Resolve<ISerializer>()));
             ServiceLocator.Register<IOutboundNotificationsService>(l => new OutboundNotificationsService(
-                l.Resolve<IMissionPlanner>(),
+                l.Resolve<IXagSurveillanceGCS>(),
                 l.Resolve<ISettings>(),
                 l.Resolve<IMessagesService>(),
                 l.Resolve<IFlightClient>(),
-                l.Resolve<IMissionPlannerState>()));
+                l.Resolve<IXagSurveillanceGCSState>()));
             ServiceLocator.Register<IFlightService>(l => new FlightService(
                 l.Resolve<IMessagesService>(),
-                l.Resolve<IMissionPlannerState>(),
+                l.Resolve<IXagSurveillanceGCSState>(),
                 l.Resolve<ISettings>(),
                 l.Resolve<IFlightDataService>(),
                 l.Resolve<IFlightClient>(),
@@ -139,7 +139,7 @@ namespace AltitudeAngelWings
                 l.Resolve<ITelemetryClient>()));
             ServiceLocator.Register<IAltitudeAngelService>(l => new AltitudeAngelService(
                 l.Resolve<IMessagesService>(),
-                l.Resolve<IMissionPlanner>(),
+                l.Resolve<IXagSurveillanceGCS>(),
                 l.Resolve<ISettings>(),
                 l.Resolve<ITokenProvider>(),
                     l.Resolve<IApiClient>(),

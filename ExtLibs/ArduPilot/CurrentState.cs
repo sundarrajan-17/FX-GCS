@@ -1,7 +1,7 @@
 ﻿using log4net;
-using MissionPlanner.ArduPilot;
-using MissionPlanner.Attributes;
-using MissionPlanner.Utilities;
+using XagSurveillanceGCS.ArduPilot;
+using XagSurveillanceGCS.Attributes;
+using XagSurveillanceGCS.Utilities;
 using Newtonsoft.Json;
 using System;
 using System.Collections;
@@ -12,7 +12,7 @@ using System.Reflection;
 using System.Runtime.Serialization;
 using System.Text;
 
-namespace MissionPlanner
+namespace XagSurveillanceGCS
 {
     public class CurrentState : ICloneable, IDisposable
     {

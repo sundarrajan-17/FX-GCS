@@ -1,4 +1,4 @@
-﻿namespace MissionPlanner.GCSViews.ConfigurationView
+﻿namespace XagSurveillanceGCS.GCSViews.ConfigurationView
 {
     partial class ConfigSecure
     {
@@ -40,11 +40,11 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.label4 = new System.Windows.Forms.Label();
             this.txt_sha = new System.Windows.Forms.TextBox();
-            this.but_firmware = new MissionPlanner.Controls.MyButton();
-            this.but_dfu = new MissionPlanner.Controls.MyButton();
-            this.but_bootloader = new MissionPlanner.Controls.MyButton();
-            this.but_login = new MissionPlanner.Controls.MyButton();
-            this.but_getsn = new MissionPlanner.Controls.MyButton();
+            this.but_firmware = new XagSurveillanceGCS.Controls.MyButton();
+            this.but_dfu = new XagSurveillanceGCS.Controls.MyButton();
+            this.but_bootloader = new XagSurveillanceGCS.Controls.MyButton();
+            this.but_login = new XagSurveillanceGCS.Controls.MyButton();
+            this.but_getsn = new XagSurveillanceGCS.Controls.MyButton();
             this.label5 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();

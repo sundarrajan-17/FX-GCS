@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Runtime.InteropServices;
 
-namespace MissionPlanner
+namespace XagSurveillanceGCS
 {
     internal static class NativeMethods
     {

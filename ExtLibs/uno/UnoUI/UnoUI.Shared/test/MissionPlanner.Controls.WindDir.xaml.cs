@@ -1,1 +1,1 @@
-namespace MissionPlanner.Controls { public partial class WindDir{public WindDir(){this.InitializeComponent();}}}
+namespace XagSurveillanceGCS.Controls { public partial class WindDir{public WindDir(){this.InitializeComponent();}}}

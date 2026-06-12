@@ -1,4 +1,4 @@
-﻿namespace MissionPlanner.Controls
+﻿namespace XagSurveillanceGCS.Controls
 {
     partial class AuthKeys
     {
@@ -34,9 +34,9 @@
             this.FName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Use = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Key = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.but_save = new MissionPlanner.Controls.MyButton();
-            this.but_add = new MissionPlanner.Controls.MyButton();
-            this.but_disablesigning = new MissionPlanner.Controls.MyButton();
+            this.but_save = new XagSurveillanceGCS.Controls.MyButton();
+            this.but_add = new XagSurveillanceGCS.Controls.MyButton();
+            this.but_disablesigning = new XagSurveillanceGCS.Controls.MyButton();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.lbl_sgnpkts = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();

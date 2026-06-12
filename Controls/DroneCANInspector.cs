@@ -1,5 +1,5 @@
 ﻿using Microsoft.Diagnostics.Runtime.Interop;
-using MissionPlanner.Utilities;
+using XagSurveillanceGCS.Utilities;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -13,7 +13,7 @@ using System.Windows.Forms;
 using DroneCAN;
 using ZedGraph;
 
-namespace MissionPlanner.Controls
+namespace XagSurveillanceGCS.Controls
 {
     public class DroneCANInspector : Form
     {
@@ -202,11 +202,11 @@ namespace MissionPlanner.Controls
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.treeView1 = new MissionPlanner.Controls.DroneCANInspector.MyTreeView();
+            this.treeView1 = new XagSurveillanceGCS.Controls.DroneCANInspector.MyTreeView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.but_graphit = new MissionPlanner.Controls.MyButton();
-            this.but_subscribe = new MissionPlanner.Controls.MyButton();
+            this.but_graphit = new XagSurveillanceGCS.Controls.MyButton();
+            this.but_subscribe = new XagSurveillanceGCS.Controls.MyButton();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 

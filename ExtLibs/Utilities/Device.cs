@@ -4,7 +4,7 @@ using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
 
-namespace MissionPlanner.Utilities
+namespace XagSurveillanceGCS.Utilities
 {
     /// <summary>
     /// https://github.com/ArduPilot/ardupilot/blob/master/Tools/scripts/decode_devid.py

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using GMap.NET.MapProviders;
 
-namespace MissionPlanner.Utilities
+namespace XagSurveillanceGCS.Utilities
 {
     public class GDAL
     {

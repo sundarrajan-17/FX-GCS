@@ -1,4 +1,4 @@
-﻿namespace MissionPlanner.GCSViews.ConfigurationView
+﻿namespace XagSurveillanceGCS.GCSViews.ConfigurationView
 {
    partial class ConfigFriendlyParams
    {
@@ -30,9 +30,9 @@
       {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ConfigFriendlyParams));
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.BUT_rerequestparams = new MissionPlanner.Controls.MyButton();
-            this.BUT_writePIDS = new MissionPlanner.Controls.MyButton();
-            this.BUT_Find = new MissionPlanner.Controls.MyButton();
+            this.BUT_rerequestparams = new XagSurveillanceGCS.Controls.MyButton();
+            this.BUT_writePIDS = new XagSurveillanceGCS.Controls.MyButton();
+            this.BUT_Find = new XagSurveillanceGCS.Controls.MyButton();
             this.SuspendLayout();
             // 
             // flowLayoutPanel1

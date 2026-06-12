@@ -6,7 +6,7 @@
     <ApplicationIcon />
     <Win32Resource />
     <NeutralLanguage>en</NeutralLanguage>
-    <RootNamespace>MissionPlanner</RootNamespace>
+    <RootNamespace>XagSurveillanceGCS</RootNamespace>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -124,13 +124,13 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\MissionPlannerLib.csproj">
+    <ProjectReference Include="..\..\..\XagSurveillanceGCSLib.csproj">
       <Aliases></Aliases>
     </ProjectReference>
     <ProjectReference Include="..\..\7zip\7zip.csproj" />
     <ProjectReference Include="..\..\alglibnet\alglibnet.csproj" />
-    <ProjectReference Include="..\..\ArduPilot\MissionPlanner.ArduPilot.csproj" />
-    <ProjectReference Include="..\..\Comms\MissionPlanner.Comms.csproj" />
+    <ProjectReference Include="..\..\ArduPilot\XagSurveillanceGCS.ArduPilot.csproj" />
+    <ProjectReference Include="..\..\Comms\XagSurveillanceGCS.Comms.csproj" />
     <ProjectReference Include="..\..\GeoUtility\GeoUtility.csproj" />
     <ProjectReference Include="..\..\GMap.NET.Core\GMap.NET.Core.csproj" />
     <ProjectReference Include="..\..\ICSharpCode.SharpZipLib\ICSharpCode.SharpZipLib.csproj" />
@@ -138,13 +138,13 @@
       <Aliases></Aliases>
     </ProjectReference>
     <ProjectReference Include="..\..\Mavlink\MAVLink.csproj" />
-    <ProjectReference Include="..\..\MissionPlanner.Drawing\MissionPlanner.Drawing.csproj">
+    <ProjectReference Include="..\..\XagSurveillanceGCS.Drawing\XagSurveillanceGCS.Drawing.csproj">
       <Aliases></Aliases>
     </ProjectReference>
     <ProjectReference Include="..\..\mono\mcs\class\System.Windows.Forms\System.Windows.Forms-net_4_x.csproj" />
     <ProjectReference Include="..\..\px4uploader\px4uploader.csproj" />
-    <ProjectReference Include="..\..\Strings\MissionPlanner.Strings.csproj" />
-    <ProjectReference Include="..\..\Utilities\MissionPlanner.Utilities.csproj" />
+    <ProjectReference Include="..\..\Strings\XagSurveillanceGCS.Strings.csproj" />
+    <ProjectReference Include="..\..\Utilities\XagSurveillanceGCS.Utilities.csproj" />
   </ItemGroup>
 
   <ItemGroup>

@@ -1,5 +1,5 @@
 ﻿using AltitudeAngelWings.Clients.Flight.Model;
-using MissionPlanner;
+using XagSurveillanceGCS;
 
 namespace AltitudeAngelWings.Plugin
 {

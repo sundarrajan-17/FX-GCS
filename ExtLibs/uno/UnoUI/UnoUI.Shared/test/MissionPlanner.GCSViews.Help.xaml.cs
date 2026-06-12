@@ -1,1 +1,1 @@
-namespace MissionPlanner.GCSViews { public partial class Help{public Help(){this.InitializeComponent();}}}
+namespace XagSurveillanceGCS.GCSViews { public partial class Help{public Help(){this.InitializeComponent();}}}

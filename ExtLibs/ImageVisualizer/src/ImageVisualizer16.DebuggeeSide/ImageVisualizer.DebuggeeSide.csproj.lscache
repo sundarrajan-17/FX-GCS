@@ -1,0 +1,64 @@
+version=1
+
+# This file caches language service data to improve the performance of C# Dev Kit.
+# It is not intended for manual editing. It can safely be deleted and will be
+# regenerated automatically. For more information, see https://aka.ms/lscache
+#
+# To control where cache files are stored, use the following VS Code setting:
+#   "dotnet.projectsystem.cacheInProjectFolder": true
+
+[project]
+language=C#
+primary
+lastDtbSucceeded
+
+[sliceDimensions]
+TargetFramework=netstandard2.0
+
+[properties]
+AssemblyName=Aberus.VisualStudio.Debugger.ImageVisualizer.DebuggeeSide
+CommandLineArgsForDesignTimeEvaluation=-langversion:7.3 -define:TRACE
+CompilerGeneratedFilesOutputPath=
+MaxSupportedLangVersion=7.3
+ProjectAssetsFile=<PATH>obj/project.assets.json
+RootNamespace=Aberus.VisualStudio.Debugger.ImageVisualizer
+RunAnalyzers=
+RunAnalyzersDuringLiveAnalysis=
+SolutionPath=*Undefined*
+TargetFrameworkIdentifier=.NETStandard
+TargetPath=<PATH>bin/Debug/netstandard2.0/Aberus.VisualStudio.Debugger.ImageVisualizer.DebuggeeSide.dll
+TargetRefPath=
+TemporaryDependencyNodeTargetIdentifier=netstandard2.0
+
+[commandLineArguments]
+/noconfig
+/unsafe-
+/checked-
+/nowarn:1701,1702,1701,1702
+/fullpaths
+/nostdlib+
+/errorreport:prompt
+/define:TRACE;DEBUG;NETSTANDARD;NETSTANDARD2_0;NETSTANDARD1_0_OR_GREATER;NETSTANDARD1_1_OR_GREATER;NETSTANDARD1_2_OR_GREATER;NETSTANDARD1_3_OR_GREATER;NETSTANDARD1_4_OR_GREATER;NETSTANDARD1_5_OR_GREATER;NETSTANDARD1_6_OR_GREATER;NETSTANDARD2_0_OR_GREATER
+/highentropyva+
+/debug+
+/debug:portable
+/filealign:512
+/optimize-
+/out:obj\Debug\netstandard2.0\Aberus.VisualStudio.Debugger.ImageVisualizer.DebuggeeSide.dll
+/target:library
+/warnaserror-
+/utf8output
+/deterministic+
+/langversion:7.3
+/warnaserror+:NU1605
+
+[sourceFiles]
+../ImageVisualizer14/ImageVisualizerObjectSource.cs
+obj/Debug/netstandard2.0/.NETStandard,Version=v2.0.AssemblyAttributes.cs
+
+[metadataReferences]
+../ImageVisualizer16.Common/bin/Debug/netstandard2.0/Aberus.VisualStudio.Debugger.ImageVisualizer.Common.dll
+
+[analyzerConfigFiles]
+../../../../.editorconfig
+obj/Debug/netstandard2.0/ImageVisualizer.DebuggeeSide.GeneratedMSBuildEditorConfig.editorconfig

@@ -1,1 +1,1 @@
-namespace MissionPlanner.GCSViews.ConfigurationView { public partial class ConfigSimplePids{public ConfigSimplePids(){this.InitializeComponent();}}}
+namespace XagSurveillanceGCS.GCSViews.ConfigurationView { public partial class ConfigSimplePids{public ConfigSimplePids(){this.InitializeComponent();}}}

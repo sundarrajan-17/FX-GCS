@@ -1,6 +1,6 @@
 ﻿using ICSharpCode.SharpZipLib.Core;
 using ICSharpCode.SharpZipLib.Zip;
-using MissionPlanner.Utilities;
+using XagSurveillanceGCS.Utilities;
 using SharpKml.Base;
 using SharpKml.Dom;
 using SharpKml.Dom.GX;
@@ -12,7 +12,7 @@ using System.Reflection;
 using System.Text;
 using System.Xml;
 
-namespace MissionPlanner.Log
+namespace XagSurveillanceGCS.Log
 {
     public class MavlinkLogBase
     {

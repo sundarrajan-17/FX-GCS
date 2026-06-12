@@ -7,12 +7,12 @@ using GMap.NET;
 using GMap.NET.WindowsForms;
 using GMap.NET.WindowsForms.Markers;
 
-namespace MissionPlanner.Maps
+namespace XagSurveillanceGCS.Maps
 {
     [Serializable]
     public class GMapMarkerPlus : GMapMarker
     {
-        private static readonly Bitmap icong = new Bitmap(global::MissionPlanner.Maps.Resources.plus.ToBitmap(), new Size(20, 20));
+        private static readonly Bitmap icong = new Bitmap(global::XagSurveillanceGCS.Maps.Resources.plus.ToBitmap(), new Size(20, 20));
 
         public GMapMarkerPlus(PointLatLng p)
             : base(p)

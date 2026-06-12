@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Windows.Forms;
 
-namespace MissionPlanner.Swarm
+namespace XagSurveillanceGCS.Swarm
 {
     public partial class FollowPathControl : Form
     {
@@ -36,7 +36,7 @@ namespace MissionPlanner.Swarm
 
             MessageBox.Show("this is beta, use at own risk");
 
-            MissionPlanner.Utilities.Tracking.AddPage(this.GetType().ToString(), this.Text);
+            XagSurveillanceGCS.Utilities.Tracking.AddPage(this.GetType().ToString(), this.Text);
         }
 
         private void CMB_mavs_SelectedIndexChanged(object sender, EventArgs e)

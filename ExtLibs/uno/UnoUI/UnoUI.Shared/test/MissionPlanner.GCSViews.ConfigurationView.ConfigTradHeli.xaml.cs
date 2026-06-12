@@ -1,1 +1,1 @@
-namespace MissionPlanner.GCSViews.ConfigurationView { public partial class ConfigTradHeli{public ConfigTradHeli(){this.InitializeComponent();}}}
+namespace XagSurveillanceGCS.GCSViews.ConfigurationView { public partial class ConfigTradHeli{public ConfigTradHeli(){this.InitializeComponent();}}}

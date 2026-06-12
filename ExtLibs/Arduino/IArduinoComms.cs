@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.IO.Ports;
-using MissionPlanner.Comms;
+using XagSurveillanceGCS.Comms;
 
-namespace MissionPlanner.Arduino
+namespace XagSurveillanceGCS.Arduino
 {
     public delegate void ProgressEventHandler(int progress, string status);
 

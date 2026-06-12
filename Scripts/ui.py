@@ -12,7 +12,7 @@ clr.ClearProfilerData()
 from System.Windows.Forms import Application, Form, Label
 from System.Drawing import Size,  Point, Font, Size
 
-print "MissionPlanner.Drawing" in [assembly.GetName().Name for assembly in clr.References]
+print "XagSurveillanceGCS.Drawing" in [assembly.GetName().Name for assembly in clr.References]
 print "System.Drawing" in [assembly.GetName().Name for assembly in clr.References]
 
 for index, item in enumerate(clr.References):

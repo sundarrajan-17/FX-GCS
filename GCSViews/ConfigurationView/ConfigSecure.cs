@@ -16,14 +16,14 @@ using System.Web;
 using System.Windows.Forms;
 using DeviceProgramming.FileFormat;
 using LibUsbDotNet;
-using MissionPlanner.Comms;
-using MissionPlanner.Controls;
-using MissionPlanner.Utilities;
+using XagSurveillanceGCS.Comms;
+using XagSurveillanceGCS.Controls;
+using XagSurveillanceGCS.Utilities;
 using Org.BouncyCastle.Crypto.Digests;
 using px4uploader;
 using Firmware = px4uploader.Firmware;
 
-namespace MissionPlanner.GCSViews.ConfigurationView
+namespace XagSurveillanceGCS.GCSViews.ConfigurationView
 {
     public partial class ConfigSecure : UserControl, IDeactivate, IActivate
     {

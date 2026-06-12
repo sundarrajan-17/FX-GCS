@@ -8,13 +8,13 @@ using GMap.NET.WindowsForms;
 using GMap.NET.WindowsForms.Markers;
 using Ionic.Zip;
 using log4net;
-using MissionPlanner.ArduPilot;
-using MissionPlanner.Controls;
-using MissionPlanner.Grid;
-using MissionPlanner.Maps;
-using MissionPlanner.Plugin;
-using MissionPlanner.Properties;
-using MissionPlanner.Utilities;
+using XagSurveillanceGCS.ArduPilot;
+using XagSurveillanceGCS.Controls;
+using XagSurveillanceGCS.Grid;
+using XagSurveillanceGCS.Maps;
+using XagSurveillanceGCS.Plugin;
+using XagSurveillanceGCS.Properties;
+using XagSurveillanceGCS.Utilities;
 using ProjNet.CoordinateSystems;
 using ProjNet.CoordinateSystems.Transformations;
 using SharpKml.Base;
@@ -48,14 +48,14 @@ using Formatting = Newtonsoft.Json.Formatting;
 using ILog = log4net.ILog;
 using Placemark = SharpKml.Dom.Placemark;
 using Point = System.Drawing.Point;
-using Resources = MissionPlanner.Properties.Resources;
+using Resources = XagSurveillanceGCS.Properties.Resources;
 using Newtonsoft.Json;
-using MissionPlanner.ArduPilot.Mavlink;
+using XagSurveillanceGCS.ArduPilot.Mavlink;
 using System.Drawing.Imaging;
 using SharpKml.Engine;
-using MissionPlanner.Controls.Waypoints;
+using XagSurveillanceGCS.Controls.Waypoints;
 
-namespace MissionPlanner.GCSViews
+namespace XagSurveillanceGCS.GCSViews
 {
     public partial class FlightPlanner : MyUserControl, IDeactivate, IActivate
     {
@@ -128,8 +128,8 @@ namespace MissionPlanner.GCSViews
         private PointLatLngAlt mouseposdisplay = new PointLatLngAlt(0, 0);
         private WPOverlay wpOverlay;
         private bool polygongridmode;
-        private MissionPlanner.Controls.Icon.Polygon polyicon = new MissionPlanner.Controls.Icon.Polygon();
-        private MissionPlanner.Controls.Icon.Zoom zoomicon = new MissionPlanner.Controls.Icon.Zoom();
+        private XagSurveillanceGCS.Controls.Icon.Polygon polyicon = new XagSurveillanceGCS.Controls.Icon.Polygon();
+        private XagSurveillanceGCS.Controls.Icon.Zoom zoomicon = new XagSurveillanceGCS.Controls.Icon.Zoom();
         private ComponentResourceManager rm = new ComponentResourceManager(typeof(FlightPlanner));
         private int selectedrow;
         private bool sethome;
@@ -591,6 +591,7 @@ namespace MissionPlanner.GCSViews
             }
             else
             {
+                // Make Red Colour if alt is negative from home alt
                 Commands.Rows[selectedrow].Cells[Command.Index].Value = MAVLink.MAV_CMD.WAYPOINT.ToString();
                 ChangeColumnHeader(MAVLink.MAV_CMD.WAYPOINT.ToString());
             }
@@ -1712,7 +1713,7 @@ namespace MissionPlanner.GCSViews
                 m.ToolTipText = "grid" + tag;
                 m.Tag = "grid" + tag;
 
-                //MissionPlanner.GMapMarkerRectWPRad mBorders = new MissionPlanner.GMapMarkerRectWPRad(point, (int)float.Parse(TXT_WPRad.Text), MainMap);
+                //XagSurveillanceGCS.GMapMarkerRectWPRad mBorders = new XagSurveillanceGCS.GMapMarkerRectWPRad(point, (int)float.Parse(TXT_WPRad.Text), MainMap);
                 GMapMarkerRect mBorders = new GMapMarkerRect(point);
                 {
                     mBorders.InnerMarker = m;
@@ -5689,7 +5690,7 @@ namespace MissionPlanner.GCSViews
                     {
                         StreamWriter sw = new StreamWriter(sf.OpenFile());
 
-                        sw.WriteLine("#saved by Mission Planner " + Application.ProductVersion);
+                        sw.WriteLine("#saved by XagSurveillanceGCS " + Application.ProductVersion);
 
                         if (drawnpolygon.Points.Count > 0)
                         {
@@ -5825,7 +5826,7 @@ Column 1: Field type (RALLY is the only one at the moment -- may have RALLY_LAND
                     {
                         using (StreamWriter sw = new StreamWriter(sf.OpenFile()))
                         {
-                            sw.WriteLine("#saved by Mission Planner " + Application.ProductVersion);
+                            sw.WriteLine("#saved by XagSurveillanceGCS " + Application.ProductVersion);
 
 
                             foreach (GMapMarkerRallyPt mark in rallypointoverlay.Markers)
@@ -6130,7 +6131,7 @@ Column 1: Field type (RALLY is the only one at the moment -- may have RALLY_LAND
                         return true;
                     // check this gcs sent it
                     if (data.target_system != MAVLinkInterface.gcssysid ||
-                        data.target_component != (byte) MAVLink.MAV_COMPONENT.MAV_COMP_ID_MISSIONPLANNER)
+                        data.target_component != (byte) MAVLink.MAV_COMPONENT.MAV_COMP_ID_XagSurveillanceGCS)
                         return true;
                     result = ans;
                     Console.WriteLine("MISSION_ACK " + ans + " " + data.ToJSON(Formatting.None));
@@ -6147,7 +6148,7 @@ Column 1: Field type (RALLY is the only one at the moment -- may have RALLY_LAND
                         return true;
                     // check this gcs sent it
                     if (data.target_system != MAVLinkInterface.gcssysid ||
-                        data.target_component != (byte) MAVLink.MAV_COMPONENT.MAV_COMP_ID_MISSIONPLANNER)
+                        data.target_component != (byte) MAVLink.MAV_COMPONENT.MAV_COMP_ID_XagSurveillanceGCS)
                         return true;
                     reqno = data.seq;
                     Console.WriteLine("MISSION_REQUEST " + reqno + " " + data.ToJSON(Formatting.None));
@@ -6164,7 +6165,7 @@ Column 1: Field type (RALLY is the only one at the moment -- may have RALLY_LAND
                         return true;
                     // check this gcs sent it
                     if (data.target_system != MAVLinkInterface.gcssysid ||
-                        data.target_component != (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_MISSIONPLANNER)
+                        data.target_component != (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_XagSurveillanceGCS)
                         return true;
                     reqno = data.seq;
                     Console.WriteLine("MISSION_REQUEST_INT " + reqno + " " + data.ToJSON(Formatting.None));

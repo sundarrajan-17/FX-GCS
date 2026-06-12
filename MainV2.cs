@@ -4,15 +4,15 @@ extern alias Drawing;
 
 using GMap.NET.WindowsForms;
 using log4net;
-using MissionPlanner.ArduPilot;
-using MissionPlanner.Comms;
-using MissionPlanner.Controls;
-using MissionPlanner.GCSViews.ConfigurationView;
-using MissionPlanner.Log;
-using MissionPlanner.Maps;
-using MissionPlanner.Utilities;
+using XagSurveillanceGCS.ArduPilot;
+using XagSurveillanceGCS.Comms;
+using XagSurveillanceGCS.Controls;
+using XagSurveillanceGCS.GCSViews.ConfigurationView;
+using XagSurveillanceGCS.Log;
+using XagSurveillanceGCS.Maps;
+using XagSurveillanceGCS.Utilities;
 
-using MissionPlanner.Warnings;
+using XagSurveillanceGCS.Warnings;
 using SkiaSharp;
 using System;
 using System.Collections;
@@ -31,14 +31,14 @@ using System.Text.RegularExpressions;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using MissionPlanner.ArduPilot.Mavlink;
-using MissionPlanner.Utilities.HW;
+using XagSurveillanceGCS.ArduPilot.Mavlink;
+using XagSurveillanceGCS.Utilities.HW;
 using Transitions;
 using System.Linq;
-using MissionPlanner.Joystick;
+using XagSurveillanceGCS.Joystick;
 using System.Net;
 using Newtonsoft.Json;
-using MissionPlanner;
+using XagSurveillanceGCS;
 using Flurl.Util;
 using Org.BouncyCastle.Bcpg;
 using log4net.Repository.Hierarchy;
@@ -47,7 +47,7 @@ using System.Runtime.Remoting.Metadata.W3cXsd2001;
 using static MAVLink;
 using DroneCAN;
 
-namespace MissionPlanner
+namespace XagSurveillanceGCS
 {
     public partial class MainV2 : Form
     {
@@ -83,7 +83,7 @@ namespace MissionPlanner
                     if (File.Exists($"{running_directory}light_flightdata_icon.png"))
                         return Image.FromFile($"{running_directory}light_flightdata_icon.png");
                     else
-                        return global::MissionPlanner.Properties.Resources.light_flightdata_icon;
+                        return global::XagSurveillanceGCS.Properties.Resources.light_flightdata_icon;
                 }
             }
 
@@ -94,7 +94,7 @@ namespace MissionPlanner
                     if (File.Exists($"{running_directory}light_flightplan_icon.png"))
                         return Image.FromFile($"{running_directory}light_flightplan_icon.png");
                     else
-                        return global::MissionPlanner.Properties.Resources.light_flightplan_icon;
+                        return global::XagSurveillanceGCS.Properties.Resources.light_flightplan_icon;
                 }
             }
 
@@ -105,7 +105,7 @@ namespace MissionPlanner
                     if (File.Exists($"{running_directory}light_initialsetup_icon.png"))
                         return Image.FromFile($"{running_directory}light_initialsetup_icon.png");
                     else
-                        return global::MissionPlanner.Properties.Resources.light_initialsetup_icon;
+                        return global::XagSurveillanceGCS.Properties.Resources.light_initialsetup_icon;
                 }
             }
 
@@ -116,7 +116,7 @@ namespace MissionPlanner
                     if (File.Exists($"{running_directory}light_tuningconfig_icon.png"))
                         return Image.FromFile($"{running_directory}light_tuningconfig_icon.png");
                     else
-                        return global::MissionPlanner.Properties.Resources.light_tuningconfig_icon;
+                        return global::XagSurveillanceGCS.Properties.Resources.light_tuningconfig_icon;
                 }
             }
 
@@ -127,7 +127,7 @@ namespace MissionPlanner
                     if (File.Exists($"{running_directory}light_simulation_icon.png"))
                         return Image.FromFile($"{running_directory}light_simulation_icon.png");
                     else
-                        return global::MissionPlanner.Properties.Resources.light_simulation_icon;
+                        return global::XagSurveillanceGCS.Properties.Resources.light_simulation_icon;
                 }
             }
 
@@ -138,7 +138,7 @@ namespace MissionPlanner
                     if (File.Exists($"{running_directory}light_terminal_icon.png"))
                         return Image.FromFile($"{running_directory}light_terminal_icon.png");
                     else
-                        return global::MissionPlanner.Properties.Resources.light_terminal_icon;
+                        return global::XagSurveillanceGCS.Properties.Resources.light_terminal_icon;
                 }
             }
 
@@ -149,7 +149,7 @@ namespace MissionPlanner
                     if (File.Exists($"{running_directory}light_help_icon.png"))
                         return Image.FromFile($"{running_directory}light_help_icon.png");
                     else
-                        return global::MissionPlanner.Properties.Resources.light_help_icon;
+                        return global::XagSurveillanceGCS.Properties.Resources.light_help_icon;
                 }
             }
 
@@ -160,7 +160,7 @@ namespace MissionPlanner
                     if (File.Exists($"{running_directory}light_donate_icon.png"))
                         return Image.FromFile($"{running_directory}light_donate_icon.png");
                     else
-                        return global::MissionPlanner.Properties.Resources.donate;
+                        return global::XagSurveillanceGCS.Properties.Resources.donate;
                 }
             }
 
@@ -171,7 +171,7 @@ namespace MissionPlanner
                     if (File.Exists($"{running_directory}light_connect_icon.png"))
                         return Image.FromFile($"{running_directory}light_connect_icon.png");
                     else
-                        return global::MissionPlanner.Properties.Resources.light_connect_icon;
+                        return global::XagSurveillanceGCS.Properties.Resources.light_connect_icon;
                 }
             }
 
@@ -182,7 +182,7 @@ namespace MissionPlanner
                     if (File.Exists($"{running_directory}light_disconnect_icon.png"))
                         return Image.FromFile($"{running_directory}light_disconnect_icon.png");
                     else
-                        return global::MissionPlanner.Properties.Resources.light_disconnect_icon;
+                        return global::XagSurveillanceGCS.Properties.Resources.light_disconnect_icon;
                 }
             }
 
@@ -193,7 +193,7 @@ namespace MissionPlanner
                     if (File.Exists($"{running_directory}light_icon_background.png"))
                         return Image.FromFile($"{running_directory}light_icon_background.png");
                     else
-                        return global::MissionPlanner.Properties.Resources.bgdark;
+                        return global::XagSurveillanceGCS.Properties.Resources.bgdark;
                 }
             }
 
@@ -204,7 +204,7 @@ namespace MissionPlanner
                     if (File.Exists($"{running_directory}light_wizard_icon.png"))
                         return Image.FromFile($"{running_directory}light_wizard_icon.png");
                     else
-                        return global::MissionPlanner.Properties.Resources.wizardicon;
+                        return global::XagSurveillanceGCS.Properties.Resources.wizardicon;
                 }
             }
         }
@@ -220,7 +220,7 @@ namespace MissionPlanner
                     if (File.Exists($"{running_directory}dark_flightdata_icon.png"))
                         return Image.FromFile($"{running_directory}dark_flightdata_icon.png");
                     else
-                        return global::MissionPlanner.Properties.Resources.dark_flightdata_icon;
+                        return global::XagSurveillanceGCS.Properties.Resources.dark_flightdata_icon;
                 }
             }
 
@@ -231,7 +231,7 @@ namespace MissionPlanner
                     if (File.Exists($"{running_directory}dark_flightplan_icon.png"))
                         return Image.FromFile($"{running_directory}dark_flightplan_icon.png");
                     else
-                        return global::MissionPlanner.Properties.Resources.dark_flightplan_icon;
+                        return global::XagSurveillanceGCS.Properties.Resources.dark_flightplan_icon;
                 }
             }
 
@@ -242,7 +242,7 @@ namespace MissionPlanner
                     if (File.Exists($"{running_directory}dark_initialsetup_icon.png"))
                         return Image.FromFile($"{running_directory}dark_initialsetup_icon.png");
                     else
-                        return global::MissionPlanner.Properties.Resources.dark_initialsetup_icon;
+                        return global::XagSurveillanceGCS.Properties.Resources.dark_initialsetup_icon;
                 }
             }
 
@@ -253,7 +253,7 @@ namespace MissionPlanner
                     if (File.Exists($"{running_directory}dark_tuningconfig_icon.png"))
                         return Image.FromFile($"{running_directory}dark_tuningconfig_icon.png");
                     else
-                        return global::MissionPlanner.Properties.Resources.dark_tuningconfig_icon;
+                        return global::XagSurveillanceGCS.Properties.Resources.dark_tuningconfig_icon;
                 }
             }
 
@@ -264,7 +264,7 @@ namespace MissionPlanner
                     if (File.Exists($"{running_directory}dark_simulation_icon.png"))
                         return Image.FromFile($"{running_directory}dark_simulation_icon.png");
                     else
-                        return global::MissionPlanner.Properties.Resources.dark_simulation_icon;
+                        return global::XagSurveillanceGCS.Properties.Resources.dark_simulation_icon;
                 }
             }
 
@@ -275,7 +275,7 @@ namespace MissionPlanner
                     if (File.Exists($"{running_directory}dark_terminal_icon.png"))
                         return Image.FromFile($"{running_directory}dark_terminal_icon.png");
                     else
-                        return global::MissionPlanner.Properties.Resources.dark_terminal_icon;
+                        return global::XagSurveillanceGCS.Properties.Resources.dark_terminal_icon;
                 }
             }
 
@@ -286,7 +286,7 @@ namespace MissionPlanner
                     if (File.Exists($"{running_directory}dark_help_icon.png"))
                         return Image.FromFile($"{running_directory}dark_help_icon.png");
                     else
-                        return global::MissionPlanner.Properties.Resources.dark_help_icon;
+                        return global::XagSurveillanceGCS.Properties.Resources.dark_help_icon;
                 }
             }
 
@@ -297,7 +297,7 @@ namespace MissionPlanner
                     if (File.Exists($"{running_directory}dark_donate_icon.png"))
                         return Image.FromFile($"{running_directory}dark_donate_icon.png");
                     else
-                        return global::MissionPlanner.Properties.Resources.donate;
+                        return global::XagSurveillanceGCS.Properties.Resources.donate;
                 }
             }
 
@@ -308,7 +308,7 @@ namespace MissionPlanner
                     if (File.Exists($"{running_directory}dark_connect_icon.png"))
                         return Image.FromFile($"{running_directory}dark_connect_icon.png");
                     else
-                        return global::MissionPlanner.Properties.Resources.dark_connect_icon;
+                        return global::XagSurveillanceGCS.Properties.Resources.dark_connect_icon;
                 }
             }
 
@@ -319,7 +319,7 @@ namespace MissionPlanner
                     if (File.Exists($"{running_directory}dark_disconnect_icon.png"))
                         return Image.FromFile($"{running_directory}dark_disconnect_icon.png");
                     else
-                        return global::MissionPlanner.Properties.Resources.dark_disconnect_icon;
+                        return global::XagSurveillanceGCS.Properties.Resources.dark_disconnect_icon;
                 }
             }
 
@@ -341,7 +341,7 @@ namespace MissionPlanner
                     if (File.Exists($"{running_directory}dark_wizard_icon.png"))
                         return Image.FromFile($"{running_directory}dark_wizard_icon.png");
                     else
-                        return global::MissionPlanner.Properties.Resources.wizardicon;
+                        return global::XagSurveillanceGCS.Properties.Resources.wizardicon;
                 }
             }
         }
@@ -506,8 +506,8 @@ namespace MissionPlanner
         {
             get
             {
-                if (MissionPlanner.GCSViews.SITL.SITLSEND == null) return false;
-                if (MissionPlanner.GCSViews.SITL.SITLSEND.Client.Connected) return true;
+                if (XagSurveillanceGCS.GCSViews.SITL.SITLSEND == null) return false;
+                if (XagSurveillanceGCS.GCSViews.SITL.SITLSEND.Client.Connected) return true;
                 return false;
             }
         }
@@ -602,7 +602,7 @@ namespace MissionPlanner
         {
             MenuSimulation.Visible = DisplayConfiguration.displaySimulation;
             MenuHelp.Visible = DisplayConfiguration.displayHelp;
-            MissionPlanner.Controls.BackstageView.BackstageView.Advanced = DisplayConfiguration.isAdvancedMode;
+            XagSurveillanceGCS.Controls.BackstageView.BackstageView.Advanced = DisplayConfiguration.isAdvancedMode;
 
             // force autohide on
             if (DisplayConfiguration.autoHideMenuForce)
@@ -796,7 +796,7 @@ namespace MissionPlanner
                 comPortBaud = int.Parse(temp2);
             }
 
-            MissionPlanner.Utilities.Tracking.cid = new Guid(Settings.Instance["guid"].ToString());
+            XagSurveillanceGCS.Utilities.Tracking.cid = new Guid(Settings.Instance["guid"].ToString());
 
             if (splash != null)
             {
@@ -994,7 +994,7 @@ namespace MissionPlanner
                     MainV2.speechEnable = Settings.Instance.GetBoolean("speechenable");
 
                 if (Settings.Instance["analyticsoptout"] != null)
-                    MissionPlanner.Utilities.Tracking.OptOut = Settings.Instance.GetBoolean("analyticsoptout");
+                    XagSurveillanceGCS.Utilities.Tracking.OptOut = Settings.Instance.GetBoolean("analyticsoptout");
 
                 try
                 {
@@ -1108,7 +1108,7 @@ namespace MissionPlanner
 
             CustomWarning.defaultsrc = MainV2.comPort.MAV.cs;
 
-            MissionPlanner.Controls.PreFlight.CheckListItem.defaultsrc = MainV2.comPort.MAV.cs;
+            XagSurveillanceGCS.Controls.PreFlight.CheckListItem.defaultsrc = MainV2.comPort.MAV.cs;
 
             // when uploading a firmware we dont want to reload this screen.
             if (instance.MyView.current.Control != null &&
@@ -1185,7 +1185,7 @@ namespace MissionPlanner
             MenuHelp.ForeColor = ThemeManager.TextColor;
         }
 
-        void adsb_UpdatePlanePosition(object sender, MissionPlanner.Utilities.adsb.PointLatLngAltHdg adsb)
+        void adsb_UpdatePlanePosition(object sender, XagSurveillanceGCS.Utilities.adsb.PointLatLngAltHdg adsb)
         {
             lock (adsblock)
             {
@@ -1418,7 +1418,7 @@ namespace MissionPlanner
                     {
                         try
                         {
-                            MissionPlanner.Log.LogSort.SortLogs(Directory.GetFiles(Settings.Instance.LogDir, "*.tlog"));
+                            XagSurveillanceGCS.Log.LogSort.SortLogs(Directory.GetFiles(Settings.Instance.LogDir, "*.tlog"));
                         }
                         catch
                         {
@@ -1430,7 +1430,7 @@ namespace MissionPlanner
             {
             }
 
-            this.MenuConnect.Image = global::MissionPlanner.Properties.Resources.light_connect_icon;
+            this.MenuConnect.Image = global::XagSurveillanceGCS.Properties.Resources.light_connect_icon;
         }
 
         public void doConnect(MAVLinkInterface comPort, string portname, string baud, bool getparams = true, bool showui = true)
@@ -1897,7 +1897,7 @@ namespace MissionPlanner
                     comPort.MAV.param.ContainsKey("INS_GYR3_ID") && comPort.MAV.param["INS_GYR3_ID"].Value == 0 &&
                     comPort.MAV.param.ContainsKey("INS_ENABLE_MASK") && comPort.MAV.param["INS_ENABLE_MASK"].Value >= 7)
                 {
-                    MissionPlanner.Controls.SB.Show("Param Scan");
+                    XagSurveillanceGCS.Controls.SB.Show("Param Scan");
                 }
             }
             catch
@@ -1936,11 +1936,10 @@ namespace MissionPlanner
                         if (bad1)
                             this.BeginInvoke(method: (Action) delegate
                             {
-                                MissionPlanner.Controls.SB.Show("SPI Scan");
+                                XagSurveillanceGCS.Controls.SB.Show("SPI Scan");
                             });
                     });
                 }
-
             }
             catch
             {
@@ -2102,7 +2101,7 @@ namespace MissionPlanner
                     {
                         try
                         {
-                            MissionPlanner.Log.LogSort.SortLogs(Directory.GetFiles(Settings.Instance.LogDir, "*.tlog"));
+                            XagSurveillanceGCS.Log.LogSort.SortLogs(Directory.GetFiles(Settings.Instance.LogDir, "*.tlog"));
                         }
                         catch
                         {
@@ -2380,7 +2379,7 @@ namespace MissionPlanner
                                     {
                                         if (sitl)
                                         {
-                                            MissionPlanner.GCSViews.SITL.rcinput();
+                                            XagSurveillanceGCS.GCSViews.SITL.rcinput();
                                         }
                                         else
                                         {
@@ -2416,7 +2415,7 @@ namespace MissionPlanner
                                     {
                                         if (sitl)
                                         {
-                                            MissionPlanner.GCSViews.SITL.rcinput();
+                                            XagSurveillanceGCS.GCSViews.SITL.rcinput();
                                         }
                                         else
                                         {
@@ -3165,7 +3164,7 @@ namespace MissionPlanner
 
             MyView.AddScreen(new MainSwitcher.Screen("FlightData", FlightData, true));
             MyView.AddScreen(new MainSwitcher.Screen("FlightPlanner", FlightPlanner, true));
-            MyView.AddScreen(new MainSwitcher.Screen("HWConfig", typeof(GCSViews.InitialSetup), false));
+            // MyView.AddScreen(new MainSwitcher.Screen("HWConfig", typeof(GCSViews.InitialSetup), false));
             MyView.AddScreen(new MainSwitcher.Screen("SWConfig", typeof(GCSViews.SoftwareConfig), false));
             MyView.AddScreen(new MainSwitcher.Screen("Simulation", Simulation, true));
             MyView.AddScreen(new MainSwitcher.Screen("Help", typeof(GCSViews.Help), false));
@@ -3602,7 +3601,7 @@ namespace MissionPlanner
             {
                 // prescan
                 if (Environment.OSVersion.Platform == PlatformID.Win32NT)
-                    MissionPlanner.Comms.CommsBLE.SerialPort_GetCustomPorts();
+                    XagSurveillanceGCS.Comms.CommsBLE.SerialPort_GetCustomPorts();
             }
             catch { }
 
@@ -3614,7 +3613,7 @@ namespace MissionPlanner
             Program.Splash?.Close();
 
             log.Info("appload time");
-            MissionPlanner.Utilities.Tracking.AddTiming("AppLoad", "Load Time",
+            XagSurveillanceGCS.Utilities.Tracking.AddTiming("AppLoad", "Load Time",
                 (DateTime.Now - Program.starttime).TotalMilliseconds, "");
 
             int p = (int) Environment.OSVersion.Platform;
@@ -3627,11 +3626,11 @@ namespace MissionPlanner
 
                 // invalidate update url
                 System.Configuration.ConfigurationManager.AppSettings["UpdateLocationVersion"] =
-                    "https://firmware.ardupilot.org/MissionPlanner/xp/";
+                    "https://firmware.ardupilot.org/XagSurveillanceGCS/xp/";
                 System.Configuration.ConfigurationManager.AppSettings["UpdateLocation"] =
-                    "https://firmware.ardupilot.org/MissionPlanner/xp/";
+                    "https://firmware.ardupilot.org/XagSurveillanceGCS/xp/";
                 System.Configuration.ConfigurationManager.AppSettings["UpdateLocationMD5"] =
-                    "https://firmware.ardupilot.org/MissionPlanner/xp/checksums.txt";
+                    "https://firmware.ardupilot.org/XagSurveillanceGCS/xp/checksums.txt";
                 System.Configuration.ConfigurationManager.AppSettings["BetaUpdateLocationVersion"] = "";
             }
 
@@ -3645,7 +3644,7 @@ namespace MissionPlanner
                 }
                 else if (Settings.Instance.GetBoolean("beta_updates") == true)
                 {
-                    MissionPlanner.Utilities.Update.dobeta = true;
+                    XagSurveillanceGCS.Utilities.Update.dobeta = true;
                     System.Threading.ThreadPool.QueueUserWorkItem(checkupdate);
                 }
             }
@@ -3966,9 +3965,9 @@ namespace MissionPlanner
             // sort logs
             try
             {
-                MissionPlanner.Log.LogSort.SortLogs(Directory.GetFiles(Settings.Instance.LogDir, "*.tlog"));
+                XagSurveillanceGCS.Log.LogSort.SortLogs(Directory.GetFiles(Settings.Instance.LogDir, "*.tlog"));
 
-                MissionPlanner.Log.LogSort.SortLogs(Directory.GetFiles(Settings.Instance.LogDir, "*.rlog"));
+                XagSurveillanceGCS.Log.LogSort.SortLogs(Directory.GetFiles(Settings.Instance.LogDir, "*.rlog"));
             }
             catch (Exception ex)
             {
@@ -4016,7 +4015,7 @@ namespace MissionPlanner
 
             try
             {
-                MissionPlanner.Utilities.Update.CheckForUpdate();
+                XagSurveillanceGCS.Utilities.Update.CheckForUpdate();
             }
             catch (Exception ex)
             {
@@ -4551,7 +4550,7 @@ namespace MissionPlanner
                         }
                     }
 
-                    foreach (var item in MissionPlanner.Plugin.PluginLoader.Plugins)
+                    foreach (var item in XagSurveillanceGCS.Plugin.PluginLoader.Plugins)
                     {
                         item.Host.ProcessDeviceChanged((WM_DEVICECHANGE_enum) m.WParam);
                     }
@@ -4625,7 +4624,7 @@ namespace MissionPlanner
                 }
             }
             //MainMenu.BackColor = Color.Black;
-            //MainMenu.BackgroundImage = MissionPlanner.Properties.Resources.bgdark;
+            //MainMenu.BackgroundImage = XagSurveillanceGCS.Properties.Resources.bgdark;
         }
 
         private void fullScreenToolStripMenuItem_Click(object sender, EventArgs e)

@@ -1,4 +1,4 @@
-﻿namespace MissionPlanner.GCSViews.ConfigurationView
+﻿namespace XagSurveillanceGCS.GCSViews.ConfigurationView
 {
     partial class ConfigHWCompass
     {
@@ -43,47 +43,47 @@
             this.groupBoxonboardcalib = new System.Windows.Forms.GroupBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.mavlinkComboBoxfitness = new MissionPlanner.Controls.MavlinkComboBox();
+            this.mavlinkComboBoxfitness = new XagSurveillanceGCS.Controls.MavlinkComboBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.horizontalProgressBar3 = new MissionPlanner.Controls.HorizontalProgressBar();
-            this.horizontalProgressBar2 = new MissionPlanner.Controls.HorizontalProgressBar();
-            this.horizontalProgressBar1 = new MissionPlanner.Controls.HorizontalProgressBar();
+            this.horizontalProgressBar3 = new XagSurveillanceGCS.Controls.HorizontalProgressBar();
+            this.horizontalProgressBar2 = new XagSurveillanceGCS.Controls.HorizontalProgressBar();
+            this.horizontalProgressBar1 = new XagSurveillanceGCS.Controls.HorizontalProgressBar();
             this.lbl_obmagresult = new System.Windows.Forms.TextBox();
-            this.BUT_OBmagcalaccept = new MissionPlanner.Controls.MyButton();
-            this.BUT_OBmagcalcancel = new MissionPlanner.Controls.MyButton();
-            this.BUT_OBmagcalstart = new MissionPlanner.Controls.MyButton();
+            this.BUT_OBmagcalaccept = new XagSurveillanceGCS.Controls.MyButton();
+            this.BUT_OBmagcalcancel = new XagSurveillanceGCS.Controls.MyButton();
+            this.BUT_OBmagcalstart = new XagSurveillanceGCS.Controls.MyButton();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.groupBoxmpcalib = new System.Windows.Forms.GroupBox();
-            this.BUT_MagCalibrationLive = new MissionPlanner.Controls.MyButton();
+            this.BUT_MagCalibrationLive = new XagSurveillanceGCS.Controls.MyButton();
             this.label4 = new System.Windows.Forms.Label();
             this.groupBoxGeneralSettings = new System.Windows.Forms.GroupBox();
-            this.CMB_primary_compass = new MissionPlanner.Controls.MavlinkComboBox();
+            this.CMB_primary_compass = new XagSurveillanceGCS.Controls.MavlinkComboBox();
             this.LBL_primary_compass = new System.Windows.Forms.Label();
-            this.CHK_compass_learn = new MissionPlanner.Controls.MavlinkCheckBox();
+            this.CHK_compass_learn = new XagSurveillanceGCS.Controls.MavlinkCheckBox();
             this.groupBoxCompass1 = new System.Windows.Forms.GroupBox();
             this.LBL_compass1_mot = new System.Windows.Forms.Label();
             this.LBL_compass1_offset = new System.Windows.Forms.Label();
-            this.CHK_compass1_external = new MissionPlanner.Controls.MavlinkCheckBox();
-            this.CHK_compass1_use = new MissionPlanner.Controls.MavlinkCheckBox();
-            this.CMB_compass1_orient = new MissionPlanner.Controls.MavlinkComboBox();
+            this.CHK_compass1_external = new XagSurveillanceGCS.Controls.MavlinkCheckBox();
+            this.CHK_compass1_use = new XagSurveillanceGCS.Controls.MavlinkCheckBox();
+            this.CMB_compass1_orient = new XagSurveillanceGCS.Controls.MavlinkComboBox();
             this.groupBoxCompass2 = new System.Windows.Forms.GroupBox();
             this.LBL_compass2_mot = new System.Windows.Forms.Label();
             this.LBL_compass2_offset = new System.Windows.Forms.Label();
-            this.CHK_compass2_external = new MissionPlanner.Controls.MavlinkCheckBox();
-            this.CHK_compass2_use = new MissionPlanner.Controls.MavlinkCheckBox();
-            this.CMB_compass2_orient = new MissionPlanner.Controls.MavlinkComboBox();
+            this.CHK_compass2_external = new XagSurveillanceGCS.Controls.MavlinkCheckBox();
+            this.CHK_compass2_use = new XagSurveillanceGCS.Controls.MavlinkCheckBox();
+            this.CMB_compass2_orient = new XagSurveillanceGCS.Controls.MavlinkComboBox();
             this.groupBoxCompass3 = new System.Windows.Forms.GroupBox();
             this.LBL_compass3_mot = new System.Windows.Forms.Label();
             this.LBL_compass3_offset = new System.Windows.Forms.Label();
-            this.CHK_compass3_external = new MissionPlanner.Controls.MavlinkCheckBox();
-            this.CHK_compass3_use = new MissionPlanner.Controls.MavlinkCheckBox();
-            this.CMB_compass3_orient = new MissionPlanner.Controls.MavlinkComboBox();
-            this.buttonAPMExternal = new MissionPlanner.Controls.MyButton();
-            this.QuickAPM25 = new MissionPlanner.Controls.MyButton();
-            this.buttonQuickPixhawk = new MissionPlanner.Controls.MyButton();
-            this.but_largemagcal = new MissionPlanner.Controls.MyButton();
+            this.CHK_compass3_external = new XagSurveillanceGCS.Controls.MavlinkCheckBox();
+            this.CHK_compass3_use = new XagSurveillanceGCS.Controls.MavlinkCheckBox();
+            this.CMB_compass3_orient = new XagSurveillanceGCS.Controls.MavlinkComboBox();
+            this.buttonAPMExternal = new XagSurveillanceGCS.Controls.MyButton();
+            this.QuickAPM25 = new XagSurveillanceGCS.Controls.MyButton();
+            this.buttonQuickPixhawk = new XagSurveillanceGCS.Controls.MyButton();
+            this.but_largemagcal = new XagSurveillanceGCS.Controls.MyButton();
             this.groupBoxonboardcalib.SuspendLayout();
             this.groupBoxmpcalib.SuspendLayout();
             this.groupBoxGeneralSettings.SuspendLayout();

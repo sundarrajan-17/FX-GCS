@@ -1,8 +1,8 @@
 ﻿using System.Windows.Forms;
-using MissionPlanner.Controls;
-using MissionPlanner.Utilities;
+using XagSurveillanceGCS.Controls;
+using XagSurveillanceGCS.Utilities;
 
-namespace MissionPlanner.Antenna
+namespace XagSurveillanceGCS.Antenna
 {
     public partial class TrackerUI : UserControl, IDeactivate, IActivate
     {

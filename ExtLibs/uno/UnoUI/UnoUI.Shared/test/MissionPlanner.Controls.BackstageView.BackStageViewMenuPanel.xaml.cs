@@ -1,1 +1,1 @@
-namespace MissionPlanner.Controls.BackstageView { public partial class BackStageViewMenuPanel{public BackStageViewMenuPanel(){this.InitializeComponent();}}}
+namespace XagSurveillanceGCS.Controls.BackstageView { public partial class BackStageViewMenuPanel{public BackStageViewMenuPanel(){this.InitializeComponent();}}}

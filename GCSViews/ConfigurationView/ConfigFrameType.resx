@@ -268,7 +268,7 @@
     <value>NoControl</value>
   </data>
   <data name="&gt;&gt;pictureBoxY.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.PictureBoxWithPseudoOpacity, MissionPlanner.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>XagSurveillanceGCS.Controls.PictureBoxWithPseudoOpacity, XagSurveillanceGCS.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="label5.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -334,7 +334,7 @@
     <value>configDefaultSettings1</value>
   </data>
   <data name="&gt;&gt;pictureBoxV.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.PictureBoxWithPseudoOpacity, MissionPlanner.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>XagSurveillanceGCS.Controls.PictureBoxWithPseudoOpacity, XagSurveillanceGCS.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;groupBox2.ZOrder" xml:space="preserve">
     <value>0</value>
@@ -400,7 +400,7 @@
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;pictureBoxH.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.PictureBoxWithPseudoOpacity, MissionPlanner.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>XagSurveillanceGCS.Controls.PictureBoxWithPseudoOpacity, XagSurveillanceGCS.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;groupBox1.Parent" xml:space="preserve">
     <value>$this</value>
@@ -439,7 +439,7 @@
     <value>94</value>
   </data>
   <data name="&gt;&gt;configDefaultSettings1.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.DefaultSettings, MissionPlanner, Version=1.1.5589.36407, Culture=neutral, PublicKeyToken=null</value>
+    <value>XagSurveillanceGCS.Controls.DefaultSettings, XagSurveillanceGCS, Version=1.1.5589.36407, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="radioButton_X.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -496,7 +496,7 @@
     <value>17</value>
   </data>
   <data name="&gt;&gt;pictureBoxPlus.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.PictureBoxWithPseudoOpacity, MissionPlanner.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>XagSurveillanceGCS.Controls.PictureBoxWithPseudoOpacity, XagSurveillanceGCS.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="label7.Text" xml:space="preserve">
     <value>NOTE: This is the Y6B and prop rotation changes from the old Y6A</value>
@@ -553,7 +553,7 @@
     <value>111, 78</value>
   </data>
   <data name="&gt;&gt;pictureBoxVTail.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.PictureBoxWithPseudoOpacity, MissionPlanner.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>XagSurveillanceGCS.Controls.PictureBoxWithPseudoOpacity, XagSurveillanceGCS.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="groupBox2.TabIndex" type="System.Int32, mscorlib">
     <value>97</value>
@@ -577,7 +577,7 @@
     <value>groupBox2</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>System.Windows.Forms.MyUserControl, MissionPlanner.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>System.Windows.Forms.MyUserControl, XagSurveillanceGCS.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;label3.Name" xml:space="preserve">
     <value>label3</value>
@@ -601,7 +601,7 @@
     <value>23</value>
   </data>
   <data name="&gt;&gt;pictureBoxX.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.PictureBoxWithPseudoOpacity, MissionPlanner.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>XagSurveillanceGCS.Controls.PictureBoxWithPseudoOpacity, XagSurveillanceGCS.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;radioButton_H.Parent" xml:space="preserve">
     <value>groupBox2</value>

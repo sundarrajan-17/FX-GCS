@@ -2,16 +2,16 @@
 using System.Drawing;
 using GMap.NET;
 using GMap.NET.WindowsForms;
-using MissionPlanner.Utilities;
+using XagSurveillanceGCS.Utilities;
 
-namespace MissionPlanner.Maps
+namespace XagSurveillanceGCS.Maps
 {
     [Serializable]
     public class GMapMarkerSub : GMapMarkerBase
     {
         private static readonly System.Drawing.Size SizeSt = new System.Drawing.Size(59, 59);
 
-        private static Bitmap imagecache = new Bitmap(global::MissionPlanner.Maps.Resources.sub, SizeSt);
+        private static Bitmap imagecache = new Bitmap(global::XagSurveillanceGCS.Maps.Resources.sub, SizeSt);
 
         float heading = 0;
         float cog = -1;

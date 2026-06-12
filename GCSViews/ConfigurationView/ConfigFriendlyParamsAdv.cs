@@ -1,6 +1,6 @@
-﻿using MissionPlanner.Utilities;
+﻿using XagSurveillanceGCS.Utilities;
 
-namespace MissionPlanner.GCSViews.ConfigurationView
+namespace XagSurveillanceGCS.GCSViews.ConfigurationView
 {
     public partial class ConfigFriendlyParamsAdv : ConfigFriendlyParams
     {

@@ -1,4 +1,4 @@
-﻿namespace MissionPlanner
+﻿namespace XagSurveillanceGCS
 {
     partial class Splash
     {
@@ -73,7 +73,7 @@
             // Splash
             // 
 
-            this.BackgroundImage = global::MissionPlanner.Properties.Resources.splashdark;
+            this.BackgroundImage = global::XagSurveillanceGCS.Properties.Resources.splashdark;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ClientSize = new System.Drawing.Size(584, 336);
             this.ControlBox = false;
@@ -88,7 +88,7 @@
             this.MinimumSize = new System.Drawing.Size(600, 375);
             this.Name = "Splash";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Mission Planner";
+            this.Text = "XagSurveillanceGCS";
             this.TopMost = true;
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);

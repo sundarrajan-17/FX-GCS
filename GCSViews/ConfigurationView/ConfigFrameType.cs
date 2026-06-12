@@ -1,12 +1,12 @@
 ﻿using log4net;
-using MissionPlanner.ArduPilot;
-using MissionPlanner.Controls;
+using XagSurveillanceGCS.ArduPilot;
+using XagSurveillanceGCS.Controls;
 using System;
 using System.Reflection;
 using System.Windows.Forms;
 using Transitions;
 
-namespace MissionPlanner.GCSViews.ConfigurationView
+namespace XagSurveillanceGCS.GCSViews.ConfigurationView
 {
     public partial class ConfigFrameType : MyUserControl, IActivate, IDeactivate
     {

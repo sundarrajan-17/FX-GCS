@@ -3,7 +3,7 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 
-namespace MissionPlanner.Controls
+namespace XagSurveillanceGCS.Controls
 {   
     public class CameraSettingsForm : Form
     {
@@ -46,7 +46,7 @@ namespace MissionPlanner.Controls
             // AddCombo("Thermal View Mode", new[] { "None","Full", "Picture-In-Picture", "Blend" });
             // AddSlider("Blend Opacity", 0, 100, 30);
             AddCombo("Camera EV", new[] {"-4.5","-3", "-1.5", "0", "+1.5", "+3","4.5"});
-            AddCombo("White Balance", new[] { "Auto", "Indoor", "Outdoor" });
+            AddCombo("White Balance", new[] { "Auto", "Indoor", "Outdoor", "OnePushWB", "ATW", "Manual", "OutdoorAuto", "SodiumLampAuto", "SodiumLamp", "SodiumLampOutdoorAuto"});
             AddToggle("High Sensitivity", (bool)this._parentControl.cameraSettings["EO_HS"] == false ? false : true);
             AddCombo("Video Quality", new[] { "Default", "Medium", "High" });
             AddCombo("RTSP Resolution", new[] { "720p", "1080p" });
@@ -56,11 +56,13 @@ namespace MissionPlanner.Controls
             AddCombo("Infrared Palette", new[] { "White Hot","Sepia","Ironbow","Rainbow","Night","Aurora","Red Hot","Jungle","Medical","Black Hot","Glory Hot" });
             // AddSlider("Gimbal Speed", 0, 100, 40);
             AddCombo("Yaw Mode", new[] { "Head", "Global" });
-            AddCombo("Track Algorithm", new[] { "None", "Nano", "SiamRpn" });
-            AddCombo("Smart Select",new[] {"None","Yolov11","Yolov8","Yolov5"});
+            AddCombo("Track Algorithm", new[] { "None", "OSTrack", "Nano", "SiamRPN" });
+            AddCombo("Smart Select",new[] {"None","Yolo11","Yolo26","Yolov8"});
             AddCombo("AI Resolution", new[] {"640X480","1280X720","1920X1080"});
             AddToggle("AI OSD", (bool)this._parentControl.cameraSettings["AI_OSD"] == false ? false : true);
             AddToggle("RangeFinder", (bool)this._parentControl.cameraSettings["TOF_EN"] == false ? false : true);
+            AddCombo("Merge Display Mode",new[] {"IR in EO","EO in IR","EO","IR"});
+            AddCombo("Track Mode",new[] {"Angle Control", "Velocity Control"});
             if((bool)this._parentControl.cameraSettings["AI_OSD"] == false)
             {
                 AddCombo("AI Video Source", new[] { "EO", "IR" });
@@ -77,7 +79,7 @@ namespace MissionPlanner.Controls
 
             AddCombo("Camera", new[] { "R1", "R2", "R3" });
             AddCombo("Camera EV", new[] {"-4.5","-3", "-1.5", "0", "+1.5", "+3","4.5"});
-            AddCombo("White Balance", new[] { "Auto", "Indoor", "Outdoor" });
+            AddCombo("White Balance", new[] { "Auto", "Indoor", "Outdoor", "OnePushWB", "ATW", "Manual", "OutdoorAuto", "SodiumLampAuto", "SodiumLamp", "SodiumLampOutdoorAuto" });
             AddToggle("High Sensitivity", (bool)_parentControl.cameraSettings["EO_HS"]);
             AddCombo("Video Quality", new[] { "Default", "Medium", "High" });
             AddCombo("RTSP Resolution", new[] { "720p", "1080p" });
@@ -85,12 +87,13 @@ namespace MissionPlanner.Controls
             AddToggle("IR Thermometry", (bool)_parentControl.cameraSettings["IR_THERMOMETRY"]);
             AddCombo("Infrared Palette", new[] { "White Hot","Sepia","Ironbow","Rainbow","Night","Aurora","Red Hot","Jungle","Medical","Black Hot","Glory Hot" });
             AddCombo("Yaw Mode", new[] { "Head", "Global" });
-            AddCombo("Track Algorithm", new[] { "None", "Nano", "SiamRpn" });
-            AddCombo("Smart Select", new[] {"None","Yolov11","Yolov8","Yolov5"});
+            AddCombo("Track Algorithm", new[] { "None", "OSTrack", "Nano", "SiamRPN" });
+            AddCombo("Smart Select", new[] {"None","Yolo11","Yolo26","Yolov8"});
             AddCombo("AI Resolution", new[] {"640X480","1280X720","1920X1080"});
             AddToggle("AI OSD", (bool)_parentControl.cameraSettings["AI_OSD"]);
             AddToggle("RangeFinder", (bool)_parentControl.cameraSettings["TOF_EN"]);
-
+            AddCombo("Merge Display Mode",new[] {"IR in EO","EO in IR","EO","IR"});
+            AddCombo("Track Mode",new[] {"Angle Control", "Velocity Control"});
             if (!(bool)_parentControl.cameraSettings["AI_OSD"])
             {
                 AddCombo("AI Video Source", new[] { "EO", "IR" });
@@ -125,7 +128,7 @@ namespace MissionPlanner.Controls
             msg.target_component = (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_CAMERA;
             msg.param_id = id_bytes;
             msg.param_value = source_bytes;
-            msg.param_type = 6;
+            msg.param_type = 11;
 
             MainV2.comPort.sendPacket(
                 msg,
@@ -157,22 +160,12 @@ namespace MissionPlanner.Controls
             );
         } 
 
-        private void ApplyWhiteBalance(string mode)
+        private void ApplyWhiteBalance(int value)
         {
-            Console.WriteLine($"Applying White Balance: {mode}");
+            Console.WriteLine($"Applying White Balance: {value}");
             // Example: call your Gremsy / Viewpro / MAVLink command to set white balance
             // _parentControl.SetWhiteBalance(mode);
-            int value = 0;
-            if(mode == "Auto")
-            {
-                value = 0;
-            }else if(mode == "Indoor")
-            {
-                value = 1;
-            }else if(mode == "Outdoor")
-            {
-                value = 2;
-            }
+            
             string text = "EO_WB";
             byte[] id_bytes = Encoding.ASCII.GetBytes(text);
             byte[] value_bytes = BitConverter.GetBytes(value);
@@ -211,8 +204,6 @@ namespace MissionPlanner.Controls
         private void ApplyVideoQuality(string quality)
         {
             Console.WriteLine($"Applying Video Quality: {quality}");
-            // Example: call your Gremsy / Viewpro / MAVLink command to set video quality
-            // _parentControl.SetVideoQuality(quality);
             int value =20;
             if(quality == "Low")
             {
@@ -310,20 +301,9 @@ namespace MissionPlanner.Controls
         private void ApplyInfraredPalette(int palette)
         {
             Console.WriteLine($"Applying Infrared Palette: {palette}");
-            // Example: call your Gremsy / Viewpro / MAVLink command to set infrared palette
-            // _parentControl.SetInfraredPalette(palette);
             string text = "IR_PALETTE";
             byte[] id_bytes = Encoding.ASCII.GetBytes(text);
             byte[] value_bytes = BitConverter.GetBytes(palette);
-            // var msg = new MAVLink.mavlink_param_ext_set_t
-            // {
-            //     target_system = (byte)MainV2.comPort.sysidcurrent,
-            //     target_component = (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_CAMERA,
-            //     param_id = id_bytes,
-            //     param_value = value_bytes, 
-            //     param_type = unchecked((byte)-1)
-            // };
-
             var msg = new MAVLink.mavlink_param_ext_set_t();
 
             msg.target_system = (byte)MainV2.comPort.sysidcurrent;
@@ -446,6 +426,46 @@ namespace MissionPlanner.Controls
             );
         }
 
+        private void ApplyMergeVideo(int merge_video)
+        {
+            string text = "MERGE_DISPLAY";
+            byte[] id_bytes = Encoding.ASCII.GetBytes(text);
+            byte[] value_bytes = BitConverter.GetBytes(merge_video);
+
+            var msg = new MAVLink.mavlink_param_ext_set_t();
+            msg.target_system = (byte)MainV2.comPort.sysidcurrent;
+            msg.target_component = (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_CAMERA;
+            msg.param_id = id_bytes;
+            msg.param_value = value_bytes;
+            msg.param_type = 6;
+
+            MainV2.comPort.sendPacket(
+                msg,
+                (byte)MainV2.comPort.sysidcurrent,
+                (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_CAMERA
+            );
+        }
+
+        private void ApplyTrackMode(int track_mode)
+        {
+            string text = "TRACK_MODE";
+            byte[] id_bytes = Encoding.ASCII.GetBytes(text);
+            byte[] value_bytes = BitConverter.GetBytes(track_mode);
+
+            var msg = new MAVLink.mavlink_param_ext_set_t();
+            msg.target_system = (byte)MainV2.comPort.sysidcurrent;
+            msg.target_component = (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_CAMERA;
+            msg.param_id = id_bytes;
+            msg.param_value = value_bytes;
+            msg.param_type = 6;
+
+            MainV2.comPort.sendPacket(
+                msg,
+                (byte)MainV2.comPort.sysidcurrent,
+                (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_CAMERA
+            );
+        }
+
         private void Combo_SelectedIndexChanged(object sender, EventArgs e)
         {
             ComboBox cmb = (ComboBox)sender;
@@ -468,7 +488,7 @@ namespace MissionPlanner.Controls
                 ApplyCameraSelection(value);
             }else if(settingName == "White Balance")
             {
-                ApplyWhiteBalance(value);
+                ApplyWhiteBalance(index);
             }else if(settingName == "Video Quality")
             {
                 ApplyVideoQuality(value);
@@ -493,6 +513,12 @@ namespace MissionPlanner.Controls
             }else if(settingName == "AI Resolution")
             {
                 ApplyAIResolution(index);
+            }else if(settingName == "Merge Display Mode")
+            {
+                ApplyMergeVideo(index);
+            }else if(settingName == "Track Mode")
+            {
+                ApplyTrackMode(index+=2);
             }
         }
         // ---------- Helpers ----------
@@ -582,7 +608,14 @@ namespace MissionPlanner.Controls
             }else if(label == "Camera EV")
             {
                 cb.SelectedIndex = (int)this._parentControl.cameraSettings["EO_EV"] == 10 ? 0 : (int)this._parentControl.cameraSettings["EO_EV"] == 9 ? 1 : (int)this._parentControl.cameraSettings["EO_EV"] == 8 ? 2 : (int)this._parentControl.cameraSettings["EO_EV"] == 7 ? 3 : (int)this._parentControl.cameraSettings["EO_EV"] == 6 ? 4 : (int)this._parentControl.cameraSettings["EO_EV"] == 5 ? 5 : 6; // Default to 0
-            }else
+            }else if(label == "Merge Display Mode")
+            {
+                cb.SelectedIndex = (int)this._parentControl.cameraSettings["MERGE_DISPLAY"];
+            }else if(label == "Track Mode")
+            {
+                cb.SelectedIndex = (int)this._parentControl.cameraSettings["TRACK_MODE"] == 2 ? 0 : 1;
+            }
+            else
             {
                 cb.SelectedIndex = 0;
             }

@@ -2,10 +2,10 @@
 using GMap.NET;
 using GMap.NET.MapProviders;
 using GMap.NET.WindowsForms;
-using MissionPlanner.Controls;
-using MissionPlanner.GCSViews;
-using MissionPlanner.Maps;
-using MissionPlanner.Utilities;
+using XagSurveillanceGCS.Controls;
+using XagSurveillanceGCS.GCSViews;
+using XagSurveillanceGCS.Maps;
+using XagSurveillanceGCS.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -14,7 +14,7 @@ using System.Windows.Forms;
 using Timer = System.Windows.Forms.Timer;
 
 
-namespace MissionPlanner
+namespace XagSurveillanceGCS
 {
     public class FaceMap
     {

@@ -3,7 +3,7 @@ using System.Text;
 using System.IO;
 using System.Linq;
 
-namespace MissionPlanner.Utilities
+namespace XagSurveillanceGCS.Utilities
 {
     public delegate void StringWrittenEvent(object sender, string writtenString);
 

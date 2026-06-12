@@ -115,9 +115,9 @@
   </PropertyGroup>
   <ItemGroup>
     <!-- A reference to the entire .Net Framework and Windows SDK are automatically included -->
-    <ProjectReference Include="..\..\..\..\..\MissionPlannerLib.csproj">
+    <ProjectReference Include="..\..\..\..\..\XagSurveillanceGCSLib.csproj">
       <Project>{9ab081c4-9e8a-4559-b721-74eb0447cfe5}</Project>
-      <Name>MissionPlannerLib</Name>
+      <Name>XagSurveillanceGCSLib</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
@@ -144,15 +144,15 @@
     <Reference Include="Interfaces">
       <HintPath>..\..\..\..\..\bin\Debug\netstandard2.0\Interfaces.dll</HintPath>
     </Reference>
-    <Reference Include="MissionPlanner.Controls">
-      <HintPath>..\..\..\..\..\bin\Debug\netstandard2.0\MissionPlanner.Controls.dll</HintPath>
+    <Reference Include="XagSurveillanceGCS.Controls">
+      <HintPath>..\..\..\..\..\bin\Debug\netstandard2.0\XagSurveillanceGCS.Controls.dll</HintPath>
     </Reference>
-    <Reference Include="MissionPlanner.Drawing, Version=4.0.0.2, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="XagSurveillanceGCS.Drawing, Version=4.0.0.2, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\bin\Debug\netstandard2.0\MissionPlanner.Drawing.dll</HintPath>
+      <HintPath>..\..\..\..\..\bin\Debug\netstandard2.0\XagSurveillanceGCS.Drawing.dll</HintPath>
     </Reference>
-    <Reference Include="MissionPlanner.Utilities">
-      <HintPath>..\..\..\..\..\bin\Debug\netstandard2.0\MissionPlanner.Utilities.dll</HintPath>
+    <Reference Include="XagSurveillanceGCS.Utilities">
+      <HintPath>..\..\..\..\..\bin\Debug\netstandard2.0\XagSurveillanceGCS.Utilities.dll</HintPath>
     </Reference>
     <Reference Include="System.Drawing.Common">
       <HintPath>..\..\..\..\..\bin\Debug\netstandard2.0\System.Drawing.Common.dll</HintPath>

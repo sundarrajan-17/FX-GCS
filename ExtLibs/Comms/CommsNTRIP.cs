@@ -12,7 +12,7 @@ using log4net;
 // dns, ip address
 // tcplistner
 
-namespace MissionPlanner.Comms
+namespace XagSurveillanceGCS.Comms
 {
     public class CommsNTRIP : CommsBase, ICommsSerial, IDisposable
     {
@@ -353,14 +353,14 @@ namespace MissionPlanner.Comms
             var sr = new StreamReader(st);
 
             var linev1 = "GET " + remoteUri.PathAndQuery + " HTTP/1.0\r\n"
-                        + "User-Agent: NTRIP MissionPlanner/1.0\r\n"
+                        + "User-Agent: NTRIP XagSurveillanceGCS/1.0\r\n"
                         + auth
                         + "Connection: close\r\n\r\n";
 
             var linev2 = "GET " + remoteUri.PathAndQuery + " HTTP/1.1\r\n"
                        + "Host: " + remoteUri.Host + ":" + remoteUri.Port + "\r\n"
                        + "Ntrip-Version: Ntrip/2.0\r\n"
-                       + "User-Agent: NTRIP MissionPlanner/1.0\r\n"
+                       + "User-Agent: NTRIP XagSurveillanceGCS/1.0\r\n"
                        + auth
                        + "Connection: close\r\n\r\n";
             if (ntrip_v1)

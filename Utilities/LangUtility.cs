@@ -5,7 +5,7 @@ using System.ComponentModel;
 using System.Globalization;
 using System.Windows.Forms;
 
-namespace MissionPlanner.Utilities
+namespace XagSurveillanceGCS.Utilities
 {
     public static class CultureInfoEx
     {

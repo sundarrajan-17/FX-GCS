@@ -1,13 +1,13 @@
 ﻿using IronPython.Hosting;
 using Microsoft.Scripting.Hosting;
-using MissionPlanner.GCSViews;
-using MissionPlanner.Utilities;
+using XagSurveillanceGCS.GCSViews;
+using XagSurveillanceGCS.Utilities;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 
-namespace MissionPlanner
+namespace XagSurveillanceGCS
 {
     public class Script
     {

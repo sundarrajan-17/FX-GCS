@@ -1,12 +1,12 @@
-﻿using MissionPlanner.Grid;
+﻿using XagSurveillanceGCS.Grid;
 using System;
 using System.Windows.Forms;
-using MissionPlanner.Controls;
-using MissionPlanner.Utilities;
+using XagSurveillanceGCS.Controls;
+using XagSurveillanceGCS.Utilities;
 
 namespace OpenDroneID_Plugin
 {
-    public class OpenDroneID_Plugin : MissionPlanner.Plugin.Plugin
+    public class OpenDroneID_Plugin : XagSurveillanceGCS.Plugin.Plugin
     {
         //TabPage
         private System.Windows.Forms.TabPage tab = new System.Windows.Forms.TabPage();
@@ -73,7 +73,7 @@ namespace OpenDroneID_Plugin
             // setup default if doesnt exist
             if (tabs == null)
             {
-                CustomMessageBox.Show("Restart Mission Planner to enable Drone ID Tab. Disable Plugin if Not Required CTRL-P");
+                CustomMessageBox.Show("Restart XagSurveillanceGCS to enable Drone ID Tab. Disable Plugin if Not Required CTRL-P");
                 Host.MainForm.FlightData.saveTabControlActions();
                 tabs = Settings.Instance["tabcontrolactions"];
                 Settings.Instance.Save();

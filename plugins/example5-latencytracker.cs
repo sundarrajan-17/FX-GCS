@@ -1,5 +1,5 @@
-using MissionPlanner;
-using MissionPlanner.Utilities;
+using XagSurveillanceGCS;
+using XagSurveillanceGCS.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace LatencyTracker
 {
-    public class Plugin : MissionPlanner.Plugin.Plugin
+    public class Plugin : XagSurveillanceGCS.Plugin.Plugin
     {
         private List<MAVLink.mavlink_gps_raw_int_t> gpsraw = new List<MAVLink.mavlink_gps_raw_int_t>();
         private List<MAVLink.mavlink_system_time_t> systemtime = new List<MAVLink.mavlink_system_time_t>();

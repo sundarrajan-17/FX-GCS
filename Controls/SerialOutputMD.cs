@@ -1,9 +1,9 @@
-﻿using MissionPlanner.Comms;
-using MissionPlanner.Utilities;
+﻿using XagSurveillanceGCS.Comms;
+using XagSurveillanceGCS.Utilities;
 using System;
 using System.Windows.Forms;
 
-namespace MissionPlanner.Controls
+namespace XagSurveillanceGCS.Controls
 {
     public partial class SerialOutputMD : Form
     {
@@ -23,7 +23,7 @@ namespace MissionPlanner.Controls
                 BUT_connect.Text = Strings.Stop;
             }
 
-            MissionPlanner.Utilities.Tracking.AddPage(this.GetType().ToString(), this.Text);
+            XagSurveillanceGCS.Utilities.Tracking.AddPage(this.GetType().ToString(), this.Text);
         }
 
         private void BUT_connect_Click(object sender, EventArgs e)

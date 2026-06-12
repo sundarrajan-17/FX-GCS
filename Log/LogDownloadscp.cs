@@ -1,6 +1,6 @@
 ﻿using log4net;
-using MissionPlanner.Controls;
-using MissionPlanner.Utilities;
+using XagSurveillanceGCS.Controls;
+using XagSurveillanceGCS.Utilities;
 using Renci.SshNet;
 using Renci.SshNet.Sftp;
 using System;
@@ -12,7 +12,7 @@ using System.Linq;
 using System.Reflection;
 using System.Windows.Forms;
 
-namespace MissionPlanner.Log
+namespace XagSurveillanceGCS.Log
 {
     public partial class LogDownloadscp : Form
     {
@@ -48,7 +48,7 @@ namespace MissionPlanner.Log
 
             ThemeManager.ApplyThemeTo(this);
 
-            MissionPlanner.Utilities.Tracking.AddPage(this.GetType().ToString(), this.Text);
+            XagSurveillanceGCS.Utilities.Tracking.AddPage(this.GetType().ToString(), this.Text);
         }
 
         private void Log_Load(object sender, EventArgs e)
@@ -116,7 +116,7 @@ namespace MissionPlanner.Log
                 {
                     try
                     {
-                        string caption = item.Name + " " + GetItemCaption(item) + "  (" + MissionPlanner.Controls.ConnectionStats.ToHumanReadableByteCount((int)item.Length) + ")";
+                        string caption = item.Name + " " + GetItemCaption(item) + "  (" + XagSurveillanceGCS.Controls.ConnectionStats.ToHumanReadableByteCount((int)item.Length) + ")";
                         AddCheckedListBoxItem(caption);
                     }
                     catch (Exception ex)
@@ -419,7 +419,7 @@ namespace MissionPlanner.Log
                 if (current < max)
                 {
                     var per = (current / (double)max) * 100;
-                    labelBytes.Text = MissionPlanner.Controls.ConnectionStats.ToHumanReadableByteCount((int)current) + " " + per.ToString("N1") + "% ";
+                    labelBytes.Text = XagSurveillanceGCS.Controls.ConnectionStats.ToHumanReadableByteCount((int)current) + " " + per.ToString("N1") + "% ";
                 }
                 else
                 {

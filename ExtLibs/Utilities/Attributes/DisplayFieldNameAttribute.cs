@@ -1,7 +1,7 @@
 using System;
 using System.ComponentModel;
 
-namespace MissionPlanner.Attributes
+namespace XagSurveillanceGCS.Attributes
 {
     /// <summary>
     /// Used to decorate a field with a custom name.
@@ -22,7 +22,7 @@ namespace MissionPlanner.Attributes
 
         public string TryTranslate(string defaultTo)
         {
-            return MissionPlanner.Utilities.L10NU.GetString(_translationKey, defaultTo: defaultTo);
+            return XagSurveillanceGCS.Utilities.L10NU.GetString(_translationKey, defaultTo: defaultTo);
         }
     }
 }

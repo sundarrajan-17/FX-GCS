@@ -5,7 +5,7 @@ using System.Drawing;
 using System.Runtime.InteropServices;
 using SkiaSharp;
 
-namespace MissionPlanner.Utilities
+namespace XagSurveillanceGCS.Utilities
 {
     public class vlcrender
     {

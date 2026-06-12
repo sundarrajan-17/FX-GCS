@@ -1,4 +1,4 @@
-﻿namespace MissionPlanner.Controls
+﻿namespace XagSurveillanceGCS.Controls
 {
     partial class SerialSupportProxy
     {
@@ -33,7 +33,7 @@
             this.TXT_host = new System.Windows.Forms.TextBox();
             this.NUM_port = new System.Windows.Forms.NumericUpDown();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.BUT_connect = new MissionPlanner.Controls.MyButton();
+            this.BUT_connect = new XagSurveillanceGCS.Controls.MyButton();
             this.label3 = new System.Windows.Forms.Label();
             this.rad_udp = new System.Windows.Forms.RadioButton();
             this.rad_tcp = new System.Windows.Forms.RadioButton();

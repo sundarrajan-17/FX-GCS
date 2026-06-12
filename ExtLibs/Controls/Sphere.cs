@@ -6,7 +6,7 @@ using System.Text;
 using OpenTK;
 using OpenTK.Graphics.OpenGL;
 
-namespace MissionPlanner.Controls
+namespace XagSurveillanceGCS.Controls
 {
     public class Sphere: OpenTK.GLControl
     {
@@ -17,7 +17,7 @@ namespace MissionPlanner.Controls
 
         List<Vector3> aimpoints = new List<Vector3>();
 
-        public MissionPlanner.Utilities.Vector3 CenterPoint = new MissionPlanner.Utilities.Vector3();
+        public XagSurveillanceGCS.Utilities.Vector3 CenterPoint = new XagSurveillanceGCS.Utilities.Vector3();
 
         public float scale = 300;
 
@@ -45,7 +45,7 @@ namespace MissionPlanner.Controls
             }
         }
 
-        public void AimFor(MissionPlanner.Utilities.Vector3 point)
+        public void AimFor(XagSurveillanceGCS.Utilities.Vector3 point)
         {
             lock (aimpoints)
             {
@@ -57,7 +57,7 @@ namespace MissionPlanner.Controls
             }
         }
 
-        public void AddPoint(MissionPlanner.Utilities.Vector3 point)
+        public void AddPoint(XagSurveillanceGCS.Utilities.Vector3 point)
         {
             minx = (float)Math.Min(minx, point.X);
             maxx = (float)Math.Max(maxx, point.X);
@@ -234,7 +234,7 @@ namespace MissionPlanner.Controls
 
                     GL.Color3(col);
 
-                    var vec = new MissionPlanner.Utilities.Vector3(item.X, item.Y, item.Z) + CenterPoint;
+                    var vec = new XagSurveillanceGCS.Utilities.Vector3(item.X, item.Y, item.Z) + CenterPoint;
 
                     GL.Vertex3(new Vector3((float) vec.x, (float) vec.y, (float) vec.z));
                 }
@@ -245,7 +245,7 @@ namespace MissionPlanner.Controls
                     {
                         GL.PointSize(8);
                         GL.Color3(Color.White);
-                        var vec = new MissionPlanner.Utilities.Vector3(aim.X, aim.Y, aim.Z) + CenterPoint;
+                        var vec = new XagSurveillanceGCS.Utilities.Vector3(aim.X, aim.Y, aim.Z) + CenterPoint;
                         GL.Vertex3(new Vector3((float) vec.x, (float) vec.y, (float) vec.z));
                     }
                 }
@@ -261,7 +261,7 @@ namespace MissionPlanner.Controls
 
                 if (points.Count > 0)
                 {
-                    var vec = new MissionPlanner.Utilities.Vector3(points[points.Count - 1].X, points[points.Count - 1].Y, points[points.Count - 1].Z) + CenterPoint;
+                    var vec = new XagSurveillanceGCS.Utilities.Vector3(points[points.Count - 1].X, points[points.Count - 1].Y, points[points.Count - 1].Z) + CenterPoint;
                     GL.Vertex3(new Vector3((float) vec.x, (float) vec.y, (float) vec.z));
                 }
 

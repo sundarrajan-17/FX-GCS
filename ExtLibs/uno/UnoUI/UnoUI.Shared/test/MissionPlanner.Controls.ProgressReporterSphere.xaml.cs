@@ -1,1 +1,1 @@
-namespace MissionPlanner.Controls { public partial class ProgressReporterSphere{public ProgressReporterSphere(){this.InitializeComponent();}}}
+namespace XagSurveillanceGCS.Controls { public partial class ProgressReporterSphere{public ProgressReporterSphere(){this.InitializeComponent();}}}

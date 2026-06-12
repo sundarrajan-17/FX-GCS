@@ -1,6 +1,6 @@
 using System.Windows.Forms;
 
-namespace MissionPlanner.GCSViews
+namespace XagSurveillanceGCS.GCSViews
 {
     partial class FlightData
     {
@@ -12,7 +12,9 @@ namespace MissionPlanner.GCSViews
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FlightData));
             this.MainH = new System.Windows.Forms.SplitContainer();
             this.SubMainLeft = new System.Windows.Forms.SplitContainer();
-            this.hud1 = new MissionPlanner.Controls.HUD();
+            this.BottomSplit =new System.Windows.Forms.SplitContainer();
+            this.TopSplit = new System.Windows.Forms.SplitContainer();
+            this.hud1 = new XagSurveillanceGCS.Controls.HUD();
             this.contextMenuStripHud = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.videoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.recordHudToAVIToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -36,53 +38,53 @@ namespace MissionPlanner.GCSViews
             this.tabControlactions = new System.Windows.Forms.TabControl();
             this.tabQuick = new System.Windows.Forms.TabPage();
             this.tableLayoutPanelQuick = new System.Windows.Forms.TableLayoutPanel();
-            this.quickView6 = new MissionPlanner.Controls.QuickView();
+            this.quickView6 = new XagSurveillanceGCS.Controls.QuickView();
             this.contextMenuStripQuickView = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.setViewCountToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.undockToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bindingSourceQuickTab = new System.Windows.Forms.BindingSource(this.components);
-            this.quickView5 = new MissionPlanner.Controls.QuickView();
-            this.quickView4 = new MissionPlanner.Controls.QuickView();
-            this.quickView3 = new MissionPlanner.Controls.QuickView();
-            this.quickView2 = new MissionPlanner.Controls.QuickView();
-            this.quickView1 = new MissionPlanner.Controls.QuickView();
+            this.quickView5 = new XagSurveillanceGCS.Controls.QuickView();
+            this.quickView4 = new XagSurveillanceGCS.Controls.QuickView();
+            this.quickView3 = new XagSurveillanceGCS.Controls.QuickView();
+            this.quickView2 = new XagSurveillanceGCS.Controls.QuickView();
+            this.quickView1 = new XagSurveillanceGCS.Controls.QuickView();
             this.tabActions = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.BUT_SendMSG = new MissionPlanner.Controls.MyButton();
-            this.BUT_abortland = new MissionPlanner.Controls.MyButton();
-            this.modifyandSetLoiterRad = new MissionPlanner.Controls.ModifyandSet();
-            this.BUT_clear_track = new MissionPlanner.Controls.MyButton();
+            this.BUT_SendMSG = new XagSurveillanceGCS.Controls.MyButton();
+            this.BUT_abortland = new XagSurveillanceGCS.Controls.MyButton();
+            this.modifyandSetLoiterRad = new XagSurveillanceGCS.Controls.ModifyandSet();
+            this.BUT_clear_track = new XagSurveillanceGCS.Controls.MyButton();
             this.CMB_action = new System.Windows.Forms.ComboBox();
-            this.BUTactiondo = new MissionPlanner.Controls.MyButton();
-            this.BUT_resumemis = new MissionPlanner.Controls.MyButton();
-            this.modifyandSetAlt = new MissionPlanner.Controls.ModifyandSet();
-            this.modifyandSetSpeed = new MissionPlanner.Controls.ModifyandSet();
+            this.BUTactiondo = new XagSurveillanceGCS.Controls.MyButton();
+            this.BUT_resumemis = new XagSurveillanceGCS.Controls.MyButton();
+            this.modifyandSetAlt = new XagSurveillanceGCS.Controls.ModifyandSet();
+            this.modifyandSetSpeed = new XagSurveillanceGCS.Controls.ModifyandSet();
             this.CMB_setwp = new System.Windows.Forms.ComboBox();
-            this.BUT_ARM = new MissionPlanner.Controls.MyButton();
-            this.BUT_mountmode = new MissionPlanner.Controls.MyButton();
-            this.BUT_joystick = new MissionPlanner.Controls.MyButton();
-            this.BUT_RAWSensor = new MissionPlanner.Controls.MyButton();
-            this.BUT_Homealt = new MissionPlanner.Controls.MyButton();
-            this.BUTrestartmission = new MissionPlanner.Controls.MyButton();
+            this.BUT_ARM = new XagSurveillanceGCS.Controls.MyButton();
+            this.BUT_mountmode = new XagSurveillanceGCS.Controls.MyButton();
+            this.BUT_joystick = new XagSurveillanceGCS.Controls.MyButton();
+            this.BUT_RAWSensor = new XagSurveillanceGCS.Controls.MyButton();
+            this.BUT_Homealt = new XagSurveillanceGCS.Controls.MyButton();
+            this.BUTrestartmission = new XagSurveillanceGCS.Controls.MyButton();
             this.CMB_mountmode = new System.Windows.Forms.ComboBox();
-            this.BUT_quickrtl = new MissionPlanner.Controls.MyButton();
-            this.BUT_quickmanual = new MissionPlanner.Controls.MyButton();
-            this.BUT_setwp = new MissionPlanner.Controls.MyButton();
+            this.BUT_quickrtl = new XagSurveillanceGCS.Controls.MyButton();
+            this.BUT_quickmanual = new XagSurveillanceGCS.Controls.MyButton();
+            this.BUT_setwp = new XagSurveillanceGCS.Controls.MyButton();
             this.CMB_modes = new System.Windows.Forms.ComboBox();
-            this.BUT_quickauto = new MissionPlanner.Controls.MyButton();
-            this.BUT_setmode = new MissionPlanner.Controls.MyButton();
+            this.BUT_quickauto = new XagSurveillanceGCS.Controls.MyButton();
+            this.BUT_setmode = new XagSurveillanceGCS.Controls.MyButton();
             this.tabPagemessages = new System.Windows.Forms.TabPage();
             this.txt_messagebox = new System.Windows.Forms.TextBox();
             this.tabActionsSimple = new System.Windows.Forms.TabPage();
-            this.myButton1 = new MissionPlanner.Controls.MyButton();
-            this.myButton2 = new MissionPlanner.Controls.MyButton();
-            this.myButton3 = new MissionPlanner.Controls.MyButton();
+            this.myButton1 = new XagSurveillanceGCS.Controls.MyButton();
+            this.myButton2 = new XagSurveillanceGCS.Controls.MyButton();
+            this.myButton3 = new XagSurveillanceGCS.Controls.MyButton();
             this.tabPagePreFlight = new System.Windows.Forms.TabPage();
-            this.checkListControl1 = new MissionPlanner.Controls.PreFlight.CheckListControl();
+            this.checkListControl1 = new XagSurveillanceGCS.Controls.PreFlight.CheckListControl();
             this.tabGauges = new System.Windows.Forms.TabPage();
             this.Gvspeed = new AGaugeApp.AGauge();
             this.bindingSourceGaugesTab = new System.Windows.Forms.BindingSource(this.components);
-            this.Gheading = new MissionPlanner.Controls.HSI();
+            this.Gheading = new XagSurveillanceGCS.Controls.HSI();
             this.Galt = new AGaugeApp.AGauge();
             this.Gspeed = new AGaugeApp.AGauge();
             this.tabTransponder = new System.Windows.Forms.TabPage();
@@ -104,53 +106,53 @@ namespace MissionPlanner.GCSViews
             this.tabStatus = new System.Windows.Forms.TabPage();
             this.tabServo = new System.Windows.Forms.TabPage();
             this.flowLayoutPanelServos = new System.Windows.Forms.FlowLayoutPanel();
-            this.servoOptions1 = new MissionPlanner.Controls.ServoOptions();
-            this.servoOptions2 = new MissionPlanner.Controls.ServoOptions();
-            this.servoOptions3 = new MissionPlanner.Controls.ServoOptions();
-            this.servoOptions4 = new MissionPlanner.Controls.ServoOptions();
-            this.servoOptions5 = new MissionPlanner.Controls.ServoOptions();
-            this.servoOptions6 = new MissionPlanner.Controls.ServoOptions();
-            this.servoOptions7 = new MissionPlanner.Controls.ServoOptions();
-            this.servoOptions8 = new MissionPlanner.Controls.ServoOptions();
-            this.servoOptions9 = new MissionPlanner.Controls.ServoOptions();
-            this.servoOptions10 = new MissionPlanner.Controls.ServoOptions();
-            this.servoOptions11 = new MissionPlanner.Controls.ServoOptions();
-            this.servoOptions12 = new MissionPlanner.Controls.ServoOptions();
-            this.relayOptions1 = new MissionPlanner.Controls.RelayOptions();
-            this.relayOptions2 = new MissionPlanner.Controls.RelayOptions();
-            this.relayOptions3 = new MissionPlanner.Controls.RelayOptions();
-            this.relayOptions4 = new MissionPlanner.Controls.RelayOptions();
-            this.relayOptions5 = new MissionPlanner.Controls.RelayOptions();
-            this.relayOptions6 = new MissionPlanner.Controls.RelayOptions();
-            this.relayOptions7 = new MissionPlanner.Controls.RelayOptions();
-            this.relayOptions8 = new MissionPlanner.Controls.RelayOptions();
-            this.relayOptions9 = new MissionPlanner.Controls.RelayOptions();
-            this.relayOptions10 = new MissionPlanner.Controls.RelayOptions();
-            this.relayOptions11 = new MissionPlanner.Controls.RelayOptions();
-            this.relayOptions12 = new MissionPlanner.Controls.RelayOptions();
-            this.relayOptions13 = new MissionPlanner.Controls.RelayOptions();
-            this.relayOptions14 = new MissionPlanner.Controls.RelayOptions();
-            this.relayOptions15 = new MissionPlanner.Controls.RelayOptions();
-            this.relayOptions16 = new MissionPlanner.Controls.RelayOptions();
+            this.servoOptions1 = new XagSurveillanceGCS.Controls.ServoOptions();
+            this.servoOptions2 = new XagSurveillanceGCS.Controls.ServoOptions();
+            this.servoOptions3 = new XagSurveillanceGCS.Controls.ServoOptions();
+            this.servoOptions4 = new XagSurveillanceGCS.Controls.ServoOptions();
+            this.servoOptions5 = new XagSurveillanceGCS.Controls.ServoOptions();
+            this.servoOptions6 = new XagSurveillanceGCS.Controls.ServoOptions();
+            this.servoOptions7 = new XagSurveillanceGCS.Controls.ServoOptions();
+            this.servoOptions8 = new XagSurveillanceGCS.Controls.ServoOptions();
+            this.servoOptions9 = new XagSurveillanceGCS.Controls.ServoOptions();
+            this.servoOptions10 = new XagSurveillanceGCS.Controls.ServoOptions();
+            this.servoOptions11 = new XagSurveillanceGCS.Controls.ServoOptions();
+            this.servoOptions12 = new XagSurveillanceGCS.Controls.ServoOptions();
+            this.relayOptions1 = new XagSurveillanceGCS.Controls.RelayOptions();
+            this.relayOptions2 = new XagSurveillanceGCS.Controls.RelayOptions();
+            this.relayOptions3 = new XagSurveillanceGCS.Controls.RelayOptions();
+            this.relayOptions4 = new XagSurveillanceGCS.Controls.RelayOptions();
+            this.relayOptions5 = new XagSurveillanceGCS.Controls.RelayOptions();
+            this.relayOptions6 = new XagSurveillanceGCS.Controls.RelayOptions();
+            this.relayOptions7 = new XagSurveillanceGCS.Controls.RelayOptions();
+            this.relayOptions8 = new XagSurveillanceGCS.Controls.RelayOptions();
+            this.relayOptions9 = new XagSurveillanceGCS.Controls.RelayOptions();
+            this.relayOptions10 = new XagSurveillanceGCS.Controls.RelayOptions();
+            this.relayOptions11 = new XagSurveillanceGCS.Controls.RelayOptions();
+            this.relayOptions12 = new XagSurveillanceGCS.Controls.RelayOptions();
+            this.relayOptions13 = new XagSurveillanceGCS.Controls.RelayOptions();
+            this.relayOptions14 = new XagSurveillanceGCS.Controls.RelayOptions();
+            this.relayOptions15 = new XagSurveillanceGCS.Controls.RelayOptions();
+            this.relayOptions16 = new XagSurveillanceGCS.Controls.RelayOptions();
             this.tabAuxFunction = new System.Windows.Forms.TabPage();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.auxOptions1 = new MissionPlanner.Controls.AuxOptions();
-            this.auxOptions2 = new MissionPlanner.Controls.AuxOptions();
-            this.auxOptions3 = new MissionPlanner.Controls.AuxOptions();
-            this.auxOptions4 = new MissionPlanner.Controls.AuxOptions();
-            this.auxOptions5 = new MissionPlanner.Controls.AuxOptions();
-            this.auxOptions6 = new MissionPlanner.Controls.AuxOptions();
-            this.auxOptions7 = new MissionPlanner.Controls.AuxOptions();
+            this.auxOptions1 = new XagSurveillanceGCS.Controls.AuxOptions();
+            this.auxOptions2 = new XagSurveillanceGCS.Controls.AuxOptions();
+            this.auxOptions3 = new XagSurveillanceGCS.Controls.AuxOptions();
+            this.auxOptions4 = new XagSurveillanceGCS.Controls.AuxOptions();
+            this.auxOptions5 = new XagSurveillanceGCS.Controls.AuxOptions();
+            this.auxOptions6 = new XagSurveillanceGCS.Controls.AuxOptions();
+            this.auxOptions7 = new XagSurveillanceGCS.Controls.AuxOptions();
             this.tabScripts = new System.Windows.Forms.TabPage();
             this.checkBoxRedirectOutput = new System.Windows.Forms.CheckBox();
-            this.BUT_edit_selected = new MissionPlanner.Controls.MyButton();
+            this.BUT_edit_selected = new XagSurveillanceGCS.Controls.MyButton();
             this.labelSelectedScript = new System.Windows.Forms.Label();
-            this.BUT_run_script = new MissionPlanner.Controls.MyButton();
-            this.BUT_abort_script = new MissionPlanner.Controls.MyButton();
+            this.BUT_run_script = new XagSurveillanceGCS.Controls.MyButton();
+            this.BUT_abort_script = new XagSurveillanceGCS.Controls.MyButton();
             this.labelScriptStatus = new System.Windows.Forms.Label();
-            this.BUT_select_script = new MissionPlanner.Controls.MyButton();
+            this.BUT_select_script = new XagSurveillanceGCS.Controls.MyButton();
             this.tabPayload = new System.Windows.Forms.TabPage();
-            this.BUT_GimbalVideo = new MissionPlanner.Controls.MyButton();
+            this.BUT_GimbalVideo = new XagSurveillanceGCS.Controls.MyButton();
             this.groupBoxRoll = new System.Windows.Forms.GroupBox();
             this.TXT_gimbalRollPos = new System.Windows.Forms.TextBox();
             this.bindingSourcePayloadTab = new System.Windows.Forms.BindingSource(this.components);
@@ -158,7 +160,7 @@ namespace MissionPlanner.GCSViews
             this.groupBoxYaw = new System.Windows.Forms.GroupBox();
             this.TXT_gimbalYawPos = new System.Windows.Forms.TextBox();
             this.trackBarYaw = new System.Windows.Forms.TrackBar();
-            this.BUT_resetGimbalPos = new MissionPlanner.Controls.MyButton();
+            this.BUT_resetGimbalPos = new XagSurveillanceGCS.Controls.MyButton();
             this.groupBoxPitch = new System.Windows.Forms.GroupBox();
             this.trackBarPitch = new System.Windows.Forms.TrackBar();
             this.TXT_gimbalPitchPos = new System.Windows.Forms.TextBox();
@@ -169,32 +171,31 @@ namespace MissionPlanner.GCSViews
             this.tableLayoutPaneltlogs = new System.Windows.Forms.TableLayoutPanel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
-            this.BUT_speed10 = new MissionPlanner.Controls.MyButton();
-            this.BUT_speed5 = new MissionPlanner.Controls.MyButton();
-            this.BUT_speed2 = new MissionPlanner.Controls.MyButton();
-            this.BUT_speed1 = new MissionPlanner.Controls.MyButton();
-            this.BUT_speed1_2 = new MissionPlanner.Controls.MyButton();
-            this.BUT_speed1_4 = new MissionPlanner.Controls.MyButton();
-            this.BUT_speed1_10 = new MissionPlanner.Controls.MyButton();
-            this.BUT_loadtelem = new MissionPlanner.Controls.MyButton();
+            this.BUT_speed10 = new XagSurveillanceGCS.Controls.MyButton();
+            this.BUT_speed5 = new XagSurveillanceGCS.Controls.MyButton();
+            this.BUT_speed2 = new XagSurveillanceGCS.Controls.MyButton();
+            this.BUT_speed1 = new XagSurveillanceGCS.Controls.MyButton();
+            this.BUT_speed1_2 = new XagSurveillanceGCS.Controls.MyButton();
+            this.BUT_speed1_4 = new XagSurveillanceGCS.Controls.MyButton();
+            this.BUT_speed1_10 = new XagSurveillanceGCS.Controls.MyButton();
+            this.BUT_loadtelem = new XagSurveillanceGCS.Controls.MyButton();
             this.lbl_playbackspeed = new System.Windows.Forms.Label();
             this.lbl_logpercent = new System.Windows.Forms.Label();
             this.LBL_logfn = new System.Windows.Forms.Label();
-            this.BUT_log2kml = new MissionPlanner.Controls.MyButton();
-            this.BUT_playlog = new MissionPlanner.Controls.MyButton();
+            this.BUT_log2kml = new XagSurveillanceGCS.Controls.MyButton();
+            this.BUT_playlog = new XagSurveillanceGCS.Controls.MyButton();
             this.tracklog = new System.Windows.Forms.TrackBar();
             this.tablogbrowse = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.BUT_DFMavlink = new MissionPlanner.Controls.MyButton();
-            this.BUT_georefimage = new MissionPlanner.Controls.MyButton();
-            this.BUT_logbrowse = new MissionPlanner.Controls.MyButton();
-            this.BUT_matlab = new MissionPlanner.Controls.MyButton();
-            this.but_bintolog = new MissionPlanner.Controls.MyButton();
-            this.but_dflogtokml = new MissionPlanner.Controls.MyButton();
-            this.BUT_loganalysis = new MissionPlanner.Controls.MyButton();
+            this.BUT_DFMavlink = new XagSurveillanceGCS.Controls.MyButton();
+            this.BUT_georefimage = new XagSurveillanceGCS.Controls.MyButton();
+            this.BUT_logbrowse = new XagSurveillanceGCS.Controls.MyButton();
+            this.BUT_matlab = new XagSurveillanceGCS.Controls.MyButton();
+            this.but_bintolog = new XagSurveillanceGCS.Controls.MyButton();
+            this.but_dflogtokml = new XagSurveillanceGCS.Controls.MyButton();
+            this.BUT_loganalysis = new XagSurveillanceGCS.Controls.MyButton();
             this.tabExternalAHRS = new System.Windows.Forms.TabPage();
-            this.eahrsControl1 = new MissionPlanner.Controls.EAHRSControl();
-            // this.baseCamControl1 = new MissionPlanner.Controls.BaseCameraController();
+            this.eahrsControl1 = new XagSurveillanceGCS.Controls.EAHRSControl();
             this.panel_persistent = new System.Windows.Forms.Panel();
             this.tableMap = new System.Windows.Forms.TableLayoutPanel();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
@@ -225,11 +226,11 @@ namespace MissionPlanner.GCSViews
             this.label1 = new System.Windows.Forms.Label();
             this.imHereToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label1 = new System.Windows.Forms.Label();
-            this.but_disablejoystick = new MissionPlanner.Controls.MyButton();
+            this.but_disablejoystick = new XagSurveillanceGCS.Controls.MyButton();
             this.Zoomlevel = new System.Windows.Forms.NumericUpDown();
-            this.distanceBar1 = new MissionPlanner.Controls.DistanceBar();
-            this.TRK_zoom = new MissionPlanner.Controls.MyTrackBar();
-            this.windDir1 = new MissionPlanner.Controls.WindDir();
+            this.distanceBar1 = new XagSurveillanceGCS.Controls.DistanceBar();
+            this.TRK_zoom = new XagSurveillanceGCS.Controls.MyTrackBar();
+            this.windDir1 = new XagSurveillanceGCS.Controls.WindDir();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -237,11 +238,11 @@ namespace MissionPlanner.GCSViews
             this.label5 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.lbl_hdop = new MissionPlanner.Controls.MyLabel();
-            this.lbl_sats = new MissionPlanner.Controls.MyLabel();
-            this.gMapControl1 = new MissionPlanner.Controls.myGMAP();
+            this.lbl_hdop = new XagSurveillanceGCS.Controls.MyLabel();
+            this.lbl_sats = new XagSurveillanceGCS.Controls.MyLabel();
+            this.gMapControl1 = new XagSurveillanceGCS.Controls.myGMAP();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.coords1 = new MissionPlanner.Controls.Coords();
+            this.coords1 = new XagSurveillanceGCS.Controls.Coords();
             this.CHK_autopan = new System.Windows.Forms.CheckBox();
             this.CB_tuning = new System.Windows.Forms.CheckBox();
             this.ZedGraphTimer = new System.Windows.Forms.Timer(this.components);
@@ -314,14 +315,6 @@ namespace MissionPlanner.GCSViews
             resources.ApplyResources(this.MainH, "MainH");
             this.MainH.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
             this.MainH.Name = "MainH";
-            // 
-            // MainH.Panel1
-            // 
-            // this.MainH.Panel1.Controls.Add(this.SubMainLeft);
-            // 
-            // MainH.Panel2
-            // 
-            // this.MainH.Panel2.Controls.Add(this.tableMap);
             this.MainH.Orientation = Orientation.Horizontal;
             // 
             // SubMainLeft
@@ -408,7 +401,6 @@ namespace MissionPlanner.GCSViews
             this.hud1.DataBindings.Add(new System.Windows.Forms.Binding("AOA", this.bindingSourceHud, "AOA", true));
             this.hud1.DataBindings.Add(new System.Windows.Forms.Binding("SSA", this.bindingSourceHud, "SSA", true));
             this.hud1.DataBindings.Add(new System.Windows.Forms.Binding("critAOA", this.bindingSourceHud, "crit_AOA", true));
-            // this.hud1.DataBindings.Add(new System.Windows.Forms.Binding("camPitch", this.bindingSourceHud, "camPitch", true));
             this.hud1.datetime = new System.DateTime(((long)(0)));
             this.hud1.displayAOASSA = false;
             this.hud1.displayCellVoltage = false;
@@ -476,7 +468,6 @@ namespace MissionPlanner.GCSViews
             this.setAspectRatioToolStripMenuItem,
             this.userItemsToolStripMenuItem,
             this.russianHudToolStripMenuItem,
-            // this.swapWithMapToolStripMenuItem,
             this.groundColorToolStripMenuItem,
             this.setBatteryCellCountToolStripMenuItem,
             this.showIconsToolStripMenuItem});
@@ -583,7 +574,7 @@ namespace MissionPlanner.GCSViews
             // 
             // bindingSourceHud
             // 
-            this.bindingSourceHud.DataSource = typeof(MissionPlanner.CurrentState);
+            this.bindingSourceHud.DataSource = typeof(XagSurveillanceGCS.CurrentState);
             // 
             // contextMenuStripactionstab
             // 
@@ -685,7 +676,7 @@ namespace MissionPlanner.GCSViews
             // 
             // bindingSourceQuickTab
             // 
-            this.bindingSourceQuickTab.DataSource = typeof(MissionPlanner.CurrentState);
+            this.bindingSourceQuickTab.DataSource = typeof(XagSurveillanceGCS.CurrentState);
             // 
             // quickView5
             // 
@@ -1171,10 +1162,6 @@ namespace MissionPlanner.GCSViews
             // 
             // tabGauges
             // 
-            this.tabGauges.Controls.Add(this.Gvspeed);
-            this.tabGauges.Controls.Add(this.Gheading);
-            this.tabGauges.Controls.Add(this.Galt);
-            this.tabGauges.Controls.Add(this.Gspeed);
             resources.ApplyResources(this.tabGauges, "tabGauges");
             this.tabGauges.Name = "tabGauges";
             this.tabGauges.UseVisualStyleBackColor = true;
@@ -1192,24 +1179,24 @@ namespace MissionPlanner.GCSViews
             this.Gvspeed.Cap_Idx = ((byte)(0));
             this.Gvspeed.CapColor = System.Drawing.Color.White;
             this.Gvspeed.CapColors = new System.Drawing.Color[] {
-        System.Drawing.Color.White,
-        System.Drawing.Color.Black,
-        System.Drawing.Color.Black,
-        System.Drawing.Color.Black,
-        System.Drawing.Color.Black};
-            this.Gvspeed.CapPosition = new System.Drawing.Point(65, 85);
-            this.Gvspeed.CapsPosition = new System.Drawing.Point[] {
-        new System.Drawing.Point(65, 85),
-        new System.Drawing.Point(30, 55),
-        new System.Drawing.Point(10, 10),
-        new System.Drawing.Point(10, 10),
-        new System.Drawing.Point(10, 10)};
-            this.Gvspeed.CapsText = new string[] {
-        "VSI",
-        "",
-        "",
-        "",
-        ""};
+            System.Drawing.Color.White,
+            System.Drawing.Color.Black,
+            System.Drawing.Color.Black,
+            System.Drawing.Color.Black,
+            System.Drawing.Color.Black};
+                this.Gvspeed.CapPosition = new System.Drawing.Point(65, 85);
+                this.Gvspeed.CapsPosition = new System.Drawing.Point[] {
+            new System.Drawing.Point(65, 85),
+            new System.Drawing.Point(30, 55),
+            new System.Drawing.Point(10, 10),
+            new System.Drawing.Point(10, 10),
+            new System.Drawing.Point(10, 10)};
+                this.Gvspeed.CapsText = new string[] {
+            "VSI",
+            "",
+            "",
+            "",
+            ""};
             this.Gvspeed.CapText = "VSI";
             this.Gvspeed.Center = new System.Drawing.Point(75, 75);
             this.Gvspeed.DataBindings.Add(new System.Windows.Forms.Binding("Value0", this.bindingSourceGaugesTab, "verticalspeed", true));
@@ -1222,35 +1209,35 @@ namespace MissionPlanner.GCSViews
             this.Gvspeed.NeedleEnabled = false;
             this.Gvspeed.NeedleRadius = 80;
             this.Gvspeed.NeedlesColor1 = new AGaugeApp.AGauge.NeedleColorEnum[] {
-        AGaugeApp.AGauge.NeedleColorEnum.Gray,
-        AGaugeApp.AGauge.NeedleColorEnum.Gray,
-        AGaugeApp.AGauge.NeedleColorEnum.Gray,
-        AGaugeApp.AGauge.NeedleColorEnum.Gray};
+            AGaugeApp.AGauge.NeedleColorEnum.Gray,
+            AGaugeApp.AGauge.NeedleColorEnum.Gray,
+            AGaugeApp.AGauge.NeedleColorEnum.Gray,
+            AGaugeApp.AGauge.NeedleColorEnum.Gray};
             this.Gvspeed.NeedlesColor2 = new System.Drawing.Color[] {
-        System.Drawing.Color.White,
-        System.Drawing.Color.White,
-        System.Drawing.Color.White,
-        System.Drawing.Color.White};
-            this.Gvspeed.NeedlesEnabled = new bool[] {
-        true,
-        false,
-        false,
-        false};
+            System.Drawing.Color.White,
+            System.Drawing.Color.White,
+            System.Drawing.Color.White,
+            System.Drawing.Color.White};
+                this.Gvspeed.NeedlesEnabled = new bool[] {
+            true,
+            false,
+            false,
+            false};
             this.Gvspeed.NeedlesRadius = new int[] {
-        50,
-        30,
-        50,
-        80};
+            50,
+            30,
+            50,
+            80};
             this.Gvspeed.NeedlesType = new int[] {
-        0,
-        0,
-        0,
-        0};
+            0,
+            0,
+            0,
+            0};
             this.Gvspeed.NeedlesWidth = new int[] {
-        2,
-        2,
-        2,
-        2};
+            2,
+            2,
+            2,
+            2};
             this.Gvspeed.NeedleType = 0;
             this.Gvspeed.NeedleWidth = 2;
             this.Gvspeed.Range_Idx = ((byte)(0));
@@ -1260,41 +1247,41 @@ namespace MissionPlanner.GCSViews
             this.Gvspeed.RangeInnerRadius = 1;
             this.Gvspeed.RangeOuterRadius = 60;
             this.Gvspeed.RangesColor = new System.Drawing.Color[] {
-        System.Drawing.Color.LightGreen,
-        System.Drawing.Color.Red,
-        System.Drawing.Color.Orange,
-        System.Drawing.SystemColors.Control,
-        System.Drawing.SystemColors.Control};
+            System.Drawing.Color.LightGreen,
+            System.Drawing.Color.Red,
+            System.Drawing.Color.Orange,
+            System.Drawing.SystemColors.Control,
+            System.Drawing.SystemColors.Control};
             this.Gvspeed.RangesEnabled = new bool[] {
-        false,
-        false,
-        false,
-        false,
-        false};
+            false,
+            false,
+            false,
+            false,
+            false};
             this.Gvspeed.RangesEndValue = new float[] {
-        360F,
-        200F,
-        150F,
-        0F,
-        0F};
+            360F,
+            200F,
+            150F,
+            0F,
+            0F};
             this.Gvspeed.RangesInnerRadius = new int[] {
-        1,
-        1,
-        1,
-        70,
-        70};
+            1,
+            1,
+            1,
+            70,
+            70};
             this.Gvspeed.RangesOuterRadius = new int[] {
-        60,
-        60,
-        60,
-        80,
-        80};
+            60,
+            60,
+            60,
+            80,
+            80};
             this.Gvspeed.RangesStartValue = new float[] {
-        0F,
-        150F,
-        75F,
-        0F,
-        0F};
+            0F,
+            150F,
+            75F,
+            0F,
+            0F};
             this.Gvspeed.RangeStartValue = 0F;
             this.Gvspeed.ScaleLinesInterColor = System.Drawing.Color.White;
             this.Gvspeed.ScaleLinesInterInnerRadius = 52;
@@ -1324,7 +1311,7 @@ namespace MissionPlanner.GCSViews
             // 
             // bindingSourceGaugesTab
             // 
-            this.bindingSourceGaugesTab.DataSource = typeof(MissionPlanner.CurrentState);
+            this.bindingSourceGaugesTab.DataSource = typeof(XagSurveillanceGCS.CurrentState);
             // 
             // Gheading
             // 
@@ -1348,24 +1335,24 @@ namespace MissionPlanner.GCSViews
             this.Galt.Cap_Idx = ((byte)(0));
             this.Galt.CapColor = System.Drawing.Color.White;
             this.Galt.CapColors = new System.Drawing.Color[] {
-        System.Drawing.Color.White,
-        System.Drawing.Color.Black,
-        System.Drawing.Color.Black,
-        System.Drawing.Color.Black,
-        System.Drawing.Color.Black};
+            System.Drawing.Color.White,
+            System.Drawing.Color.Black,
+            System.Drawing.Color.Black,
+            System.Drawing.Color.Black,
+            System.Drawing.Color.Black};
             this.Galt.CapPosition = new System.Drawing.Point(68, 85);
             this.Galt.CapsPosition = new System.Drawing.Point[] {
-        new System.Drawing.Point(68, 85),
-        new System.Drawing.Point(30, 55),
-        new System.Drawing.Point(10, 10),
-        new System.Drawing.Point(10, 10),
-        new System.Drawing.Point(10, 10)};
+            new System.Drawing.Point(68, 85),
+            new System.Drawing.Point(30, 55),
+            new System.Drawing.Point(10, 10),
+            new System.Drawing.Point(10, 10),
+            new System.Drawing.Point(10, 10)};
             this.Galt.CapsText = new string[] {
-        "Alt",
-        "",
-        "",
-        "",
-        ""};
+            "Alt",
+            "",
+            "",
+            "",
+            ""};
             this.Galt.CapText = "Alt";
             this.Galt.Center = new System.Drawing.Point(75, 75);
             this.Galt.DataBindings.Add(new System.Windows.Forms.Binding("Value0", this.bindingSourceGaugesTab, "altd100", true));
@@ -1380,35 +1367,35 @@ namespace MissionPlanner.GCSViews
             this.Galt.NeedleEnabled = false;
             this.Galt.NeedleRadius = 80;
             this.Galt.NeedlesColor1 = new AGaugeApp.AGauge.NeedleColorEnum[] {
-        AGaugeApp.AGauge.NeedleColorEnum.Gray,
-        AGaugeApp.AGauge.NeedleColorEnum.Gray,
-        AGaugeApp.AGauge.NeedleColorEnum.Red,
-        AGaugeApp.AGauge.NeedleColorEnum.Gray};
+            AGaugeApp.AGauge.NeedleColorEnum.Gray,
+            AGaugeApp.AGauge.NeedleColorEnum.Gray,
+            AGaugeApp.AGauge.NeedleColorEnum.Red,
+            AGaugeApp.AGauge.NeedleColorEnum.Gray};
             this.Galt.NeedlesColor2 = new System.Drawing.Color[] {
-        System.Drawing.Color.White,
-        System.Drawing.Color.White,
-        System.Drawing.Color.White,
-        System.Drawing.Color.White};
+            System.Drawing.Color.White,
+            System.Drawing.Color.White,
+            System.Drawing.Color.White,
+            System.Drawing.Color.White};
             this.Galt.NeedlesEnabled = new bool[] {
-        true,
-        true,
-        true,
-        false};
+            true,
+            true,
+            true,
+            false};
             this.Galt.NeedlesRadius = new int[] {
-        50,
-        30,
-        50,
-        80};
+            50,
+            30,
+            50,
+            80};
             this.Galt.NeedlesType = new int[] {
-        0,
-        0,
-        0,
-        0};
+            0,
+            0,
+            0,
+            0};
             this.Galt.NeedlesWidth = new int[] {
-        2,
-        2,
-        2,
-        2};
+            2,
+            2,
+            2,
+            2};
             this.Galt.NeedleType = 0;
             this.Galt.NeedleWidth = 2;
             this.Galt.Range_Idx = ((byte)(0));
@@ -1418,41 +1405,41 @@ namespace MissionPlanner.GCSViews
             this.Galt.RangeInnerRadius = 1;
             this.Galt.RangeOuterRadius = 60;
             this.Galt.RangesColor = new System.Drawing.Color[] {
-        System.Drawing.Color.LightGreen,
-        System.Drawing.Color.Red,
-        System.Drawing.Color.Orange,
-        System.Drawing.SystemColors.Control,
-        System.Drawing.SystemColors.Control};
+            System.Drawing.Color.LightGreen,
+            System.Drawing.Color.Red,
+            System.Drawing.Color.Orange,
+            System.Drawing.SystemColors.Control,
+            System.Drawing.SystemColors.Control};
             this.Galt.RangesEnabled = new bool[] {
-        false,
-        false,
-        false,
-        false,
-        false};
+            false,
+            false,
+            false,
+            false,
+            false};
             this.Galt.RangesEndValue = new float[] {
-        360F,
-        200F,
-        150F,
-        0F,
-        0F};
+            360F,
+            200F,
+            150F,
+            0F,
+            0F};
             this.Galt.RangesInnerRadius = new int[] {
-        1,
-        1,
-        1,
-        70,
-        70};
+            1,
+            1,
+            1,
+            70,
+            70};
             this.Galt.RangesOuterRadius = new int[] {
-        60,
-        60,
-        60,
-        80,
-        80};
+            60,
+            60,
+            60,
+            80,
+            80};
             this.Galt.RangesStartValue = new float[] {
-        0F,
-        150F,
-        75F,
-        0F,
-        0F};
+            0F,
+            150F,
+            75F,
+            0F,
+            0F};
             this.Galt.RangeStartValue = 0F;
             this.Galt.ScaleLinesInterColor = System.Drawing.Color.White;
             this.Galt.ScaleLinesInterInnerRadius = 52;
@@ -1492,24 +1479,24 @@ namespace MissionPlanner.GCSViews
             this.Gspeed.Cap_Idx = ((byte)(0));
             this.Gspeed.CapColor = System.Drawing.Color.White;
             this.Gspeed.CapColors = new System.Drawing.Color[] {
-        System.Drawing.Color.White,
-        System.Drawing.Color.White,
-        System.Drawing.Color.Black,
-        System.Drawing.Color.Black,
-        System.Drawing.Color.Black};
+            System.Drawing.Color.White,
+            System.Drawing.Color.White,
+            System.Drawing.Color.Black,
+            System.Drawing.Color.Black,
+            System.Drawing.Color.Black};
             this.Gspeed.CapPosition = new System.Drawing.Point(58, 85);
             this.Gspeed.CapsPosition = new System.Drawing.Point[] {
-        new System.Drawing.Point(58, 85),
-        new System.Drawing.Point(50, 110),
-        new System.Drawing.Point(10, 10),
-        new System.Drawing.Point(10, 10),
-        new System.Drawing.Point(10, 10)};
+            new System.Drawing.Point(58, 85),
+            new System.Drawing.Point(50, 110),
+            new System.Drawing.Point(10, 10),
+            new System.Drawing.Point(10, 10),
+            new System.Drawing.Point(10, 10)};
             this.Gspeed.CapsText = new string[] {
-        "Speed",
-        "",
-        "",
-        "",
-        ""};
+            "Speed",
+            "",
+            "",
+            "",
+            ""};
             this.Gspeed.CapText = "Speed";
             this.Gspeed.Center = new System.Drawing.Point(75, 75);
             this.Gspeed.DataBindings.Add(new System.Windows.Forms.Binding("Value0", this.bindingSourceGaugesTab, "airspeed", true));
@@ -1523,35 +1510,35 @@ namespace MissionPlanner.GCSViews
             this.Gspeed.NeedleEnabled = false;
             this.Gspeed.NeedleRadius = 70;
             this.Gspeed.NeedlesColor1 = new AGaugeApp.AGauge.NeedleColorEnum[] {
-        AGaugeApp.AGauge.NeedleColorEnum.Gray,
-        AGaugeApp.AGauge.NeedleColorEnum.Red,
-        AGaugeApp.AGauge.NeedleColorEnum.Blue,
-        AGaugeApp.AGauge.NeedleColorEnum.Gray};
+            AGaugeApp.AGauge.NeedleColorEnum.Gray,
+            AGaugeApp.AGauge.NeedleColorEnum.Red,
+            AGaugeApp.AGauge.NeedleColorEnum.Blue,
+            AGaugeApp.AGauge.NeedleColorEnum.Gray};
             this.Gspeed.NeedlesColor2 = new System.Drawing.Color[] {
-        System.Drawing.Color.White,
-        System.Drawing.Color.White,
-        System.Drawing.Color.White,
-        System.Drawing.Color.Brown};
+            System.Drawing.Color.White,
+            System.Drawing.Color.White,
+            System.Drawing.Color.White,
+            System.Drawing.Color.Brown};
             this.Gspeed.NeedlesEnabled = new bool[] {
-        true,
-        true,
-        false,
-        false};
+            true,
+            true,
+            false,
+            false};
             this.Gspeed.NeedlesRadius = new int[] {
-        50,
-        50,
-        70,
-        70};
+            50,
+            50,
+            70,
+            70};
             this.Gspeed.NeedlesType = new int[] {
-        0,
-        0,
-        0,
-        0};
+            0,
+            0,
+            0,
+            0};
             this.Gspeed.NeedlesWidth = new int[] {
-        2,
-        1,
-        2,
-        2};
+            2,
+            1,
+            2,
+            2};
             this.Gspeed.NeedleType = 0;
             this.Gspeed.NeedleWidth = 2;
             this.Gspeed.Range_Idx = ((byte)(2));
@@ -1561,41 +1548,41 @@ namespace MissionPlanner.GCSViews
             this.Gspeed.RangeInnerRadius = 1;
             this.Gspeed.RangeOuterRadius = 70;
             this.Gspeed.RangesColor = new System.Drawing.Color[] {
-        System.Drawing.Color.LightGreen,
-        System.Drawing.Color.Red,
-        System.Drawing.Color.Orange,
-        System.Drawing.SystemColors.Control,
-        System.Drawing.SystemColors.Control};
+            System.Drawing.Color.LightGreen,
+            System.Drawing.Color.Red,
+            System.Drawing.Color.Orange,
+            System.Drawing.SystemColors.Control,
+            System.Drawing.SystemColors.Control};
             this.Gspeed.RangesEnabled = new bool[] {
-        false,
-        false,
-        false,
-        false,
-        false};
+            false,
+            false,
+            false,
+            false,
+            false};
             this.Gspeed.RangesEndValue = new float[] {
-        35F,
-        60F,
-        50F,
-        0F,
-        0F};
+            35F,
+            60F,
+            50F,
+            0F,
+            0F};
             this.Gspeed.RangesInnerRadius = new int[] {
-        1,
-        1,
-        1,
-        70,
-        70};
+            1,
+            1,
+            1,
+            70,
+            70};
             this.Gspeed.RangesOuterRadius = new int[] {
-        70,
-        70,
-        70,
-        80,
-        80};
+            70,
+            70,
+            70,
+            80,
+            80};
             this.Gspeed.RangesStartValue = new float[] {
-        0F,
-        50F,
-        35F,
-        0F,
-        0F};
+            0F,
+            50F,
+            35F,
+            0F,
+            0F};
             this.Gspeed.RangeStartValue = 35F;
             this.Gspeed.ScaleLinesInterColor = System.Drawing.Color.White;
             this.Gspeed.ScaleLinesInterInnerRadius = 52;
@@ -2104,15 +2091,9 @@ namespace MissionPlanner.GCSViews
             this.BUT_select_script.TextColorNotEnabled = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(87)))), ((int)(((byte)(4)))));
             this.BUT_select_script.UseVisualStyleBackColor = true;
             this.BUT_select_script.Click += new System.EventHandler(this.BUT_select_script_Click);
-            // 
+            //
             // tabPayload
-            // 
-            // this.tabPayload.Controls.Add(this.BUT_GimbalVideo);
-            // this.tabPayload.Controls.Add(this.groupBoxRoll);
-            // this.tabPayload.Controls.Add(this.groupBoxYaw);
-            // this.tabPayload.Controls.Add(this.BUT_resetGimbalPos);
-            // this.tabPayload.Controls.Add(this.groupBoxPitch);
-            // this.tabPayload.Controls.Add(this.baseCamControl1);
+            //
             resources.ApplyResources(this.tabPayload, "tabPayload");
             this.tabPayload.Name = "tabPayload";
             this.tabPayload.UseVisualStyleBackColor = true;
@@ -2141,7 +2122,7 @@ namespace MissionPlanner.GCSViews
             // 
             // bindingSourcePayloadTab
             // 
-            this.bindingSourcePayloadTab.DataSource = typeof(MissionPlanner.CurrentState);
+            this.bindingSourcePayloadTab.DataSource = typeof(XagSurveillanceGCS.CurrentState);
             // 
             // trackBarRoll
             // 
@@ -2573,7 +2554,6 @@ namespace MissionPlanner.GCSViews
             this.takeOffToolStripMenuItem,
             this.onOffCameraOverlapToolStripMenuItem,
             this.jumpToTagToolStripMenuItem,
-            // this.gimbalVideoToolStripMenuItem,
             this.imHereToolStripMenuItem});
             this.contextMenuStripMap.Name = "contextMenuStrip1";
             resources.ApplyResources(this.contextMenuStripMap, "contextMenuStripMap");
@@ -2809,7 +2789,7 @@ namespace MissionPlanner.GCSViews
             // 
             // bindingSource1
             // 
-            this.bindingSource1.DataSource = typeof(MissionPlanner.CurrentState);
+            this.bindingSource1.DataSource = typeof(XagSurveillanceGCS.CurrentState);
             // 
             // label8
             // 
@@ -2944,39 +2924,6 @@ namespace MissionPlanner.GCSViews
             this.CB_tuning.UseVisualStyleBackColor = true;
             this.CB_tuning.CheckedChanged += new System.EventHandler(this.CB_tuning_CheckedChanged);
             //
-            // Dooaf-x
-            //
-            this.DooafX = new System.Windows.Forms.Label();
-            // resources.ApplyResources(this.DooafX, "DO-OAF X");
-            // this.DooafX.AutoSize = true;
-            this.DooafX.Name = "DO-OAF X";
-            this.DooafX.Text = "DOOAF X: 0.00 m";
-            this.DooafX.ForeColor = System.Drawing.Color.White;
-            this.DooafX.Location = new System.Drawing.Point(this.CHK_autopan.Right + 2, this.CHK_autopan.Top + 3);
-            //
-            // Dooaf-y
-            //
-            this.DooafY = new System.Windows.Forms.Label();
-            // resources.ApplyResources(this.DooafY, "DO-OAF Y");
-            // this.DooafY.AutoSize = true;
-            this.DooafY.Name = "DO-OAF Y";
-            this.DooafY.Text = "DOOAF Y: 0.00 m";
-            this.DooafY.ForeColor = System.Drawing.Color.White;
-            this.DooafY.Location = new System.Drawing.Point(this.DooafX.Right + 11, this.CHK_autopan.Top + 3);
-            //
-            // targetDistance
-            //
-            this.TargetDistance = new System.Windows.Forms.Label();
-            // this.TargetDistance.AutoSize = true;
-            this.TargetDistance.Name = "Distance";
-            this.TargetDistance.Text = "Distance: 0.00 m";
-            this.TargetDistance.ForeColor = System.Drawing.Color.White;
-            this.TargetDistance.Location = new System.Drawing.Point(this.DooafY.Right + 11, this.CHK_autopan.Top + 3);
-            //
-            this.panel1.Controls.Add(this.DooafX);
-            this.panel1.Controls.Add(this.DooafY);
-            this.panel1.Controls.Add(this.TargetDistance);
-            //
             // 
             // ZedGraphTimer
             // 
@@ -3002,35 +2949,26 @@ namespace MissionPlanner.GCSViews
             // 
             // bindingSourceStatusTab
             // 
-            this.bindingSourceStatusTab.DataSource = typeof(MissionPlanner.CurrentState);
+            this.bindingSourceStatusTab.DataSource = typeof(XagSurveillanceGCS.CurrentState);
             //
-            // split container
+            // MainH TopPanel
             //
-            this.TopSplit = new System.Windows.Forms.SplitContainer();
             this.TopSplit.Dock = DockStyle.Fill;
             this.TopSplit.Orientation = Orientation.Vertical;
-            this.TopSplit.SplitterDistance = (int)(this.TopSplit.Width * 0.56);
+            this.TopSplit.SplitterDistance = (int)(this.TopSplit.Width * 0.55);
             this.TopSplit.IsSplitterFixed = true;
-            // this.SubMainLeft.SplitterDistance = (int)(this.SubMainLeft.Width * 0.45);
             this.TopSplit.Panel2.Controls.Add(this.tableMap);
             //
-            // MainH LeftPanel
+            // MainH BottomPanel
             //
-            this.BottomSplit =new System.Windows.Forms.SplitContainer();
             this.BottomSplit.Dock = DockStyle.Fill;
             this.BottomSplit.Orientation = Orientation.Vertical;
             this.BottomSplit.SplitterDistance = (int)(this.BottomSplit.Width * 0.40);
-            // this.BottomSplit.IsSplitterFixed = true;
-            //
-            // MainH Bottom
-            //
-            // this.SubMainLeft.SplitterDistance = (int)(this.SubMainLeft.Width * 0.25);
             this.BottomSplit.Panel2.Controls.Add(this.SubMainLeft);
             //
             // MainH Panel
             //
             this.MainH.SplitterDistance = (int)(MainH.Height * 0.65);
-            // this.MainH.IsSplitterFixed = true;
             this.MainH.Panel1.Controls.Add(this.TopSplit);
             this.MainH.Panel2.Controls.Add(this.BottomSplit);
             // 
@@ -3235,7 +3173,7 @@ namespace MissionPlanner.GCSViews
         private System.Windows.Forms.BindingSource bindingSourceStatusTab;
         private System.Windows.Forms.BindingSource bindingSourceGaugesTab;
         private System.Windows.Forms.ToolStripMenuItem setHomeHereToolStripMenuItem;
-        private MissionPlanner.Controls.Coords coords1;
+        private XagSurveillanceGCS.Controls.Coords coords1;
         private Controls.MyButton BUT_matlab;
         private System.Windows.Forms.ComboBox CMB_mountmode;
         private Controls.MyButton BUT_mountmode;
@@ -3358,10 +3296,6 @@ namespace MissionPlanner.GCSViews
         private ToolStripMenuItem gimbalVideoPopOutToolStripMenuItem;
         public System.Windows.Forms.TabPage tabExternalAHRS;
         private Controls.EAHRSControl eahrsControl1;
-        // private Controls.BaseCameraController baseCamControl1;
         private ToolStripMenuItem imHereToolStripMenuItem;
-        private System.Windows.Forms.Label DooafX;
-        private System.Windows.Forms.Label DooafY;
-        private System.Windows.Forms.Label TargetDistance;
     }
 }

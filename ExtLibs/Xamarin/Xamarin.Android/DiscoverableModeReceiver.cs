@@ -2,7 +2,7 @@
 using Android.Bluetooth;
 using Android.Content;
 
-namespace MissionPlanner.Comms
+namespace XagSurveillanceGCS.Comms
 {
     /// <summary>
     /// Listen for when the device goes in and out of Bluetooth discoverability

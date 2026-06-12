@@ -2,21 +2,21 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using MissionPlanner.Utilities;
-using MissionPlanner.Controls;
+using XagSurveillanceGCS.Utilities;
+using XagSurveillanceGCS.Controls;
 using System.IO;
 using System.Windows.Forms;
 using System.Diagnostics;
-using MissionPlanner;
+using XagSurveillanceGCS;
 using System.Drawing;
 using GMap.NET.WindowsForms;
-using MissionPlanner.GCSViews;
-using MissionPlanner.Maps;
+using XagSurveillanceGCS.GCSViews;
+using XagSurveillanceGCS.Maps;
 
 
 namespace CameraControl
 {
-    public class Plugin : MissionPlanner.Plugin.Plugin
+    public class Plugin : XagSurveillanceGCS.Plugin.Plugin
     {
         private int sub;
         private int sub1;

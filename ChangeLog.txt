@@ -1,4 +1,4 @@
-﻿*Mission Planner 1.3.83 - Sept 10, 2024
+﻿*XagSurveillanceGCS 1.3.83 - Sept 10, 2024
 * FlightData : fix android/ios
 * NoMap: and NoProjection
 * GMapMarkerRect: add max int check
@@ -181,7 +181,7 @@ should only be copied when the window state is normal.
 * FlightData: UtcNow update
 * MavlinkParse: UtcNow update
 * CommsFile: UtcNow change
-* MissionPlanner:add DO_SET_HOME to Copter and Rover (#3470)
+* XagSurveillanceGCS:add DO_SET_HOME to Copter and Rover (#3470)
 Co-authored-by: Michael Oborne <mich146@hotmail.com>
 * MAVFtp: better deal with end of transfer and add Bps
 * MAVFtp: fix max payload size check
@@ -365,152 +365,152 @@ numbers and under-rounding big numbers.
 * Update: remove orphan files at the end
 
 
-*Mission Planner 1.3.82 -  Aug 1, 2024
+*XagSurveillanceGCS 1.3.82 -  Aug 1, 2024
 ## What's Changed
-* mavcmd: do-change-speed Type field includes possible values by @rmackay9 in https://github.com/ArduPilot/MissionPlanner/pull/3273
-* ConfigPlanner: Fix Korean localization by @EosBandi in https://github.com/ArduPilot/MissionPlanner/pull/3272
-* prevent target_system=0 in toggle safety switch by @tridge in https://github.com/ArduPilot/MissionPlanner/pull/3269
-* CurrenState :Use VFR_HUD for climbrate IF it is received. by @EosBandi in https://github.com/ArduPilot/MissionPlanner/pull/3267
-* FlighData: Fix rotated map not displaying vehicle by @EosBandi in https://github.com/ArduPilot/MissionPlanner/pull/3266
-* SerialConfig:Fix exception when with less than five serial ports by @EosBandi in https://github.com/ArduPilot/MissionPlanner/pull/3265
-* CurrentState: correct unit handling for `radius` by @robertlong13 in https://github.com/ArduPilot/MissionPlanner/pull/3262
-* CurrentState: handle GIMBAL_DEVICE_ATTITUDE_STATUS message by @tatsuy in https://github.com/ArduPilot/MissionPlanner/pull/3286
-* Make QuickView Add window fixed size and scrollable. by @EosBandi in https://github.com/ArduPilot/MissionPlanner/pull/3290
-* ConfigSerial: Update SerialOptionRules.json by @EosBandi in https://github.com/ArduPilot/MissionPlanner/pull/3276
-* DisplayView: Disable ConfigStandardParams and ConfigAdvancedParams  by @EosBandi in https://github.com/ArduPilot/MissionPlanner/pull/3274
-* Sik radio update 2024-1-18 by @StevenHAtRFDesign in https://github.com/ArduPilot/MissionPlanner/pull/3277
-* Joystick: fix expo saving function by @tatsuy in https://github.com/ArduPilot/MissionPlanner/pull/3257
-* Can update by @meee1 in https://github.com/ArduPilot/MissionPlanner/pull/3299
-* ConfigRawParams: When setting a parameter changes the number of parameters, do a full refresh. and check if reboot is needed by @EosBandi in https://github.com/ArduPilot/MissionPlanner/pull/3271
-* MAVLinkInterface: remove legacy text severity by @robertlong13 in https://github.com/ArduPilot/MissionPlanner/pull/3259
-* TCPSerial Fixes #3307 by @Godeffroy in https://github.com/ArduPilot/MissionPlanner/pull/3314
-* ExtLibs: add new device ids to list by @andyp1per in https://github.com/ArduPilot/MissionPlanner/pull/3315
-* Remove project test to fix git action builds by @EosBandi in https://github.com/ArduPilot/MissionPlanner/pull/3321
-* added NAV_DELAY support for plane by @tridge in https://github.com/ArduPilot/MissionPlanner/pull/3311
-* mavcmd: add set-camera-source by @rmackay9 in https://github.com/ArduPilot/MissionPlanner/pull/3313
-* GCSViews: Config DroneCAN allow with no SLCAN port by @IamPete1 in https://github.com/ArduPilot/MissionPlanner/pull/3312
-* Sikradio.resx: Clairfy standard and custom fw upload button texts by @EosBandi in https://github.com/ArduPilot/MissionPlanner/pull/3333
-* Grid: max altitude increased to 99999m to allow HAPS to use the calculation by @Bruno-B2S in https://github.com/ArduPilot/MissionPlanner/pull/3334
-* ExtLibs: add SCHA63T to imu types of device ids by @tatsuy in https://github.com/ArduPilot/MissionPlanner/pull/3337
-* srtm: removed 60N limit on SRTM downloads by @tridge in https://github.com/ArduPilot/MissionPlanner/pull/3338
-* Add more relays by @magicrub in https://github.com/ArduPilot/MissionPlanner/pull/3344
-* Update Plane Config page for 4.5.x changed param names by @EosBandi in https://github.com/ArduPilot/MissionPlanner/pull/3345
-* DisplayView config bits by @Godeffroy in https://github.com/ArduPilot/MissionPlanner/pull/3329
-* GMapMarkerBase: add options for transparent MAVs by @robertlong13 in https://github.com/ArduPilot/MissionPlanner/pull/3263
-* Preflight tab - Edit: CheckListEditor.cs updated add preflight sub checklist item functionality and response time by @Matthew-Alti in https://github.com/ArduPilot/MissionPlanner/pull/3318
-* SITL: fixed arguments for SITL launch by @tridge in https://github.com/ArduPilot/MissionPlanner/pull/3359
-* Localization: update uk translation by @FrequentFlyer86 in https://github.com/ArduPilot/MissionPlanner/pull/3361
-* Actions: osx fix by @meee1 in https://github.com/ArduPilot/MissionPlanner/pull/3364
-* Implement support for translation of field names in the QV, update the uk translation by @FrequentFlyer86 in https://github.com/ArduPilot/MissionPlanner/pull/3363
-* Localization: update uk translation for service messages by @FrequentFlyer86 in https://github.com/ArduPilot/MissionPlanner/pull/3362
-* gps base: add automatic base station configuration for Septentrio by @flyingthingsintothings in https://github.com/ArduPilot/MissionPlanner/pull/3324
-* Update Zoom level by @Godeffroy in https://github.com/ArduPilot/MissionPlanner/pull/3323
-* FlighPlanner: When a WP changed to Takeoff zero out Lat,Lng by @EosBandi in https://github.com/ArduPilot/MissionPlanner/pull/3368
-* FlighPlanner: Fix map moving to 0,0 when HomeLocation clicked  by @EosBandi in https://github.com/ArduPilot/MissionPlanner/pull/3367
-* Settings:Fix RemoveList to remove last item in the setting by @EosBandi in https://github.com/ArduPilot/MissionPlanner/pull/3370
-* DashWare: fix culture bug by @robertlong13 in https://github.com/ArduPilot/MissionPlanner/pull/3373
-* ConigInitialParams: Mot thrst calc changes as requested by Xfacta by @EosBandi in https://github.com/ArduPilot/MissionPlanner/pull/3375
-* CurrentState: Add ESC13-16 telemetry by @EosBandi in https://github.com/ArduPilot/MissionPlanner/pull/3378
-* FlightData.cs : Cultureinfo to ToUpper on commands by @EosBandi in https://github.com/ArduPilot/MissionPlanner/pull/3383
-* FlighData : Relay display name start from 1 by @EosBandi in https://github.com/ArduPilot/MissionPlanner/pull/3381
-* FlightData: Fix Python script hang... by @EosBandi in https://github.com/ArduPilot/MissionPlanner/pull/3377
-* CurrentState: fix rxrssi scaling and when rcin.rssi is 255 (invalid/unknown) by @EosBandi in https://github.com/ArduPilot/MissionPlanner/pull/3372
-* Refactor ADS-B input support in Mission Planner by @MUSTARDTIGERFPV in https://github.com/ArduPilot/MissionPlanner/pull/3251
-* FlightPlanner : Inject Custom Map tiles and reload map into custom by @Godeffroy in https://github.com/ArduPilot/MissionPlanner/pull/3322
+* mavcmd: do-change-speed Type field includes possible values by @rmackay9 in https://github.com/ArduPilot/XagSurveillanceGCS/pull/3273
+* ConfigPlanner: Fix Korean localization by @EosBandi in https://github.com/ArduPilot/XagSurveillanceGCS/pull/3272
+* prevent target_system=0 in toggle safety switch by @tridge in https://github.com/ArduPilot/XagSurveillanceGCS/pull/3269
+* CurrenState :Use VFR_HUD for climbrate IF it is received. by @EosBandi in https://github.com/ArduPilot/XagSurveillanceGCS/pull/3267
+* FlighData: Fix rotated map not displaying vehicle by @EosBandi in https://github.com/ArduPilot/XagSurveillanceGCS/pull/3266
+* SerialConfig:Fix exception when with less than five serial ports by @EosBandi in https://github.com/ArduPilot/XagSurveillanceGCS/pull/3265
+* CurrentState: correct unit handling for `radius` by @robertlong13 in https://github.com/ArduPilot/XagSurveillanceGCS/pull/3262
+* CurrentState: handle GIMBAL_DEVICE_ATTITUDE_STATUS message by @tatsuy in https://github.com/ArduPilot/XagSurveillanceGCS/pull/3286
+* Make QuickView Add window fixed size and scrollable. by @EosBandi in https://github.com/ArduPilot/XagSurveillanceGCS/pull/3290
+* ConfigSerial: Update SerialOptionRules.json by @EosBandi in https://github.com/ArduPilot/XagSurveillanceGCS/pull/3276
+* DisplayView: Disable ConfigStandardParams and ConfigAdvancedParams  by @EosBandi in https://github.com/ArduPilot/XagSurveillanceGCS/pull/3274
+* Sik radio update 2024-1-18 by @StevenHAtRFDesign in https://github.com/ArduPilot/XagSurveillanceGCS/pull/3277
+* Joystick: fix expo saving function by @tatsuy in https://github.com/ArduPilot/XagSurveillanceGCS/pull/3257
+* Can update by @meee1 in https://github.com/ArduPilot/XagSurveillanceGCS/pull/3299
+* ConfigRawParams: When setting a parameter changes the number of parameters, do a full refresh. and check if reboot is needed by @EosBandi in https://github.com/ArduPilot/XagSurveillanceGCS/pull/3271
+* MAVLinkInterface: remove legacy text severity by @robertlong13 in https://github.com/ArduPilot/XagSurveillanceGCS/pull/3259
+* TCPSerial Fixes #3307 by @Godeffroy in https://github.com/ArduPilot/XagSurveillanceGCS/pull/3314
+* ExtLibs: add new device ids to list by @andyp1per in https://github.com/ArduPilot/XagSurveillanceGCS/pull/3315
+* Remove project test to fix git action builds by @EosBandi in https://github.com/ArduPilot/XagSurveillanceGCS/pull/3321
+* added NAV_DELAY support for plane by @tridge in https://github.com/ArduPilot/XagSurveillanceGCS/pull/3311
+* mavcmd: add set-camera-source by @rmackay9 in https://github.com/ArduPilot/XagSurveillanceGCS/pull/3313
+* GCSViews: Config DroneCAN allow with no SLCAN port by @IamPete1 in https://github.com/ArduPilot/XagSurveillanceGCS/pull/3312
+* Sikradio.resx: Clairfy standard and custom fw upload button texts by @EosBandi in https://github.com/ArduPilot/XagSurveillanceGCS/pull/3333
+* Grid: max altitude increased to 99999m to allow HAPS to use the calculation by @Bruno-B2S in https://github.com/ArduPilot/XagSurveillanceGCS/pull/3334
+* ExtLibs: add SCHA63T to imu types of device ids by @tatsuy in https://github.com/ArduPilot/XagSurveillanceGCS/pull/3337
+* srtm: removed 60N limit on SRTM downloads by @tridge in https://github.com/ArduPilot/XagSurveillanceGCS/pull/3338
+* Add more relays by @magicrub in https://github.com/ArduPilot/XagSurveillanceGCS/pull/3344
+* Update Plane Config page for 4.5.x changed param names by @EosBandi in https://github.com/ArduPilot/XagSurveillanceGCS/pull/3345
+* DisplayView config bits by @Godeffroy in https://github.com/ArduPilot/XagSurveillanceGCS/pull/3329
+* GMapMarkerBase: add options for transparent MAVs by @robertlong13 in https://github.com/ArduPilot/XagSurveillanceGCS/pull/3263
+* Preflight tab - Edit: CheckListEditor.cs updated add preflight sub checklist item functionality and response time by @Matthew-Alti in https://github.com/ArduPilot/XagSurveillanceGCS/pull/3318
+* SITL: fixed arguments for SITL launch by @tridge in https://github.com/ArduPilot/XagSurveillanceGCS/pull/3359
+* Localization: update uk translation by @FrequentFlyer86 in https://github.com/ArduPilot/XagSurveillanceGCS/pull/3361
+* Actions: osx fix by @meee1 in https://github.com/ArduPilot/XagSurveillanceGCS/pull/3364
+* Implement support for translation of field names in the QV, update the uk translation by @FrequentFlyer86 in https://github.com/ArduPilot/XagSurveillanceGCS/pull/3363
+* Localization: update uk translation for service messages by @FrequentFlyer86 in https://github.com/ArduPilot/XagSurveillanceGCS/pull/3362
+* gps base: add automatic base station configuration for Septentrio by @flyingthingsintothings in https://github.com/ArduPilot/XagSurveillanceGCS/pull/3324
+* Update Zoom level by @Godeffroy in https://github.com/ArduPilot/XagSurveillanceGCS/pull/3323
+* FlighPlanner: When a WP changed to Takeoff zero out Lat,Lng by @EosBandi in https://github.com/ArduPilot/XagSurveillanceGCS/pull/3368
+* FlighPlanner: Fix map moving to 0,0 when HomeLocation clicked  by @EosBandi in https://github.com/ArduPilot/XagSurveillanceGCS/pull/3367
+* Settings:Fix RemoveList to remove last item in the setting by @EosBandi in https://github.com/ArduPilot/XagSurveillanceGCS/pull/3370
+* DashWare: fix culture bug by @robertlong13 in https://github.com/ArduPilot/XagSurveillanceGCS/pull/3373
+* ConigInitialParams: Mot thrst calc changes as requested by Xfacta by @EosBandi in https://github.com/ArduPilot/XagSurveillanceGCS/pull/3375
+* CurrentState: Add ESC13-16 telemetry by @EosBandi in https://github.com/ArduPilot/XagSurveillanceGCS/pull/3378
+* FlightData.cs : Cultureinfo to ToUpper on commands by @EosBandi in https://github.com/ArduPilot/XagSurveillanceGCS/pull/3383
+* FlighData : Relay display name start from 1 by @EosBandi in https://github.com/ArduPilot/XagSurveillanceGCS/pull/3381
+* FlightData: Fix Python script hang... by @EosBandi in https://github.com/ArduPilot/XagSurveillanceGCS/pull/3377
+* CurrentState: fix rxrssi scaling and when rcin.rssi is 255 (invalid/unknown) by @EosBandi in https://github.com/ArduPilot/XagSurveillanceGCS/pull/3372
+* Refactor ADS-B input support in XagSurveillanceGCS by @MUSTARDTIGERFPV in https://github.com/ArduPilot/XagSurveillanceGCS/pull/3251
+* FlightPlanner : Inject Custom Map tiles and reload map into custom by @Godeffroy in https://github.com/ArduPilot/XagSurveillanceGCS/pull/3322
 
 ## New Contributors
-* @Godeffroy made their first contribution in https://github.com/ArduPilot/MissionPlanner/pull/3314
-* @Bruno-B2S made their first contribution in https://github.com/ArduPilot/MissionPlanner/pull/3334
-* @FrequentFlyer86 made their first contribution in https://github.com/ArduPilot/MissionPlanner/pull/3361
-* @flyingthingsintothings made their first contribution in https://github.com/ArduPilot/MissionPlanner/pull/3324
+* @Godeffroy made their first contribution in https://github.com/ArduPilot/XagSurveillanceGCS/pull/3314
+* @Bruno-B2S made their first contribution in https://github.com/ArduPilot/XagSurveillanceGCS/pull/3334
+* @FrequentFlyer86 made their first contribution in https://github.com/ArduPilot/XagSurveillanceGCS/pull/3361
+* @flyingthingsintothings made their first contribution in https://github.com/ArduPilot/XagSurveillanceGCS/pull/3324
 
-**Full Changelog**: https://github.com/ArduPilot/MissionPlanner/compare/MissionPlanner1.3.81...MissionPlanner1.3.82
+**Full Changelog**: https://github.com/ArduPilot/XagSurveillanceGCS/compare/XagSurveillanceGCS1.3.81...XagSurveillanceGCS1.3.82
 
-*Mission Planner 1.3.81 -  Dec 7, 2023 
+*XagSurveillanceGCS 1.3.81 -  Dec 7, 2023 
 ## What's Changed
-* Speech: fix pronunciation of quadplane modes by @robertlong13 in https://github.com/ArduPilot/MissionPlanner/pull/3091
-* MAVFTP: use smaller read/write sizes to keep radios happier by @tridge in https://github.com/ArduPilot/MissionPlanner/pull/3087
-* Param list improvements by @robertlong13 in https://github.com/ArduPilot/MissionPlanner/pull/3080
-* ConfigRawParam: handle range and value together by @robertlong13 in https://github.com/ArduPilot/MissionPlanner/pull/3098
-* CoT/TAK: add detail takv and some cleanup by @magicrub in https://github.com/ArduPilot/MissionPlanner/pull/3099
-* mavcmd: add jump-tag commands for plane, copter, rover by @rmackay9 in https://github.com/ArduPilot/MissionPlanner/pull/3097
-* Misc bug fixes by @magicrub in https://github.com/ArduPilot/MissionPlanner/pull/3102
-* ConfigRawParams: fix typecast exception by @robertlong13 in https://github.com/ArduPilot/MissionPlanner/pull/3094
-* ConfigRawParams: clamp numeric control by @robertlong13 in https://github.com/ArduPilot/MissionPlanner/pull/3095
-* Fix getting settings default result by @magicrub in https://github.com/ArduPilot/MissionPlanner/pull/3103
-* CoT: adds send interval and saves all settings by @magicrub in https://github.com/ArduPilot/MissionPlanner/pull/3104
-* HUD: Don't override user setting to show BATT, add BATT2 option by @magicrub in https://github.com/ArduPilot/MissionPlanner/pull/3105
-* Comm Stats: reset button to clear all the fields better by @magicrub in https://github.com/ArduPilot/MissionPlanner/pull/3106
-* Revert "Settings: add GetDecimal() to Settings.Instance storage" by @magicrub in https://github.com/ArduPilot/MissionPlanner/pull/3108
-* Jump Tags - add ability to Trigger it by @magicrub in https://github.com/ArduPilot/MissionPlanner/pull/3101
-* ADSB: fix deadlock issue by @robertlong13 in https://github.com/ArduPilot/MissionPlanner/pull/3109
-* OpenDroneID2: fixed swapped UA_Type and ID_Type by @dakejahl in https://github.com/ArduPilot/MissionPlanner/pull/3128
-* mavcmd: rover command list gets LOITER_TURNS by @rmackay9 in https://github.com/ArduPilot/MissionPlanner/pull/3127
-* Update authentication redirect URL by @rupertbenbrook in https://github.com/ArduPilot/MissionPlanner/pull/3145
-* GCSViews: ConfigRawParams: bitmask takes priority over options by @IamPete1 in https://github.com/ArduPilot/MissionPlanner/pull/3129
-* FlightData: Actions: add safety switch toggle by @robertlong13 in https://github.com/ArduPilot/MissionPlanner/pull/3143
-* Update README.md by @vr4guid in https://github.com/ArduPilot/MissionPlanner/pull/3142
-* mavcmd: update do-digicam-control fields by @rmackay9 in https://github.com/ArduPilot/MissionPlanner/pull/3139
-* GeoRefImage: fix min shutter filter by @robertlong13 in https://github.com/ArduPilot/MissionPlanner/pull/3133
-* OSDConfigurator: add support for HD layouts by @robertlong13 in https://github.com/ArduPilot/MissionPlanner/pull/3146
-* GCSViews: ConfigurationView: update coloum width by @IamPete1 in https://github.com/ArduPilot/MissionPlanner/pull/3130
-* ConfigRawParams: fix search slowdown by @robertlong13 in https://github.com/ArduPilot/MissionPlanner/pull/3149
-* Flightdata, Payload Control tab fixes by @rmackay9 in https://github.com/ArduPilot/MissionPlanner/pull/3153
-* Fix as a result of rename by @rupertbenbrook in https://github.com/ArduPilot/MissionPlanner/pull/3157
-* Improvements to Altitude Angel integration by @rupertbenbrook in https://github.com/ArduPilot/MissionPlanner/pull/3147
-* ExtLibs: setMountConfigure uses mav-cmd-do-mount-configure by @rmackay9 in https://github.com/ArduPilot/MissionPlanner/pull/3159
-* CommsNTRIP: add a checkbox to select NTRIP v1.0 for older caster by @khancyr in https://github.com/ArduPilot/MissionPlanner/pull/3172
-* Fix json Mission export by @EosBandi in https://github.com/ArduPilot/MissionPlanner/pull/3170
-* Optimizations and map display bug fixes by @rupertbenbrook in https://github.com/ArduPilot/MissionPlanner/pull/3168
-* Adding Legacy, UTM Basic and UTM Ready display by @rupertbenbrook in https://github.com/ArduPilot/MissionPlanner/pull/3166
-* PreFlight tab: Resizing fix by @Matthew-Alti in https://github.com/ArduPilot/MissionPlanner/pull/3169
-* ADSB: fix AVR and Beast modes to display call sign and velocity. by @SteveBorensteinNOAA in https://github.com/ArduPilot/MissionPlanner/pull/3110
-* mavcmd: add image-start-capture command columns by @rmackay9 in https://github.com/ArduPilot/MissionPlanner/pull/3175
-* mavcmd: add image-stop-capture command by @rmackay9 in https://github.com/ArduPilot/MissionPlanner/pull/3177
-* Temp: Add sysid target to safety switch command by @stephendade in https://github.com/ArduPilot/MissionPlanner/pull/3176
-* Fix missing params in QP Extended Tuning page by @robertlong13 in https://github.com/ArduPilot/MissionPlanner/pull/3192
-* Pr bug homealt fileload by @robertlong13 in https://github.com/ArduPilot/MissionPlanner/pull/3195
-* ConfigRawParams: manual absolute column sizing by @robertlong13 in https://github.com/ArduPilot/MissionPlanner/pull/3194
-* Updated Altitude Angel branding by @rupertbenbrook in https://github.com/ArduPilot/MissionPlanner/pull/3173
-* GCSViews: ConfigRawParams: look up param type for bitmask helper by @IamPete1 in https://github.com/ArduPilot/MissionPlanner/pull/3189
-* Preflight tab - Edit: CheckListEditor.cs updated the Add button and the Removal Button by @Matthew-Alti in https://github.com/ArduPilot/MissionPlanner/pull/3174
-* FlightData - Update to the Colour Randomization Quick Tab Numbers by @Matthew-Alti in https://github.com/ArduPilot/MissionPlanner/pull/3156
-* GCSViews: ConfigurationView: Motor test: use JSON file to add more infromation by @IamPete1 in https://github.com/ArduPilot/MissionPlanner/pull/3043
-* LogSort: Add sorting by BRD_SER_NUM by @TunaLobster in https://github.com/ArduPilot/MissionPlanner/pull/2692
-* PropagationSettings: add altitude filter of terrain by @tatsuy in https://github.com/ArduPilot/MissionPlanner/pull/3202
-* WPOverlay: change the condition for rally point by @tatsuy in https://github.com/ArduPilot/MissionPlanner/pull/3201
-* DFLog: Fix messages show as System.byte[] by @EosBandi in https://github.com/ArduPilot/MissionPlanner/pull/3210
-* Quickview Color Randomization bug fix by @Autonomost in https://github.com/ArduPilot/MissionPlanner/pull/3211
-* MainV2: Fix console window hide in windows11 by @EosBandi in https://github.com/ArduPilot/MissionPlanner/pull/3214
-* maccmd.xml: add DO_SEND_SCRIPT_MESSAGE by @IamPete1 in https://github.com/ArduPilot/MissionPlanner/pull/3215
-* CurrentState: add more rangefinders by @robertlong13 in https://github.com/ArduPilot/MissionPlanner/pull/3209
-* ExtLibs: Utilities: BinaryLog: fix FW version detection used for mode names by @IamPete1 in https://github.com/ArduPilot/MissionPlanner/pull/3220
-* CurrentState: Propagate Named Float messages across components with same sysid. by @EosBandi in https://github.com/ArduPilot/MissionPlanner/pull/3226
-* WPOverlay: treat VTOL_LAND like LAND by @robertlong13 in https://github.com/ArduPilot/MissionPlanner/pull/3236
-* BinaryLog: escape characters in byte arrays by @robertlong13 in https://github.com/ArduPilot/MissionPlanner/pull/3237
-* GCSViews: Update optical flow config page by @stephendade in https://github.com/ArduPilot/MissionPlanner/pull/3234
-* LogBrowse: improve parameter handling by @robertlong13 in https://github.com/ArduPilot/MissionPlanner/pull/3233
-* WPOverlay: fix loiter circle rendering by @robertlong13 in https://github.com/ArduPilot/MissionPlanner/pull/3232
-* Fixing a performance problem in message display by @rupertbenbrook in https://github.com/ArduPilot/MissionPlanner/pull/3228
-* MissionPlanner.csproj : Fix post build command to accept space in folder names by @EosBandi in https://github.com/ArduPilot/MissionPlanner/pull/3227
-* Actions: fix android build by @meee1 in https://github.com/ArduPilot/MissionPlanner/pull/3244
-* Setup: SerialPort settings screen by @EosBandi in https://github.com/ArduPilot/MissionPlanner/pull/3240
-* Improve/Fix SBS-1 ADS-B Parsing by @MUSTARDTIGERFPV in https://github.com/ArduPilot/MissionPlanner/pull/3218
-* MapboxUser: increase MaxZoom to 24 by @robertlong13 in https://github.com/ArduPilot/MissionPlanner/pull/3208
-* GridUI: fix config load bugs by @robertlong13 in https://github.com/ArduPilot/MissionPlanner/pull/3200
-* Minor bug fix for multipolygons in map by @rupertbenbrook in https://github.com/ArduPilot/MissionPlanner/pull/3252
+* Speech: fix pronunciation of quadplane modes by @robertlong13 in https://github.com/ArduPilot/XagSurveillanceGCS/pull/3091
+* MAVFTP: use smaller read/write sizes to keep radios happier by @tridge in https://github.com/ArduPilot/XagSurveillanceGCS/pull/3087
+* Param list improvements by @robertlong13 in https://github.com/ArduPilot/XagSurveillanceGCS/pull/3080
+* ConfigRawParam: handle range and value together by @robertlong13 in https://github.com/ArduPilot/XagSurveillanceGCS/pull/3098
+* CoT/TAK: add detail takv and some cleanup by @magicrub in https://github.com/ArduPilot/XagSurveillanceGCS/pull/3099
+* mavcmd: add jump-tag commands for plane, copter, rover by @rmackay9 in https://github.com/ArduPilot/XagSurveillanceGCS/pull/3097
+* Misc bug fixes by @magicrub in https://github.com/ArduPilot/XagSurveillanceGCS/pull/3102
+* ConfigRawParams: fix typecast exception by @robertlong13 in https://github.com/ArduPilot/XagSurveillanceGCS/pull/3094
+* ConfigRawParams: clamp numeric control by @robertlong13 in https://github.com/ArduPilot/XagSurveillanceGCS/pull/3095
+* Fix getting settings default result by @magicrub in https://github.com/ArduPilot/XagSurveillanceGCS/pull/3103
+* CoT: adds send interval and saves all settings by @magicrub in https://github.com/ArduPilot/XagSurveillanceGCS/pull/3104
+* HUD: Don't override user setting to show BATT, add BATT2 option by @magicrub in https://github.com/ArduPilot/XagSurveillanceGCS/pull/3105
+* Comm Stats: reset button to clear all the fields better by @magicrub in https://github.com/ArduPilot/XagSurveillanceGCS/pull/3106
+* Revert "Settings: add GetDecimal() to Settings.Instance storage" by @magicrub in https://github.com/ArduPilot/XagSurveillanceGCS/pull/3108
+* Jump Tags - add ability to Trigger it by @magicrub in https://github.com/ArduPilot/XagSurveillanceGCS/pull/3101
+* ADSB: fix deadlock issue by @robertlong13 in https://github.com/ArduPilot/XagSurveillanceGCS/pull/3109
+* OpenDroneID2: fixed swapped UA_Type and ID_Type by @dakejahl in https://github.com/ArduPilot/XagSurveillanceGCS/pull/3128
+* mavcmd: rover command list gets LOITER_TURNS by @rmackay9 in https://github.com/ArduPilot/XagSurveillanceGCS/pull/3127
+* Update authentication redirect URL by @rupertbenbrook in https://github.com/ArduPilot/XagSurveillanceGCS/pull/3145
+* GCSViews: ConfigRawParams: bitmask takes priority over options by @IamPete1 in https://github.com/ArduPilot/XagSurveillanceGCS/pull/3129
+* FlightData: Actions: add safety switch toggle by @robertlong13 in https://github.com/ArduPilot/XagSurveillanceGCS/pull/3143
+* Update README.md by @vr4guid in https://github.com/ArduPilot/XagSurveillanceGCS/pull/3142
+* mavcmd: update do-digicam-control fields by @rmackay9 in https://github.com/ArduPilot/XagSurveillanceGCS/pull/3139
+* GeoRefImage: fix min shutter filter by @robertlong13 in https://github.com/ArduPilot/XagSurveillanceGCS/pull/3133
+* OSDConfigurator: add support for HD layouts by @robertlong13 in https://github.com/ArduPilot/XagSurveillanceGCS/pull/3146
+* GCSViews: ConfigurationView: update coloum width by @IamPete1 in https://github.com/ArduPilot/XagSurveillanceGCS/pull/3130
+* ConfigRawParams: fix search slowdown by @robertlong13 in https://github.com/ArduPilot/XagSurveillanceGCS/pull/3149
+* Flightdata, Payload Control tab fixes by @rmackay9 in https://github.com/ArduPilot/XagSurveillanceGCS/pull/3153
+* Fix as a result of rename by @rupertbenbrook in https://github.com/ArduPilot/XagSurveillanceGCS/pull/3157
+* Improvements to Altitude Angel integration by @rupertbenbrook in https://github.com/ArduPilot/XagSurveillanceGCS/pull/3147
+* ExtLibs: setMountConfigure uses mav-cmd-do-mount-configure by @rmackay9 in https://github.com/ArduPilot/XagSurveillanceGCS/pull/3159
+* CommsNTRIP: add a checkbox to select NTRIP v1.0 for older caster by @khancyr in https://github.com/ArduPilot/XagSurveillanceGCS/pull/3172
+* Fix json Mission export by @EosBandi in https://github.com/ArduPilot/XagSurveillanceGCS/pull/3170
+* Optimizations and map display bug fixes by @rupertbenbrook in https://github.com/ArduPilot/XagSurveillanceGCS/pull/3168
+* Adding Legacy, UTM Basic and UTM Ready display by @rupertbenbrook in https://github.com/ArduPilot/XagSurveillanceGCS/pull/3166
+* PreFlight tab: Resizing fix by @Matthew-Alti in https://github.com/ArduPilot/XagSurveillanceGCS/pull/3169
+* ADSB: fix AVR and Beast modes to display call sign and velocity. by @SteveBorensteinNOAA in https://github.com/ArduPilot/XagSurveillanceGCS/pull/3110
+* mavcmd: add image-start-capture command columns by @rmackay9 in https://github.com/ArduPilot/XagSurveillanceGCS/pull/3175
+* mavcmd: add image-stop-capture command by @rmackay9 in https://github.com/ArduPilot/XagSurveillanceGCS/pull/3177
+* Temp: Add sysid target to safety switch command by @stephendade in https://github.com/ArduPilot/XagSurveillanceGCS/pull/3176
+* Fix missing params in QP Extended Tuning page by @robertlong13 in https://github.com/ArduPilot/XagSurveillanceGCS/pull/3192
+* Pr bug homealt fileload by @robertlong13 in https://github.com/ArduPilot/XagSurveillanceGCS/pull/3195
+* ConfigRawParams: manual absolute column sizing by @robertlong13 in https://github.com/ArduPilot/XagSurveillanceGCS/pull/3194
+* Updated Altitude Angel branding by @rupertbenbrook in https://github.com/ArduPilot/XagSurveillanceGCS/pull/3173
+* GCSViews: ConfigRawParams: look up param type for bitmask helper by @IamPete1 in https://github.com/ArduPilot/XagSurveillanceGCS/pull/3189
+* Preflight tab - Edit: CheckListEditor.cs updated the Add button and the Removal Button by @Matthew-Alti in https://github.com/ArduPilot/XagSurveillanceGCS/pull/3174
+* FlightData - Update to the Colour Randomization Quick Tab Numbers by @Matthew-Alti in https://github.com/ArduPilot/XagSurveillanceGCS/pull/3156
+* GCSViews: ConfigurationView: Motor test: use JSON file to add more infromation by @IamPete1 in https://github.com/ArduPilot/XagSurveillanceGCS/pull/3043
+* LogSort: Add sorting by BRD_SER_NUM by @TunaLobster in https://github.com/ArduPilot/XagSurveillanceGCS/pull/2692
+* PropagationSettings: add altitude filter of terrain by @tatsuy in https://github.com/ArduPilot/XagSurveillanceGCS/pull/3202
+* WPOverlay: change the condition for rally point by @tatsuy in https://github.com/ArduPilot/XagSurveillanceGCS/pull/3201
+* DFLog: Fix messages show as System.byte[] by @EosBandi in https://github.com/ArduPilot/XagSurveillanceGCS/pull/3210
+* Quickview Color Randomization bug fix by @Autonomost in https://github.com/ArduPilot/XagSurveillanceGCS/pull/3211
+* MainV2: Fix console window hide in windows11 by @EosBandi in https://github.com/ArduPilot/XagSurveillanceGCS/pull/3214
+* maccmd.xml: add DO_SEND_SCRIPT_MESSAGE by @IamPete1 in https://github.com/ArduPilot/XagSurveillanceGCS/pull/3215
+* CurrentState: add more rangefinders by @robertlong13 in https://github.com/ArduPilot/XagSurveillanceGCS/pull/3209
+* ExtLibs: Utilities: BinaryLog: fix FW version detection used for mode names by @IamPete1 in https://github.com/ArduPilot/XagSurveillanceGCS/pull/3220
+* CurrentState: Propagate Named Float messages across components with same sysid. by @EosBandi in https://github.com/ArduPilot/XagSurveillanceGCS/pull/3226
+* WPOverlay: treat VTOL_LAND like LAND by @robertlong13 in https://github.com/ArduPilot/XagSurveillanceGCS/pull/3236
+* BinaryLog: escape characters in byte arrays by @robertlong13 in https://github.com/ArduPilot/XagSurveillanceGCS/pull/3237
+* GCSViews: Update optical flow config page by @stephendade in https://github.com/ArduPilot/XagSurveillanceGCS/pull/3234
+* LogBrowse: improve parameter handling by @robertlong13 in https://github.com/ArduPilot/XagSurveillanceGCS/pull/3233
+* WPOverlay: fix loiter circle rendering by @robertlong13 in https://github.com/ArduPilot/XagSurveillanceGCS/pull/3232
+* Fixing a performance problem in message display by @rupertbenbrook in https://github.com/ArduPilot/XagSurveillanceGCS/pull/3228
+* XagSurveillanceGCS.csproj : Fix post build command to accept space in folder names by @EosBandi in https://github.com/ArduPilot/XagSurveillanceGCS/pull/3227
+* Actions: fix android build by @meee1 in https://github.com/ArduPilot/XagSurveillanceGCS/pull/3244
+* Setup: SerialPort settings screen by @EosBandi in https://github.com/ArduPilot/XagSurveillanceGCS/pull/3240
+* Improve/Fix SBS-1 ADS-B Parsing by @MUSTARDTIGERFPV in https://github.com/ArduPilot/XagSurveillanceGCS/pull/3218
+* MapboxUser: increase MaxZoom to 24 by @robertlong13 in https://github.com/ArduPilot/XagSurveillanceGCS/pull/3208
+* GridUI: fix config load bugs by @robertlong13 in https://github.com/ArduPilot/XagSurveillanceGCS/pull/3200
+* Minor bug fix for multipolygons in map by @rupertbenbrook in https://github.com/ArduPilot/XagSurveillanceGCS/pull/3252
 
 ## New Contributors
-* @dakejahl made their first contribution in https://github.com/ArduPilot/MissionPlanner/pull/3128
-* @vr4guid made their first contribution in https://github.com/ArduPilot/MissionPlanner/pull/3142
-* @Matthew-Alti made their first contribution in https://github.com/ArduPilot/MissionPlanner/pull/3169
-* @SteveBorensteinNOAA made their first contribution in https://github.com/ArduPilot/MissionPlanner/pull/3110
-* @Autonomost made their first contribution in https://github.com/ArduPilot/MissionPlanner/pull/3211
-* @MUSTARDTIGERFPV made their first contribution in https://github.com/ArduPilot/MissionPlanner/pull/3218
+* @dakejahl made their first contribution in https://github.com/ArduPilot/XagSurveillanceGCS/pull/3128
+* @vr4guid made their first contribution in https://github.com/ArduPilot/XagSurveillanceGCS/pull/3142
+* @Matthew-Alti made their first contribution in https://github.com/ArduPilot/XagSurveillanceGCS/pull/3169
+* @SteveBorensteinNOAA made their first contribution in https://github.com/ArduPilot/XagSurveillanceGCS/pull/3110
+* @Autonomost made their first contribution in https://github.com/ArduPilot/XagSurveillanceGCS/pull/3211
+* @MUSTARDTIGERFPV made their first contribution in https://github.com/ArduPilot/XagSurveillanceGCS/pull/3218
 
-**Full Changelog**: https://github.com/ArduPilot/MissionPlanner/compare/MissionPlanner1.3.80...MissionPlanner1.3.81
+**Full Changelog**: https://github.com/ArduPilot/XagSurveillanceGCS/compare/XagSurveillanceGCS1.3.80...XagSurveillanceGCS1.3.81
 
-*Mission Planner 1.3.80 - 20-03-2023
+*XagSurveillanceGCS 1.3.80 - 20-03-2023
 MAVFtp: fix locker static
 MAVFtp: add lock on dir list
 Graphs: update
@@ -562,7 +562,7 @@ MAVFtp: handle missing parts via single read
 support PAYLOAD_PLACE on planes
 ExtLibs: Allow for special characters in NTRIP connection string
 HUD: use nofix icon for "no fix" instead of nogps
-MissionPlannerLib: add GDALProvider shim
+XagSurveillanceGCSLib: add GDALProvider shim
 FlightPlanner: expose gdal opacity (map tools)
 GDAL: support other linear projections
 GDAL: init SpatialReference at startup
@@ -575,7 +575,7 @@ JpegSegmentReader: increase buffer size
 ImageLabel: remove unused
 Android: SDK 31
 Parameters: added Blimp
-fixes: "ERROR MissionPlanner.Utilities.ParameterMetaDataParser - Invalid MetaFrame Blimp"
+fixes: "ERROR XagSurveillanceGCS.Utilities.ParameterMetaDataParser - Invalid MetaFrame Blimp"
 ParameterMetaDataRepositoryAPMpdef: add blimp and heli as valid targets
 GithubActions: cache glob
 MapTool: use OpenStreetMap to zoom to locations
@@ -592,14 +592,14 @@ ConfigMount: remove pan stabilize checkbox
 ConfigMount: remove mount Control parameter fields
 Dotspatial: update
 param: fixed exclusions for change of GND_ params to BARO params
-MissionPlanner: revert dotspatial.projection version
+XagSurveillanceGCS: revert dotspatial.projection version
 HUD: add CPU on 100%  #3011
 
-*Mission Planner 1.3.79 - 06-12-2022
+*XagSurveillanceGCS 1.3.79 - 06-12-2022
 HttpClient: change timeouts
 ConfigFirmwareManifest: fix timeout download bug
 Linux: skip port detection via exist check
-*Mission Planner 1.3.78 - 05-12-2022
+*XagSurveillanceGCS 1.3.78 - 05-12-2022
 ConfigMotorTest: update to use non obsolete
 OSDConfigurator: tweak sizes
 README: clarify build instructions
@@ -614,7 +614,7 @@ Mavlink: Set the low level of SEVERITY to speak
 CurrentState:init with APMFirmware config.xml
 Multiple: update for httpclient
 Readme: update vs2022: installer config update
-MissionPlannerLib: exclude tests
+XagSurveillanceGCSLib: exclude tests
 MavlinkMessagePlugin: add alternate HB
 Test: simple test template
 added plane-3d sitl target
@@ -893,7 +893,7 @@ Bump SSH.NET from 2016.1.0 to 2020.0.2 in /ExtLibs/solo
 Comms: fix udp buffering
 Gimbal: Add base
 temp: fix for reference removal System.Windows.Extensions.dll
-Remove AAWings.Plugin from MissionPlannerLib proj
+Remove AAWings.Plugin from XagSurveillanceGCSLib proj
 AA updates May 2022
 FlightPlanner: fix UNKNOWN exception
 MAVLinkInterface: change SubscribeToPacketType signature
@@ -954,7 +954,7 @@ ServiceLocator: add
 Xamarin: fix osx compile
 Xamarin: simple multi window
 FlightPlanner: #2424 add CTRL-Shift-(W/R)
-MissionPlannerLib: add missing resources
+XagSurveillanceGCSLib: add missing resources
 PointLatLngAlt: add utm bounds
 AltitudeAngel: fix reinit #2849
 Xamarin: use armed only speech option
@@ -970,12 +970,12 @@ Settings: cache GetRunningDirectory
 Program: add skia load error
 Nuget: update skiasharp
 MAVFtp: move kCmdResetSessions to start, change timeout
-MissionPlannerLib: compile in examples
+XagSurveillanceGCSLib: compile in examples
 Nuget: update log4net, dotnetzip
 Xamarin: osx keydown
 Settings: filter out bad items in a xml tag
 CodeGen: select library based on OS
-Plugins:Make the Mission Planner neutral
+Plugins:Make the XagSurveillanceGCS neutral
 Spectrogram: handle instances
 ConnectionControl: never show compid MP
 plugins: example18 add
@@ -1053,7 +1053,7 @@ MainV2: remove tcpconsole
 FlightData: order icons
 Resources: shrink boat
 fix filter param in the extended tuning page
-*Mission Planner 1.3.77 - 16-03-2022
+*XagSurveillanceGCS 1.3.77 - 16-03-2022
 LowBrowse: sort instance numbers #2817
 UdpSerialConnect: 30 second multicast join
 UdpSerialConnect: add debug for multicast
@@ -1148,7 +1148,7 @@ Drawing: null checks
 Xamarin: usbdevice null check
 display DO_AUX_FUNCTION in mission editor
 Update Czech map provider for the new api format.
-*Mission Planner 1.3.76 - 25-12-2021
+*XagSurveillanceGCS 1.3.76 - 25-12-2021
 Vario: move to async
 FlightPlanner: clear mavmarkers every 10 seconds
 wasm: update nugets
@@ -1310,7 +1310,7 @@ ConfigADSB: disable custom adsb config
 Mavlink: upstream update
 ConfigRawParam: fix offline local conversion
 DisplayView: add more disable options
-*Mission Planner 1.3.75 - 1-08-2021
+*XagSurveillanceGCS 1.3.75 - 1-08-2021
 Xamarin: api 30
 Xamarin: remove GDAL
 Firmware: tweak begininvoke order
@@ -1344,7 +1344,7 @@ MainV2: fix rtsp video detected spam
 APFirmware: prevent multiple getlists
 Swarm: update Vertexs.py
 wasm: update
-MissionPlanner.Utilities: remove unused nugets
+XagSurveillanceGCS.Utilities: remove unused nugets
 wasm: update libs
 LogBrowse: graph all expressions on one y axis
 ConfigUAVCAN: support moving base data extraction
@@ -1463,7 +1463,7 @@ Xamarin: fix android compile
 CurrentState: add uid2
 MainV2: add baud is number check
 Config-multiple: expand fields
-MissionPlannerLib: remove flasher
+XagSurveillanceGCSLib: remove flasher
 Flasher: null check
 MainV2: update port structs
 MAVLinkInterface: add banner
@@ -1490,7 +1490,7 @@ Download: add url to log
 SITL: update rover filename
 editorconfig
 GCSViews: Add options for RC15 and 16
-MissionPlanner: Repond to catch warning CS0168
+XagSurveillanceGCS: Repond to catch warning CS0168
 GCSViews: Repond to catch warning CS0168
 ExtLibs: Repond to catch warning CS0168
 GCSViews: Set the WAY POINT radius to a floating value
@@ -1517,7 +1517,7 @@ LogBrowse: DisableFocusOnMouseEnter
 CurrentState: add fence breach info
 SITL: change start type
 Xamarin: fix renderers
-MissionPlannerLib: exclude new lib
+XagSurveillanceGCSLib: exclude new lib
 AutoConnect: add tcp support
 WebAPIs: add
 GStreamer: skip download on ARM
@@ -1534,7 +1534,7 @@ GeoTiff: add gda94
 Xamarin: add android keyboard show/hide
 ParameterMetaDataRepositoryAPMpdef: trial use
 PointLatLngAlt: add tranfrom based on WKT's
-MissionPlanner.Drawing: update version
+XagSurveillanceGCS.Drawing: update version
 Firmwares: add AP_Periph
 DefaultSettings: remove redundant queue
 Xamarin: ui thread override
@@ -1602,7 +1602,7 @@ SST DNM
 AppX:  copy to output
 GridUI: fix turnrad #2555
 Drawing: prep color
-MissionPlannerLib: add assembly info
+XagSurveillanceGCSLib: add assembly info
 MAVLinkInspector: fix graphing
 Splash: use Splash Assembly version
 log4net: update
@@ -1845,7 +1845,7 @@ Comms: SerialPort shell
 SikRadio: change 433 spacing to 10hz
 Update: null check url
 GitHubContent: fix parser
-MissionPlanner.Drawing: font selection based on ui culture
+XagSurveillanceGCS.Drawing: font selection based on ui culture
 GStreamer: try forever
 FlightPlanner: check terrain on upload
 Add DialogResult to paramcompare for handling Cancel and Save in InitialParamsCalc and other upcoming plugins.
@@ -1912,14 +1912,14 @@ HUD message color depends on severity
 Xamarin: picturerecorder
 HUD: invalidate on resize
 Xamarin: fix ref
-*Mission Planner 1.3.74 - 15-09-2020
+*XagSurveillanceGCS 1.3.74 - 15-09-2020
 ConfigHWCompass2: fix orient display
 LogBrowse: tooltips for msgs
 Program: fix LIB compile
 Xamarin: add posible hardwareAccelerated
 Drawing: use drawbitmap
 BackStageView: handle activate exception
-MissionPlanner: add self-profile options
+XagSurveillanceGCS: add self-profile options
 ParameterMetaDataRepositoryAPMpdef: update to seperate files (not used)
 DisplayView: prevent exception
 CodeGen: fix exception
@@ -2005,7 +2005,7 @@ FlightData: map - used planned home if real home is 0 (no gps)
 plugin : example8 fix cross thread call
 FlightData: fix distancebar with takeoff as first cmd
 Generator: fix scope issue
-*Mission Planner 1.3.73 - 13-08-2020
+*XagSurveillanceGCS 1.3.73 - 13-08-2020
 UAVCAN update, bps stats, performance
 Drawing: change name
 MAVLinkInterface: add banner request on open
@@ -2022,7 +2022,7 @@ GLControl: Add
 MPLib
 Drawing: split libs
 wasm: drawing fix
-MissionPlanner: remove application insights
+XagSurveillanceGCS: remove application insights
 Drawing: open snk change
 SLN: update
 Core: update
@@ -2195,7 +2195,7 @@ CommsSerialPipe: add read timeout
 px4uploader: fix old bootloader support
 ConfigFirmwareManifest: prevent usb insert after flash
 FlightPlanner: add fallback get home
-*Mission Planner 1.3.72 - 07-06-2020
+*XagSurveillanceGCS 1.3.72 - 07-06-2020
 MatLabForms: exception around conversion
 FaceMapUI: check for invalid grid
 MavFTPUI: exception check on progress
@@ -2247,7 +2247,7 @@ AP_REPL: update mav_cmd
 FlightData: update point camera here after breaking change #2392
 ConfigSerialInjectGPS: attempt slcan config on comport connect
 MAVLinkInterface: add frame to doCommandInt
-*Mission Planner 1.3.71 - 26-05-2020
+*XagSurveillanceGCS 1.3.71 - 26-05-2020
 OpenGLtest2: add fog option and increase max distance
 FlightPlanner: dont change MAV homelocation
 Controls: change paint logic to improve first load time
@@ -2299,12 +2299,12 @@ Tested and working OK for RFD900u multipoint, RFD900u p2p, RFD900x p2p and RFD90
 Removed comms log window which didn't do anything yet anyway.
 Brought across relevant changes from RFDesign master to go to pull request.
 Added support for multipoint firmware on RFD900x
-Before merging changes in ardupilot/missionplanner pull request back into here
+Before merging changes in ardupilot/XagSurveillanceGCS pull request back into here
 Now has a connect/disconnect button.  Switching between settings and terminal windows while connected now working OK.
 Switches between RSSI window and other windows OK now.
 Fixed bug in modem mode switching in which it didn't remember it was in AT cmd mode.
 Fixed bug in which old RSSI plot lines still there when switching from RSSI and then back into RSSI window.
-Fixed issues related to serial port connection state.  Tested the sikradio utility in both stand-alone radio utility and embedded within in mission planner.  The stand-alone utility uses a connect/disconnect button.  The utility embedded in mission planner doesn't require connect/disconnect but does require the correct com port and baud rate to be selected in the top right corner of the main window.
+Fixed issues related to serial port connection state.  Tested the sikradio utility in both stand-alone radio utility and embedded within in XagSurveillanceGCS.  The stand-alone utility uses a connect/disconnect button.  The utility embedded in XagSurveillanceGCS doesn't require connect/disconnect but does require the correct com port and baud rate to be selected in the top right corner of the main window.
 SikRadio: support HM-TRP
 Add possibility to use own GoogleAPI key
 Ardupilot: change to mavlink char(16) to byte(8)
@@ -2381,7 +2381,7 @@ HW: add device ids
 FlightData: add fly to coords & poi at coords
 Extension: skpaint dictionary lock
 MAVLinkInterface: refactor device_op
-MissionPlannerCore: change obj dir
+XagSurveillanceGCSCore: change obj dir
 FaceMap: add
 GMAPCache: add remove all
 FirmwareHistory: update
@@ -2412,7 +2412,7 @@ ConfigHWCompass2: check reboot required
 MainV2: load GDAL Image on startup
 CommsNTRIP: add SOURCETABLE check
 GStreamer: add x64/z86 check and download
-MissionPlanner.Comms: switch to system.io.ports
+XagSurveillanceGCS.Comms: switch to system.io.ports
 MAVLink: update
 ConfigREPL: cleanup line before send MONO
 ConfigREPL: fix mono
@@ -2609,7 +2609,7 @@ LogSort: add bin/log sitl
 ConfigBatteryMonitoring: fix tabindex/feature error
 MAVLinkInterface: change from Obsolete functions
 Nuget: Skia update - linux fix
-MissionPlanner.Drawing: use skbitmap
+XagSurveillanceGCS.Drawing: use skbitmap
 temp: add lockup
 ConfigAdvanced: stage
 MainV2: add release note link to fw update check on connect
@@ -2645,7 +2645,7 @@ SITL: add sailboat and motorboat #2272
 wasm: GraphicsWeb cache
 Server: change to https
 wasm: Hud/websockets/speech
-MissionPlanner.Drawing: less verbose
+XagSurveillanceGCS.Drawing: less verbose
 MAVLinkInterface: use AwaitSync
 Common: getModesList less verbose
 Extensions: add AwaitSync
@@ -2656,7 +2656,7 @@ more hud values types
 show milliseconds in dataflash logs
 Update: exclude files.html
 UdpSerialConnect: modify isopen to be manually controlled
-*Mission Planner 1.3.70 - 04-12-2019
+*XagSurveillanceGCS 1.3.70 - 04-12-2019
 MAVLinkInterface: propagate radio/status across all mavs on the link
 inf2cat: update
 mavcmd: remove invalid cmd's #2249
@@ -2674,7 +2674,7 @@ httpserver: support 2way websockets
 MAVLinkInspector: cleanup on exit
 srtm: fix 60N+ data status
 FlightPlanner: fix savewp frame type #2262
-*Mission Planner 1.3.69 - 28-11-2019
+*XagSurveillanceGCS 1.3.69 - 28-11-2019
 MAVLink: update nuget
 GMapMarker: option the lines
 AP_InternalError: add support
@@ -2718,9 +2718,9 @@ FlightPlanner: fix dist/grad when using ft
 ConfigUAVCAN: display more hw info
 MAVFtp
 MAVLinkInterface: make connect timeout a setting
-MissionPlanner.Drawing: extract
+XagSurveillanceGCS.Drawing: extract
 MAVLinkInterface: GetLogList speedup
-MissionPlanner: project dependancys
+XagSurveillanceGCS: project dependancys
 build: update to vs2019
 FlightPlanner: add Frame
 FlightPlanner: split
@@ -2737,7 +2737,7 @@ HUD: add gps2
 ConfigRawParamsTree: add enable notification
 ConfigRawParams: fix partial fail message #2223
 TrackerUI: extract base
-MissionPlanner: build
+XagSurveillanceGCS: build
 TestPlugin
 MainV2: fix loop terminator
 MAVLinkInspector: add gcs packets
@@ -2848,7 +2848,7 @@ ConfigUserDefined: add user modify
 ParameterMetaDataParser: dedup
 InputBox: add scrollbar to inputbox multiline
 ConfigArducopter: support both CH7_OPTION and RC7_OPTION
-MissionPlanner: update VS version
+XagSurveillanceGCS: update VS version
 LogBrowse: only filter on OK #2183
 Comms: remove android lib causing dependancy issues
 DigitalSky: add simple ui
@@ -2891,7 +2891,7 @@ UAVCANInspector: add
 ConfigFirmware: fix history
 SerialGPSInject: add Galileo
 wix: fix servername
-*Mission Planner 1.3.68 - 15-6-2019
+*XagSurveillanceGCS 1.3.68 - 15-6-2019
 ConfigFirmware: fix copter fw upload
 Drivers: add nxp
 LogBrowse: add ironpython graph processing with fallback
@@ -2899,7 +2899,7 @@ LogBrowse: add more mavgraphs and parser
 mavcmd: add do_gripper for rover #2157
 7zip: add
 httpserver: fix mavlink
-*Mission Planner 1.3.67 - 11-6-2019
+*XagSurveillanceGCS 1.3.67 - 11-6-2019
 ThemeManager: more html
 ConfigMotorTest: allow negative % #1911
 FlightData: fix units on QV and speedup prompt
@@ -2971,7 +2971,7 @@ FlightData: improve forced arm message
 PluginLoader: exclude more files
 Capture: fix webcam capture
 SB: force theme
-*Mission Planner 1.3.66 - 25-4-2019
+*XagSurveillanceGCS 1.3.66 - 25-4-2019
 SkiaGraphics: null and empty check on measure
 QuickView: prevent null desc
 libskiasharp: add linux binary
@@ -2987,12 +2987,12 @@ WinSerialStream: add debug
 PluginLoader: exclude usbserialforandroid dll
 Firmware: add is this a CubeBlack prompt
 Skia: load correct arch dll
-*Mission Planner 1.3.65 - 23-4-2019
+*XagSurveillanceGCS 1.3.65 - 23-4-2019
 MAVLinkInterface: do not duplicate digicamcontrol #2100
 MyButton: support dialog result
 MyButton: set default size
 MainV2: use new cube SB url
-MissionPlanner.Utilities.Drawing: update
+XagSurveillanceGCS.Utilities.Drawing: update
 FlightData: change from button to control
 SkiaGraphics: convert 3 controls
 MainV2: add spi scan for cube
@@ -3016,8 +3016,8 @@ UAVCAN: Add FileComplete and debug
 UAVCAN: update
 FirmwareHistory: fix typo on AP/AC
 UAVCAN: add service to namespace
-px4uploader: use missionplanner.comms
-MissionPlanner.Comms: pull in mono system.io.ports
+px4uploader: use XagSurveillanceGCS.comms
+XagSurveillanceGCS.Comms: pull in mono system.io.ports
 MovingBase: update to support longer GGA messages
 General: remove use of system.drawing
 GMap.Net.Core: remove system.drawing
@@ -3044,7 +3044,7 @@ LogBrowser: remove cursor value force
 UAVCAN: extension fix empty label
 QuickView: change render
 BackStageViewMenuPanel: enable autoscroll
-*Mission Planner 1.3.64 - 3-4-2019
+*XagSurveillanceGCS 1.3.64 - 3-4-2019
 Drivers: fix cube driver
 Sequence: fix multiple start bug
 NoFly: add kmz
@@ -3084,7 +3084,7 @@ Comms: cleanup
 Update azure-pipelines.yml for Azure Pipelines
 Set up CI with Azure Pipelines
 MAVLinkInterface: remove legacy px4 usb console start
-*Mission Planner 1.3.63 - 16-3-2019
+*XagSurveillanceGCS 1.3.63 - 16-3-2019
 UAVCAN: test cases, encode fix
 DFLog: add more missing events #2099
 DFLOG: add missing events #2099
@@ -3109,7 +3109,7 @@ Change from option CH to option RC
 Change from option CH to option RC
 Replaced unawaited Task.Delays with Thread.Sleep. if not awaited Task.Delay returns inmediately and that is not its intended use. Thousands of Tasks/Timer objects could potentially be created with unexpected consecuences.
 Xamarin
-MissionPlanner: change build projects
+XagSurveillanceGCS: change build projects
 Refactoring
 Device: add sensor
 adsb: add speed
@@ -3175,7 +3175,7 @@ BoardDetect: accept list of PIDs
 CsAssortedWidgets: netstandard
 AA: increase opacity
 FirmwareHistory: update
-*Mission Planner 1.3.62 - 9-12-2018
+*XagSurveillanceGCS 1.3.62 - 9-12-2018
 MAVLinkInterface: adjust timeouts (min 450ms)
 MAVLinkInterface: add gcs id support and checking
 LogBrowse: fix resize logic
@@ -3236,7 +3236,7 @@ GoogleMapProviderBase: add apikey
 ConfigRawParams: ensure bitmask is editable on cell click
 FlightPlanner: change z order
 MainV2: autoscale font
-*Mission Planner 1.3.61 - 26-11-2018
+*XagSurveillanceGCS 1.3.61 - 26-11-2018
 wasm: custom dflog graph
 manifest: dpiawareness to system
 wasm: change to array buffer
@@ -3244,7 +3244,7 @@ LogBrowse: fix log files
 wasm: update
 Fix garbled characters in HORIZONTAL ELLIPSIS
 ConfigParam: drop from send loop on error #1998
-*Mission Planner 1.3.60 - 21-11-2018
+*XagSurveillanceGCS 1.3.60 - 21-11-2018
 CustomMessageBox: add overrides
 LogBrowse: tweaks
 LogBrowse: change layout
@@ -3268,7 +3268,7 @@ FlightData: reduce changes on status tab
 ConfigFirmware: fix history
 Mavlink: add attributes
 CurrentState: add TargetLocation
-MissionPlanner: remove packages from release build
+XagSurveillanceGCS: remove packages from release build
 MAVLinkInterface: null check basestream #1983
 Settings: change mono default user data dir #1982
 Manifest: dpiaware
@@ -3313,7 +3313,7 @@ Map: Reflected review comments
 httpserver: remove tracking
 MainV2: remove tracking params
 GStreamer: open gstreamer feed on startup from cmdline
-*Mission Planner 1.3.59 - 23-10-2018
+*XagSurveillanceGCS 1.3.59 - 23-10-2018
 temp: add reboot are you sure
 EKFStatus: add red text for error reason #1965
 GStreamer: fix blocking ui thread
@@ -3355,7 +3355,7 @@ Transitions: netstandard
 Dependancys: clean
 MatLab: fix matlab datetime
 Nuget: update libs
-MissionPlanner: use local libs
+XagSurveillanceGCS: use local libs
 ProjNet
 netDxf
 SharpZipLib
@@ -3383,7 +3383,7 @@ FlightPlanner: fast wp check target sysid
 FlightPlanner: add fast wp upload button
 MAVLinkInterface: check responce sysid if there is a target_sysid
 Download: fix GetFileSize, add cache
-*Mission Planner 1.3.58 - 8-8-2018
+*XagSurveillanceGCS 1.3.58 - 8-8-2018
 Program: remove exe
 Projects: system.io.ports update
 SITL: get defaults once
@@ -3416,8 +3416,8 @@ ConfigRawParams: fix sort with nulls
 Sequence: faster multi connect
 CurrentState: console write mavlink_autopilot_version_t
 MAVLinkInterface: fix hb check when sysid = 0
-*Mission Planner 1.3.57 - 22-7-2018
-Add Altitude Angel flight reporting to Mission Planner
+*XagSurveillanceGCS 1.3.57 - 22-7-2018
+Add Altitude Angel flight reporting to XagSurveillanceGCS
 OpenGLTest2: add wp marker
 OpenGLtest2: fix pxstep terrain
 ConfigMotorTest: increase max timeout to 999
@@ -3453,7 +3453,7 @@ minor typo.
 update other code block to match as suggested by Bill-B.
 rework of logo handling to remove it from the .Designer file as requested.
 colourise plane icons different colours depending on their mavlink sysid.    supports upto 6 different colours.
-allow logo in mission planner to be loaded at runtime instead of just embedded.
+allow logo in XagSurveillanceGCS to be loaded at runtime instead of just embedded.
 BUGFIX:   airspeed comtrol does not work on ArduPlane 3.8.x without this fix.  previous code works up to  3.7.x only, as ARSPD_ENABLE has been replaced with ARSPD_TYPE.
 update power module and battery failsafe config
 Fix mission discrepancy between FlighData and FlightPlanner views.  CreateOverlay is used with both views, but FlightData adds WP0 as Home position and  it is displayed as WP1 so WP numbering are off on FlightData view. Also added workaround to display home position only when all WP-s are deleted
@@ -3534,7 +3534,7 @@ georefimage: outputlog refresh
 ConfigFFT: fix exception on not supported
 wix: update servername
 CommsSerialPort: infinite timeout
-*Mission Planner 1.3.56 - 9-4-2018
+*XagSurveillanceGCS 1.3.56 - 9-4-2018
 GeoRefImageBase: fix tlog cam message
 Update: fix changelog url
 appveyor: add changelog to build
@@ -3546,7 +3546,7 @@ temp: add proximity button back
 FlightPlanner: fix overlay pen
 Updater: fix net version
 Extensions: fix Aggregate bug
-*Mission Planner 1.3.55 - 27-3-2018
+*XagSurveillanceGCS 1.3.55 - 27-3-2018
 wix: msi
 FlightPlanner: old savewp
 FlightPlanner: fix total distance scale
@@ -3572,7 +3572,7 @@ FlightData: fix user hidden tabs
 downgrade System.Drawing.Common
 GDAL: use MP.GDAL.Native
 strings: make internal
-*Mission Planner 1.3.54 - 21-3-2018
+*XagSurveillanceGCS 1.3.54 - 21-3-2018
 WPOverlay: extract path drawing code
 Strings: change to link
 MAVLinkInterface: add SURFACE_BOAT
@@ -3581,7 +3581,7 @@ Formation: method 2
 ElevationProfile: fix terrain alt
 GStreamer: more status messages
 GStreamer: use bundled version only
-*Mission Planner 1.3.53 - 19-3-2018
+*XagSurveillanceGCS 1.3.53 - 19-3-2018
 Formation: tweaks
 Formation: more plane tweaks
 GMapMarkerPlane: fix arc scaling
@@ -3800,7 +3800,7 @@ Privacy: update for tlog
 Mavlink: dont cache _data on processBuffer and add log/timestamp support
 CommsFile: dont limit by default
 ConnectionControl: fix selection issue
-*Mission Planner 1.3.52 - 16-12-2017
+*XagSurveillanceGCS 1.3.52 - 16-12-2017
 Utilities: namespace update
 Refactor and move
 BoardDetect: only upload v3 fw to bl_rev >= 5
@@ -3814,8 +3814,8 @@ connection control
 CommsStream: create stream
 Utilities: refactor and coverity
 Coverity: fixs
-MissionPlanner: fix speech reference
-MissionPlanner: project cleanup
+XagSurveillanceGCS: fix speech reference
+XagSurveillanceGCS: project cleanup
 appveyor: add coverity
 Added option to enable/disable automatic param commit
 Also adds param commit button visibility option to displayview
@@ -3855,7 +3855,7 @@ AviFile: netstandard 2
 Remove missing files
 Scripts: fix sendpacket example #1699
 Projects: remove TargetFrameworkProfile
-*Mission Planner 1.3.51 - 9-12-2017
+*XagSurveillanceGCS 1.3.51 - 9-12-2017
 ParameterMetaDataBackup: update
 ConfigArduRover: support older versions
 Installer: create
@@ -3948,7 +3948,7 @@ CurrentState: add battery_usedmah2 #1645
 ElevationGraph: change label from SRTM to DEM #1646
 LogOutput: fix . vs , issue in first person view #1656
 Updated No fly zones in Portugal
-*Mission Planner 1.3.50 - 6-10-2017
+*XagSurveillanceGCS 1.3.50 - 6-10-2017
 HUD: fix intel graphics freeze
 ConfigESP8266: add STA mode
 Drivers: Cube
@@ -3966,8 +3966,8 @@ DroneBase: create baseclass
 MainV2: fix connection list on invalid items
 IProgressReporterDialogue: create and use
 MAVLinkInterface: try rts/cts on no data
-MissionPlanner: fix project file globbing
-MissionPlanner: convert project to new format
+XagSurveillanceGCS: fix project file globbing
+XagSurveillanceGCS: convert project to new format
 solo: add image upload support
 SRB: send multiple takeoffs
 px4uploader: fix for missing cert.xml
@@ -4030,7 +4030,7 @@ ParameterMetaData: update backup
 AA: OverlayAdapter fix exception on exit
 Grid: corridor support
 Wix: update
-Mission Planner 1.3.49 - 20-7-2017
+XagSurveillanceGCS 1.3.49 - 20-7-2017
 LogBrowse: change to mode color bands
 GridUI: add exception handle
 Grid: add min shutter speed #1601
@@ -4101,7 +4101,7 @@ FlightPlanner: add wp at current pos
 Firmware: add px4v3 support
 MAVLinkInterface: increase param_request_list to 6 retrys (24 seconds) before going 1by1
 ConfigHWCompass: handle specific plane version and add bypass
-MissionPlanner: revert to older system.speech 3.0
+XagSurveillanceGCS: revert to older system.speech 3.0
 CurrentState: fix battery_status invalid values
 MAVLinkInterface: add extra full param retry
 SerilaInjectGPS: better handle snrs
@@ -4113,11 +4113,11 @@ CurrentState: acquire of AOA and SSA values from Mavlink
 SITL: add wipe option
 MAVLinkInterface: ensure mavlink2 is know about before getversion/params
 GStreamer: add custom pipeline support
-Mission Planner 1.3.48 - 1-5-2017
+XagSurveillanceGCS 1.3.48 - 1-5-2017
 MAVLinkInterface: fix streamrate request bug
 ZeroConf: prevent issue when no network present
 GStreamer: prep for custom pipeline src
-Mission Planner 1.3.47 - 29-4-2017
+XagSurveillanceGCS 1.3.47 - 29-4-2017
 MainV2: dont param poll if armed
 ConfigBatteryMonitoring: fix hardware label
 log4net dependancy fix
@@ -4165,7 +4165,7 @@ GeoTiff: make very large geotiffs none cacheable
 app.config: enable >2gb arrays
 SITL: add extra commandline option
 FlightPlanner: fix mav_cmd length
-Mission Planner 1.3.46 - 11-4-2017
+XagSurveillanceGCS 1.3.46 - 11-4-2017
 MainV2: update xp urls
 GDAL: reduce skiped file size
 SerialOuputNMEA: add output rate selection #1516
@@ -4205,7 +4205,7 @@ ConfigHWesp8266: fix
 CommsSerialScan: support multiple connects at once (ie multiple radios)
 SerialInjectGPS: remove location services
 GStreamer: add more info on gstreamer version
-Mission Planner 1.3.45 - 18-3-2017
+XagSurveillanceGCS 1.3.45 - 18-3-2017
 UDPShims: add exception logging
 FlightPlanner: Exception Logging
 Language: update PT
@@ -4330,7 +4330,7 @@ GeoRefImage: add null check on bad picture state
 DFLogScript: fix earth_accel_df
 ConfigMotorTest: support new frame param
 SerialInjectGPS: ensure m8p will configure from default
-Mission Planner 1.3.44 - 31-1-2017
+XagSurveillanceGCS 1.3.44 - 31-1-2017
 Georefimage: add exception handle around writecoords
 AP_Terrain: add io section
 AASettings: add .net version warning
@@ -4452,11 +4452,11 @@ MatLab: fix linefeed in fmt messages
 Wizard: ConnectAP add null checks
 ConfigFriendlyParams: fix sort before upload
 AltitudeAngel: remove weather
-Mission Planner 1.3.43 - 24-12-2016
+XagSurveillanceGCS 1.3.43 - 24-12-2016
 DisplayView: fix missing options
 Theming now correctly affects elements on Flight Planning tab.  Theming added to terminal window.  Check to see if current theme and layout exsist at startup.
 ParameterMetaDataBackup: update base
-Mission Planner 1.3.42 - 20-12-2016
+XagSurveillanceGCS 1.3.42 - 20-12-2016
 NoFly: add new kmz
 FlightPlanner: add home check and message on upload
 FlightPlanner: fix load and append of home
@@ -4601,7 +4601,7 @@ LogBrowse: prevent duplicates #1367
 StreamCombiner: add 10 instance support
 AltitudeAngelService: remove weather summary
 MAVLinkInterface: add parent
-Mission Planner 1.3.41 - 23-9-2016
+XagSurveillanceGCS 1.3.41 - 23-9-2016
 NOTE: this is a bug fix build
 FlightData: handle log analyzer xml exception
 CurrentState: add GeoFenceDistance #1361
@@ -4638,15 +4638,15 @@ GridUI/2: fix file paths
 ConfigHWCompass: add cal_fit options #1355
 POI: check marker type before delete
 SITL: check if sitl image exists before starting
-Mission Planner 1.3.40 - 17-9-2016
-NOTE: the default config directory is now in MyDocuments\Mission Planner.
+XagSurveillanceGCS 1.3.40 - 17-9-2016
+NOTE: the default config directory is now in MyDocuments\XagSurveillanceGCS.
 this includes all log files, excluding existing installs, where the log path has been changed.
 This means any precached maps will need to be refreshed.
 New Paths are
-Map cache: C:\ProgramData\Mission Planner
-srtm cache: C:\ProgramData\Mission Planner
-logs: MyDocuments\Mission Planner
-config: MyDocuments\Mission Planner
+Map cache: C:\ProgramData\XagSurveillanceGCS
+srtm cache: C:\ProgramData\XagSurveillanceGCS
+logs: MyDocuments\XagSurveillanceGCS
+config: MyDocuments\XagSurveillanceGCS
 Terminal: add missing linefeed
 Firmware: add firmware upload time stat
 FlightData: handle enum convert
@@ -4678,7 +4678,7 @@ MAVlinkParamList: add new Add
 Update projects to anycpu
 Settings: move config to user data folder
 Multiple: update to use new paths
-Settings: add new datapaths and change default log location to MyDocuments\Mission Planner
+Settings: add new datapaths and change default log location to MyDocuments\XagSurveillanceGCS
 CurrentState: change sensor health check to prevent false positive
 MainSwitch: add screen control null check
 README.md: update urls #1351
@@ -4724,7 +4724,7 @@ CheckListControl: add groupbox to each item
 Add Bebop2 detection and upload
 Add SharpAdbClient external lib
 Add ManagedNativeWifi Simple external library
-MissionPlanner: update solution file to vs 2015
+XagSurveillanceGCS: update solution file to vs 2015
 LogMap: filter fix by status
 LibVLC: print debug to console
 mavcmd: add roi for rover #1340
@@ -4814,7 +4814,7 @@ sitl: add param defaults
 Mavlink: add MAV_CMD_DO_SET_REVERSE
 FlightData: add ability to display ICAO all the time
 GeoRef: workaround tif exif issue
-Mission Planner 1.3.39 - 13-7-2016
+XagSurveillanceGCS 1.3.39 - 13-7-2016
 SITL: add nowait to tcp
 SITL: add xplane-heli
 CurrentState: current 0 fix
@@ -4881,7 +4881,7 @@ CollectionBuffer: expose dflog
 CollectionBuffer: remove uneeded functions
 SITL: add speedup support
 MAVList: memory allocation reduction
-MissionPlanner: reinclude base drivers and Lib
+XagSurveillanceGCS: reinclude base drivers and Lib
 Cleanup: remove msvc 2010 redist files and python tests
 cleanup jsbsim and ftdi drivers
 GeoRefImage: fix salt not making it to log
@@ -4975,7 +4975,7 @@ FlightPlanner: fix area #1256
 locationwp: change id to ushort
 ConfigHWPX4Flow: add image
 ConfigAntennaTracker: obey reverse on test
-Mission Planner 1.3.38 - 19-5-2016
+XagSurveillanceGCS 1.3.38 - 19-5-2016
 GridUI: support kml overlay and autozoom to overlay
 AP_GPS: rename internals
 BackStageView: fix exception handleing in Deactivate
@@ -5145,7 +5145,7 @@ GeoRefImage: option out relalt #1193
 FlightData: make icon more generic
 HUD: fix default ekf and vibe state #1188
 FlightData: turn on ekf and vibe #1188
-Mission Planner 1.3.37 - 14-3-2016
+XagSurveillanceGCS 1.3.37 - 14-3-2016
 FlightData: actions customisation add default init
 Common: rearrange code
 FlightData: maintain taborder from config file
@@ -5154,7 +5154,7 @@ ConfigRawParam: speedup draw
 Script: add example 7 (wp load in FP)
 ParamMetaData: fix parser readover
 TerrainFollow: fix interface unsubscribe
-MissionPlanner: to .net 4.5 (XP will stop working)
+XagSurveillanceGCS: to .net 4.5 (XP will stop working)
 Update: add async md5
 ParamMetaData: fix backup, nested groups
 LogOutput: filter bad gps data
@@ -5188,7 +5188,7 @@ CurrentState: add capabilities
 LogBrowse: modify bad data range
 FirmwareHistory: update urls
 Build: Fix the build by adding missing parenthesis around print.
-Mission Planner 1.3.36 - 5-3-2016
+XagSurveillanceGCS 1.3.36 - 5-3-2016
 GridUI: add elevation range
 GMapControl: update scale color
 GMapControl: update scalebar to use transform
@@ -5299,7 +5299,7 @@ Quickview: force invalidate on format change
 mavcmd: add plane vtol commands
 hud: add ability to turn of ekf/vibe
 FlightData: add ctl-1-9 to switch tabs #1122
-Mission Planner 1.3.35 - 4-2-2016
+XagSurveillanceGCS 1.3.35 - 4-2-2016
 GeoRef: add gps2 support
 Add translation: indonesian
 Ardupilot loader cleanup
@@ -5323,9 +5323,9 @@ MavLinkParamList: make threadsafe
 Rename Sik Radio
 ConfigESCCalibration: hide screen
 InitialSetup: relabel radio from 3DR to Sik
-MissionPlanner: change project to preserve newest
+XagSurveillanceGCS: change project to preserve newest
 MainV2: reload on mav change.
-MissionPlanner: Copy files only if newer
+XagSurveillanceGCS: Copy files only if newer
 Only copy resources if newer
 Reduce memory allocation and speed up HUD drawing
 Avoid allocations by using EventArgs.Empty
@@ -5369,7 +5369,7 @@ BoardDetect: add support for new usb pid
 ZedGraph: handle bad line input data
 CommsSerialPort: trace "element not found" with bluetooth devices
 ConfigHWBT: add further error message
-Mission Planner 1.3.34 - 24-12-2015
+XagSurveillanceGCS 1.3.34 - 24-12-2015
 temp: make gps passthrough static
 LogBrowse: add full path to xml
 add null exception checks
@@ -5404,7 +5404,7 @@ MagCalib: fix compass 3 calib
 ConfigBattery: update for mono exit
 ConfigTradHeli: update buttons
 ConfigTradHeli: update
-Mission Planner 1.3.33 - 8-12-2015
+XagSurveillanceGCS 1.3.33 - 8-12-2015
 ThemeManager: fix tree view under high contrast
 LogBrowse: handle currupt log better
 SBP: add inject gps sbp detection
@@ -5534,7 +5534,7 @@ FlightPlanner: defaults for do_digicam_control
 urrentState: tweak stream rate defaults
 urrentState: add terrain text
 MAVList: add compid support
-Mission Planner 1.3.32 - 15-9-2015
+XagSurveillanceGCS 1.3.32 - 15-9-2015
 BinaryLog: add convert progress dialog
 LogBrowse: add null check
 Wizard: add invalid bat monitor check
@@ -5607,7 +5607,7 @@ logbrowse: support gps fix >=3
 SerialInjectGPS: fix ntrip baud issue
 wix: fix path
 LogOutput: fix df kml with all gps lock types
-Mission Planner 1.3.31 - 9-8-2015
+XagSurveillanceGCS 1.3.31 - 9-8-2015
 georefimage: update offsets #946
 FlightPlanner: fix waypoint panel size
 currentstate: fix x/y issue on optical flow #959
@@ -5661,11 +5661,11 @@ Terminal: nsh over mavlink tweaks
 GoogleSatelliteMap: update version no
 NoFly: update loader and callback
 ConfigAccelerometerCalibration: move to 1 accel calib screen
-Mission Planner 1.3.30 - 19-6-2015
+XagSurveillanceGCS 1.3.30 - 19-6-2015
 ConfigRadioInput: fix yaw/thro swap
 Terminal: add nsh over mavlink
 MAVLink update
-Mission Planner 1.3.29 - 17-6-2015
+XagSurveillanceGCS 1.3.29 - 17-6-2015
 DroneShare update
 fftui: add hz/rpm to point values for easy diag
 fftui: modify freq detection for single imu
@@ -5760,7 +5760,7 @@ LogBrowser: speedup DrawMap creation
 MavlinkNumericUpDown: add ability to set out of range value
 LogBrowse: add simple progress to df log graph (console)
 CollectionBuffer: improve performance
-Mission Planner 1.3.28
+XagSurveillanceGCS 1.3.28
 fftui: change to higher data rate data
 currentstate: remove ekf error flags
 fft: auto detect sample rate
@@ -5771,7 +5771,7 @@ FFT library
 currentstate: ekf status update
 Plugins: cleanup
 LogAnalyzer: add to MP git
-Mission Planner 1.3.27
+XagSurveillanceGCS 1.3.27
 ParameterMetaDataParse: patch for pde to cpp rename that prevents update from working
 ParameterMetaData: update backup data
 ConfigArducopter: update FF param names #876
@@ -5779,7 +5779,7 @@ update .gitignore
 temp: remove vlctotexture
 ConfigAccelPlane: remove 1d accel calib
 CommsSerialScan: update to allow cancel/exit
-Mission Planner 1.3.26
+XagSurveillanceGCS 1.3.26
 logbrowse: add time base to log browser #872
 georefimage: fix coloum label order #873
 Localization: update ConfigFM zh-Hans translation
@@ -5876,7 +5876,7 @@ ConfigMount: fix wiki link and zh-Hans translation
 Log: DoubleClick log item to apply user-defined offset and scalar
 Log: Optimize constructor for faster graphing
 mybutton: add colour change invalidate
-Mission Planner 1.3.25
+XagSurveillanceGCS 1.3.25
 configframetype: update
 configrawparam: modify load/save button text
 hud video: add vlc test
@@ -5887,7 +5887,7 @@ Coords: add ability to change unit test
 firmware: change url null to blank check
 flightplanner: autoresize Columns on panel expand
 SoftwareConfig: make sure theme applys to children
-Missionplanner: remove old defines
+XagSurveillanceGCS: remove old defines
 firmware: add url null check
 simulation: add default init of sitl quad to home location
 configarducopter: fix tune high and low scale #839
@@ -5915,14 +5915,14 @@ Mainv2: fix light/dark icons
 configplanner: fix startup flag
 mainv2: change logsort/maps order
 logsort: cleanup and move by filename filter
-Missionplanner: fix version.txt creation
-Mission Planner 1.3.24
+XagSurveillanceGCS: fix version.txt creation
+XagSurveillanceGCS 1.3.24
 MainV2: change plugin load order
 update: do a blank string check on update
 flightplanner: fix wp upload issue when 2 wp's have the same values #829 *IMPORTANT*
 HUD: create more turn off options
 Mainv2: rearrange startup
-missionplanner: update post build event
+XagSurveillanceGCS: update post build event
 quickview: modify docking to prevent flicker
 Grid: add turn dia
 Gimbalpoint: new geopoint calc using srtm alt
@@ -5936,10 +5936,10 @@ gmaproute: add better stroke handleing
 mavlinkinerface: add connected check to param fetch
 airports: update airports
 GMappolygon: fix null reference
-Mission Planner 1.3.23
+XagSurveillanceGCS 1.3.23
 Add satcount and GPS HDOP to 3O second interval speech synthesis.
 flightplanner: fix posible missed wp on lossy link #823
-Mission Planner 1.3.22
+XagSurveillanceGCS 1.3.22
 GMapPolyon: fix exception
 flightplanner: fix reading saved wp file with more than 255 wp's
 opengltest: update
@@ -5955,7 +5955,7 @@ configbatterymonitor: give more text space
 configmotortest: add another button for tricopters
 simulation: fix sitl/hil
 flightplanner: fix terrain wp readback
-Mission Planner 1.3.21
+XagSurveillanceGCS 1.3.21
 joystick: add button axis #815
 configarducopter: mod min max #818
 flightplanner: tweak multi point move (control+click wp, or control+drag box)
@@ -5965,7 +5965,7 @@ flightplanner: add undo (control-z)
 mavlinkinterface: factor out setwp
 flightplanner: function out datagrid population
 Joystick, Radio, add exception handling.
-Mission Planner 1.3.20
+XagSurveillanceGCS 1.3.20
 currentstate: add ch9-16 in
 firmwarehistory: update
 flightplanner: fix dragging home exception
@@ -6029,7 +6029,7 @@ ConfigHWBT: add a Bluetooth module picture
 Multiple: update zh-Hans translation
 MagCalib: add zh-Hans translation
 GMap: fix GoogleChinaSatelliteMap
-RawParamsTree: fix diydrones/MissionPlanner#769
+RawParamsTree: fix diydrones/XagSurveillanceGCS#769
 3drradio: update mavlinkserialport #785
 mavlinklog: fix remove from graph #790
 ExtGuided: new test plugin
@@ -6040,9 +6040,9 @@ mavlinkinterface: remove old arming method
 python example: upload mission
 gitignore: add ignore
 flightdata: default mode dropdown to auto
-Mission Planner 1.3.19
+XagSurveillanceGCS 1.3.19
 grid: fix exception #784
-Mission Planner 1.3.18
+XagSurveillanceGCS 1.3.18
 hud: reduce spin time and tweak image resize
 capturemjpeg: tweak object lifetime
 droneshare: fix messagebox type
@@ -6120,7 +6120,7 @@ mavlinkinterface: fix mav type detection on getheartbeat
 flightdata: fix distance bar
 logbrowse: use common map provider
 wizard accel: fix exception
-Mission Planner 1.3.17
+XagSurveillanceGCS 1.3.17
 confighwbt: fix retry on invalid baud
 airport: update list from ourairports.com
 mavlinkinterface: update to use new strings
@@ -6159,7 +6159,7 @@ Joystick: add exception check to rcoverrideclear
 Mainv2: fix log map create exception
 joystick: fix load config path
 TFR: change fill color
-Mission Planner 1.3.16
+XagSurveillanceGCS 1.3.16
 KIndex: implement kindex
 Multiple: Exception checks
 mavlinkinterface: reinstate request param list
@@ -6195,7 +6195,7 @@ firmwarehistory: update
 mavlinkinterface: trigger camera only once. #731
 Added DefaultWebProxy to WebRequest to use IE default settings.
 flightdata: preflight_calib, only set gyro calib on copter
-Mission Planner 1.3.15
+XagSurveillanceGCS 1.3.15
 MainV2: add null check on threads on exit
 wizard: compasscalib, add exception handle
 Currentstate: add laser positon health message
@@ -6205,9 +6205,9 @@ tfr: update to individual shapes (wip)
 progresssphere: fix autocomplete logic bug
 logbrowse: move map clear inside exception handle
 ConfigSimplePid: convert to invariant culture
-Mission Planner 1.3.14
+XagSurveillanceGCS 1.3.14
 tfr bug fix
-Mission Planner 1.3.13
+XagSurveillanceGCS 1.3.13
 magcalib: add mag2 0's check
 magcalib: add new hitcount target, and default autcompelte to off
 configarducopter: add heli FF's
@@ -6219,7 +6219,7 @@ mavcmd: update do_repeat_relay and do_set_relay
 CurrentState: update dist to home to be 0 if home is 0
 MagCalib: modify completion trigger, and change instructions
 configcompassmot: add exception handle around deactivate, not sure how this is happening.
-Mission Planner 1.3.12
+XagSurveillanceGCS 1.3.12
 FlightData: fix quickview sizeing
 FlightData: remove FP autopan.
 Fix language issues
@@ -6241,7 +6241,7 @@ currentstate: fix unit conversion
 configcompassmot: fix compassmot issue
 update drivers
 MavlinkLog: make more efficient and add treeview
-Mission Planner 1.3.11
+XagSurveillanceGCS 1.3.11
 MetaData: update backup meta data
 MAVLink: update library
 Mainv2: prevent loading bad home location
@@ -6293,7 +6293,7 @@ dflog: add out of memory error
 Fix GeoFence Breach Logic
 fix , vs . issue #636
 update TC translation
-Mission Planner 1.3.10
+XagSurveillanceGCS 1.3.10
 georef: add tiff support
 currentstate: add m to ft conversion on terrain alt
 FlightPlanner: fix m to feet conversion
@@ -6362,7 +6362,7 @@ httpserver: add stop method
 add statkart topo maps
 flightdata: fix termination, and mount exception
 adsb: fix termination
-Mission Planner 1.3.9
+XagSurveillanceGCS 1.3.9
 fix grid issue.
 fix treeview save
 add treeview param checking
@@ -6371,7 +6371,7 @@ wp file update for frame type
 add sensors precent check
 hide gimbal point unless used.
 add fwversion.xml excpetion check
-Mission Planner 1.3.8
+XagSurveillanceGCS 1.3.8
 grid modifications by tristan novak
 language mods by ellissu
 fix timeinair bug #521
@@ -6478,9 +6478,9 @@ update for speech engine during logmap creation
 update sonar types to use autodoc
 add elevation graph null check
 add exception handle on motor test
-Mission Planner 1.3.7
+XagSurveillanceGCS 1.3.7
 fix a mag calib issue on apm2
-Mission Planner 1.3.6
+XagSurveillanceGCS 1.3.6
 fix otp failure types
 update zh-hans thanks bys1123
 add poi to FD and FP
@@ -6509,22 +6509,22 @@ fix antenna tracker alt
 add gimbal pointing
 add gps2
 update gmaps.net
-Mission Planner 1.3.5
+XagSurveillanceGCS 1.3.5
 add magcalib bypass
 fix magcalib
-Mission Planner 1.3.4
+XagSurveillanceGCS 1.3.4
 magcalib fix
 add docking remember, expose fullpointlist
 fix digital airspeed pin
 magcalib - adjust centerpoint on sphere/check based on best guess
-Mission Planner 1.3.3
+XagSurveillanceGCS 1.3.3
 airport bg loading
 airport display filtering.
 add spline options.
 fix adsb exception when using sbs
 fix exceptions on georef and log filter change
 add connect in readonly mode. (right click header bar)
-Mission Planner 1.3.2
+XagSurveillanceGCS 1.3.2
 add exception handlers
 fix github failed dl exception
 tweak mag calib settings
@@ -6551,7 +6551,7 @@ Add new Airports function
 Update georef format
 tweak mavlink log download status
 allow revert of switch docking on FP screen
-Mission Planner 1.3.1
+XagSurveillanceGCS 1.3.1
 add test flight planner dock switch
 add more error handleing in varius locations.
 improve wp uploading
@@ -6563,7 +6563,7 @@ fix datagridview clear issue on mono #426
 add filtering on basic tuning to fix #424
 update python script examples.
 add board voltage and servo rail voltage to status.
-Mission Planner 1.3.0
+XagSurveillanceGCS 1.3.0
 add MAVLinkSerialPort (serial tunnel)
 add spline support
 fix end dialog on default params when canceled
@@ -6596,7 +6596,7 @@ add RC Feel Roll/Pitch to simple pids
 add magcalib ellipsoid support.
 add new warnings engine.
 fix osdvideo.
-Mission Planner 1.2.99
+XagSurveillanceGCS 1.2.99
 fix error in selection in default settings
 update ftdi drivers
 tweak imagelabel to prevent exception
@@ -6616,7 +6616,7 @@ add more exceptions handleing in wizard
 magcalib add support for log files. using mag and mag2
 magcalib add support for mag offsets and scaling. (not yet used)
 add Fullscreen option. (right click menu bar)
-Mission Planner 1.2.98
+XagSurveillanceGCS 1.2.98
 update default settings to refresh tab on use
 add additional drivers
 add translation to grid
@@ -6647,10 +6647,10 @@ decrease frequency of new fw check
 remove wizard from first time use.
 allow more http requests
 add initial loganlysis code. (WIP)
-Mission Planner 1.2.97
+XagSurveillanceGCS 1.2.97
 change log browse to virtualmode. much faster on windows
 fix for posible future update bug
-Mission Planner 1.2.96
+XagSurveillanceGCS 1.2.96
 add ability to change text on buttons in servo tab
 modify some hud user item decimal places
 update mavlink
@@ -6676,7 +6676,7 @@ fix a few exceptions
 add reboot command to end of terminal
 try simplefy pixhawk fw upload.
 BG work on joystick
-Mission Planner 1.2.95
+XagSurveillanceGCS 1.2.95
 move Advanced view to a higher function
 modify georef as per new offsets, and made tlog the same
 add filter to .param file listing
@@ -6685,7 +6685,7 @@ add advanced view option to friendly params view
 hide advanced option on firmware screen
 add reload option to mainswitcher
 adsb process more sbs messages
-Mission Planner 1.2.94
+XagSurveillanceGCS 1.2.94
 add default settings
 fix battery show on hud
 add new y6b to wizard and frame type screen
@@ -6708,7 +6708,7 @@ modify rip path
 fix/add press_temp to realtime graphing + other int32 and uint16
 add custom earthbuilder map. (western australia only)
 add fw version extraction
-Mission Planner 1.2.93
+XagSurveillanceGCS 1.2.93
 add ERR to DF log
 add treeview to log browser (will break old DF logs)
 add double support to user hud item
@@ -6733,7 +6733,7 @@ add joystick hat switch usage
 add a few exception handles
 add color to loiter type wp's
 fix takeoff pitch.
-Mission Planner 1.2.92
+XagSurveillanceGCS 1.2.92
 sort saved param list
 wizard tweaks
 remove FS_GPS_ENABLE from FS screen
@@ -6744,14 +6744,14 @@ ensure .bin support for matlab file generation.
 fix posible get mavlink param issue.
 add checkbox's to wizard verify
 speedup df over mavlink log dl
-Mission Planner 1.2.91
+XagSurveillanceGCS 1.2.91
 fix non standard frame type
 add DF log download over mavlink
 fix DF to kml/gpx, using FMT now
 add more log sort criteria - 0 byte, and invalid/bad
 fix keyboard shortcuts
 bring the wizard out to play
-Mission Planner 1.2.90
+XagSurveillanceGCS 1.2.90
 new df over mavlink
 fix grid advanced button
 remove arduino verbose logging
@@ -6759,7 +6759,7 @@ update mavlink headers (df over mavlink)
 better error handling of bad log lines in DF log
 fix posible log dl issue
 thread fw version download
-Mission Planner 1.2.89
+XagSurveillanceGCS 1.2.89
 fix kml/gpx creation
 log browser mod
 df log renaming based on gps time
@@ -6773,7 +6773,7 @@ regen mavlink headers
 add lock to aviwritter
 move heli setup screen
 modify ac upload fw message
-Mission Planner 1.2.88
+XagSurveillanceGCS 1.2.88
 add movingbase display - using nmea gps
 tweak wizard connect
 update sr3 to include sr1
@@ -6784,7 +6784,7 @@ add prefetch wp path
 add settings load and save for grid
 add low airspeed/groundspeed warnings
 address , vs .
-Mission Planner 1.2.87
+XagSurveillanceGCS 1.2.87
 add asratio
 change load iris defaults to use compare
 add okcancel to custom mesagebox
@@ -6801,7 +6801,7 @@ update 3drradio config - custom fw, new url, new extension, new max window
 add gpstime
 tweak paramcompare
 add accel scan in control-f
-Mission Planner 1.2.86
+XagSurveillanceGCS 1.2.86
 spline display support
 doublebuffer quick view
 move hud message text to bottom of hud & always ontop
@@ -6824,7 +6824,7 @@ update H frame icons to I
 tweak wizard connect
 increase connect time - other boards compatability
 remove no rc receiver temp
-Mission Planner 1.2.85
+XagSurveillanceGCS 1.2.85
 update map library - this will invalidate your map prefetch
 remove arial narrow and Century Gothic font issues
 add ability to load a kml linestring as a mission
@@ -6835,7 +6835,7 @@ fix speech over speak
 fix bad first packet in mavlink logs
 support now DF log gps line
 modify getParam timeout from 0.2 to 0.7
-Mission Planner 1.2.84
+XagSurveillanceGCS 1.2.84
 add new winddir
 fix px4 uploader same fw error
 update parammetadatabackup.xml
@@ -6852,7 +6852,7 @@ add Marquee support to my progressbar
 fix spaces in matlab names
 speed up bin log browse
 add bin to log on FD screen
-Mission Planner 1.2.83
+XagSurveillanceGCS 1.2.83
 add log sorting
 add password protected config
 add pan and remove from log browse
@@ -6862,7 +6862,7 @@ add more options to failsafe screen
 add password support to inputbox
 fix posible gmap 404 error
 add px4flow driver to msi
-Mission Planner 1.2.82
+XagSurveillanceGCS 1.2.82
 address .net update/issues
 add DO_SET_CAM_TRIGG_DIST
 add msi default tlog application
@@ -6870,7 +6870,7 @@ update px4uploader
 update ardurover pid screen.
 add 3dr 4 in 1 esc
 update mavlink library
-Mission Planner 1.2.81
+XagSurveillanceGCS 1.2.81
 fix guage exception
 change mybutton colours back
 add more grid stats
@@ -6886,7 +6886,7 @@ add super simple
 add new battery param names
 add support for passing tlog at command line.
 add load to current state
-Mission Planner 1.2.80
+XagSurveillanceGCS 1.2.80
 exception fixs
 fix mono menu bar color
 fix wizard connect screen - better error handling
@@ -6897,7 +6897,7 @@ add thisreallyvisible for mono
 add back hud updates in background
 show beta updates as beta
 tweak msi installer
-Mission Planner 1.2.79
+XagSurveillanceGCS 1.2.79
 dpinst tweaks
 enable doublebuffer on coords display
 fix progressdialog fontscaling and exception
@@ -6920,9 +6920,9 @@ fix genotp
 fix hb sending
 rename main exe
 migrate all old namespace to new namespace
-Mission Planner 1.2.78
+XagSurveillanceGCS 1.2.78
 fix stacked windows
-Mission Planner 1.2.77
+XagSurveillanceGCS 1.2.77
 fix log download
 modify custommessagebox to start center of parent
 add filebrowse control
@@ -6939,14 +6939,14 @@ add all new frame refrences
 fix missing dlls' in msi
 fix messages sticking in hud
 add genotp
-Mission Planner 1.2.76
+XagSurveillanceGCS 1.2.76
 fix arducopter pid screen when locals is using , vs .
 fix div by 0 in hud
 fix guage custom color exception
 fix 127 ft radius limit
 increare log read buffer size
 fix for bad gps lines in logs
-Mission Planner 1.2.75
+XagSurveillanceGCS 1.2.75
 speed tuning.
 fix ch3out when not connected
 fix dont let current be negative
@@ -6976,7 +6976,7 @@ add rc9 to gimbal screen
 raw param performance tweak
 anable/disable disconnect button in terminal
 add map to logbrowser
-Mission Planner 1.2.74
+XagSurveillanceGCS 1.2.74
 more Grid/Survey WIP
 fix close issue on mono
 implement MagFitRotation from tridge
@@ -6994,7 +6994,7 @@ fix servooption error when its been renamed.
 fix missing updater.exe file
 update arduplane pid screen
 add follow path control (rover)
-Mission Planner 1.2.73
+XagSurveillanceGCS 1.2.73
 remove DO_SET_PARAMETER - has never worked
 add connect event
 add plugin shutdown on exit
@@ -7010,7 +7010,7 @@ fix custom firmware status
 add find to standard and advanced param list.
 more work on new gridv2 + camera intergration
 wip on stats plugin.
-Mission Planner 1.2.72
+XagSurveillanceGCS 1.2.72
 menu structure change.  since it missed .71
 support new 3dr radio message
 add find to full param list
@@ -7018,7 +7018,7 @@ fix poosible memory issue in mylabel
 add support for diffrent overshoot at each end of a grid
 fix messuresting bug with languages with unicode characters.
 add rename support to the servo tab. (right click.)
-Mission Planner 1.2.71
+XagSurveillanceGCS 1.2.71
 update wizard accel images to iris
 ensure wizard mag calib works, req streams and mag enable
 identify arduheli
@@ -7029,7 +7029,7 @@ tweak hil interface (wip)
 rearrange menu
 new grid testing
 add rtl_alt to fence
-Mission Planner 1.2.70
+XagSurveillanceGCS 1.2.70
 add larger deadzone on map interface.
 convert Measuretext to more efficent cached method
 add new Grid project / plugin wip
@@ -7052,12 +7052,12 @@ change msi to install into new directory
 add battery_usedmah estimate
 change home and trackerlocation to public
 add saving of raw data from gps while using followme mode
-Mission Planner 1.2.69
+XagSurveillanceGCS 1.2.69
 add png support to direct image injection
 add analytics
 fix plane accel calib
 fix help screen
-Mission Planner 1.2.68
+XagSurveillanceGCS 1.2.68
 add vario support.
 add better wms support, as per kogan's mod
 add camera planner - bbasso
@@ -7069,14 +7069,14 @@ add old accel calib to plane config.
 migrate fw screen to new fw class
 add support for more graphs, 5 to 10
 add custommessagebox link support
-Mission Planner 1.2.67
+XagSurveillanceGCS 1.2.67
 fix georegimage bug
 wizard fixs
 new plugintest project
 fix binary log , vs .
 fix kml overlay
 wiki link on fs page
-Mission Planner 1.2.66
+XagSurveillanceGCS 1.2.66
 relocate serial/tcp/udp comms to external dll
 try fix serialstream.disposed error
 more plugin system mods
@@ -7089,17 +7089,17 @@ fix tlog kmls, always alt asl
 change firmware screen images
 change autoscalemode on custommessagebox (125% fonts)
 add excveption handleing to mavlinkcombobox
-Mission Planner 1.2.65
+XagSurveillanceGCS 1.2.65
 custom firmware load fix
 refresh on disconnect
 px4fmu updates
 px4uploader update
 add H, Y6, tri, Heli to frame setup
-Mission Planner 1.2.64
+XagSurveillanceGCS 1.2.64
 rename hardware and software config
 change fw screen loading
 wizard wip
-Mission Planner 1.2.63
+XagSurveillanceGCS 1.2.63
 relocate controls to external dll
 change mp icon
 add backup metadatafile
@@ -7110,12 +7110,12 @@ fix AP accel
 added ctl + left click = guided mode wp
 move heli screen to software tab
 rename adv param list to full param list
-Mission Planner 1.2.62
+XagSurveillanceGCS 1.2.62
 fix hud
 revert fw history
 mod plane accell calib
 fix log playback speed
-Mission Planner 1.2.61
+XagSurveillanceGCS 1.2.61
 Wizard WIP
 relocate native methods
 add support for russian hud. - no option to change this yet.
@@ -7132,7 +7132,7 @@ add update rate to follow me
 fix georef agl vs asl issue = always asl
 fix no data warning endless loop.
 tweak osdvideo - cant be on FD screen
-Mission Planner 1.2.60
+XagSurveillanceGCS 1.2.60
 More Wizard (excluded atm - wip)
 add altasl to status tab (altitude above sea level)
 update ac simple pids yaw
@@ -7142,7 +7142,7 @@ mod quickview layout
 mod log playback speed
 add message about compass calib after FW
 new control gradientbg, progressstep, radialgradientbg, picturemouseover
-Mission Planner 1.2.59
+XagSurveillanceGCS 1.2.59
 fix terminal exception
 add back loiter_unlim to copter
 more debug for usb device add and remove
@@ -7153,7 +7153,7 @@ change some timeing in flightdata
 change dist traveled on log playback skip
 add better saving of wp_rad and default alt to FP page
 more terminal tweaks for px4
-Mission Planner 1.2.58
+XagSurveillanceGCS 1.2.58
 add more python internal support - guided mode/wp's
 remove disconnect on terminal click
 test no memory cache on FD
@@ -7161,12 +7161,12 @@ fix wprad and default alt on FP load, and save
 remove old waypoint writer support
 change the way terminal resets the apm and connects.
 fix google map loading issue
-Mission Planner 1.2.57
+XagSurveillanceGCS 1.2.57
 fix small screen res
 fix cli
 add more python script ability
 fix battery percent quick view
-Mission Planner 1.2.56
+XagSurveillanceGCS 1.2.56
 fix param list memory usage
 generate mode list to param data
 generate ch6,7,8 list from param data
@@ -7176,16 +7176,16 @@ make compass calib nicer
 fix simple pid screen
 change autoscalemode, for people that have 125% font size
 fix rangecontrol, memory hog
-Mission Planner 1.2.55
+XagSurveillanceGCS 1.2.55
 Fix arduplane software screen.
 fix new basic pids redraw
-Mission Planner 1.2.54
+XagSurveillanceGCS 1.2.54
 add new AC pids
 modify theme
 update 3dr radio for new rfd's
 fix a few exceptions
 modify range control
-Mission Planner 1.2.53
+XagSurveillanceGCS 1.2.53
 confirm nmea line endings
 fix timeinair reset on connect
 seperate out mini http server
@@ -7196,10 +7196,10 @@ update battery monitoring screen
 fix arm/disarm speech option
 fix ac fence option on load
 tweaks to make it easyer to compile
-Mission Planner 1.2.52
+XagSurveillanceGCS 1.2.52
 revert to vfr_hud.alt
 add prearm warning text
-Mission Planner 1.2.51
+XagSurveillanceGCS 1.2.51
 update hil
 add missing baud rates
 NMEA output milliseconds
@@ -7207,27 +7207,27 @@ fix georef
 add sonar range to status screen
 fix grid/feet issue
 cleanup old mavlink code
-Mission Planner 1.2.50
+XagSurveillanceGCS 1.2.50
 fix AR modes on hud
 add binary log fw ap id
 fix kml generatio non new logs
 add bin to log
 add splitter to log browse
 add support for ac 3.0+ accel calib
-Mission Planner 1.2.49
+XagSurveillanceGCS 1.2.49
 change update location
 update georefpage
 add compass rotation
 update ac geofence
 add refresh part.
-Mission Planner 1.2.48
+XagSurveillanceGCS 1.2.48
 modify accel calib
 mono ssl fix
 add ch6_ dec
 better amazon error handling
 add AC_Fence
 add 3dr radio check on tracker scan
-Mission Planner 1.2.47
+XagSurveillanceGCS 1.2.47
 add RPY to nmea output as $GPRPY
 update current state for all mavs connected
 update wix gerneration for rsync uploads and google code
@@ -7237,7 +7237,7 @@ use new firmware APMVERSION: tags
 xplane hil, go back to xplane accel data
 add aerosim sitl support
 speedup friendly config a little
-Mission Planner 1.2.46
+XagSurveillanceGCS 1.2.46
 add binary log support
 add new self describing log format
 disable dtr when using px4
@@ -7247,7 +7247,7 @@ mag calib is no 60 seconds from 30
 firmware > add latest fw 
 remember last lat,lng,alt for main map.
 fix swarm initial location
-Mission Planner 1.2.45
+XagSurveillanceGCS 1.2.45
 px4 inf mod
 firmware screen mod
 beta fw now from firmware.diydrones.com
@@ -7256,26 +7256,26 @@ swarm - setup relative to master based on gps coords
 dataflashlog update
 restore dtr on connect
 add control-s to many config forms
-Mission Planner 1.2.44
+XagSurveillanceGCS 1.2.44
 disable dtr on connect
 px4 uploader mods
 px4 upload progress
-Mission Planner 1.2.43
+XagSurveillanceGCS 1.2.43
 fix advanced param issue.
 mod px4 driver
 allow multiple simulator instances
 gather param types
-Mission Planner 1.2.42
+XagSurveillanceGCS 1.2.42
 swarm mods
 AR2 pid update
 SITL sim mods
-Mission Planner 1.2.41
+XagSurveillanceGCS 1.2.41
 fix swarming grid
 add mavlink tcp passthough
-Mission Planner 1.2.40
+XagSurveillanceGCS 1.2.40
 fix mono start
 fix trap frame definition
-Mission Planner 1.2.39
+XagSurveillanceGCS 1.2.39
 px4 detection mod
 .net 3.5 > 4.0
 add new frame type
@@ -7283,9 +7283,9 @@ add osd config button
 firmware back to autodetect
 fix xplane hil accel and gyro scaling
 eto testing
-Mission Planner 1.2.38
+XagSurveillanceGCS 1.2.38
 fix updater
-Mission Planner 1.2.37
+XagSurveillanceGCS 1.2.37
 px4 detect - wont work until usb hang is fixed
 new board selcetion in firmware screen
 add 2d fix to hud
@@ -7302,7 +7302,7 @@ update rover modes
 fix log downloading
 remove gzip updateing
 add miliseconds to mavlink csv's
-Mission Planner 1.2.36
+XagSurveillanceGCS 1.2.36
 add red gps status on hud when no gps lock
 disable accel calib button after calibration
 Ateryx fixs
@@ -7315,7 +7315,7 @@ add sorting to mavlink log screen
 add index frame to mjpg avis - HUD
 add hazys lang mods
 add arthurs georef mods
-Mission Planner 1.2.35
+XagSurveillanceGCS 1.2.35
 attempt to fix crash on usb pulled unsafe
 add failsafe display to hud
 add custom color thememanager
@@ -7330,7 +7330,7 @@ add message to rc calib about extremes
 fix wp total in action tab
 add {vsp} vert speed to speech options
 update dataflashlog.xml
-Mission Planner 1.2.34
+XagSurveillanceGCS 1.2.34
 update german lang thanks mike
 prep for multi mav
 reload home pos on arm
@@ -7340,14 +7340,14 @@ add thememanager - wip, basics going
 mod heli screen as per robert
 add logbrowse filter - still wip
 fix mag calib
-Mission Planner 1.2.33
+XagSurveillanceGCS 1.2.33
 fix guided mode alt to accept things other than m
 fix terminal > log download issue.
 fix hud overlay video
 add config to change log directory
 add auto connect method - for mavlink only, no terminal or firmware upload
 rearange joystick disable code
-Mission Planner 1.2.32
+XagSurveillanceGCS 1.2.32
 mods for ac 2.9 release
 failsafe screen.
 firmware screen message
@@ -7356,9 +7356,9 @@ remove dampening
 add sonar ch7
 remove datetime from message
 mod flightmode screen for ardurover
-Mission Planner 1.2.31
+XagSurveillanceGCS 1.2.31
 fix update url
-Mission Planner 1.2.30
+XagSurveillanceGCS 1.2.30
 fixup accel calib
 disable roll pitch lock on heli
 thememanager mods
@@ -7366,7 +7366,7 @@ remove geofence tab
 update for github move
 allow logview to be open more than once
 dataflashlog.xml update
-Mission Planner 1.2.29
+XagSurveillanceGCS 1.2.29
 rename DistToMAV to DistToHome
 update df log INAV
 fix terminal/log issue
@@ -7375,7 +7375,7 @@ mod OSDVideo
 fix msi build
 add new single param fetch on connect. should help slow links
 mod freindly param
-Mission Planner 1.2.28
+XagSurveillanceGCS 1.2.28
 fix 868 freq range
 modify hud font bitmap cache
 add hud low voltage alert
@@ -7385,7 +7385,7 @@ fix memory leak in FriendlyParams
 fix shutter pushed/notpucshed reversal
 add area calc to flight planner screen, from a polygon
 add osdvideo trial - WIP
-Mission Planner 1.2.27
+XagSurveillanceGCS 1.2.27
 add extra decimal place on arducopter config screens
 update ch6_list
 fix quickview double click error
@@ -7393,7 +7393,7 @@ fix terminal/logview comport problem
 add AC thr accel pids
 modify driver (line ending issue) and resign
 fix config view doubleclick popout
-Mission Planner 1.2.26
+XagSurveillanceGCS 1.2.26
 move mavlink structure/currentstate around for future mods
 update old firmware git hashs
 mod some error descriptions
@@ -7413,27 +7413,27 @@ add {batp} to speech engine
 add OF_Loiter to AC mode list for hud
 mod georefimage to do image overlay
 add basic mavelous support
-Mission Planner 1.2.25
+XagSurveillanceGCS 1.2.25
 fix scaling problem on arducopter config tab. when linking is enabled
-Mission Planner 1.2.24
+XagSurveillanceGCS 1.2.24
 failsafe: hide element not needed
 ap_limits back - beta
 add new accel setup - beta
 fix planner config screen exception
 fix quickview desc/units if never been configured
-Mission Planner 1.2.23
+XagSurveillanceGCS 1.2.23
 ammend serial dispose on usb devices detach
 add item currentstate item description and units
 ammend battery screen for 3dr power module
 add trackbar zoom to flight data
 add unit desccription
 ammend PREFLIGHT_REBOOT_SHUTDOWN timeout
-Mission Planner 1.2.22
+XagSurveillanceGCS 1.2.22
 fix speed modification scale
 fix typo on antenna Tracker
 setup for ThemeManager.cs
 new auto hide menu
-Mission Planner 1.2.21
+XagSurveillanceGCS 1.2.21
 Antenna Tracker mod from William Bryan
 Scaling mods
 battery screen mods
@@ -7441,36 +7441,36 @@ failsafe screen pwm checking
 remove reverse radio options when we are using a quad
 config menu reorganise
 add Ateryx stuff
-Mission Planner 1.2.20
+XagSurveillanceGCS 1.2.20
 fix airspeed error scale and min ground speed
 modify mount options
 add german lang
 fix terminal baud rate issue
 msi mod- single msi for x86 and x64 and all win os's
-Mission Planner 1.2.19
+XagSurveillanceGCS 1.2.19
 check for serial port name hang. and disable
 add more failsafe screen status items
 fix mavlink log graph bug
-Mission Planner 1.2.18
+XagSurveillanceGCS 1.2.18
 fix mono crash
 add rxrssi
 fix altitude mis label on mouse over in flight planner
 add trigger camera now action.
 new win8 msi
-Mission Planner 1.2.17
+XagSurveillanceGCS 1.2.17
 add nested config page
 add friendly comport names
 add some exception handlers
 add new old firmware hashs
 remove more crom.controls stuff
 enabled change speed
-Mission Planner 1.2.16
+XagSurveillanceGCS 1.2.16
 workaround for global_pos_int problem
 fix 3dr iv sensor pin selection
 add ability to disable dist to home on flight data screen
 remove traces of crom.controls (mono)
 fix arm/disarm button
-Mission Planner 1.2.15
+XagSurveillanceGCS 1.2.15
 fix hud battery text overlaying
 tweak hud resize
 tweak main switcher
@@ -7481,11 +7481,11 @@ change tooltip time
 add 3dr iv
 add distance to home
 dataflashlog update
-Mission Planner 1.2.14
+XagSurveillanceGCS 1.2.14
 fix update/blank flightdata screen
 add srtm blank file check
 add Land to modes
-Mission Planner 1.2.13
+XagSurveillanceGCS 1.2.13
 remove some mavlink 0.9 code
 add arm/disarm button. Not yet implemented AC and AP Side.
 modify heli setup screen
@@ -7498,7 +7498,7 @@ add change alt button
 modify tlog wp extractor, multiple extractions
 speed up srtm reading
 fix lang edit.
-Mission Planner 1.2.12
+XagSurveillanceGCS 1.2.12
 add arduino chip detect
 fix apm2,2.5 dialog test
 add write timeout. this will stop planner hangs on bad serial devices.
@@ -7510,11 +7510,11 @@ modify firmware screen from Marooned
 major flightdata tab change.
 add save/load polygon from file
 add some error handling dialogs
-Mission Planner 1.2.11
+XagSurveillanceGCS 1.2.11
 Fix ac crosstrack display
 tweak ap_mount
 speed up Terminal
-Mission Planner 1.2.10
+XagSurveillanceGCS 1.2.10
 add useritems to HUD
 change hdop scale
 fix posible follow me bug (, vs .)
@@ -7525,7 +7525,7 @@ tweak some mission upload potential issues
 add ability to get param list from a log (from startup)
 add ability to get the first wp list in a log, if wps where received in that log.
 tweak video capture library timing
-Mission Planner 1.2.9
+XagSurveillanceGCS 1.2.9
 add est distance traveled
 add est flight time
 AP_Mount now updated
@@ -7533,23 +7533,23 @@ add expermental firmware options.
 fix hud avi record framerate
 add 2 direction wp circle
 tweak gridv2
-Mission Planner 1.2.8
+XagSurveillanceGCS 1.2.8
 fix mjpeg stream from VLC.
 add grid mode V2
 fix hdop scaling
-Mission Planner 1.2.7
+XagSurveillanceGCS 1.2.7
 add wind from ap
 add wp every x m in grid mode
 fix hil problem
 fix control-s
 update mavlink format
-Mission Planner 1.2.6
+XagSurveillanceGCS 1.2.6
 add tracker location option.
 fix current sensor screen
 add more right click flight planner options.
 make some connecting error messages more detailed.
 add partial microdrones protocol output
-Mission Planner 1.2.5
+XagSurveillanceGCS 1.2.5
 add experimental antenna tracker find
 add new apparam eeprom reader
 add ground alt display to hud
@@ -7559,18 +7559,18 @@ test flight planner tab on flight data tab
 move some functions to the right click menu
 add xplanes data in/out setup to be automatic.
 add better mission upload handeling.
-Mission Planner 1.2.4
+XagSurveillanceGCS 1.2.4
 remove geofence tab
 add guided alt remeber
 change wp upload retry to 200 ms
-Mission Planner 1.2.3
+XagSurveillanceGCS 1.2.3
 hud font move
 add progress bar lock
 add quickview mono fix
 fix centi-degree/degree units
 fix mnt config camera tab
 fix some meters/feet scaling issues
-Mission Planner 1.2.2
+XagSurveillanceGCS 1.2.2
 add DegreeTracker
 fix popout tab on config page
 add remember last config tab
@@ -7578,7 +7578,7 @@ fix bytes send count
 fix deactivate bug
 fix ap_limits bug
 fix ap_mount bug
-Mission Planner 1.2.1
+XagSurveillanceGCS 1.2.1
 add enable/disable to mavlinkcheckbox
 modify my button to curved
 add delay to progress reporter dialog. to ensure correct parent
@@ -7588,7 +7588,7 @@ display roi difrently
 modify HIL/Quad Hil
 update dataflashlog format (thanks randy)
 update mavcmd format for roi
-Mission Planner 1.2
+XagSurveillanceGCS 1.2
 Enable Mount config screen
 Add Quick View (double click to change)
 fix mono updater issue

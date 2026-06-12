@@ -16,12 +16,12 @@
         public const string Loiter = "LOITER";
 
         /// <summary>
-        /// Mission Planner should resume mission
+        /// XagSurveillanceGCS should resume mission
         /// </summary>
         public const string AllClear = "ALL CLEAR";
 
         /// <summary>
-        /// Mission Planner should return to base
+        /// XagSurveillanceGCS should return to base
         /// </summary>
         public const string ReturnToBase = "RTB";
 

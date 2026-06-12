@@ -3,14 +3,14 @@ using System.Drawing;
 using GMap.NET;
 using GMap.NET.WindowsForms;
 
-namespace MissionPlanner.Maps
+namespace XagSurveillanceGCS.Maps
 {
     [Serializable]
     public class GMapMarkerADSBPlane : GMapMarker
     {
-        private static readonly Bitmap icong = new Bitmap(global::MissionPlanner.Maps.Resources.FW_icons_2013_logos_01, new Size(40, 40));
-        private static readonly Bitmap iconr = new Bitmap(global::MissionPlanner.Maps.Resources.FW_icons_2013_logos_011, new Size(40, 40));
-        private static readonly Bitmap icono = new Bitmap(global::MissionPlanner.Maps.Resources.FW_icons_2013_logos_012, new Size(40, 40));
+        private static readonly Bitmap icong = new Bitmap(global::XagSurveillanceGCS.Maps.Resources.FW_icons_2013_logos_01, new Size(40, 40));
+        private static readonly Bitmap iconr = new Bitmap(global::XagSurveillanceGCS.Maps.Resources.FW_icons_2013_logos_011, new Size(40, 40));
+        private static readonly Bitmap icono = new Bitmap(global::XagSurveillanceGCS.Maps.Resources.FW_icons_2013_logos_012, new Size(40, 40));
 
         public float heading = 0;
         public AlertLevelOptions AlertLevel = AlertLevelOptions.Green;

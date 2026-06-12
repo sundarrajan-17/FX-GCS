@@ -1,6 +1,6 @@
 ﻿using System.Windows.Forms;
 
-namespace MissionPlanner.Controls
+namespace XagSurveillanceGCS.Controls
 {
    partial class ValuesControl
    {

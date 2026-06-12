@@ -4,7 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Net;
 
-namespace MissionPlanner.Utilities
+namespace XagSurveillanceGCS.Utilities
 {
     public class dfgpslag
     {

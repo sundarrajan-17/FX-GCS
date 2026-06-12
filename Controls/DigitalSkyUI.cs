@@ -2,9 +2,9 @@
 using Flurl.Http;
 using GMap.NET;
 using GMap.NET.WindowsForms;
-using MissionPlanner.ArduPilot.Mavlink;
-using MissionPlanner.Maps;
-using MissionPlanner.Utilities;
+using XagSurveillanceGCS.ArduPilot.Mavlink;
+using XagSurveillanceGCS.Maps;
+using XagSurveillanceGCS.Utilities;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
@@ -13,7 +13,7 @@ using System.Linq;
 using System.Net;
 using System.Windows.Forms;
 
-namespace MissionPlanner.Controls
+namespace XagSurveillanceGCS.Controls
 {
     public partial class DigitalSkyUI : UserControl, IActivate
     {

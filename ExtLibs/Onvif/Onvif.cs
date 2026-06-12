@@ -4,7 +4,7 @@ using System.ServiceModel;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-using MissionPlanner.Utilities;
+using XagSurveillanceGCS.Utilities;
 using Onvif.Core.Client;
 using Onvif.Core.Client.Common;
 using Onvif.Core.Client.Device;

@@ -1,10 +1,10 @@
-﻿using MissionPlanner.Grid;
+﻿using XagSurveillanceGCS.Grid;
 using System;
 using System.Windows.Forms;
 
-namespace MissionPlanner
+namespace XagSurveillanceGCS
 {
-    public class FaceMapPlugin : MissionPlanner.Plugin.Plugin
+    public class FaceMapPlugin : XagSurveillanceGCS.Plugin.Plugin
     {
 
 
@@ -61,7 +61,7 @@ namespace MissionPlanner
         {
             using (var gridui = new FaceMapUI(this))
             {
-                MissionPlanner.Utilities.ThemeManager.ApplyThemeTo(gridui);
+                XagSurveillanceGCS.Utilities.ThemeManager.ApplyThemeTo(gridui);
 
                 if ((GCSViews.FlightPlanner.altmode)Host.MainForm.FlightPlanner.CMB_altmode.SelectedValue == GCSViews.FlightPlanner.altmode.Terrain)
                 {

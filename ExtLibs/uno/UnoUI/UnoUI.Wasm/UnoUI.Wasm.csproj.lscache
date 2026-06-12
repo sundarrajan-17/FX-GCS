@@ -1,0 +1,213 @@
+version=1
+
+# This file caches language service data to improve the performance of C# Dev Kit.
+# It is not intended for manual editing. It can safely be deleted and will be
+# regenerated automatically. For more information, see https://aka.ms/lscache
+#
+# To control where cache files are stored, use the following VS Code setting:
+#   "dotnet.projectsystem.cacheInProjectFolder": true
+
+[project]
+language=C#
+primary
+lastDtbSucceeded
+
+[properties]
+AssemblyName=UnoUI.Wasm
+CommandLineArgsForDesignTimeEvaluation=-langversion:7.3 -define:TRACE;__WASM__
+CompilerGeneratedFilesOutputPath=
+MaxSupportedLangVersion=7.3
+ProjectAssetsFile=<PATH>obj/project.assets.json
+RootNamespace=UnoUI.Wasm
+RunAnalyzers=
+RunAnalyzersDuringLiveAnalysis=
+SolutionPath=*Undefined*
+TargetFrameworkIdentifier=.NETStandard
+TargetPath=<PATH>bin/Debug/netstandard2.0/UnoUI.Wasm.dll
+TargetRefPath=
+TemporaryDependencyNodeTargetIdentifier=netstandard2.0
+
+[commandLineArguments]
+/noconfig
+/unsafe-
+/checked-
+/nowarn:NU1701,1701,1702
+/fullpaths
+/nostdlib+
+/errorreport:prompt
+/define:TRACE;__WASM__;DEBUG;NETSTANDARD;NETSTANDARD2_0;NETSTANDARD1_0_OR_GREATER;NETSTANDARD1_1_OR_GREATER;NETSTANDARD1_2_OR_GREATER;NETSTANDARD1_3_OR_GREATER;NETSTANDARD1_4_OR_GREATER;NETSTANDARD1_5_OR_GREATER;NETSTANDARD1_6_OR_GREATER;NETSTANDARD2_0_OR_GREATER
+/highentropyva+
+/debug+
+/debug:portable
+/filealign:512
+/optimize-
+/out:obj\Debug\netstandard2.0\UnoUI.Wasm.dll
+/target:exe
+/warnaserror-
+/utf8output
+/deterministic+
+/langversion:7.3
+/warnaserror+:NU1605
+
+[sourceFiles]
+../UnoUI.Shared/
+ App.xaml.cs
+ MainPage.xaml.cs
+ test/
+  AGaugeApp.AGauge.xaml.cs
+  Class1.cs
+  DecimalUpDown.xaml.cs
+  resedit.Form1.xaml.cs
+  XagSurveillanceGCS.Antenna.Tracker.xaml.cs
+  XagSurveillanceGCS.ConnectionOptions.xaml.cs
+  XagSurveillanceGCS.Controls.AuthKeys.xaml.cs
+  XagSurveillanceGCS.Controls.BackstageView.BackstageView.xaml.cs
+  XagSurveillanceGCS.Controls.BackstageView.BackstageViewButton.xaml.cs
+  XagSurveillanceGCS.Controls.BackstageView.BackStageViewMenuPanel.xaml.cs
+  XagSurveillanceGCS.Controls.ConnectionControl.xaml.cs
+  XagSurveillanceGCS.Controls.ConnectionStats.xaml.cs
+  XagSurveillanceGCS.Controls.Coords.xaml.cs
+  XagSurveillanceGCS.Controls.DefaultSettings.xaml.cs
+  XagSurveillanceGCS.Controls.DigitalSkyUI.xaml.cs
+  XagSurveillanceGCS.Controls.DistanceBar.xaml.cs
+  XagSurveillanceGCS.Controls.EKFStatus.xaml.cs
+  XagSurveillanceGCS.Controls.fftui.xaml.cs
+  XagSurveillanceGCS.Controls.FileBrowse.xaml.cs
+  XagSurveillanceGCS.Controls.FlashMessage.xaml.cs
+  XagSurveillanceGCS.Controls.GradientBG.xaml.cs
+  XagSurveillanceGCS.Controls.HorizontalProgressBar.xaml.cs
+  XagSurveillanceGCS.Controls.HorizontalProgressBar2.xaml.cs
+  XagSurveillanceGCS.Controls.HSI.xaml.cs
+  XagSurveillanceGCS.Controls.HUD.xaml.cs
+  XagSurveillanceGCS.Controls.ImageLabel.xaml.cs
+  XagSurveillanceGCS.Controls.LabelWithPseudoOpacity.xaml.cs
+  XagSurveillanceGCS.Controls.LineSeparator.xaml.cs
+  XagSurveillanceGCS.Controls.Loading.xaml.cs
+  XagSurveillanceGCS.Controls.MavlinkCheckBox.xaml.cs
+  XagSurveillanceGCS.Controls.MavlinkCheckBoxBitMask.xaml.cs
+  XagSurveillanceGCS.Controls.MavlinkComboBox.xaml.cs
+  XagSurveillanceGCS.Controls.MavlinkNumericUpDown.xaml.cs
+  XagSurveillanceGCS.Controls.ModifyandSet.xaml.cs
+  XagSurveillanceGCS.Controls.MyButton.xaml.cs
+  XagSurveillanceGCS.Controls.MyDataGridView.xaml.cs
+  XagSurveillanceGCS.Controls.myGMAP.xaml.cs
+  XagSurveillanceGCS.Controls.MyLabel.xaml.cs
+  XagSurveillanceGCS.Controls.MyProgressBar.xaml.cs
+  XagSurveillanceGCS.Controls.MyTrackBar.xaml.cs
+  XagSurveillanceGCS.Controls.OpenGLtest.xaml.cs
+  XagSurveillanceGCS.Controls.OpenGLtest2.xaml.cs
+  XagSurveillanceGCS.Controls.OptionForm.xaml.cs
+  XagSurveillanceGCS.Controls.PictureBoxMouseOver.xaml.cs
+  XagSurveillanceGCS.Controls.PictureBoxWithPseudoOpacity.xaml.cs
+  XagSurveillanceGCS.Controls.PreFlight.CheckListControl.xaml.cs
+  XagSurveillanceGCS.Controls.ProgressReporterDialogue.xaml.cs
+  XagSurveillanceGCS.Controls.ProgressReporterSphere.xaml.cs
+  XagSurveillanceGCS.Controls.ProgressStep.xaml.cs
+  XagSurveillanceGCS.Controls.PropagationSettings.xaml.cs
+  XagSurveillanceGCS.Controls.QuickView.xaml.cs
+  XagSurveillanceGCS.Controls.RadialGradientBG.xaml.cs
+  XagSurveillanceGCS.Controls.RangeControl.xaml.cs
+  XagSurveillanceGCS.Controls.RelayOptions.xaml.cs
+  XagSurveillanceGCS.Controls.ScriptConsole.xaml.cs
+  XagSurveillanceGCS.Controls.SerialOutputMD.xaml.cs
+  XagSurveillanceGCS.Controls.SerialOutputNMEA.xaml.cs
+  XagSurveillanceGCS.Controls.SerialOutputPass.xaml.cs
+  XagSurveillanceGCS.Controls.ServoOptions.xaml.cs
+  XagSurveillanceGCS.Controls.Sphere.xaml.cs
+  XagSurveillanceGCS.Controls.ThemeColors.xaml.cs
+  XagSurveillanceGCS.Controls.ValuesControl.xaml.cs
+  XagSurveillanceGCS.Controls.VerticalProgressBar.xaml.cs
+  XagSurveillanceGCS.Controls.VerticalProgressBar2.xaml.cs
+  XagSurveillanceGCS.Controls.Vibration.xaml.cs
+  XagSurveillanceGCS.Controls.Video.xaml.cs
+  XagSurveillanceGCS.Controls.WindDir.xaml.cs
+  XagSurveillanceGCS.FollowMe.xaml.cs
+  XagSurveillanceGCS.GCSViews.ConfigurationView.ConfigAccelerometerCalibration.xaml.cs
+  XagSurveillanceGCS.GCSViews.ConfigurationView.ConfigAC_Fence.xaml.cs
+  XagSurveillanceGCS.GCSViews.ConfigurationView.ConfigADSB.xaml.cs
+  XagSurveillanceGCS.GCSViews.ConfigurationView.ConfigAntennaTracker.xaml.cs
+  XagSurveillanceGCS.GCSViews.ConfigurationView.ConfigArducopter.xaml.cs
+  XagSurveillanceGCS.GCSViews.ConfigurationView.ConfigArduplane.xaml.cs
+  XagSurveillanceGCS.GCSViews.ConfigurationView.ConfigArdurover.xaml.cs
+  XagSurveillanceGCS.GCSViews.ConfigurationView.ConfigAteryx.xaml.cs
+  XagSurveillanceGCS.GCSViews.ConfigurationView.ConfigAteryxSensors.xaml.cs
+  XagSurveillanceGCS.GCSViews.ConfigurationView.ConfigBatteryMonitoring.xaml.cs
+  XagSurveillanceGCS.GCSViews.ConfigurationView.ConfigBatteryMonitoring2.xaml.cs
+  XagSurveillanceGCS.GCSViews.ConfigurationView.ConfigCompassMot.xaml.cs
+  XagSurveillanceGCS.GCSViews.ConfigurationView.ConfigESCCalibration.xaml.cs
+  XagSurveillanceGCS.GCSViews.ConfigurationView.ConfigFailSafe.xaml.cs
+  XagSurveillanceGCS.GCSViews.ConfigurationView.ConfigFirmware.xaml.cs
+  XagSurveillanceGCS.GCSViews.ConfigurationView.ConfigFirmwareDisabled.xaml.cs
+  XagSurveillanceGCS.GCSViews.ConfigurationView.ConfigFirmwareManifest.xaml.cs
+  XagSurveillanceGCS.GCSViews.ConfigurationView.ConfigFlightModes.xaml.cs
+  XagSurveillanceGCS.GCSViews.ConfigurationView.ConfigFrameClassType.xaml.cs
+  XagSurveillanceGCS.GCSViews.ConfigurationView.ConfigFrameType.xaml.cs
+  XagSurveillanceGCS.GCSViews.ConfigurationView.ConfigFriendlyParams.xaml.cs
+  XagSurveillanceGCS.GCSViews.ConfigurationView.ConfigFriendlyParamsAdv.xaml.cs
+  XagSurveillanceGCS.GCSViews.ConfigurationView.ConfigHWAirspeed.xaml.cs
+  XagSurveillanceGCS.GCSViews.ConfigurationView.ConfigHWBT.xaml.cs
+  XagSurveillanceGCS.GCSViews.ConfigurationView.ConfigHWCAN.xaml.cs
+  XagSurveillanceGCS.GCSViews.ConfigurationView.ConfigHWCompass.xaml.cs
+  XagSurveillanceGCS.GCSViews.ConfigurationView.ConfigHWESP8266.xaml.cs
+  XagSurveillanceGCS.GCSViews.ConfigurationView.ConfigHWIDs.xaml.cs
+  XagSurveillanceGCS.GCSViews.ConfigurationView.ConfigHWOptFlow.xaml.cs
+  XagSurveillanceGCS.GCSViews.ConfigurationView.ConfigHWOSD.xaml.cs
+  XagSurveillanceGCS.GCSViews.ConfigurationView.ConfigHWParachute.xaml.cs
+  XagSurveillanceGCS.GCSViews.ConfigurationView.ConfigHWPX4Flow.xaml.cs
+  XagSurveillanceGCS.GCSViews.ConfigurationView.ConfigHWRangeFinder.xaml.cs
+  XagSurveillanceGCS.GCSViews.ConfigurationView.ConfigMandatory.xaml.cs
+  XagSurveillanceGCS.GCSViews.ConfigurationView.ConfigMotorTest.xaml.cs
+  XagSurveillanceGCS.GCSViews.ConfigurationView.ConfigMount.xaml.cs
+  XagSurveillanceGCS.GCSViews.ConfigurationView.ConfigOptional.xaml.cs
+  XagSurveillanceGCS.GCSViews.ConfigurationView.ConfigOSD.xaml.cs
+  XagSurveillanceGCS.GCSViews.ConfigurationView.ConfigPlanner.xaml.cs
+  XagSurveillanceGCS.GCSViews.ConfigurationView.ConfigPlannerAdv.xaml.cs
+  XagSurveillanceGCS.GCSViews.ConfigurationView.ConfigRadioInput.xaml.cs
+  XagSurveillanceGCS.GCSViews.ConfigurationView.ConfigRadioOutput.xaml.cs
+  XagSurveillanceGCS.GCSViews.ConfigurationView.ConfigRawParams.xaml.cs
+  XagSurveillanceGCS.GCSViews.ConfigurationView.ConfigRawParamsTree.xaml.cs
+  XagSurveillanceGCS.GCSViews.ConfigurationView.ConfigSerialInjectGPS.xaml.cs
+  XagSurveillanceGCS.GCSViews.ConfigurationView.ConfigSimplePids.xaml.cs
+  XagSurveillanceGCS.GCSViews.ConfigurationView.ConfigTradHeli.xaml.cs
+  XagSurveillanceGCS.GCSViews.ConfigurationView.ConfigUAVCAN.xaml.cs
+  XagSurveillanceGCS.GCSViews.ConfigurationView.ConfigUserDefined.xaml.cs
+  XagSurveillanceGCS.GCSViews.FlightData.xaml.cs
+  XagSurveillanceGCS.GCSViews.FlightPlanner.xaml.cs
+  XagSurveillanceGCS.GCSViews.Help.xaml.cs
+  XagSurveillanceGCS.GCSViews.InitialSetup.xaml.cs
+  XagSurveillanceGCS.GCSViews.SITL.xaml.cs
+  XagSurveillanceGCS.GCSViews.SoftwareConfig.xaml.cs
+  XagSurveillanceGCS.GCSViews.Terminal.xaml.cs
+  XagSurveillanceGCS.GeoRef.Georefimage.xaml.cs
+  XagSurveillanceGCS.Joystick.JoystickAxis.xaml.cs
+  XagSurveillanceGCS.Joystick.JoystickSetup.xaml.cs
+  XagSurveillanceGCS.Log.LogBrowse.xaml.cs
+  XagSurveillanceGCS.Log.LogDownload.xaml.cs
+  XagSurveillanceGCS.Log.LogDownloadMavLink.xaml.cs
+  XagSurveillanceGCS.Log.LogDownloadscp.xaml.cs
+  XagSurveillanceGCS.Log.LogIndex.xaml.cs
+  XagSurveillanceGCS.Log.MavlinkLog.xaml.cs
+  XagSurveillanceGCS.MainV2.xaml.cs
+  XagSurveillanceGCS.MovingBase.xaml.cs
+  XagSurveillanceGCS.OSDVideo.xaml.cs
+  XagSurveillanceGCS.Plugin.PluginUI.xaml.cs
+  XagSurveillanceGCS.Radio.Sikradio.xaml.cs
+  XagSurveillanceGCS.Splash.xaml.cs
+  XagSurveillanceGCS.Swarm.FollowLeader.Control.xaml.cs
+  XagSurveillanceGCS.Swarm.FollowPathControl.xaml.cs
+  XagSurveillanceGCS.Swarm.FormationControl.xaml.cs
+  XagSurveillanceGCS.Swarm.Grid.xaml.cs
+  XagSurveillanceGCS.Swarm.Sequence.LayoutEditor.xaml.cs
+  XagSurveillanceGCS.Swarm.SRB.Control.xaml.cs
+  XagSurveillanceGCS.Swarm.Status.xaml.cs
+  XagSurveillanceGCS.temp.xaml.cs
+  XagSurveillanceGCS.Warnings.WarningControl.xaml.cs
+  XagSurveillanceGCS.Warnings.WarningsManager.xaml.cs
+obj/Debug/netstandard2.0/
+ .NETStandard,Version=v2.0.AssemblyAttributes.cs
+ UnoUI.Wasm.AssemblyInfo.cs
+Program.cs
+
+[analyzerConfigFiles]
+../../../../.editorconfig
+obj/Debug/netstandard2.0/UnoUI.Wasm.GeneratedMSBuildEditorConfig.editorconfig

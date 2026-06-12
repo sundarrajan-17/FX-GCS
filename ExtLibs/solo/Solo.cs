@@ -331,7 +331,7 @@ namespace solo
                 {
                     var options = new PingOptions();
                     options.DontFragment = true;
-                    var data = "MissionPlanner";
+                    var data = "XagSurveillanceGCS";
                     var buffer = Encoding.ASCII.GetBytes(data);
                     var timeout = 2000;
                     var reply = p.Send(ip, timeout, buffer, options);

@@ -1,4 +1,4 @@
-﻿namespace MissionPlanner.GCSViews.ConfigurationView
+﻿namespace XagSurveillanceGCS.GCSViews.ConfigurationView
 {
     partial class ConfigESCCalibration
     {
@@ -32,16 +32,16 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.buttonStart = new MissionPlanner.Controls.MyButton();
-            this.mavlinkComboBox1 = new MissionPlanner.Controls.MavlinkComboBox();
+            this.buttonStart = new XagSurveillanceGCS.Controls.MyButton();
+            this.mavlinkComboBox1 = new XagSurveillanceGCS.Controls.MavlinkComboBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.mavlinkNumericUpDown1 = new MissionPlanner.Controls.MavlinkNumericUpDown();
-            this.mavlinkNumericUpDown2 = new MissionPlanner.Controls.MavlinkNumericUpDown();
-            this.mavlinkNumericUpDown3 = new MissionPlanner.Controls.MavlinkNumericUpDown();
-            this.mavlinkNumericUpDown4 = new MissionPlanner.Controls.MavlinkNumericUpDown();
-            this.mavlinkNumericUpDown5 = new MissionPlanner.Controls.MavlinkNumericUpDown();
+            this.mavlinkNumericUpDown1 = new XagSurveillanceGCS.Controls.MavlinkNumericUpDown();
+            this.mavlinkNumericUpDown2 = new XagSurveillanceGCS.Controls.MavlinkNumericUpDown();
+            this.mavlinkNumericUpDown3 = new XagSurveillanceGCS.Controls.MavlinkNumericUpDown();
+            this.mavlinkNumericUpDown4 = new XagSurveillanceGCS.Controls.MavlinkNumericUpDown();
+            this.mavlinkNumericUpDown5 = new XagSurveillanceGCS.Controls.MavlinkNumericUpDown();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();

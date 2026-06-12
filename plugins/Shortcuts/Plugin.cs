@@ -2,15 +2,15 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using MissionPlanner.Utilities;
+using XagSurveillanceGCS.Utilities;
 using System.IO;
 using System.Windows.Forms;
 using System.Diagnostics;
-using MissionPlanner;
+using XagSurveillanceGCS;
 
 namespace Shortcuts
 {
-    public class Plugin : MissionPlanner.Plugin.Plugin
+    public class Plugin : XagSurveillanceGCS.Plugin.Plugin
     {
        
         public override string Name

@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Comms\XagSurveillanceGCS.Comms.csproj" />
+    <ProjectReference Include="..\Strings\XagSurveillanceGCS.Strings.csproj" />
+    <ProjectReference Include="..\Utilities\XagSurveillanceGCS.Utilities.csproj" />
+  </ItemGroup>
+
+</Project>

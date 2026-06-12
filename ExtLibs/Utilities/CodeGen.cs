@@ -1,7 +1,7 @@
 ﻿using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CSharp;
-using MissionPlanner.Utilities;
+using XagSurveillanceGCS.Utilities;
 using System;
 using System.CodeDom;
 using System.CodeDom.Compiler;
@@ -14,7 +14,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using Org.BouncyCastle.Crypto.Digests;
 
-namespace MissionPlanner
+namespace XagSurveillanceGCS
 {
     public static class CodeGenRoslyn
     {
@@ -57,7 +57,7 @@ namespace MissionPlanner
 
             var refs = AppDomain.CurrentDomain.GetAssemblies();
             var refFiles = refs.Where(a =>
-                    !a.IsDynamic && !a.FullName.Contains("MissionPlanner.Drawing"))
+                    !a.IsDynamic && !a.FullName.Contains("XagSurveillanceGCS.Drawing"))
                 .Select(a => a.Location);
             if (RuntimeInformation.IsOSPlatform(OSPlatform.OSX))
                 refFiles = refs.Where(a => !a.IsDynamic).Select(a => a.Location);
@@ -161,7 +161,7 @@ namespace MissionPlanner
         public static CompilerParameters CreateCompilerParameters()
         {
             var refs = AppDomain.CurrentDomain.GetAssemblies();
-            var refFiles = refs.Where(a => !a.IsDynamic && !a.FullName.Contains("mscorlib") && !a.FullName.Contains("MissionPlanner.Drawing"))
+            var refFiles = refs.Where(a => !a.IsDynamic && !a.FullName.Contains("mscorlib") && !a.FullName.Contains("XagSurveillanceGCS.Drawing"))
                 .Select(a => a.Location);
 
             if (RuntimeInformation.IsOSPlatform(OSPlatform.OSX))
@@ -437,8 +437,8 @@ namespace MissionPlanner
             CodeNamespace myNamespace = new CodeNamespace("ExpressionEvaluator");
             myNamespace.Imports.Add(new CodeNamespaceImport("System"));
             //myNamespace.Imports.Add(new CodeNamespaceImport("System.Windows.Forms"));
-            //myNamespace.Imports.Add(new CodeNamespaceImport("MissionPlanner.Utilities"));
-            //myNamespace.Imports.Add(new CodeNamespaceImport("MissionPlanner"));
+            //myNamespace.Imports.Add(new CodeNamespaceImport("XagSurveillanceGCS.Utilities"));
+            //myNamespace.Imports.Add(new CodeNamespaceImport("XagSurveillanceGCS"));
 
             //Build the class declaration and member variables			
             CodeTypeDeclaration classDeclaration = new CodeTypeDeclaration();

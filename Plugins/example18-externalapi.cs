@@ -1,5 +1,5 @@
-﻿using MissionPlanner.Controls;
-using MissionPlanner.Utilities;
+﻿using XagSurveillanceGCS.Controls;
+using XagSurveillanceGCS.Utilities;
 using Org.BouncyCastle.Tls;
 using Org.BouncyCastle.Tls.Crypto.Impl.BC;
 using System;
@@ -14,7 +14,7 @@ using Org.BouncyCastle.Utilities.Encoders;
 
 //loadassembly: BouncyCastle.Cryptography
 
-namespace MissionPlanner.plugins
+namespace XagSurveillanceGCS.plugins
 {
     public class example18_externalapi : Plugin.Plugin
     {

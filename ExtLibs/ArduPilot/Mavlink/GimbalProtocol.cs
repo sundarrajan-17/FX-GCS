@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using MissionPlanner.Utilities;
+using XagSurveillanceGCS.Utilities;
 
-namespace MissionPlanner.ArduPilot.Mavlink
+namespace XagSurveillanceGCS.ArduPilot.Mavlink
 {
     public class GimbalProtocol
     {

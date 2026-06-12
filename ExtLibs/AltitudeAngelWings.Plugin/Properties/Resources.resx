@@ -120,7 +120,7 @@
   <data name="AskToEnableAltitudeAngel" xml:space="preserve">
     <value>Do you wish to enable the Altitude Angel plugin?
 
-Clicking "Yes" will provide you with Altitude Angel's airspace and ground hazard data directly on the Mission Planner maps,
+Clicking "Yes" will provide you with Altitude Angel's airspace and ground hazard data directly on the XagSurveillanceGCS maps,
 making it easier to discover where you can and cannot fly, and plan for safer flights. You will be asked to login with your
 Altitude Angel account, or register for a new account if you don't have one.
 
@@ -233,10 +233,10 @@ For more information, privacy policy, and terms and conditions, visit: [link;htt
   <data name="PluginName" xml:space="preserve">
     <value>Altitude Angel</value>
   </data>
-  <data name="MissionPlannerAdapterNotifyMessageTitle" xml:space="preserve">
+  <data name="XagSurveillanceGCSAdapterNotifyMessageTitle" xml:space="preserve">
     <value>Notification</value>
   </data>
-  <data name="MissionPlannerAdapterMessageBoxDefaultCaption" xml:space="preserve">
+  <data name="XagSurveillanceGCSAdapterMessageBoxDefaultCaption" xml:space="preserve">
     <value>Message</value>
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />

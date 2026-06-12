@@ -1,5 +1,5 @@
 ﻿
 to use the thememanager
 set
-            Controls.MainSwitcher.ApplyTheme += MissionPlanner.Utilities.ThemeManager.ApplyThemeTo;
-            MissionPlanner.Controls.InputBox.ApplyTheme += MissionPlanner.Utilities.ThemeManager.ApplyThemeTo;
+            Controls.MainSwitcher.ApplyTheme += XagSurveillanceGCS.Utilities.ThemeManager.ApplyThemeTo;
+            XagSurveillanceGCS.Controls.InputBox.ApplyTheme += XagSurveillanceGCS.Utilities.ThemeManager.ApplyThemeTo;

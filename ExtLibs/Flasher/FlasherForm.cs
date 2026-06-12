@@ -10,10 +10,10 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using log4net;
 using Microsoft.Win32;
-using MissionPlanner;
-using MissionPlanner.Comms;
-using MissionPlanner.Controls;
-using MissionPlanner.Utilities;
+using XagSurveillanceGCS;
+using XagSurveillanceGCS.Comms;
+using XagSurveillanceGCS.Controls;
+using XagSurveillanceGCS.Utilities;
 using px4uploader;
 
 namespace Flasher

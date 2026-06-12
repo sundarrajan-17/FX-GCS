@@ -1,4 +1,4 @@
-﻿namespace MissionPlanner.Grid
+﻿namespace XagSurveillanceGCS.Grid
 {
     public struct camerainfo
     {

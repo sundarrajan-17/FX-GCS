@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace MissionPlanner
+namespace XagSurveillanceGCS
 {
-    public class Plugingstream : MissionPlanner.Plugin.Plugin
+    public class Plugingstream : XagSurveillanceGCS.Plugin.Plugin
     {
         public override string Name
         {

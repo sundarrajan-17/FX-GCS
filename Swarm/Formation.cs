@@ -1,14 +1,14 @@
-﻿using MissionPlanner.ArduPilot;
-using MissionPlanner.Utilities;
+﻿using XagSurveillanceGCS.ArduPilot;
+using XagSurveillanceGCS.Utilities;
 using ProjNet.CoordinateSystems;
 using ProjNet.CoordinateSystems.Transformations;
 using System;
 using System.Collections.Generic;
 using GeoAPI.CoordinateSystems;
 using GeoAPI.CoordinateSystems.Transformations;
-using Vector3 = MissionPlanner.Utilities.Vector3;
+using Vector3 = XagSurveillanceGCS.Utilities.Vector3;
 
-namespace MissionPlanner.Swarm
+namespace XagSurveillanceGCS.Swarm
 {
     /// <summary>
     /// Follow the leader

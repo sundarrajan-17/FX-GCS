@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
-using MissionPlanner.Comms;
+using XagSurveillanceGCS.Comms;
 
 namespace Flasher
 {

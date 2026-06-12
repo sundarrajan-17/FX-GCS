@@ -14,7 +14,7 @@ using Dowding.Model;
 using Newtonsoft.Json;
 using WebSocket4Net;
 
-namespace MissionPlanner.WebAPIs
+namespace XagSurveillanceGCS.WebAPIs
 {
     public class Dowding
     {
@@ -32,7 +32,7 @@ namespace MissionPlanner.WebAPIs
         {
             Console.WriteLine("Dowding .ctor");
             Configuration.Default.DefaultHeader["User-Agent"] =
-                "MissionPlanner " + Assembly.GetExecutingAssembly().GetName().Version;
+                "XagSurveillanceGCS " + Assembly.GetExecutingAssembly().GetName().Version;
         }
 
         public async Task Auth(string email, string password, string server)

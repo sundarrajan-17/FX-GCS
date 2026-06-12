@@ -361,9 +361,9 @@
     <Language Code="zu-za" InMinimumRequirementSet="true" />
   </SupportedLocales>
   <ProductReservedInfo>
-    <MainPackageIdentityName>36541MichaelOborne.MissionPlanner</MainPackageIdentityName>
+    <MainPackageIdentityName>36541MichaelOborne.XagSurveillanceGCS</MainPackageIdentityName>
     <ReservedNames>
-      <ReservedName>Mission Planner</ReservedName>
+      <ReservedName>XagSurveillanceGCS</ReservedName>
     </ReservedNames>
   </ProductReservedInfo>
   <AccountPackageIdentityNames />

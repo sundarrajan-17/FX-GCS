@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace MissionPlanner.Log {
+namespace XagSurveillanceGCS.Log {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace MissionPlanner.Log {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("MissionPlanner.Log.LogStrings", typeof(LogStrings).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("XagSurveillanceGCS.Log.LogStrings", typeof(LogStrings).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;

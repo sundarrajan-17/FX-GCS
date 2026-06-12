@@ -1,10 +1,10 @@
-﻿using MissionPlanner.Comms;
+﻿using XagSurveillanceGCS.Comms;
 using System;
 using System.IO;
 using System.Threading;
 using System.Windows.Forms;
 
-namespace MissionPlanner.Radio
+namespace XagSurveillanceGCS.Radio
 {
     public class XModem
     {

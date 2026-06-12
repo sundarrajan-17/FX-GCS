@@ -214,7 +214,7 @@
     <value>True</value>
   </data>
   <data name="&gt;&gt;mavlinkComboBoxType.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.MavlinkComboBox, MissionPlanner, Version=1.1.5679.26204, Culture=neutral, PublicKeyToken=null</value>
+    <value>XagSurveillanceGCS.Controls.MavlinkComboBox, XagSurveillanceGCS, Version=1.1.5679.26204, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="groupBox1.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Left, Right</value>
@@ -259,7 +259,7 @@
     <value>81</value>
   </data>
   <data name="&gt;&gt;mavlinkCheckBoxEnable.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.MavlinkCheckBox, MissionPlanner, Version=1.1.5679.26204, Culture=neutral, PublicKeyToken=null</value>
+    <value>XagSurveillanceGCS.Controls.MavlinkCheckBox, XagSurveillanceGCS, Version=1.1.5679.26204, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="pictureBox3.TabIndex" type="System.Int32, mscorlib">
     <value>71</value>
@@ -271,7 +271,7 @@
     <value>75, 69</value>
   </data>
   <data name="&gt;&gt;mavlinkNumericUpDownDeploy.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.MavlinkNumericUpDown, MissionPlanner, Version=1.1.5679.26204, Culture=neutral, PublicKeyToken=null</value>
+    <value>XagSurveillanceGCS.Controls.MavlinkNumericUpDown, XagSurveillanceGCS, Version=1.1.5679.26204, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;label2.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -415,7 +415,7 @@
     <value>Zoom</value>
   </data>
   <data name="&gt;&gt;mavlinkNumericUpDownResting.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.MavlinkNumericUpDown, MissionPlanner, Version=1.1.5679.26204, Culture=neutral, PublicKeyToken=null</value>
+    <value>XagSurveillanceGCS.Controls.MavlinkNumericUpDown, XagSurveillanceGCS, Version=1.1.5679.26204, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="mavlinkComboBoxServoNum.Items2" xml:space="preserve">
     <value>RC11</value>
@@ -505,7 +505,7 @@
     <value>label6</value>
   </data>
   <data name="&gt;&gt;mavlinkNumericUpDownMinAlt.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.MavlinkNumericUpDown, MissionPlanner, Version=1.1.5679.26204, Culture=neutral, PublicKeyToken=null</value>
+    <value>XagSurveillanceGCS.Controls.MavlinkNumericUpDown, XagSurveillanceGCS, Version=1.1.5679.26204, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="mavlinkNumericUpDownMinAlt.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>

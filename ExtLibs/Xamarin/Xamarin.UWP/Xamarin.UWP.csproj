@@ -171,17 +171,17 @@
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform" Version="6.2.12" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\MissionPlannerLib.csproj">
+    <ProjectReference Include="..\..\..\XagSurveillanceGCSLib.csproj">
       <Project>{73f02cdc-c268-442e-80dd-2e059f1eb149}</Project>
-      <Name>MissionPlannerLib</Name>
+      <Name>XagSurveillanceGCSLib</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\ArduPilot\MissionPlanner.ArduPilot.csproj">
+    <ProjectReference Include="..\..\ArduPilot\XagSurveillanceGCS.ArduPilot.csproj">
       <Project>{ca6345d3-7a6d-478b-a0ed-a58e50dcaa83}</Project>
-      <Name>MissionPlanner.ArduPilot</Name>
+      <Name>XagSurveillanceGCS.ArduPilot</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Comms\MissionPlanner.Comms.csproj">
+    <ProjectReference Include="..\..\Comms\XagSurveillanceGCS.Comms.csproj">
       <Project>{825e7a10-390c-4a2b-b3a8-491d14966912}</Project>
-      <Name>MissionPlanner.Comms</Name>
+      <Name>XagSurveillanceGCS.Comms</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\GMap.NET.Core\GMap.NET.Core.csproj">
       <Project>{d0c39d9d-bed0-418b-9a5e-713176caf40c}</Project>
@@ -195,13 +195,13 @@
       <Project>{13d2ec90-c41f-48a1-aada-859b6dc24edc}</Project>
       <Name>MAVLink</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\MissionPlanner.Drawing.Common\MissionPlanner.Drawing.Common.csproj">
+    <ProjectReference Include="..\..\XagSurveillanceGCS.Drawing.Common\XagSurveillanceGCS.Drawing.Common.csproj">
       <Project>{9742006a-7adf-4baa-929f-a148ac85e45a}</Project>
-      <Name>MissionPlanner.Drawing.Common</Name>
+      <Name>XagSurveillanceGCS.Drawing.Common</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\MissionPlanner.Drawing\MissionPlanner.Drawing.csproj">
+    <ProjectReference Include="..\..\XagSurveillanceGCS.Drawing\XagSurveillanceGCS.Drawing.csproj">
       <Project>{4a1f5e42-04f3-4d76-9814-c5da680087d6}</Project>
-      <Name>MissionPlanner.Drawing</Name>
+      <Name>XagSurveillanceGCS.Drawing</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\mono\mcs\class\System.Windows.Forms\System.Windows.Forms-net_4_x.csproj">
       <Project>{8069b18a-8f1c-4a77-8a3b-aed1081579d6}</Project>
@@ -211,9 +211,9 @@
       <Project>{958c175e-8e11-4872-b99b-648f72afd3c1}</Project>
       <Name>System.Drawing.android</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Utilities\MissionPlanner.Utilities.csproj">
+    <ProjectReference Include="..\..\Utilities\XagSurveillanceGCS.Utilities.csproj">
       <Project>{1378a66c-38e4-46f5-a05f-dc04ef7d4d16}</Project>
-      <Name>MissionPlanner.Utilities</Name>
+      <Name>XagSurveillanceGCS.Utilities</Name>
     </ProjectReference>
     <ProjectReference Include="..\Xamarin\Xamarin.csproj">
       <Project>{567c5db1-9d8d-4a82-a89b-7e9357e7f6d8}</Project>
@@ -232,9 +232,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\GMap.NET.WindowsForms\bin\Debug\netstandard2.0\GMap.NET.WindowsForms.dll</HintPath>
     </Reference>
-    <Reference Include="MissionPlanner.Controls, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="XagSurveillanceGCS.Controls, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\Controls\bin\Debug\netstandard2.0\MissionPlanner.Controls.dll</HintPath>
+      <HintPath>..\..\Controls\bin\Debug\netstandard2.0\XagSurveillanceGCS.Controls.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

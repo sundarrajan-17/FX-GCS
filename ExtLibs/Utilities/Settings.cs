@@ -8,7 +8,7 @@ using System.Reflection;
 using System.Text;
 using System.Xml;
 
-namespace MissionPlanner.Utilities
+namespace XagSurveillanceGCS.Utilities
 {
     /// <summary>
     /// This class loads and saves some handy app level settings so UI state is preserved across sessions.
@@ -83,7 +83,7 @@ namespace MissionPlanner.Utilities
             return config.ContainsKey(key);
         }
 
-        public string UserAgent { get; set; } = "MissionPlanner";
+        public string UserAgent { get; set; } = "XagSurveillanceGCS";
         
         public string ComPort
         {

@@ -2,12 +2,12 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using MissionPlanner.Utilities;
-using MissionPlanner.Controls;
+using XagSurveillanceGCS.Utilities;
+using XagSurveillanceGCS.Controls;
 using System.IO;
 using System.Windows.Forms;
 using System.Diagnostics;
-using MissionPlanner;
+using XagSurveillanceGCS;
 using System.Drawing;
 
 // this example taken from https://discuss.ardupilot.org/t/adding-mission-parts-at-the-beginning-and-end-of-new-mission/56579/12
@@ -15,10 +15,10 @@ using System.Drawing;
 
 namespace Shortcuts
 {
-    public class Plugin : MissionPlanner.Plugin.Plugin
+    public class Plugin : XagSurveillanceGCS.Plugin.Plugin
     {
         ToolStripMenuItem but;
-		MissionPlanner.Controls.MyDataGridView commands;
+		XagSurveillanceGCS.Controls.MyDataGridView commands;
 
         public override string Name
         {
@@ -48,7 +48,7 @@ namespace Shortcuts
             col.Add(but);
             commands =
                 Host.MainForm.FlightPlanner.Controls.Find("Commands", true).FirstOrDefault() as
-                    MissionPlanner.Controls.MyDataGridView;
+                    XagSurveillanceGCS.Controls.MyDataGridView;
             return true;
         }
 

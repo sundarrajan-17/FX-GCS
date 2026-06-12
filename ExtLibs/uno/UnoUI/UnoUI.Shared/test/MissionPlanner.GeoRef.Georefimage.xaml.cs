@@ -1,1 +1,1 @@
-namespace MissionPlanner.GeoRef { public partial class Georefimage{public Georefimage(){this.InitializeComponent();}}}
+namespace XagSurveillanceGCS.GeoRef { public partial class Georefimage{public Georefimage(){this.InitializeComponent();}}}

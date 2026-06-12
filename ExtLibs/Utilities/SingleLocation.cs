@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace MissionPlanner.GeoRef
+namespace XagSurveillanceGCS.GeoRef
 {
     public class SingleLocation: ICloneable
     {

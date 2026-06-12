@@ -5,7 +5,7 @@ using System.Text;
 using GMap.NET.Drawing;
 using GMap.NET.WindowsForms;
 
-namespace MissionPlanner.Maps
+namespace XagSurveillanceGCS.Maps
 {
     public class SpriteLoader
     {

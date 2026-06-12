@@ -10,9 +10,9 @@ using System.Threading;
 using GMap.NET;
 using GMap.NET.Internals;
 using GMap.NET.MapProviders;
-using MissionPlanner.Log;
+using XagSurveillanceGCS.Log;
 
-namespace MissionPlanner.Log
+namespace XagSurveillanceGCS.Log
 {
 
 }
@@ -25,7 +25,7 @@ namespace tlogThumbnailHandler
 
     // reg add HKEY_CLASSES_ROOT\.tlog\shellex\{BB2E617C-0920-11D1-9A0B-00C04FC2D6C1} /d {f3b857f1-0b79-4e77-9d0b-8b8b7e874f56}
 
-    // reg add HKEY_CLASSES_ROOT\MissionPlanner.tlog\shellex\{BB2E617C-0920-11D1-9A0B-00C04FC2D6C1} /d {f3b857f1-0b79-4e77-9d0b-8b8b7e874f56}
+    // reg add HKEY_CLASSES_ROOT\XagSurveillanceGCS.tlog\shellex\{BB2E617C-0920-11D1-9A0B-00C04FC2D6C1} /d {f3b857f1-0b79-4e77-9d0b-8b8b7e874f56}
 
     [ComVisible(true), ClassInterface(ClassInterfaceType.None)]
     [ProgId("tlogThumbnailHandler.tlogThumbnailHandler")]
@@ -43,7 +43,7 @@ namespace tlogThumbnailHandler
 
         static string commonAppData = Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData);
 
-        public static string queuefile = commonAppData + Path.DirectorySeparatorChar + "Mission Planner" + Path.DirectorySeparatorChar + "tlogimagecache" + Path.DirectorySeparatorChar + "queue.txt";
+        public static string queuefile = commonAppData + Path.DirectorySeparatorChar + "XagSurveillanceGCS" + Path.DirectorySeparatorChar + "tlogimagecache" + Path.DirectorySeparatorChar + "queue.txt";
 
         private static class NativeMethods
         {
@@ -132,7 +132,7 @@ namespace tlogThumbnailHandler
                 GMaps.Instance.UseMemoryCache = false;
                 GMaps.Instance.CacheOnIdleRead = false;
                 GMaps.Instance.BoostCacheEngine = true;
-                GMap.NET.GMaps.Instance.PrimaryCache = new MissionPlanner.Maps.MyImageCache();
+                GMap.NET.GMaps.Instance.PrimaryCache = new XagSurveillanceGCS.Maps.MyImageCache();
                 Core.Provider = GMapProviders.GoogleSatelliteMap;
 
                 if (!File.Exists(jpgfile))

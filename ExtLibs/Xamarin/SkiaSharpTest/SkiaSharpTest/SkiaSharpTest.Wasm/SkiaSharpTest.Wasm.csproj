@@ -49,9 +49,9 @@
     <PackageReference Include="Uno.Wasm.Bootstrap.DevServer" Version="1.3.6" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\..\MissionPlannerLib.csproj" />
-    <ProjectReference Include="..\..\..\..\Comms\MissionPlanner.Comms.csproj" />
-    <ProjectReference Include="..\..\..\..\MissionPlanner.Drawing\MissionPlanner.Drawing.csproj" />
+    <ProjectReference Include="..\..\..\..\..\XagSurveillanceGCSLib.csproj" />
+    <ProjectReference Include="..\..\..\..\Comms\XagSurveillanceGCS.Comms.csproj" />
+    <ProjectReference Include="..\..\..\..\XagSurveillanceGCS.Drawing\XagSurveillanceGCS.Drawing.csproj" />
     <ProjectReference Include="..\..\..\..\System.Drawing.android\System.Drawing.android.csproj" />
   </ItemGroup>
   <ItemGroup>

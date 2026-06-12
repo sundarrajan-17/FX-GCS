@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 using log4net;
 using SharpCompress.Compressors.Xz;
 
-namespace MissionPlanner.Utilities
+namespace XagSurveillanceGCS.Utilities
 {
     public static class ParameterMetaDataRepositoryAPMpdef
     {

@@ -5,10 +5,10 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using log4net;
-using MissionPlanner.Comms;
-using MissionPlanner.Utilities;
+using XagSurveillanceGCS.Comms;
+using XagSurveillanceGCS.Utilities;
 
-namespace MissionPlanner
+namespace XagSurveillanceGCS
 {
     public class MainV2
     {

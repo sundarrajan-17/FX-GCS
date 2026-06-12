@@ -7,12 +7,12 @@ using System.Text.RegularExpressions;
 using System.Threading;
 using System.Windows.Forms;
 using log4net;
-using MissionPlanner.Properties;
+using XagSurveillanceGCS.Properties;
 using SharpKml.Base;
 using SharpKml.Dom;
 using Newtonsoft.Json;
 
-namespace MissionPlanner.Utilities
+namespace XagSurveillanceGCS.Utilities
 {
     public class httpserver
     {
@@ -192,7 +192,7 @@ namespace MissionPlanner.Utilities
                             string accept = ComputeWebSocketHandshakeSecurityHash09(head.Substring(start, end - start));
 
                             writer.WriteLine("Sec-WebSocket-Accept: " + accept);
-                            writer.WriteLine("Server: Mission Planner");
+                            writer.WriteLine("Server: XagSurveillanceGCS");
                             writer.WriteLine("");
                             writer.Flush();
 
@@ -261,7 +261,7 @@ namespace MissionPlanner.Utilities
                             writer.WriteLine("Sec-WebSocket-Accept: " + accept);
                             if(head.Contains("Sec-WebSocket-Protocol:"))
                                 writer.WriteLine("Sec-WebSocket-Protocol: binary");
-                            writer.WriteLine("Server: Mission Planner");
+                            writer.WriteLine("Server: XagSurveillanceGCS");
                             writer.WriteLine("");
                             writer.Flush();
 

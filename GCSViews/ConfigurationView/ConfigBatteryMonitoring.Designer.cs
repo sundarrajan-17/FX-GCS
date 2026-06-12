@@ -1,6 +1,6 @@
-﻿using MissionPlanner.Controls;
+﻿using XagSurveillanceGCS.Controls;
 
-namespace MissionPlanner.GCSViews.ConfigurationView
+namespace XagSurveillanceGCS.GCSViews.ConfigurationView
 {
     partial class ConfigBatteryMonitoring
     {
@@ -38,7 +38,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
             this.label29 = new System.Windows.Forms.Label();
             this.label30 = new System.Windows.Forms.Label();
             this.TXT_battcapacity = new System.Windows.Forms.TextBox();
-            this.CMB_batmontype = new MissionPlanner.Controls.MavlinkComboBox();
+            this.CMB_batmontype = new XagSurveillanceGCS.Controls.MavlinkComboBox();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.CMB_HWVersion = new System.Windows.Forms.ComboBox();

@@ -5,7 +5,7 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 
-namespace MissionPlanner.plugins
+namespace XagSurveillanceGCS.plugins
 {
     public class example22_fontsize : Plugin.Plugin
     {

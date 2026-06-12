@@ -9,7 +9,7 @@ using System.Threading;
 using log4net;
 using Microsoft.Win32.SafeHandles;
 
-namespace MissionPlanner.Comms
+namespace XagSurveillanceGCS.Comms
 {
     public class SerialPort : ICommsSerial
     {

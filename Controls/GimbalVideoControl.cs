@@ -1,5 +1,5 @@
 #if !LIB
-// XXX: We need both the System.Drawing.Bitmap from System.Drawing and MissionPlanner.Drawing
+// XXX: We need both the System.Drawing.Bitmap from System.Drawing and XagSurveillanceGCS.Drawing
 extern alias Drawing;
 using MPBitmap = Drawing::System.Drawing.Bitmap;
 #else
@@ -10,19 +10,22 @@ using System;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.Windows.Forms;
-using MissionPlanner.Utilities;
+using XagSurveillanceGCS.Utilities;
 using SkiaSharp;
 using log4net;
 using System.Collections.Generic;
 using static MAVLink;
-using MissionPlanner.GCSViews;
+using XagSurveillanceGCS.GCSViews;
 using System.Threading.Tasks;
-using MissionPlanner.ArduPilot.Mavlink;
+using XagSurveillanceGCS.ArduPilot.Mavlink;
 using GMap.NET.WindowsForms;
 using MouseEventArgs = System.Windows.Forms.MouseEventArgs;
 using System.Linq;
+using System.Threading;
+using System.Threading.Tasks;
+using System.Net.NetworkInformation;
 
-namespace MissionPlanner.Controls
+namespace XagSurveillanceGCS.Controls
 {
     public partial class GimbalVideoControl : UserControl, IMessageFilter
     {
@@ -48,6 +51,7 @@ namespace MissionPlanner.Controls
         private float previousYawRate = 0;
         private float previousZoomRate = 0;
         private bool yaw_lock = false;
+        public int counter = 0;
 
         private CameraProtocol _selectedCamera;
         private CameraProtocol selectedCamera
@@ -102,6 +106,8 @@ namespace MissionPlanner.Controls
         private BaseCameraController selectedCameraController;
 
         private String selectedCamera1 = "";
+
+        private bool isVideoPanelVisible = true;
         public GimbalVideoControl(FlightData flightdata)
         {
             InitializeComponent();
@@ -115,14 +121,10 @@ namespace MissionPlanner.Controls
             // Register the global key handler
             Application.AddMessageFilter(this);
 
-            // mouseMapMarker = new GMapOverlay("MouseMarker");
-            // MainV2.instance.FlightData.gMapControl1.Overlays.Add(mouseMapMarker);
-
             mouseMapMarker = flightdata.mouseMapMarker1;
 
             selectedCameraController = flightData._baseCameraController;
 
-            Console.WriteLine("Selected Camera Is {0}",selectedCameraController.SelectedCamera);
 
             this.selectedCamera1 = selectedCameraController.SelectedCamera;
 
@@ -134,14 +136,7 @@ namespace MissionPlanner.Controls
 
             _stream.OnNewImage += RenderFrame;
 
-            // Set up the auto-connect timer
-            // AutoConnectTimer = new System.Timers.Timer()
-            // {
-            //     Interval = 1000,
-            //     AutoReset = false
-            // };
-            // AutoConnectTimer.Elapsed += AutoConnectTimerCallback;
-            // AutoConnectTimer.Start();
+            videoStreamToolStripMenuItem_Click(null,null);
         }
 
         private bool initializeGStreamer()
@@ -237,7 +232,7 @@ namespace MissionPlanner.Controls
                 {
                     VideoBox.Image?.Dispose();
                     VideoBox.Image = null;
-                    VideoBox.Image = global::MissionPlanner.Properties.Resources.no_video;
+                    VideoBox.Image = global::XagSurveillanceGCS.Properties.Resources.no_video;
                     return;
                 }
 
@@ -309,6 +304,7 @@ namespace MissionPlanner.Controls
         {
             if (disposing)
             {
+                _stream.StopVideo = false;
                 Stop();
                 if (components != null)
                 {
@@ -320,7 +316,6 @@ namespace MissionPlanner.Controls
 
         public void Stop()
         {
-            // _stream.OnNewImage -= RenderFrame;
             try
             {
                 _stream.Stop();
@@ -348,21 +343,12 @@ namespace MissionPlanner.Controls
                         return;
                     }
                 }
-                Console.WriteLine("Selected Cameraaaaa {0}",this.selectedCameraController.SelectedCamera);
-                if(this.selectedCameraController.SelectedCamera == "XAGCAM2")
-                {
-                    _stream.Start("rtspsrc location=rtsp://192.168.199.119:8554/eo latency=0 dulation=-1 ! decodebin ! videoconvert ! video/x-raw,format=BGRA ! appsink name=outsink");
-                }else
-                {
-                    _stream.Start("rtspsrc location=rtsp://192.168.199.119:554/stream0 latency=0 dulation=-1 ! decodebin ! videoconvert ! video/x-raw,format=BGRA ! appsink name=outsink");
-                }
+                _stream.Start("rtspsrc location=rtsp://192.168.199.119:8554/merge latency=0 dulation=-1 ! decodebin ! videoconvert ! video/x-raw,format=BGRA ! appsink name=outsink");
             }
             catch (Exception ex)
             {
-                // log.Debug(ex);
-                CustomMessageBox.Show("Unable To Start Stream Try Again", "Video Stream Status");
+                Console.WriteLine("Exceptionnnnnnnnnnn {0}",ex);
             }
-            // _stream.Start("rtspsrc location=rtsp://192.168.199.119:554/stream0 latency=0 dulation=-1 ! decodebin ! videoconvert ! video/x-raw,format=BGRA ! appsink name=outsink");
         }
 
         public bool PreFilterMessage(ref Message m)
@@ -492,7 +478,7 @@ namespace MissionPlanner.Controls
             {
                 previousZoomRate = zoom;
                 selectedCamera?.SetZoomAsync(zoom, CAMERA_ZOOM_TYPE.ZOOM_TYPE_CONTINUOUS);
-                Console.WriteLine($"Zoom: {zoom}");
+                // Console.WriteLine($"Zoom: {zoom}");
             }
         }
 
@@ -546,8 +532,7 @@ namespace MissionPlanner.Controls
 
         private void TakePicture()
         {
-                Console.WriteLine("Take picture");
-                selectedCamera?.TakeSinglePictureAsync();
+            selectedCamera?.TakeSinglePictureAsync();
         }
 
         private void SetRecording(bool start)
@@ -555,12 +540,10 @@ namespace MissionPlanner.Controls
             isRecording = start;
             if(start)
             {
-                Console.WriteLine("Start recording");
                 selectedCamera?.StartRecordingAsync();
             }
             else
             {
-                Console.WriteLine("Stop recording");
                 selectedCamera?.StopRecordingAsync();
             }
         }
@@ -568,61 +551,49 @@ namespace MissionPlanner.Controls
         private void SetYawLock(bool locked)
         {
             string message = locked ? "lock" : "follow";
-            Console.WriteLine($"Set yaw {message}");
             yaw_lock = locked;
             yawLockToolStripMenuItem.Checked = locked;
-            // selectedGimbalManager?.SetRatesCommandAsync(previousPitchRate, previousYawRate, yaw_lock, selectedGimbalID);
-            if(this.selectedCameraController.SelectedCamera == "XAGCAM2")
+            if(this.flightData._baseCameraController.SelectedCamera == "XAGCAM2")
             {
                 // flightData.GremsyHomeCommand();
             }
             else
             {
-                flightData.viewproSetLockFollowCommand(message);
+                flightData.XagCamSetLockFollowCommand(message);
             }
         }
 
         private void Retract()
         {
-            // Console.WriteLine("Retract");
-            // selectedGimbalManager?.RetractAsync();
-            flightData.viewproStopTrackCommand();
+            flightData.XagCamStopTrackCommand();
         }
 
         private void Neutral()
         {
-            Console.WriteLine("Neutral");
             selectedGimbalManager?.NeutralAsync();
         }
 
         private void PointDown()
         {
-            Console.WriteLine("Point down");
-            // selectedGimbalManager?.SetAnglesCommandAsync(-90, 0, false, selectedGimbalID);
-            if(this.selectedCameraController.SelectedCamera == "XAGCAM2")
+            if(this.flightData._baseCameraController.SelectedCamera == "XAGCAM2")
             {
                 // flightData.GremsyPointDownCommand();
             }
             else
             {
-                flightData.viewproPointDownCommand();
+                flightData.XagCamPointDownCommand();
             }
-             // flightData.
-            // viewproPointDownCommand()
         }
 
         private void Home()
         {
-            Console.WriteLine("Home");
-            // var loc = MainV2.comPort?.MAV?.cs.HomeLocation;
-            // selectedGimbalManager?.SetROILocationAsync(loc.Lat, loc.Lng, loc.Alt, frame: MAV_FRAME.GLOBAL);
-            if(this.selectedCameraController.SelectedCamera == "XAGCAM2")
+            if(this.flightData._baseCameraController.SelectedCamera == "XAGCAM2")
             {
                 flightData.GremsyHomeCommand();
             }
             else
             {
-                flightData.viewproHomeCommand();
+                flightData.XagCamHomeCommand();
             }
 
         }
@@ -661,9 +632,22 @@ namespace MissionPlanner.Controls
                 }
                 dragEndPoint = getMousePosition(e.X, e.Y);
                 Console.WriteLine($"Drag start: {dragStartPoint?.x}, {dragStartPoint?.y} - Drag end: {dragEndPoint?.x}, {dragEndPoint?.y}");
+                float x01 = ((float)dragStartPoint?.x + 1f) / 2f;
+                float y01 = ((float)dragStartPoint?.y + 1f) / 2f;
+                float x02 = ((float)dragEndPoint?.x + 1f) / 2f;
+                float y02 = ((float)dragEndPoint?.y + 1f) / 2f;
+                // flightData.GremsyRectangleTracking(x01, y01, x02, y02);
             }
             else
             {
+                if(dragStartPoint != null && dragEndPoint != null)
+                {   
+                    float x01 = ((float)dragStartPoint?.x + 1f) / 2f;
+                    float y01 = ((float)dragStartPoint?.y + 1f) / 2f;
+                    float x02 = ((float)dragEndPoint?.x + 1f) / 2f;
+                    float y02 = ((float)dragEndPoint?.y + 1f) / 2f;
+                    flightData.GremsyRectangleTracking(x01, y01, x02, y02);
+                }
                 dragStartPoint = null;
                 dragEndPoint = null;
             }
@@ -671,6 +655,14 @@ namespace MissionPlanner.Controls
 
         private void VideoBox_MouseLeave(object sender, EventArgs e)
         {
+            if(dragStartPoint != null && dragEndPoint != null)
+            {   
+                float x01 = ((float)dragStartPoint?.x + 1f) / 2f;
+                float y01 = ((float)dragStartPoint?.y + 1f) / 2f;
+                float x02 = ((float)dragEndPoint?.x + 1f) / 2f;
+                float y02 = ((float)dragEndPoint?.y + 1f) / 2f;
+                flightData.GremsyRectangleTracking(x01, y01, x02, y02);
+            }
             mouseMapMarker.Markers.Clear();
             dragStartPoint = null;
             dragEndPoint = null;
@@ -678,11 +670,10 @@ namespace MissionPlanner.Controls
 
          public void SendNormalizedTrackingPoint(double xNorm, double yNorm, int width, int height)
         {
-            // Convert normalized [-1,1] to pixel offset from center
             int x = (int)(xNorm * (width));
             int y = (int)(yNorm * (height));
 
-            if(this.selectedCameraController.SelectedCamera == "XAGCAM2")
+            if(this.flightData._baseCameraController.SelectedCamera == "XAGCAM2")
             {
                 float x01 = ((float)xNorm + 1f) / 2f;
                 float y01 = ((float)yNorm + 1f) / 2f;
@@ -712,24 +703,8 @@ namespace MissionPlanner.Controls
             // Check the key/button combination to determine the action
             if ((Control.ModifierKeys, me.Button) == preferences.MoveCameraToMouseLocation)
             {
-                // var attitude = selectedGimbalManager?.GetAttitude(selectedGimbalID);
-                // if (attitude == null)
-                // {
-                //     return;
-                // }
-                // var q = selectedCamera?.CalculateImagePointRotation(point.Value.x, point.Value.y);
-                // if (q == null)
-                // {
-                //     return;
-                // }
-                // q = attitude * q;
-                // Console.WriteLine("Attitude: {0:0.0} {1:0.0} {2:0.0}", attitude.get_euler_yaw() * MathHelper.rad2deg, attitude.get_euler_pitch() * MathHelper.rad2deg, attitude.get_euler_roll() * MathHelper.rad2deg);
-                // Console.WriteLine("New: {0:0.0} {1:0.0} {2:0.0}", q.get_euler_yaw() * MathHelper.rad2deg, q.get_euler_pitch() * MathHelper.rad2deg, q.get_euler_roll() * MathHelper.rad2deg);
-
-                // selectedGimbalManager?.SetAttitudeAsync(q, yaw_lock, selectedGimbalID);
                 var imageWidth = VideoBox.Image.Width;
                 var imageHeight = VideoBox.Image.Height;
-                Console.WriteLine("MoveCameraToMouseLocation {0} {1}", imageWidth, imageHeight);
                 SendNormalizedTrackingPoint(point.Value.x, point.Value.y, 1920, 1080);
                
             }
@@ -847,6 +822,14 @@ namespace MissionPlanner.Controls
             SetRecording(false);
         }
 
+        private void VideoBox_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+            {
+                this.flightData.GremsyStopTracking();
+            }
+        }
+
         private void settingsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var form = new GimbalControlSettingsForm(preferences);
@@ -869,7 +852,6 @@ namespace MissionPlanner.Controls
                 Console.Write("Requesting camera information...");
                 // We must not have any reported video streams. Try to request them
                 selectedCamera?.RequestCameraInformationAsync().Wait();
-                Console.WriteLine(" done.");
                 // Come back later and see if any streams have been reported
                 AutoConnectTimer.Start();
                 return;

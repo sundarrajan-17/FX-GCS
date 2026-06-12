@@ -6,9 +6,9 @@ using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
 using Core.ExtendedObjects;
-using MissionPlanner.Utilities;
+using XagSurveillanceGCS.Utilities;
 
-namespace MissionPlanner.Log
+namespace XagSurveillanceGCS.Log
 {
     public class LogSort
     {

@@ -1,1 +1,1 @@
-namespace MissionPlanner.Controls { public partial class Coords{public Coords(){this.InitializeComponent();}}}
+namespace XagSurveillanceGCS.Controls { public partial class Coords{public Coords(){this.InitializeComponent();}}}

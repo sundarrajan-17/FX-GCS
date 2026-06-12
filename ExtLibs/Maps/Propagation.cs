@@ -9,10 +9,10 @@ using System.Threading.Tasks;
 using GMap.NET;
 using GMap.NET.WindowsForms;
 using log4net;
-using MissionPlanner.Utilities;
-using Extensions = MissionPlanner.Utilities.Extensions;
+using XagSurveillanceGCS.Utilities;
+using Extensions = XagSurveillanceGCS.Utilities.Extensions;
 
-namespace MissionPlanner.Maps
+namespace XagSurveillanceGCS.Maps
 {
     public class Propagation: IDisposable
     {

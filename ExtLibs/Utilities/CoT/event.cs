@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Xml.Serialization;
 
-namespace MissionPlanner.Utilities.CoT
+namespace XagSurveillanceGCS.Utilities.CoT
 {
     [XmlRoot(Namespace = "")]
     public class @event

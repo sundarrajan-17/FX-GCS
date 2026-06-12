@@ -1,5 +1,5 @@
 ﻿
-namespace MissionPlanner.Controls
+namespace XagSurveillanceGCS.Controls
 {
     partial class OpenDroneID_Map_Status
     {

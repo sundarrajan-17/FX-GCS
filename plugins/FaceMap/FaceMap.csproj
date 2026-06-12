@@ -12,7 +12,7 @@
     <NeutralLanguage>en</NeutralLanguage>
     <AssemblyName>FaceMap</AssemblyName>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
-    <RootNamespace>MissionPlanner</RootNamespace>
+    <RootNamespace>XagSurveillanceGCS</RootNamespace>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -48,10 +48,10 @@
 
 
   <ItemGroup>
-    <ProjectReference Include="..\..\ExtLibs\ArduPilot\MissionPlanner.ArduPilot.csproj">
+    <ProjectReference Include="..\..\ExtLibs\ArduPilot\XagSurveillanceGCS.ArduPilot.csproj">
       <Private>false</Private>
     </ProjectReference>
-    <ProjectReference Include="..\..\ExtLibs\Controls\MissionPlanner.Controls.csproj">
+    <ProjectReference Include="..\..\ExtLibs\Controls\XagSurveillanceGCS.Controls.csproj">
       <Private>false</Private>
     </ProjectReference>
     <ProjectReference Include="..\..\ExtLibs\GMap.NET.Drawing\GMap.NET.Drawing.csproj">
@@ -60,18 +60,18 @@
     <ProjectReference Include="..\..\ExtLibs\GMap.NET.WindowsForms\GMap.NET.WindowsForms.csproj">
       <Private>false</Private>
     </ProjectReference>
-    <ProjectReference Include="..\..\ExtLibs\Maps\MissionPlanner.Maps.csproj">
+    <ProjectReference Include="..\..\ExtLibs\Maps\XagSurveillanceGCS.Maps.csproj">
       <Aliases></Aliases>
       <Private>false</Private>
     </ProjectReference>
-    <ProjectReference Include="..\..\ExtLibs\MissionPlanner.Drawing\MissionPlanner.Drawing.csproj">
+    <ProjectReference Include="..\..\ExtLibs\XagSurveillanceGCS.Drawing\XagSurveillanceGCS.Drawing.csproj">
       <Aliases>Drawing</Aliases>
       <Private>false</Private>
     </ProjectReference>
-    <ProjectReference Include="..\..\ExtLibs\Utilities\MissionPlanner.Utilities.csproj">
+    <ProjectReference Include="..\..\ExtLibs\Utilities\XagSurveillanceGCS.Utilities.csproj">
       <Private>false</Private>
     </ProjectReference>
-    <ProjectReference Include="..\..\MissionPlanner.csproj">
+    <ProjectReference Include="..\..\XagSurveillanceGCS.csproj">
       <Private>false</Private>
     </ProjectReference>
   </ItemGroup>

@@ -1,4 +1,4 @@
-﻿namespace MissionPlanner.Log
+﻿namespace XagSurveillanceGCS.Log
 {
     partial class LogIndex
     {
@@ -41,10 +41,10 @@
             this.olvColumnTimeInAir = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this.olvColumnDistTraveled = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this.olvColumnCamMSG = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
-            this.BUT_changedir = new MissionPlanner.Controls.MyButton();
-            this.btnDeleteLog = new MissionPlanner.Controls.MyButton();
-            this.lbStats = new MissionPlanner.Controls.MyLabel();
-            this.but_defaultlogdir = new MissionPlanner.Controls.MyButton();
+            this.BUT_changedir = new XagSurveillanceGCS.Controls.MyButton();
+            this.btnDeleteLog = new XagSurveillanceGCS.Controls.MyButton();
+            this.lbStats = new XagSurveillanceGCS.Controls.MyLabel();
+            this.but_defaultlogdir = new XagSurveillanceGCS.Controls.MyButton();
             ((System.ComponentModel.ISupportInitialize)(this.objectListView1)).BeginInit();
             this.SuspendLayout();
             // 

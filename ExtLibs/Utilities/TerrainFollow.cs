@@ -6,7 +6,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading;
 
-namespace MissionPlanner.Utilities
+namespace XagSurveillanceGCS.Utilities
 {
     public class TerrainFollow
     {

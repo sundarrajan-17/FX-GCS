@@ -1,7 +1,7 @@
-﻿using MissionPlanner.ArduPilot;
-using MissionPlanner.ArduPilot.Mavlink;
-using MissionPlanner.Controls;
-using MissionPlanner.Utilities;
+﻿using XagSurveillanceGCS.ArduPilot;
+using XagSurveillanceGCS.ArduPilot.Mavlink;
+using XagSurveillanceGCS.Controls;
+using XagSurveillanceGCS.Utilities;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -13,7 +13,7 @@ using System.Linq;
 using System.Threading;
 using System.Windows.Forms;
 
-namespace MissionPlanner.GCSViews.ConfigurationView
+namespace XagSurveillanceGCS.GCSViews.ConfigurationView
 {
     public partial class ConfigSerial : MyUserControl, IActivate, IDeactivate
     {

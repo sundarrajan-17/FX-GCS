@@ -1,6 +1,6 @@
 ﻿using log4net;
-using MissionPlanner.ArduPilot;
-using MissionPlanner.Comms;
+using XagSurveillanceGCS.ArduPilot;
+using XagSurveillanceGCS.Comms;
 using px4uploader;
 using System;
 using System.Collections.Generic;
@@ -9,7 +9,7 @@ using System.Reflection;
 using System.Text.RegularExpressions;
 using System.Threading;
 
-namespace MissionPlanner.Utilities
+namespace XagSurveillanceGCS.Utilities
 {
     public class BoardDetect
     {

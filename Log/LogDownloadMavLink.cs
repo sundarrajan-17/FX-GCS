@@ -1,5 +1,5 @@
 ﻿using log4net;
-using MissionPlanner.Utilities;
+using XagSurveillanceGCS.Utilities;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -10,7 +10,7 @@ using System.Reflection;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace MissionPlanner.Log
+namespace XagSurveillanceGCS.Log
 {
     public partial class LogDownloadMavLink : Form
     {
@@ -45,7 +45,7 @@ namespace MissionPlanner.Log
 
             ThemeManager.ApplyThemeTo(this);
 
-            MissionPlanner.Utilities.Tracking.AddPage(this.GetType().ToString(), this.Text);
+            XagSurveillanceGCS.Utilities.Tracking.AddPage(this.GetType().ToString(), this.Text);
         }
 
         private void Log_Load(object sender, EventArgs e)
@@ -96,7 +96,7 @@ namespace MissionPlanner.Log
                 {
                     try
                     {
-                        string caption = item.id + " " + GetItemCaption(item) + "  (" + MissionPlanner.Controls.ConnectionStats.ToHumanReadableByteCount((int)item.size) + ")";
+                        string caption = item.id + " " + GetItemCaption(item) + "  (" + XagSurveillanceGCS.Controls.ConnectionStats.ToHumanReadableByteCount((int)item.size) + ")";
                         AddCheckedListBoxItem(caption);
                     }
                     catch (Exception ex)
@@ -412,9 +412,9 @@ namespace MissionPlanner.Log
                     var left = max - current;
                     var eta = DateTime.Now.AddSeconds(left / avgbps);
                     var remaining = new DateTime().AddSeconds(left / avgbps);
-                    labelBytes.Text = MissionPlanner.Controls.ConnectionStats.ToHumanReadableByteCount((int)current) + " "
+                    labelBytes.Text = XagSurveillanceGCS.Controls.ConnectionStats.ToHumanReadableByteCount((int)current) + " "
                     + per.ToString("N1") + "% "
-                    + MissionPlanner.Controls.ConnectionStats.ToHumanReadableByteCount((int)avgbps) + "/s "
+                    + XagSurveillanceGCS.Controls.ConnectionStats.ToHumanReadableByteCount((int)avgbps) + "/s "
                     + (remaining.Day > 1 || remaining.Hour > 0 ? ((remaining.Day - 1) * 24 + remaining.Hour).ToString() + ":" : "") + remaining.ToString("mm:ss") + " left";
                 }
                 else

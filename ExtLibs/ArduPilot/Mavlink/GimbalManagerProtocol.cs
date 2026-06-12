@@ -1,9 +1,9 @@
 using System;
 using System.Collections.Concurrent;
 using System.Threading.Tasks;
-using MissionPlanner.Utilities;
+using XagSurveillanceGCS.Utilities;
 
-namespace MissionPlanner.ArduPilot.Mavlink
+namespace XagSurveillanceGCS.ArduPilot.Mavlink
 {
     public class GimbalManagerProtocol
     {

@@ -1,6 +1,6 @@
-﻿using MissionPlanner.Controls;
+﻿using XagSurveillanceGCS.Controls;
 
-namespace MissionPlanner.GCSViews.ConfigurationView
+namespace XagSurveillanceGCS.GCSViews.ConfigurationView
 {
     partial class ConfigFrameType
     {
@@ -35,25 +35,25 @@ namespace MissionPlanner.GCSViews.ConfigurationView
             this.radioButton_X = new System.Windows.Forms.RadioButton();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.pictureBoxPlus = new MissionPlanner.Controls.PictureBoxWithPseudoOpacity();
-            this.pictureBoxX = new MissionPlanner.Controls.PictureBoxWithPseudoOpacity();
+            this.pictureBoxPlus = new XagSurveillanceGCS.Controls.PictureBoxWithPseudoOpacity();
+            this.pictureBoxX = new XagSurveillanceGCS.Controls.PictureBoxWithPseudoOpacity();
             this.label6 = new System.Windows.Forms.Label();
             this.radioButton_V = new System.Windows.Forms.RadioButton();
-            this.pictureBoxV = new MissionPlanner.Controls.PictureBoxWithPseudoOpacity();
+            this.pictureBoxV = new XagSurveillanceGCS.Controls.PictureBoxWithPseudoOpacity();
             this.label1 = new System.Windows.Forms.Label();
             this.radioButton_H = new System.Windows.Forms.RadioButton();
-            this.pictureBoxH = new MissionPlanner.Controls.PictureBoxWithPseudoOpacity();
+            this.pictureBoxH = new XagSurveillanceGCS.Controls.PictureBoxWithPseudoOpacity();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.radioButton_Y = new System.Windows.Forms.RadioButton();
-            this.pictureBoxY = new MissionPlanner.Controls.PictureBoxWithPseudoOpacity();
+            this.pictureBoxY = new XagSurveillanceGCS.Controls.PictureBoxWithPseudoOpacity();
             this.label7 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.configDefaultSettings1 = new MissionPlanner.Controls.DefaultSettings();
+            this.configDefaultSettings1 = new XagSurveillanceGCS.Controls.DefaultSettings();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label9 = new System.Windows.Forms.Label();
             this.radioButton_VTail = new System.Windows.Forms.RadioButton();
-            this.pictureBoxVTail = new MissionPlanner.Controls.PictureBoxWithPseudoOpacity();
+            this.pictureBoxVTail = new XagSurveillanceGCS.Controls.PictureBoxWithPseudoOpacity();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPlus)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxX)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxV)).BeginInit();
@@ -94,7 +94,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
             // 
             resources.ApplyResources(this.pictureBoxPlus, "pictureBoxPlus");
             this.pictureBoxPlus.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBoxPlus.Image = global::MissionPlanner.Properties.Resources.frames_plus;
+            this.pictureBoxPlus.Image = global::XagSurveillanceGCS.Properties.Resources.frames_plus;
             this.pictureBoxPlus.Name = "pictureBoxPlus";
             this.pictureBoxPlus.TabStop = false;
             this.pictureBoxPlus.Click += new System.EventHandler(this.pictureBoxPlus_Click);
@@ -103,7 +103,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
             // 
             resources.ApplyResources(this.pictureBoxX, "pictureBoxX");
             this.pictureBoxX.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBoxX.Image = global::MissionPlanner.Properties.Resources.frames_x;
+            this.pictureBoxX.Image = global::XagSurveillanceGCS.Properties.Resources.frames_x;
             this.pictureBoxX.Name = "pictureBoxX";
             this.pictureBoxX.TabStop = false;
             this.pictureBoxX.Click += new System.EventHandler(this.pictureBoxX_Click);
@@ -125,7 +125,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
             // 
             resources.ApplyResources(this.pictureBoxV, "pictureBoxV");
             this.pictureBoxV.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBoxV.Image = global::MissionPlanner.Properties.Resources.new_3DR_04;
+            this.pictureBoxV.Image = global::XagSurveillanceGCS.Properties.Resources.new_3DR_04;
             this.pictureBoxV.Name = "pictureBoxV";
             this.pictureBoxV.TabStop = false;
             this.pictureBoxV.Click += new System.EventHandler(this.pictureBoxV_Click);
@@ -147,7 +147,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
             // 
             resources.ApplyResources(this.pictureBoxH, "pictureBoxH");
             this.pictureBoxH.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBoxH.Image = global::MissionPlanner.Properties.Resources.frames_h;
+            this.pictureBoxH.Image = global::XagSurveillanceGCS.Properties.Resources.frames_h;
             this.pictureBoxH.Name = "pictureBoxH";
             this.pictureBoxH.TabStop = false;
             this.pictureBoxH.Click += new System.EventHandler(this.pictureBoxH_Click);
@@ -174,7 +174,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
             // 
             resources.ApplyResources(this.pictureBoxY, "pictureBoxY");
             this.pictureBoxY.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBoxY.Image = global::MissionPlanner.Properties.Resources.y6b;
+            this.pictureBoxY.Image = global::XagSurveillanceGCS.Properties.Resources.y6b;
             this.pictureBoxY.Name = "pictureBoxY";
             this.pictureBoxY.TabStop = false;
             this.pictureBoxY.Click += new System.EventHandler(this.pictureBoxY_Click);

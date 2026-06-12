@@ -4,11 +4,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using MissionPlanner.Attributes;
+using XagSurveillanceGCS.Attributes;
 
 #endregion
 
-namespace MissionPlanner.Utilities
+namespace XagSurveillanceGCS.Utilities
 {
    public static class EnumTranslator
    {

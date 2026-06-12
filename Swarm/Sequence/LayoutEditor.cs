@@ -1,5 +1,5 @@
-﻿using MissionPlanner.Controls;
-using MissionPlanner.Utilities;
+﻿using XagSurveillanceGCS.Controls;
+using XagSurveillanceGCS.Utilities;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -10,7 +10,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace MissionPlanner.Swarm.Sequence
+namespace XagSurveillanceGCS.Swarm.Sequence
 {
     public partial class LayoutEditor : Form
     {
@@ -52,7 +52,7 @@ namespace MissionPlanner.Swarm.Sequence
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.grid = new MissionPlanner.Swarm.Grid();
+            this.grid = new XagSurveillanceGCS.Swarm.Grid();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.layoutsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
@@ -84,7 +84,7 @@ namespace MissionPlanner.Swarm.Sequence
             this.grid.Size = new System.Drawing.Size(725, 430);
             this.grid.TabIndex = 0;
             this.grid.Vertical = false;
-            this.grid.UpdateOffsets += new MissionPlanner.Swarm.Grid.UpdateOffsetsEvent(this.grid_UpdateOffsets);
+            this.grid.UpdateOffsets += new XagSurveillanceGCS.Swarm.Grid.UpdateOffsetsEvent(this.grid_UpdateOffsets);
             // 
             // comboBox1
             // 
@@ -106,7 +106,7 @@ namespace MissionPlanner.Swarm.Sequence
             // bindingSource1
             // 
             this.bindingSource1.AllowNew = false;
-            this.bindingSource1.DataSource = typeof(MissionPlanner.Swarm.Sequence.Sequence);
+            this.bindingSource1.DataSource = typeof(XagSurveillanceGCS.Swarm.Sequence.Sequence);
             // 
             // BUT_new
             // 

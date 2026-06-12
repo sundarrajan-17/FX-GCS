@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Windows.Forms;
-using MissionPlanner;
-using MissionPlanner.Plugin;
-using MissionPlanner.Controls;
+using XagSurveillanceGCS;
+using XagSurveillanceGCS.Plugin;
+using XagSurveillanceGCS.Controls;
 
 namespace PersistentSimpleActions
 {

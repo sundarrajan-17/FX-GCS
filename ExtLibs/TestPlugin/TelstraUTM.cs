@@ -24,10 +24,10 @@ using System.Security.Cryptography;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading;
-using MissionPlanner.Comms;
+using XagSurveillanceGCS.Comms;
 using X509Certificate = System.Security.Cryptography.X509Certificates.X509Certificate;
 
-namespace MissionPlanner.Utilities
+namespace XagSurveillanceGCS.Utilities
 {
     public class TelstraUTM
     {

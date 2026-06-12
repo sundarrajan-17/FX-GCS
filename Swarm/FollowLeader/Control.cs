@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 
-namespace MissionPlanner.Swarm.FollowLeader
+namespace XagSurveillanceGCS.Swarm.FollowLeader
 {
     public partial class Control : Form
     {

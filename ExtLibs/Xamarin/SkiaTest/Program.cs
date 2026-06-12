@@ -11,8 +11,8 @@ using System.Runtime.InteropServices;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using MissionPlanner;
-using MissionPlanner.Controls;
+using XagSurveillanceGCS;
+using XagSurveillanceGCS.Controls;
 using SkiaSharp.Views.Desktop;
 using SkiaSharp;
 using WinApi.Desktop;
@@ -22,7 +22,7 @@ using WinApi.Utils;
 using WinApi.Windows;
 using WinApi.Windows.Helpers;
 using Microsoft.Scripting.Utils;
-using MissionPlanner.Utilities;
+using XagSurveillanceGCS.Utilities;
 using Rectangle = NetCoreEx.Geometry.Rectangle;
 using System.Collections;
 using Newtonsoft.Json;
@@ -282,7 +282,7 @@ namespace SkiaTest
 
                 Application.Idle += Application_Idle;
 
-                MissionPlanner.Program.Main(new string[] { });
+                XagSurveillanceGCS.Program.Main(new string[] { });
             }
 
             protected override void OnClose(ref Packet packet)

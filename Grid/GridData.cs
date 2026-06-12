@@ -1,7 +1,7 @@
-﻿using MissionPlanner.Utilities;
+﻿using XagSurveillanceGCS.Utilities;
 using System.Collections.Generic;
 
-namespace MissionPlanner.Grid
+namespace XagSurveillanceGCS.Grid
 {
     public struct GridData
     {

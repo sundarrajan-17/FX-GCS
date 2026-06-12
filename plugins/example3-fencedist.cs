@@ -2,23 +2,23 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using MissionPlanner.Utilities;
-using MissionPlanner.Controls;
+using XagSurveillanceGCS.Utilities;
+using XagSurveillanceGCS.Controls;
 using System.IO;
 using System.Windows.Forms;
 using System.Diagnostics;
-using MissionPlanner;
+using XagSurveillanceGCS;
 using System.Drawing;
 using System.Threading.Tasks;
 using GMap.NET.WindowsForms;
-using MissionPlanner.ArduPilot;
-using MissionPlanner.GCSViews;
-using MissionPlanner.Maps;
+using XagSurveillanceGCS.ArduPilot;
+using XagSurveillanceGCS.GCSViews;
+using XagSurveillanceGCS.Maps;
 
 
 namespace FenceDist
 {
-    public class Plugin : MissionPlanner.Plugin.Plugin
+    public class Plugin : XagSurveillanceGCS.Plugin.Plugin
     {
         ToolStripMenuItem but;
         static GMapMarkerFill marker;

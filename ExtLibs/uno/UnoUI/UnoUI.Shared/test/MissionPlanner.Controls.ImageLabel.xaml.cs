@@ -1,1 +1,1 @@
-namespace MissionPlanner.Controls { public partial class ImageLabel{public ImageLabel(){this.InitializeComponent();}}}
+namespace XagSurveillanceGCS.Controls { public partial class ImageLabel{public ImageLabel(){this.InitializeComponent();}}}

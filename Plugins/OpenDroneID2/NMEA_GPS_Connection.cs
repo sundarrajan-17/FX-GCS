@@ -1,5 +1,5 @@
-﻿using MissionPlanner.Utilities;
-using MissionPlanner.Comms;
+﻿using XagSurveillanceGCS.Utilities;
+using XagSurveillanceGCS.Comms;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,7 +14,7 @@ using System.IO;
 using System.Threading.Tasks;
 using System.Linq.Expressions;
 
-namespace MissionPlanner
+namespace XagSurveillanceGCS
 {
 
     public partial class NMEA_GPS_Connection : UserControl

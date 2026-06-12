@@ -1,1 +1,1 @@
-namespace MissionPlanner.Controls { public partial class FlashMessage{public FlashMessage(){this.InitializeComponent();}}}
+namespace XagSurveillanceGCS.Controls { public partial class FlashMessage{public FlashMessage(){this.InitializeComponent();}}}

@@ -1,1 +1,1 @@
-namespace MissionPlanner.GCSViews.ConfigurationView { public partial class ConfigFlightModes{public ConfigFlightModes(){this.InitializeComponent();}}}
+namespace XagSurveillanceGCS.GCSViews.ConfigurationView { public partial class ConfigFlightModes{public ConfigFlightModes(){this.InitializeComponent();}}}

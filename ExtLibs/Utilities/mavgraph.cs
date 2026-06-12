@@ -6,7 +6,7 @@ using System.Text.RegularExpressions;
 using System.Xml;
 using log4net;
 
-namespace MissionPlanner.Utilities
+namespace XagSurveillanceGCS.Utilities
 {
     public class mavgraph
     {

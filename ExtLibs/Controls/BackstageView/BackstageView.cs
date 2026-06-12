@@ -5,9 +5,9 @@ using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 using log4net;
-using MissionPlanner.Controls.BackstageView;
+using XagSurveillanceGCS.Controls.BackstageView;
 
-namespace MissionPlanner.Controls.BackstageView
+namespace XagSurveillanceGCS.Controls.BackstageView
 {
     /// <summary>
     /// A Control to somewhat emulate the 'backstage view' as in MS Office 2010

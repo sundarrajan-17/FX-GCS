@@ -9,12 +9,12 @@ using GMap.NET;
 using GMap.NET.WindowsForms;
 using GMap.NET.WindowsForms.Markers;
 using log4net;
-using MissionPlanner.Plugin;
-using MissionPlanner.Utilities;
+using XagSurveillanceGCS.Plugin;
+using XagSurveillanceGCS.Utilities;
 using ProjNet.CoordinateSystems;
 using ProjNet.CoordinateSystems.Transformations;
 
-namespace MissionPlanner.SimpleGrid
+namespace XagSurveillanceGCS.SimpleGrid
 {
     public partial class GridUI : Form
     {

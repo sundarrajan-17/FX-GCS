@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Threading;
-using MissionPlanner.Utilities;
+using XagSurveillanceGCS.Utilities;
 using DateTime = System.DateTime;
-using MissionPlanner;
+using XagSurveillanceGCS;
 
 
-namespace MissionPlanner
+namespace XagSurveillanceGCS
 {
     /// <summary>
     /// https://mavlink.io/en/services/opendroneid.html

@@ -1,13 +1,13 @@
 ﻿using log4net;
-using MissionPlanner.Controls;
-using MissionPlanner.test;
+using XagSurveillanceGCS.Controls;
+using XagSurveillanceGCS.test;
 using Newtonsoft.Json;
 using System;
 using System.Windows.Forms;
 using Xamarin.Forms;
 using Application = System.Windows.Forms.Application;
 
-namespace MissionPlanner.Utilities
+namespace XagSurveillanceGCS.Utilities
 {
     public static class ExtensionsMP
     {
@@ -141,9 +141,9 @@ namespace MissionPlanner.Utilities
 
         private static void Frm_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            if (((Form)sender).Tag is MissionPlanner.Controls.IDeactivate)
+            if (((Form)sender).Tag is XagSurveillanceGCS.Controls.IDeactivate)
             {
-                ((MissionPlanner.Controls.IDeactivate)((Form)sender).Tag).Deactivate();
+                ((XagSurveillanceGCS.Controls.IDeactivate)((Form)sender).Tag).Deactivate();
             }
 
             if (((Form)sender).Tag is MyUserControl)
@@ -154,9 +154,9 @@ namespace MissionPlanner.Utilities
 
         private static void Frm_Load(object sender, EventArgs e)
         {
-            if (((Form)sender).Tag is MissionPlanner.Controls.IActivate)
+            if (((Form)sender).Tag is XagSurveillanceGCS.Controls.IActivate)
             {
-                ((MissionPlanner.Controls.IActivate)((Form)sender).Tag).Activate();
+                ((XagSurveillanceGCS.Controls.IActivate)((Form)sender).Tag).Activate();
             }
         }
 

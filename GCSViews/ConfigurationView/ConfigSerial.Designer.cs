@@ -1,4 +1,4 @@
-﻿namespace MissionPlanner.GCSViews.ConfigurationView
+﻿namespace XagSurveillanceGCS.GCSViews.ConfigurationView
 {
     partial class ConfigSerial
     {
@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.myLabel1 = new MissionPlanner.Controls.MyLabel();
-            this.myLabel2 = new MissionPlanner.Controls.MyLabel();
-            this.myLabel3 = new MissionPlanner.Controls.MyLabel();
-            this.myLabel4 = new MissionPlanner.Controls.MyLabel();
+            this.myLabel1 = new XagSurveillanceGCS.Controls.MyLabel();
+            this.myLabel2 = new XagSurveillanceGCS.Controls.MyLabel();
+            this.myLabel3 = new XagSurveillanceGCS.Controls.MyLabel();
+            this.myLabel4 = new XagSurveillanceGCS.Controls.MyLabel();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 

@@ -1,14 +1,14 @@
 ﻿using GMap.NET;
 using GMap.NET.MapProviders;
 using GMap.NET.WindowsForms;
-using MissionPlanner.GCSViews;
-using MissionPlanner.Utilities;
+using XagSurveillanceGCS.GCSViews;
+using XagSurveillanceGCS.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Reflection;
 using System.Windows.Forms;
 
-namespace MissionPlanner.Plugin
+namespace XagSurveillanceGCS.Plugin
 {
     public abstract class Plugin
     {

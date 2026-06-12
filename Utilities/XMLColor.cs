@@ -9,7 +9,7 @@ using System.Xml;
 using System.Xml.Serialization;
 
 
-namespace MissionPlanner.Utilities
+namespace XagSurveillanceGCS.Utilities
 {
     public class XmlColor
     {

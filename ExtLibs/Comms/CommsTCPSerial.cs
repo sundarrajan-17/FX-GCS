@@ -9,7 +9,7 @@ using log4net;
 // dns, ip address
 // tcplistner
 
-namespace MissionPlanner.Comms
+namespace XagSurveillanceGCS.Comms
 {
     public class TcpSerial : CommsBase, ICommsSerial, IDisposable
     {

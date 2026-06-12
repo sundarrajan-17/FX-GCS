@@ -3,7 +3,7 @@ using Newtonsoft.Json;
 using System;
 using static System.Math;
 
-namespace MissionPlanner.Utilities
+namespace XagSurveillanceGCS.Utilities
 {
     public class Vector3f : Vector3<float>
     {

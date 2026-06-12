@@ -1,1 +1,1 @@
-namespace MissionPlanner.GCSViews.ConfigurationView { public partial class ConfigSerialInjectGPS{public ConfigSerialInjectGPS(){this.InitializeComponent();}}}
+namespace XagSurveillanceGCS.GCSViews.ConfigurationView { public partial class ConfigSerialInjectGPS{public ConfigSerialInjectGPS(){this.InitializeComponent();}}}

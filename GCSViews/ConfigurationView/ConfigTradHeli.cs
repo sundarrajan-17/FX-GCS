@@ -1,5 +1,5 @@
-﻿using MissionPlanner.Controls;
-using MissionPlanner.Utilities;
+﻿using XagSurveillanceGCS.Controls;
+using XagSurveillanceGCS.Utilities;
 using System;
 using System.ComponentModel;
 using System.Drawing;
@@ -8,7 +8,7 @@ using System.Windows.Forms;
 using ZedGraph;
 using Timer = System.Windows.Forms.Timer;
 
-namespace MissionPlanner.GCSViews.ConfigurationView
+namespace XagSurveillanceGCS.GCSViews.ConfigurationView
 {
     public partial class ConfigTradHeli : MyUserControl, IActivate, IDeactivate
     {

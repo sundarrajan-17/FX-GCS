@@ -386,7 +386,7 @@ scroll to the bottom of the page</value>
     <value>but_mot_spin_min</value>
   </data>
   <data name="&gt;&gt;but_mot_spin_min.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.MyButton, MissionPlanner.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>XagSurveillanceGCS.Controls.MyButton, XagSurveillanceGCS.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;but_mot_spin_min.Parent" xml:space="preserve">
     <value>groupBox1</value>
@@ -437,7 +437,7 @@ scroll to the bottom of the page</value>
     <value>but_mot_spin_arm</value>
   </data>
   <data name="&gt;&gt;but_mot_spin_arm.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.MyButton, MissionPlanner.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>XagSurveillanceGCS.Controls.MyButton, XagSurveillanceGCS.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;but_mot_spin_arm.Parent" xml:space="preserve">
     <value>groupBox1</value>
@@ -482,6 +482,6 @@ scroll to the bottom of the page</value>
     <value>ConfigMotorTest</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>System.Windows.Forms.MyUserControl, MissionPlanner.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>System.Windows.Forms.MyUserControl, XagSurveillanceGCS.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
 </root>

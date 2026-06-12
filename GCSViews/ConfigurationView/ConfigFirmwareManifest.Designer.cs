@@ -1,4 +1,4 @@
-﻿namespace MissionPlanner.GCSViews.ConfigurationView
+﻿namespace XagSurveillanceGCS.GCSViews.ConfigurationView
 {
     partial class ConfigFirmwareManifest
     {
@@ -34,18 +34,18 @@
             this.lbl_Custom_firmware_label = new System.Windows.Forms.Label();
             this.lbl_px4bl = new System.Windows.Forms.Label();
             this.lbl_bootloaderupdate = new System.Windows.Forms.Label();
-            this.imageLabel1 = new MissionPlanner.Controls.ImageLabel();
-            this.pictureBoxSub = new MissionPlanner.Controls.ImageLabel();
-            this.pictureAntennaTracker = new MissionPlanner.Controls.ImageLabel();
-            this.pictureBoxRover = new MissionPlanner.Controls.ImageLabel();
-            this.pictureBoxOctaQuad = new MissionPlanner.Controls.ImageLabel();
-            this.pictureBoxOcta = new MissionPlanner.Controls.ImageLabel();
-            this.pictureBoxHeli = new MissionPlanner.Controls.ImageLabel();
-            this.pictureBoxY6 = new MissionPlanner.Controls.ImageLabel();
-            this.pictureBoxTri = new MissionPlanner.Controls.ImageLabel();
-            this.pictureBoxHexa = new MissionPlanner.Controls.ImageLabel();
-            this.pictureBoxQuad = new MissionPlanner.Controls.ImageLabel();
-            this.pictureBoxPlane = new MissionPlanner.Controls.ImageLabel();
+            this.imageLabel1 = new XagSurveillanceGCS.Controls.ImageLabel();
+            this.pictureBoxSub = new XagSurveillanceGCS.Controls.ImageLabel();
+            this.pictureAntennaTracker = new XagSurveillanceGCS.Controls.ImageLabel();
+            this.pictureBoxRover = new XagSurveillanceGCS.Controls.ImageLabel();
+            this.pictureBoxOctaQuad = new XagSurveillanceGCS.Controls.ImageLabel();
+            this.pictureBoxOcta = new XagSurveillanceGCS.Controls.ImageLabel();
+            this.pictureBoxHeli = new XagSurveillanceGCS.Controls.ImageLabel();
+            this.pictureBoxY6 = new XagSurveillanceGCS.Controls.ImageLabel();
+            this.pictureBoxTri = new XagSurveillanceGCS.Controls.ImageLabel();
+            this.pictureBoxHexa = new XagSurveillanceGCS.Controls.ImageLabel();
+            this.pictureBoxQuad = new XagSurveillanceGCS.Controls.ImageLabel();
+            this.pictureBoxPlane = new XagSurveillanceGCS.Controls.ImageLabel();
             this.lbl_alloptions = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
@@ -115,7 +115,7 @@
             // 
             // imageLabel1
             // 
-            this.imageLabel1.Image = global::MissionPlanner.Properties.Resources.pixhawk2cube;
+            this.imageLabel1.Image = global::XagSurveillanceGCS.Properties.Resources.pixhawk2cube;
             this.imageLabel1.Location = new System.Drawing.Point(783, 159);
             this.imageLabel1.Name = "imageLabel1";
             this.imageLabel1.Size = new System.Drawing.Size(150, 150);
@@ -125,7 +125,7 @@
             // 
             // pictureBoxSub
             // 
-            this.pictureBoxSub.Image = global::MissionPlanner.Properties.Resources.sub;
+            this.pictureBoxSub.Image = global::XagSurveillanceGCS.Properties.Resources.sub;
             this.pictureBoxSub.Location = new System.Drawing.Point(783, 3);
             this.pictureBoxSub.Name = "pictureBoxSub";
             this.pictureBoxSub.Size = new System.Drawing.Size(150, 150);
@@ -137,7 +137,7 @@
             // pictureAntennaTracker
             // 
             this.pictureAntennaTracker.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureAntennaTracker.Image = global::MissionPlanner.Properties.Resources.Antenna_Tracker_01;
+            this.pictureAntennaTracker.Image = global::XagSurveillanceGCS.Properties.Resources.Antenna_Tracker_01;
             this.pictureAntennaTracker.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.pictureAntennaTracker.Location = new System.Drawing.Point(3, 159);
             this.pictureAntennaTracker.Name = "pictureAntennaTracker";
@@ -150,7 +150,7 @@
             // pictureBoxRover
             // 
             this.pictureBoxRover.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBoxRover.Image = global::MissionPlanner.Properties.Resources.rover_11;
+            this.pictureBoxRover.Image = global::XagSurveillanceGCS.Properties.Resources.rover_11;
             this.pictureBoxRover.Location = new System.Drawing.Point(3, 3);
             this.pictureBoxRover.Name = "pictureBoxRover";
             this.pictureBoxRover.Size = new System.Drawing.Size(150, 150);
@@ -161,7 +161,7 @@
             // 
             // pictureBoxOctaQuad
             // 
-            this.pictureBoxOctaQuad.Image = global::MissionPlanner.Properties.Resources.x8;
+            this.pictureBoxOctaQuad.Image = global::XagSurveillanceGCS.Properties.Resources.x8;
             this.pictureBoxOctaQuad.Location = new System.Drawing.Point(627, 3);
             this.pictureBoxOctaQuad.Name = "pictureBoxOctaQuad";
             this.pictureBoxOctaQuad.Size = new System.Drawing.Size(150, 150);
@@ -172,7 +172,7 @@
             // 
             // pictureBoxOcta
             // 
-            this.pictureBoxOcta.Image = global::MissionPlanner.Properties.Resources.FW_icons_2013_logos_12;
+            this.pictureBoxOcta.Image = global::XagSurveillanceGCS.Properties.Resources.FW_icons_2013_logos_12;
             this.pictureBoxOcta.Location = new System.Drawing.Point(627, 159);
             this.pictureBoxOcta.Name = "pictureBoxOcta";
             this.pictureBoxOcta.Size = new System.Drawing.Size(150, 150);
@@ -184,7 +184,7 @@
             // pictureBoxHeli
             // 
             this.pictureBoxHeli.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBoxHeli.Image = global::MissionPlanner.Properties.Resources.APM_airframes_08;
+            this.pictureBoxHeli.Image = global::XagSurveillanceGCS.Properties.Resources.APM_airframes_08;
             this.pictureBoxHeli.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.pictureBoxHeli.Location = new System.Drawing.Point(159, 159);
             this.pictureBoxHeli.Name = "pictureBoxHeli";
@@ -197,7 +197,7 @@
             // pictureBoxY6
             // 
             this.pictureBoxY6.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBoxY6.Image = global::MissionPlanner.Properties.Resources.y6a;
+            this.pictureBoxY6.Image = global::XagSurveillanceGCS.Properties.Resources.y6a;
             this.pictureBoxY6.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.pictureBoxY6.Location = new System.Drawing.Point(471, 159);
             this.pictureBoxY6.Name = "pictureBoxY6";
@@ -210,7 +210,7 @@
             // pictureBoxTri
             // 
             this.pictureBoxTri.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBoxTri.Image = global::MissionPlanner.Properties.Resources.FW_icons_2013_logos_08;
+            this.pictureBoxTri.Image = global::XagSurveillanceGCS.Properties.Resources.FW_icons_2013_logos_08;
             this.pictureBoxTri.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.pictureBoxTri.Location = new System.Drawing.Point(315, 159);
             this.pictureBoxTri.Name = "pictureBoxTri";
@@ -223,7 +223,7 @@
             // pictureBoxHexa
             // 
             this.pictureBoxHexa.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBoxHexa.Image = global::MissionPlanner.Properties.Resources.FW_icons_2013_logos_10;
+            this.pictureBoxHexa.Image = global::XagSurveillanceGCS.Properties.Resources.FW_icons_2013_logos_10;
             this.pictureBoxHexa.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.pictureBoxHexa.Location = new System.Drawing.Point(471, 3);
             this.pictureBoxHexa.Name = "pictureBoxHexa";
@@ -236,7 +236,7 @@
             // pictureBoxQuad
             // 
             this.pictureBoxQuad.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBoxQuad.Image = global::MissionPlanner.Properties.Resources.FW_icons_2013_logos_04;
+            this.pictureBoxQuad.Image = global::XagSurveillanceGCS.Properties.Resources.FW_icons_2013_logos_04;
             this.pictureBoxQuad.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.pictureBoxQuad.Location = new System.Drawing.Point(315, 3);
             this.pictureBoxQuad.Name = "pictureBoxQuad";
@@ -249,7 +249,7 @@
             // pictureBoxPlane
             // 
             this.pictureBoxPlane.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBoxPlane.Image = global::MissionPlanner.Properties.Resources.APM_airframes_001;
+            this.pictureBoxPlane.Image = global::XagSurveillanceGCS.Properties.Resources.APM_airframes_001;
             this.pictureBoxPlane.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.pictureBoxPlane.Location = new System.Drawing.Point(159, 3);
             this.pictureBoxPlane.Name = "pictureBoxPlane";

@@ -1,9 +1,9 @@
 ﻿using GMap.NET.MapProviders;
 using log4net;
 using log4net.Config;
-using MissionPlanner.Comms;
-using MissionPlanner.Controls;
-using MissionPlanner.Utilities;
+using XagSurveillanceGCS.Comms;
+using XagSurveillanceGCS.Controls;
+using XagSurveillanceGCS.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -33,7 +33,7 @@ using Trace = System.Diagnostics.Trace;
 using System.Threading.Tasks;
 using GMap.NET.Core.GMap.NET.Projections;
 
-namespace MissionPlanner
+namespace XagSurveillanceGCS
 {
     public static class Program
     {
@@ -49,7 +49,7 @@ namespace MissionPlanner
         }
 
         /// <summary>
-        /// MissionPlanner text image
+        /// XagSurveillanceGCS text image
         /// </summary>
         public static Image Logo = null;
 
@@ -64,6 +64,8 @@ namespace MissionPlanner
         public static Image IconFile = null;
 
         public static Splash Splash;
+
+        public static string LMMode = "Combat Mode";
 
         internal static Thread Thread;
 
@@ -127,9 +129,9 @@ namespace MissionPlanner
             Program.args = args;
             Console.WriteLine(
                 "If your error is about Microsoft.DirectX.DirectInput, please install the latest directx redist from here http://www.microsoft.com/en-us/download/details.aspx?id=35 \n\n");
-            Console.WriteLine("Debug under mono    MONO_LOG_LEVEL=debug mono MissionPlanner.exe");
+            Console.WriteLine("Debug under mono    MONO_LOG_LEVEL=debug mono XagSurveillanceGCS.exe");
             Console.WriteLine("To fix any filename case issues under mono use    export MONO_IOMAP=drive:case");
-            Console.WriteLine("for pinvoke      MONO_LOG_LEVEL=debug MONO_LOG_MASK=dll mono MissionPlanner.exe");
+            Console.WriteLine("for pinvoke      MONO_LOG_LEVEL=debug MONO_LOG_MASK=dll mono XagSurveillanceGCS.exe");
 
             Console.WriteLine("watch -n 1 ls -l /proc/$(pidof mono)/fd");
             Console.WriteLine("watch -n 1 lsof -p $(pidof mono)");
@@ -201,7 +203,7 @@ namespace MissionPlanner
                 return;
             }
 
-            name = "XAG Planner";
+            name = "XagSurveillanceGCS V1.5.10";
 
             try
             {
@@ -229,7 +231,7 @@ namespace MissionPlanner
             }
             else
             {
-                IconFile = MissionPlanner.Properties.Resources.mpdesktop.ToBitmap();
+                IconFile = XagSurveillanceGCS.Properties.Resources.mpdesktop.ToBitmap();
             }
 
             if (File.Exists(Settings.GetRunningDirectory() + "splashbg.png")) // 600*375
@@ -239,19 +241,19 @@ namespace MissionPlanner
             {
                 if (!MainV2.Android)
                 {
-                    var file = MissionPlanner.Utilities.NativeLibrary.GetLibraryPathname("libSkiaSharp");
+                    var file = XagSurveillanceGCS.Utilities.NativeLibrary.GetLibraryPathname("libSkiaSharp");
                     log.Info(file);
                     IntPtr ptr = IntPtr.Zero;
 
                     if (MONO)
                     {
-                        ptr = MissionPlanner.Utilities.NativeLibrary.dlopen(file + ".so",
-                            MissionPlanner.Utilities.NativeLibrary.RTLD_NOW);
-                        log.Info("Skia Error " + MissionPlanner.Utilities.NativeLibrary.dlerror());
+                        ptr = XagSurveillanceGCS.Utilities.NativeLibrary.dlopen(file + ".so",
+                            XagSurveillanceGCS.Utilities.NativeLibrary.RTLD_NOW);
+                        log.Info("Skia Error " + XagSurveillanceGCS.Utilities.NativeLibrary.dlerror());
                     }
 
                     if (ptr == IntPtr.Zero)
-                        ptr = MissionPlanner.Utilities.NativeLibrary.LoadLibrary(file + ".dll");
+                        ptr = XagSurveillanceGCS.Utilities.NativeLibrary.LoadLibrary(file + ".dll");
 
                     if (ptr != IntPtr.Zero)
                     {
@@ -264,7 +266,7 @@ namespace MissionPlanner
                 log.Error(ex);
             }
 
-            Splash = new MissionPlanner.Splash();
+            Splash = new XagSurveillanceGCS.Splash();
             if (SplashBG != null)
             {
                 Splash.BackgroundImage = SplashBG;
@@ -275,11 +277,12 @@ namespace MissionPlanner
             if (IconFile != null)
                 Splash.Icon = Icon.FromHandle(((Bitmap) IconFile).GetHicon());
 
-            string strVersion = "1.0";
-            Console.WriteLine("String Versionnnnnn" + strVersion);
-            Splash.Text = name + " " + Application.ProductVersion + " build " + strVersion;
+            string strVersion = File.Exists("version.txt")
+                ? File.ReadAllText("version.txt")
+                : System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();
+            Splash.Text = name;
             Console.WriteLine("Splash.Show()");
-            Splash.Show();
+            // Splash.Show();
 
             Console.WriteLine("Debugger.IsAttached " + Debugger.IsAttached);
             if (Debugger.IsAttached)
@@ -297,21 +300,21 @@ namespace MissionPlanner
             };
 
             // setup theme provider
-            MsgBox.CustomMessageBox.ApplyTheme += MissionPlanner.Utilities.ThemeManager.ApplyThemeTo;
-            Controls.MainSwitcher.ApplyTheme += MissionPlanner.Utilities.ThemeManager.ApplyThemeTo;
-            MissionPlanner.Controls.InputBox.ApplyTheme += MissionPlanner.Utilities.ThemeManager.ApplyThemeTo;
-            Controls.BackstageView.BackstageViewPage.ApplyTheme += MissionPlanner.Utilities.ThemeManager.ApplyThemeTo;
+            MsgBox.CustomMessageBox.ApplyTheme += XagSurveillanceGCS.Utilities.ThemeManager.ApplyThemeTo;
+            Controls.MainSwitcher.ApplyTheme += XagSurveillanceGCS.Utilities.ThemeManager.ApplyThemeTo;
+            XagSurveillanceGCS.Controls.InputBox.ApplyTheme += XagSurveillanceGCS.Utilities.ThemeManager.ApplyThemeTo;
+            Controls.BackstageView.BackstageViewPage.ApplyTheme += XagSurveillanceGCS.Utilities.ThemeManager.ApplyThemeTo;
 
-            Controls.MainSwitcher.Tracking += MissionPlanner.Utilities.Tracking.AddPage;
-            Controls.BackstageView.BackstageView.Tracking += MissionPlanner.Utilities.Tracking.AddPage;
+            Controls.MainSwitcher.Tracking += XagSurveillanceGCS.Utilities.Tracking.AddPage;
+            Controls.BackstageView.BackstageView.Tracking += XagSurveillanceGCS.Utilities.Tracking.AddPage;
 
             // setup settings provider
-            MissionPlanner.Comms.CommsBase.Settings += CommsBase_Settings;
-            MissionPlanner.Comms.CommsBase.InputBoxShow += CommsBaseOnInputBoxShow;
-            MissionPlanner.Comms.CommsBase.ApplyTheme += MissionPlanner.Utilities.ThemeManager.ApplyThemeTo;
-            MissionPlanner.Comms.SerialPort.GetDeviceName += SerialPort_GetDeviceName;
+            XagSurveillanceGCS.Comms.CommsBase.Settings += CommsBase_Settings;
+            XagSurveillanceGCS.Comms.CommsBase.InputBoxShow += CommsBaseOnInputBoxShow;
+            XagSurveillanceGCS.Comms.CommsBase.ApplyTheme += XagSurveillanceGCS.Utilities.ThemeManager.ApplyThemeTo;
+            XagSurveillanceGCS.Comms.SerialPort.GetDeviceName += SerialPort_GetDeviceName;
 
-            MissionPlanner.Utilities.Extensions.MessageLoop = new Action(() => Application.DoEvents());
+            XagSurveillanceGCS.Utilities.Extensions.MessageLoop = new Action(() => Application.DoEvents());
 
             Console.WriteLine("Setup GMaps 1");
             // set the cache provider to my custom version
@@ -373,9 +376,9 @@ namespace MissionPlanner
                 Console.WriteLine("Setup gdal");
 #if !LIB
                 // net461
-                MissionPlanner.Utilities.GDAL.GDALBase = new GDAL.GDAL();
+                XagSurveillanceGCS.Utilities.GDAL.GDALBase = new GDAL.GDAL();
 #endif
-                GMap.NET.MapProviders.GMapProviders.List.Add(MissionPlanner.Utilities.GDAL.GetProvider());
+                GMap.NET.MapProviders.GMapProviders.List.Add(XagSurveillanceGCS.Utilities.GDAL.GetProvider());
             }
 
             Console.WriteLine("Setup proxy");
@@ -466,8 +469,16 @@ namespace MissionPlanner
             try
             {
                 Thread.CurrentThread.Name = "Base Thread";
-                Console.WriteLine("Application.Run(new MainV2())");
-                Application.Run(new MainV2());
+                LoginForm login = new LoginForm();
+                Application.Run(login);
+                if (login.LoginSuccess)
+                {
+                    LMMode = login.SelectedLMMode;
+                    Console.WriteLine("Application.Run(new MainV2())");
+                    Application.Run(new MainV2());
+                }
+                // Console.WriteLine("Application.Run(new MainV2())");
+                // Application.Run(new MainV2());
             }
             catch (Exception ex)
             {
@@ -716,7 +727,7 @@ namespace MissionPlanner
             if (MainV2.instance != null && MainV2.instance.IsDisposed)
                 return;
 
-            MissionPlanner.Utilities.Tracking.AddException(ex);
+            XagSurveillanceGCS.Utilities.Tracking.AddException(ex);
 
             log.Debug(ex.ToString());
 

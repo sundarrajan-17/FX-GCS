@@ -4,11 +4,11 @@ using System.Drawing;
 using System.Windows.Forms;
 using System.Xml;
 using GMap.NET.MapProviders;
-using MissionPlanner.GCSViews;
-using MissionPlanner.Utilities;
+using XagSurveillanceGCS.GCSViews;
+using XagSurveillanceGCS.Utilities;
 using ZedGraph; // GE xml alt reader
 
-namespace MissionPlanner.Controls
+namespace XagSurveillanceGCS.Controls
 {
     public partial class ElevationProfile : Form
     {
@@ -72,7 +72,7 @@ namespace MissionPlanner.Controls
 
             frm.Close();
 
-            MissionPlanner.Utilities.Tracking.AddPage(this.GetType().ToString(), this.Text);
+            XagSurveillanceGCS.Utilities.Tracking.AddPage(this.GetType().ToString(), this.Text);
         }
 
         private void ElevationProfile_Load(object sender, EventArgs e)

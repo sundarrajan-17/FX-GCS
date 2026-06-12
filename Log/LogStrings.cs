@@ -1,6 +1,6 @@
 using System.ComponentModel;
 
-namespace MissionPlanner.Log
+namespace XagSurveillanceGCS.Log
 {
     public partial class LogStrings : Component
     {

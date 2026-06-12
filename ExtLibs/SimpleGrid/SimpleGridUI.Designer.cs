@@ -1,4 +1,4 @@
-﻿namespace MissionPlanner.SimpleGrid
+﻿namespace XagSurveillanceGCS.SimpleGrid
 {
     partial class GridUI
     {
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GridUI));
-            this.map = new MissionPlanner.Controls.myGMAP();
+            this.map = new XagSurveillanceGCS.Controls.myGMAP();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.lbl_distbetweenlines = new System.Windows.Forms.Label();
             this.label25 = new System.Windows.Forms.Label();
@@ -51,7 +51,7 @@
             this.NUM_angle = new System.Windows.Forms.NumericUpDown();
             this.NUM_altitude = new System.Windows.Forms.NumericUpDown();
             this.label6 = new System.Windows.Forms.Label();
-            this.BUT_Accept = new MissionPlanner.Controls.MyButton();
+            this.BUT_Accept = new XagSurveillanceGCS.Controls.MyButton();
             this.label1 = new System.Windows.Forms.Label();
             this.CMB_startfrom = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();

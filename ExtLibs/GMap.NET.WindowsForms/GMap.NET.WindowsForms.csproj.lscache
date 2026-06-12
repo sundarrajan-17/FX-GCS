@@ -1,0 +1,297 @@
+version=1
+
+# This file caches language service data to improve the performance of C# Dev Kit.
+# It is not intended for manual editing. It can safely be deleted and will be
+# regenerated automatically. For more information, see https://aka.ms/lscache
+#
+# To control where cache files are stored, use the following VS Code setting:
+#   "dotnet.projectsystem.cacheInProjectFolder": true
+
+[project]
+language=C#
+primary
+lastDtbSucceeded
+
+[sliceDimensions]
+TargetFramework=net472
+
+[properties]
+AssemblyName=GMap.NET.WindowsForms
+CommandLineArgsForDesignTimeEvaluation=-langversion:7.3 -define:TRACE
+CompilerGeneratedFilesOutputPath=
+MaxSupportedLangVersion=7.3
+ProjectAssetsFile=<PATH>obj/project.assets.json
+RootNamespace=GMap.NET.WindowsForms
+RunAnalyzers=
+RunAnalyzersDuringLiveAnalysis=
+SolutionPath=*Undefined*
+TargetFrameworkIdentifier=.NETFramework
+TargetPath=<PATH>bin/Debug/net472/GMap.NET.WindowsForms.dll
+TargetRefPath=
+TemporaryDependencyNodeTargetIdentifier=net472
+
+[commandLineArguments]
+/noconfig
+/unsafe-
+/checked-
+/nowarn:1701,1702,1701,1702
+/fullpaths
+/nostdlib+
+/errorreport:prompt
+/warn:4
+/define:TRACE;DEBUG;NETFRAMEWORK;NET472;NET30_OR_GREATER;NET35_OR_GREATER;NET40_OR_GREATER;NET45_OR_GREATER;NET451_OR_GREATER;NET452_OR_GREATER;NET46_OR_GREATER;NET461_OR_GREATER;NET462_OR_GREATER;NET47_OR_GREATER;NET471_OR_GREATER;NET472_OR_GREATER
+/highentropyva+
+/debug+
+/debug:portable
+/filealign:512
+/optimize-
+/out:obj\Debug\net472\GMap.NET.WindowsForms.dll
+/subsystemversion:6.00
+/target:library
+/warnaserror-
+/utf8output
+/deterministic+
+/langversion:7.3
+/warnaserror+:NU1605
+
+[sourceFiles]
+GMap.NET.WindowsForms/
+ GMapControl.cs
+ TilePrefetcher.cs
+ TilePrefetcher.Designer.cs
+obj/Debug/net472/.NETFramework,Version=v4.7.2.AssemblyAttributes.cs
+Properties/AssemblyInfo.cs
+
+[metadataReferences]
+../
+ GMap.NET.Core/bin/Debug/netstandard2.0/GMap.NET.Core.dll
+ GMap.NET.Drawing/bin/Debug/net461/GMap.NET.Drawing.dll
+ Interfaces/bin/Debug/netstandard2.0/Interfaces.dll
+ LibTessDotNet/bin/Debug/netstandard2.0/LibTessDotNet.dll
+ SvgNet/bin/Debug/netstandard2.0/SvgNet.dll
+<NETFXREF>/v4.7.2/Facades/
+ netstandard.dll
+ System.Drawing.Primitives.dll
+<NETFXREF>/v4.7.2/
+ mscorlib.dll
+ System.Core.dll
+ System.Data.dll
+ System.dll
+ System.Drawing.dll
+ System.IO.Compression.FileSystem.dll
+ System.Numerics.dll
+ System.Runtime.Caching.dll
+ System.Runtime.Serialization.dll
+ System.Windows.Forms.dll
+ System.Xml.dll
+ System.Xml.Linq.dll
+<NUGET>/
+ bouncycastle.cryptography/2.4.0/lib/net461/BouncyCastle.Cryptography.dll
+ skiasharp/2.80.2/lib/net462/SkiaSharp.dll
+ system.buffers/4.4.0/ref/netstandard2.0/System.Buffers.dll
+ system.drawing.common/4.7.2/ref/net461/System.Drawing.Common.dll
+ system.memory/4.5.3/lib/netstandard2.0/System.Memory.dll
+ system.numerics.vectors/4.4.0/ref/net46/System.Numerics.Vectors.dll
+ system.runtime.compilerservices.unsafe/4.5.2/ref/netstandard2.0/System.Runtime.CompilerServices.Unsafe.dll
+
+[analyzerConfigFiles]
+../../.editorconfig
+obj/Debug/net472/GMap.NET.WindowsForms.GeneratedMSBuildEditorConfig.editorconfig
+
+---
+
+[project]
+language=C#
+lastDtbSucceeded
+
+[sliceDimensions]
+TargetFramework=netstandard2.0
+
+[properties]
+AssemblyName=GMap.NET.WindowsForms
+CommandLineArgsForDesignTimeEvaluation=-langversion:7.3 -define:TRACE
+CompilerGeneratedFilesOutputPath=
+MaxSupportedLangVersion=7.3
+ProjectAssetsFile=<PATH>obj/project.assets.json
+RootNamespace=GMap.NET.WindowsForms
+RunAnalyzers=
+RunAnalyzersDuringLiveAnalysis=
+SolutionPath=*Undefined*
+TargetFrameworkIdentifier=.NETStandard
+TargetPath=<PATH>bin/Debug/netstandard2.0/GMap.NET.WindowsForms.dll
+TargetRefPath=
+TemporaryDependencyNodeTargetIdentifier=netstandard2.0
+
+[commandLineArguments]
+/noconfig
+/unsafe-
+/checked-
+/nowarn:1701,1702,1701,1702
+/fullpaths
+/nostdlib+
+/errorreport:prompt
+/define:TRACE;DEBUG;NETSTANDARD;NETSTANDARD2_0;NETSTANDARD1_0_OR_GREATER;NETSTANDARD1_1_OR_GREATER;NETSTANDARD1_2_OR_GREATER;NETSTANDARD1_3_OR_GREATER;NETSTANDARD1_4_OR_GREATER;NETSTANDARD1_5_OR_GREATER;NETSTANDARD1_6_OR_GREATER;NETSTANDARD2_0_OR_GREATER
+/highentropyva+
+/debug+
+/debug:portable
+/filealign:512
+/optimize-
+/out:obj\Debug\netstandard2.0\GMap.NET.WindowsForms.dll
+/target:library
+/warnaserror-
+/utf8output
+/deterministic+
+/langversion:7.3
+/warnaserror+:NU1605
+
+[sourceFiles]
+GMap.NET.WindowsForms/
+ GMapControl.cs
+ TilePrefetcher.cs
+ TilePrefetcher.Designer.cs
+netstandard2.0/Shim.cs
+obj/Debug/netstandard2.0/.NETStandard,Version=v2.0.AssemblyAttributes.cs
+Properties/AssemblyInfo.cs
+
+[metadataReferences]
+../
+ GMap.NET.Core/bin/Debug/netstandard2.0/GMap.NET.Core.dll
+ GMap.NET.Drawing/bin/Debug/netstandard2.0/GMap.NET.Drawing.dll
+ Interfaces/bin/Debug/netstandard2.0/Interfaces.dll
+ XagSurveillanceGCS.Drawing/bin/Debug/netstandard2.0/XagSurveillanceGCS.Drawing.dll
+ mono/mcs/class/lib/net_4_x-win32/netstandard2.0/
+  Accessibility.dll
+  System.Runtime.Serialization.Formatters.Soap.dll
+  System.Windows.Forms.dll
+ System.Drawing.android/bin/Debug/netstandard2.0/System.Drawing.dll
+<NUGET>/
+ bouncycastle.cryptography/2.4.0/lib/netstandard2.0/BouncyCastle.Cryptography.dll
+ netstandard.library/2.0.3/build/netstandard2.0/ref/
+  Microsoft.Win32.Primitives.dll
+  mscorlib.dll
+  netstandard.dll
+  System.AppContext.dll
+  System.Collections.Concurrent.dll
+  System.Collections.dll
+  System.Collections.NonGeneric.dll
+  System.Collections.Specialized.dll
+  System.ComponentModel.Composition.dll
+  System.ComponentModel.dll
+  System.ComponentModel.EventBasedAsync.dll
+  System.ComponentModel.Primitives.dll
+  System.ComponentModel.TypeConverter.dll
+  System.Console.dll
+  System.Core.dll
+  System.Data.Common.dll
+  System.Data.dll
+  System.Diagnostics.Contracts.dll
+  System.Diagnostics.Debug.dll
+  System.Diagnostics.FileVersionInfo.dll
+  System.Diagnostics.Process.dll
+  System.Diagnostics.StackTrace.dll
+  System.Diagnostics.TextWriterTraceListener.dll
+  System.Diagnostics.Tools.dll
+  System.Diagnostics.TraceSource.dll
+  System.Diagnostics.Tracing.dll
+  System.dll
+  System.Drawing.dll
+  System.Drawing.Primitives.dll
+  System.Dynamic.Runtime.dll
+  System.Globalization.Calendars.dll
+  System.Globalization.dll
+  System.Globalization.Extensions.dll
+  System.IO.Compression.dll
+  System.IO.Compression.FileSystem.dll
+  System.IO.Compression.ZipFile.dll
+  System.IO.dll
+  System.IO.FileSystem.dll
+  System.IO.FileSystem.DriveInfo.dll
+  System.IO.FileSystem.Primitives.dll
+  System.IO.FileSystem.Watcher.dll
+  System.IO.IsolatedStorage.dll
+  System.IO.MemoryMappedFiles.dll
+  System.IO.Pipes.dll
+  System.IO.UnmanagedMemoryStream.dll
+  System.Linq.dll
+  System.Linq.Expressions.dll
+  System.Linq.Parallel.dll
+  System.Linq.Queryable.dll
+  System.Net.dll
+  System.Net.Http.dll
+  System.Net.NameResolution.dll
+  System.Net.NetworkInformation.dll
+  System.Net.Ping.dll
+  System.Net.Primitives.dll
+  System.Net.Requests.dll
+  System.Net.Security.dll
+  System.Net.Sockets.dll
+  System.Net.WebHeaderCollection.dll
+  System.Net.WebSockets.Client.dll
+  System.Net.WebSockets.dll
+  System.Numerics.dll
+  System.ObjectModel.dll
+  System.Reflection.dll
+  System.Reflection.Extensions.dll
+  System.Reflection.Primitives.dll
+  System.Resources.Reader.dll
+  System.Resources.ResourceManager.dll
+  System.Resources.Writer.dll
+  System.Runtime.CompilerServices.VisualC.dll
+  System.Runtime.dll
+  System.Runtime.Extensions.dll
+  System.Runtime.Handles.dll
+  System.Runtime.InteropServices.dll
+  System.Runtime.InteropServices.RuntimeInformation.dll
+  System.Runtime.Numerics.dll
+  System.Runtime.Serialization.dll
+  System.Runtime.Serialization.Formatters.dll
+  System.Runtime.Serialization.Json.dll
+  System.Runtime.Serialization.Primitives.dll
+  System.Runtime.Serialization.Xml.dll
+  System.Security.Claims.dll
+  System.Security.Cryptography.Algorithms.dll
+  System.Security.Cryptography.Csp.dll
+  System.Security.Cryptography.Encoding.dll
+  System.Security.Cryptography.Primitives.dll
+  System.Security.Cryptography.X509Certificates.dll
+  System.Security.Principal.dll
+  System.Security.SecureString.dll
+  System.ServiceModel.Web.dll
+  System.Text.Encoding.dll
+  System.Text.Encoding.Extensions.dll
+  System.Text.RegularExpressions.dll
+  System.Threading.dll
+  System.Threading.Overlapped.dll
+  System.Threading.Tasks.dll
+  System.Threading.Tasks.Parallel.dll
+  System.Threading.Thread.dll
+  System.Threading.ThreadPool.dll
+  System.Threading.Timer.dll
+  System.Transactions.dll
+  System.ValueTuple.dll
+  System.Web.dll
+  System.Windows.dll
+  System.Xml.dll
+  System.Xml.Linq.dll
+  System.Xml.ReaderWriter.dll
+  System.Xml.Serialization.dll
+  System.Xml.XDocument.dll
+  System.Xml.XmlDocument.dll
+  System.Xml.XmlSerializer.dll
+  System.Xml.XPath.dll
+  System.Xml.XPath.XDocument.dll
+ skiasharp/2.80.2/lib/netstandard2.0/SkiaSharp.dll
+ system.buffers/4.4.0/ref/netstandard2.0/System.Buffers.dll
+ system.configuration.configurationmanager/4.5.0/ref/netstandard2.0/System.Configuration.ConfigurationManager.dll
+ system.memory/4.5.3/lib/netstandard2.0/System.Memory.dll
+ system.numerics.vectors/4.4.0/ref/netstandard2.0/System.Numerics.Vectors.dll
+ system.reflection.typeextensions/4.7.0/ref/netstandard2.0/System.Reflection.TypeExtensions.dll
+ system.resources.extensions/4.6.0/ref/netstandard2.0/System.Resources.Extensions.dll
+ system.runtime.compilerservices.unsafe/4.5.2/ref/netstandard2.0/System.Runtime.CompilerServices.Unsafe.dll
+ system.security.accesscontrol/4.7.0/ref/netstandard2.0/System.Security.AccessControl.dll
+ system.security.permissions/4.7.0/ref/netstandard2.0/System.Security.Permissions.dll
+ system.security.principal.windows/4.7.0/ref/netstandard2.0/System.Security.Principal.Windows.dll
+
+[analyzerConfigFiles]
+../../.editorconfig
+obj/Debug/netstandard2.0/GMap.NET.WindowsForms.GeneratedMSBuildEditorConfig.editorconfig

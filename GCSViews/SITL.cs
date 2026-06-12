@@ -1,8 +1,8 @@
 ﻿using GMap.NET;
 using GMap.NET.WindowsForms;
-using MissionPlanner.Controls;
-using MissionPlanner.Maps;
-using MissionPlanner.Utilities;
+using XagSurveillanceGCS.Controls;
+using XagSurveillanceGCS.Maps;
+using XagSurveillanceGCS.Utilities;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
@@ -19,9 +19,9 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using log4net;
-using MissionPlanner.ArduPilot;
+using XagSurveillanceGCS.ArduPilot;
 
-namespace MissionPlanner.GCSViews
+namespace XagSurveillanceGCS.GCSViews
 {
     public partial class SITL : MyUserControl, IActivate
     {
@@ -31,12 +31,12 @@ namespace MissionPlanner.GCSViews
         //https://regex101.com/r/cH3kV3/3
         Regex default_params_regex = new Regex(@"""([^""]+)""\s*:\s*\{\s*[^\{}]+""default_params_filename""\s*:\s*\[*""([^""]+)""\s*[^\}]*\}");
 
-        Uri sitlmasterurl = new Uri("https://firmware.ardupilot.org/Tools/MissionPlanner/sitl/");
-        Uri sitlbetaurl = new Uri("https://firmware.ardupilot.org/Tools/MissionPlanner/sitl/Beta/");
+        Uri sitlmasterurl = new Uri("https://firmware.ardupilot.org/Tools/XagSurveillanceGCS/sitl/");
+        Uri sitlbetaurl = new Uri("https://firmware.ardupilot.org/Tools/XagSurveillanceGCS/sitl/Beta/");
 
-        Uri sitlcopterstableurl = new Uri("https://firmware.ardupilot.org/Tools/MissionPlanner/sitl/CopterStable/");
-        Uri sitlplanestableurl = new Uri("https://firmware.ardupilot.org/Tools/MissionPlanner/sitl/PlaneStable/");
-        Uri sitlroverstableurl = new Uri("https://firmware.ardupilot.org/Tools/MissionPlanner/sitl/RoverStable/");
+        Uri sitlcopterstableurl = new Uri("https://firmware.ardupilot.org/Tools/XagSurveillanceGCS/sitl/CopterStable/");
+        Uri sitlplanestableurl = new Uri("https://firmware.ardupilot.org/Tools/XagSurveillanceGCS/sitl/PlaneStable/");
+        Uri sitlroverstableurl = new Uri("https://firmware.ardupilot.org/Tools/XagSurveillanceGCS/sitl/RoverStable/");
 
         string sitldirectory = Settings.GetUserDataDirectory() + "sitl" +
                                Path.DirectorySeparatorChar;
@@ -148,7 +148,7 @@ namespace MissionPlanner.GCSViews
 
             Utilities.ThemeManager.ApplyThemeTo(this);
 
-            MissionPlanner.Utilities.Tracking.AddPage(this.GetType().ToString(), this.Text);
+            XagSurveillanceGCS.Utilities.Tracking.AddPage(this.GetType().ToString(), this.Text);
         }
 
         private async void pictureBoxplane_Click(object sender, EventArgs e)
@@ -477,7 +477,7 @@ namespace MissionPlanner.GCSViews
             }
 
             if (await Download.getFilefromNetAsync(
-                    "https://firmware.ardupilot.org/Tools/MissionPlanner/vehicleinfo.py",
+                    "https://firmware.ardupilot.org/Tools/XagSurveillanceGCS/vehicleinfo.py",
                     sitldirectory + "vehicleinfo.py").ConfigureAwait(false) || File.Exists(sitldirectory + "vehicleinfo.py"))
             {
                 try

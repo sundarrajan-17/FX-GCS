@@ -1,6 +1,6 @@
 ﻿using log4net;
-using MissionPlanner.ArduPilot;
-using MissionPlanner.Utilities;
+using XagSurveillanceGCS.ArduPilot;
+using XagSurveillanceGCS.Utilities;
 using Newtonsoft.Json;
 using System;
 using System.Collections;
@@ -9,16 +9,16 @@ using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
 using System.Runtime.Serialization;
-using MissionPlanner.ArduPilot.Mavlink;
+using XagSurveillanceGCS.ArduPilot.Mavlink;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Runtime.CompilerServices;
 
-[assembly: InternalsVisibleTo("MissionPlanner")]
-[assembly: InternalsVisibleTo("MissionPlannerLib")]
+[assembly: InternalsVisibleTo("XagSurveillanceGCS")]
+[assembly: InternalsVisibleTo("XagSurveillanceGCSLib")]
 
-namespace MissionPlanner
+namespace XagSurveillanceGCS
 {
     public class MAVState : MAVLink, IDisposable
     {

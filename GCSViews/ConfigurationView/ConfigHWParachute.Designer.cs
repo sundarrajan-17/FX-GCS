@@ -1,4 +1,4 @@
-﻿namespace MissionPlanner.GCSViews.ConfigurationView
+﻿namespace XagSurveillanceGCS.GCSViews.ConfigurationView
 {
     partial class ConfigHWParachute
     {
@@ -38,11 +38,11 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.mavlinkComboBoxServoNum = new System.Windows.Forms.ComboBox();
-            this.mavlinkNumericUpDownMinAlt = new MissionPlanner.Controls.MavlinkNumericUpDown();
-            this.mavlinkNumericUpDownDeploy = new MissionPlanner.Controls.MavlinkNumericUpDown();
-            this.mavlinkNumericUpDownResting = new MissionPlanner.Controls.MavlinkNumericUpDown();
-            this.mavlinkComboBoxType = new MissionPlanner.Controls.MavlinkComboBox();
-            this.mavlinkCheckBoxEnable = new MissionPlanner.Controls.MavlinkCheckBox();
+            this.mavlinkNumericUpDownMinAlt = new XagSurveillanceGCS.Controls.MavlinkNumericUpDown();
+            this.mavlinkNumericUpDownDeploy = new XagSurveillanceGCS.Controls.MavlinkNumericUpDown();
+            this.mavlinkNumericUpDownResting = new XagSurveillanceGCS.Controls.MavlinkNumericUpDown();
+            this.mavlinkComboBoxType = new XagSurveillanceGCS.Controls.MavlinkComboBox();
+            this.mavlinkCheckBoxEnable = new XagSurveillanceGCS.Controls.MavlinkCheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mavlinkNumericUpDownMinAlt)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mavlinkNumericUpDownDeploy)).BeginInit();
@@ -64,9 +64,9 @@
             // 
             resources.ApplyResources(this.pictureBox3, "pictureBox3");
             this.pictureBox3.BackColor = System.Drawing.Color.White;
-            this.pictureBox3.BackgroundImage = global::MissionPlanner.Properties.Resources.sonar;
+            this.pictureBox3.BackgroundImage = global::XagSurveillanceGCS.Properties.Resources.sonar;
             this.pictureBox3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox3.Image = global::MissionPlanner.Properties.Resources.Parachute;
+            this.pictureBox3.Image = global::XagSurveillanceGCS.Properties.Resources.Parachute;
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.TabStop = false;
             // 

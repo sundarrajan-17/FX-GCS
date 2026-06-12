@@ -1,4 +1,4 @@
-﻿namespace MissionPlanner.Controls
+﻿namespace XagSurveillanceGCS.Controls
 {
     partial class AuxOptions
     {
@@ -30,16 +30,16 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AuxOptions));
-            this.BUT_Low = new MissionPlanner.Controls.MyButton();
+            this.BUT_Low = new XagSurveillanceGCS.Controls.MyButton();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.renameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.BUT_High = new MissionPlanner.Controls.MyButton();
+            this.BUT_High = new XagSurveillanceGCS.Controls.MyButton();
             this.TXT_highvalue = new System.Windows.Forms.TextBox();
             this.TXT_rcchannel = new System.Windows.Forms.Label();
-            this.but_mid = new MissionPlanner.Controls.MyButton();
+            this.but_mid = new XagSurveillanceGCS.Controls.MyButton();
             this.txt_midvalue = new System.Windows.Forms.TextBox();
             this.TXT_low_value = new System.Windows.Forms.TextBox();
-            this.mavlinkComboBox1 = new MissionPlanner.Controls.MavlinkComboBox();
+            this.mavlinkComboBox1 = new XagSurveillanceGCS.Controls.MavlinkComboBox();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 

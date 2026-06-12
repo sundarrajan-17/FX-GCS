@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace MissionPlanner {
+namespace XagSurveillanceGCS {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace MissionPlanner {
         public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("MissionPlanner.Strings", typeof(Strings).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("XagSurveillanceGCS.Strings", typeof(Strings).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -1184,7 +1184,7 @@ namespace MissionPlanner {
         
         /// <summary>
         ///   Looks up a localized string similar to Only 1 Mavlink Heartbeat Packets was read from this port - Verify your hardware is setup correctly
-        ///Mission Planner waits for 2 valid heartbeat packets before connecting.
+        ///XagSurveillanceGCS waits for 2 valid heartbeat packets before connecting.
         /// </summary>
         public static string Only1HbD {
             get {
@@ -1249,7 +1249,7 @@ namespace MissionPlanner {
         
         /// <summary>
         ///   Looks up a localized string similar to Please unplug the board, and then press OK and plug back in.
-        ///Mission Planner will look for 30 seconds to find the board.
+        ///XagSurveillanceGCS will look for 30 seconds to find the board.
         /// </summary>
         public static string PleaseUnplugTheBoardAnd {
             get {
@@ -1476,7 +1476,7 @@ namespace MissionPlanner {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to This board has been retired, Mission Planner this will upload the last available version to your board (AC 3.2.1/AP 3.4.0).
+        ///   Looks up a localized string similar to This board has been retired, XagSurveillanceGCS this will upload the last available version to your board (AC 3.2.1/AP 3.4.0).
         /// </summary>
         public static string ThisBoardHasBeenRetired {
             get {

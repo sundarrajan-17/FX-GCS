@@ -1,0 +1,137 @@
+version=1
+
+# This file caches language service data to improve the performance of C# Dev Kit.
+# It is not intended for manual editing. It can safely be deleted and will be
+# regenerated automatically. For more information, see https://aka.ms/lscache
+#
+# To control where cache files are stored, use the following VS Code setting:
+#   "dotnet.projectsystem.cacheInProjectFolder": true
+
+[project]
+language=C#
+primary
+lastDtbSucceeded
+
+[properties]
+AssemblyName=Xamarin.Forms.Platform.WinForms
+CommandLineArgsForDesignTimeEvaluation=-langversion:7.3 -define:TRACE
+CompilerGeneratedFilesOutputPath=
+MaxSupportedLangVersion=7.3
+ProjectAssetsFile=<PATH>obj/project.assets.json
+RootNamespace=Xamarin.Forms.Platform.WinForms
+RunAnalyzers=
+RunAnalyzersDuringLiveAnalysis=
+SolutionPath=*Undefined*
+TargetFrameworkIdentifier=.NETFramework
+TargetPath=<PATH>bin/Debug/net472/Xamarin.Forms.Platform.WinForms.dll
+TargetRefPath=
+TemporaryDependencyNodeTargetIdentifier=net472
+
+[commandLineArguments]
+/noconfig
+/unsafe-
+/checked-
+/nowarn:1701,1702,1701,1702
+/fullpaths
+/nostdlib+
+/errorreport:prompt
+/warn:4
+/define:TRACE;DEBUG;NETFRAMEWORK;NET472;NET20_OR_GREATER;NET30_OR_GREATER;NET35_OR_GREATER;NET40_OR_GREATER;NET45_OR_GREATER;NET451_OR_GREATER;NET452_OR_GREATER;NET46_OR_GREATER;NET461_OR_GREATER;NET462_OR_GREATER;NET47_OR_GREATER;NET471_OR_GREATER;NET472_OR_GREATER
+/highentropyva+
+/debug+
+/debug:full
+/filealign:512
+/optimize-
+/out:obj\Debug\net472\Xamarin.Forms.Platform.WinForms.dll
+/subsystemversion:6.00
+/target:library
+/warnaserror-
+/utf8output
+/deterministic+
+/langversion:7.3
+/warnaserror+:NU1605
+
+[sourceFiles]
+Controls/
+ ILogicalChildrenContainer.cs
+ WFormsCarouselPage.cs
+ WFormsSearchBar.cs
+ConvertExtensions.cs
+DrawingViewRenderer.cs
+ExportRendererAttribute.cs
+Extensions.cs
+Forms.cs
+IVisualElementRenderer.cs
+obj/Debug/net472/
+ .NETFramework,Version=v4.7.2.AssemblyAttributes.cs
+ Xamarin.Forms.Platform.WinForms.AssemblyInfo.cs
+Platform.cs
+PlatformRenderer.cs
+Properties/AssemblyInfo.cs
+Renderers/
+ ActivityIndicatorRenderer.cs
+ BoxViewRenderer.cs
+ ButtonRenderer.cs
+ CarouselInternalPageRenderer.cs
+ CarouselPageRenderer.cs
+ DatePickerRenderer.cs
+ DefaultRenderer.cs
+ EditorRenderer.cs
+ EntryRenderer.cs
+ FrameRenderer.cs
+ ImageButtonRenderer.cs
+ ImageRenderer.cs
+ LabelRenderer.cs
+ LayoutRenderer.cs
+ MultiPageRenderer.cs
+ OpenGLViewRenderer.cs
+ PageRenderer.cs
+ PickerRenderer.cs
+ ProgressBarRenderer.cs
+ ScrollViewRenderer.cs
+ SearchBarRenderer.cs
+ SliderRenderer.cs
+ StepperRenderer.cs
+ SwitchRenderer.cs
+ TabbedInternalPageRenderer.cs
+ TabbedPageRenderer.cs
+ WebViewRenderer.cs
+ViewRenderer.cs
+VisualElementChangedEventArgs.cs
+VisualElementExtensions.cs
+VisualElementPackager.cs
+VisualElementRenderer.cs
+VisualElementRendererCollection.cs
+VisualElementTracker.cs
+WinFormsDeviceInfo.cs
+WinFormsExpressionSearch.cs
+WinFormsIsolatedStorage.cs
+WinFormsPlatformServices.cs
+WinFormsSystemResourcesProvider.cs
+WinFormsTicker.cs
+
+[metadataReferences]
+<NETFXREF>/v4.7.2/
+ Facades/netstandard.dll
+ Microsoft.CSharp.dll
+ mscorlib.dll
+ System.Core.dll
+ System.Data.DataSetExtensions.dll
+ System.Data.dll
+ System.dll
+ System.Drawing.dll
+ System.IO.Compression.FileSystem.dll
+ System.Net.Http.dll
+ System.Numerics.dll
+ System.Runtime.Serialization.dll
+ System.Windows.Forms.dll
+ System.Xml.dll
+ System.Xml.Linq.dll
+<NUGET>/xamarin.forms/5.0.0.2012/lib/netstandard2.0/
+ Xamarin.Forms.Core.dll
+ Xamarin.Forms.Platform.dll
+ Xamarin.Forms.Xaml.dll
+
+[analyzerConfigFiles]
+../../.editorconfig
+obj/Debug/net472/Xamarin.Forms.Platform.WinForms.GeneratedMSBuildEditorConfig.editorconfig

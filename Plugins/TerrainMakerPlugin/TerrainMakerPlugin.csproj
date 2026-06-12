@@ -54,21 +54,21 @@
       <Project>{13d2ec90-c41f-48a1-aada-859b6dc24edc}</Project>
       <Name>MAVLink</Name>
     </ProjectReference>
-    <ProjectReference Include="$(SolutionDir)MissionPlanner.csproj">
+    <ProjectReference Include="$(SolutionDir)XagSurveillanceGCS.csproj">
       <Project>{a2e22272-95fe-47b6-b050-9ae7e2055bf5}</Project>
-      <Name>MissionPlanner</Name>
+      <Name>XagSurveillanceGCS</Name>
     </ProjectReference>
-    <ProjectReference Include="$(SolutionDir)ExtLibs\ArduPilot\MissionPlanner.ArduPilot.csproj">
+    <ProjectReference Include="$(SolutionDir)ExtLibs\ArduPilot\XagSurveillanceGCS.ArduPilot.csproj">
       <Project>{ca6345d3-7a6d-478b-a0ed-a58e50dcaa83}</Project>
-      <Name>MissionPlanner.ArduPilot</Name>
+      <Name>XagSurveillanceGCS.ArduPilot</Name>
     </ProjectReference>
-    <ProjectReference Include="$(SolutionDir)ExtLibs\Comms\MissionPlanner.Comms.csproj">
+    <ProjectReference Include="$(SolutionDir)ExtLibs\Comms\XagSurveillanceGCS.Comms.csproj">
       <Project>{825e7a10-390c-4a2b-b3a8-491d14966912}</Project>
-      <Name>MissionPlanner.Comms</Name>
+      <Name>XagSurveillanceGCS.Comms</Name>
     </ProjectReference>
-    <ProjectReference Include="$(SolutionDir)ExtLibs\Controls\MissionPlanner.Controls.csproj">
+    <ProjectReference Include="$(SolutionDir)ExtLibs\Controls\XagSurveillanceGCS.Controls.csproj">
       <Project>{c8b88795-6d01-494d-83ad-6944bd4c5023}</Project>
-      <Name>MissionPlanner.Controls</Name>
+      <Name>XagSurveillanceGCS.Controls</Name>
     </ProjectReference>
     <ProjectReference Include="$(SolutionDir)ExtLibs\GeoUtility\GeoUtility.csproj">
       <Project>{7f7994ce-823f-4a04-bbea-d0a3808ff56d}</Project>
@@ -82,9 +82,9 @@
       <Project>{e06def77-f933-42fb-afd7-db2d0d8d6a98}</Project>
       <Name>GMap.NET.WindowsForms</Name>
     </ProjectReference>
-    <ProjectReference Include="$(SolutionDir)ExtLibs\Utilities\MissionPlanner.Utilities.csproj">
+    <ProjectReference Include="$(SolutionDir)ExtLibs\Utilities\XagSurveillanceGCS.Utilities.csproj">
       <Project>{1378a66c-38e4-46f5-a05f-dc04ef7d4d16}</Project>
-      <Name>MissionPlanner.Utilities</Name>
+      <Name>XagSurveillanceGCS.Utilities</Name>
     </ProjectReference>
     <ProjectReference Include="$(SolutionDir)ExtLibs\GMap.NET.Drawing\GMap.NET.Drawing.csproj">
       <Project>{d773accd-9c2d-4e94-a967-faa7ea2d21cb}</Project>
@@ -94,13 +94,13 @@
       <Project>{FD4D2994-9BEA-41A1-8C51-2E02D1E8503E}</Project>
       <Name>Interfaces</Name>
     </ProjectReference>
-    <ProjectReference Include="$(SolutionDir)ExtLibs\Maps\MissionPlanner.Maps.csproj">
+    <ProjectReference Include="$(SolutionDir)ExtLibs\Maps\XagSurveillanceGCS.Maps.csproj">
       <Project>{6c4ff9c3-7aff-4274-b8fc-4a93a1faadea}</Project>
-      <Name>MissionPlanner.Maps</Name>
+      <Name>XagSurveillanceGCS.Maps</Name>
     </ProjectReference>
-    <ProjectReference Include="$(SolutionDir)ExtLibs\MissionPlanner.Drawing\MissionPlanner.Drawing.csproj">
+    <ProjectReference Include="$(SolutionDir)ExtLibs\XagSurveillanceGCS.Drawing\XagSurveillanceGCS.Drawing.csproj">
       <Project>{6974d22c-ede6-4bb2-aad2-ff23ed6ec165}</Project>
-      <Name>MissionPlanner.Drawing</Name>
+      <Name>XagSurveillanceGCS.Drawing</Name>
       <Aliases>Drawing</Aliases>
     </ProjectReference>
     <ProjectReference Include="$(SolutionDir)ExtLibs\SvgNet\SvgNet.csproj">

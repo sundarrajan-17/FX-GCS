@@ -2,10 +2,10 @@
 import math
 import clr
 import time
-clr.AddReference("MissionPlanner")
-import MissionPlanner
-clr.AddReference("MissionPlanner.Utilities") # includes the Utilities class
-from MissionPlanner.Utilities import Locationwp
+clr.AddReference("XagSurveillanceGCS")
+import XagSurveillanceGCS
+clr.AddReference("XagSurveillanceGCS.Utilities") # includes the Utilities class
+from XagSurveillanceGCS.Utilities import Locationwp
 
 def gps_distance(lat1, lon1, lat2, lon2):
 	'''return distance between two points in meters,
@@ -45,7 +45,7 @@ target = (-35, 117.98) # gps pos of target in degrees
 time.sleep(5) # wait 10 seconds before starting
 print 'Starting Mission'
 Script.ChangeMode("Guided") # changes mode to "Guided"
-item = MissionPlanner.Utilities.Locationwp() # creating waypoint
+item = XagSurveillanceGCS.Utilities.Locationwp() # creating waypoint
 
 alt = 60.000000 # altitude value
 Locationwp.lat.SetValue(item,target[0]) # sets latitude

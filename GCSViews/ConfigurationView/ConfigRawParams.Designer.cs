@@ -1,6 +1,6 @@
-using MissionPlanner.Controls;
+using XagSurveillanceGCS.Controls;
 
-namespace MissionPlanner.GCSViews.ConfigurationView
+namespace XagSurveillanceGCS.GCSViews.ConfigurationView
 {
     partial class ConfigRawParams
     {
@@ -36,25 +36,25 @@ namespace MissionPlanner.GCSViews.ConfigurationView
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.BUT_compare = new MissionPlanner.Controls.MyButton();
-            this.BUT_rerequestparams = new MissionPlanner.Controls.MyButton();
-            this.BUT_writePIDS = new MissionPlanner.Controls.MyButton();
-            this.BUT_save = new MissionPlanner.Controls.MyButton();
-            this.BUT_load = new MissionPlanner.Controls.MyButton();
+            this.BUT_compare = new XagSurveillanceGCS.Controls.MyButton();
+            this.BUT_rerequestparams = new XagSurveillanceGCS.Controls.MyButton();
+            this.BUT_writePIDS = new XagSurveillanceGCS.Controls.MyButton();
+            this.BUT_save = new XagSurveillanceGCS.Controls.MyButton();
+            this.BUT_load = new XagSurveillanceGCS.Controls.MyButton();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.label1 = new System.Windows.Forms.Label();
-            this.BUT_paramfileload = new MissionPlanner.Controls.MyButton();
+            this.BUT_paramfileload = new XagSurveillanceGCS.Controls.MyButton();
             this.CMB_paramfiles = new System.Windows.Forms.ComboBox();
-            this.BUT_reset_params = new MissionPlanner.Controls.MyButton();
+            this.BUT_reset_params = new XagSurveillanceGCS.Controls.MyButton();
             this.txt_search = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.BUT_commitToFlash = new MissionPlanner.Controls.MyButton();
+            this.BUT_commitToFlash = new XagSurveillanceGCS.Controls.MyButton();
             this.chk_modified = new System.Windows.Forms.CheckBox();
-            this.BUT_refreshTable = new MissionPlanner.Controls.MyButton();
+            this.BUT_refreshTable = new XagSurveillanceGCS.Controls.MyButton();
             this.chk_none_default = new System.Windows.Forms.CheckBox();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.treeView1 = new System.Windows.Forms.TreeView();
-            this.Params = new MissionPlanner.Controls.MyDataGridView();
+            this.Params = new XagSurveillanceGCS.Controls.MyDataGridView();
             this.Command = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Value = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Default_value = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -62,7 +62,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
             this.Options = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Desc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Fav = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.but_collapse = new MissionPlanner.Controls.MyButton();
+            this.but_collapse = new XagSurveillanceGCS.Controls.MyButton();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();

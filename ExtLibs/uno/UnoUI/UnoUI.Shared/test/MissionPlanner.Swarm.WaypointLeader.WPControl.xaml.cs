@@ -1,1 +1,1 @@
-namespace MissionPlanner.Swarm.WaypointLeader { public partial class WPControl{public WPControl(){this.InitializeComponent();}}}
+namespace XagSurveillanceGCS.Swarm.WaypointLeader { public partial class WPControl{public WPControl(){this.InitializeComponent();}}}

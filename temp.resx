@@ -145,7 +145,7 @@
     <value>BUT_forcecal_accel</value>
   </data>
   <data name="&gt;&gt;BUT_forcecal_accel.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.MyButton, MissionPlanner.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>XagSurveillanceGCS.Controls.MyButton, XagSurveillanceGCS.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;BUT_forcecal_accel.Parent" xml:space="preserve">
     <value>tableLayoutPanel1</value>
@@ -175,7 +175,7 @@
     <value>BUT_forcecal_mag</value>
   </data>
   <data name="&gt;&gt;BUT_forcecal_mag.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.MyButton, MissionPlanner.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>XagSurveillanceGCS.Controls.MyButton, XagSurveillanceGCS.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;BUT_forcecal_mag.Parent" xml:space="preserve">
     <value>tableLayoutPanel1</value>
@@ -202,7 +202,7 @@
     <value>but_apjtool</value>
   </data>
   <data name="&gt;&gt;but_apjtool.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.MyButton, MissionPlanner.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>XagSurveillanceGCS.Controls.MyButton, XagSurveillanceGCS.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;but_apjtool.Parent" xml:space="preserve">
     <value>tableLayoutPanel1</value>
@@ -232,7 +232,7 @@
     <value>BUT_CoT</value>
   </data>
   <data name="&gt;&gt;BUT_CoT.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.MyButton, MissionPlanner.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>XagSurveillanceGCS.Controls.MyButton, XagSurveillanceGCS.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;BUT_CoT.Parent" xml:space="preserve">
     <value>tableLayoutPanel1</value>
@@ -262,7 +262,7 @@
     <value>but_proximity</value>
   </data>
   <data name="&gt;&gt;but_proximity.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.MyButton, MissionPlanner.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>XagSurveillanceGCS.Controls.MyButton, XagSurveillanceGCS.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;but_proximity.Parent" xml:space="preserve">
     <value>tableLayoutPanel1</value>
@@ -292,7 +292,7 @@
     <value>but_followswarm</value>
   </data>
   <data name="&gt;&gt;but_followswarm.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.MyButton, MissionPlanner.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>XagSurveillanceGCS.Controls.MyButton, XagSurveillanceGCS.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;but_followswarm.Parent" xml:space="preserve">
     <value>tableLayoutPanel1</value>
@@ -352,7 +352,7 @@
     <value>but_lockup</value>
   </data>
   <data name="&gt;&gt;but_lockup.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.MyButton, MissionPlanner.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>XagSurveillanceGCS.Controls.MyButton, XagSurveillanceGCS.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;but_lockup.Parent" xml:space="preserve">
     <value>tableLayoutPanel1</value>
@@ -382,7 +382,7 @@
     <value>but_td</value>
   </data>
   <data name="&gt;&gt;but_td.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.MyButton, MissionPlanner.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>XagSurveillanceGCS.Controls.MyButton, XagSurveillanceGCS.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;but_td.Parent" xml:space="preserve">
     <value>tableLayoutPanel1</value>
@@ -412,7 +412,7 @@
     <value>but_gpsinj</value>
   </data>
   <data name="&gt;&gt;but_gpsinj.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.MyButton, MissionPlanner.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>XagSurveillanceGCS.Controls.MyButton, XagSurveillanceGCS.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;but_gpsinj.Parent" xml:space="preserve">
     <value>tableLayoutPanel1</value>
@@ -442,7 +442,7 @@
     <value>but_dem</value>
   </data>
   <data name="&gt;&gt;but_dem.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.MyButton, MissionPlanner.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>XagSurveillanceGCS.Controls.MyButton, XagSurveillanceGCS.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;but_dem.Parent" xml:space="preserve">
     <value>tableLayoutPanel1</value>
@@ -472,7 +472,7 @@
     <value>BUT_magfit2</value>
   </data>
   <data name="&gt;&gt;BUT_magfit2.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.MyButton, MissionPlanner.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>XagSurveillanceGCS.Controls.MyButton, XagSurveillanceGCS.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;BUT_magfit2.Parent" xml:space="preserve">
     <value>tableLayoutPanel1</value>
@@ -502,7 +502,7 @@
     <value>but_GDAL</value>
   </data>
   <data name="&gt;&gt;but_GDAL.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.MyButton, MissionPlanner.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>XagSurveillanceGCS.Controls.MyButton, XagSurveillanceGCS.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;but_GDAL.Parent" xml:space="preserve">
     <value>tableLayoutPanel1</value>
@@ -532,7 +532,7 @@
     <value>but_sortlogs</value>
   </data>
   <data name="&gt;&gt;but_sortlogs.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.MyButton, MissionPlanner.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>XagSurveillanceGCS.Controls.MyButton, XagSurveillanceGCS.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;but_sortlogs.Parent" xml:space="preserve">
     <value>tableLayoutPanel1</value>
@@ -562,7 +562,7 @@
     <value>but_optflowcalib</value>
   </data>
   <data name="&gt;&gt;but_optflowcalib.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.MyButton, MissionPlanner.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>XagSurveillanceGCS.Controls.MyButton, XagSurveillanceGCS.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;but_optflowcalib.Parent" xml:space="preserve">
     <value>tableLayoutPanel1</value>
@@ -592,7 +592,7 @@
     <value>but_logdlscp</value>
   </data>
   <data name="&gt;&gt;but_logdlscp.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.MyButton, MissionPlanner.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>XagSurveillanceGCS.Controls.MyButton, XagSurveillanceGCS.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;but_logdlscp.Parent" xml:space="preserve">
     <value>tableLayoutPanel1</value>
@@ -622,7 +622,7 @@
     <value>but_signkey</value>
   </data>
   <data name="&gt;&gt;but_signkey.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.MyButton, MissionPlanner.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>XagSurveillanceGCS.Controls.MyButton, XagSurveillanceGCS.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;but_signkey.Parent" xml:space="preserve">
     <value>tableLayoutPanel1</value>
@@ -652,7 +652,7 @@
     <value>but_acbarohight</value>
   </data>
   <data name="&gt;&gt;but_acbarohight.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.MyButton, MissionPlanner.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>XagSurveillanceGCS.Controls.MyButton, XagSurveillanceGCS.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;but_acbarohight.Parent" xml:space="preserve">
     <value>tableLayoutPanel1</value>
@@ -682,7 +682,7 @@
     <value>myButton1</value>
   </data>
   <data name="&gt;&gt;myButton1.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.MyButton, MissionPlanner.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>XagSurveillanceGCS.Controls.MyButton, XagSurveillanceGCS.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;myButton1.Parent" xml:space="preserve">
     <value>tableLayoutPanel1</value>
@@ -712,7 +712,7 @@
     <value>but_driverclean</value>
   </data>
   <data name="&gt;&gt;but_driverclean.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.MyButton, MissionPlanner.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>XagSurveillanceGCS.Controls.MyButton, XagSurveillanceGCS.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;but_driverclean.Parent" xml:space="preserve">
     <value>tableLayoutPanel1</value>
@@ -742,7 +742,7 @@
     <value>but_agemapdata</value>
   </data>
   <data name="&gt;&gt;but_agemapdata.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.MyButton, MissionPlanner.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>XagSurveillanceGCS.Controls.MyButton, XagSurveillanceGCS.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;but_agemapdata.Parent" xml:space="preserve">
     <value>tableLayoutPanel1</value>
@@ -772,7 +772,7 @@
     <value>but_packetbytes</value>
   </data>
   <data name="&gt;&gt;but_packetbytes.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.MyButton, MissionPlanner.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>XagSurveillanceGCS.Controls.MyButton, XagSurveillanceGCS.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;but_packetbytes.Parent" xml:space="preserve">
     <value>tableLayoutPanel1</value>
@@ -802,7 +802,7 @@
     <value>myButton_vlc</value>
   </data>
   <data name="&gt;&gt;myButton_vlc.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.MyButton, MissionPlanner.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>XagSurveillanceGCS.Controls.MyButton, XagSurveillanceGCS.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;myButton_vlc.Parent" xml:space="preserve">
     <value>tableLayoutPanel1</value>
@@ -862,7 +862,7 @@
     <value>but_trimble</value>
   </data>
   <data name="&gt;&gt;but_trimble.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.MyButton, MissionPlanner.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>XagSurveillanceGCS.Controls.MyButton, XagSurveillanceGCS.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;but_trimble.Parent" xml:space="preserve">
     <value>tableLayoutPanel1</value>
@@ -892,7 +892,7 @@
     <value>but_hwids</value>
   </data>
   <data name="&gt;&gt;but_hwids.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.MyButton, MissionPlanner.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>XagSurveillanceGCS.Controls.MyButton, XagSurveillanceGCS.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;but_hwids.Parent" xml:space="preserve">
     <value>tableLayoutPanel1</value>
@@ -922,7 +922,7 @@
     <value>BUT_QNH</value>
   </data>
   <data name="&gt;&gt;BUT_QNH.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.MyButton, MissionPlanner.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>XagSurveillanceGCS.Controls.MyButton, XagSurveillanceGCS.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;BUT_QNH.Parent" xml:space="preserve">
     <value>tableLayoutPanel1</value>
@@ -952,7 +952,7 @@
     <value>but_reboot</value>
   </data>
   <data name="&gt;&gt;but_reboot.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.MyButton, MissionPlanner.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>XagSurveillanceGCS.Controls.MyButton, XagSurveillanceGCS.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;but_reboot.Parent" xml:space="preserve">
     <value>tableLayoutPanel1</value>
@@ -982,7 +982,7 @@
     <value>but_3dmap</value>
   </data>
   <data name="&gt;&gt;but_3dmap.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.MyButton, MissionPlanner.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>XagSurveillanceGCS.Controls.MyButton, XagSurveillanceGCS.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;but_3dmap.Parent" xml:space="preserve">
     <value>tableLayoutPanel1</value>
@@ -1012,7 +1012,7 @@
     <value>but_messageinterval</value>
   </data>
   <data name="&gt;&gt;but_messageinterval.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.MyButton, MissionPlanner.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>XagSurveillanceGCS.Controls.MyButton, XagSurveillanceGCS.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;but_messageinterval.Parent" xml:space="preserve">
     <value>tableLayoutPanel1</value>
@@ -1042,7 +1042,7 @@
     <value>but_blupdate</value>
   </data>
   <data name="&gt;&gt;but_blupdate.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.MyButton, MissionPlanner.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>XagSurveillanceGCS.Controls.MyButton, XagSurveillanceGCS.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;but_blupdate.Parent" xml:space="preserve">
     <value>tableLayoutPanel1</value>
@@ -1072,7 +1072,7 @@
     <value>BUT_fft</value>
   </data>
   <data name="&gt;&gt;BUT_fft.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.MyButton, MissionPlanner.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>XagSurveillanceGCS.Controls.MyButton, XagSurveillanceGCS.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;BUT_fft.Parent" xml:space="preserve">
     <value>tableLayoutPanel1</value>
@@ -1102,7 +1102,7 @@
     <value>but_disablearmswitch</value>
   </data>
   <data name="&gt;&gt;but_disablearmswitch.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.MyButton, MissionPlanner.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>XagSurveillanceGCS.Controls.MyButton, XagSurveillanceGCS.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;but_disablearmswitch.Parent" xml:space="preserve">
     <value>tableLayoutPanel1</value>
@@ -1132,7 +1132,7 @@
     <value>but_paramrestore</value>
   </data>
   <data name="&gt;&gt;but_paramrestore.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.MyButton, MissionPlanner.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>XagSurveillanceGCS.Controls.MyButton, XagSurveillanceGCS.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;but_paramrestore.Parent" xml:space="preserve">
     <value>tableLayoutPanel1</value>
@@ -1162,7 +1162,7 @@
     <value>but_mavinspector</value>
   </data>
   <data name="&gt;&gt;but_mavinspector.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.MyButton, MissionPlanner.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>XagSurveillanceGCS.Controls.MyButton, XagSurveillanceGCS.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;but_mavinspector.Parent" xml:space="preserve">
     <value>tableLayoutPanel1</value>
@@ -1192,7 +1192,7 @@
     <value>but_sitl_comb</value>
   </data>
   <data name="&gt;&gt;but_sitl_comb.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.MyButton, MissionPlanner.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>XagSurveillanceGCS.Controls.MyButton, XagSurveillanceGCS.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;but_sitl_comb.Parent" xml:space="preserve">
     <value>tableLayoutPanel1</value>
@@ -1222,7 +1222,7 @@
     <value>but_anonlog</value>
   </data>
   <data name="&gt;&gt;but_anonlog.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.MyButton, MissionPlanner.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>XagSurveillanceGCS.Controls.MyButton, XagSurveillanceGCS.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;but_anonlog.Parent" xml:space="preserve">
     <value>tableLayoutPanel1</value>
@@ -1252,7 +1252,7 @@
     <value>but_dashware</value>
   </data>
   <data name="&gt;&gt;but_dashware.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.MyButton, MissionPlanner.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>XagSurveillanceGCS.Controls.MyButton, XagSurveillanceGCS.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;but_dashware.Parent" xml:space="preserve">
     <value>tableLayoutPanel1</value>
@@ -1522,7 +1522,7 @@
     <value>butlogindex</value>
   </data>
   <data name="&gt;&gt;butlogindex.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.MyButton, MissionPlanner.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>XagSurveillanceGCS.Controls.MyButton, XagSurveillanceGCS.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;butlogindex.Parent" xml:space="preserve">
     <value>tableLayoutPanel1</value>
@@ -1552,7 +1552,7 @@
     <value>but_armandtakeoff</value>
   </data>
   <data name="&gt;&gt;but_armandtakeoff.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.MyButton, MissionPlanner.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>XagSurveillanceGCS.Controls.MyButton, XagSurveillanceGCS.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;but_armandtakeoff.Parent" xml:space="preserve">
     <value>tableLayoutPanel1</value>
@@ -1582,7 +1582,7 @@
     <value>but_maplogs</value>
   </data>
   <data name="&gt;&gt;but_maplogs.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.MyButton, MissionPlanner.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>XagSurveillanceGCS.Controls.MyButton, XagSurveillanceGCS.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;but_maplogs.Parent" xml:space="preserve">
     <value>tableLayoutPanel1</value>
@@ -1642,7 +1642,7 @@
     <value>but_gimbaltest</value>
   </data>
   <data name="&gt;&gt;but_gimbaltest.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.MyButton, MissionPlanner.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>XagSurveillanceGCS.Controls.MyButton, XagSurveillanceGCS.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;but_gimbaltest.Parent" xml:space="preserve">
     <value>tableLayoutPanel1</value>
@@ -1672,7 +1672,7 @@
     <value>but_structtest</value>
   </data>
   <data name="&gt;&gt;but_structtest.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.MyButton, MissionPlanner.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>XagSurveillanceGCS.Controls.MyButton, XagSurveillanceGCS.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;but_structtest.Parent" xml:space="preserve">
     <value>tableLayoutPanel1</value>
@@ -1882,7 +1882,7 @@
     <value>BUT_clearcustommaps</value>
   </data>
   <data name="&gt;&gt;BUT_clearcustommaps.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.MyButton, MissionPlanner.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>XagSurveillanceGCS.Controls.MyButton, XagSurveillanceGCS.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;BUT_clearcustommaps.Parent" xml:space="preserve">
     <value>tableLayoutPanel1</value>
@@ -1912,7 +1912,7 @@
     <value>but_getfw</value>
   </data>
   <data name="&gt;&gt;but_getfw.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.MyButton, MissionPlanner.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>XagSurveillanceGCS.Controls.MyButton, XagSurveillanceGCS.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;but_getfw.Parent" xml:space="preserve">
     <value>tableLayoutPanel1</value>
@@ -1942,7 +1942,7 @@
     <value>BUT_geinjection</value>
   </data>
   <data name="&gt;&gt;BUT_geinjection.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.MyButton, MissionPlanner.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>XagSurveillanceGCS.Controls.MyButton, XagSurveillanceGCS.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;BUT_geinjection.Parent" xml:space="preserve">
     <value>tableLayoutPanel1</value>
@@ -2032,7 +2032,7 @@
     <value>BUT_sorttlogs</value>
   </data>
   <data name="&gt;&gt;BUT_sorttlogs.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.MyButton, MissionPlanner.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>XagSurveillanceGCS.Controls.MyButton, XagSurveillanceGCS.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;BUT_sorttlogs.Parent" xml:space="preserve">
     <value>tableLayoutPanel1</value>
@@ -2212,7 +2212,7 @@
     <value>BUT_outputMavlink</value>
   </data>
   <data name="&gt;&gt;BUT_outputMavlink.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.MyButton, MissionPlanner.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>XagSurveillanceGCS.Controls.MyButton, XagSurveillanceGCS.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;BUT_outputMavlink.Parent" xml:space="preserve">
     <value>tableLayoutPanel1</value>
@@ -2242,7 +2242,7 @@
     <value>BUT_outputMD</value>
   </data>
   <data name="&gt;&gt;BUT_outputMD.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.MyButton, MissionPlanner.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>XagSurveillanceGCS.Controls.MyButton, XagSurveillanceGCS.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;BUT_outputMD.Parent" xml:space="preserve">
     <value>tableLayoutPanel1</value>
@@ -2272,7 +2272,7 @@
     <value>BUT_outputnmea</value>
   </data>
   <data name="&gt;&gt;BUT_outputnmea.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.MyButton, MissionPlanner.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>XagSurveillanceGCS.Controls.MyButton, XagSurveillanceGCS.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;BUT_outputnmea.Parent" xml:space="preserve">
     <value>tableLayoutPanel1</value>
@@ -2302,7 +2302,7 @@
     <value>BUT_georefimage</value>
   </data>
   <data name="&gt;&gt;BUT_georefimage.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.MyButton, MissionPlanner.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>XagSurveillanceGCS.Controls.MyButton, XagSurveillanceGCS.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;BUT_georefimage.Parent" xml:space="preserve">
     <value>tableLayoutPanel1</value>
@@ -2332,7 +2332,7 @@
     <value>button3</value>
   </data>
   <data name="&gt;&gt;button3.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.MyButton, MissionPlanner.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>XagSurveillanceGCS.Controls.MyButton, XagSurveillanceGCS.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;button3.Parent" xml:space="preserve">
     <value>tableLayoutPanel1</value>
@@ -2362,7 +2362,7 @@
     <value>BUT_lang_edit</value>
   </data>
   <data name="&gt;&gt;BUT_lang_edit.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.MyButton, MissionPlanner.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>XagSurveillanceGCS.Controls.MyButton, XagSurveillanceGCS.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;BUT_lang_edit.Parent" xml:space="preserve">
     <value>tableLayoutPanel1</value>
@@ -2392,7 +2392,7 @@
     <value>BUT_follow_me</value>
   </data>
   <data name="&gt;&gt;BUT_follow_me.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.MyButton, MissionPlanner.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>XagSurveillanceGCS.Controls.MyButton, XagSurveillanceGCS.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;BUT_follow_me.Parent" xml:space="preserve">
     <value>tableLayoutPanel1</value>
@@ -2422,7 +2422,7 @@
     <value>BUT_paramgen</value>
   </data>
   <data name="&gt;&gt;BUT_paramgen.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.MyButton, MissionPlanner.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>XagSurveillanceGCS.Controls.MyButton, XagSurveillanceGCS.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;BUT_paramgen.Parent" xml:space="preserve">
     <value>tableLayoutPanel1</value>
@@ -2452,7 +2452,7 @@
     <value>but_osdvideo</value>
   </data>
   <data name="&gt;&gt;but_osdvideo.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.MyButton, MissionPlanner.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>XagSurveillanceGCS.Controls.MyButton, XagSurveillanceGCS.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;but_osdvideo.Parent" xml:space="preserve">
     <value>tableLayoutPanel1</value>
@@ -2482,7 +2482,7 @@
     <value>BUT_movingbase</value>
   </data>
   <data name="&gt;&gt;BUT_movingbase.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.MyButton, MissionPlanner.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>XagSurveillanceGCS.Controls.MyButton, XagSurveillanceGCS.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;BUT_movingbase.Parent" xml:space="preserve">
     <value>tableLayoutPanel1</value>
@@ -2512,7 +2512,7 @@
     <value>BUT_shptopoly</value>
   </data>
   <data name="&gt;&gt;BUT_shptopoly.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.MyButton, MissionPlanner.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>XagSurveillanceGCS.Controls.MyButton, XagSurveillanceGCS.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;BUT_shptopoly.Parent" xml:space="preserve">
     <value>tableLayoutPanel1</value>
@@ -2542,7 +2542,7 @@
     <value>BUT_swarm</value>
   </data>
   <data name="&gt;&gt;BUT_swarm.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.MyButton, MissionPlanner.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>XagSurveillanceGCS.Controls.MyButton, XagSurveillanceGCS.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;BUT_swarm.Parent" xml:space="preserve">
     <value>tableLayoutPanel1</value>
@@ -2572,7 +2572,7 @@
     <value>BUT_followleader</value>
   </data>
   <data name="&gt;&gt;BUT_followleader.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.MyButton, MissionPlanner.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>XagSurveillanceGCS.Controls.MyButton, XagSurveillanceGCS.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;BUT_followleader.Parent" xml:space="preserve">
     <value>tableLayoutPanel1</value>
@@ -2632,7 +2632,7 @@
     <value>but_mavserialport</value>
   </data>
   <data name="&gt;&gt;but_mavserialport.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.MyButton, MissionPlanner.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>XagSurveillanceGCS.Controls.MyButton, XagSurveillanceGCS.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;but_mavserialport.Parent" xml:space="preserve">
     <value>tableLayoutPanel1</value>
@@ -2662,7 +2662,7 @@
     <value>but_hexmavlink</value>
   </data>
   <data name="&gt;&gt;but_hexmavlink.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.MyButton, MissionPlanner.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>XagSurveillanceGCS.Controls.MyButton, XagSurveillanceGCS.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;but_hexmavlink.Parent" xml:space="preserve">
     <value>tableLayoutPanel1</value>
@@ -3526,7 +3526,7 @@
     <value>but_remotedflogger</value>
   </data>
   <data name="&gt;&gt;but_remotedflogger.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.MyButton, MissionPlanner.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>XagSurveillanceGCS.Controls.MyButton, XagSurveillanceGCS.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;but_remotedflogger.Parent" xml:space="preserve">
     <value>tableLayoutPanel1</value>
@@ -3583,7 +3583,7 @@
     <value>but_ManageCMDList</value>
   </data>
   <data name="&gt;&gt;but_ManageCMDList.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.MyButton, MissionPlanner.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>XagSurveillanceGCS.Controls.MyButton, XagSurveillanceGCS.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;but_ManageCMDList.Parent" xml:space="preserve">
     <value>tableLayoutPanel1</value>
@@ -3634,7 +3634,7 @@
     <value>but_dfumode</value>
   </data>
   <data name="&gt;&gt;but_dfumode.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.MyButton, MissionPlanner.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>XagSurveillanceGCS.Controls.MyButton, XagSurveillanceGCS.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;but_dfumode.Parent" xml:space="preserve">
     <value>tableLayoutPanel1</value>
@@ -3772,7 +3772,7 @@
     <value>controlSensorsStatus1</value>
   </data>
   <data name="&gt;&gt;controlSensorsStatus1.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.ControlSensorsStatus, MissionPlanner, Version=1.3.8820.14861, Culture=neutral, PublicKeyToken=null</value>
+    <value>XagSurveillanceGCS.Controls.ControlSensorsStatus, XagSurveillanceGCS, Version=1.3.8820.14861, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;controlSensorsStatus1.Parent" xml:space="preserve">
     <value>$this</value>

@@ -34,11 +34,11 @@
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Maps\MissionPlanner.Maps.csproj" />
-    <ProjectReference Include="..\MissionPlanner.Drawing\MissionPlanner.Drawing.csproj" Condition="'$(TargetFramework)' != 'netstandard2.0'">
+    <ProjectReference Include="..\Maps\XagSurveillanceGCS.Maps.csproj" />
+    <ProjectReference Include="..\XagSurveillanceGCS.Drawing\XagSurveillanceGCS.Drawing.csproj" Condition="'$(TargetFramework)' != 'netstandard2.0'">
       <Aliases>Drawing</Aliases>
     </ProjectReference>
-    <ProjectReference Include="..\MissionPlanner.Drawing\MissionPlanner.Drawing.csproj" Condition="'$(TargetFramework)' == 'netstandard2.0'" />
-    <ProjectReference Include="..\Utilities\MissionPlanner.Utilities.csproj" />
+    <ProjectReference Include="..\XagSurveillanceGCS.Drawing\XagSurveillanceGCS.Drawing.csproj" Condition="'$(TargetFramework)' == 'netstandard2.0'" />
+    <ProjectReference Include="..\Utilities\XagSurveillanceGCS.Utilities.csproj" />
   </ItemGroup>
 </Project>

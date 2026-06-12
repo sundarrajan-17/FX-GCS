@@ -7,7 +7,7 @@ using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Text;
 
-namespace MissionPlanner.Maps
+namespace XagSurveillanceGCS.Maps
 {
     [Serializable]
     public class GMapMarkerDistance : GMapMarker

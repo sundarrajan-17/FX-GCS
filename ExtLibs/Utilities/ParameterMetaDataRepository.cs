@@ -8,7 +8,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using Microsoft.Extensions.Caching.Memory;
 
-namespace MissionPlanner.Utilities
+namespace XagSurveillanceGCS.Utilities
 {
     public static class ParameterMetaDataRepository
     {

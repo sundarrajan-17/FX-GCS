@@ -8,10 +8,10 @@ using csmatio.types;
 using System.Globalization;
 using log4net;
 using System.Reflection;
-using MissionPlanner.Utilities;
-using MissionPlanner.Comms;
+using XagSurveillanceGCS.Utilities;
+using XagSurveillanceGCS.Comms;
 
-namespace MissionPlanner.Log
+namespace XagSurveillanceGCS.Log
 {
     public class MatLab
     {

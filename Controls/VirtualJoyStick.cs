@@ -1,16 +1,17 @@
 using System;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Windows.Forms;
-using MissionPlanner.Controls;
+using XagSurveillanceGCS.Controls;
 
-namespace MissionPlanner.Controls
+namespace XagSurveillanceGCS.Controls
 {
     public partial class VirtualJoystick : UserControl
     {
         private Point center;
         private Point knobPosition;
         private int baseRadius;
-        private int knobRadius = 10;
+        private int knobRadius = 15;
         private bool dragging = false;
 
         // Output values (-1 to +1)
@@ -64,6 +65,44 @@ namespace MissionPlanner.Controls
                     center.Y - baseRadius,
                     baseRadius * 2,
                     baseRadius * 2);
+            
+            using (var linePen = new Pen(Color.LimeGreen, 1))
+            {
+                // Horizontal line (left ↔ right)
+                g.DrawLine(linePen,
+                    center.X - baseRadius, center.Y,
+                    center.X + baseRadius, center.Y);
+
+                // Vertical line (top ↕ bottom)
+                g.DrawLine(linePen,
+                    center.X, center.Y - baseRadius,
+                    center.X, center.Y + baseRadius);
+            }
+
+            using (var arrowPen = new Pen(Color.LimeGreen, 2))
+            {
+                arrowPen.CustomEndCap = new AdjustableArrowCap(6, 6);
+
+                // ➡ Right arrow
+                g.DrawLine(arrowPen,
+                    center.X + baseRadius - 15, center.Y,
+                    center.X + baseRadius, center.Y);
+
+                // ⬅ Left arrow
+                g.DrawLine(arrowPen,
+                    center.X - baseRadius + 15, center.Y,
+                    center.X - baseRadius, center.Y);
+
+                // ⬇ Bottom arrow
+                g.DrawLine(arrowPen,
+                    center.X, center.Y + baseRadius - 15,
+                    center.X, center.Y + baseRadius);
+
+                // ⬆ Top arrow
+                g.DrawLine(arrowPen,
+                    center.X, center.Y - baseRadius + 15,
+                    center.X, center.Y - baseRadius);
+            }
 
             // Knob
             using (var knobBrush = new SolidBrush(Color.LimeGreen))
@@ -93,13 +132,13 @@ namespace MissionPlanner.Controls
             XValue = 0;
             YValue = 0;
             ValueChanged?.Invoke(XValue, YValue);
-            if(this._parentControl.SelectedCamera == "Rhythm")
+            if(this._parentControl.SelectedCamera == "XAGCAM2")
             {     
                 this._parentControl._flightData.GremsyControlPitchYaw(XValue, YValue);
             }
             else
             {
-                this._parentControl._flightData.viewproPitchYawCommand(XValue,YValue);
+                this._parentControl._flightData.XagCamPitchYawCommand(XValue,YValue);
             }
             pnlJoystick.Invalidate();
         }
@@ -124,14 +163,13 @@ namespace MissionPlanner.Controls
             ValueChanged?.Invoke(XValue, YValue);
             pnlJoystick.Invalidate();
             Console.WriteLine($"Joystick Updated: X={XValue:F2}, Y={YValue:F2}");
-            // this._parentControl._flightData.GremsyControlPitchYaw(XValue, YValue);
-            if(this._parentControl.SelectedCamera == "Rhythm")
+            if(this._parentControl.SelectedCamera == "XAGCAM2")
             {     
-                this._parentControl._flightData.GremsyControlPitchYaw(XValue, YValue);
+                this._parentControl._flightData.GremsyControlPitchYaw(XValue/0.5, YValue/0.5);
             }
             else
             {
-                this._parentControl._flightData.viewproPitchYawCommand(XValue,YValue);
+                this._parentControl._flightData.XagCamPitchYawCommand(XValue,YValue);
             }
         }
     }

@@ -16,13 +16,13 @@ using com.drew.imaging.tiff;
 using com.drew.metadata;
 using ExifLibrary;
 using log4net;
-using MissionPlanner.Comms;
-using MissionPlanner.Utilities;
+using XagSurveillanceGCS.Comms;
+using XagSurveillanceGCS.Utilities;
 using SharpKml.Base;
 using SharpKml.Dom;
 using Document = SharpKml.Dom.Document;
 
-namespace MissionPlanner.GeoRef
+namespace XagSurveillanceGCS.GeoRef
 {
     public enum PROCESSING_MODE
     {

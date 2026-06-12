@@ -11,7 +11,7 @@
     <OutputType>Exe</OutputType>
     <RootNamespace>Xamarin.iOS</RootNamespace>
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
-    <AssemblyName>MissionPlanner.iOS</AssemblyName>
+    <AssemblyName>XagSurveillanceGCS.iOS</AssemblyName>
     <MtouchHttpClientHandler>NSUrlSessionHandler</MtouchHttpClientHandler>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
@@ -185,17 +185,17 @@
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>
-    <ProjectReference Include="..\..\ArduPilot\MissionPlanner.ArduPilot.csproj">
+    <ProjectReference Include="..\..\ArduPilot\XagSurveillanceGCS.ArduPilot.csproj">
       <Project>{CA6345D3-7A6D-478B-A0ED-A58E50DCAA83}</Project>
-      <Name>MissionPlanner.ArduPilot</Name>
+      <Name>XagSurveillanceGCS.ArduPilot</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Interfaces\Interfaces.csproj">
       <Project>{fd4d2994-9bea-41a1-8c51-2e02d1e8503e}</Project>
       <Name>Interfaces</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\MissionPlanner.Drawing\MissionPlanner.Drawing.csproj">
+    <ProjectReference Include="..\..\XagSurveillanceGCS.Drawing\XagSurveillanceGCS.Drawing.csproj">
       <Project>{4a1f5e42-04f3-4d76-9814-c5da680087d6}</Project>
-      <Name>MissionPlanner.Drawing</Name>
+      <Name>XagSurveillanceGCS.Drawing</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\System.Drawing.android\System.Drawing.android.csproj">
       <Project>{958c175e-8e11-4872-b99b-648f72afd3c1}</Project>

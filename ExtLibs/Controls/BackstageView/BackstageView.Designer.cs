@@ -1,4 +1,4 @@
-﻿namespace MissionPlanner.Controls.BackstageView
+﻿namespace XagSurveillanceGCS.Controls.BackstageView
 {
     partial class BackstageView
     {
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.pnlPages = new System.Windows.Forms.Panel();
-            this.pnlMenu = new MissionPlanner.Controls.BackstageView.BackStageViewMenuPanel();
+            this.pnlMenu = new XagSurveillanceGCS.Controls.BackstageView.BackStageViewMenuPanel();
             this.SuspendLayout();
             // 
             // pnlPages

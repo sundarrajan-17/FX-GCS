@@ -223,7 +223,7 @@
     <value>BUT_espsettings</value>
   </data>
   <data name="&gt;&gt;BUT_espsettings.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.MyButton, MissionPlanner.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>XagSurveillanceGCS.Controls.MyButton, XagSurveillanceGCS.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;BUT_espsettings.Parent" xml:space="preserve">
     <value>$this</value>
@@ -523,7 +523,7 @@
     <value>but_resetdefault</value>
   </data>
   <data name="&gt;&gt;but_resetdefault.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.MyButton, MissionPlanner.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>XagSurveillanceGCS.Controls.MyButton, XagSurveillanceGCS.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;but_resetdefault.Parent" xml:space="preserve">
     <value>$this</value>

@@ -1,4 +1,4 @@
-﻿namespace MissionPlanner.Controls
+﻿namespace XagSurveillanceGCS.Controls
 {
     partial class AidingData
     {
@@ -91,9 +91,9 @@
             this.headingStdLabelHeadingExternal = new System.Windows.Forms.Label();
             this.headingValueHeadingExternal = new System.Windows.Forms.NumericUpDown();
             this.headingLabelHeadingExternal = new System.Windows.Forms.Label();
-            this.BUT_uncheckall = new MissionPlanner.Controls.MyButton();
-            this.BUT_close = new MissionPlanner.Controls.MyButton();
-            this.BUT_sendtoahrs = new MissionPlanner.Controls.MyButton();
+            this.BUT_uncheckall = new XagSurveillanceGCS.Controls.MyButton();
+            this.BUT_close = new XagSurveillanceGCS.Controls.MyButton();
+            this.BUT_sendtoahrs = new XagSurveillanceGCS.Controls.MyButton();
             this.aidingDataTabControl.SuspendLayout();
             this.externalPositionTabPage.SuspendLayout();
             this.altitudeExternalGroupBox.SuspendLayout();

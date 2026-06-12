@@ -15,10 +15,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\ExtLibs\Utilities\MissionPlanner.Utilities.csproj">
+    <ProjectReference Include="..\..\ExtLibs\Utilities\XagSurveillanceGCS.Utilities.csproj">
       <Private>false</Private>
     </ProjectReference>
-    <ProjectReference Include="..\..\MissionPlanner.csproj">
+    <ProjectReference Include="..\..\XagSurveillanceGCS.csproj">
       <Private>false</Private>
     </ProjectReference>
   </ItemGroup>

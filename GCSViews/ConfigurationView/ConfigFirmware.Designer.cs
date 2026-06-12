@@ -12,7 +12,7 @@ using System.Runtime.InteropServices;
 using System.Xml;
 using System.Net;
 
-namespace MissionPlanner.GCSViews.ConfigurationView
+namespace XagSurveillanceGCS.GCSViews.ConfigurationView
 {
     partial class ConfigFirmware : MyUserControl
     {
@@ -52,18 +52,18 @@ namespace MissionPlanner.GCSViews.ConfigurationView
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ConfigFirmware));
-            this.pictureBoxAPM = new MissionPlanner.Controls.ImageLabel();
-            this.pictureBoxQuad = new MissionPlanner.Controls.ImageLabel();
-            this.pictureBoxHexa = new MissionPlanner.Controls.ImageLabel();
-            this.pictureBoxTri = new MissionPlanner.Controls.ImageLabel();
-            this.pictureBoxY6 = new MissionPlanner.Controls.ImageLabel();
+            this.pictureBoxAPM = new XagSurveillanceGCS.Controls.ImageLabel();
+            this.pictureBoxQuad = new XagSurveillanceGCS.Controls.ImageLabel();
+            this.pictureBoxHexa = new XagSurveillanceGCS.Controls.ImageLabel();
+            this.pictureBoxTri = new XagSurveillanceGCS.Controls.ImageLabel();
+            this.pictureBoxY6 = new XagSurveillanceGCS.Controls.ImageLabel();
             this.lbl_status = new System.Windows.Forms.Label();
             this.progress = new System.Windows.Forms.ProgressBar();
             this.label2 = new System.Windows.Forms.Label();
-            this.pictureBoxHeli = new MissionPlanner.Controls.ImageLabel();
-            this.pictureBoxOcta = new MissionPlanner.Controls.ImageLabel();
-            this.pictureBoxOctaQuad = new MissionPlanner.Controls.ImageLabel();
-            this.pictureBoxRover = new MissionPlanner.Controls.ImageLabel();
+            this.pictureBoxHeli = new XagSurveillanceGCS.Controls.ImageLabel();
+            this.pictureBoxOcta = new XagSurveillanceGCS.Controls.ImageLabel();
+            this.pictureBoxOctaQuad = new XagSurveillanceGCS.Controls.ImageLabel();
+            this.pictureBoxRover = new XagSurveillanceGCS.Controls.ImageLabel();
             this.label1 = new System.Windows.Forms.Label();
             this.CMB_history = new System.Windows.Forms.ComboBox();
             this.CMB_history_label = new System.Windows.Forms.Label();
@@ -71,17 +71,17 @@ namespace MissionPlanner.GCSViews.ConfigurationView
             this.lbl_devfw = new System.Windows.Forms.Label();
             this.lbl_dlfw = new System.Windows.Forms.Label();
             this.lbl_px4bl = new System.Windows.Forms.Label();
-            this.pictureAntennaTracker = new MissionPlanner.Controls.ImageLabel();
+            this.pictureAntennaTracker = new XagSurveillanceGCS.Controls.ImageLabel();
             this.lbl_licence = new System.Windows.Forms.Label();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
-            this.pictureBoxSub = new MissionPlanner.Controls.ImageLabel();
-            this.imageLabel1 = new MissionPlanner.Controls.ImageLabel();
+            this.pictureBoxSub = new XagSurveillanceGCS.Controls.ImageLabel();
+            this.imageLabel1 = new XagSurveillanceGCS.Controls.ImageLabel();
             this.SuspendLayout();
             // 
             // pictureBoxAPM
             // 
             this.pictureBoxAPM.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBoxAPM.Image = global::MissionPlanner.Properties.Resources.APM_airframes_001;
+            this.pictureBoxAPM.Image = global::XagSurveillanceGCS.Properties.Resources.APM_airframes_001;
             resources.ApplyResources(this.pictureBoxAPM, "pictureBoxAPM");
             this.pictureBoxAPM.Name = "pictureBoxAPM";
             this.pictureBoxAPM.TabStop = false;
@@ -91,7 +91,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
             // pictureBoxQuad
             // 
             this.pictureBoxQuad.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBoxQuad.Image = global::MissionPlanner.Properties.Resources.FW_icons_2013_logos_04;
+            this.pictureBoxQuad.Image = global::XagSurveillanceGCS.Properties.Resources.FW_icons_2013_logos_04;
             resources.ApplyResources(this.pictureBoxQuad, "pictureBoxQuad");
             this.pictureBoxQuad.Name = "pictureBoxQuad";
             this.pictureBoxQuad.TabStop = false;
@@ -101,7 +101,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
             // pictureBoxHexa
             // 
             this.pictureBoxHexa.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBoxHexa.Image = global::MissionPlanner.Properties.Resources.FW_icons_2013_logos_10;
+            this.pictureBoxHexa.Image = global::XagSurveillanceGCS.Properties.Resources.FW_icons_2013_logos_10;
             resources.ApplyResources(this.pictureBoxHexa, "pictureBoxHexa");
             this.pictureBoxHexa.Name = "pictureBoxHexa";
             this.pictureBoxHexa.TabStop = false;
@@ -111,7 +111,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
             // pictureBoxTri
             // 
             this.pictureBoxTri.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBoxTri.Image = global::MissionPlanner.Properties.Resources.FW_icons_2013_logos_08;
+            this.pictureBoxTri.Image = global::XagSurveillanceGCS.Properties.Resources.FW_icons_2013_logos_08;
             resources.ApplyResources(this.pictureBoxTri, "pictureBoxTri");
             this.pictureBoxTri.Name = "pictureBoxTri";
             this.pictureBoxTri.TabStop = false;
@@ -121,7 +121,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
             // pictureBoxY6
             // 
             this.pictureBoxY6.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBoxY6.Image = global::MissionPlanner.Properties.Resources.y6a;
+            this.pictureBoxY6.Image = global::XagSurveillanceGCS.Properties.Resources.y6a;
             resources.ApplyResources(this.pictureBoxY6, "pictureBoxY6");
             this.pictureBoxY6.Name = "pictureBoxY6";
             this.pictureBoxY6.TabStop = false;
@@ -147,7 +147,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
             // pictureBoxHeli
             // 
             this.pictureBoxHeli.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBoxHeli.Image = global::MissionPlanner.Properties.Resources.APM_airframes_08;
+            this.pictureBoxHeli.Image = global::XagSurveillanceGCS.Properties.Resources.APM_airframes_08;
             resources.ApplyResources(this.pictureBoxHeli, "pictureBoxHeli");
             this.pictureBoxHeli.Name = "pictureBoxHeli";
             this.pictureBoxHeli.TabStop = false;
@@ -156,7 +156,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
             // 
             // pictureBoxOcta
             // 
-            this.pictureBoxOcta.Image = global::MissionPlanner.Properties.Resources.FW_icons_2013_logos_12;
+            this.pictureBoxOcta.Image = global::XagSurveillanceGCS.Properties.Resources.FW_icons_2013_logos_12;
             resources.ApplyResources(this.pictureBoxOcta, "pictureBoxOcta");
             this.pictureBoxOcta.Name = "pictureBoxOcta";
             this.pictureBoxOcta.TabStop = false;
@@ -165,7 +165,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
             // 
             // pictureBoxOctaQuad
             // 
-            this.pictureBoxOctaQuad.Image = global::MissionPlanner.Properties.Resources.x8;
+            this.pictureBoxOctaQuad.Image = global::XagSurveillanceGCS.Properties.Resources.x8;
             resources.ApplyResources(this.pictureBoxOctaQuad, "pictureBoxOctaQuad");
             this.pictureBoxOctaQuad.Name = "pictureBoxOctaQuad";
             this.pictureBoxOctaQuad.TabStop = false;
@@ -175,7 +175,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
             // pictureBoxRover
             // 
             this.pictureBoxRover.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBoxRover.Image = global::MissionPlanner.Properties.Resources.rover_11;
+            this.pictureBoxRover.Image = global::XagSurveillanceGCS.Properties.Resources.rover_11;
             resources.ApplyResources(this.pictureBoxRover, "pictureBoxRover");
             this.pictureBoxRover.Name = "pictureBoxRover";
             this.pictureBoxRover.TabStop = false;
@@ -234,7 +234,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
             // pictureAntennaTracker
             // 
             this.pictureAntennaTracker.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureAntennaTracker.Image = global::MissionPlanner.Properties.Resources.Antenna_Tracker_01;
+            this.pictureAntennaTracker.Image = global::XagSurveillanceGCS.Properties.Resources.Antenna_Tracker_01;
             resources.ApplyResources(this.pictureAntennaTracker, "pictureAntennaTracker");
             this.pictureAntennaTracker.Name = "pictureAntennaTracker";
             this.pictureAntennaTracker.TabStop = false;
@@ -257,7 +257,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
             // 
             // pictureBoxSub
             // 
-            this.pictureBoxSub.Image = global::MissionPlanner.Properties.Resources.sub;
+            this.pictureBoxSub.Image = global::XagSurveillanceGCS.Properties.Resources.sub;
             resources.ApplyResources(this.pictureBoxSub, "pictureBoxSub");
             this.pictureBoxSub.Name = "pictureBoxSub";
             this.pictureBoxSub.TabStop = false;
@@ -266,7 +266,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
             // 
             // imageLabel1
             // 
-            this.imageLabel1.Image = global::MissionPlanner.Properties.Resources.pixhawk2cube;
+            this.imageLabel1.Image = global::XagSurveillanceGCS.Properties.Resources.pixhawk2cube;
             resources.ApplyResources(this.imageLabel1, "imageLabel1");
             this.imageLabel1.Name = "imageLabel1";
             this.imageLabel1.TabStop = false;

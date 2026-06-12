@@ -1,9 +1,9 @@
 ﻿using log4net;
-using MissionPlanner.ArduPilot;
-using MissionPlanner.ArduPilot.Mavlink;
-using MissionPlanner.Comms;
-using MissionPlanner.Mavlink;
-using MissionPlanner.Utilities;
+using XagSurveillanceGCS.ArduPilot;
+using XagSurveillanceGCS.ArduPilot.Mavlink;
+using XagSurveillanceGCS.Comms;
+using XagSurveillanceGCS.Mavlink;
+using XagSurveillanceGCS.Utilities;
 using Newtonsoft.Json;
 using System;
 using System.Collections;
@@ -22,7 +22,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Timer = System.Timers.Timer;
 
-namespace MissionPlanner
+namespace XagSurveillanceGCS
 {
     public class MAVLinkInterface : MAVLink, IDisposable, IMAVLinkInterface, IMAVLinkInterfaceLogRead
     {
@@ -559,7 +559,7 @@ namespace MissionPlanner
             }
 
             if (tuple.Item2 == (byte)MAV_COMPONENT.MAV_COMP_ID_AUTOPILOT1 ||
-                (tuple.Item2 >= (byte)MAV_COMPONENT.MAV_COMP_ID_MISSIONPLANNER &&
+                (tuple.Item2 >= (byte)MAV_COMPONENT.MAV_COMP_ID_XagSurveillanceGCS &&
                 tuple.Item2 <= (byte)MAV_COMPONENT.MAV_COMP_ID_ONBOARD_COMPUTER4))
             {
                 MAVlist[tuple.Item1, tuple.Item2].GimbalManager = new GimbalManagerProtocol(this, MAVlist[tuple.Item1, tuple.Item2].cs);
@@ -803,7 +803,7 @@ namespace MissionPlanner
                             throw new TimeoutException(@"Can not establish a connection
 
 No Mavlink Heartbeat Packets where read from this port - Verify Baud Rate and setup
-Mission Planner waits for 2 valid heartbeat packets before connecting
+XagSurveillanceGCS waits for 2 valid heartbeat packets before connecting
 " + plaintxtlinebuffer.Aggregate((a, b) => a + "\r\n" + b));
                         }
                     }
@@ -900,7 +900,7 @@ Mission Planner waits for 2 valid heartbeat packets before connecting
 
                 countDown.Stop();
 
-                char[] temp = ("Mission Planner " + getAppVersion() + "\0").ToCharArray();
+                char[] temp = ("XagSurveillanceGCS " + getAppVersion() + "\0").ToCharArray();
                 Array.Resize(ref temp, 50);
 
                 //
@@ -1307,7 +1307,7 @@ Mission Planner waits for 2 valid heartbeat packets before connecting
                     packetcount++;
 
                     packet[3] = gcssysid;
-                    packet[4] = (byte) MAV_COMPONENT.MAV_COMP_ID_MISSIONPLANNER;
+                    packet[4] = (byte) MAV_COMPONENT.MAV_COMP_ID_XagSurveillanceGCS;
                     packet[5] = (byte) messageType;
 
                     i = 6;
@@ -1353,7 +1353,7 @@ Mission Planner waits for 2 valid heartbeat packets before connecting
                     packetcount++;
 
                     packet[5] = gcssysid;
-                    packet[6] = (byte) MAV_COMPONENT.MAV_COMP_ID_MISSIONPLANNER;
+                    packet[6] = (byte) MAV_COMPONENT.MAV_COMP_ID_XagSurveillanceGCS;
                     packet[7] = (byte) (messageType & 0xff);
                     packet[8] = (byte) ((messageType >> 8) & 0xff);
                     packet[9] = (byte) ((messageType >> 16) & 0xff);
@@ -1460,6 +1460,129 @@ Mission Planner waits for 2 valid heartbeat packets before connecting
             {
             }
         }
+
+        // private ushort CRC_Calculate(byte[] buffer, int length)
+        // {
+        //     ushort crc = 0xFFFF;
+
+        //     for (int i = 1; i < length; i++) // NOTE: start from index 1 (skip STX)
+        //     {
+        //         crc = CRC_Accumulate(buffer[i], crc);
+        //     }
+
+        //     return crc;
+        // }
+
+        // private ushort CRC_Accumulate(byte data, ushort crc)
+        // {
+        //     byte tmp = (byte)(data ^ (byte)(crc & 0xFF));
+        //     tmp ^= (byte)(tmp << 4);
+
+        //     return (ushort)(
+        //         (crc >> 8) ^
+        //         (tmp << 8) ^
+        //         (tmp << 3) ^
+        //         (tmp >> 4)
+        //     );
+        // }
+
+        // private const byte MAVLINK_STX = 0xFD;
+        // private const int MAVLINK_HEADER_LEN = 10;
+        // private const int MAVLINK_CHECKSUM_LEN = 2;
+
+        // private const int MSG_ID = 285; // GIMBAL_DEVICE_SET_ATTITUDE
+        // private const byte CRC_EXTRA = 99;
+
+        // public void generateGremsyMoveCommand(byte target_system,byte target_component,ushort flags,float[] q,float wx,float wy,float wz)
+        // {
+        //     if (BaseStream == null || !BaseStream.IsOpen)
+        //     {
+        //         return;
+        //     }
+
+        //     // if (ReadOnly)
+        //     // {
+        //     //     // allow these messages
+        //     //     if (messageType == (byte) MAVLINK_MSG_ID.MISSION_REQUEST_LIST ||
+        //     //         messageType == (byte) MAVLINK_MSG_ID.MISSION_REQUEST_PARTIAL_LIST ||
+        //     //         messageType == (byte) MAVLINK_MSG_ID.MISSION_REQUEST ||
+        //     //         messageType == (byte) MAVLINK_MSG_ID.MISSION_REQUEST_INT ||
+        //     //         messageType == (byte) MAVLINK_MSG_ID.PARAM_REQUEST_LIST ||
+        //     //         messageType == (byte) MAVLINK_MSG_ID.PARAM_REQUEST_READ ||
+        //     //         messageType == (byte) MAVLINK_MSG_ID.RALLY_FETCH_POINT ||
+        //     //         messageType == (byte) MAVLINK_MSG_ID.FENCE_FETCH_POINT
+        //     //     )
+        //     //     {
+        //     //     }
+        //     //     else
+        //     //     {
+        //     //         return;
+        //     //     }
+        //     // }
+        //     List<byte> payload = new List<byte>();
+
+        //     // Quaternion (q0, q1, q2, q3)
+        //     foreach (var v in q)
+        //         payload.AddRange(BitConverter.GetBytes(v));
+
+        //     // Angular velocities
+        //     payload.AddRange(BitConverter.GetBytes(wx));
+        //     payload.AddRange(BitConverter.GetBytes(wy));
+        //     payload.AddRange(BitConverter.GetBytes(wz));
+
+        //     // Flags
+        //     payload.AddRange(BitConverter.GetBytes(flags));
+
+        //     // Target system/component
+        //     payload.Add(target_system);
+        //     payload.Add(target_component);
+
+        //     byte[] data = payload.ToArray();
+
+        //     byte sysid = 1;
+        //     byte compid = (byte)MAV_COMPONENT.MAV_COMP_ID_ONBOARD_COMPUTER3;
+
+        //     if (data.Length != 32)
+        //         throw new Exception("Payload must be 32 bytes");
+
+        //     // -------------------------
+        //     // 2. Build Packet
+        //     // -------------------------
+        //     byte[] packet = new byte[MAVLINK_HEADER_LEN + data.Length + MAVLINK_CHECKSUM_LEN];
+
+        //     packet[0] = MAVLINK_STX;
+        //     packet[1] = (byte)data.Length;
+        //     packet[2] = 0; // incompat flags
+        //     packet[3] = 0; // compat flags
+        //     packet[4] = (byte)packetcount; // sequence
+        //     packet[5] = sysid;
+        //     packet[6] = compid;
+
+        //     // Message ID (24-bit)
+        //     packet[7] = (byte)(MSG_ID & 0xFF);
+        //     packet[8] = (byte)((MSG_ID >> 8) & 0xFF);
+        //     packet[9] = (byte)((MSG_ID >> 16) & 0xFF);
+        //     packetcount++;
+
+        //     // Copy payload
+        //     Array.Copy(data, 0, packet, 10, data.Length);
+
+        //     // -------------------------
+        //     // 3. CRC Calculation
+        //     // -------------------------
+        //     ushort crc = CRC_Calculate(packet, data.Length + MAVLINK_HEADER_LEN);
+        //     crc = CRC_Accumulate(CRC_EXTRA, crc);
+
+        //     packet[10 + data.Length] = (byte)(crc & 0xFF);
+        //     packet[11 + data.Length] = (byte)(crc >> 8);
+
+        //     // -------------------------
+        //     // 4. Send (like Python send())
+        //     // -------------------------
+        //         Console.WriteLine("Command Writing");
+        //         BaseStream.Write(packet, 0, data.Length+11);
+        //         _bytesSentSubj.OnNext(data.Length+11);
+        // }
 
         public void SaveToTlog(Span<byte> packet)
         {
@@ -3322,7 +3445,7 @@ Mission Planner waits for 2 valid heartbeat packets before connecting
                         var count = buffer.ToStructure<mavlink_mission_count_t>();
                         // check this gcs sent it
                         if (count.target_system != gcssysid ||
-                            count.target_component != (byte) MAV_COMPONENT.MAV_COMP_ID_MISSIONPLANNER)
+                            count.target_component != (byte) MAV_COMPONENT.MAV_COMP_ID_XagSurveillanceGCS)
                             continue;
 
                         log.Info("wpcount: " + count.count);
@@ -3489,7 +3612,7 @@ Mission Planner waits for 2 valid heartbeat packets before connecting
 
                         var wp = buffer.ToStructure<mavlink_mission_item_t>();
                         if (wp.target_system != gcssysid ||
-                            wp.target_component != (byte) MAV_COMPONENT.MAV_COMP_ID_MISSIONPLANNER)
+                            wp.target_component != (byte) MAV_COMPONENT.MAV_COMP_ID_XagSurveillanceGCS)
                             continue;
 
                         // received a packet, but not what we requested
@@ -3523,7 +3646,7 @@ Mission Planner waits for 2 valid heartbeat packets before connecting
                         var wp = buffer.ToStructure<mavlink_mission_item_int_t>();
                         // check this gcs sent it
                         if (wp.target_system != gcssysid ||
-                            wp.target_component != (byte) MAV_COMPONENT.MAV_COMP_ID_MISSIONPLANNER)
+                            wp.target_component != (byte) MAV_COMPONENT.MAV_COMP_ID_XagSurveillanceGCS)
                             continue;
 
                         // received a packet, but not what we requested
@@ -3803,7 +3926,7 @@ Mission Planner waits for 2 valid heartbeat packets before connecting
                         var request = buffer.ToStructure<mavlink_mission_request_t>();
                         // check this gcs sent it
                         if (request.target_system != gcssysid ||
-                            request.target_component != (byte) MAV_COMPONENT.MAV_COMP_ID_MISSIONPLANNER)
+                            request.target_component != (byte) MAV_COMPONENT.MAV_COMP_ID_XagSurveillanceGCS)
                             continue;
 
                         if (request.seq == 0 || request.seq == 1)
@@ -3834,7 +3957,7 @@ Mission Planner waits for 2 valid heartbeat packets before connecting
                         var request = buffer.ToStructure<mavlink_mission_request_int_t>();
                         // check this gcs sent it
                         if (request.target_system != gcssysid ||
-                            request.target_component != (byte) MAV_COMPONENT.MAV_COMP_ID_MISSIONPLANNER)
+                            request.target_component != (byte) MAV_COMPONENT.MAV_COMP_ID_XagSurveillanceGCS)
                             continue;
 
                         if (request.seq == 0 || request.seq == 1)
@@ -3867,7 +3990,7 @@ Mission Planner waits for 2 valid heartbeat packets before connecting
                                  Enum.Parse(typeof(MAV_MISSION_RESULT), ans.type.ToString()));
                         // check this gcs sent it
                         if (ans.target_system != gcssysid ||
-                            ans.target_component != (byte) MAV_COMPONENT.MAV_COMP_ID_MISSIONPLANNER)
+                            ans.target_component != (byte) MAV_COMPONENT.MAV_COMP_ID_XagSurveillanceGCS)
                             continue;
 
                         giveComport = false;
@@ -4127,7 +4250,7 @@ Mission Planner waits for 2 valid heartbeat packets before connecting
                                  Enum.Parse(typeof(MAV_MISSION_RESULT), ans.type.ToString()));
                         // check this gcs sent it
                         if (ans.target_system != gcssysid ||
-                            ans.target_component != (byte) MAV_COMPONENT.MAV_COMP_ID_MISSIONPLANNER)
+                            ans.target_component != (byte) MAV_COMPONENT.MAV_COMP_ID_XagSurveillanceGCS)
                             continue;
 
                         if (req.current == 2)
@@ -4161,7 +4284,7 @@ Mission Planner waits for 2 valid heartbeat packets before connecting
                         var ans = buffer.ToStructure<mavlink_mission_request_t>();
 
                         if (ans.target_system != gcssysid ||
-                            ans.target_component != (byte) MAV_COMPONENT.MAV_COMP_ID_MISSIONPLANNER)
+                            ans.target_component != (byte) MAV_COMPONENT.MAV_COMP_ID_XagSurveillanceGCS)
                             continue;
 
                         if (ans.seq == (index + 1))
@@ -4210,7 +4333,7 @@ Mission Planner waits for 2 valid heartbeat packets before connecting
                         var ans = buffer.ToStructure<mavlink_mission_request_int_t>();
 
                         if (ans.target_system != gcssysid ||
-                            ans.target_component != (byte) MAV_COMPONENT.MAV_COMP_ID_MISSIONPLANNER)
+                            ans.target_component != (byte) MAV_COMPONENT.MAV_COMP_ID_XagSurveillanceGCS)
                             continue;
 
                         if (ans.seq == (index + 1))
@@ -4303,7 +4426,7 @@ Mission Planner waits for 2 valid heartbeat packets before connecting
                         //       Enum.Parse(typeof(MAV_MISSION_RESULT), ans.type.ToString()));
                         // check this gcs sent it
                         if (ans.target_system != gcssysid ||
-                            ans.target_component != (byte) MAV_COMPONENT.MAV_COMP_ID_MISSIONPLANNER)
+                            ans.target_component != (byte) MAV_COMPONENT.MAV_COMP_ID_XagSurveillanceGCS)
                             continue;
 
                         if (req.current == 2)
@@ -4336,7 +4459,7 @@ Mission Planner waits for 2 valid heartbeat packets before connecting
                     {
                         var ans = buffer.ToStructure<mavlink_mission_request_t>();
                         if (ans.target_system != gcssysid ||
-                            ans.target_component != (byte) MAV_COMPONENT.MAV_COMP_ID_MISSIONPLANNER)
+                            ans.target_component != (byte) MAV_COMPONENT.MAV_COMP_ID_XagSurveillanceGCS)
                             continue;
 
                         if (ans.seq == (index + 1))
@@ -5971,7 +6094,7 @@ Mission Planner waits for 2 valid heartbeat packets before connecting
 
                         // check this gcs sent it
                         if (fp.target_system != gcssysid ||
-                            fp.target_component != (byte) MAV_COMPONENT.MAV_COMP_ID_MISSIONPLANNER ||
+                            fp.target_component != (byte) MAV_COMPONENT.MAV_COMP_ID_XagSurveillanceGCS ||
                             fp.idx != no)
                             continue;
 
@@ -6408,7 +6531,7 @@ Mission Planner waits for 2 valid heartbeat packets before connecting
 
                         // check this gcs sent it
                         if (fp.target_system != gcssysid ||
-                            fp.target_component != (byte) MAV_COMPONENT.MAV_COMP_ID_MISSIONPLANNER)
+                            fp.target_component != (byte) MAV_COMPONENT.MAV_COMP_ID_XagSurveillanceGCS)
                             continue;
 
                         if (req.idx != fp.idx)

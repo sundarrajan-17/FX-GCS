@@ -3,7 +3,7 @@ using GMap.NET.WindowsForms;
 using System;
 using System.Drawing;
 
-namespace MissionPlanner.Maps
+namespace XagSurveillanceGCS.Maps
 {
     public class GMapMarkerArrow: GMapMarker
     {

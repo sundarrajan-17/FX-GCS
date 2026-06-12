@@ -1,17 +1,17 @@
 ﻿using GMap.NET;
 using GMap.NET.MapProviders;
 using GMap.NET.WindowsForms;
-using MissionPlanner.Utilities;
+using XagSurveillanceGCS.Utilities;
 using OpenTK;
 using OpenTK.Graphics.OpenGL;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Imaging;
-using MathHelper = MissionPlanner.Utilities.MathHelper;
+using MathHelper = XagSurveillanceGCS.Utilities.MathHelper;
 using Vector3 = OpenTK.Vector3;
 
-namespace MissionPlanner.Controls
+namespace XagSurveillanceGCS.Controls
 {
     public class OpenGLtest : GLControl
     {
@@ -55,7 +55,7 @@ namespace MissionPlanner.Controls
             }
         }
 
-        public MissionPlanner.Utilities.Vector3 rpy = new MissionPlanner.Utilities.Vector3();
+        public XagSurveillanceGCS.Utilities.Vector3 rpy = new XagSurveillanceGCS.Utilities.Vector3();
 
         public OpenGLtest()
         {

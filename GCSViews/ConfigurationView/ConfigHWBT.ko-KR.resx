@@ -223,7 +223,7 @@
     <value>BUT_btsettings</value>
   </data>
   <data name="&gt;&gt;BUT_btsettings.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.MyButton, MissionPlanner.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>XagSurveillanceGCS.Controls.MyButton, XagSurveillanceGCS.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;BUT_btsettings.Parent" xml:space="preserve">
     <value>$this</value>

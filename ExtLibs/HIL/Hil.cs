@@ -6,7 +6,7 @@ using log4net;
 using System.Reflection;
 using System.Runtime.InteropServices;
 
-namespace MissionPlanner.HIL
+namespace XagSurveillanceGCS.HIL
 {
     public delegate void ProgressEventHandler(int progress, string status);
 

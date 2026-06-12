@@ -21,14 +21,14 @@ msbuild -v:m -restore -t:SignAndroidPackage -p:Configuration=Release "ExtLibs\Xa
 
 #package it
 #rem zip -d my_application.apk META-INF/\*
-#rem 7z d ExtLibs\Xamarin\Xamarin.Android\bin\Release\com.michaeloborne.MissionPlanner.apk META-INF/\*
+#rem 7z d ExtLibs\Xamarin\Xamarin.Android\bin\Release\com.michaeloborne.XagSurveillanceGCS.apk META-INF/\*
 #rem keytool -genkey -v -keystore my-release-key.keystore -alias key -keyalg RSA -keysize 2048 -validity 10000
 
 #rem keytool -v -list -keystore %USERPROFILE%\key.keystore
 
-del ExtLibs\Xamarin\Xamarin.Android\bin\Release\com.michaeloborne.MissionPlanner-Signed.aab
+del ExtLibs\Xamarin\Xamarin.Android\bin\Release\com.michaeloborne.XagSurveillanceGCS-Signed.aab
 
-jarsigner -verbose -sigalg SHA256withRSA -digestalg SHA-256 -keystore $env:USERPROFILE\key.keystore ExtLibs\Xamarin\Xamarin.Android\bin\Release\com.michaeloborne.MissionPlanner.aab key
-zipalign -v 4 ExtLibs\Xamarin\Xamarin.Android\bin\Release\com.michaeloborne.MissionPlanner.aab ExtLibs\Xamarin\Xamarin.Android\bin\Release\com.michaeloborne.MissionPlanner-Signed.aab
+jarsigner -verbose -sigalg SHA256withRSA -digestalg SHA-256 -keystore $env:USERPROFILE\key.keystore ExtLibs\Xamarin\Xamarin.Android\bin\Release\com.michaeloborne.XagSurveillanceGCS.aab key
+zipalign -v 4 ExtLibs\Xamarin\Xamarin.Android\bin\Release\com.michaeloborne.XagSurveillanceGCS.aab ExtLibs\Xamarin\Xamarin.Android\bin\Release\com.michaeloborne.XagSurveillanceGCS-Signed.aab
 
 pause

@@ -1,10 +1,10 @@
 ﻿using log4net;
-using MissionPlanner.Utilities;
+using XagSurveillanceGCS.Utilities;
 using System;
 using System.Collections.Concurrent;
 using System.Reflection;
 
-namespace MissionPlanner.Swarm.Sequence
+namespace XagSurveillanceGCS.Swarm.Sequence
 {
     public class DroneGroup
     {

@@ -1,4 +1,4 @@
-﻿namespace MissionPlanner.Utilities.CoT
+﻿namespace XagSurveillanceGCS.Utilities.CoT
 {
     public class detail
     {

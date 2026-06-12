@@ -1,7 +1,7 @@
 ﻿using log4net;
-using MissionPlanner.ArduPilot;
-using MissionPlanner.Properties;
-using MissionPlanner.Utilities;
+using XagSurveillanceGCS.ArduPilot;
+using XagSurveillanceGCS.Properties;
+using XagSurveillanceGCS.Utilities;
 using System;
 using System.ComponentModel;
 using System.Drawing;
@@ -10,7 +10,7 @@ using System.Reflection;
 using System.Windows.Forms;
 using static MAVLink;
 
-namespace MissionPlanner.Controls
+namespace XagSurveillanceGCS.Controls
 {
     public class ProximityControl : Form
     {

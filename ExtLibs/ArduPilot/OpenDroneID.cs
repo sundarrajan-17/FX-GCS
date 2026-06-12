@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Threading;
-using MissionPlanner.Utilities;
+using XagSurveillanceGCS.Utilities;
 using DateTime = System.DateTime;
 
-namespace MissionPlanner.ArduPilot
+namespace XagSurveillanceGCS.ArduPilot
 {
     /// <summary>
     /// https://mavlink.io/en/services/opendroneid.html

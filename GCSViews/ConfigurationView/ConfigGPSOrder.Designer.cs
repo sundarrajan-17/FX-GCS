@@ -1,5 +1,5 @@
 ﻿
-namespace MissionPlanner.GCSViews.ConfigurationView
+namespace XagSurveillanceGCS.GCSViews.ConfigurationView
 {
     partial class ConfigGPSOrder
     {
@@ -33,7 +33,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
             this.label6 = new System.Windows.Forms.Label();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.myDataGridView1 = new MissionPlanner.Controls.MyDataGridView();
+            this.myDataGridView1 = new XagSurveillanceGCS.Controls.MyDataGridView();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.orderDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nodeIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -100,7 +100,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
             // 
             // bindingSource1
             // 
-            this.bindingSource1.DataSource = typeof(MissionPlanner.GCSViews.ConfigurationView.ConfigGPSOrder.GPSCAN);
+            this.bindingSource1.DataSource = typeof(XagSurveillanceGCS.GCSViews.ConfigurationView.ConfigGPSOrder.GPSCAN);
             // 
             // orderDataGridViewTextBoxColumn
             // 

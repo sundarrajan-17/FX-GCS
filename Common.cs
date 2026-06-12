@@ -2,9 +2,9 @@ using GMap.NET;
 using GMap.NET.WindowsForms;
 using GMap.NET.WindowsForms.Markers;
 using log4net;
-using MissionPlanner.ArduPilot;
-using MissionPlanner.Maps;
-using MissionPlanner.Utilities;
+using XagSurveillanceGCS.ArduPilot;
+using XagSurveillanceGCS.Maps;
+using XagSurveillanceGCS.Utilities;
 using NetTopologySuite.Algorithm;
 using System;
 using System.Diagnostics;
@@ -16,7 +16,7 @@ using System.Text.RegularExpressions;
 using System.Threading;
 using System.Windows.Forms;
 
-namespace MissionPlanner
+namespace XagSurveillanceGCS
 {
     public static class Common
     {

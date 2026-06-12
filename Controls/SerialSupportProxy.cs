@@ -1,5 +1,5 @@
-﻿using MissionPlanner.Comms;
-using MissionPlanner.Utilities;
+﻿using XagSurveillanceGCS.Comms;
+using XagSurveillanceGCS.Utilities;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -10,7 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace MissionPlanner.Controls
+namespace XagSurveillanceGCS.Controls
 {
     public partial class SerialSupportProxy : Form
     {
@@ -26,7 +26,7 @@ namespace MissionPlanner.Controls
                 NUM_port.Enabled = false;
             }
 
-            MissionPlanner.Utilities.Tracking.AddPage(this.GetType().ToString(), this.Text);
+            XagSurveillanceGCS.Utilities.Tracking.AddPage(this.GetType().ToString(), this.Text);
 
             // Load radio buttons from settings
             rad_udp.Checked = Settings.Instance.GetBoolean("SerialSupportProxy_UDP", true);

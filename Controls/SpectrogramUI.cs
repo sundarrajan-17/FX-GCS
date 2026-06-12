@@ -1,4 +1,4 @@
-﻿using MissionPlanner.Utilities;
+﻿using XagSurveillanceGCS.Utilities;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,7 +16,7 @@ using SixLabors.ImageSharp.PixelFormats;
 using ZedGraph;
 using Image = System.Drawing.Image;
 
-namespace MissionPlanner.Controls
+namespace XagSurveillanceGCS.Controls
 {
     public partial class SpectrogramUI : Form
     {

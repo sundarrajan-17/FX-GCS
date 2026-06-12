@@ -1,6 +1,6 @@
 ﻿using System.Drawing;
 
-namespace MissionPlanner.Controls.Icon
+namespace XagSurveillanceGCS.Controls.Icon
 {
     public class Polygon : Icon
     {

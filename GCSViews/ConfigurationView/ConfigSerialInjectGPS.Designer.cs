@@ -1,4 +1,4 @@
-﻿namespace MissionPlanner.GCSViews.ConfigurationView
+﻿namespace XagSurveillanceGCS.GCSViews.ConfigurationView
 {
     partial class ConfigSerialInjectGPS
     {
@@ -94,13 +94,13 @@
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.comboBoxConfigType = new System.Windows.Forms.ComboBox();
             this.label22 = new System.Windows.Forms.Label();
-            this.button_septentriortcminterval = new MissionPlanner.Controls.MyButton();
-            this.button_septentriosetposition = new MissionPlanner.Controls.MyButton();
-            this.but_restartsvin = new MissionPlanner.Controls.MyButton();
-            this.but_save_basepos = new MissionPlanner.Controls.MyButton();
-            this.BUT_connect = new MissionPlanner.Controls.MyButton();
-            this.myGMAP1 = new MissionPlanner.Controls.myGMAP();
-            this.dg_basepos = new MissionPlanner.Controls.MyDataGridView();
+            this.button_septentriortcminterval = new XagSurveillanceGCS.Controls.MyButton();
+            this.button_septentriosetposition = new XagSurveillanceGCS.Controls.MyButton();
+            this.but_restartsvin = new XagSurveillanceGCS.Controls.MyButton();
+            this.but_save_basepos = new XagSurveillanceGCS.Controls.MyButton();
+            this.BUT_connect = new XagSurveillanceGCS.Controls.MyButton();
+            this.myGMAP1 = new XagSurveillanceGCS.Controls.myGMAP();
+            this.dg_basepos = new XagSurveillanceGCS.Controls.MyDataGridView();
             this.Lat = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Long = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Alt = new System.Windows.Forms.DataGridViewTextBoxColumn();

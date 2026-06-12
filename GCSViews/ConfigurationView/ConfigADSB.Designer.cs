@@ -1,4 +1,4 @@
-﻿namespace MissionPlanner.GCSViews.ConfigurationView
+﻿namespace XagSurveillanceGCS.GCSViews.ConfigurationView
 {
    partial class ConfigADSB
    {
@@ -30,15 +30,15 @@
       {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ConfigADSB));
             this.tableLayoutPanel1 = new System.Windows.Forms.Panel();
-            this.BUT_rerequestparams = new MissionPlanner.Controls.MyButton();
-            this.BUT_writePIDS = new MissionPlanner.Controls.MyButton();
-            this.BUT_Find = new MissionPlanner.Controls.MyButton();
+            this.BUT_rerequestparams = new XagSurveillanceGCS.Controls.MyButton();
+            this.BUT_writePIDS = new XagSurveillanceGCS.Controls.MyButton();
+            this.BUT_Find = new XagSurveillanceGCS.Controls.MyButton();
             this.txt_acreg = new System.Windows.Forms.TextBox();
             this.txt_flid = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.but_saveacreg = new MissionPlanner.Controls.MyButton();
-            this.but_saveflid = new MissionPlanner.Controls.MyButton();
+            this.but_saveacreg = new XagSurveillanceGCS.Controls.MyButton();
+            this.but_saveflid = new XagSurveillanceGCS.Controls.MyButton();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.SuspendLayout();

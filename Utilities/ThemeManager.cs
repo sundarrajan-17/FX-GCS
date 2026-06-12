@@ -1,8 +1,8 @@
 ﻿using BrightIdeasSoftware;
 using log4net;
-using MissionPlanner.Controls;
-using MissionPlanner.Controls.BackstageView;
-using MissionPlanner.Controls.PreFlight;
+using XagSurveillanceGCS.Controls;
+using XagSurveillanceGCS.Controls.BackstageView;
+using XagSurveillanceGCS.Controls.PreFlight;
 using System;
 using System.Drawing;
 using System.IO;
@@ -13,7 +13,7 @@ using System.Collections.Generic;
 using System.Xml.Serialization;
 using System.Xml;
 
-namespace MissionPlanner.Utilities
+namespace XagSurveillanceGCS.Utilities
 {
 
     //ThemeColor class is describe an item in a theme. 
@@ -529,14 +529,14 @@ xmlns:x=""http://schemas.microsoft.com/winfx/2006/xaml""
 xmlns:mc=""http://schemas.openxmlformats.org/markup-compatibility/2006""
 xmlns:d=""http://schemas.microsoft.com/expression/blend/2008""
 xmlns:xctk=""http://schemas.xceed.com/wpf/xaml/toolkit""
-xmlns:BackstageView=""using:MissionPlanner.Controls.BackstageView""
-xmlns:Controls=""using:MissionPlanner.Controls""
-xmlns:GCSViews=""using:MissionPlanner.GCSViews""
-xmlns:Wizard=""using:MissionPlanner.Wizard""
-xmlns:ConfigurationView=""using:MissionPlanner.GCSViews.ConfigurationView""
+xmlns:BackstageView=""using:XagSurveillanceGCS.Controls.BackstageView""
+xmlns:Controls=""using:XagSurveillanceGCS.Controls""
+xmlns:GCSViews=""using:XagSurveillanceGCS.GCSViews""
+xmlns:Wizard=""using:XagSurveillanceGCS.Wizard""
+xmlns:ConfigurationView=""using:XagSurveillanceGCS.GCSViews.ConfigurationView""
 xmlns:Custom=""using:Custom""
 xmlns:controls=""using:Microsoft.Toolkit.Uwp.UI.Controls""
-xmlns:PreFlight=""using:MissionPlanner.Controls.PreFlight""
+xmlns:PreFlight=""using:XagSurveillanceGCS.Controls.PreFlight""
 mc:Ignorable=""d""
 > <Grid>";
 
@@ -566,7 +566,7 @@ mc:Ignorable=""d""
             foreach (Control ctl in control.Controls)
             {
                 if (ctl is QuickView || ctl is ServoOptions || ctl is ModifyandSet
-                    || ctl is Coords /*|| ctl is AGaugeApp.AGauge*/|| ctl is MissionPlanner.Controls.HUD
+                    || ctl is Coords /*|| ctl is AGaugeApp.AGauge*/|| ctl is XagSurveillanceGCS.Controls.HUD
                     || ctl is ImageLabel || ctl is RelayOptions || ctl is CheckListControl
                     || ctl is MavlinkCheckBox)
                 {

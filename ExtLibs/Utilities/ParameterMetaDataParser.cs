@@ -9,11 +9,11 @@ using System.Text.RegularExpressions;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Xml;
-using MissionPlanner.Utilities;
+using XagSurveillanceGCS.Utilities;
 using log4net;
 using System.Xml.Linq;
 
-namespace MissionPlanner.Utilities
+namespace XagSurveillanceGCS.Utilities
 {
     public static class ParameterMetaDataParser
     {

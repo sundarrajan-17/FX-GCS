@@ -7149,7 +7149,7 @@ public partial class MAVLink
         MAV_COMP_ID_MAVCAN=189, 
         ///<summary> Component that can generate/supply a mission flight plan (e.g. GCS or developer API). | </summary>
         [Description("Component that can generate/supply a mission flight plan (e.g. GCS or developer API).")]
-        MAV_COMP_ID_MISSIONPLANNER=190, 
+        MAV_COMP_ID_XagSurveillanceGCS=190, 
         ///<summary> Component that lives on the onboard computer (companion computer) and has some generic functionalities, such as settings system parameters and monitoring the status of some processes that don't directly speak mavlink and so on. | </summary>
         [Description("Component that lives on the onboard computer (companion computer) and has some generic functionalities, such as settings system parameters and monitoring the status of some processes that don't directly speak mavlink and so on.")]
         MAV_COMP_ID_ONBOARD_COMPUTER=191, 

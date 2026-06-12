@@ -1,6 +1,6 @@
 ﻿using ExifLibrary;
 using log4net;
-using MissionPlanner.Utilities;
+using XagSurveillanceGCS.Utilities;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -15,7 +15,7 @@ using SharpCompress.Archives;
 using SharpCompress.Compressors.Xz;
 using SharpCompress.Readers;
 
-namespace MissionPlanner.ArduPilot
+namespace XagSurveillanceGCS.ArduPilot
 {
     public class LogMetaData
     {

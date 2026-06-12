@@ -1,1 +1,1 @@
-namespace MissionPlanner.Controls { public partial class EKFStatus{public EKFStatus(){this.InitializeComponent();}}}
+namespace XagSurveillanceGCS.Controls { public partial class EKFStatus{public EKFStatus(){this.InitializeComponent();}}}

@@ -24,10 +24,10 @@ using AndroidX.Core.App;
 using Android.Bluetooth;
 using AndroidX.Core.Content;
 using Xamarin.Essentials;
-using MissionPlanner.GCSViews;
-using MissionPlanner.GCSViews.ConfigurationView;
+using XagSurveillanceGCS.GCSViews;
+using XagSurveillanceGCS.GCSViews.ConfigurationView;
 using Environment = Android.OS.Environment;
-using Settings = MissionPlanner.Utilities.Settings;
+using Settings = XagSurveillanceGCS.Utilities.Settings;
 using Thread = System.Threading.Thread;
 using Android.Content;
 using Android.Media;
@@ -36,8 +36,8 @@ using Android.Views.InputMethods;
 using Android.Widget;
 using Hoho.Android.UsbSerial.Util;
 using Java.Lang;
-using MissionPlanner.Comms;
-using MissionPlanner.Utilities;
+using XagSurveillanceGCS.Comms;
+using XagSurveillanceGCS.Utilities;
 using Xamarin.Forms;
 using Xamarin.GCSViews;
 using Application = Android.App.Application;
@@ -89,7 +89,7 @@ namespace Xamarin.Droid
     [IntentFilter(actions: new[] { global::Android.Content.Intent.ActionView }, Categories = new[] { global::Android.Content.Intent.CategoryBrowsable, global::Android.Content.Intent.ActionDefault, global::Android.Content.Intent.CategoryOpenable }, DataHost = "*", DataPathPattern = ".*\\.tlog", DataMimeType = "*/*", DataSchemes = new[] { "file", "http", "https", "content" })]
     [IntentFilter(actions: new[] { global::Android.Content.Intent.ActionView }, Categories = new[] { global::Android.Content.Intent.CategoryBrowsable, global::Android.Content.Intent.ActionDefault, global::Android.Content.Intent.CategoryOpenable }, DataHost = "*", DataPathPattern = ".*\\.bin", DataMimeType = "*/*", DataSchemes = new[] { "file", "http", "https", "content" })]
     [MetaData("android.hardware.usb.action.USB_DEVICE_ATTACHED", Resource = "@xml/device_filter")]
-    [Activity(Label = "Mission Planner", Exported = true, ScreenOrientation = ScreenOrientation.SensorLandscape, Icon = "@mipmap/icon", Theme = "@style/MainTheme",
+    [Activity(Label = "XagSurveillanceGCS", Exported = true, ScreenOrientation = ScreenOrientation.SensorLandscape, Icon = "@mipmap/icon", Theme = "@style/MainTheme",
         MainLauncher = true, HardwareAccelerated = true, DirectBootAware = true, Immersive = true, LaunchMode = LaunchMode.SingleInstance)]
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
     {
@@ -204,7 +204,7 @@ namespace Xamarin.Droid
                 intent.AddCategory(Intent.CategoryDefault);
                 intent.AddFlags(ActivityFlags.GrantPersistableUriPermission);
 
-                //intent.PutExtra(DocumentsContract.ExtraInitialUri, Application.Context.getExternalStorageDirectory "MissionPlanner");
+                //intent.PutExtra(DocumentsContract.ExtraInitialUri, Application.Context.getExternalStorageDirectory "XagSurveillanceGCS");
                 StartActivityForResult(Intent.CreateChooser(intent, "Select a folder to save config settings"), SAF);
             }
             else*/
@@ -287,7 +287,7 @@ namespace Xamarin.Droid
             var intent = new global::Android.Content.Intent(Intent.ActionOpenDocumentTree);
 
             intent.AddFlags(ActivityFlags.GrantWriteUriPermission | ActivityFlags.GrantReadUriPermission);
-            intent.PutExtra(DocumentsContract.ExtraInitialUri, "Mission Planner");
+            intent.PutExtra(DocumentsContract.ExtraInitialUri, "XagSurveillanceGCS");
 
             StartActivityForResult(intent, 1);
             */
@@ -363,7 +363,7 @@ namespace Xamarin.Droid
                 var gdaldir = Settings.GetRunningDirectory() + "gdalimages";
                 Directory.CreateDirectory(gdaldir);
 
-                MissionPlanner.Utilities.GDAL.GDALBase = new GDAL.GDAL();
+                XagSurveillanceGCS.Utilities.GDAL.GDALBase = new GDAL.GDAL();
 
                 GDAL.GDAL.ScanDirectory(gdaldir);
 

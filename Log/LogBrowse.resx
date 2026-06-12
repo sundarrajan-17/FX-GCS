@@ -163,7 +163,7 @@
     <value>BUT_Graphit</value>
   </data>
   <data name="&gt;&gt;BUT_Graphit.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.MyButton, MissionPlanner.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>XagSurveillanceGCS.Controls.MyButton, XagSurveillanceGCS.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;BUT_Graphit.Parent" xml:space="preserve">
     <value>splitContainerButGrid.Panel1</value>
@@ -190,7 +190,7 @@
     <value>BUT_cleargraph</value>
   </data>
   <data name="&gt;&gt;BUT_cleargraph.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.MyButton, MissionPlanner.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>XagSurveillanceGCS.Controls.MyButton, XagSurveillanceGCS.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;BUT_cleargraph.Parent" xml:space="preserve">
     <value>splitContainerButGrid.Panel1</value>
@@ -217,7 +217,7 @@
     <value>BUT_loadlog</value>
   </data>
   <data name="&gt;&gt;BUT_loadlog.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.MyButton, MissionPlanner.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>XagSurveillanceGCS.Controls.MyButton, XagSurveillanceGCS.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;BUT_loadlog.Parent" xml:space="preserve">
     <value>splitContainerButGrid.Panel1</value>
@@ -412,7 +412,7 @@
     <value>myGMAP1</value>
   </data>
   <data name="&gt;&gt;myGMAP1.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.myGMAP, MissionPlanner.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>XagSurveillanceGCS.Controls.myGMAP, XagSurveillanceGCS.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;myGMAP1.Parent" xml:space="preserve">
     <value>splitContainerZgMap.Panel2</value>
@@ -679,7 +679,7 @@
     <value>BUT_Graphit_R</value>
   </data>
   <data name="&gt;&gt;BUT_Graphit_R.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.MyButton, MissionPlanner.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>XagSurveillanceGCS.Controls.MyButton, XagSurveillanceGCS.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;BUT_Graphit_R.Parent" xml:space="preserve">
     <value>splitContainerButGrid.Panel1</value>
@@ -790,7 +790,7 @@
     <value>BUT_removeitem</value>
   </data>
   <data name="&gt;&gt;BUT_removeitem.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.MyButton, MissionPlanner.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>XagSurveillanceGCS.Controls.MyButton, XagSurveillanceGCS.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;BUT_removeitem.Parent" xml:space="preserve">
     <value>splitContainerButGrid.Panel1</value>
@@ -829,7 +829,7 @@
     <value>dataGridView1</value>
   </data>
   <data name="&gt;&gt;dataGridView1.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.MyDataGridView, MissionPlanner, Version=1.3.8253.23263, Culture=neutral, PublicKeyToken=null</value>
+    <value>XagSurveillanceGCS.Controls.MyDataGridView, XagSurveillanceGCS, Version=1.3.8253.23263, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;dataGridView1.Parent" xml:space="preserve">
     <value>splitContainerButGrid.Panel2</value>

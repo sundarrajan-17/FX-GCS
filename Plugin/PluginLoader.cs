@@ -1,5 +1,5 @@
 ﻿using log4net;
-using MissionPlanner.Utilities;
+using XagSurveillanceGCS.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -7,13 +7,13 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
-using MissionPlanner.Controls;
+using XagSurveillanceGCS.Controls;
 using DroneCAN;
 using System.Text.RegularExpressions;
 using System.Linq.Expressions;
 using System.Threading;
 
-namespace MissionPlanner.Plugin
+namespace XagSurveillanceGCS.Plugin
 {
     public class PluginLoader
     {
@@ -101,7 +101,7 @@ namespace MissionPlanner.Plugin
             if (!File.Exists(file) || !file.EndsWith(".dll", true, null) ||
                 file.ToLower().Contains("microsoft.") ||
                 file.ToLower().Contains("system.") ||
-                file.ToLower().Contains("missionplanner.grid.dll") ||
+                file.ToLower().Contains("XagSurveillanceGCS.grid.dll") ||
                 file.ToLower().Contains("usbserialforandroid")
                 )
                 return;
@@ -149,7 +149,7 @@ namespace MissionPlanner.Plugin
             try
             {
                 Type[] types = asm.GetTypes();
-                Type type = typeof(MissionPlanner.Plugin.Plugin);
+                Type type = typeof(XagSurveillanceGCS.Plugin.Plugin);
                 foreach (var t in types)
                 {
                     if (type == t)
@@ -225,7 +225,7 @@ namespace MissionPlanner.Plugin
                         continue;
                     }
 
-                    //loadassembly: MissionPlanner.WebAPIs
+                    //loadassembly: XagSurveillanceGCS.WebAPIs
                     var content = File.ReadAllText(csFile);
 
                     var matches = Regex.Matches(content, @"^\/\/loadassembly: (.*)$", RegexOptions.Multiline);

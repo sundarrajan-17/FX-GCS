@@ -1,1 +1,1 @@
-namespace MissionPlanner.Controls { public partial class HorizontalProgressBar{public HorizontalProgressBar(){this.InitializeComponent();}}}
+namespace XagSurveillanceGCS.Controls { public partial class HorizontalProgressBar{public HorizontalProgressBar(){this.InitializeComponent();}}}

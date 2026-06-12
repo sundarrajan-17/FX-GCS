@@ -1,4 +1,4 @@
-﻿namespace MissionPlanner
+﻿namespace XagSurveillanceGCS
 {
     partial class NMEA_GPS_Connection
     {
@@ -31,7 +31,7 @@
             this.CB_auto_connect = new System.Windows.Forms.CheckBox();
             this.CMB_baudrate = new System.Windows.Forms.ComboBox();
             this.CMB_serialport = new System.Windows.Forms.ComboBox();
-            this.BUT_connect = new MissionPlanner.Controls.MyButton();
+            this.BUT_connect = new XagSurveillanceGCS.Controls.MyButton();
             this.LBL_gpsStatus = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox1.SuspendLayout();

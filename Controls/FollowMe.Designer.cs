@@ -1,4 +1,4 @@
-﻿namespace MissionPlanner.Controls
+﻿namespace XagSurveillanceGCS.Controls
 {
     partial class FollowMe
     {
@@ -36,7 +36,7 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.CMB_updaterate = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.BUT_connect = new MissionPlanner.Controls.MyButton();
+            this.BUT_connect = new XagSurveillanceGCS.Controls.MyButton();
             this.SuspendLayout();
             // 
             // CMB_serialport
@@ -124,7 +124,7 @@
             this.BUT_connect.Name = "BUT_connect";
             this.BUT_connect.Size = new System.Drawing.Size(75, 23);
             this.BUT_connect.TabIndex = 1;
-            this.BUT_connect.Text = global::MissionPlanner.Strings.Connect;
+            this.BUT_connect.Text = global::XagSurveillanceGCS.Strings.Connect;
             this.BUT_connect.UseVisualStyleBackColor = true;
             this.BUT_connect.Click += new System.EventHandler(this.BUT_connect_Click);
             // 

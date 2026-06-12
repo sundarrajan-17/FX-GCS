@@ -1,1 +1,1 @@
-namespace MissionPlanner.GCSViews.ConfigurationView { public partial class ConfigHWRangeFinder{public ConfigHWRangeFinder(){this.InitializeComponent();}}}
+namespace XagSurveillanceGCS.GCSViews.ConfigurationView { public partial class ConfigHWRangeFinder{public ConfigHWRangeFinder(){this.InitializeComponent();}}}

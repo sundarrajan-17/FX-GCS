@@ -7,7 +7,7 @@
     <ProjectTypeGuids>{A3F8F2AB-B479-4A4A-A458-A89E7DC349F1};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <OutputType>Exe</OutputType>
     <RootNamespace>Xamarin.MacOS</RootNamespace>
-    <AssemblyName>Mission Planner</AssemblyName>
+    <AssemblyName>XagSurveillanceGCS</AssemblyName>
     <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
     <TargetFrameworkIdentifier>Xamarin.Mac</TargetFrameworkIdentifier>
     <MonoMacResourcePrefix>Resources</MonoMacResourcePrefix>
@@ -110,13 +110,13 @@
     <InterfaceDefinition Include="Main.storyboard" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Comms\MissionPlanner.Comms.csproj">
+    <ProjectReference Include="..\..\Comms\XagSurveillanceGCS.Comms.csproj">
       <Project>{825e7a10-390c-4a2b-b3a8-491d14966912}</Project>
-      <Name>MissionPlanner.Comms</Name>
+      <Name>XagSurveillanceGCS.Comms</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Controls\MissionPlanner.Controls.csproj">
+    <ProjectReference Include="..\..\Controls\XagSurveillanceGCS.Controls.csproj">
       <Project>{c8b88795-6d01-494d-83ad-6944bd4c5023}</Project>
-      <Name>MissionPlanner.Controls</Name>
+      <Name>XagSurveillanceGCS.Controls</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Interfaces\Interfaces.csproj">
       <Project>{FD4D2994-9BEA-41A1-8C51-2E02D1E8503E}</Project>
@@ -126,13 +126,13 @@
       <Project>{958c175e-8e11-4872-b99b-648f72afd3c1}</Project>
       <Name>System.Drawing.android</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Utilities\MissionPlanner.Utilities.csproj">
+    <ProjectReference Include="..\..\Utilities\XagSurveillanceGCS.Utilities.csproj">
       <Project>{1378A66C-38E4-46F5-A05F-DC04EF7D4D16}</Project>
-      <Name>MissionPlanner.Utilities</Name>
+      <Name>XagSurveillanceGCS.Utilities</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\ArduPilot\MissionPlanner.ArduPilot.csproj">
+    <ProjectReference Include="..\..\ArduPilot\XagSurveillanceGCS.ArduPilot.csproj">
       <Project>{CA6345D3-7A6D-478B-A0ED-A58E50DCAA83}</Project>
-      <Name>MissionPlanner.ArduPilot</Name>
+      <Name>XagSurveillanceGCS.ArduPilot</Name>
     </ProjectReference>
     <ProjectReference Include="..\Xamarin\Xamarin.csproj">
       <Project>{567c5db1-9d8d-4a82-a89b-7e9357e7f6d8}</Project>

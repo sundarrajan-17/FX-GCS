@@ -25,7 +25,7 @@ namespace AltitudeAngelWings.Service.FlightService
     public class FlightService : IFlightService
     {
         private readonly IMessagesService _messagesService;
-        private readonly IMissionPlannerState _missionPlannerState;
+        private readonly IXagSurveillanceGCSState _XagSurveillanceGCSState;
         private readonly CompositeDisposable _disposer = new CompositeDisposable();
         private readonly IFlightClient _flightClient;
         private readonly IAuthClient _authClient;
@@ -34,7 +34,7 @@ namespace AltitudeAngelWings.Service.FlightService
 
         public FlightService(
             IMessagesService messagesService,
-            IMissionPlannerState missionPlannerState,
+            IXagSurveillanceGCSState XagSurveillanceGCSState,
             ISettings settings,
             IFlightDataService flightDataService,
             IFlightClient flightClient,
@@ -42,7 +42,7 @@ namespace AltitudeAngelWings.Service.FlightService
             IOutboundNotificationsService notificationsService)
         {
             _messagesService = messagesService;
-            _missionPlannerState = missionPlannerState;
+            _XagSurveillanceGCSState = XagSurveillanceGCSState;
             _settings = settings;
             _flightClient = flightClient;
             _authClient = authClient;
@@ -216,13 +216,13 @@ namespace AltitudeAngelWings.Service.FlightService
 
         public FlightPlan GetFlightPlan()
         {
-            var waypoints = _missionPlannerState.Waypoints;
+            var waypoints = _XagSurveillanceGCSState.Waypoints;
             if (waypoints.Count == 0)
             {
                 return null;
             }
 
-            waypoints.Insert(0, _missionPlannerState.HomeLocation);
+            waypoints.Insert(0, _XagSurveillanceGCSState.HomeLocation);
             var envelope = NetTopologySuite.Geometries.GeometryFactory.Default.CreateMultiPoint(
                     waypoints
                         .Select(l => new NetTopologySuite.Geometries.Point(l.Longitude, l.Latitude))
@@ -235,7 +235,7 @@ namespace AltitudeAngelWings.Service.FlightService
                 CenterLongitude = center.X,
                 CenterLatitude = center.Y,
                 BoundingRadius = (int)Math.Ceiling(minimumBoundingCircle.GetRadius()),
-                FlightCapability = _missionPlannerState.FlightCapability,
+                FlightCapability = _XagSurveillanceGCSState.FlightCapability,
                 Summary =  _settings.FlightPlanName,
                 Description = _settings.FlightPlanDescription,
                 Duration = Duration.FromTimeSpan(_settings.FlightPlanTimeSpan),

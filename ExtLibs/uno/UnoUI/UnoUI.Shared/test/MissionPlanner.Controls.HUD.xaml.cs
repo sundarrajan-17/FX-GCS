@@ -1,1 +1,1 @@
-namespace MissionPlanner.Controls { public partial class HUD{public HUD(){this.InitializeComponent();}}}
+namespace XagSurveillanceGCS.Controls { public partial class HUD{public HUD(){this.InitializeComponent();}}}

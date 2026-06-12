@@ -1,4 +1,4 @@
-﻿namespace MissionPlanner.ArduPilot
+﻿namespace XagSurveillanceGCS.ArduPilot
 {
     public struct DeviceInfo
     {

@@ -1,9 +1,9 @@
-﻿using MissionPlanner.Utilities;
+﻿using XagSurveillanceGCS.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace MissionPlanner.Swarm.FollowLeader
+namespace XagSurveillanceGCS.Swarm.FollowLeader
 {
     public class DroneGroup
     {

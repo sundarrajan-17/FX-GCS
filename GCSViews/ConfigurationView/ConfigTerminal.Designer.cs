@@ -1,4 +1,4 @@
-﻿namespace MissionPlanner.GCSViews.ConfigurationView
+﻿namespace XagSurveillanceGCS.GCSViews.ConfigurationView
 {
     partial class ConfigTerminal
     {
@@ -30,13 +30,13 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ConfigTerminal));
             this.TXT_terminal = new System.Windows.Forms.RichTextBox();
-            this.BUTsetupshow = new MissionPlanner.Controls.MyButton();
-            this.BUTradiosetup = new MissionPlanner.Controls.MyButton();
-            this.BUTtests = new MissionPlanner.Controls.MyButton();
-            this.Logs = new MissionPlanner.Controls.MyButton();
-            this.BUT_logbrowse = new MissionPlanner.Controls.MyButton();
-            this.BUT_ConnectAPM = new MissionPlanner.Controls.MyButton();
-            this.BUT_disconnect = new MissionPlanner.Controls.MyButton();
+            this.BUTsetupshow = new XagSurveillanceGCS.Controls.MyButton();
+            this.BUTradiosetup = new XagSurveillanceGCS.Controls.MyButton();
+            this.BUTtests = new XagSurveillanceGCS.Controls.MyButton();
+            this.Logs = new XagSurveillanceGCS.Controls.MyButton();
+            this.BUT_logbrowse = new XagSurveillanceGCS.Controls.MyButton();
+            this.BUT_ConnectAPM = new XagSurveillanceGCS.Controls.MyButton();
+            this.BUT_disconnect = new XagSurveillanceGCS.Controls.MyButton();
             this.CMB_boardtype = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 

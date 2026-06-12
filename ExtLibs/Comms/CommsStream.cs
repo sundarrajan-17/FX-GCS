@@ -1,6 +1,6 @@
 ﻿using System.IO;
 
-namespace MissionPlanner.Comms
+namespace XagSurveillanceGCS.Comms
 {
     public class CommsStream : Stream
     {

@@ -1,4 +1,4 @@
-﻿namespace MissionPlanner.GCSViews.ConfigurationView
+﻿namespace XagSurveillanceGCS.GCSViews.ConfigurationView
 {
     partial class ConfigAC_Fence
     {
@@ -32,20 +32,20 @@
             this.label1gftitle = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.label2rtlalt = new System.Windows.Forms.Label();
-            this.mavlinkComboBox2 = new MissionPlanner.Controls.MavlinkComboBox();
-            this.mavlinkNumericUpDown1 = new MissionPlanner.Controls.MavlinkNumericUpDown();
-            this.mavlinkNumericUpDown2 = new MissionPlanner.Controls.MavlinkNumericUpDown();
-            this.mavlinkCheckBox1 = new MissionPlanner.Controls.MavlinkCheckBox();
+            this.mavlinkComboBox2 = new XagSurveillanceGCS.Controls.MavlinkComboBox();
+            this.mavlinkNumericUpDown1 = new XagSurveillanceGCS.Controls.MavlinkNumericUpDown();
+            this.mavlinkNumericUpDown2 = new XagSurveillanceGCS.Controls.MavlinkNumericUpDown();
+            this.mavlinkCheckBox1 = new XagSurveillanceGCS.Controls.MavlinkCheckBox();
             this.label3enable = new System.Windows.Forms.Label();
-            this.mavlinkComboBox1 = new MissionPlanner.Controls.MavlinkComboBox();
+            this.mavlinkComboBox1 = new XagSurveillanceGCS.Controls.MavlinkComboBox();
             this.label4type = new System.Windows.Forms.Label();
             this.label5action = new System.Windows.Forms.Label();
             this.label6maxalt = new System.Windows.Forms.Label();
             this.label8minalt = new System.Windows.Forms.Label();
             this.label7maxrad = new System.Windows.Forms.Label();
-            this.mavlinkNumericUpDown4 = new MissionPlanner.Controls.MavlinkNumericUpDown();
-            this.mavlinkNumericUpDown3 = new MissionPlanner.Controls.MavlinkNumericUpDown();
-            this.lineSeparator2 = new MissionPlanner.Controls.LineSeparator();
+            this.mavlinkNumericUpDown4 = new XagSurveillanceGCS.Controls.MavlinkNumericUpDown();
+            this.mavlinkNumericUpDown3 = new XagSurveillanceGCS.Controls.MavlinkNumericUpDown();
+            this.lineSeparator2 = new XagSurveillanceGCS.Controls.LineSeparator();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.mavlinkNumericUpDown1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mavlinkNumericUpDown2)).BeginInit();

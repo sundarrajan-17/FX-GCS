@@ -1,8 +1,8 @@
 ﻿using log4net;
 using ManagedNativeWifi.Simple;
-using MissionPlanner.Arduino;
-using MissionPlanner.ArduPilot;
-using MissionPlanner.Comms;
+using XagSurveillanceGCS.Arduino;
+using XagSurveillanceGCS.ArduPilot;
+using XagSurveillanceGCS.Comms;
 using px4uploader;
 using SharpAdbClient;
 using solo;
@@ -21,7 +21,7 @@ using System.Windows.Forms;
 using System.Xml;
 using System.Xml.Serialization;
 
-namespace MissionPlanner.Utilities
+namespace XagSurveillanceGCS.Utilities
 {
     public class Firmware
     {
@@ -29,7 +29,7 @@ namespace MissionPlanner.Utilities
 
         public event ProgressEventHandler Progress;
 
-        string firmwareurl = "https://github.com/ArduPilot/binary/raw/master/Firmware/firmware2.xml;https://firmware.ardupilot.org/Tools/MissionPlanner/Firmware/firmware2.xml";
+        string firmwareurl = "https://github.com/ArduPilot/binary/raw/master/Firmware/firmware2.xml;https://firmware.ardupilot.org/Tools/XagSurveillanceGCS/Firmware/firmware2.xml";
 
         static readonly string gholdurl = ("https://github.com/diydrones/binary/raw/!Hash!/Firmware/firmware2.xml");
         static readonly string gholdfirmwareurl = ("https://github.com/diydrones/binary/raw/!Hash!/Firmware/!Firmware!");
@@ -548,7 +548,7 @@ namespace MissionPlanner.Utilities
                 return false;
             }
 
-            MissionPlanner.Utilities.Tracking.AddFW(temp.name, board.ToString());
+            XagSurveillanceGCS.Utilities.Tracking.AddFW(temp.name, board.ToString());
 
             var uploadstarttime = DateTime.Now;
 

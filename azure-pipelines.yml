@@ -4,53 +4,52 @@
 # https://docs.microsoft.com/azure/devops/pipelines/apps/windows/dot-net
 
 trigger:
-- master
-- refs/tags/beta
+  - master
+  - refs/tags/beta
 
 pool:
-  vmImage: 'windows-latest'
+  vmImage: "windows-latest"
 
 variables:
-  solution: '**/MissionPlanner.sln'
-  buildPlatform: 'Any CPU'
-  buildConfiguration: 'Release'
+  solution: "**/XagSurveillanceGCS.sln"
+  buildPlatform: "Any CPU"
+  buildConfiguration: "Release"
 
 steps:
-- script: date /t
-  displayName: Get the date
-- script: dir /s
-  workingDirectory: $(Agent.BuildDirectory)
-  displayName: List contents of a folder
+  - script: date /t
+    displayName: Get the date
+  - script: dir /s
+    workingDirectory: $(Agent.BuildDirectory)
+    displayName: List contents of a folder
 
-- script: dotnet nuget locals all --clear
-- script: git submodule update --init --depth 2 --no-single-branch 
+  - script: dotnet nuget locals all --clear
+  - script: git submodule update --init --depth 2 --no-single-branch
 
-- task: UseDotNet@2
-  displayName: Use .NET 6.0
-  inputs:
-    packageType: 'sdk'
-    version: '6.0.x'
+  - task: UseDotNet@2
+    displayName: Use .NET 6.0
+    inputs:
+      packageType: "sdk"
+      version: "6.0.x"
 
-- task: VSBuild@1
-  inputs:
-    solution: '$(solution)'
-    platform: '$(buildPlatform)'
-    configuration: '$(buildConfiguration)'
-    msbuildArgs: '-restore /m'
-    logFileVerbosity: minimal
+  - task: VSBuild@1
+    inputs:
+      solution: "$(solution)"
+      platform: "$(buildPlatform)"
+      configuration: "$(buildConfiguration)"
+      msbuildArgs: "-restore /m"
+      logFileVerbosity: minimal
 
-- script: dir
-  workingDirectory: '$(Build.BinariesDirectory)' 
-  displayName: List contents of a folder
+  - script: dir
+    workingDirectory: "$(Build.BinariesDirectory)"
+    displayName: List contents of a folder
 
-- task: ArchiveFiles@2
-  inputs:
-    rootFolderOrFile: '$(Build.Repository.LocalPath)/bin/Release/net461' 
-    includeRootFolder: false
-    archiveFile: '$(Build.ArtifactStagingDirectory)/MissionPlanner.zip' 
+  - task: ArchiveFiles@2
+    inputs:
+      rootFolderOrFile: "$(Build.Repository.LocalPath)/bin/Release/net461"
+      includeRootFolder: false
+      archiveFile: "$(Build.ArtifactStagingDirectory)/XagSurveillanceGCS.zip"
 
-- task: PublishPipelineArtifact@0
-  inputs:
-    artifactName: 'MissionPlanner' 
-    targetPath: '$(Build.ArtifactStagingDirectory)/MissionPlanner.zip'
-    
+  - task: PublishPipelineArtifact@0
+    inputs:
+      artifactName: "XagSurveillanceGCS"
+      targetPath: "$(Build.ArtifactStagingDirectory)/XagSurveillanceGCS.zip"

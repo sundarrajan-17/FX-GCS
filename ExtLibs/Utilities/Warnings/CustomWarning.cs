@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Drawing;
 
-namespace MissionPlanner.Warnings
+namespace XagSurveillanceGCS.Warnings
 {
     public class CustomWarning
     {

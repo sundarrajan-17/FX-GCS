@@ -5,10 +5,10 @@ using GMap.NET;
 using GMap.NET.WindowsForms;
 using System.Collections.Generic;      // For List<>
 
-using MissionPlanner.Utilities;
-using MissionPlanner;
+using XagSurveillanceGCS.Utilities;
+using XagSurveillanceGCS;
 
-namespace MissionPlanner.Maps
+namespace XagSurveillanceGCS.Maps
 {
     public class GMapMarkerCamera : GMapMarker
     {
@@ -83,7 +83,7 @@ namespace MissionPlanner.Maps
     }
 }
 
-namespace MissionPlanner.Maps
+namespace XagSurveillanceGCS.Maps
 {
     public class GMapMarkerCamTarget : GMapMarker
     {

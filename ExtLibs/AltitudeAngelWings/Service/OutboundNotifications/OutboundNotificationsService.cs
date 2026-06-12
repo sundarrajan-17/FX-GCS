@@ -14,24 +14,24 @@ namespace AltitudeAngelWings.Service.OutboundNotifications
     public class OutboundNotificationsService : IOutboundNotificationsService
     {
         private readonly ISettings _settings;
-        private readonly IMissionPlanner _missionPlanner;
+        private readonly IXagSurveillanceGCS _XagSurveillanceGCS;
         private readonly IMessagesService _messagesService;
         private readonly IFlightClient _flightServiceClient;
-        private readonly IMissionPlannerState _missionPlannerState;
+        private readonly IXagSurveillanceGCSState _XagSurveillanceGCSState;
         private ClientWebSocket _clientWebSocket;
 
         public OutboundNotificationsService(
-            IMissionPlanner missionPlanner,
+            IXagSurveillanceGCS XagSurveillanceGCS,
             ISettings settings,
             IMessagesService messagesService,
             IFlightClient flightServiceClient,
-            IMissionPlannerState missionPlannerState)
+            IXagSurveillanceGCSState XagSurveillanceGCSState)
         {
-            _missionPlanner = missionPlanner;
+            _XagSurveillanceGCS = XagSurveillanceGCS;
             _settings = settings;
             _messagesService = messagesService;
             _flightServiceClient = flightServiceClient;
-            _missionPlannerState = missionPlannerState;
+            _XagSurveillanceGCSState = XagSurveillanceGCSState;
         }
 
         public async Task StartWebSocket(CancellationToken cancellationToken = default)
@@ -91,17 +91,17 @@ namespace AltitudeAngelWings.Service.OutboundNotifications
                 {
                     case OutboundNotificationsCommands.Land:
                         var landProps = notification.Properties.ToObject<LandNotificationProperties>();
-                        await _missionPlanner.CommandDroneToLand((float)landProps.Latitude, (float)landProps.Longitude);
+                        await _XagSurveillanceGCS.CommandDroneToLand((float)landProps.Latitude, (float)landProps.Longitude);
                         break;
                     case OutboundNotificationsCommands.Loiter:
                         var loiterProps = notification.Properties.ToObject<LoiterNotificationProperties>();
-                        await _missionPlanner.CommandDroneToLoiter((float)loiterProps.Latitude, (float)loiterProps.Longitude, (float)loiterProps.Altitude.Meters);
+                        await _XagSurveillanceGCS.CommandDroneToLoiter((float)loiterProps.Latitude, (float)loiterProps.Longitude, (float)loiterProps.Altitude.Meters);
                         break;
                     case OutboundNotificationsCommands.AllClear:
-                        await _missionPlanner.CommandDroneAllClear();
+                        await _XagSurveillanceGCS.CommandDroneAllClear();
                         break;
                     case OutboundNotificationsCommands.ReturnToBase:
-                        await _missionPlanner.CommandDroneToReturnToBase();
+                        await _XagSurveillanceGCS.CommandDroneToReturnToBase();
                         break;
                     case OutboundNotificationsCommands.PermissionUpdate:
                         var permissionProperties = notification.Properties.ToObject<PermissionNotificationProperties>();
@@ -109,40 +109,40 @@ namespace AltitudeAngelWings.Service.OutboundNotifications
                         break;
                     case OutboundNotificationsCommands.ConflictInformation:
                         var conflictProperties = notification.Properties.ToObject<ConflictInformationProperties>();
-                        await _missionPlanner.NotifyConflict(conflictProperties.Message);
+                        await _XagSurveillanceGCS.NotifyConflict(conflictProperties.Message);
                         break;
                     case OutboundNotificationsCommands.ConflictClearedInformation:
                         var conflictClearedProperties = notification.Properties.ToObject<ConflictClearedNotificationProperties>();
-                        await _missionPlanner.NotifyConflictResolved(conflictClearedProperties.Message);
+                        await _XagSurveillanceGCS.NotifyConflictResolved(conflictClearedProperties.Message);
                         break;
                     case OutboundNotificationsCommands.Instruction:
                         var instructionProperties = notification.Properties.ToObject<InstructionNotificationProperties>();
-                        if (await _missionPlanner.ShowYesNoMessageBox(
+                        if (await _XagSurveillanceGCS.ShowYesNoMessageBox(
                             $"You have been sent the following instruction:\r\n\r\n\"{instructionProperties.Instruction}\"\r\n\r\nDo you wish to accept and follow the instruction?",
                             "Instruction"))
                         {
                             await _flightServiceClient.AcceptInstruction(instructionProperties.InstructionId);
                             if (instructionProperties.Instruction.IndexOf("hold", StringComparison.InvariantCultureIgnoreCase) >= 0)
                             {
-                                await  _missionPlanner.CommandDroneToLoiter((float)_missionPlannerState.Latitude, (float)_missionPlannerState.Longitude, _missionPlannerState.Altitude);
+                                await  _XagSurveillanceGCS.CommandDroneToLoiter((float)_XagSurveillanceGCSState.Latitude, (float)_XagSurveillanceGCSState.Longitude, _XagSurveillanceGCSState.Altitude);
                                 break;
                             }
 
                             if (instructionProperties.Instruction.IndexOf("resume", StringComparison.InvariantCultureIgnoreCase) >= 0)
                             {
-                                await _missionPlanner.CommandDroneAllClear();
+                                await _XagSurveillanceGCS.CommandDroneAllClear();
                                 break;
                             }
 
                             if (instructionProperties.Instruction.IndexOf("land", StringComparison.InvariantCultureIgnoreCase) >= 0)
                             {
-                                await _missionPlanner.CommandDroneToLand((float)_missionPlannerState.Latitude, (float)_missionPlannerState.Longitude);
+                                await _XagSurveillanceGCS.CommandDroneToLand((float)_XagSurveillanceGCSState.Latitude, (float)_XagSurveillanceGCSState.Longitude);
                                 break;
                             }
 
                             if (instructionProperties.Instruction.IndexOf("return", StringComparison.InvariantCultureIgnoreCase) >= 0)
                             {
-                                await _missionPlanner.CommandDroneToReturnToBase();
+                                await _XagSurveillanceGCS.CommandDroneToReturnToBase();
                             }
                         }
                         else

@@ -169,7 +169,7 @@
     <value>BUT_rerequestparams</value>
   </data>
   <data name="&gt;&gt;BUT_rerequestparams.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.MyButton, MissionPlanner.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>XagSurveillanceGCS.Controls.MyButton, XagSurveillanceGCS.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;BUT_rerequestparams.Parent" xml:space="preserve">
     <value>$this</value>
@@ -199,7 +199,7 @@
     <value>BUT_writePIDS</value>
   </data>
   <data name="&gt;&gt;BUT_writePIDS.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.MyButton, MissionPlanner.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>XagSurveillanceGCS.Controls.MyButton, XagSurveillanceGCS.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;BUT_writePIDS.Parent" xml:space="preserve">
     <value>$this</value>
@@ -229,7 +229,7 @@
     <value>BUT_Find</value>
   </data>
   <data name="&gt;&gt;BUT_Find.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.MyButton, MissionPlanner.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>XagSurveillanceGCS.Controls.MyButton, XagSurveillanceGCS.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;BUT_Find.Parent" xml:space="preserve">
     <value>$this</value>

@@ -1,4 +1,4 @@
-﻿namespace MissionPlanner.Controls
+﻿namespace XagSurveillanceGCS.Controls
 {
     partial class SerialOutputCoT
     {
@@ -47,14 +47,14 @@
             this.TB_output = new System.Windows.Forms.TextBox();
             this.BTN_clear_TB = new System.Windows.Forms.Button();
             this.GB_connection = new System.Windows.Forms.GroupBox();
-            this.BUT_connect = new MissionPlanner.Controls.MyButton();
+            this.BUT_connect = new XagSurveillanceGCS.Controls.MyButton();
             this.label_type = new System.Windows.Forms.Label();
             this.TB_xml_type = new System.Windows.Forms.TextBox();
             this.CB_advancedMode = new System.Windows.Forms.CheckBox();
             this.chk_indent = new System.Windows.Forms.CheckBox();
             this.updateRate_numericUpDown = new System.Windows.Forms.NumericUpDown();
             this.label2 = new System.Windows.Forms.Label();
-            this.myDataGridView1 = new MissionPlanner.Controls.MyDataGridView();
+            this.myDataGridView1 = new XagSurveillanceGCS.Controls.MyDataGridView();
             this.sysid = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.UID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.takv = new System.Windows.Forms.DataGridViewCheckBoxColumn();

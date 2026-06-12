@@ -1,4 +1,4 @@
-﻿namespace MissionPlanner.Controls
+﻿namespace XagSurveillanceGCS.Controls
 {
     partial class MovingBase
     {
@@ -36,7 +36,7 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.CMB_updaterate = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.BUT_connect = new MissionPlanner.Controls.MyButton();
+            this.BUT_connect = new XagSurveillanceGCS.Controls.MyButton();
             this.CHK_updateRallyPnt = new System.Windows.Forms.CheckBox();
             this.chk_relalt = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();

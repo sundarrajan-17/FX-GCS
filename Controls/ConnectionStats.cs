@@ -7,7 +7,7 @@ using System.Reactive.Subjects;
 using System.Threading;
 using System.Windows.Forms;
 
-namespace MissionPlanner.Controls
+namespace XagSurveillanceGCS.Controls
 {
     public partial class ConnectionStats : UserControl
     {

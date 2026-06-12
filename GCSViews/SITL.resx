@@ -136,7 +136,7 @@
     <value>myGMAP1</value>
   </data>
   <data name="&gt;&gt;myGMAP1.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.myGMAP, MissionPlanner.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>XagSurveillanceGCS.Controls.myGMAP, XagSurveillanceGCS.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;myGMAP1.Parent" xml:space="preserve">
     <value>groupBox1</value>
@@ -199,7 +199,7 @@
     <value>pictureBoxheli</value>
   </data>
   <data name="&gt;&gt;pictureBoxheli.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.PictureBoxMouseOver, MissionPlanner.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>XagSurveillanceGCS.Controls.PictureBoxMouseOver, XagSurveillanceGCS.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;pictureBoxheli.Parent" xml:space="preserve">
     <value>panel1</value>
@@ -211,7 +211,7 @@
     <value>pictureBoxquad</value>
   </data>
   <data name="&gt;&gt;pictureBoxquad.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.PictureBoxMouseOver, MissionPlanner.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>XagSurveillanceGCS.Controls.PictureBoxMouseOver, XagSurveillanceGCS.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;pictureBoxquad.Parent" xml:space="preserve">
     <value>panel1</value>
@@ -223,7 +223,7 @@
     <value>pictureBoxrover</value>
   </data>
   <data name="&gt;&gt;pictureBoxrover.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.PictureBoxMouseOver, MissionPlanner.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>XagSurveillanceGCS.Controls.PictureBoxMouseOver, XagSurveillanceGCS.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;pictureBoxrover.Parent" xml:space="preserve">
     <value>panel1</value>
@@ -235,7 +235,7 @@
     <value>pictureBoxplane</value>
   </data>
   <data name="&gt;&gt;pictureBoxplane.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.PictureBoxMouseOver, MissionPlanner.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>XagSurveillanceGCS.Controls.PictureBoxMouseOver, XagSurveillanceGCS.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;pictureBoxplane.Parent" xml:space="preserve">
     <value>panel1</value>
@@ -823,7 +823,7 @@
     <value>pictureBoxheli</value>
   </data>
   <data name="&gt;&gt;pictureBoxheli.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.PictureBoxMouseOver, MissionPlanner.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>XagSurveillanceGCS.Controls.PictureBoxMouseOver, XagSurveillanceGCS.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;pictureBoxheli.Parent" xml:space="preserve">
     <value>panel1</value>
@@ -1352,7 +1352,7 @@
     <value>pictureBoxquad</value>
   </data>
   <data name="&gt;&gt;pictureBoxquad.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.PictureBoxMouseOver, MissionPlanner.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>XagSurveillanceGCS.Controls.PictureBoxMouseOver, XagSurveillanceGCS.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;pictureBoxquad.Parent" xml:space="preserve">
     <value>panel1</value>
@@ -1765,7 +1765,7 @@
     <value>pictureBoxrover</value>
   </data>
   <data name="&gt;&gt;pictureBoxrover.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.PictureBoxMouseOver, MissionPlanner.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>XagSurveillanceGCS.Controls.PictureBoxMouseOver, XagSurveillanceGCS.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;pictureBoxrover.Parent" xml:space="preserve">
     <value>panel1</value>
@@ -2080,7 +2080,7 @@
     <value>pictureBoxplane</value>
   </data>
   <data name="&gt;&gt;pictureBoxplane.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.PictureBoxMouseOver, MissionPlanner.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>XagSurveillanceGCS.Controls.PictureBoxMouseOver, XagSurveillanceGCS.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;pictureBoxplane.Parent" xml:space="preserve">
     <value>panel1</value>
@@ -2245,7 +2245,7 @@
     <value>but_swarmrover</value>
   </data>
   <data name="&gt;&gt;but_swarmrover.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.MyButton, MissionPlanner.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>XagSurveillanceGCS.Controls.MyButton, XagSurveillanceGCS.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;but_swarmrover.Parent" xml:space="preserve">
     <value>groupBox4</value>
@@ -2257,7 +2257,7 @@
     <value>but_swarmplane</value>
   </data>
   <data name="&gt;&gt;but_swarmplane.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.MyButton, MissionPlanner.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>XagSurveillanceGCS.Controls.MyButton, XagSurveillanceGCS.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;but_swarmplane.Parent" xml:space="preserve">
     <value>groupBox4</value>
@@ -2269,7 +2269,7 @@
     <value>but_swarmseq</value>
   </data>
   <data name="&gt;&gt;but_swarmseq.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.MyButton, MissionPlanner.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>XagSurveillanceGCS.Controls.MyButton, XagSurveillanceGCS.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;but_swarmseq.Parent" xml:space="preserve">
     <value>groupBox4</value>
@@ -2281,7 +2281,7 @@
     <value>but_swarmlink</value>
   </data>
   <data name="&gt;&gt;but_swarmlink.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.MyButton, MissionPlanner.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>XagSurveillanceGCS.Controls.MyButton, XagSurveillanceGCS.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;but_swarmlink.Parent" xml:space="preserve">
     <value>groupBox4</value>
@@ -2416,7 +2416,7 @@
     <value>but_swarmrover</value>
   </data>
   <data name="&gt;&gt;but_swarmrover.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.MyButton, MissionPlanner.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>XagSurveillanceGCS.Controls.MyButton, XagSurveillanceGCS.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;but_swarmrover.Parent" xml:space="preserve">
     <value>groupBox4</value>
@@ -2443,7 +2443,7 @@
     <value>but_swarmplane</value>
   </data>
   <data name="&gt;&gt;but_swarmplane.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.MyButton, MissionPlanner.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>XagSurveillanceGCS.Controls.MyButton, XagSurveillanceGCS.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;but_swarmplane.Parent" xml:space="preserve">
     <value>groupBox4</value>
@@ -2470,7 +2470,7 @@
     <value>but_swarmseq</value>
   </data>
   <data name="&gt;&gt;but_swarmseq.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.MyButton, MissionPlanner.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>XagSurveillanceGCS.Controls.MyButton, XagSurveillanceGCS.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;but_swarmseq.Parent" xml:space="preserve">
     <value>groupBox4</value>
@@ -2494,7 +2494,7 @@
     <value>but_swarmlink</value>
   </data>
   <data name="&gt;&gt;but_swarmlink.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.MyButton, MissionPlanner.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>XagSurveillanceGCS.Controls.MyButton, XagSurveillanceGCS.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;but_swarmlink.Parent" xml:space="preserve">
     <value>groupBox4</value>
@@ -2785,6 +2785,6 @@
     <value>SITL</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>System.Windows.Forms.MyUserControl, MissionPlanner.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>System.Windows.Forms.MyUserControl, XagSurveillanceGCS.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
 </root>

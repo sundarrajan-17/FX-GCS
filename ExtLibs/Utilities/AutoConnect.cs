@@ -10,11 +10,11 @@ using System.Threading;
 using System.Threading.Tasks;
 using ClipperLib;
 using log4net;
-using MissionPlanner.Comms;
+using XagSurveillanceGCS.Comms;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 
-namespace MissionPlanner.Utilities
+namespace XagSurveillanceGCS.Utilities
 {
     public class AutoConnect
     {
@@ -36,7 +36,7 @@ namespace MissionPlanner.Utilities
             new ConnectionInfo("Video udp 5100 h264", true, 5100, ProtocolType.Udp, ConnectionFormat.Video,
                 Direction.Inbound,
                 "udpsrc port=5100 buffer-size=90000 ! application/x-rtp,media=(string)video,clock-rate=(int)90000,encoding-name=(string)H264 ! decodebin3 ! queue max-size-buffers=1 leaky=2 ! videoconvert ! video/x-raw,format=BGRA ! appsink name=outsink sync=false"),
-            // "C:\ProgramData\Mission Planner\gstreamer\1.0\x86_64\bin\gst-launch-1.0.exe" videotestsrc pattern=ball  is-live=true ! video/x-raw,width=640,height=480 ! clockoverlay ! x264enc ! rtph264pay ! udpsink host=127.0.0.1 port=5600
+            // "C:\ProgramData\XagSurveillanceGCS\gstreamer\1.0\x86_64\bin\gst-launch-1.0.exe" videotestsrc pattern=ball  is-live=true ! video/x-raw,width=640,height=480 ! clockoverlay ! x264enc ! rtph264pay ! udpsink host=127.0.0.1 port=5600
             new ConnectionInfo("Video udp 5600 h264", true, 5600, ProtocolType.Udp, ConnectionFormat.Video,
                 Direction.Inbound,
                 "udpsrc port=5600 buffer-size=90000 ! application/x-rtp,media=(string)video,clock-rate=(int)90000,encoding-name=(string)H264 ! decodebin3 ! queue max-size-buffers=1 leaky=2 ! videoconvert ! video/x-raw,format=BGRA ! appsink name=outsink sync=false"),

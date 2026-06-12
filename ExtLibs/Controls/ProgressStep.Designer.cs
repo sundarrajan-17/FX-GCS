@@ -1,4 +1,4 @@
-﻿namespace MissionPlanner.Controls
+﻿namespace XagSurveillanceGCS.Controls
 {
     partial class ProgressStep
     {
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.progressBar1 = new MissionPlanner.Controls.MyProgressBar();
+            this.progressBar1 = new XagSurveillanceGCS.Controls.MyProgressBar();
             this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
@@ -75,7 +75,7 @@
 
         #endregion
 
-        private MissionPlanner.Controls.MyProgressBar progressBar1;
+        private XagSurveillanceGCS.Controls.MyProgressBar progressBar1;
         private System.Windows.Forms.Label label1;
     }
 }

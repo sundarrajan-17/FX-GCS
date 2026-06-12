@@ -8,7 +8,7 @@ using System.Threading;
 using log4net;
 using System.Drawing;
 
-namespace MissionPlanner.Utilities
+namespace XagSurveillanceGCS.Utilities
 {
     public class CaptureMJPEG
     {

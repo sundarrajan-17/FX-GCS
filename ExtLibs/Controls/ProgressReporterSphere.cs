@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Configuration;
 
-namespace MissionPlanner.Controls
+namespace XagSurveillanceGCS.Controls
 {
     public class ProgressReporterSphere : ProgressReporterDialogue
     {
@@ -27,12 +27,12 @@ namespace MissionPlanner.Controls
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProgressReporterSphere));
-            this.sphere1 = new MissionPlanner.Controls.Sphere();
+            this.sphere1 = new XagSurveillanceGCS.Controls.Sphere();
             this.CHK_rotate = new System.Windows.Forms.CheckBox();
-            this.sphere2 = new MissionPlanner.Controls.Sphere();
+            this.sphere2 = new XagSurveillanceGCS.Controls.Sphere();
             this.label1 = new System.Windows.Forms.Label();
             this.chk_auto = new System.Windows.Forms.CheckBox();
-            this.sphere3 = new MissionPlanner.Controls.Sphere();
+            this.sphere3 = new XagSurveillanceGCS.Controls.Sphere();
             this.SuspendLayout();
             // 
             // btnCancel

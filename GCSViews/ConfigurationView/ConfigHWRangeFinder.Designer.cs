@@ -1,4 +1,4 @@
-﻿namespace MissionPlanner.GCSViews.ConfigurationView
+﻿namespace XagSurveillanceGCS.GCSViews.ConfigurationView
 {
     partial class ConfigHWRangeFinder
     {
@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ConfigHWRangeFinder));
-            this.CMB_sonartype = new MissionPlanner.Controls.MavlinkComboBox();
+            this.CMB_sonartype = new XagSurveillanceGCS.Controls.MavlinkComboBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -60,7 +60,7 @@
             // pictureBox3
             // 
             this.pictureBox3.BackColor = System.Drawing.Color.White;
-            this.pictureBox3.BackgroundImage = global::MissionPlanner.Properties.Resources.sonar;
+            this.pictureBox3.BackgroundImage = global::XagSurveillanceGCS.Properties.Resources.sonar;
             resources.ApplyResources(this.pictureBox3, "pictureBox3");
             this.pictureBox3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pictureBox3.Name = "pictureBox3";

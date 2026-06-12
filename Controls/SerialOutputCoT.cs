@@ -1,7 +1,7 @@
 ﻿using Microsoft.Scripting.Utils;
-using MissionPlanner.Comms;
-using MissionPlanner.Utilities;
-using MissionPlanner.Utilities.CoT;
+using XagSurveillanceGCS.Comms;
+using XagSurveillanceGCS.Utilities;
+using XagSurveillanceGCS.Utilities.CoT;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Globalization;
@@ -13,7 +13,7 @@ using System.Windows.Forms;
 using System.Xml;
 using System.Xml.Serialization;
 
-namespace MissionPlanner.Controls
+namespace XagSurveillanceGCS.Controls
 {
     public partial class SerialOutputCoT : Form
     {
@@ -34,7 +34,7 @@ namespace MissionPlanner.Controls
             CMB_serialport.Items.Add("UDP Host - 14551");
             CMB_serialport.Items.Add("UDP Client");
             CMB_serialport.Items.AddRange(SerialPort.GetPortNames());
-            MissionPlanner.Utilities.Tracking.AddPage(this.GetType().ToString(), this.Text);
+            XagSurveillanceGCS.Utilities.Tracking.AddPage(this.GetType().ToString(), this.Text);
         }
 
         private void BUT_connect_Click(object sender, EventArgs e)

@@ -3,9 +3,9 @@ using System.Drawing;
 using System.IO;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
-using MissionPlanner;
-using MissionPlanner.MsgBox;
-using MissionPlanner.Radio;
+using XagSurveillanceGCS;
+using XagSurveillanceGCS.MsgBox;
+using XagSurveillanceGCS.Radio;
 using ZedGraph;
 
 namespace SikRadio
@@ -63,17 +63,17 @@ namespace SikRadio
                         var ATIReply = Session.ATCClient.DoQuery("ATI", true);
                         if (RFDLib.Text.Contains(ATIReply, "async"))
                         {
-                            MissionPlanner.MsgBox.CustomMessageBox.Show("Firmware doesn't support RSSI reporting");
+                            XagSurveillanceGCS.MsgBox.CustomMessageBox.Show("Firmware doesn't support RSSI reporting");
                         }
                         else
                         {
-                            MissionPlanner.MsgBox.CustomMessageBox.Show("Failed to enter RSSI reporting mode.");
+                            XagSurveillanceGCS.MsgBox.CustomMessageBox.Show("Failed to enter RSSI reporting mode.");
                         }
                     }
                 }
                 else
                 {
-                    MissionPlanner.MsgBox.CustomMessageBox.Show("Failed to put modem into AT command mode.");
+                    XagSurveillanceGCS.MsgBox.CustomMessageBox.Show("Failed to put modem into AT command mode.");
                 }
             }
         }

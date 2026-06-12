@@ -145,7 +145,7 @@
     <value>ekfposv</value>
   </data>
   <data name="&gt;&gt;ekfposv.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.VerticalProgressBar2, MissionPlanner.Controls, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>XagSurveillanceGCS.Controls.VerticalProgressBar2, XagSurveillanceGCS.Controls, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;ekfposv.Parent" xml:space="preserve">
     <value>tableLayoutPanel1</value>
@@ -169,7 +169,7 @@
     <value>ekfposh</value>
   </data>
   <data name="&gt;&gt;ekfposh.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.VerticalProgressBar2, MissionPlanner.Controls, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>XagSurveillanceGCS.Controls.VerticalProgressBar2, XagSurveillanceGCS.Controls, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;ekfposh.Parent" xml:space="preserve">
     <value>tableLayoutPanel1</value>
@@ -265,7 +265,7 @@
     <value>ekfcompass</value>
   </data>
   <data name="&gt;&gt;ekfcompass.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.VerticalProgressBar2, MissionPlanner.Controls, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>XagSurveillanceGCS.Controls.VerticalProgressBar2, XagSurveillanceGCS.Controls, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;ekfcompass.Parent" xml:space="preserve">
     <value>tableLayoutPanel1</value>
@@ -289,7 +289,7 @@
     <value>ekfterrain</value>
   </data>
   <data name="&gt;&gt;ekfterrain.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.VerticalProgressBar2, MissionPlanner.Controls, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>XagSurveillanceGCS.Controls.VerticalProgressBar2, XagSurveillanceGCS.Controls, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;ekfterrain.Parent" xml:space="preserve">
     <value>tableLayoutPanel1</value>
@@ -526,7 +526,7 @@
     <value>ekfvel</value>
   </data>
   <data name="&gt;&gt;ekfvel.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.VerticalProgressBar2, MissionPlanner.Controls, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>XagSurveillanceGCS.Controls.VerticalProgressBar2, XagSurveillanceGCS.Controls, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;ekfvel.Parent" xml:space="preserve">
     <value>tableLayoutPanel1</value>

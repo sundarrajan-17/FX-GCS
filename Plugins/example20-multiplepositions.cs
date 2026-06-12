@@ -1,5 +1,5 @@
-﻿using MissionPlanner.Controls;
-using MissionPlanner.Utilities;
+﻿using XagSurveillanceGCS.Controls;
+using XagSurveillanceGCS.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,11 +12,11 @@ using System.Windows.Forms;
 using GMap.NET;
 using GMap.NET.WindowsForms;
 using GMap.NET.WindowsForms.Markers;
-using MissionPlanner.GCSViews;
+using XagSurveillanceGCS.GCSViews;
 using System.Drawing;
 using System.Runtime.Serialization;
 
-namespace MissionPlanner.plugins
+namespace XagSurveillanceGCS.plugins
 {
     public class example20_multiplepositions : Plugin.Plugin
     {

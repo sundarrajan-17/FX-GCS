@@ -230,7 +230,7 @@
     <value>BUT_calib_accell</value>
   </data>
   <data name="&gt;&gt;BUT_calib_accell.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.MyButton, MissionPlanner.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>XagSurveillanceGCS.Controls.MyButton, XagSurveillanceGCS.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;BUT_calib_accell.Parent" xml:space="preserve">
     <value>$this</value>
@@ -257,7 +257,7 @@
     <value>lineSeparator2</value>
   </data>
   <data name="&gt;&gt;lineSeparator2.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.LineSeparator, MissionPlanner.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>XagSurveillanceGCS.Controls.LineSeparator, XagSurveillanceGCS.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;lineSeparator2.Parent" xml:space="preserve">
     <value>$this</value>
@@ -284,7 +284,7 @@
     <value>BUT_level</value>
   </data>
   <data name="&gt;&gt;BUT_level.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.MyButton, MissionPlanner.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>XagSurveillanceGCS.Controls.MyButton, XagSurveillanceGCS.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;BUT_level.Parent" xml:space="preserve">
     <value>$this</value>
@@ -333,6 +333,6 @@
     <value>ConfigAccelerometerCalibration</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>System.Windows.Forms.MyUserControl, MissionPlanner.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>System.Windows.Forms.MyUserControl, XagSurveillanceGCS.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
 </root>

@@ -1,6 +1,6 @@
 ﻿using GMap.NET.Drawing;
 using System.IO;
-using MissionPlanner.Properties;
+using XagSurveillanceGCS.Properties;
 
 namespace GMap.NET.WindowsForms.Markers
 {

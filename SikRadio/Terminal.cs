@@ -4,9 +4,9 @@ using System.IO.Ports;
 using System.Text;
 using System.Threading;
 using System.Windows.Forms;
-using MissionPlanner;
-using MissionPlanner.Comms;
-using MissionPlanner.MsgBox;
+using XagSurveillanceGCS;
+using XagSurveillanceGCS.Comms;
+using XagSurveillanceGCS.MsgBox;
 
 namespace SikRadio
 {
@@ -98,7 +98,7 @@ namespace SikRadio
                 }
                 else
                 {
-                    MissionPlanner.MsgBox.CustomMessageBox.Show("Failed to enter AT command mode.");
+                    XagSurveillanceGCS.MsgBox.CustomMessageBox.Show("Failed to enter AT command mode.");
                 }
             }
         }

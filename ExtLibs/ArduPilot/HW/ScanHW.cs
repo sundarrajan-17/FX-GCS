@@ -11,7 +11,7 @@ using log4net;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
-namespace MissionPlanner.Utilities.HW
+namespace XagSurveillanceGCS.Utilities.HW
 {
     public class ScanHW
     {

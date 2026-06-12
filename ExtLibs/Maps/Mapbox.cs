@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace MissionPlanner.Maps
+namespace XagSurveillanceGCS.Maps
 {
     using System;
     using GMap.NET.Projections;
@@ -11,7 +11,7 @@ namespace MissionPlanner.Maps
     using GMap.NET.MapProviders;
     using GMap.NET;
     using System.Reflection;
-    using MissionPlanner.Utilities;
+    using XagSurveillanceGCS.Utilities;
 
     /// <summary>
     /// EarthBuilder Custom

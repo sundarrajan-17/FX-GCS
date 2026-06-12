@@ -223,7 +223,7 @@
     <value>but_startenum</value>
   </data>
   <data name="&gt;&gt;but_startenum.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.MyButton, MissionPlanner.Controls, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>XagSurveillanceGCS.Controls.MyButton, XagSurveillanceGCS.Controls, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;but_startenum.Parent" xml:space="preserve">
     <value>groupBox1</value>
@@ -250,7 +250,7 @@
     <value>but_stopenum</value>
   </data>
   <data name="&gt;&gt;but_stopenum.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.MyButton, MissionPlanner.Controls, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>XagSurveillanceGCS.Controls.MyButton, XagSurveillanceGCS.Controls, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;but_stopenum.Parent" xml:space="preserve">
     <value>groupBox1</value>
@@ -277,7 +277,7 @@
     <value>but_saveconfig</value>
   </data>
   <data name="&gt;&gt;but_saveconfig.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.MyButton, MissionPlanner.Controls, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>XagSurveillanceGCS.Controls.MyButton, XagSurveillanceGCS.Controls, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;but_saveconfig.Parent" xml:space="preserve">
     <value>groupBox1</value>
@@ -307,7 +307,7 @@
     <value>but_factoryreset</value>
   </data>
   <data name="&gt;&gt;but_factoryreset.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.MyButton, MissionPlanner.Controls, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>XagSurveillanceGCS.Controls.MyButton, XagSurveillanceGCS.Controls, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;but_factoryreset.Parent" xml:space="preserve">
     <value>groupBox1</value>
@@ -358,7 +358,7 @@
     <value>mavlinkComboBox_can</value>
   </data>
   <data name="&gt;&gt;mavlinkComboBox_can.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.MavlinkComboBox, MissionPlanner, Version=1.3.7005.20367, Culture=neutral, PublicKeyToken=null</value>
+    <value>XagSurveillanceGCS.Controls.MavlinkComboBox, XagSurveillanceGCS, Version=1.3.7005.20367, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;mavlinkComboBox_can.Parent" xml:space="preserve">
     <value>$this</value>
@@ -454,6 +454,6 @@
     <value>ConfigHWCAN</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>System.Windows.Forms.MyUserControl, MissionPlanner.Controls, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>System.Windows.Forms.MyUserControl, XagSurveillanceGCS.Controls, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
 </root>

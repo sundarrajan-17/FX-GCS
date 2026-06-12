@@ -38,13 +38,13 @@
     </COMReference>
   </ItemGroup>
   <ItemGroup>
-	  <ProjectReference Include="..\..\MissionPlanner.csproj">
+	  <ProjectReference Include="..\..\XagSurveillanceGCS.csproj">
 		  <Project>{A2E22272-95FE-47B6-B050-9AE7E2055BF5}</Project>
-		  <Name>MissionPlanner</Name>
+		  <Name>XagSurveillanceGCS</Name>
 		  <Private>False</Private>
 	  </ProjectReference>
 	  <ProjectReference Include="..\AltitudeAngelWings\AltitudeAngelWings.csproj" />
-    <ProjectReference Include="..\MissionPlanner.Drawing\MissionPlanner.Drawing.csproj">
+    <ProjectReference Include="..\XagSurveillanceGCS.Drawing\XagSurveillanceGCS.Drawing.csproj">
 	    <Aliases>Drawing</Aliases>
 	    <Private>false</Private>
     </ProjectReference>

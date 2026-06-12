@@ -1,4 +1,4 @@
-namespace MissionPlanner.Controls
+namespace XagSurveillanceGCS.Controls
 {
     partial class GimbalVideoControl
     {
@@ -17,7 +17,6 @@ namespace MissionPlanner.Controls
         {
             this.components = new System.ComponentModel.Container();
             this.VideoBox = new System.Windows.Forms.PictureBox();
-            this.VideoBoxContextMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.videoStreamToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
             this.retractToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -35,15 +34,14 @@ namespace MissionPlanner.Controls
             this.ControlInfoTooltip = new System.Windows.Forms.ToolTip(this.components);
             this.UITimer = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.VideoBox)).BeginInit();
-            this.VideoBoxContextMenu.SuspendLayout();
             this.SuspendLayout();
             // 
             // VideoBox
             // 
-            this.VideoBox.ContextMenuStrip = this.VideoBoxContextMenu;
+            this.VideoBox.ContextMenuStrip = null;
             this.VideoBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.VideoBox.ErrorImage = global::MissionPlanner.Properties.Resources.no_video;
-            this.VideoBox.Image = global::MissionPlanner.Properties.Resources.no_video;
+            this.VideoBox.ErrorImage = global::XagSurveillanceGCS.Properties.Resources.no_video;
+            this.VideoBox.Image = global::XagSurveillanceGCS.Properties.Resources.no_video;
             this.VideoBox.InitialImage = null;
             this.VideoBox.Location = new System.Drawing.Point(0, 0);
             this.VideoBox.Margin = new System.Windows.Forms.Padding(0);
@@ -55,26 +53,7 @@ namespace MissionPlanner.Controls
             this.VideoBox.Click += new System.EventHandler(this.VideoBox_Click);
             this.VideoBox.MouseLeave += new System.EventHandler(this.VideoBox_MouseLeave);
             this.VideoBox.MouseMove += new System.Windows.Forms.MouseEventHandler(this.VideoBox_MouseMove);
-            // 
-            // VideoBoxContextMenu
-            // 
-            this.VideoBoxContextMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.videoStreamToolStripMenuItem,
-            this.closeStreamToolStripMenuItem,
-            this.toolStripMenuItem1,
-            this.retractToolStripMenuItem,
-            this.neutralToolStripMenuItem,
-            this.pointDownToolStripMenuItem,
-            this.pointHomeToolStripMenuItem,
-            this.yawLockToolStripMenuItem,
-            this.toolStripSeparator1,
-            this.takePictureToolStripMenuItem,
-            this.startRecordingToolStripMenuItem,
-            this.stopRecordingToolStripMenuItem,
-            this.toolStripMenuItem2,
-            this.settingsToolStripMenuItem});
-            this.VideoBoxContextMenu.Name = "VideoBoxContextMenu";
-            this.VideoBoxContextMenu.Size = new System.Drawing.Size(156, 242);
+            this.VideoBox.MouseDown += new System.Windows.Forms.MouseEventHandler(this.VideoBox_MouseDown);
             // 
             // videoStreamToolStripMenuItem
             // 
@@ -183,7 +162,6 @@ namespace MissionPlanner.Controls
             this.Name = "GimbalVideoControl";
             this.Size = new System.Drawing.Size(750, 500);
             ((System.ComponentModel.ISupportInitialize)(this.VideoBox)).EndInit();
-            this.VideoBoxContextMenu.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -205,7 +183,6 @@ namespace MissionPlanner.Controls
         private System.Windows.Forms.ToolStripMenuItem takePictureToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem startRecordingToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem stopRecordingToolStripMenuItem;
-        public System.Windows.Forms.ContextMenuStrip VideoBoxContextMenu;
         public System.Windows.Forms.PictureBox VideoBox;
     }
 }

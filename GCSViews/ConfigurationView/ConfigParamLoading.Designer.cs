@@ -1,4 +1,4 @@
-﻿namespace MissionPlanner.GCSViews.ConfigurationView
+﻿namespace XagSurveillanceGCS.GCSViews.ConfigurationView
 {
     partial class ConfigParamLoading
     {
@@ -31,7 +31,7 @@
             this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.but_forceparams = new MissionPlanner.Controls.MyButton();
+            this.but_forceparams = new XagSurveillanceGCS.Controls.MyButton();
             this.SuspendLayout();
             // 
             // label1

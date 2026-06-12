@@ -1,7 +1,7 @@
 ﻿using GMap.NET;
 using GMap.NET.MapProviders;
-using MissionPlanner.Comms;
-using MissionPlanner.Utilities;
+using XagSurveillanceGCS.Comms;
+using XagSurveillanceGCS.Utilities;
 using SkiaSharp;
 using System;
 using System.Collections.Generic;
@@ -11,7 +11,7 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace MissionPlanner.Log
+namespace XagSurveillanceGCS.Log
 {
     public class LogMap
     {

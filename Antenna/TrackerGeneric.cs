@@ -1,9 +1,9 @@
-﻿using MissionPlanner.Comms;
-using MissionPlanner.Utilities;
+﻿using XagSurveillanceGCS.Comms;
+using XagSurveillanceGCS.Utilities;
 using System;
 using System.Windows.Forms;
 
-namespace MissionPlanner.Antenna
+namespace XagSurveillanceGCS.Antenna
 {
     public class TrackerGeneric
     {

@@ -1,0 +1,119 @@
+version=1
+
+# This file caches language service data to improve the performance of C# Dev Kit.
+# It is not intended for manual editing. It can safely be deleted and will be
+# regenerated automatically. For more information, see https://aka.ms/lscache
+#
+# To control where cache files are stored, use the following VS Code setting:
+#   "dotnet.projectsystem.cacheInProjectFolder": true
+
+[project]
+language=C#
+primary
+lastDtbSucceeded
+
+[sliceDimensions]
+TargetFramework=netstandard2.0
+
+[properties]
+AssemblyName=CsAssortedWidgets
+CommandLineArgsForDesignTimeEvaluation=-langversion:7.3 -define:TRACE
+CompilerGeneratedFilesOutputPath=
+MaxSupportedLangVersion=7.3
+ProjectAssetsFile=<PATH>obj/project.assets.json
+RootNamespace=CsAssortedWidgets
+RunAnalyzers=
+RunAnalyzersDuringLiveAnalysis=
+SolutionPath=*Undefined*
+TargetFrameworkIdentifier=.NETStandard
+TargetPath=<PATH>bin/Debug/netstandard2.0/CsAssortedWidgets.dll
+TargetRefPath=
+TemporaryDependencyNodeTargetIdentifier=netstandard2.0
+
+[commandLineArguments]
+/noconfig
+/unsafe+
+/checked-
+/nowarn:1701,1702,1701,1702
+/fullpaths
+/nostdlib+
+/errorreport:prompt
+/define:TRACE;DEBUG;NETSTANDARD;NETSTANDARD2_0;NETSTANDARD1_0_OR_GREATER;NETSTANDARD1_1_OR_GREATER;NETSTANDARD1_2_OR_GREATER;NETSTANDARD1_3_OR_GREATER;NETSTANDARD1_4_OR_GREATER;NETSTANDARD1_5_OR_GREATER;NETSTANDARD1_6_OR_GREATER;NETSTANDARD2_0_OR_GREATER
+/highentropyva+
+/debug+
+/debug:portable
+/filealign:512
+/optimize-
+/out:obj\Debug\netstandard2.0\CsAssortedWidgets.dll
+/target:library
+/warnaserror-
+/utf8output
+/deterministic+
+/langversion:7.3
+/warnaserror+:NU1605
+
+[sourceFiles]
+Events/
+ Event.cs
+ MouseEvent.cs
+GLFont/Text.cs
+Graphics/
+ IndexStream.cs
+ Mesh.cs
+ SubImage.cs
+ TColor.cs
+ textures.cs
+ VectorStream.cs
+Layouts/
+ BorderLayout.cs
+ FlowLayout.cs
+ GirdLayout.cs
+ Layout.cs
+Managers/
+ DialogManager.cs
+ DragManager.cs
+ DropListManager.cs
+Math3D/
+ Matrix4f.cs
+ Vector2f.cs
+ Vector3f.cs
+ Vector4f.cs
+obj/Debug/netstandard2.0/
+ .NETStandard,Version=v2.0.AssemblyAttributes.cs
+ CsAssortedWidgets.AssemblyInfo.cs
+Test/
+ CheckNRadioTestDialog.cs
+ DialogTestDialog.cs
+ MultipleLayoutTestDialog.cs
+ ProgressNSliderTestDialog.cs
+ ScrollPanelTestDialog.cs
+ TextNDropTestDialog.cs
+Themes/
+ DefaultTheme.cs
+ Theme.cs
+UI.cs
+Util/
+ BoundingBox.cs
+ Position.cs
+ Size.cs
+Widgets/
+ buttons.cs
+ Component.cs
+ Container.cs
+ Cursor.cs
+ Cursors.cs
+ dialogs.cs
+ DragAble.cs
+ drop_list.cs
+ IElement.cs
+ Label.cs
+ Menus.cs
+ Panel.cs
+ ProgressBar.cs
+ Scrolls.cs
+ sliders.cs
+ Spacer.cs
+
+[analyzerConfigFiles]
+../../.editorconfig
+obj/Debug/netstandard2.0/CsAssortedWidgets.GeneratedMSBuildEditorConfig.editorconfig

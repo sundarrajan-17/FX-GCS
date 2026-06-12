@@ -1,7 +1,7 @@
 ﻿using log4net;
-using MissionPlanner.Comms;
-using MissionPlanner.Controls;
-using MissionPlanner.Utilities;
+using XagSurveillanceGCS.Comms;
+using XagSurveillanceGCS.Controls;
+using XagSurveillanceGCS.Utilities;
 using System;
 using System.Collections;
 using System.Collections.Concurrent;
@@ -17,11 +17,11 @@ using System.Xml.Serialization;
 using GMap.NET;
 using GMap.NET.WindowsForms;
 using GMap.NET.WindowsForms.Markers;
-using MissionPlanner.Maps;
+using XagSurveillanceGCS.Maps;
 using DroneCAN;
 using System.Threading.Tasks;
 
-namespace MissionPlanner.GCSViews.ConfigurationView
+namespace XagSurveillanceGCS.GCSViews.ConfigurationView
 {
     public partial class ConfigSerialInjectGPS : UserControl, IActivate, IDeactivate
     {
@@ -161,7 +161,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
 
             rtcm3.ObsMessage += Rtcm3_ObsMessage;
 
-            MissionPlanner.Utilities.Tracking.AddPage(this.GetType().ToString(), this.Text);
+            XagSurveillanceGCS.Utilities.Tracking.AddPage(this.GetType().ToString(), this.Text);
         }
 
         private void Rtcm3_ObsMessage(object sender, EventArgs e)

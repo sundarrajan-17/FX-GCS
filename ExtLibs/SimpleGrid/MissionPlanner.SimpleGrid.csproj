@@ -14,8 +14,8 @@
     <ProjectGuid>{28D0BEF6-D69C-43AB-A22C-724F116D50EA}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>MissionPlanner</RootNamespace>
-    <AssemblyName>MissionPlanner.SimpleGrid</AssemblyName>
+    <RootNamespace>XagSurveillanceGCS</RootNamespace>
+    <AssemblyName>XagSurveillanceGCS.SimpleGrid</AssemblyName>
    
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
@@ -143,14 +143,14 @@
     <Compile Update="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\MissionPlanner.csproj">
+    <ProjectReference Include="..\..\XagSurveillanceGCS.csproj">
       <Project>{A2E22272-95FE-47B6-B050-9AE7E2055BF5}</Project>
-      <Name>MissionPlanner</Name>
+      <Name>XagSurveillanceGCS</Name>
       <Private>False</Private>
     </ProjectReference>
-    <ProjectReference Include="..\Controls\MissionPlanner.Controls.csproj">
+    <ProjectReference Include="..\Controls\XagSurveillanceGCS.Controls.csproj">
       <Project>{C8B88795-6D01-494D-83AD-6944BD4C5023}</Project>
-      <Name>MissionPlanner.Controls</Name>
+      <Name>XagSurveillanceGCS.Controls</Name>
       <Private>False</Private>
     </ProjectReference>
     <ProjectReference Include="..\GeoUtility\GeoUtility.csproj">
@@ -176,16 +176,16 @@
       <Name>MAVLink</Name>
       <Private>False</Private>
     </ProjectReference>
-    <ProjectReference Include="..\MissionPlanner.Drawing\MissionPlanner.Drawing.csproj">
+    <ProjectReference Include="..\XagSurveillanceGCS.Drawing\XagSurveillanceGCS.Drawing.csproj">
       <Aliases>Drawing</Aliases>
       <Private>false</Private>
     </ProjectReference>
     <ProjectReference Include="..\ProjNet\ProjNET.csproj">
       <Private>false</Private>
     </ProjectReference>
-    <ProjectReference Include="..\Utilities\MissionPlanner.Utilities.csproj">
+    <ProjectReference Include="..\Utilities\XagSurveillanceGCS.Utilities.csproj">
       <Project>{1378A66C-38E4-46F5-A05F-DC04EF7D4D16}</Project>
-      <Name>MissionPlanner.Utilities</Name>
+      <Name>XagSurveillanceGCS.Utilities</Name>
       <Private>False</Private>
     </ProjectReference>
   </ItemGroup>

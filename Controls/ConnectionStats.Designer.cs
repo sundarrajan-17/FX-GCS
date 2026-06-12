@@ -1,4 +1,4 @@
-﻿namespace MissionPlanner.Controls
+﻿namespace XagSurveillanceGCS.Controls
 {
     partial class ConnectionStats
     {
@@ -54,7 +54,7 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.chk_signing = new System.Windows.Forms.CheckBox();
             this.chk_mavlink2 = new System.Windows.Forms.CheckBox();
-            this.but_reset = new MissionPlanner.Controls.MyButton();
+            this.but_reset = new XagSurveillanceGCS.Controls.MyButton();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();

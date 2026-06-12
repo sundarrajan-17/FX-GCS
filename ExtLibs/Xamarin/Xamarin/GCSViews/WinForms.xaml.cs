@@ -1,7 +1,7 @@
 ﻿//extern alias MPLib;
 
-using MissionPlanner;
-using MissionPlanner.Utilities;
+using XagSurveillanceGCS;
+using XagSurveillanceGCS.Utilities;
 using Newtonsoft.Json;
 using SkiaSharp;
 using SkiaSharp.Views.Forms;
@@ -17,18 +17,18 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Acr.UserDialogs.Infrastructure;
 using Microsoft.Scripting.Utils;
-using MissionPlanner.Comms;
-using MissionPlanner.GCSViews;
+using XagSurveillanceGCS.Comms;
+using XagSurveillanceGCS.GCSViews;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using Xamarin.Essentials;
 using Application = System.Windows.Forms.Application;
 using Device = Xamarin.Forms.Device;
-using Extensions = MissionPlanner.Utilities.Extensions;
+using Extensions = XagSurveillanceGCS.Utilities.Extensions;
 using Form = System.Windows.Forms.Form;
 using Point = System.Drawing.Point;
 using Rectangle = System.Drawing.Rectangle;
-using MissionPlanner.Controls;
+using XagSurveillanceGCS.Controls;
 using System.Globalization;
 using log4net;
 using System.Text.RegularExpressions;
@@ -204,12 +204,12 @@ namespace Xamarin.GCSViews
             if (Device.RuntimePlatform == Device.macOS || Device.RuntimePlatform == Device.Android)
             {
                 // support for fw upload
-                MissionPlanner.GCSViews.ConfigurationView.ConfigFirmwareManifest.ExtraDeviceInfo += () =>
+                XagSurveillanceGCS.GCSViews.ConfigurationView.ConfigFirmwareManifest.ExtraDeviceInfo += () =>
                 {
                     return Task.Run(async () => { return await Test.UsbDevices.GetDeviceInfoList(); }).Result;
                 };
 
-                MissionPlanner.GCSViews.ConfigurationView.ConfigFirmware.ExtraDeviceInfo += () =>
+                XagSurveillanceGCS.GCSViews.ConfigurationView.ConfigFirmware.ExtraDeviceInfo += () =>
                 {
                     return Task.Run(async () => { return await Test.UsbDevices.GetDeviceInfoList(); }).Result;
                 };
@@ -246,7 +246,7 @@ namespace Xamarin.GCSViews
         {
             try
             {
-                MissionPlanner.GCSViews.FlightData.myhud.bgimage = Bitmap.FromStream(new MemoryStream(buffer));
+                XagSurveillanceGCS.GCSViews.FlightData.myhud.bgimage = Bitmap.FromStream(new MemoryStream(buffer));
             }
             catch (Exception ex)
             {
@@ -307,7 +307,7 @@ namespace Xamarin.GCSViews
                         {
                             try
                             {
-                                var id = (int) typeof(MissionPlanner.files)
+                                var id = (int) typeof(XagSurveillanceGCS.files)
                                     .GetProperty(file)
                                     .GetValue(null);
 
@@ -319,7 +319,7 @@ namespace Xamarin.GCSViews
                                 }
 
 
-                                File.WriteAllText(filename, MissionPlanner.files.ResourceManager.GetString(file));
+                                File.WriteAllText(filename, XagSurveillanceGCS.files.ResourceManager.GetString(file));
 
                             }
                             catch
@@ -342,7 +342,7 @@ namespace Xamarin.GCSViews
                         {
                             try
                             {
-                                var id = typeof(MissionPlanner.files)
+                                var id = typeof(XagSurveillanceGCS.files)
                                     .GetProperty(file)
                                     .GetValue(null);
 
@@ -604,7 +604,7 @@ namespace Xamarin.GCSViews
                     Thread.Yield();
                 };
 
-                MissionPlanner.Program.Main(new string[0]);
+                XagSurveillanceGCS.Program.Main(new string[0]);
                 
                 System.Diagnostics.Process.GetCurrentProcess().CloseMainWindow();
             });
@@ -954,7 +954,7 @@ namespace Xamarin.GCSViews
         }
 
 #pragma warning disable AsyncFixer03 // Fire-and-forget async-void methods or delegates
-        private async void DeviceAttached(object sender, MissionPlanner.ArduPilot.DeviceInfo e)
+        private async void DeviceAttached(object sender, XagSurveillanceGCS.ArduPilot.DeviceInfo e)
 #pragma warning restore AsyncFixer03 // Fire-and-forget async-void methods or delegates
         {
             ICommsSerial portUsb = null;

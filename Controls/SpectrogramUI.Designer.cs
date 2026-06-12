@@ -1,5 +1,5 @@
 ﻿
-namespace MissionPlanner.Controls
+namespace XagSurveillanceGCS.Controls
 {
     partial class SpectrogramUI
     {
@@ -30,14 +30,14 @@ namespace MissionPlanner.Controls
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.but_loadlog = new MissionPlanner.Controls.MyButton();
+            this.but_loadlog = new XagSurveillanceGCS.Controls.MyButton();
             this.cmb_sensor = new System.Windows.Forms.ComboBox();
             this.zedGraphControl1 = new ZedGraph.ZedGraphControl();
             this.num_min = new System.Windows.Forms.NumericUpDown();
             this.num_max = new System.Windows.Forms.NumericUpDown();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.but_redraw = new MissionPlanner.Controls.MyButton();
+            this.but_redraw = new XagSurveillanceGCS.Controls.MyButton();
             ((System.ComponentModel.ISupportInitialize)(this.num_min)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.num_max)).BeginInit();
             this.SuspendLayout();

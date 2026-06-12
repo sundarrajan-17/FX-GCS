@@ -1,1 +1,1 @@
-namespace MissionPlanner.Controls { public partial class Video{public Video(){this.InitializeComponent();}}}
+namespace XagSurveillanceGCS.Controls { public partial class Video{public Video(){this.InitializeComponent();}}}

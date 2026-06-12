@@ -1,4 +1,4 @@
-﻿namespace MissionPlanner.GCSViews.ConfigurationView
+﻿namespace XagSurveillanceGCS.GCSViews.ConfigurationView
 {
     partial class ConfigHWOptFlow
     {
@@ -47,15 +47,15 @@
             this.label14 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
-            this.mavlinkNumericUpDownHGTOVR = new MissionPlanner.Controls.MavlinkNumericUpDown();
-            this.mavlinkNumericUpDownZ = new MissionPlanner.Controls.MavlinkNumericUpDown();
-            this.mavlinkNumericUpDownY = new MissionPlanner.Controls.MavlinkNumericUpDown();
-            this.mavlinkNumericUpDownX = new MissionPlanner.Controls.MavlinkNumericUpDown();
-            this.mavlinkNumericUpDownFY = new MissionPlanner.Controls.MavlinkNumericUpDown();
-            this.mavlinkNumericUpDownFX = new MissionPlanner.Controls.MavlinkNumericUpDown();
-            this.mavlinkNumericUpDown_yaw = new MissionPlanner.Controls.MavlinkNumericUpDown();
-            this.DROP_optflowtype = new MissionPlanner.Controls.MavlinkComboBox();
-            this.CHK_enableoptflow = new MissionPlanner.Controls.MavlinkCheckBox();
+            this.mavlinkNumericUpDownHGTOVR = new XagSurveillanceGCS.Controls.MavlinkNumericUpDown();
+            this.mavlinkNumericUpDownZ = new XagSurveillanceGCS.Controls.MavlinkNumericUpDown();
+            this.mavlinkNumericUpDownY = new XagSurveillanceGCS.Controls.MavlinkNumericUpDown();
+            this.mavlinkNumericUpDownX = new XagSurveillanceGCS.Controls.MavlinkNumericUpDown();
+            this.mavlinkNumericUpDownFY = new XagSurveillanceGCS.Controls.MavlinkNumericUpDown();
+            this.mavlinkNumericUpDownFX = new XagSurveillanceGCS.Controls.MavlinkNumericUpDown();
+            this.mavlinkNumericUpDown_yaw = new XagSurveillanceGCS.Controls.MavlinkNumericUpDown();
+            this.DROP_optflowtype = new XagSurveillanceGCS.Controls.MavlinkComboBox();
+            this.CHK_enableoptflow = new XagSurveillanceGCS.Controls.MavlinkCheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mavlinkNumericUpDownHGTOVR)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mavlinkNumericUpDownZ)).BeginInit();
@@ -69,7 +69,7 @@
             // pictureBox2
             // 
             this.pictureBox2.BackColor = System.Drawing.Color.White;
-            this.pictureBox2.BackgroundImage = global::MissionPlanner.Properties.Resources.opticalflow;
+            this.pictureBox2.BackgroundImage = global::XagSurveillanceGCS.Properties.Resources.opticalflow;
             resources.ApplyResources(this.pictureBox2, "pictureBox2");
             this.pictureBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pictureBox2.Name = "pictureBox2";

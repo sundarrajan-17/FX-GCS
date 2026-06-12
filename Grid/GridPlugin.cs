@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Windows.Forms;
 
-namespace MissionPlanner.Grid
+namespace XagSurveillanceGCS.Grid
 {
-    public class GridPlugin : MissionPlanner.Plugin.Plugin
+    public class GridPlugin : XagSurveillanceGCS.Plugin.Plugin
     {
 
 
@@ -38,7 +38,7 @@ namespace MissionPlanner.Grid
         {
             using (var gridui = new GridUI(this))
             {
-                MissionPlanner.Utilities.ThemeManager.ApplyThemeTo(gridui);
+                XagSurveillanceGCS.Utilities.ThemeManager.ApplyThemeTo(gridui);
 
                 if (Host.FPDrawnPolygon != null && Host.FPDrawnPolygon.Points.Count > 2)
                 {

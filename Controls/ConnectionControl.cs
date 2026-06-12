@@ -1,9 +1,9 @@
-﻿using MissionPlanner.Comms;
+﻿using XagSurveillanceGCS.Comms;
 using System;
 using System.Drawing;
 using System.Windows.Forms;
 
-namespace MissionPlanner.Controls
+namespace XagSurveillanceGCS.Controls
 {
     public partial class ConnectionControl : UserControl
     {
@@ -93,7 +93,7 @@ namespace MissionPlanner.Controls
                     var temp = new port_sysid() { compid = (item % 256), sysid = (item / 256), port = port };
 
                     // exclude GCS's from the list
-                    if (temp.compid == (int)MAVLink.MAV_COMPONENT.MAV_COMP_ID_MISSIONPLANNER)
+                    if (temp.compid == (int)MAVLink.MAV_COMPONENT.MAV_COMP_ID_XagSurveillanceGCS)
                         continue;
 
                     var idx = cmb_sysid.Items.Add(temp);

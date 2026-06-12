@@ -6,9 +6,9 @@ using s32 = System.Int32;
 using u32 = System.UInt32;
 using gps_time_t = System.UInt64;
 using System.Runtime.InteropServices;
-using RTCM3 = MissionPlanner.Utilities.rtcm3;
+using RTCM3 = XagSurveillanceGCS.Utilities.rtcm3;
 
-namespace MissionPlanner.Utilities
+namespace XagSurveillanceGCS.Utilities
 {
     public class rtcm3 : ICorrections
     {

@@ -10,9 +10,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ArduPilot\MissionPlanner.ArduPilot.csproj" />
-    <ProjectReference Include="..\Comms\MissionPlanner.Comms.csproj" />
-    <ProjectReference Include="..\Controls\MissionPlanner.Controls.csproj" />
+    <ProjectReference Include="..\ArduPilot\XagSurveillanceGCS.ArduPilot.csproj" />
+    <ProjectReference Include="..\Comms\XagSurveillanceGCS.Comms.csproj" />
+    <ProjectReference Include="..\Controls\XagSurveillanceGCS.Controls.csproj" />
     <ProjectReference Include="..\Mavlink\MAVLink.csproj" />
     <ProjectReference Include="..\px4uploader\px4uploader.csproj" />
   </ItemGroup>

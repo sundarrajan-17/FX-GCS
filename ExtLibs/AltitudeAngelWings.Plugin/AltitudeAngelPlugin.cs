@@ -4,11 +4,11 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using AltitudeAngelWings.Plugin.Properties;
 using AltitudeAngelWings.Service;
-using MissionPlanner;
+using XagSurveillanceGCS;
 
 namespace AltitudeAngelWings.Plugin
 {
-    public class AltitudeAngelPlugin : MissionPlanner.Plugin.Plugin
+    public class AltitudeAngelPlugin : XagSurveillanceGCS.Plugin.Plugin
     {
         private const string SettingsMenuItemName = "altitudeAngelSettings";
 

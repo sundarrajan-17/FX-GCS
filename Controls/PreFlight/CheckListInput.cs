@@ -2,7 +2,7 @@
 using System.Drawing;
 using System.Windows.Forms;
 
-namespace MissionPlanner.Controls.PreFlight
+namespace XagSurveillanceGCS.Controls.PreFlight
 {
     public class CheckListInput : UserControl
     {
@@ -73,8 +73,8 @@ namespace MissionPlanner.Controls.PreFlight
             this.CMB_condition = new System.Windows.Forms.ComboBox();
             this.NUM_trigger = new System.Windows.Forms.NumericUpDown();
             this.TXT_text = new System.Windows.Forms.TextBox();
-            this.but_addchild = new MissionPlanner.Controls.MyButton();
-            this.but_remove = new MissionPlanner.Controls.MyButton();
+            this.but_addchild = new XagSurveillanceGCS.Controls.MyButton();
+            this.but_remove = new XagSurveillanceGCS.Controls.MyButton();
             this.CMB_colour1 = new System.Windows.Forms.ComboBox();
             this.CMB_colour2 = new System.Windows.Forms.ComboBox();
             this.TXT_desc = new System.Windows.Forms.TextBox();

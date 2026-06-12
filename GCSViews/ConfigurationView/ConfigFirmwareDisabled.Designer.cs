@@ -1,4 +1,4 @@
-﻿namespace MissionPlanner.GCSViews.ConfigurationView
+﻿namespace XagSurveillanceGCS.GCSViews.ConfigurationView
 {
     partial class ConfigFirmwareDisabled
     {
@@ -30,7 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ConfigFirmwareDisabled));
             this.label1 = new System.Windows.Forms.Label();
-            this.but_bootloaderupdate = new MissionPlanner.Controls.MyButton();
+            this.but_bootloaderupdate = new XagSurveillanceGCS.Controls.MyButton();
             this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
@@ -66,7 +66,7 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private MissionPlanner.Controls.MyButton but_bootloaderupdate;
+        private XagSurveillanceGCS.Controls.MyButton but_bootloaderupdate;
         private System.Windows.Forms.Label label2;
     }
 }

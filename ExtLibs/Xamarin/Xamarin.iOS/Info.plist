@@ -22,9 +22,9 @@
 	<key>MinimumOSVersion</key>
 	<string>8.0</string>
 	<key>CFBundleDisplayName</key>
-	<string>Mission Planner</string>
+	<string>XagSurveillanceGCS</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.michaeloborne.MissionPlanner</string>
+	<string>com.michaeloborne.XagSurveillanceGCS</string>
 	<key>CFBundleVersion</key>
 	<string>1.0</string>
 	<key>UILaunchStoryboardName</key>

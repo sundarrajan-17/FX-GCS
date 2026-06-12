@@ -1,4 +1,4 @@
-﻿namespace MissionPlanner.Utilities
+﻿namespace XagSurveillanceGCS.Utilities
 {
     public class FenceCircle
     {

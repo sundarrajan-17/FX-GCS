@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using MissionPlanner.Utilities;
+using XagSurveillanceGCS.Utilities;
 using Newtonsoft.Json;
 
 namespace NMEA2000
@@ -46,7 +46,7 @@ namespace NMEA2000
             List<string> ans = new List<string>();
 
             ans.Add(@"using System;
-using MissionPlanner.Utilities;
+using XagSurveillanceGCS.Utilities;
 using System.Collections.Generic;
 
 namespace NMEA2000
@@ -93,7 +93,7 @@ namespace NMEA2000
                 // reserved
 
                 fields?
-                    .Distinct(new MissionPlanner.Utilities.EqualityComparer<Field>((a, b) => a.Id == b.Id))
+                    .Distinct(new XagSurveillanceGCS.Utilities.EqualityComparer<Field>((a, b) => a.Id == b.Id))
                     .ForEach(a =>
                     {
                         // name same as class
@@ -103,7 +103,7 @@ namespace NMEA2000
                     });
 
                 fields?
-                    .Distinct(new MissionPlanner.Utilities.EqualityComparer<Field>((a, b) => a.Id == b.Id)).Where(a => a.Type == FieldType.LookupTable)
+                    .Distinct(new XagSurveillanceGCS.Utilities.EqualityComparer<Field>((a, b) => a.Id == b.Id)).Where(a => a.Type == FieldType.LookupTable)
                     .ForEach(a =>
                     {
                         if (a.EnumValues == null)

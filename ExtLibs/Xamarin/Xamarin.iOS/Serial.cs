@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-//using MissionPlanner.Comms;
+//using XagSurveillanceGCS.Comms;
 using System.IO;
 using System.IO.Ports;
 

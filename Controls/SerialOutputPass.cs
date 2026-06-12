@@ -1,7 +1,7 @@
 ﻿using DeviceProgramming.Dfu;
 using Microsoft.Scripting.Utils;
-using MissionPlanner.Comms;
-using MissionPlanner.Utilities;
+using XagSurveillanceGCS.Comms;
+using XagSurveillanceGCS.Utilities;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
@@ -12,7 +12,7 @@ using System.Net.Sockets;
 using System.Threading;
 using System.Windows.Forms;
 
-namespace MissionPlanner.Controls
+namespace XagSurveillanceGCS.Controls
 {
     public partial class SerialOutputPass : Form
     {
@@ -37,7 +37,7 @@ namespace MissionPlanner.Controls
                 BUT_connect.Text = Strings.Stop;
             }
 
-            MissionPlanner.Utilities.Tracking.AddPage(this.GetType().ToString(), this.Text);
+            XagSurveillanceGCS.Utilities.Tracking.AddPage(this.GetType().ToString(), this.Text);
 
             try
             {

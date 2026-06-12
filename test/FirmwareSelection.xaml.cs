@@ -1,13 +1,13 @@
-﻿using MissionPlanner.ArduPilot;
-using MissionPlanner.Utilities;
+﻿using XagSurveillanceGCS.ArduPilot;
+using XagSurveillanceGCS.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using DeviceInfo = MissionPlanner.ArduPilot.DeviceInfo;
+using DeviceInfo = XagSurveillanceGCS.ArduPilot.DeviceInfo;
 
-namespace MissionPlanner.test
+namespace XagSurveillanceGCS.test
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class FirmwareSelection : ContentPage, IClose

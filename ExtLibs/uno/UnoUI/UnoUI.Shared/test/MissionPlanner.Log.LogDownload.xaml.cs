@@ -1,1 +1,1 @@
-namespace MissionPlanner.Log { public partial class LogDownload{public LogDownload(){this.InitializeComponent();}}}
+namespace XagSurveillanceGCS.Log { public partial class LogDownload{public LogDownload(){this.InitializeComponent();}}}

@@ -5,7 +5,7 @@ using System.Text;
 using System.Windows.Forms;
 using System.Collections;
 
-namespace MissionPlanner.Controls
+namespace XagSurveillanceGCS.Controls
 {
     public partial class FlashMessage : Label
     {

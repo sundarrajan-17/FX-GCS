@@ -1,6 +1,6 @@
 ﻿using log4net;
-using MissionPlanner.ArduPilot;
-using MissionPlanner.Controls;
+using XagSurveillanceGCS.ArduPilot;
+using XagSurveillanceGCS.Controls;
 using System;
 using System.Collections;
 using System.ComponentModel;
@@ -10,7 +10,7 @@ using System.Reflection;
 using System.Text;
 using System.Windows.Forms;
 
-namespace MissionPlanner.GCSViews.ConfigurationView
+namespace XagSurveillanceGCS.GCSViews.ConfigurationView
 {
     public partial class ConfigAteryx : MyUserControl, IActivate
     {

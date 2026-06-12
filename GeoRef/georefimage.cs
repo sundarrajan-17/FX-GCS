@@ -1,15 +1,15 @@
 ﻿using GMap.NET.WindowsForms;
 using GMap.NET.WindowsForms.Markers;
 using log4net;
-using MissionPlanner.Utilities;
+using XagSurveillanceGCS.Utilities;
 using System;
 using System.Globalization;
 using System.IO;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
-using MissionPlanner.Maps;
+using XagSurveillanceGCS.Maps;
 
-namespace MissionPlanner.GeoRef
+namespace XagSurveillanceGCS.GeoRef
 {
     partial class Georefimage : Form
     {
@@ -34,7 +34,7 @@ namespace MissionPlanner.GeoRef
 
             selectedProcessingMode = PROCESSING_MODE.CAM_MSG;
 
-            MissionPlanner.Utilities.Tracking.AddPage(this.GetType().ToString(), this.Text);
+            XagSurveillanceGCS.Utilities.Tracking.AddPage(this.GetType().ToString(), this.Text);
 
             myGMAP1.MapProvider = MainV2.instance.FlightData.gMapControl1.MapProvider;
             myGMAP1.MinZoom = MainV2.instance.FlightData.gMapControl1.MinZoom;

@@ -13,19 +13,19 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SkiaSharpTest.UWP", "SkiaSh
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SkiaSharpTest.Wasm", "SkiaSharpTest\SkiaSharpTest.Wasm\SkiaSharpTest.Wasm.csproj", "{20363580-7906-4674-A521-C88A02857B71}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MissionPlannerLib", "..\..\..\MissionPlannerLib.csproj", "{9AB081C4-9E8A-4559-B721-74EB0447CFE5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "XagSurveillanceGCSLib", "..\..\..\XagSurveillanceGCSLib.csproj", "{9AB081C4-9E8A-4559-B721-74EB0447CFE5}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "System.Drawing.android", "..\..\System.Drawing.android\System.Drawing.android.csproj", "{26D9D348-B2AA-4B2E-972A-A43A7C5F9A12}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MissionPlanner.Drawing.Common", "..\..\MissionPlanner.Drawing.Common\MissionPlanner.Drawing.Common.csproj", "{B30DE998-4B2F-4C4D-A405-5FDF7C70D2E8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "XagSurveillanceGCS.Drawing.Common", "..\..\XagSurveillanceGCS.Drawing.Common\XagSurveillanceGCS.Drawing.Common.csproj", "{B30DE998-4B2F-4C4D-A405-5FDF7C70D2E8}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MissionPlanner.Drawing", "..\..\MissionPlanner.Drawing\MissionPlanner.Drawing.csproj", "{6F22A982-B427-4D41-83D1-A22DCF2E5F7B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "XagSurveillanceGCS.Drawing", "..\..\XagSurveillanceGCS.Drawing\XagSurveillanceGCS.Drawing.csproj", "{6F22A982-B427-4D41-83D1-A22DCF2E5F7B}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "System.Windows.Forms-net_4_x", "..\..\mono\mcs\class\System.Windows.Forms\System.Windows.Forms-net_4_x.csproj", "{EA753991-1F21-4410-BF83-276E248C4EC1}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MissionPlanner.Comms", "..\..\Comms\MissionPlanner.Comms.csproj", "{A2BB1DFF-1234-4648-9D24-14532A4C4505}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "XagSurveillanceGCS.Comms", "..\..\Comms\XagSurveillanceGCS.Comms.csproj", "{A2BB1DFF-1234-4648-9D24-14532A4C4505}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MissionPlanner.Utilities", "..\..\Utilities\MissionPlanner.Utilities.csproj", "{AAA79876-6032-4FB2-A4CF-BCEFE9C2AA63}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "XagSurveillanceGCS.Utilities", "..\..\Utilities\XagSurveillanceGCS.Utilities.csproj", "{AAA79876-6032-4FB2-A4CF-BCEFE9C2AA63}"
 EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution

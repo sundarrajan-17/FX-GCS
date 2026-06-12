@@ -1,4 +1,4 @@
-﻿namespace MissionPlanner.Swarm.SRB
+﻿namespace XagSurveillanceGCS.Swarm.SRB
 {
     partial class Control
     {
@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.but_start = new MissionPlanner.Controls.MyButton();
-            this.but_z = new MissionPlanner.Controls.MyButton();
-            this.but_land = new MissionPlanner.Controls.MyButton();
-            this.but_stop = new MissionPlanner.Controls.MyButton();
+            this.but_start = new XagSurveillanceGCS.Controls.MyButton();
+            this.but_z = new XagSurveillanceGCS.Controls.MyButton();
+            this.but_land = new XagSurveillanceGCS.Controls.MyButton();
+            this.but_stop = new XagSurveillanceGCS.Controls.MyButton();
             this.num_TakeOffAlt = new System.Windows.Forms.NumericUpDown();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();

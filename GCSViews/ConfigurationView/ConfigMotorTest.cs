@@ -1,5 +1,5 @@
-﻿using MissionPlanner.Controls;
-using MissionPlanner.Utilities;
+﻿using XagSurveillanceGCS.Controls;
+using XagSurveillanceGCS.Utilities;
 using System;
 using System.Diagnostics;
 using System.Drawing;
@@ -8,7 +8,7 @@ using System.Reflection;
 using Newtonsoft.Json;
 using System.IO;
 
-namespace MissionPlanner.GCSViews.ConfigurationView
+namespace XagSurveillanceGCS.GCSViews.ConfigurationView
 {
     public partial class ConfigMotorTest : MyUserControl, IActivate
     {

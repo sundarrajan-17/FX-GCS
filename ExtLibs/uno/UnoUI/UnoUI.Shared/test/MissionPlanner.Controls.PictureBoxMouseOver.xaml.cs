@@ -1,1 +1,1 @@
-namespace MissionPlanner.Controls { public partial class PictureBoxMouseOver{public PictureBoxMouseOver(){this.InitializeComponent();}}}
+namespace XagSurveillanceGCS.Controls { public partial class PictureBoxMouseOver{public PictureBoxMouseOver(){this.InitializeComponent();}}}

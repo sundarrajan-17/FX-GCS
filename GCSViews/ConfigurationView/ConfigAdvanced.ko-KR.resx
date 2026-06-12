@@ -172,7 +172,7 @@
     <value>but_mavinspector</value>
   </data>
   <data name="&gt;&gt;but_mavinspector.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.MyButton, MissionPlanner.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>XagSurveillanceGCS.Controls.MyButton, XagSurveillanceGCS.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;but_mavinspector.Parent" xml:space="preserve">
     <value>tableLayoutPanel1</value>
@@ -205,7 +205,7 @@
     <value>but_warningmanager</value>
   </data>
   <data name="&gt;&gt;but_warningmanager.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.MyButton, MissionPlanner.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>XagSurveillanceGCS.Controls.MyButton, XagSurveillanceGCS.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;but_warningmanager.Parent" xml:space="preserve">
     <value>tableLayoutPanel1</value>
@@ -238,7 +238,7 @@
     <value>but_proximity</value>
   </data>
   <data name="&gt;&gt;but_proximity.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.MyButton, MissionPlanner.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>XagSurveillanceGCS.Controls.MyButton, XagSurveillanceGCS.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;but_proximity.Parent" xml:space="preserve">
     <value>tableLayoutPanel1</value>
@@ -271,7 +271,7 @@
     <value>but_signkey</value>
   </data>
   <data name="&gt;&gt;but_signkey.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.MyButton, MissionPlanner.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>XagSurveillanceGCS.Controls.MyButton, XagSurveillanceGCS.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;but_signkey.Parent" xml:space="preserve">
     <value>tableLayoutPanel1</value>
@@ -304,7 +304,7 @@
     <value>BUT_outputMavlink</value>
   </data>
   <data name="&gt;&gt;BUT_outputMavlink.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.MyButton, MissionPlanner.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>XagSurveillanceGCS.Controls.MyButton, XagSurveillanceGCS.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;BUT_outputMavlink.Parent" xml:space="preserve">
     <value>tableLayoutPanel1</value>
@@ -337,7 +337,7 @@
     <value>BUT_outputnmea</value>
   </data>
   <data name="&gt;&gt;BUT_outputnmea.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.MyButton, MissionPlanner.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>XagSurveillanceGCS.Controls.MyButton, XagSurveillanceGCS.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;BUT_outputnmea.Parent" xml:space="preserve">
     <value>tableLayoutPanel1</value>
@@ -373,7 +373,7 @@
     <value>but_fft</value>
   </data>
   <data name="&gt;&gt;but_fft.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.MyButton, MissionPlanner.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>XagSurveillanceGCS.Controls.MyButton, XagSurveillanceGCS.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;but_fft.Parent" xml:space="preserve">
     <value>tableLayoutPanel1</value>
@@ -634,7 +634,7 @@
     <value>BUT_follow_me</value>
   </data>
   <data name="&gt;&gt;BUT_follow_me.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.MyButton, MissionPlanner.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>XagSurveillanceGCS.Controls.MyButton, XagSurveillanceGCS.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;BUT_follow_me.Parent" xml:space="preserve">
     <value>tableLayoutPanel1</value>
@@ -733,7 +733,7 @@
     <value>BUT_paramgen</value>
   </data>
   <data name="&gt;&gt;BUT_paramgen.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.MyButton, MissionPlanner.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>XagSurveillanceGCS.Controls.MyButton, XagSurveillanceGCS.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;BUT_paramgen.Parent" xml:space="preserve">
     <value>tableLayoutPanel1</value>
@@ -799,7 +799,7 @@
     <value>BUT_movingbase</value>
   </data>
   <data name="&gt;&gt;BUT_movingbase.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.MyButton, MissionPlanner.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>XagSurveillanceGCS.Controls.MyButton, XagSurveillanceGCS.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;BUT_movingbase.Parent" xml:space="preserve">
     <value>tableLayoutPanel1</value>
@@ -832,7 +832,7 @@
     <value>but_anonlog</value>
   </data>
   <data name="&gt;&gt;but_anonlog.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.MyButton, MissionPlanner.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>XagSurveillanceGCS.Controls.MyButton, XagSurveillanceGCS.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;but_anonlog.Parent" xml:space="preserve">
     <value>tableLayoutPanel1</value>
@@ -910,6 +910,6 @@
     <value>ConfigAdvanced</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>System.Windows.Forms.MyUserControl, MissionPlanner.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>System.Windows.Forms.MyUserControl, XagSurveillanceGCS.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
 </root>

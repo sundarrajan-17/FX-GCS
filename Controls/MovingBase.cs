@@ -3,10 +3,10 @@ using System.Globalization;
 using System.IO;
 using System.Net.Sockets;
 using System.Windows.Forms;
-using MissionPlanner.Comms;
-using MissionPlanner.Utilities;
+using XagSurveillanceGCS.Comms;
+using XagSurveillanceGCS.Utilities;
 
-namespace MissionPlanner.Controls
+namespace XagSurveillanceGCS.Controls
 {
     public partial class MovingBase : Form
     {
@@ -45,7 +45,7 @@ namespace MissionPlanner.Controls
                 CMB_updaterate.Text = updaterate.ToString();
             }
 
-            MissionPlanner.Utilities.Tracking.AddPage(
+            XagSurveillanceGCS.Utilities.Tracking.AddPage(
                 System.Reflection.MethodBase.GetCurrentMethod().DeclaringType.ToString(),
                 System.Reflection.MethodBase.GetCurrentMethod().Name);
         }

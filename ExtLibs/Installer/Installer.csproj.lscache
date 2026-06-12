@@ -1,0 +1,89 @@
+version=1
+
+# This file caches language service data to improve the performance of C# Dev Kit.
+# It is not intended for manual editing. It can safely be deleted and will be
+# regenerated automatically. For more information, see https://aka.ms/lscache
+#
+# To control where cache files are stored, use the following VS Code setting:
+#   "dotnet.projectsystem.cacheInProjectFolder": true
+
+[project]
+language=C#
+primary
+lastDtbSucceeded
+
+[properties]
+AssemblyName=Installer
+CommandLineArgsForDesignTimeEvaluation=-langversion:7.3 -define:DEBUG;TRACE
+CompilerGeneratedFilesOutputPath=
+MaxSupportedLangVersion=7.3
+ProjectAssetsFile=<PATH>obj/project.assets.json
+RootNamespace=Installer
+RunAnalyzers=
+RunAnalyzersDuringLiveAnalysis=
+SolutionPath=*Undefined*
+TargetFrameworkIdentifier=.NETFramework
+TargetPath=<PATH>../../bin/Debug/net472/Installer.exe
+TargetRefPath=
+TemporaryDependencyNodeTargetIdentifier=net472
+
+[commandLineArguments]
+/noconfig
+/unsafe-
+/checked-
+/nowarn:1701,1702,1701,1702
+/fullpaths
+/nostdlib+
+/platform:AnyCPU
+/errorreport:prompt
+/warn:4
+/define:DEBUG;TRACE;DEBUG;NETFRAMEWORK;NET472;NET20_OR_GREATER;NET30_OR_GREATER;NET35_OR_GREATER;NET40_OR_GREATER;NET45_OR_GREATER;NET451_OR_GREATER;NET452_OR_GREATER;NET46_OR_GREATER;NET461_OR_GREATER;NET462_OR_GREATER;NET47_OR_GREATER;NET471_OR_GREATER;NET472_OR_GREATER
+/highentropyva+
+/debug+
+/debug:portable
+/filealign:512
+/optimize-
+/out:obj\Debug\net472\Installer.exe
+/subsystemversion:6.00
+/target:exe
+/warnaserror-
+/utf8output
+/deterministic+
+/langversion:7.3
+/warnaserror+:NU1605
+
+[sourceFiles]
+../Utilities/Download.cs
+ILog.cs
+Installer.cs
+Installer.Designer.cs
+LogManager.cs
+obj/Debug/net472/
+ .NETFramework,Version=v4.7.2.AssemblyAttributes.cs
+ Installer.AssemblyInfo.cs
+Program.cs
+
+[metadataReferences]
+<NUGET>/microsoft.netframework.referenceassemblies.net472/1.0.2/build/.NETFramework/v4.7.2/
+ Microsoft.CSharp.dll
+ mscorlib.dll
+ System.Configuration.dll
+ System.Core.dll
+ System.Data.DataSetExtensions.dll
+ System.Data.dll
+ System.Deployment.dll
+ System.dll
+ System.Drawing.dll
+ System.IO.Compression.dll
+ System.IO.Compression.FileSystem.dll
+ System.Net.Http.dll
+ System.Numerics.dll
+ System.Runtime.Serialization.dll
+ System.Windows.Forms.dll
+ System.Xml.dll
+ System.Xml.Linq.dll
+<NUGET>/system.drawing.common/4.7.2/ref/net461/System.Drawing.Common.dll
+
+[analyzerConfigFiles]
+../../.editorconfig
+obj/Debug/net472/Installer.GeneratedMSBuildEditorConfig.editorconfig

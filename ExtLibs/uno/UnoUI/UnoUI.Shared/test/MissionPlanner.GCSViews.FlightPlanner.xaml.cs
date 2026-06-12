@@ -1,1 +1,1 @@
-namespace MissionPlanner.GCSViews { public partial class FlightPlanner{public FlightPlanner(){this.InitializeComponent();}}}
+namespace XagSurveillanceGCS.GCSViews { public partial class FlightPlanner{public FlightPlanner(){this.InitializeComponent();}}}

@@ -1,6 +1,6 @@
-﻿using MissionPlanner.ArduPilot;
-using MissionPlanner.Controls;
-using MissionPlanner.Utilities;
+﻿using XagSurveillanceGCS.ArduPilot;
+using XagSurveillanceGCS.Controls;
+using XagSurveillanceGCS.Utilities;
 using System;
 using System.Collections;
 using System.ComponentModel;
@@ -8,7 +8,7 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 
-namespace MissionPlanner.GCSViews.ConfigurationView
+namespace XagSurveillanceGCS.GCSViews.ConfigurationView
 {
     public partial class ConfigArduplane : MyUserControl, IActivate
     {

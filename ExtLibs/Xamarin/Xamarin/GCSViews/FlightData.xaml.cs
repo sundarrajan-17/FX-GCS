@@ -5,12 +5,12 @@ using GMap.NET.MapProviders;
 using GMap.NET.WindowsForms;
 using GMap.NET.WindowsForms.Markers;
 using log4net;
-using MissionPlanner;
-using MissionPlanner.ArduPilot;
-using MissionPlanner.Controls;
-using MissionPlanner.Maps;
-using MissionPlanner.Utilities;
-using MissionPlanner.Warnings;
+using XagSurveillanceGCS;
+using XagSurveillanceGCS.ArduPilot;
+using XagSurveillanceGCS.Controls;
+using XagSurveillanceGCS.Maps;
+using XagSurveillanceGCS.Utilities;
+using XagSurveillanceGCS.Warnings;
 using Plugin.FilePicker;
 using Plugin.FilePicker.Abstractions;
 using SkiaSharp;
@@ -109,7 +109,7 @@ namespace Xamarin
                 //DO_REPEAT_SERVO
             }
 
-            GMap.NET.GMaps.Instance.PrimaryCache = new MissionPlanner.Maps.MyImageCache();
+            GMap.NET.GMaps.Instance.PrimaryCache = new XagSurveillanceGCS.Maps.MyImageCache();
 
             gMapControl1.LevelsKeepInMemmory = 10;
             //gMapControl1.Manager.MemoryCache.Size
@@ -185,7 +185,7 @@ namespace Xamarin
             hud1.speedunit = CurrentState.SpeedUnit;
             hud1.distunit = CurrentState.DistanceUnit;
 
-            Mode.Items.AddRange(MissionPlanner.ArduPilot.Common.getModesList(MainV2.comPort.MAV.cs.firmware)
+            Mode.Items.AddRange(XagSurveillanceGCS.ArduPilot.Common.getModesList(MainV2.comPort.MAV.cs.firmware)
                 .Select(a => a.Value));
 
             CheckBatteryShow();

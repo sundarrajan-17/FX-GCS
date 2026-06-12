@@ -343,7 +343,7 @@
     <value>BUT_enable</value>
   </data>
   <data name="&gt;&gt;BUT_enable.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.MyButton, MissionPlanner.Controls, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>XagSurveillanceGCS.Controls.MyButton, XagSurveillanceGCS.Controls, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;BUT_enable.Parent" xml:space="preserve">
     <value>$this</value>
@@ -370,7 +370,7 @@
     <value>BUT_save</value>
   </data>
   <data name="&gt;&gt;BUT_save.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.MyButton, MissionPlanner.Controls, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>XagSurveillanceGCS.Controls.MyButton, XagSurveillanceGCS.Controls, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;BUT_save.Parent" xml:space="preserve">
     <value>$this</value>

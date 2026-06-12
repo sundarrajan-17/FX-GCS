@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace MissionPlanner.Properties {
+namespace XagSurveillanceGCS.Properties {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace MissionPlanner.Properties {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("MissionPlanner.Properties.ResourcesX", typeof(ResourcesX).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("XagSurveillanceGCS.Properties.ResourcesX", typeof(ResourcesX).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -1527,9 +1527,9 @@ namespace MissionPlanner.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] missionplannerlogo {
+        internal static byte[] XagSurveillanceGCSlogo {
             get {
-                object obj = ResourceManager.GetObject("missionplannerlogo", resourceCulture);
+                object obj = ResourceManager.GetObject("XagSurveillanceGCSlogo", resourceCulture);
                 return ((byte[])(obj));
             }
         }
@@ -1537,9 +1537,9 @@ namespace MissionPlanner.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] missionplannerlogodark {
+        internal static byte[] XagSurveillanceGCSlogodark {
             get {
-                object obj = ResourceManager.GetObject("missionplannerlogodark", resourceCulture);
+                object obj = ResourceManager.GetObject("XagSurveillanceGCSlogodark", resourceCulture);
                 return ((byte[])(obj));
             }
         }

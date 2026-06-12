@@ -1,4 +1,4 @@
-﻿namespace MissionPlanner.Controls
+﻿namespace XagSurveillanceGCS.Controls
 {
     partial class GimbalControlSettingsForm
     {
@@ -31,8 +31,8 @@
             this.SettingsPanel = new System.Windows.Forms.Panel();
             this.SettingsTablePanel = new System.Windows.Forms.TableLayoutPanel();
             this.ButtonsPanel = new System.Windows.Forms.Panel();
-            this.but_cancel = new MissionPlanner.Controls.MyButton();
-            this.but_save = new MissionPlanner.Controls.MyButton();
+            this.but_cancel = new XagSurveillanceGCS.Controls.MyButton();
+            this.but_save = new XagSurveillanceGCS.Controls.MyButton();
             this.SettingsPanel.SuspendLayout();
             this.ButtonsPanel.SuspendLayout();
             this.SuspendLayout();

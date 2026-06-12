@@ -4,7 +4,7 @@ using System.Drawing;
 using System.Windows.Forms;
 
 
-namespace MissionPlanner.Controls
+namespace XagSurveillanceGCS.Controls
 {
     /// <summary>
     /// Custom button control for binding a key to a function.

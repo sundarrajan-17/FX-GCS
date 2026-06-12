@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace MissionPlanner.Comms
+namespace XagSurveillanceGCS.Comms
 {
     public class CircularBuffer<T>
     {

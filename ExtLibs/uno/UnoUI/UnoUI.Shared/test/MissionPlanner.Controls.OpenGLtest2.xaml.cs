@@ -1,1 +1,1 @@
-namespace MissionPlanner.Controls { public partial class OpenGLtest2{public OpenGLtest2(){this.InitializeComponent();}}}
+namespace XagSurveillanceGCS.Controls { public partial class OpenGLtest2{public OpenGLtest2(){this.InitializeComponent();}}}

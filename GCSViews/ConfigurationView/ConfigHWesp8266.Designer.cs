@@ -1,4 +1,4 @@
-﻿namespace MissionPlanner.GCSViews.ConfigurationView
+﻿namespace XagSurveillanceGCS.GCSViews.ConfigurationView
 {
     partial class ConfigHWESP8266
     {
@@ -32,7 +32,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.BUT_espsettings = new MissionPlanner.Controls.MyButton();
+            this.BUT_espsettings = new XagSurveillanceGCS.Controls.MyButton();
             this.cmb_baud = new System.Windows.Forms.ComboBox();
             this.txt_ssid = new System.Windows.Forms.TextBox();
             this.txt_password = new System.Windows.Forms.TextBox();
@@ -41,7 +41,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.cmb_channel = new System.Windows.Forms.ComboBox();
-            this.but_resetdefault = new MissionPlanner.Controls.MyButton();
+            this.but_resetdefault = new XagSurveillanceGCS.Controls.MyButton();
             this.label5 = new System.Windows.Forms.Label();
             this.chk_mode = new System.Windows.Forms.CheckBox();
             this.groupBoxsta = new System.Windows.Forms.GroupBox();
@@ -69,10 +69,10 @@
             // pictureBox5
             // 
             this.pictureBox5.BackColor = System.Drawing.Color.White;
-            this.pictureBox5.BackgroundImage = global::MissionPlanner.Properties.Resources.MinimOSD;
+            this.pictureBox5.BackgroundImage = global::XagSurveillanceGCS.Properties.Resources.MinimOSD;
             resources.ApplyResources(this.pictureBox5, "pictureBox5");
             this.pictureBox5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox5.Image = global::MissionPlanner.Properties.Resources.BT_hc06;
+            this.pictureBox5.Image = global::XagSurveillanceGCS.Properties.Resources.BT_hc06;
             this.pictureBox5.Name = "pictureBox5";
             this.pictureBox5.TabStop = false;
             // 

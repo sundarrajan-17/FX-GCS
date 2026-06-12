@@ -24,7 +24,7 @@ public class ThemeManager
     }
 }
 
-namespace MissionPlanner.Controls
+namespace XagSurveillanceGCS.Controls
 {
 
 

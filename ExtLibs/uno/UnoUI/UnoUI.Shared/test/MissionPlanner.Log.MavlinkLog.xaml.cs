@@ -1,1 +1,1 @@
-namespace MissionPlanner.Log { public partial class MavlinkLog{public MavlinkLog(){this.InitializeComponent();}}}
+namespace XagSurveillanceGCS.Log { public partial class MavlinkLog{public MavlinkLog(){this.InitializeComponent();}}}

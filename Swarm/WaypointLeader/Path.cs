@@ -1,7 +1,7 @@
-﻿using MissionPlanner.Utilities;
+﻿using XagSurveillanceGCS.Utilities;
 using System.Collections.Generic;
 
-namespace MissionPlanner.Swarm.WaypointLeader
+namespace XagSurveillanceGCS.Swarm.WaypointLeader
 {
     public class Path
     {

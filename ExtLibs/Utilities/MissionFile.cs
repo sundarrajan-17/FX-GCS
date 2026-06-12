@@ -9,7 +9,7 @@ using System.Text;
 using log4net;
 using Newtonsoft.Json;
 
-namespace MissionPlanner.Utilities
+namespace XagSurveillanceGCS.Utilities
 {
     public class WaypointFile
     {
@@ -242,7 +242,7 @@ namespace MissionPlanner.Utilities
         {
             RootObject temp = new RootObject()
             {
-                groundStation = "MissionPlanner",
+                groundStation = "XagSurveillanceGCS",
                 version = 1,
                 mission = new Mission()
             };

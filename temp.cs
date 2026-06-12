@@ -3,18 +3,18 @@ using GMap.NET;
 using GMap.NET.MapProviders;
 using GMap.NET.WindowsForms;
 using log4net;
-using MissionPlanner.ArduPilot;
-using MissionPlanner.ArduPilot.Mavlink;
-using MissionPlanner.Comms;
-using MissionPlanner.Controls;
-using MissionPlanner.GCSViews;
-using MissionPlanner.GCSViews.ConfigurationView;
-using MissionPlanner.GeoRef;
-using MissionPlanner.Log;
-using MissionPlanner.Maps;
-using MissionPlanner.Swarm;
-using MissionPlanner.Utilities;
-using MissionPlanner.Warnings;
+using XagSurveillanceGCS.ArduPilot;
+using XagSurveillanceGCS.ArduPilot.Mavlink;
+using XagSurveillanceGCS.Comms;
+using XagSurveillanceGCS.Controls;
+using XagSurveillanceGCS.GCSViews;
+using XagSurveillanceGCS.GCSViews.ConfigurationView;
+using XagSurveillanceGCS.GeoRef;
+using XagSurveillanceGCS.Log;
+using XagSurveillanceGCS.Maps;
+using XagSurveillanceGCS.Swarm;
+using XagSurveillanceGCS.Utilities;
+using XagSurveillanceGCS.Warnings;
 using resedit;
 using System;
 using System.Collections;
@@ -40,11 +40,11 @@ using System.Xml;
 using System.Xml.Serialization;
 using DotSpatial.Data;
 using Microsoft.Scripting.Utils;
-using static MissionPlanner.Utilities.Firmware;
+using static XagSurveillanceGCS.Utilities.Firmware;
 using Formatting = Newtonsoft.Json.Formatting;
 using ILog = log4net.ILog;
 
-namespace MissionPlanner
+namespace XagSurveillanceGCS
 {
     public partial class temp : Form
     {
@@ -180,7 +180,7 @@ namespace MissionPlanner
         private void BUT_paramgen_Click(object sender, EventArgs e)
         {
             /*
-            if(MissionPlanner.Utilities.Update.dobeta)
+            if(XagSurveillanceGCS.Utilities.Update.dobeta)
                 ParameterMetaDataParser.GetParameterInformation(ConfigurationManager.AppSettings["ParameterLocationsBleeding"]);
             else
                 ParameterMetaDataParser.GetParameterInformation(ConfigurationManager.AppSettings["ParameterLocations"]);
@@ -466,7 +466,7 @@ namespace MissionPlanner
                     {
                         var sb = new StringBuilder();
 
-                        sb.Append("#Shap to Poly - Mission Planner\r\n");
+                        sb.Append("#Shap to Poly - XagSurveillanceGCS\r\n");
                         foreach (var point in feature.Geometry.Coordinates)
                         {
                             if (reproject)
@@ -858,11 +858,11 @@ namespace MissionPlanner
 
         private void but_sortlogs_Click(object sender, EventArgs e)
         {
-            MissionPlanner.Log.LogSort.SortLogs(Directory.GetFiles(Settings.Instance.LogDir, "*.tlog",
+            XagSurveillanceGCS.Log.LogSort.SortLogs(Directory.GetFiles(Settings.Instance.LogDir, "*.tlog",
                 SearchOption.AllDirectories), Settings.Instance.LogDir);
-            MissionPlanner.Log.LogSort.SortLogs(Directory.GetFiles(Settings.Instance.LogDir, "*.bin",
+            XagSurveillanceGCS.Log.LogSort.SortLogs(Directory.GetFiles(Settings.Instance.LogDir, "*.bin",
                 SearchOption.AllDirectories), Settings.Instance.LogDir);
-            MissionPlanner.Log.LogSort.SortLogs(Directory.GetFiles(Settings.Instance.LogDir, "*.log",
+            XagSurveillanceGCS.Log.LogSort.SortLogs(Directory.GetFiles(Settings.Instance.LogDir, "*.log",
                 SearchOption.AllDirectories), Settings.Instance.LogDir);
         }
 

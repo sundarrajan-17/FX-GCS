@@ -5,10 +5,10 @@ using System.Reflection;
 using System.Text;
 using System.Windows.Forms;
 using log4net;
-using MissionPlanner.ArduPilot;
-using MissionPlanner.Controls;
+using XagSurveillanceGCS.ArduPilot;
+using XagSurveillanceGCS.Controls;
 
-namespace MissionPlanner.GCSViews.ConfigurationView
+namespace XagSurveillanceGCS.GCSViews.ConfigurationView
 {
     public partial class ConfigREPL : MyUserControl, IActivate, IDeactivate
     {

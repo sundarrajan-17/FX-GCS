@@ -1,8 +1,8 @@
 ﻿using log4net;
-using MissionPlanner.Utilities;
+using XagSurveillanceGCS.Utilities;
 using System.Globalization;
 
-namespace MissionPlanner
+namespace XagSurveillanceGCS
 {
     public class L10N
     {

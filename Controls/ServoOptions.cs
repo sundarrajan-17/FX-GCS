@@ -1,9 +1,9 @@
-﻿using MissionPlanner.Utilities;
+﻿using XagSurveillanceGCS.Utilities;
 using System;
 using System.Drawing;
 using System.Windows.Forms;
 
-namespace MissionPlanner.Controls
+namespace XagSurveillanceGCS.Controls
 {
     public partial class ServoOptions : UserControl
     {
@@ -152,7 +152,7 @@ namespace MissionPlanner.Controls
             Control sourcectl = ((ContextMenuStrip)renameToolStripMenuItem.Owner).SourceControl;
 
             string desc = sourcectl.Text;
-            MissionPlanner.Controls.InputBox.Show("Description", "Enter new Description", ref desc);
+            XagSurveillanceGCS.Controls.InputBox.Show("Description", "Enter new Description", ref desc);
             sourcectl.Text = desc;
 
             if (sourcectl == BUT_High)

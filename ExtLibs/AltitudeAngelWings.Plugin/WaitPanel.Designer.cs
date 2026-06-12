@@ -25,7 +25,7 @@
         private void InitializeComponent()
         {
             this._panel = new System.Windows.Forms.Panel();
-            this._btnCancel = new MissionPlanner.Controls.MyButton();
+            this._btnCancel = new XagSurveillanceGCS.Controls.MyButton();
             this._lblOperation = new System.Windows.Forms.Label();
             this._picLogo = new System.Windows.Forms.PictureBox();
             this._panel.SuspendLayout();
@@ -98,7 +98,7 @@
         #endregion
 
         private System.Windows.Forms.Panel _panel;
-        private MissionPlanner.Controls.MyButton _btnCancel;
+        private XagSurveillanceGCS.Controls.MyButton _btnCancel;
         private System.Windows.Forms.Label _lblOperation;
         private System.Windows.Forms.PictureBox _picLogo;
     }

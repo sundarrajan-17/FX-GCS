@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Windows.Forms;
 
-namespace MissionPlanner.Controls
+namespace XagSurveillanceGCS.Controls
 {
     public partial class LogAnalyzer : Form
     {
-        public LogAnalyzer(MissionPlanner.Utilities.LogAnalyzer.analysis analysis)
+        public LogAnalyzer(XagSurveillanceGCS.Utilities.LogAnalyzer.analysis analysis)
         {
             InitializeComponent();
 

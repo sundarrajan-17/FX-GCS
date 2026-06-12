@@ -1,4 +1,4 @@
-﻿namespace MissionPlanner.GCSViews.ConfigurationView
+﻿namespace XagSurveillanceGCS.GCSViews.ConfigurationView
 {
     partial class ConfigAteryxSensors
     {
@@ -121,7 +121,7 @@
             // 
             // bindingSource1
             // 
-            this.bindingSource1.DataSource = typeof(MissionPlanner.CurrentState);
+            this.bindingSource1.DataSource = typeof(XagSurveillanceGCS.CurrentState);
             // 
             // timer1
             // 

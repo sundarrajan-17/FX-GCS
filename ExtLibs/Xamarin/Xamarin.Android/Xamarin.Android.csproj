@@ -208,9 +208,9 @@
     <Folder Include="Resources\raw\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\ArduPilot\MissionPlanner.ArduPilot.csproj">
+    <ProjectReference Include="..\..\ArduPilot\XagSurveillanceGCS.ArduPilot.csproj">
       <Project>{ca6345d3-7a6d-478b-a0ed-a58e50dcaa83}</Project>
-      <Name>MissionPlanner.ArduPilot</Name>
+      <Name>XagSurveillanceGCS.ArduPilot</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\GMap.NET.Core\GMap.NET.Core.csproj">
       <Project>{d0c39d9d-bed0-418b-9a5e-713176caf40c}</Project>
@@ -220,9 +220,9 @@
       <Project>{fd4d2994-9bea-41a1-8c51-2e02d1e8503e}</Project>
       <Name>Interfaces</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\MissionPlanner.Drawing\MissionPlanner.Drawing.csproj">
+    <ProjectReference Include="..\..\XagSurveillanceGCS.Drawing\XagSurveillanceGCS.Drawing.csproj">
       <Project>{6974d22c-ede6-4bb2-aad2-ff23ed6ec165}</Project>
-      <Name>MissionPlanner.Drawing</Name>
+      <Name>XagSurveillanceGCS.Drawing</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\System.Drawing.android\System.Drawing.android.csproj">
       <Project>{958c175e-8e11-4872-b99b-648f72afd3c1}</Project>
@@ -232,9 +232,9 @@
       <Project>{B57854C8-5C63-4D79-96ED-ACD31815CB91}</Project>
       <Name>UsbSerialForAndroid</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Utilities\MissionPlanner.Utilities.csproj">
+    <ProjectReference Include="..\..\Utilities\XagSurveillanceGCS.Utilities.csproj">
       <Project>{1378a66c-38e4-46f5-a05f-dc04ef7d4d16}</Project>
-      <Name>MissionPlanner.Utilities</Name>
+      <Name>XagSurveillanceGCS.Utilities</Name>
     </ProjectReference>
     <ProjectReference Include="..\GDALForAndroid\GDALForAndroid.csproj">
       <Project>{e1d67c23-0cdd-4835-a1e2-4634c0dd4c34}</Project>

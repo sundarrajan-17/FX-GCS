@@ -1,4 +1,4 @@
-﻿using MissionPlanner.Utilities;
+﻿using XagSurveillanceGCS.Utilities;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -12,7 +12,7 @@ using uint32_t = System.UInt32;
 using staticuint16_t = System.UInt16;
 using staticfloat = System.Single;
 
-namespace MissionPlanner.Utilities
+namespace XagSurveillanceGCS.Utilities
 {
     //https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_Compass/CompassCalibrator.cpp
     public class CompassCalibrator : Utils

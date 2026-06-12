@@ -1,1 +1,1 @@
-namespace MissionPlanner.Controls { public partial class MyTreeView{public MyTreeView(){this.InitializeComponent();}}}
+namespace XagSurveillanceGCS.Controls { public partial class MyTreeView{public MyTreeView(){this.InitializeComponent();}}}

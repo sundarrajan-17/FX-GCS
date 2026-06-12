@@ -8,7 +8,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using static MAVLink;
 
-namespace MissionPlanner.Utilities
+namespace XagSurveillanceGCS.Utilities
 {
     public class OsdTuningSlotProvider: IDisposable
     {

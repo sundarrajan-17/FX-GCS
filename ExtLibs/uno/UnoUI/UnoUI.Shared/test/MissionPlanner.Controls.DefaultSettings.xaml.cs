@@ -1,1 +1,1 @@
-namespace MissionPlanner.Controls { public partial class DefaultSettings{public DefaultSettings(){this.InitializeComponent();}}}
+namespace XagSurveillanceGCS.Controls { public partial class DefaultSettings{public DefaultSettings(){this.InitializeComponent();}}}

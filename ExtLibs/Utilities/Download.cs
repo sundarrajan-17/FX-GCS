@@ -12,7 +12,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using log4net;
 
-namespace MissionPlanner.Utilities
+namespace XagSurveillanceGCS.Utilities
 {
     public static class DownloadExt
     {

@@ -7,7 +7,7 @@ using System.IO;
 using System.Security.Permissions;
 using System.Text.RegularExpressions;
 
-namespace MissionPlanner.Utilities
+namespace XagSurveillanceGCS.Utilities
 {
     public class CleanDrivers
     {

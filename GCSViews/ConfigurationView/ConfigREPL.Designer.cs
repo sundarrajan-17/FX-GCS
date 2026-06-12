@@ -1,4 +1,4 @@
-﻿namespace MissionPlanner.GCSViews.ConfigurationView
+﻿namespace XagSurveillanceGCS.GCSViews.ConfigurationView
 {
     partial class ConfigREPL
     {
@@ -30,8 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ConfigREPL));
             this.TXT_terminal = new System.Windows.Forms.RichTextBox();
-            this.BUT_Connect = new MissionPlanner.Controls.MyButton();
-            this.BUT_disconnect = new MissionPlanner.Controls.MyButton();
+            this.BUT_Connect = new XagSurveillanceGCS.Controls.MyButton();
+            this.BUT_disconnect = new XagSurveillanceGCS.Controls.MyButton();
             this.SuspendLayout();
             // 
             // TXT_terminal

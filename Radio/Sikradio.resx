@@ -2601,7 +2601,7 @@ this ensures you wont lose radio link</value>
     <value>btnLoadFromFile</value>
   </data>
   <data name="&gt;&gt;btnLoadFromFile.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.MyButton, RFD900Tools, Version=0.2.63.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>XagSurveillanceGCS.Controls.MyButton, RFD900Tools, Version=0.2.63.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;btnLoadFromFile.Parent" xml:space="preserve">
     <value>groupBoxLocal</value>
@@ -2613,7 +2613,7 @@ this ensures you wont lose radio link</value>
     <value>btnSaveToFile</value>
   </data>
   <data name="&gt;&gt;btnSaveToFile.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.MyButton, RFD900Tools, Version=0.2.63.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>XagSurveillanceGCS.Controls.MyButton, RFD900Tools, Version=0.2.63.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;btnSaveToFile.Parent" xml:space="preserve">
     <value>groupBoxLocal</value>
@@ -2757,7 +2757,7 @@ this ensures you wont lose radio link</value>
     <value>BUT_SetPPMFailSafe</value>
   </data>
   <data name="&gt;&gt;BUT_SetPPMFailSafe.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.MyButton, RFD900Tools, Version=0.2.63.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>XagSurveillanceGCS.Controls.MyButton, RFD900Tools, Version=0.2.63.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;BUT_SetPPMFailSafe.Parent" xml:space="preserve">
     <value>groupBoxLocal</value>
@@ -5100,7 +5100,7 @@ this ensures you wont lose radio link</value>
     <value>btnRemoteLoadFromFile</value>
   </data>
   <data name="&gt;&gt;btnRemoteLoadFromFile.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.MyButton, RFD900Tools, Version=0.2.63.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>XagSurveillanceGCS.Controls.MyButton, RFD900Tools, Version=0.2.63.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;btnRemoteLoadFromFile.Parent" xml:space="preserve">
     <value>groupBoxRemote</value>
@@ -5130,7 +5130,7 @@ this ensures you wont lose radio link</value>
     <value>btnRemoteSaveToFile</value>
   </data>
   <data name="&gt;&gt;btnRemoteSaveToFile.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.MyButton, RFD900Tools, Version=0.2.63.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>XagSurveillanceGCS.Controls.MyButton, RFD900Tools, Version=0.2.63.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;btnRemoteSaveToFile.Parent" xml:space="preserve">
     <value>groupBoxRemote</value>
@@ -5445,7 +5445,7 @@ this ensures you wont lose radio link</value>
     <value>BUT_SetPPMFailSafeRemote</value>
   </data>
   <data name="&gt;&gt;BUT_SetPPMFailSafeRemote.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.MyButton, RFD900Tools, Version=0.2.63.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>XagSurveillanceGCS.Controls.MyButton, RFD900Tools, Version=0.2.63.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;BUT_SetPPMFailSafeRemote.Parent" xml:space="preserve">
     <value>groupBoxRemote</value>
@@ -6882,7 +6882,7 @@ this ensures you wont lose radio link</value>
     <value>BUT_loadcustom</value>
   </data>
   <data name="&gt;&gt;BUT_loadcustom.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.MyButton, RFD900Tools, Version=0.2.63.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>XagSurveillanceGCS.Controls.MyButton, RFD900Tools, Version=0.2.63.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;BUT_loadcustom.Parent" xml:space="preserve">
     <value>$this</value>
@@ -6909,7 +6909,7 @@ this ensures you wont lose radio link</value>
     <value>BUT_resettodefault</value>
   </data>
   <data name="&gt;&gt;BUT_resettodefault.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.MyButton, RFD900Tools, Version=0.2.63.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>XagSurveillanceGCS.Controls.MyButton, RFD900Tools, Version=0.2.63.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;BUT_resettodefault.Parent" xml:space="preserve">
     <value>$this</value>
@@ -6942,7 +6942,7 @@ this ensures you wont lose radio link</value>
     <value>BUT_SetPPMFailSafe</value>
   </data>
   <data name="&gt;&gt;BUT_SetPPMFailSafe.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.MyButton, RFD900Tools, Version=0.2.63.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>XagSurveillanceGCS.Controls.MyButton, RFD900Tools, Version=0.2.63.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;BUT_SetPPMFailSafe.Parent" xml:space="preserve">
     <value>groupBoxLocal</value>
@@ -6972,7 +6972,7 @@ this ensures you wont lose radio link</value>
     <value>BUT_savesettings</value>
   </data>
   <data name="&gt;&gt;BUT_savesettings.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.MyButton, RFD900Tools, Version=0.2.63.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>XagSurveillanceGCS.Controls.MyButton, RFD900Tools, Version=0.2.63.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;BUT_savesettings.Parent" xml:space="preserve">
     <value>$this</value>
@@ -6999,7 +6999,7 @@ this ensures you wont lose radio link</value>
     <value>BUT_getcurrent</value>
   </data>
   <data name="&gt;&gt;BUT_getcurrent.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.MyButton, RFD900Tools, Version=0.2.63.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>XagSurveillanceGCS.Controls.MyButton, RFD900Tools, Version=0.2.63.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;BUT_getcurrent.Parent" xml:space="preserve">
     <value>$this</value>
@@ -7029,7 +7029,7 @@ this ensures you wont lose radio link</value>
     <value>BUT_upload</value>
   </data>
   <data name="&gt;&gt;BUT_upload.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.MyButton, RFD900Tools, Version=0.2.63.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>XagSurveillanceGCS.Controls.MyButton, RFD900Tools, Version=0.2.63.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;BUT_upload.Parent" xml:space="preserve">
     <value>$this</value>
@@ -7059,7 +7059,7 @@ this ensures you wont lose radio link</value>
     <value>BUT_Syncoptions</value>
   </data>
   <data name="&gt;&gt;BUT_Syncoptions.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.MyButton, RFD900Tools, Version=0.2.63.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>XagSurveillanceGCS.Controls.MyButton, RFD900Tools, Version=0.2.63.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;BUT_Syncoptions.Parent" xml:space="preserve">
     <value>$this</value>
@@ -7089,7 +7089,7 @@ this ensures you wont lose radio link</value>
     <value>btnSaveToFile</value>
   </data>
   <data name="&gt;&gt;btnSaveToFile.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.MyButton, RFD900Tools, Version=0.2.63.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>XagSurveillanceGCS.Controls.MyButton, RFD900Tools, Version=0.2.63.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;btnSaveToFile.Parent" xml:space="preserve">
     <value>groupBoxLocal</value>
@@ -7119,7 +7119,7 @@ this ensures you wont lose radio link</value>
     <value>btnLoadFromFile</value>
   </data>
   <data name="&gt;&gt;btnLoadFromFile.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.MyButton, RFD900Tools, Version=0.2.63.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>XagSurveillanceGCS.Controls.MyButton, RFD900Tools, Version=0.2.63.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;btnLoadFromFile.Parent" xml:space="preserve">
     <value>groupBoxLocal</value>

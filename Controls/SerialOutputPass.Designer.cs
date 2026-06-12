@@ -1,4 +1,4 @@
-﻿namespace MissionPlanner.Controls
+﻿namespace XagSurveillanceGCS.Controls
 {
     partial class SerialOutputPass
     {
@@ -30,10 +30,10 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SerialOutputPass));
             this.CMB_serialport = new System.Windows.Forms.ComboBox();
-            this.BUT_connect = new MissionPlanner.Controls.MyButton();
+            this.BUT_connect = new XagSurveillanceGCS.Controls.MyButton();
             this.CMB_baudrate = new System.Windows.Forms.ComboBox();
             this.chk_write = new System.Windows.Forms.CheckBox();
-            this.myDataGridView1 = new MissionPlanner.Controls.MyDataGridView();
+            this.myDataGridView1 = new XagSurveillanceGCS.Controls.MyDataGridView();
             this.Type = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.Direction = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.Port = new System.Windows.Forms.DataGridViewTextBoxColumn();

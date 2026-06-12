@@ -1,7 +1,7 @@
 ﻿using System;
 using System.IO;
 
-namespace MissionPlanner
+namespace XagSurveillanceGCS
 {
     partial class MainV2
     {
@@ -50,11 +50,11 @@ namespace MissionPlanner
             this.MenuSimulation = new System.Windows.Forms.ToolStripButton();
             this.MenuHelp = new System.Windows.Forms.ToolStripButton();
             this.MenuConnect = new System.Windows.Forms.ToolStripButton();
-            this.toolStripConnectionControl = new MissionPlanner.Controls.ToolStripConnectionControl();
+            this.toolStripConnectionControl = new XagSurveillanceGCS.Controls.ToolStripConnectionControl();
             this.MenuArduPilot = new System.Windows.Forms.ToolStripButton();
-            this.menu = new MissionPlanner.Controls.MyButton();
+            this.menu = new XagSurveillanceGCS.Controls.MyButton();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.status1 = new MissionPlanner.Controls.Status();
+            this.status1 = new XagSurveillanceGCS.Controls.Status();
             this.MainMenu.SuspendLayout();
             this.CTX_mainmenu.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -69,10 +69,10 @@ namespace MissionPlanner
             this.MainMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.MenuFlightData,
             this.MenuFlightPlanner,
-            this.MenuInitConfig,
+            // this.MenuInitConfig,
             this.MenuConfigTune,
             this.MenuSimulation,
-            this.MenuHelp,
+            // this.MenuHelp,
             this.MenuConnect,
             this.toolStripConnectionControl,
             this.MenuArduPilot});
@@ -198,7 +198,7 @@ namespace MissionPlanner
             this.MenuArduPilot.BackColor = System.Drawing.Color.Transparent;
             this.MenuArduPilot.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.MenuArduPilot.ForeColor = System.Drawing.Color.White;
-            this.MenuArduPilot.Image = global::MissionPlanner.Properties.Resources._0d92fed790a3a70170e61a86db103f399a595c70;
+            this.MenuArduPilot.Image = global::XagSurveillanceGCS.Properties.Resources._0d92fed790a3a70170e61a86db103f399a595c70;
             this.MenuArduPilot.Margin = new System.Windows.Forms.Padding(0);
             this.MenuArduPilot.Name = "MenuArduPilot";
             this.MenuArduPilot.Click += new System.EventHandler(this.MenuArduPilot_Click);
@@ -240,7 +240,6 @@ namespace MissionPlanner
             this.CTX_mainmenu.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
-
         }
 
         #endregion

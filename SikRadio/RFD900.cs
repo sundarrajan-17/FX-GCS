@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading;
-using MissionPlanner.Radio;
+using XagSurveillanceGCS.Radio;
 using System.IO;
 using System.Reflection;
 
@@ -13,7 +13,7 @@ namespace RFD.RFD900
     public class TSession : IDisposable
     {
         TMode _Mode = TMode.INIT;
-        MissionPlanner.Comms.ICommsSerial _Port;
+        XagSurveillanceGCS.Comms.ICommsSerial _Port;
         public Uploader.Board Board = Uploader.Board.FAILED;
         RFDLib.IO.ATCommand.TClient _ATCClient;
         RFD900 _ModemObject;
@@ -28,10 +28,10 @@ namespace RFD.RFD900
         const string NODEID = "NODEID";
         const string NODEDESTINATION = "NODEDESTINATION";
 
-        public TSession(MissionPlanner.Comms.ICommsSerial Port, int MainFirmwareBaud)
+        public TSession(XagSurveillanceGCS.Comms.ICommsSerial Port, int MainFirmwareBaud)
         {
             _Port = Port;
-            _ATCClient = new TATCClient(new TMissionPlannerSerialPort(Port));
+            _ATCClient = new TATCClient(new TXagSurveillanceGCSSerialPort(Port));
             _ATCClient.Echoes = true;
             _ATCClient.Terminator = "\r\n";
             _ATCClient.Timeout = 1000;
@@ -261,7 +261,7 @@ namespace RFD.RFD900
             }
         }
 
-        public MissionPlanner.Comms.ICommsSerial Port
+        public XagSurveillanceGCS.Comms.ICommsSerial Port
         {
             get
             {
@@ -2270,8 +2270,8 @@ namespace RFD.RFD900
             {
                 try
                 {
-                    MissionPlanner.Radio.XModem.ProgressEvent += (d) => Progress(null, d);
-                    bool Result = MissionPlanner.Radio.XModem.Upload(FilePath, _Session.Port);
+                    XagSurveillanceGCS.Radio.XModem.ProgressEvent += (d) => Progress(null, d);
+                    bool Result = XagSurveillanceGCS.Radio.XModem.Upload(FilePath, _Session.Port);
                     _Session.AssumeMode(TSession.TMode.INIT);
                     return Result;
                 }
@@ -2702,13 +2702,13 @@ namespace RFD.RFD900
     }
 
     /// <summary>
-    /// A RFDLib.IO.TSerialPort wrapper for TMissionPlannerSerialPort
+    /// A RFDLib.IO.TSerialPort wrapper for TXagSurveillanceGCSSerialPort
     /// </summary>
-    public class TMissionPlannerSerialPort : RFDLib.IO.TSerialPort
+    public class TXagSurveillanceGCSSerialPort : RFDLib.IO.TSerialPort
     {
-        MissionPlanner.Comms.ICommsSerial _Port;
+        XagSurveillanceGCS.Comms.ICommsSerial _Port;
 
-        public TMissionPlannerSerialPort(MissionPlanner.Comms.ICommsSerial Port)
+        public TXagSurveillanceGCSSerialPort(XagSurveillanceGCS.Comms.ICommsSerial Port)
         {
             _Port = Port;
         }

@@ -17,14 +17,14 @@ using System.Net.Sockets;
 using System.Xml; // config file
 using System.Runtime.InteropServices; // dll imports
 using log4net;
-using MissionPlanner;
+using XagSurveillanceGCS;
 using System.Reflection;
 
 using System.IO;
 
 using System.Drawing.Drawing2D;
 
-namespace MissionPlanner.Controls
+namespace XagSurveillanceGCS.Controls
 {
     public class HorizontalProgressBar : ProgressBar
     {

@@ -1,5 +1,5 @@
 ﻿
-namespace MissionPlanner.Controls
+namespace XagSurveillanceGCS.Controls
 {
     partial class OpenDroneID_UI
     {
@@ -63,8 +63,8 @@ namespace MissionPlanner.Controls
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.CMB_op_id_type = new System.Windows.Forms.ComboBox();
-            this.nmea_GPS_1 = new MissionPlanner.NMEA_GPS_Connection();
-            this.myODID_Status = new MissionPlanner.Controls.OpenDroneID_Map_Status();
+            this.nmea_GPS_1 = new XagSurveillanceGCS.NMEA_GPS_Connection();
+            this.myODID_Status = new XagSurveillanceGCS.Controls.OpenDroneID_Map_Status();
             this.groupBox2.SuspendLayout();
             this.ODOD_tabs.SuspendLayout();
             this.tabStatus.SuspendLayout();

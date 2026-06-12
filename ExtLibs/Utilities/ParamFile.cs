@@ -5,7 +5,7 @@ using System.Globalization;
 using System.IO;
 using log4net;
 
-namespace MissionPlanner.Utilities
+namespace XagSurveillanceGCS.Utilities
 {
     public class ParamFile
     {

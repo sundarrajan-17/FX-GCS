@@ -1,1 +1,1 @@
-namespace MissionPlanner.GCSViews.ConfigurationView { public partial class ConfigHWOSD{public ConfigHWOSD(){this.InitializeComponent();}}}
+namespace XagSurveillanceGCS.GCSViews.ConfigurationView { public partial class ConfigHWOSD{public ConfigHWOSD(){this.InitializeComponent();}}}

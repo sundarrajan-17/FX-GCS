@@ -5,7 +5,7 @@ using System.Text;
 using netDxf;
 using netDxf.Entities;
 
-namespace MissionPlanner.Utilities
+namespace XagSurveillanceGCS.Utilities
 {
     public class dxf
     {

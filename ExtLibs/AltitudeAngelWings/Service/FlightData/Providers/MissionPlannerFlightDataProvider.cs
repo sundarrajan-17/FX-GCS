@@ -3,33 +3,33 @@ using AltitudeAngelWings.Model;
 
 namespace AltitudeAngelWings.Service.FlightData.Providers
 {
-    public class MissionPlannerFlightDataProvider : IFlightDataProvider
+    public class XagSurveillanceGCSFlightDataProvider : IFlightDataProvider
     {
         private const int GeographicPrecision = 7;
         private const int AltitudePrecision = 2;
 
-        public MissionPlannerFlightDataProvider(IMissionPlannerState missionPlannerState)
+        public XagSurveillanceGCSFlightDataProvider(IXagSurveillanceGCSState XagSurveillanceGCSState)
         {
-            _missionPlannerState = missionPlannerState;
+            _XagSurveillanceGCSState = XagSurveillanceGCSState;
         }
 
         public Model.FlightData GetCurrentFlightData()
         {
             return new Model.FlightData
             {
-                Armed = _missionPlannerState.IsArmed,
+                Armed = _XagSurveillanceGCSState.IsArmed,
                 CurrentPosition = new FlightDataPosition
                 {
-                    Longitude = Math.Round(_missionPlannerState.Longitude, GeographicPrecision, MidpointRounding.AwayFromZero),
-                    Latitude = Math.Round(_missionPlannerState.Latitude, GeographicPrecision, MidpointRounding.AwayFromZero),
-                    Altitude = Math.Round(_missionPlannerState.Altitude, AltitudePrecision, MidpointRounding.AwayFromZero),
-                    Course = _missionPlannerState.GroundCourse,
-                    Speed = _missionPlannerState.GroundSpeed,
-                    VerticalSpeed = _missionPlannerState.VerticalSpeed
+                    Longitude = Math.Round(_XagSurveillanceGCSState.Longitude, GeographicPrecision, MidpointRounding.AwayFromZero),
+                    Latitude = Math.Round(_XagSurveillanceGCSState.Latitude, GeographicPrecision, MidpointRounding.AwayFromZero),
+                    Altitude = Math.Round(_XagSurveillanceGCSState.Altitude, AltitudePrecision, MidpointRounding.AwayFromZero),
+                    Course = _XagSurveillanceGCSState.GroundCourse,
+                    Speed = _XagSurveillanceGCSState.GroundSpeed,
+                    VerticalSpeed = _XagSurveillanceGCSState.VerticalSpeed
                 }
             };
         }
 
-        private readonly IMissionPlannerState _missionPlannerState;
+        private readonly IXagSurveillanceGCSState _XagSurveillanceGCSState;
     }
 }

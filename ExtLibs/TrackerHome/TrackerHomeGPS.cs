@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Xml;
 using System.Windows.Forms;
-using MissionPlanner;
-using MissionPlanner.Plugin;
-using MissionPlanner.Utilities;
+using XagSurveillanceGCS;
+using XagSurveillanceGCS.Plugin;
+using XagSurveillanceGCS.Utilities;
 using TrackerHomeGPS;
 
     public class TrackerHome : Plugin

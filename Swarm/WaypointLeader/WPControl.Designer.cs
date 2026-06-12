@@ -1,4 +1,4 @@
-﻿namespace MissionPlanner.Swarm.WaypointLeader
+﻿namespace XagSurveillanceGCS.Swarm.WaypointLeader
 {
     partial class WPControl
     {
@@ -42,12 +42,12 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.num_rtl_alt = new System.Windows.Forms.NumericUpDown();
-            this.but_rth = new MissionPlanner.Controls.MyButton();
-            this.but_resetmode = new MissionPlanner.Controls.MyButton();
-            this.but_airmaster = new MissionPlanner.Controls.MyButton();
-            this.but_start = new MissionPlanner.Controls.MyButton();
-            this.but_master = new MissionPlanner.Controls.MyButton();
-            this.but_setmoderltland = new MissionPlanner.Controls.MyButton();
+            this.but_rth = new XagSurveillanceGCS.Controls.MyButton();
+            this.but_resetmode = new XagSurveillanceGCS.Controls.MyButton();
+            this.but_airmaster = new XagSurveillanceGCS.Controls.MyButton();
+            this.but_start = new XagSurveillanceGCS.Controls.MyButton();
+            this.but_master = new XagSurveillanceGCS.Controls.MyButton();
+            this.but_setmoderltland = new XagSurveillanceGCS.Controls.MyButton();
             this.num_wpnav_accel = new System.Windows.Forms.NumericUpDown();
             this.chk_V = new System.Windows.Forms.CheckBox();
             this.label4 = new System.Windows.Forms.Label();

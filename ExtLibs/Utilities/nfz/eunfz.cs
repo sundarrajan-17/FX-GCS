@@ -1,4 +1,4 @@
-﻿namespace MissionPlanner.Utilities.nfz
+﻿namespace XagSurveillanceGCS.Utilities.nfz
 {
     using System;
     using Flurl;

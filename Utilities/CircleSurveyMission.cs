@@ -1,7 +1,7 @@
-﻿using MissionPlanner.Controls;
-using MissionPlanner.GCSViews;
+﻿using XagSurveillanceGCS.Controls;
+using XagSurveillanceGCS.GCSViews;
 
-namespace MissionPlanner.Utilities
+namespace XagSurveillanceGCS.Utilities
 {
     public class CircleSurveyMission
     {

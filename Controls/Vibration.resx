@@ -145,7 +145,7 @@
     <value>VibBarZ</value>
   </data>
   <data name="&gt;&gt;VibBarZ.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.VerticalProgressBar2, MissionPlanner.Controls, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>XagSurveillanceGCS.Controls.VerticalProgressBar2, XagSurveillanceGCS.Controls, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;VibBarZ.Parent" xml:space="preserve">
     <value>tableLayoutPanel1</value>
@@ -169,7 +169,7 @@
     <value>VibBarY</value>
   </data>
   <data name="&gt;&gt;VibBarY.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.VerticalProgressBar2, MissionPlanner.Controls, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>XagSurveillanceGCS.Controls.VerticalProgressBar2, XagSurveillanceGCS.Controls, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;VibBarY.Parent" xml:space="preserve">
     <value>tableLayoutPanel1</value>
@@ -550,7 +550,7 @@
     <value>VibBarX</value>
   </data>
   <data name="&gt;&gt;VibBarX.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.VerticalProgressBar2, MissionPlanner.Controls, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>XagSurveillanceGCS.Controls.VerticalProgressBar2, XagSurveillanceGCS.Controls, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;VibBarX.Parent" xml:space="preserve">
     <value>tableLayoutPanel1</value>

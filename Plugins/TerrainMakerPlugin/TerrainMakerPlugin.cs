@@ -1,16 +1,16 @@
-﻿using MissionPlanner;
-using MissionPlanner.Plugin;
-using MissionPlanner.Utilities;
+﻿using XagSurveillanceGCS;
+using XagSurveillanceGCS.Plugin;
+using XagSurveillanceGCS.Utilities;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Windows.Forms;
 using System.Diagnostics;
-using MissionPlanner.Controls.PreFlight;
-using MissionPlanner.Controls;
+using XagSurveillanceGCS.Controls.PreFlight;
+using XagSurveillanceGCS.Controls;
 using System.Linq;
 using GMap.NET.WindowsForms.Markers;
-using MissionPlanner.Maps;
+using XagSurveillanceGCS.Maps;
 using GMap.NET;
 using GMap.NET.WindowsForms;
 using System.Globalization;
@@ -34,7 +34,7 @@ namespace TerrainMakerPlugin
 
 
         SplitContainer sc;
-        MissionPlanner.Controls.MyButton button1;
+        XagSurveillanceGCS.Controls.MyButton button1;
 
         Stopwatch stopwatch = new Stopwatch();
         public override string Name
@@ -144,7 +144,7 @@ namespace TerrainMakerPlugin
 
                         frmProgressReporter.Dispose();
 
-                        CustomMessageBox.Show("Terrain DAT created in Documents/Mission Planner/TerrainDat folder", "Terrain DAT");
+                        CustomMessageBox.Show("Terrain DAT created in Documents/XagSurveillanceGCS/TerrainDat folder", "Terrain DAT");
 
 
                     }

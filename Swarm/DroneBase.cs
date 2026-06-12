@@ -1,7 +1,7 @@
-﻿using MissionPlanner.Utilities;
+﻿using XagSurveillanceGCS.Utilities;
 using System;
 
-namespace MissionPlanner.Swarm
+namespace XagSurveillanceGCS.Swarm
 {
     public class DroneBase
     {

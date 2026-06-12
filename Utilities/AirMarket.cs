@@ -13,9 +13,9 @@ using Flurl.Http;
 using System.Web;
 using System.Windows.Forms;
 using log4net;
-using MissionPlanner.Controls;
+using XagSurveillanceGCS.Controls;
 
-namespace MissionPlanner.Utilities
+namespace XagSurveillanceGCS.Utilities
 {
     public class AirMarketUI: MyUserControl, IActivate
     {
@@ -41,7 +41,7 @@ namespace MissionPlanner.Utilities
             this.txt_password = new System.Windows.Forms.TextBox();
             this.myLabel2 = new System.Windows.Forms.Label();
             this.cmb_server = new System.Windows.Forms.ComboBox();
-            this.but_verify = new MissionPlanner.Controls.MyButton();
+            this.but_verify = new XagSurveillanceGCS.Controls.MyButton();
             this.chk_enable = new System.Windows.Forms.CheckBox();
             this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();

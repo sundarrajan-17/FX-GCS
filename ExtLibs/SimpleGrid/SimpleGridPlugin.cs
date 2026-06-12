@@ -5,11 +5,11 @@ using System.Text;
 using System.Windows.Forms;
 using GMap.NET.WindowsForms;
 
-namespace MissionPlanner.SimpleGrid
+namespace XagSurveillanceGCS.SimpleGrid
 {
-    public class GridPlugin : MissionPlanner.Plugin.Plugin
+    public class GridPlugin : XagSurveillanceGCS.Plugin.Plugin
     {
-        public static MissionPlanner.Plugin.PluginHost Host2;
+        public static XagSurveillanceGCS.Plugin.PluginHost Host2;
 
         ToolStripMenuItem but;
 
@@ -66,7 +66,7 @@ namespace MissionPlanner.SimpleGrid
             {
                 using (Form gridui = new GridUI(this))
                 {
-                    MissionPlanner.Utilities.ThemeManager.ApplyThemeTo(gridui);
+                    XagSurveillanceGCS.Utilities.ThemeManager.ApplyThemeTo(gridui);
                     gridui.ShowDialog();
                 }
             }

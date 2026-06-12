@@ -1,4 +1,4 @@
-﻿namespace MissionPlanner.Controls
+﻿namespace XagSurveillanceGCS.Controls
 {
     partial class VideoStreamSelector
     {
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.cmb_detectedstreams = new System.Windows.Forms.ComboBox();
-            this.but_launch = new MissionPlanner.Controls.MyButton();
+            this.but_launch = new XagSurveillanceGCS.Controls.MyButton();
             this.txt_gstreamraw = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();

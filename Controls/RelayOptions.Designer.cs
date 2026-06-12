@@ -1,4 +1,4 @@
-﻿namespace MissionPlanner.Controls
+﻿namespace XagSurveillanceGCS.Controls
 {
     partial class RelayOptions
     {
@@ -30,11 +30,11 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RelayOptions));
-            this.BUT_Low = new MissionPlanner.Controls.MyButton();
+            this.BUT_Low = new XagSurveillanceGCS.Controls.MyButton();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.renameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.BUT_High = new MissionPlanner.Controls.MyButton();
-            this.BUT_Repeat = new MissionPlanner.Controls.MyButton();
+            this.BUT_High = new XagSurveillanceGCS.Controls.MyButton();
+            this.BUT_Repeat = new XagSurveillanceGCS.Controls.MyButton();
             this.TXT_rcchannel = new System.Windows.Forms.Label();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();

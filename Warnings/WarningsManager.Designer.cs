@@ -1,5 +1,5 @@
-﻿using MissionPlanner.Controls;
-namespace MissionPlanner.Warnings
+﻿using XagSurveillanceGCS.Controls;
+namespace XagSurveillanceGCS.Warnings
 {
     partial class WarningsManager
     {
@@ -30,10 +30,10 @@ namespace MissionPlanner.Warnings
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.warningControl1 = new MissionPlanner.Warnings.WarningControl();
+            this.warningControl1 = new XagSurveillanceGCS.Warnings.WarningControl();
             this.label4 = new System.Windows.Forms.Label();
-            this.BUT_Add = new MissionPlanner.Controls.MyButton();
-            this.BUT_save = new MissionPlanner.Controls.MyButton();
+            this.BUT_Add = new XagSurveillanceGCS.Controls.MyButton();
+            this.BUT_save = new XagSurveillanceGCS.Controls.MyButton();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();

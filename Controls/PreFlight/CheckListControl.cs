@@ -1,11 +1,11 @@
-﻿using MissionPlanner.Utilities;
+﻿using XagSurveillanceGCS.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
 
-namespace MissionPlanner.Controls.PreFlight
+namespace XagSurveillanceGCS.Controls.PreFlight
 {
     public partial class CheckListControl : UserControl
     {
@@ -42,7 +42,7 @@ namespace MissionPlanner.Controls.PreFlight
 
             try
             {
-                MissionPlanner.Controls.PreFlight.CheckListItem.defaultsrc = MainV2.comPort.MAV.cs;
+                XagSurveillanceGCS.Controls.PreFlight.CheckListItem.defaultsrc = MainV2.comPort.MAV.cs;
 
                 LoadConfig();
             }

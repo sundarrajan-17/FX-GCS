@@ -27,7 +27,7 @@ namespace AltitudeAngelWings.Service
         private static readonly List<Feature> MapFeatureCache = new List<Feature>();
 
         private readonly IMessagesService _messagesService;
-        private readonly IMissionPlanner _missionPlanner;
+        private readonly IXagSurveillanceGCS _XagSurveillanceGCS;
         private readonly CompositeDisposable _disposer = new CompositeDisposable();
         private readonly IApiClient _apiClient;
         private readonly ITelemetryService _telemetryService;
@@ -45,7 +45,7 @@ namespace AltitudeAngelWings.Service
 
         public AltitudeAngelService(
             IMessagesService messagesService,
-            IMissionPlanner missionPlanner,
+            IXagSurveillanceGCS XagSurveillanceGCS,
             ISettings settings,
             ITokenProvider tokenProvider,
             IApiClient apiClient,
@@ -53,7 +53,7 @@ namespace AltitudeAngelWings.Service
             IFlightService flightService)
         {
             _messagesService = messagesService;
-            _missionPlanner = missionPlanner;
+            _XagSurveillanceGCS = XagSurveillanceGCS;
             _settings = settings;
             _tokenProvider = tokenProvider;
             _apiClient = apiClient;
@@ -66,18 +66,18 @@ namespace AltitudeAngelWings.Service
             _disposer.Add(WeatherReport);
             FilterInfoDisplay = _settings.MapFilters;
 
-            _disposer.Add(_missionPlanner.FlightDataMap
+            _disposer.Add(_XagSurveillanceGCS.FlightDataMap
                 .MapChanged
-                .SubscribeWithAsync((i, ct) => UpdateMapData(_missionPlanner.FlightDataMap, ct)));
-            _disposer.Add(_missionPlanner.FlightPlanningMap
+                .SubscribeWithAsync((i, ct) => UpdateMapData(_XagSurveillanceGCS.FlightDataMap, ct)));
+            _disposer.Add(_XagSurveillanceGCS.FlightPlanningMap
                 .MapChanged
-                .SubscribeWithAsync((i, ct) => UpdateMapData(_missionPlanner.FlightPlanningMap, ct)));
-            _disposer.Add(_missionPlanner.FlightDataMap
+                .SubscribeWithAsync((i, ct) => UpdateMapData(_XagSurveillanceGCS.FlightPlanningMap, ct)));
+            _disposer.Add(_XagSurveillanceGCS.FlightDataMap
                 .FeatureClicked
                 .Select(f => new { Feature = f, Properties = f.GetFeatureProperties() })
                 .Where(i => i.Properties.DetailedCategory == "user:flight_plan_report" && i.Properties.IsOwner)
                 .SubscribeWithAsync((i, ct) => OnFlightReportClicked(i.Feature)));
-            _disposer.Add(_missionPlanner.FlightPlanningMap
+            _disposer.Add(_XagSurveillanceGCS.FlightPlanningMap
                 .FeatureClicked
                 .Select(f => new { Feature = f, Properties = f.GetFeatureProperties() })
                 .Where(i => i.Properties.DetailedCategory == "user:flight_plan_report" && i.Properties.IsOwner)
@@ -117,8 +117,8 @@ namespace AltitudeAngelWings.Service
             if (_settings.TokenResponse.IsValidForAuth())
             {
                 IsSignedIn.Value = true;
-                await UpdateMapData(_missionPlanner.FlightDataMap, CancellationToken.None);
-                await UpdateMapData(_missionPlanner.FlightPlanningMap, CancellationToken.None);
+                await UpdateMapData(_XagSurveillanceGCS.FlightDataMap, CancellationToken.None);
+                await UpdateMapData(_XagSurveillanceGCS.FlightPlanningMap, CancellationToken.None);
             }
         }
 
@@ -126,8 +126,8 @@ namespace AltitudeAngelWings.Service
         {
             _settings.TokenResponse = null;
             IsSignedIn.Value = false;
-            ProcessAllFromCache(_missionPlanner.FlightDataMap);
-            ProcessAllFromCache(_missionPlanner.FlightPlanningMap);
+            ProcessAllFromCache(_XagSurveillanceGCS.FlightDataMap);
+            ProcessAllFromCache(_XagSurveillanceGCS.FlightPlanningMap);
             return Task.CompletedTask;
         }
 
@@ -362,7 +362,7 @@ namespace AltitudeAngelWings.Service
 
             if (_settings.CurrentFlightPlanId == null && _settings.ExistingFlightPlanId != Guid.Parse(feature.Id))
             {
-                if (!await _missionPlanner.ShowYesNoMessageBox(
+                if (!await _XagSurveillanceGCS.ShowYesNoMessageBox(
                         $"You have clicked your flight plan '{feature.GetFeatureProperties().DisplayInfo.Title}'.{Environment.NewLine}Would you like to use this flight plan when you arm your drone?",
                         "Flight Plan")) return;
                 _settings.ExistingFlightPlanId = Guid.Parse(feature.Id);

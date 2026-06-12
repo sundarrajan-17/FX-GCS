@@ -6,9 +6,9 @@ using System.Runtime.Serialization;
 using System.Security.Cryptography;
 using System.Text;
 using log4net;
-using MissionPlanner.Utilities;
+using XagSurveillanceGCS.Utilities;
 
-namespace MissionPlanner.Mavlink
+namespace XagSurveillanceGCS.Mavlink
 {
     public class MAVAuthKeys
     {

@@ -5,8 +5,8 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using AltitudeAngelWings.Plugin.Properties;
-using MissionPlanner;
-using MissionPlanner.Utilities;
+using XagSurveillanceGCS;
+using XagSurveillanceGCS.Utilities;
 
 namespace AltitudeAngelWings.Plugin
 {

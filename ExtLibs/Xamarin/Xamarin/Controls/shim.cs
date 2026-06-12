@@ -4,9 +4,9 @@ using System.Text;
 using GMap.NET;
 using GMap.NET.WindowsForms;
 using GMap.NET.WindowsForms.Markers;
-using MissionPlanner;
-using MissionPlanner.ArduPilot;
-using MissionPlanner.Maps;
+using XagSurveillanceGCS;
+using XagSurveillanceGCS.ArduPilot;
+using XagSurveillanceGCS.Maps;
 using SkiaSharp;
 
 namespace SvgNet.SvgGdi
@@ -20,7 +20,7 @@ namespace SvgNet.SvgGdi
 /*
 namespace System.Drawing 
 {
-    public class Bitmap : MissionPlanner.Drawing.Bitmap
+    public class Bitmap : XagSurveillanceGCS.Drawing.Bitmap
     {
         public Bitmap(byte[] largeIconsImage, Size clientSizeHeight) : base(largeIconsImage, clientSizeHeight)
         {
@@ -35,7 +35,7 @@ namespace System.Drawing
 
 namespace Xamarin.Properties
 {
-    internal class Resources : MissionPlanner.Properties.ResourcesX
+    internal class Resources : XagSurveillanceGCS.Properties.ResourcesX
     {
 
 
@@ -44,15 +44,15 @@ namespace Xamarin.Properties
 
 namespace GMap.NET.Drawing.Properties
 {
-    internal class Resources : MissionPlanner.Properties.ResourcesX
+    internal class Resources : XagSurveillanceGCS.Properties.ResourcesX
     {
 
     }
 }
 
-namespace MissionPlanner.Maps
+namespace XagSurveillanceGCS.Maps
 {
-    internal class Resources: MissionPlanner.Properties.ResourcesX
+    internal class Resources: XagSurveillanceGCS.Properties.ResourcesX
     {
 
     }

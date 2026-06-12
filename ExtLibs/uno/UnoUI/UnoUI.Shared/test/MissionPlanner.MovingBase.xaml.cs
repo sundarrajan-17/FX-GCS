@@ -1,1 +1,1 @@
-namespace MissionPlanner { public partial class MovingBase{public MovingBase(){this.InitializeComponent();}}}
+namespace XagSurveillanceGCS { public partial class MovingBase{public MovingBase(){this.InitializeComponent();}}}

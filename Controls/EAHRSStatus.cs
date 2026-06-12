@@ -3,7 +3,7 @@ using System.Drawing;
 using System.Windows.Forms;
 using static MAVLink;
 
-namespace MissionPlanner.Controls
+namespace XagSurveillanceGCS.Controls
 {
     public partial class EAHRSStatus : Form
     {

@@ -63,18 +63,18 @@
 
   <ItemGroup>
     <ProjectReference Include="..\7zip\7zip.csproj" />
-    <ProjectReference Include="..\ArduPilot\MissionPlanner.ArduPilot.csproj" />
-    <ProjectReference Include="..\Comms\MissionPlanner.Comms.csproj" />
+    <ProjectReference Include="..\ArduPilot\XagSurveillanceGCS.ArduPilot.csproj" />
+    <ProjectReference Include="..\Comms\XagSurveillanceGCS.Comms.csproj" />
     <ProjectReference Include="..\GeoUtility\GeoUtility.csproj" />
     <ProjectReference Include="..\GMap.NET.Core\GMap.NET.Core.csproj" />
     <ProjectReference Include="..\ICSharpCode.SharpZipLib\ICSharpCode.SharpZipLib.csproj" />
     <ProjectReference Include="..\Interfaces\Interfaces.csproj" />
     <ProjectReference Include="..\Mavlink\MAVLink.csproj" />
-    <ProjectReference Include="..\MissionPlanner.Drawing\MissionPlanner.Drawing.csproj">
+    <ProjectReference Include="..\XagSurveillanceGCS.Drawing\XagSurveillanceGCS.Drawing.csproj">
       <Aliases>MPDrawing</Aliases>
     </ProjectReference>
-    <ProjectReference Include="..\Strings\MissionPlanner.Strings.csproj" />
-    <ProjectReference Include="..\Utilities\MissionPlanner.Utilities.csproj" />
+    <ProjectReference Include="..\Strings\XagSurveillanceGCS.Strings.csproj" />
+    <ProjectReference Include="..\Utilities\XagSurveillanceGCS.Utilities.csproj" />
   </ItemGroup>
 
   <ItemGroup>

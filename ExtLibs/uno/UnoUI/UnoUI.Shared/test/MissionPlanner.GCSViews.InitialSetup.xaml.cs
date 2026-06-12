@@ -1,1 +1,1 @@
-namespace MissionPlanner.GCSViews { public partial class InitialSetup{public InitialSetup(){this.InitializeComponent();}}}
+namespace XagSurveillanceGCS.GCSViews { public partial class InitialSetup{public InitialSetup(){this.InitializeComponent();}}}

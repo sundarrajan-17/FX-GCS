@@ -1,8 +1,8 @@
 ﻿using DirectShowLib;
-using MissionPlanner.Controls;
-using MissionPlanner.Joystick;
-using MissionPlanner.Maps;
-using MissionPlanner.Utilities;
+using XagSurveillanceGCS.Controls;
+using XagSurveillanceGCS.Joystick;
+using XagSurveillanceGCS.Maps;
+using XagSurveillanceGCS.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -15,7 +15,7 @@ using System.Threading;
 using System.Windows.Forms;
 using WebCamService;
 
-namespace MissionPlanner.GCSViews.ConfigurationView
+namespace XagSurveillanceGCS.GCSViews.ConfigurationView
 {
     public partial class ConfigPlanner : MyUserControl, IActivate
     {
@@ -854,7 +854,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
         {
             Settings.Instance["beta_updates"] = CHK_beta.Checked.ToString();
 
-            MissionPlanner.Utilities.Update.dobeta = CHK_beta.Checked;
+            XagSurveillanceGCS.Utilities.Update.dobeta = CHK_beta.Checked;
         }
 
         private void CHK_Password_CheckedChanged(object sender, EventArgs e)

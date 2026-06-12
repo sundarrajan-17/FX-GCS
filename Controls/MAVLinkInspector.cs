@@ -1,5 +1,5 @@
 ﻿using Microsoft.Scripting.Utils;
-using MissionPlanner.Utilities;
+using XagSurveillanceGCS.Utilities;
 using System;
 using System.Collections;
 using System.ComponentModel;
@@ -10,7 +10,7 @@ using System.Text;
 using System.Windows.Forms;
 using ZedGraph;
 
-namespace MissionPlanner.Controls
+namespace XagSurveillanceGCS.Controls
 {
     public class MAVLinkInspector : Form
     {
@@ -176,12 +176,12 @@ namespace MissionPlanner.Controls
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.treeView1 = new MissionPlanner.Controls.MAVLinkInspector.MyTreeView();
+            this.treeView1 = new XagSurveillanceGCS.Controls.MAVLinkInspector.MyTreeView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.but_graphit = new MissionPlanner.Controls.MyButton();
+            this.but_graphit = new XagSurveillanceGCS.Controls.MyButton();
             this.chk_gcstraffic = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();

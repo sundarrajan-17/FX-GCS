@@ -1432,7 +1432,7 @@
     <value>BUT_samplephoto</value>
   </data>
   <data name="&gt;&gt;BUT_samplephoto.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.MyButton, MissionPlanner.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>XagSurveillanceGCS.Controls.MyButton, XagSurveillanceGCS.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;BUT_samplephoto.Parent" xml:space="preserve">
     <value>groupBox2</value>
@@ -1909,7 +1909,7 @@
     <value>BUT_save</value>
   </data>
   <data name="&gt;&gt;BUT_save.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.MyButton, MissionPlanner.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>XagSurveillanceGCS.Controls.MyButton, XagSurveillanceGCS.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;BUT_save.Parent" xml:space="preserve">
     <value>groupBox2</value>
@@ -3863,7 +3863,7 @@ Control-O to load form file</value>
     <value>BUT_Accept</value>
   </data>
   <data name="&gt;&gt;BUT_Accept.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.MyButton, MissionPlanner.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>XagSurveillanceGCS.Controls.MyButton, XagSurveillanceGCS.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;BUT_Accept.Parent" xml:space="preserve">
     <value>tabSimple</value>
@@ -3944,7 +3944,7 @@ Control-O to load form file</value>
     <value>TRK_zoom</value>
   </data>
   <data name="&gt;&gt;TRK_zoom.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.MyTrackBar, MissionPlanner.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>XagSurveillanceGCS.Controls.MyTrackBar, XagSurveillanceGCS.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;TRK_zoom.Parent" xml:space="preserve">
     <value>$this</value>
@@ -3968,7 +3968,7 @@ Control-O to load form file</value>
     <value>map</value>
   </data>
   <data name="&gt;&gt;map.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.myGMAP, MissionPlanner.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>XagSurveillanceGCS.Controls.myGMAP, XagSurveillanceGCS.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;map.Parent" xml:space="preserve">
     <value>$this</value>

@@ -1,1 +1,1 @@
-namespace MissionPlanner.Controls { public partial class MavlinkCheckBoxBitMask{public MavlinkCheckBoxBitMask(){this.InitializeComponent();}}}
+namespace XagSurveillanceGCS.Controls { public partial class MavlinkCheckBoxBitMask{public MavlinkCheckBoxBitMask(){this.InitializeComponent();}}}

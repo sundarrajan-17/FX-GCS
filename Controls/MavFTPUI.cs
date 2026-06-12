@@ -1,7 +1,7 @@
 ﻿using Ionic.Zip;
 using log4net;
-using MissionPlanner.ArduPilot.Mavlink;
-using MissionPlanner.Utilities;
+using XagSurveillanceGCS.ArduPilot.Mavlink;
+using XagSurveillanceGCS.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -11,7 +11,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace MissionPlanner.Controls
+namespace XagSurveillanceGCS.Controls
 {
     public partial class MavFTPUI : UserControl
     {

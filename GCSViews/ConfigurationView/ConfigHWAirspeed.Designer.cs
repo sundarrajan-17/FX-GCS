@@ -1,4 +1,4 @@
-﻿namespace MissionPlanner.GCSViews.ConfigurationView
+﻿namespace XagSurveillanceGCS.GCSViews.ConfigurationView
 {
     partial class ConfigHWAirspeed
     {
@@ -29,14 +29,14 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ConfigHWAirspeed));
-            this.CHK_enableairspeed = new MissionPlanner.Controls.MavlinkCheckBox();
+            this.CHK_enableairspeed = new XagSurveillanceGCS.Controls.MavlinkCheckBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.CHK_airspeeduse = new MissionPlanner.Controls.MavlinkCheckBox();
+            this.CHK_airspeeduse = new XagSurveillanceGCS.Controls.MavlinkCheckBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.mavlinkCheckBoxAirspeed_pin = new MissionPlanner.Controls.MavlinkComboBox();
+            this.mavlinkCheckBoxAirspeed_pin = new XagSurveillanceGCS.Controls.MavlinkComboBox();
             this.lbl_airspeed_pin = new System.Windows.Forms.Label();
-            this.mavlinkComboBoxARSPD_TYPE = new MissionPlanner.Controls.MavlinkComboBox();
+            this.mavlinkComboBoxARSPD_TYPE = new XagSurveillanceGCS.Controls.MavlinkComboBox();
             this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.SuspendLayout();
@@ -54,7 +54,7 @@
             // pictureBox4
             // 
             this.pictureBox4.BackColor = System.Drawing.Color.White;
-            this.pictureBox4.BackgroundImage = global::MissionPlanner.Properties.Resources.airspeed;
+            this.pictureBox4.BackgroundImage = global::XagSurveillanceGCS.Properties.Resources.airspeed;
             resources.ApplyResources(this.pictureBox4, "pictureBox4");
             this.pictureBox4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pictureBox4.Name = "pictureBox4";

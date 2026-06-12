@@ -1,1 +1,1 @@
-namespace MissionPlanner.Controls { public partial class RadialGradientBG{public RadialGradientBG(){this.InitializeComponent();}}}
+namespace XagSurveillanceGCS.Controls { public partial class RadialGradientBG{public RadialGradientBG(){this.InitializeComponent();}}}

@@ -1,4 +1,4 @@
-﻿namespace MissionPlanner.ArduPilot
+﻿namespace XagSurveillanceGCS.ArduPilot
 {
     public enum hal_ins_spi
     {

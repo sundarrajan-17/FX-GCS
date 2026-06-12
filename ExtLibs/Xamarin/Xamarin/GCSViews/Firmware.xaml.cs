@@ -1,6 +1,6 @@
-﻿using MissionPlanner;
-using MissionPlanner.ArduPilot;
-using MissionPlanner.Utilities;
+﻿using XagSurveillanceGCS;
+using XagSurveillanceGCS.ArduPilot;
+using XagSurveillanceGCS.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -11,9 +11,9 @@ using System.Reflection;
 using System.Threading;
 using System.Threading.Tasks;
 using log4net;
-using MissionPlanner.Comms;
-using MissionPlanner.Controls;
-using MissionPlanner.test;
+using XagSurveillanceGCS.Comms;
+using XagSurveillanceGCS.Controls;
+using XagSurveillanceGCS.test;
 using px4uploader;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -37,12 +37,12 @@ namespace Xamarin.GCSViews
             heli.CommandParameter = APFirmware.MAV_TYPE.HELICOPTER;
             antennatracker.CommandParameter = APFirmware.MAV_TYPE.ANTENNA_TRACKER;
 
-            quad.ImageSource = ImageSource.FromStream(()=> MissionPlanner.Properties.ResourcesX.FW_icons_2013_logos_04.ToMemoryStream());
-            rover.ImageSource = ImageSource.FromStream(()=>MissionPlanner.Properties.ResourcesX.rover_11.ToMemoryStream());
-            plane.ImageSource = ImageSource.FromStream(() => MissionPlanner.Properties.ResourcesX.APM_airframes_001.ToMemoryStream());
-            sub.ImageSource = ImageSource.FromStream(() => MissionPlanner.Properties.ResourcesX.sub.ToMemoryStream());
-            heli.ImageSource = ImageSource.FromStream(() => MissionPlanner.Properties.ResourcesX.APM_airframes_08.ToMemoryStream());
-            antennatracker.ImageSource = ImageSource.FromStream(() => MissionPlanner.Properties.ResourcesX.Antenna_Tracker_01.ToMemoryStream());
+            quad.ImageSource = ImageSource.FromStream(()=> XagSurveillanceGCS.Properties.ResourcesX.FW_icons_2013_logos_04.ToMemoryStream());
+            rover.ImageSource = ImageSource.FromStream(()=>XagSurveillanceGCS.Properties.ResourcesX.rover_11.ToMemoryStream());
+            plane.ImageSource = ImageSource.FromStream(() => XagSurveillanceGCS.Properties.ResourcesX.APM_airframes_001.ToMemoryStream());
+            sub.ImageSource = ImageSource.FromStream(() => XagSurveillanceGCS.Properties.ResourcesX.sub.ToMemoryStream());
+            heli.ImageSource = ImageSource.FromStream(() => XagSurveillanceGCS.Properties.ResourcesX.APM_airframes_08.ToMemoryStream());
+            antennatracker.ImageSource = ImageSource.FromStream(() => XagSurveillanceGCS.Properties.ResourcesX.Antenna_Tracker_01.ToMemoryStream());
 
             Task.Run(() =>
             {
@@ -264,7 +264,7 @@ namespace Xamarin.GCSViews
                 SetLoading(false);
             }
 
-            //MissionPlanner.Utilities.Tracking.AddFW(mavtype.ToString(), deviceInfo.board);
+            //XagSurveillanceGCS.Utilities.Tracking.AddFW(mavtype.ToString(), deviceInfo.board);
 
             //var fw = new Firmware();
             //fw.Progress += fw_Progress1;

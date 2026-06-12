@@ -1,4 +1,4 @@
-﻿namespace MissionPlanner.GCSViews.ConfigurationView
+﻿namespace XagSurveillanceGCS.GCSViews.ConfigurationView
 {
     partial class ConfigMotorTest
     {
@@ -37,9 +37,9 @@
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.but_mot_spin_min = new MissionPlanner.Controls.MyButton();
+            this.but_mot_spin_min = new XagSurveillanceGCS.Controls.MyButton();
             this.label4 = new System.Windows.Forms.Label();
-            this.but_mot_spin_arm = new MissionPlanner.Controls.MyButton();
+            this.but_mot_spin_arm = new XagSurveillanceGCS.Controls.MyButton();
             this.FrameClass = new System.Windows.Forms.Label();
             this.FrameType = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.NUM_thr_percent)).BeginInit();

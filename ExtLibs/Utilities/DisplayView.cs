@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading;
 using System.Xml.Serialization;
 
-namespace MissionPlanner.Utilities
+namespace XagSurveillanceGCS.Utilities
 {
     [Serializable]
     public enum DisplayNames

@@ -1,1 +1,1 @@
-namespace MissionPlanner.Joystick { public partial class JoystickAxis{public JoystickAxis(){this.InitializeComponent();}}}
+namespace XagSurveillanceGCS.Joystick { public partial class JoystickAxis{public JoystickAxis(){this.InitializeComponent();}}}

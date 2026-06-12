@@ -1,7 +1,7 @@
 ﻿using log4net;
-using MissionPlanner;
-using MissionPlanner.Comms;
-using MissionPlanner.Utilities;
+using XagSurveillanceGCS;
+using XagSurveillanceGCS.Comms;
+using XagSurveillanceGCS.Utilities;
 using System;
 using System.IO;
 using System.Net;

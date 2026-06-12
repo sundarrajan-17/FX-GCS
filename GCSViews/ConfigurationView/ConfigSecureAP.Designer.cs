@@ -1,4 +1,4 @@
-﻿namespace MissionPlanner.GCSViews.ConfigurationView
+﻿namespace XagSurveillanceGCS.GCSViews.ConfigurationView
 {
     partial class ConfigSecureAP
     {
@@ -29,14 +29,14 @@
         private void InitializeComponent()
         {
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.but_bootloader = new MissionPlanner.Controls.MyButton();
-            this.but_firmware = new MissionPlanner.Controls.MyButton();
-            this.but_privkey = new MissionPlanner.Controls.MyButton();
+            this.but_bootloader = new XagSurveillanceGCS.Controls.MyButton();
+            this.but_firmware = new XagSurveillanceGCS.Controls.MyButton();
+            this.but_privkey = new XagSurveillanceGCS.Controls.MyButton();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.txt_fwapj = new System.Windows.Forms.TextBox();
             this.txt_bl = new System.Windows.Forms.TextBox();
             this.txt_pubkey = new System.Windows.Forms.TextBox();
-            this.but_generatekey = new MissionPlanner.Controls.MyButton();
+            this.but_generatekey = new XagSurveillanceGCS.Controls.MyButton();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.groupBox4.SuspendLayout();
             this.groupBox5.SuspendLayout();

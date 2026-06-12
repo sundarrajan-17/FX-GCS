@@ -1,4 +1,4 @@
-using MissionPlanner.Controls;
+using XagSurveillanceGCS.Controls;
 namespace SikRadio
 {
     partial class Rssi

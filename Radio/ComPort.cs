@@ -1,7 +1,7 @@
 ﻿using System;
-using MissionPlanner.Comms;
+using XagSurveillanceGCS.Comms;
 
-namespace MissionPlanner.Radio
+namespace XagSurveillanceGCS.Radio
 {
     public static class ComPort
     {
@@ -12,7 +12,7 @@ namespace MissionPlanner.Radio
             if (_Port == null)
             {
                 MainV2.comPort.Close();
-                MissionPlanner.Radio.Sikradio.Connect(ref _Port);
+                XagSurveillanceGCS.Radio.Sikradio.Connect(ref _Port);
             }
 
             return _Port;

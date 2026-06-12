@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 
 namespace AltitudeAngelWings
 {
-    public interface IMissionPlanner
+    public interface IXagSurveillanceGCS
     {
         IMap FlightPlanningMap { get; }
         IMap FlightDataMap { get; }

@@ -1,6 +1,6 @@
-﻿using MissionPlanner.Controls;
+﻿using XagSurveillanceGCS.Controls;
 
-namespace MissionPlanner.GCSViews.ConfigurationView
+namespace XagSurveillanceGCS.GCSViews.ConfigurationView
 {
     partial class ConfigFrameClassType
     {
@@ -35,23 +35,23 @@ namespace MissionPlanner.GCSViews.ConfigurationView
             this.radioButton_X = new System.Windows.Forms.RadioButton();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.pictureBoxPlus = new MissionPlanner.Controls.PictureBoxWithPseudoOpacity();
-            this.pictureBoxX = new MissionPlanner.Controls.PictureBoxWithPseudoOpacity();
+            this.pictureBoxPlus = new XagSurveillanceGCS.Controls.PictureBoxWithPseudoOpacity();
+            this.pictureBoxX = new XagSurveillanceGCS.Controls.PictureBoxWithPseudoOpacity();
             this.label6 = new System.Windows.Forms.Label();
             this.radioButton_V = new System.Windows.Forms.RadioButton();
-            this.pictureBoxV = new MissionPlanner.Controls.PictureBoxWithPseudoOpacity();
+            this.pictureBoxV = new XagSurveillanceGCS.Controls.PictureBoxWithPseudoOpacity();
             this.label1 = new System.Windows.Forms.Label();
             this.radioButton_H = new System.Windows.Forms.RadioButton();
-            this.pictureBoxH = new MissionPlanner.Controls.PictureBoxWithPseudoOpacity();
+            this.pictureBoxH = new XagSurveillanceGCS.Controls.PictureBoxWithPseudoOpacity();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.radioButton_Y = new System.Windows.Forms.RadioButton();
-            this.pictureBoxY = new MissionPlanner.Controls.PictureBoxWithPseudoOpacity();
+            this.pictureBoxY = new XagSurveillanceGCS.Controls.PictureBoxWithPseudoOpacity();
             this.label7 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label9 = new System.Windows.Forms.Label();
             this.radioButton_VTail = new System.Windows.Forms.RadioButton();
-            this.pictureBoxVTail = new MissionPlanner.Controls.PictureBoxWithPseudoOpacity();
+            this.pictureBoxVTail = new XagSurveillanceGCS.Controls.PictureBoxWithPseudoOpacity();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.radioButtonOctaQuad = new System.Windows.Forms.RadioButton();
             this.radioButtonTri = new System.Windows.Forms.RadioButton();
@@ -100,7 +100,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
             // pictureBoxPlus
             // 
             this.pictureBoxPlus.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBoxPlus.Image = global::MissionPlanner.Properties.Resources.frames_plus;
+            this.pictureBoxPlus.Image = global::XagSurveillanceGCS.Properties.Resources.frames_plus;
             resources.ApplyResources(this.pictureBoxPlus, "pictureBoxPlus");
             this.pictureBoxPlus.Name = "pictureBoxPlus";
             this.pictureBoxPlus.TabStop = false;
@@ -109,7 +109,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
             // pictureBoxX
             // 
             this.pictureBoxX.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBoxX.Image = global::MissionPlanner.Properties.Resources.frames_x;
+            this.pictureBoxX.Image = global::XagSurveillanceGCS.Properties.Resources.frames_x;
             resources.ApplyResources(this.pictureBoxX, "pictureBoxX");
             this.pictureBoxX.Name = "pictureBoxX";
             this.pictureBoxX.TabStop = false;
@@ -131,7 +131,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
             // pictureBoxV
             // 
             this.pictureBoxV.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBoxV.Image = global::MissionPlanner.Properties.Resources.new_3DR_04;
+            this.pictureBoxV.Image = global::XagSurveillanceGCS.Properties.Resources.new_3DR_04;
             resources.ApplyResources(this.pictureBoxV, "pictureBoxV");
             this.pictureBoxV.Name = "pictureBoxV";
             this.pictureBoxV.TabStop = false;
@@ -153,7 +153,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
             // pictureBoxH
             // 
             this.pictureBoxH.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBoxH.Image = global::MissionPlanner.Properties.Resources.frames_h;
+            this.pictureBoxH.Image = global::XagSurveillanceGCS.Properties.Resources.frames_h;
             resources.ApplyResources(this.pictureBoxH, "pictureBoxH");
             this.pictureBoxH.Name = "pictureBoxH";
             this.pictureBoxH.TabStop = false;
@@ -180,7 +180,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
             // pictureBoxY
             // 
             this.pictureBoxY.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBoxY.Image = global::MissionPlanner.Properties.Resources.y6b;
+            this.pictureBoxY.Image = global::XagSurveillanceGCS.Properties.Resources.y6b;
             resources.ApplyResources(this.pictureBoxY, "pictureBoxY");
             this.pictureBoxY.Name = "pictureBoxY";
             this.pictureBoxY.TabStop = false;
@@ -258,7 +258,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
             this.radioButtonOctaQuad.BackColor = System.Drawing.Color.Black;
             this.radioButtonOctaQuad.FlatAppearance.BorderSize = 2;
             this.radioButtonOctaQuad.ForeColor = System.Drawing.Color.White;
-            this.radioButtonOctaQuad.Image = global::MissionPlanner.Properties.Resources.FW_icons_2013_logos_06;
+            this.radioButtonOctaQuad.Image = global::XagSurveillanceGCS.Properties.Resources.FW_icons_2013_logos_06;
             this.radioButtonOctaQuad.Name = "radioButtonOctaQuad";
             this.radioButtonOctaQuad.UseVisualStyleBackColor = false;
             this.radioButtonOctaQuad.CheckedChanged += new System.EventHandler(this.radioButtonClass_CheckedChanged);
@@ -269,7 +269,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
             this.radioButtonTri.BackColor = System.Drawing.Color.Black;
             this.radioButtonTri.FlatAppearance.BorderSize = 2;
             this.radioButtonTri.ForeColor = System.Drawing.Color.White;
-            this.radioButtonTri.Image = global::MissionPlanner.Properties.Resources.FW_icons_2013_logos_08;
+            this.radioButtonTri.Image = global::XagSurveillanceGCS.Properties.Resources.FW_icons_2013_logos_08;
             this.radioButtonTri.Name = "radioButtonTri";
             this.radioButtonTri.UseVisualStyleBackColor = false;
             this.radioButtonTri.CheckedChanged += new System.EventHandler(this.radioButtonClass_CheckedChanged);
@@ -280,7 +280,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
             this.radioButtonHeli.BackColor = System.Drawing.Color.Black;
             this.radioButtonHeli.FlatAppearance.BorderSize = 2;
             this.radioButtonHeli.ForeColor = System.Drawing.Color.White;
-            this.radioButtonHeli.Image = global::MissionPlanner.Properties.Resources.FW_icons_2013_logos_13;
+            this.radioButtonHeli.Image = global::XagSurveillanceGCS.Properties.Resources.FW_icons_2013_logos_13;
             this.radioButtonHeli.Name = "radioButtonHeli";
             this.radioButtonHeli.UseVisualStyleBackColor = false;
             this.radioButtonHeli.CheckedChanged += new System.EventHandler(this.radioButtonClass_CheckedChanged);
@@ -291,7 +291,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
             this.radioButtonY6.BackColor = System.Drawing.Color.Black;
             this.radioButtonY6.FlatAppearance.BorderSize = 2;
             this.radioButtonY6.ForeColor = System.Drawing.Color.White;
-            this.radioButtonY6.Image = global::MissionPlanner.Properties.Resources.FW_icons_2013_logos_07;
+            this.radioButtonY6.Image = global::XagSurveillanceGCS.Properties.Resources.FW_icons_2013_logos_07;
             this.radioButtonY6.Name = "radioButtonY6";
             this.radioButtonY6.UseVisualStyleBackColor = false;
             this.radioButtonY6.CheckedChanged += new System.EventHandler(this.radioButtonClass_CheckedChanged);
@@ -302,7 +302,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
             this.radioButtonOcta.BackColor = System.Drawing.Color.Black;
             this.radioButtonOcta.FlatAppearance.BorderSize = 2;
             this.radioButtonOcta.ForeColor = System.Drawing.Color.White;
-            this.radioButtonOcta.Image = global::MissionPlanner.Properties.Resources.FW_icons_2013_logos_12;
+            this.radioButtonOcta.Image = global::XagSurveillanceGCS.Properties.Resources.FW_icons_2013_logos_12;
             this.radioButtonOcta.Name = "radioButtonOcta";
             this.radioButtonOcta.UseVisualStyleBackColor = false;
             this.radioButtonOcta.CheckedChanged += new System.EventHandler(this.radioButtonClass_CheckedChanged);
@@ -313,7 +313,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
             this.radioButtonHexa.BackColor = System.Drawing.Color.Black;
             this.radioButtonHexa.FlatAppearance.BorderSize = 2;
             this.radioButtonHexa.ForeColor = System.Drawing.Color.White;
-            this.radioButtonHexa.Image = global::MissionPlanner.Properties.Resources.FW_icons_2013_logos_09;
+            this.radioButtonHexa.Image = global::XagSurveillanceGCS.Properties.Resources.FW_icons_2013_logos_09;
             this.radioButtonHexa.Name = "radioButtonHexa";
             this.radioButtonHexa.UseVisualStyleBackColor = false;
             this.radioButtonHexa.CheckedChanged += new System.EventHandler(this.radioButtonClass_CheckedChanged);
@@ -324,7 +324,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
             this.radioButtonQuad.BackColor = System.Drawing.Color.Black;
             this.radioButtonQuad.FlatAppearance.BorderSize = 2;
             this.radioButtonQuad.ForeColor = System.Drawing.Color.White;
-            this.radioButtonQuad.Image = global::MissionPlanner.Properties.Resources.FW_icons_2013_logos_03;
+            this.radioButtonQuad.Image = global::XagSurveillanceGCS.Properties.Resources.FW_icons_2013_logos_03;
             this.radioButtonQuad.Name = "radioButtonQuad";
             this.radioButtonQuad.UseVisualStyleBackColor = false;
             this.radioButtonQuad.CheckedChanged += new System.EventHandler(this.radioButtonClass_CheckedChanged);

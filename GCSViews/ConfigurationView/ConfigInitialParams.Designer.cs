@@ -1,5 +1,5 @@
 ﻿
-namespace MissionPlanner.GCSViews.ConfigurationView
+namespace XagSurveillanceGCS.GCSViews.ConfigurationView
 {
     partial class ConfigInitialParams
     {
@@ -40,7 +40,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
             this.t_cellcount = new System.Windows.Forms.TextBox();
             this.t_cellmax = new System.Windows.Forms.TextBox();
             this.t_cellmin = new System.Windows.Forms.TextBox();
-            this.btn_docalc = new MissionPlanner.Controls.MyButton();
+            this.btn_docalc = new XagSurveillanceGCS.Controls.MyButton();
             this.cmb_batterytype = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.cb_suggested = new System.Windows.Forms.CheckBox();

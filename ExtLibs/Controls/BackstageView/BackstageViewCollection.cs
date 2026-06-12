@@ -5,9 +5,9 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using MissionPlanner.Controls.BackstageView;
+using XagSurveillanceGCS.Controls.BackstageView;
 
-namespace MissionPlanner.Controls.BackstageView
+namespace XagSurveillanceGCS.Controls.BackstageView
 {
     public class BackstageViewCollection : CollectionBase
     {

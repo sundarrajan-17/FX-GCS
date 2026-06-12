@@ -1,11 +1,11 @@
 ﻿using log4net;
-using MissionPlanner.Controls;
-using MissionPlanner.Utilities;
+using XagSurveillanceGCS.Controls;
+using XagSurveillanceGCS.Utilities;
 using System;
 using System.Reflection;
 using System.Windows.Forms;
 
-namespace MissionPlanner.GCSViews.ConfigurationView
+namespace XagSurveillanceGCS.GCSViews.ConfigurationView
 {
     public class ConfigFFT : MyUserControl, IActivate, IDeactivate
     {
@@ -71,10 +71,10 @@ namespace MissionPlanner.GCSViews.ConfigurationView
 
         private void InitializeComponent()
         {
-            this.INS_LOG_BAT_MASK = new MissionPlanner.Controls.MavlinkCheckBoxBitMask();
-            this.INS_LOG_BAT_CNT = new MissionPlanner.Controls.RangeControl();
-            this.but_fft = new MissionPlanner.Controls.MyButton();
-            this.LOG_BITMASK = new MissionPlanner.Controls.MavlinkCheckBoxBitMask();
+            this.INS_LOG_BAT_MASK = new XagSurveillanceGCS.Controls.MavlinkCheckBoxBitMask();
+            this.INS_LOG_BAT_CNT = new XagSurveillanceGCS.Controls.RangeControl();
+            this.but_fft = new XagSurveillanceGCS.Controls.MyButton();
+            this.LOG_BITMASK = new XagSurveillanceGCS.Controls.MavlinkCheckBoxBitMask();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox1.SuspendLayout();

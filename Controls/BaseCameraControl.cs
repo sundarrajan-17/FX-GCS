@@ -1,9 +1,9 @@
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
-using MissionPlanner.GCSViews;
+using XagSurveillanceGCS.GCSViews;
 
-namespace MissionPlanner.Controls
+namespace XagSurveillanceGCS.Controls
 {
     public partial class BaseCameraController : UserControl
     {
@@ -17,30 +17,25 @@ namespace MissionPlanner.Controls
             InitializeComponent();
             InitializeCameraList();
             this._flightData = flightData;
-            btnApplyCamera.Click += BtnApplyCamera_Click;
+            // btnApplyCamera.Click += BtnApplyCamera_Click;
+            BtnApplyCamera_Click(null,null);
         }
 
         private void InitializeCameraList()
         {
             _cameraFactories = new Dictionary<string, Func<UserControl>>
             {
-                { "XAGCAM1", () => new ViewproControl(this) },
+                { "XAGCAM1", () => new XagCamControl(this) },
                 { "XAGCAM2", () => new GremsyControl(this) },
-                // { "SIYI", () => new SiyiControl() },
-                // { "Custom", () => new CustomControl() },
-                // { "Simulation", () => new SimControl() }
             };
 
             cmbCameraSelect.Items.AddRange(new object[]
             {
                 "XAGCAM1",
                 "XAGCAM2",
-                // "SIYI",
-                // "Custom",
-                // "Simulation"
             });
 
-            cmbCameraSelect.SelectedIndex = 0;
+            cmbCameraSelect.SelectedIndex = 1;
         }
 
         public String SelectedCamera

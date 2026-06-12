@@ -1,7 +1,7 @@
-﻿using MissionPlanner.Utilities;
+﻿using XagSurveillanceGCS.Utilities;
 using System.Collections.Generic;
 
-namespace MissionPlanner.Swarm
+namespace XagSurveillanceGCS.Swarm
 {
     /// <summary>
     /// Follow the trail of the leader

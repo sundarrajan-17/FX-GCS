@@ -1,4 +1,4 @@
-﻿namespace MissionPlanner.ArduPilot
+﻿namespace XagSurveillanceGCS.ArduPilot
 {
     public enum PX4_CUSTOM_SUB_MODE_AUTO
     {

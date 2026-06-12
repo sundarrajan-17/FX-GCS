@@ -6,11 +6,11 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using LibVLC.NET;
-using MissionPlanner.Utilities;
+using XagSurveillanceGCS.Utilities;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 
-namespace MissionPlanner.ArduPilot
+namespace XagSurveillanceGCS.ArduPilot
 {
     public class UserAlert : Dictionary<string, UserAlertItem>
     {

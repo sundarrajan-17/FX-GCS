@@ -1,4 +1,4 @@
-﻿namespace MissionPlanner.GCSViews.ConfigurationView
+﻿namespace XagSurveillanceGCS.GCSViews.ConfigurationView
 {
     partial class ConfigHWOSD
     {
@@ -51,7 +51,7 @@
             // pictureBox5
             // 
             this.pictureBox5.BackColor = System.Drawing.Color.White;
-            this.pictureBox5.BackgroundImage = global::MissionPlanner.Properties.Resources.MinimOSD;
+            this.pictureBox5.BackgroundImage = global::XagSurveillanceGCS.Properties.Resources.MinimOSD;
             resources.ApplyResources(this.pictureBox5, "pictureBox5");
             this.pictureBox5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pictureBox5.Name = "pictureBox5";

@@ -1,1 +1,1 @@
-namespace MissionPlanner.Controls { public partial class MavlinkComboBox{public MavlinkComboBox(){this.InitializeComponent();}}}
+namespace XagSurveillanceGCS.Controls { public partial class MavlinkComboBox{public MavlinkComboBox(){this.InitializeComponent();}}}

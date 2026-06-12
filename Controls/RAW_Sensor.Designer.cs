@@ -1,5 +1,5 @@
-﻿using MissionPlanner.Controls;
-namespace MissionPlanner.Controls
+﻿using XagSurveillanceGCS.Controls;
+namespace XagSurveillanceGCS.Controls
 {
     partial class RAW_Sensor
     {
@@ -39,24 +39,24 @@ namespace MissionPlanner.Controls
             this.tabRadio = new System.Windows.Forms.TabPage();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.horizontalProgressBar9 = new MissionPlanner.Controls.HorizontalProgressBar();
-            this.horizontalProgressBar10 = new MissionPlanner.Controls.HorizontalProgressBar();
-            this.horizontalProgressBar11 = new MissionPlanner.Controls.HorizontalProgressBar();
-            this.horizontalProgressBar12 = new MissionPlanner.Controls.HorizontalProgressBar();
-            this.horizontalProgressBar13 = new MissionPlanner.Controls.HorizontalProgressBar();
-            this.horizontalProgressBar14 = new MissionPlanner.Controls.HorizontalProgressBar();
-            this.horizontalProgressBar15 = new MissionPlanner.Controls.HorizontalProgressBar();
-            this.horizontalProgressBar16 = new MissionPlanner.Controls.HorizontalProgressBar();
-            this.horizontalProgressBar8 = new MissionPlanner.Controls.HorizontalProgressBar();
-            this.horizontalProgressBar7 = new MissionPlanner.Controls.HorizontalProgressBar();
-            this.horizontalProgressBar6 = new MissionPlanner.Controls.HorizontalProgressBar();
-            this.horizontalProgressBar5 = new MissionPlanner.Controls.HorizontalProgressBar();
-            this.horizontalProgressBar4 = new MissionPlanner.Controls.HorizontalProgressBar();
-            this.horizontalProgressBar3 = new MissionPlanner.Controls.HorizontalProgressBar();
-            this.horizontalProgressBar2 = new MissionPlanner.Controls.HorizontalProgressBar();
-            this.horizontalProgressBar1 = new MissionPlanner.Controls.HorizontalProgressBar();
+            this.horizontalProgressBar9 = new XagSurveillanceGCS.Controls.HorizontalProgressBar();
+            this.horizontalProgressBar10 = new XagSurveillanceGCS.Controls.HorizontalProgressBar();
+            this.horizontalProgressBar11 = new XagSurveillanceGCS.Controls.HorizontalProgressBar();
+            this.horizontalProgressBar12 = new XagSurveillanceGCS.Controls.HorizontalProgressBar();
+            this.horizontalProgressBar13 = new XagSurveillanceGCS.Controls.HorizontalProgressBar();
+            this.horizontalProgressBar14 = new XagSurveillanceGCS.Controls.HorizontalProgressBar();
+            this.horizontalProgressBar15 = new XagSurveillanceGCS.Controls.HorizontalProgressBar();
+            this.horizontalProgressBar16 = new XagSurveillanceGCS.Controls.HorizontalProgressBar();
+            this.horizontalProgressBar8 = new XagSurveillanceGCS.Controls.HorizontalProgressBar();
+            this.horizontalProgressBar7 = new XagSurveillanceGCS.Controls.HorizontalProgressBar();
+            this.horizontalProgressBar6 = new XagSurveillanceGCS.Controls.HorizontalProgressBar();
+            this.horizontalProgressBar5 = new XagSurveillanceGCS.Controls.HorizontalProgressBar();
+            this.horizontalProgressBar4 = new XagSurveillanceGCS.Controls.HorizontalProgressBar();
+            this.horizontalProgressBar3 = new XagSurveillanceGCS.Controls.HorizontalProgressBar();
+            this.horizontalProgressBar2 = new XagSurveillanceGCS.Controls.HorizontalProgressBar();
+            this.horizontalProgressBar1 = new XagSurveillanceGCS.Controls.HorizontalProgressBar();
             this.tabRawSensor = new System.Windows.Forms.TabPage();
-            this.BUT_savecsv = new MissionPlanner.Controls.MyButton();
+            this.BUT_savecsv = new XagSurveillanceGCS.Controls.MyButton();
             this.label3 = new System.Windows.Forms.Label();
             this.CMB_rawupdaterate = new System.Windows.Forms.ComboBox();
             this.aGauge1 = new AGaugeApp.AGauge();
@@ -70,16 +70,16 @@ namespace MissionPlanner.Controls
             this.Gpitch = new AGaugeApp.AGauge();
             this.Groll = new AGaugeApp.AGauge();
             this.tabOrientation = new System.Windows.Forms.TabPage();
-            this.horizontalProgressBar17 = new MissionPlanner.Controls.VerticalProgressBar();
-            this.verticalProgressBar7 = new MissionPlanner.Controls.VerticalProgressBar();
-            this.verticalProgressBar6 = new MissionPlanner.Controls.VerticalProgressBar();
-            this.verticalProgressBar5 = new MissionPlanner.Controls.VerticalProgressBar();
-            this.verticalProgressBar4 = new MissionPlanner.Controls.VerticalProgressBar();
-            this.progressBar2 = new MissionPlanner.Controls.VerticalProgressBar();
-            this.progressBar1 = new MissionPlanner.Controls.VerticalProgressBar();
-            this.verticalProgressBar3 = new MissionPlanner.Controls.VerticalProgressBar();
-            this.verticalProgressBar2 = new MissionPlanner.Controls.VerticalProgressBar();
-            this.verticalProgressBar1 = new MissionPlanner.Controls.VerticalProgressBar();
+            this.horizontalProgressBar17 = new XagSurveillanceGCS.Controls.VerticalProgressBar();
+            this.verticalProgressBar7 = new XagSurveillanceGCS.Controls.VerticalProgressBar();
+            this.verticalProgressBar6 = new XagSurveillanceGCS.Controls.VerticalProgressBar();
+            this.verticalProgressBar5 = new XagSurveillanceGCS.Controls.VerticalProgressBar();
+            this.verticalProgressBar4 = new XagSurveillanceGCS.Controls.VerticalProgressBar();
+            this.progressBar2 = new XagSurveillanceGCS.Controls.VerticalProgressBar();
+            this.progressBar1 = new XagSurveillanceGCS.Controls.VerticalProgressBar();
+            this.verticalProgressBar3 = new XagSurveillanceGCS.Controls.VerticalProgressBar();
+            this.verticalProgressBar2 = new XagSurveillanceGCS.Controls.VerticalProgressBar();
+            this.verticalProgressBar1 = new XagSurveillanceGCS.Controls.VerticalProgressBar();
             this.tabControl = new System.Windows.Forms.TabControl();
             ((System.ComponentModel.ISupportInitialize)(this.currentStateBindingSource)).BeginInit();
             this.tabRadio.SuspendLayout();
@@ -94,7 +94,7 @@ namespace MissionPlanner.Controls
             // 
             // currentStateBindingSource
             // 
-            this.currentStateBindingSource.DataSource = typeof(MissionPlanner.CurrentState);
+            this.currentStateBindingSource.DataSource = typeof(XagSurveillanceGCS.CurrentState);
             // 
             // timer2serial
             // 
@@ -405,7 +405,7 @@ namespace MissionPlanner.Controls
             // aGauge1
             // 
             this.aGauge1.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.aGauge1.BackgroundImage = global::MissionPlanner.Properties.Resources.Gaugebg;
+            this.aGauge1.BackgroundImage = global::XagSurveillanceGCS.Properties.Resources.Gaugebg;
             resources.ApplyResources(this.aGauge1, "aGauge1");
             this.aGauge1.BaseArcColor = System.Drawing.Color.Gray;
             this.aGauge1.BaseArcRadius = 50;
@@ -609,7 +609,7 @@ namespace MissionPlanner.Controls
             // Gpitch
             // 
             this.Gpitch.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.Gpitch.BackgroundImage = global::MissionPlanner.Properties.Resources.Gaugebg;
+            this.Gpitch.BackgroundImage = global::XagSurveillanceGCS.Properties.Resources.Gaugebg;
             resources.ApplyResources(this.Gpitch, "Gpitch");
             this.Gpitch.BaseArcColor = System.Drawing.Color.Gray;
             this.Gpitch.BaseArcRadius = 50;
@@ -752,7 +752,7 @@ namespace MissionPlanner.Controls
             // Groll
             // 
             this.Groll.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.Groll.BackgroundImage = global::MissionPlanner.Properties.Resources.Gaugebg;
+            this.Groll.BackgroundImage = global::XagSurveillanceGCS.Properties.Resources.Gaugebg;
             resources.ApplyResources(this.Groll, "Groll");
             this.Groll.BaseArcColor = System.Drawing.Color.Gray;
             this.Groll.BaseArcRadius = 50;

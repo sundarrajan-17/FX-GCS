@@ -14,7 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Utilities\MissionPlanner.Utilities.csproj" />
+    <ProjectReference Include="..\Utilities\XagSurveillanceGCS.Utilities.csproj" />
   </ItemGroup>
 
   <ItemGroup>

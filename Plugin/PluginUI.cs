@@ -8,10 +8,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using MissionPlanner.Plugin;
-using MissionPlanner.Utilities;
+using XagSurveillanceGCS.Plugin;
+using XagSurveillanceGCS.Utilities;
 
-namespace MissionPlanner.Controls
+namespace XagSurveillanceGCS.Controls
 {
     public partial class PluginUI : Form
     {

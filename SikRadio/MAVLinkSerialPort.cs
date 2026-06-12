@@ -1,4 +1,4 @@
-﻿namespace MissionPlanner.Comms
+﻿namespace XagSurveillanceGCS.Comms
 {
     internal class MAVLinkSerialPort : SerialPort
     {

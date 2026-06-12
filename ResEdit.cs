@@ -1,4 +1,4 @@
-﻿using MissionPlanner.Utilities;
+﻿using XagSurveillanceGCS.Utilities;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -60,7 +60,7 @@ namespace resedit
                         Console.WriteLine("   {0}: '{1}' (Type {2})",
                             dict.Key, dict.Value, dict.Value.GetType().Name);
 
-                        if (file.Contains("MissionPlanner.Strings.resources") ||
+                        if (file.Contains("XagSurveillanceGCS.Strings.resources") ||
                             dict.Key.ToString().EndsWith(".ToolTip") || dict.Key.ToString().EndsWith(".Text") ||
                             dict.Key.ToString().EndsWith("HeaderText") || dict.Key.ToString().EndsWith("ToolTipText"))
                         {
@@ -89,7 +89,7 @@ namespace resedit
 
             ProcessAssembly(thisAssembly);
 
-            foreach (var item in MissionPlanner.Plugin.PluginLoader.Plugins)
+            foreach (var item in XagSurveillanceGCS.Plugin.PluginLoader.Plugins)
             {
                 // silent fail
                 try
@@ -319,7 +319,7 @@ namespace resedit
             try
             {
                 string fn = Settings.GetRunningDirectory() + ci +
-                            Path.DirectorySeparatorChar + "MissionPlanner.resources.dll";
+                            Path.DirectorySeparatorChar + "XagSurveillanceGCS.resources.dll";
                 if (File.Exists(fn))
                     thisAssembly = Assembly.LoadFile(fn);
                 else

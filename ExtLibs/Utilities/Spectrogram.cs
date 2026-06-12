@@ -8,9 +8,9 @@ using Microsoft.Extensions.Caching.Memory;
 using SharpKml.Dom;
 using SixLabors.ImageSharp;
 using SixLabors.ImageSharp.PixelFormats;
-using static MissionPlanner.Log.LogOutput;
+using static XagSurveillanceGCS.Log.LogOutput;
 
-namespace MissionPlanner.Utilities
+namespace XagSurveillanceGCS.Utilities
 {
     public class Spectrogram
     {

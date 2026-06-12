@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using MissionPlanner.Plugin;
-using MissionPlanner;
+using XagSurveillanceGCS.Plugin;
+using XagSurveillanceGCS;
 using System.Windows.Forms;
 using System.IO;
-using MissionPlanner.Utilities;
+using XagSurveillanceGCS.Utilities;
 
     public class ExtGuidedPlugin : Plugin
     {

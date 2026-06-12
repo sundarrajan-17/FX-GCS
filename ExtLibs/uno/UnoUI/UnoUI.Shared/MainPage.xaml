@@ -5,7 +5,7 @@
     xmlns:local="using:UnoUI"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:gcsViews="using:MissionPlanner.GCSViews"
+    xmlns:gcsViews="using:XagSurveillanceGCS.GCSViews"
     mc:Ignorable="d" d:DesignHeight="3192.1">
     <ScrollViewer>
         <StackPanel Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">

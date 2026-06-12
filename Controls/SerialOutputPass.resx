@@ -166,7 +166,7 @@
     <value>BUT_connect</value>
   </data>
   <data name="&gt;&gt;BUT_connect.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.MyButton, MissionPlanner.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>XagSurveillanceGCS.Controls.MyButton, XagSurveillanceGCS.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;BUT_connect.Parent" xml:space="preserve">
     <value>$this</value>
@@ -325,7 +325,7 @@
     <value>myDataGridView1</value>
   </data>
   <data name="&gt;&gt;myDataGridView1.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.MyDataGridView, MissionPlanner, Version=1.3.9076.24256, Culture=neutral, PublicKeyToken=null</value>
+    <value>XagSurveillanceGCS.Controls.MyDataGridView, XagSurveillanceGCS, Version=1.3.9076.24256, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;myDataGridView1.Parent" xml:space="preserve">
     <value>$this</value>

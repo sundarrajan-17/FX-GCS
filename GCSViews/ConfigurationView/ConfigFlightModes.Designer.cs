@@ -1,4 +1,4 @@
-﻿namespace MissionPlanner.GCSViews.ConfigurationView
+﻿namespace XagSurveillanceGCS.GCSViews.ConfigurationView
 {
     partial class ConfigFlightModes
     {
@@ -59,7 +59,7 @@
             this.CMB_fmode2 = new System.Windows.Forms.ComboBox();
             this.labelfm1 = new System.Windows.Forms.Label();
             this.CMB_fmode1 = new System.Windows.Forms.ComboBox();
-            this.BUT_SaveModes = new MissionPlanner.Controls.MyButton();
+            this.BUT_SaveModes = new XagSurveillanceGCS.Controls.MyButton();
             this.chk_ss6 = new System.Windows.Forms.CheckBox();
             this.chk_ss5 = new System.Windows.Forms.CheckBox();
             this.chk_ss4 = new System.Windows.Forms.CheckBox();
@@ -131,7 +131,7 @@
             // 
             // currentStateBindingSource
             // 
-            this.currentStateBindingSource.DataSource = typeof(MissionPlanner.CurrentState);
+            this.currentStateBindingSource.DataSource = typeof(XagSurveillanceGCS.CurrentState);
             // 
             // label12
             // 

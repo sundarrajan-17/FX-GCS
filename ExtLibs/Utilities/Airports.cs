@@ -7,7 +7,7 @@ using System.Globalization;
 using log4net;
 using System.Reflection;
 
-namespace MissionPlanner.Utilities
+namespace XagSurveillanceGCS.Utilities
 {
     public class Airports
     {

@@ -2,7 +2,7 @@
 using System.IO;
 using System.Windows.Forms;
 
-namespace MissionPlanner.Utilities
+namespace XagSurveillanceGCS.Utilities
 {
     internal class GCSViews
     {

@@ -1,1 +1,1 @@
-namespace MissionPlanner.Controls { public partial class ModifyandSet{public ModifyandSet(){this.InitializeComponent();}}}
+namespace XagSurveillanceGCS.Controls { public partial class ModifyandSet{public ModifyandSet(){this.InitializeComponent();}}}

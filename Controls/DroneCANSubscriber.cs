@@ -1,11 +1,11 @@
 ﻿using System.Collections.Generic;
 using System.Windows.Forms;
 using DroneCAN;
-using MissionPlanner.Utilities;
+using XagSurveillanceGCS.Utilities;
 using System.Linq;
 using DroneCAN;
 
-namespace MissionPlanner.Controls
+namespace XagSurveillanceGCS.Controls
 {
     public class DroneCANSubscriber: MyUserControl, IActivate, IDeactivate
     {

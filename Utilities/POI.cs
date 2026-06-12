@@ -1,6 +1,6 @@
 ﻿using GMap.NET.WindowsForms;
-using MissionPlanner.Controls;
-using MissionPlanner.Maps;
+using XagSurveillanceGCS.Controls;
+using XagSurveillanceGCS.Maps;
 using System;
 using System.Collections.ObjectModel;
 using System.Globalization;
@@ -9,7 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace MissionPlanner.Utilities
+namespace XagSurveillanceGCS.Utilities
 {
     public class POI
     {
@@ -17,8 +17,6 @@ namespace MissionPlanner.Utilities
         /// Store points of interest
         /// </summary>
         static ObservableCollection<PointLatLngAlt> POIs = new ObservableCollection<PointLatLngAlt>();
-
-        // private Dictionary<string, PointLatLngAlt> DoOafPoints = new Dictionary<string, PointLatLngAlt>();
 
         private static EventHandler _POIModified;
         private static bool initializePOI = false;

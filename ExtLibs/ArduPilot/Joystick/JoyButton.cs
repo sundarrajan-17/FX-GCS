@@ -1,4 +1,4 @@
-﻿namespace MissionPlanner.Joystick
+﻿namespace XagSurveillanceGCS.Joystick
 {
     public struct JoyButton
     {

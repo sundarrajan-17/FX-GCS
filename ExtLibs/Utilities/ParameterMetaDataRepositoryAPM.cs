@@ -8,7 +8,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using log4net;
 
-namespace MissionPlanner.Utilities
+namespace XagSurveillanceGCS.Utilities
 {
     public static class ParameterMetaDataRepositoryAPM
     {

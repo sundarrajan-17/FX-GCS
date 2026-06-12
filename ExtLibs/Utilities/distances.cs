@@ -1,4 +1,4 @@
-﻿namespace MissionPlanner
+﻿namespace XagSurveillanceGCS
 {
     public enum distances
     {

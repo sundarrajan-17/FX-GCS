@@ -1,4 +1,4 @@
-﻿namespace MissionPlanner.Controls
+﻿namespace XagSurveillanceGCS.Controls
 {
     partial class PluginUI
     {
@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.labelWarning = new System.Windows.Forms.Label();
-            this.but_errors = new MissionPlanner.Controls.MyButton();
-            this.bSave = new MissionPlanner.Controls.MyButton();
-            this.dgvPlugins = new MissionPlanner.Controls.MyDataGridView();
+            this.but_errors = new XagSurveillanceGCS.Controls.MyButton();
+            this.bSave = new XagSurveillanceGCS.Controls.MyButton();
+            this.dgvPlugins = new XagSurveillanceGCS.Controls.MyDataGridView();
             this.pluginName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pluginAuthor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pluginVersion = new System.Windows.Forms.DataGridViewTextBoxColumn();

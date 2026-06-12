@@ -1,5 +1,5 @@
-﻿using MissionPlanner.Controls;
-namespace MissionPlanner.GCSViews.ConfigurationView
+﻿using XagSurveillanceGCS.Controls;
+namespace XagSurveillanceGCS.GCSViews.ConfigurationView
 {
     partial class ConfigRadioInput
     {
@@ -36,31 +36,31 @@ namespace MissionPlanner.GCSViews.ConfigurationView
             this.CHK_elevonch2rev = new MavlinkCheckBox();
             this.CHK_elevonrev = new MavlinkCheckBox();
             this.CHK_elevonch1rev = new MavlinkCheckBox();
-            this.BUT_BindDSM8 = new MissionPlanner.Controls.MyButton();
-            this.BUT_BindDSMX = new MissionPlanner.Controls.MyButton();
-            this.BUT_BindDSM2 = new MissionPlanner.Controls.MyButton();
-            this.BUT_Calibrateradio = new MissionPlanner.Controls.MyButton();
-            this.BAR8 = new MissionPlanner.Controls.HorizontalProgressBar2();
-            this.BAR7 = new MissionPlanner.Controls.HorizontalProgressBar2();
-            this.BAR6 = new MissionPlanner.Controls.HorizontalProgressBar2();
-            this.BAR5 = new MissionPlanner.Controls.HorizontalProgressBar2();
-            this.BARpitch = new MissionPlanner.Controls.VerticalProgressBar2();
-            this.BARthrottle = new MissionPlanner.Controls.VerticalProgressBar2();
-            this.BARyaw = new MissionPlanner.Controls.HorizontalProgressBar2();
-            this.BARroll = new MissionPlanner.Controls.HorizontalProgressBar2();
+            this.BUT_BindDSM8 = new XagSurveillanceGCS.Controls.MyButton();
+            this.BUT_BindDSMX = new XagSurveillanceGCS.Controls.MyButton();
+            this.BUT_BindDSM2 = new XagSurveillanceGCS.Controls.MyButton();
+            this.BUT_Calibrateradio = new XagSurveillanceGCS.Controls.MyButton();
+            this.BAR8 = new XagSurveillanceGCS.Controls.HorizontalProgressBar2();
+            this.BAR7 = new XagSurveillanceGCS.Controls.HorizontalProgressBar2();
+            this.BAR6 = new XagSurveillanceGCS.Controls.HorizontalProgressBar2();
+            this.BAR5 = new XagSurveillanceGCS.Controls.HorizontalProgressBar2();
+            this.BARpitch = new XagSurveillanceGCS.Controls.VerticalProgressBar2();
+            this.BARthrottle = new XagSurveillanceGCS.Controls.VerticalProgressBar2();
+            this.BARyaw = new XagSurveillanceGCS.Controls.HorizontalProgressBar2();
+            this.BARroll = new XagSurveillanceGCS.Controls.HorizontalProgressBar2();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.BAR9 = new MissionPlanner.Controls.HorizontalProgressBar2();
-            this.BAR16 = new MissionPlanner.Controls.HorizontalProgressBar2();
-            this.BAR15 = new MissionPlanner.Controls.HorizontalProgressBar2();
-            this.BAR14 = new MissionPlanner.Controls.HorizontalProgressBar2();
-            this.BAR13 = new MissionPlanner.Controls.HorizontalProgressBar2();
-            this.BAR12 = new MissionPlanner.Controls.HorizontalProgressBar2();
-            this.BAR11 = new MissionPlanner.Controls.HorizontalProgressBar2();
-            this.BAR10 = new MissionPlanner.Controls.HorizontalProgressBar2();
-            this.CHK_revthr = new MissionPlanner.Controls.MavlinkCheckBox();
-            this.CHK_revyaw = new MissionPlanner.Controls.MavlinkCheckBox();
-            this.CHK_revpitch = new MissionPlanner.Controls.MavlinkCheckBox();
-            this.CHK_revroll = new MissionPlanner.Controls.MavlinkCheckBox();
+            this.BAR9 = new XagSurveillanceGCS.Controls.HorizontalProgressBar2();
+            this.BAR16 = new XagSurveillanceGCS.Controls.HorizontalProgressBar2();
+            this.BAR15 = new XagSurveillanceGCS.Controls.HorizontalProgressBar2();
+            this.BAR14 = new XagSurveillanceGCS.Controls.HorizontalProgressBar2();
+            this.BAR13 = new XagSurveillanceGCS.Controls.HorizontalProgressBar2();
+            this.BAR12 = new XagSurveillanceGCS.Controls.HorizontalProgressBar2();
+            this.BAR11 = new XagSurveillanceGCS.Controls.HorizontalProgressBar2();
+            this.BAR10 = new XagSurveillanceGCS.Controls.HorizontalProgressBar2();
+            this.CHK_revthr = new XagSurveillanceGCS.Controls.MavlinkCheckBox();
+            this.CHK_revyaw = new XagSurveillanceGCS.Controls.MavlinkCheckBox();
+            this.CHK_revpitch = new XagSurveillanceGCS.Controls.MavlinkCheckBox();
+            this.CHK_revroll = new XagSurveillanceGCS.Controls.MavlinkCheckBox();
             this.currentStateBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.groupBoxElevons.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -441,7 +441,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
             // 
             // currentStateBindingSource
             // 
-            this.currentStateBindingSource.DataSource = typeof(MissionPlanner.CurrentState);
+            this.currentStateBindingSource.DataSource = typeof(XagSurveillanceGCS.CurrentState);
             // 
             // ConfigRadioInput
             // 
