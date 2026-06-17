@@ -43,7 +43,7 @@ namespace XagSurveillanceGCS.GCSViews.ConfigurationView
         public void Activate()
         {
             var x = 6;
-            var y = 75;
+            var y = 20;
 
             FrameClass.Text = "Class: QUAD";
             FrameType.Text = "Type: X";
@@ -56,6 +56,7 @@ namespace XagSurveillanceGCS.GCSViews.ConfigurationView
                 but = new MyButton();
                 but.Text = "Test motor " + (char)((a - 1) + 'A');
                 but.Location = new Point(x, y);
+                but.Size = new Size(75, 37);
                 but.Click += but_Click;
                 but.Tag = a;
 
@@ -80,20 +81,20 @@ namespace XagSurveillanceGCS.GCSViews.ConfigurationView
                     }
                 }
 
-                y += 25;
+                y += 39;
             }
 
             x+=100;
-            y=75;
+            y=20;
 
             but = new MyButton();
             but.Text = "Test all motors";
             but.Location = new Point(x, y);
             but.Size = new Size(75, 37);
             but.Click += but_TestAll;
-            groupBox1.Controls.Add(but);
+            // groupBox1.Controls.Add(but);
 
-            y += 39;
+            // y += 39;
 
             but = new MyButton();
             but.Text = "Stop all motors";

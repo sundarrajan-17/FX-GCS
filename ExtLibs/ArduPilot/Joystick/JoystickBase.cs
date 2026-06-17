@@ -1016,6 +1016,8 @@ namespace XagSurveillanceGCS.Joystick
             };
             t11.Start();
 
+            Console.WriteLine("Joystick started");
+
             return true;
         }
 

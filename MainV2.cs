@@ -2258,6 +2258,22 @@ namespace XagSurveillanceGCS
 
                         if (joystick != null && joystick.enabled)
                         {
+                            // Console.WriteLine("Joystick Onnnnnnnnnnnnn");
+                            if (FlightData.BUT_joystick.InvokeRequired)
+                            {
+                                FlightData.BUT_joystick.Invoke((MethodInvoker)delegate
+                                {
+                                    FlightData.BUT_joystick.Text = "JoyStick ON";
+                                    FlightData.BUT_joystick.BGGradTop = System.Drawing.Color.Green;
+                                    FlightData.BUT_joystick.BGGradBot = System.Drawing.Color.Green;
+                                });
+                            }
+                            else
+                            {
+                                FlightData.BUT_joystick.Text = "JoyStick ON";
+                                FlightData.BUT_joystick.BGGradTop = System.Drawing.Color.Green;
+                                FlightData.BUT_joystick.BGGradBot = System.Drawing.Color.Green;
+                            }
                             if (!joystick.manual_control)
                             {
                                 MAVLink.mavlink_rc_channels_override_t
@@ -2393,39 +2409,63 @@ namespace XagSurveillanceGCS
                             }
                             else
                             {
-                                MAVLink.mavlink_manual_control_t rc = new MAVLink.mavlink_manual_control_t();
+                                // MAVLink.mavlink_manual_control_t rc = new MAVLink.mavlink_manual_control_t();
 
-                                rc.target = comPort.MAV.compid;
+                                // rc.target = comPort.MAV.compid;
 
-                                if (joystick.getJoystickAxis(1) != Joystick.joystickaxis.None)
-                                    rc.x = MainV2.comPort.MAV.cs.rcoverridech1;
-                                if (joystick.getJoystickAxis(2) != Joystick.joystickaxis.None)
-                                    rc.y = MainV2.comPort.MAV.cs.rcoverridech2;
-                                if (joystick.getJoystickAxis(3) != Joystick.joystickaxis.None)
-                                    rc.z = MainV2.comPort.MAV.cs.rcoverridech3;
-                                if (joystick.getJoystickAxis(4) != Joystick.joystickaxis.None)
-                                    rc.r = MainV2.comPort.MAV.cs.rcoverridech4;
+                                // if (joystick.getJoystickAxis(1) != Joystick.joystickaxis.None)
+                                //     rc.x = MainV2.comPort.MAV.cs.rcoverridech1;
+                                // if (joystick.getJoystickAxis(2) != Joystick.joystickaxis.None)
+                                //     rc.y = MainV2.comPort.MAV.cs.rcoverridech2;
+                                // if (joystick.getJoystickAxis(3) != Joystick.joystickaxis.None)
+                                //     rc.z = MainV2.comPort.MAV.cs.rcoverridech3;
+                                // if (joystick.getJoystickAxis(4) != Joystick.joystickaxis.None)
+                                //     rc.r = MainV2.comPort.MAV.cs.rcoverridech4;
 
-                                if (lastjoystick.AddMilliseconds(rate) < DateTime.Now)
+                                // if (lastjoystick.AddMilliseconds(rate) < DateTime.Now)
+                                // {
+                                //     if (!comPort.BaseStream.IsOpen)
+                                //         continue;
+
+                                //     if (comPort.BaseStream.BytesToWrite < 50)
+                                //     {
+                                //         if (sitl)
+                                //         {
+                                //             XagSurveillanceGCS.GCSViews.SITL.rcinput();
+                                //         }
+                                //         else
+                                //         {
+                                //             comPort.sendPacket(rc, comPort.MAV.sysid, comPort.MAV.compid);
+                                //         }
+
+                                //         count++;
+                                //         lastjoystick = DateTime.Now;
+                                //     }
+                                // }
+                                // Console.WriteLine("Joystick Gimbal Control Is Runningggggggggg "+MainV2.comPort.MAV.cs.rcoverridech2);
+                                double camera_pitch = (double) MainV2.comPort.MAV.cs.rcoverridech3/1000.0;
+                                double camera_yaw = (double) MainV2.comPort.MAV.cs.rcoverridech4/1000.0;
+                                double camera_zoom = (double) -MainV2.comPort.MAV.cs.rcoverridech2/1000.0;
+                                // FlightData.XagCamPitchYawCommand(camera_pitch/2000000.00, camera_yaw/2000000.00);
+                                FlightData.DoJoystickCommandsToGimbal(camera_pitch, camera_yaw, camera_zoom);
+                            }
+                        }
+                        else
+                        {  
+                            if (FlightData.BUT_joystick.InvokeRequired)
+                            {
+                                FlightData.BUT_joystick.Invoke((MethodInvoker)delegate
                                 {
-                                    if (!comPort.BaseStream.IsOpen)
-                                        continue;
-
-                                    if (comPort.BaseStream.BytesToWrite < 50)
-                                    {
-                                        if (sitl)
-                                        {
-                                            XagSurveillanceGCS.GCSViews.SITL.rcinput();
-                                        }
-                                        else
-                                        {
-                                            comPort.sendPacket(rc, comPort.MAV.sysid, comPort.MAV.compid);
-                                        }
-
-                                        count++;
-                                        lastjoystick = DateTime.Now;
-                                    }
-                                }
+                                    FlightData.BUT_joystick.Text = "JoyStick OFF";
+                                    FlightData.BUT_joystick.BGGradTop = System.Drawing.Color.Red;
+                                    FlightData.BUT_joystick.BGGradBot = System.Drawing.Color.Red;
+                                });
+                            }
+                            else
+                            {
+                                FlightData.BUT_joystick.Text = "JoyStick OFF";
+                                FlightData.BUT_joystick.BGGradTop = System.Drawing.Color.Red;
+                                FlightData.BUT_joystick.BGGradBot = System.Drawing.Color.Red;
                             }
                         }
                     }
@@ -4082,13 +4122,13 @@ namespace XagSurveillanceGCS
                 return true;
             }
 
-            if (keyData == (Keys.Control | Keys.F)) // temp
-            {
-                Form frm = new temp();
-                ThemeManager.ApplyThemeTo(frm);
-                frm.Show();
-                return true;
-            }
+            // if (keyData == (Keys.Control | Keys.F)) // temp
+            // {
+            //     Form frm = new temp();
+            //     ThemeManager.ApplyThemeTo(frm);
+            //     frm.Show();
+            //     return true;
+            // }
 
             /*if (keyData == (Keys.Control | Keys.S)) // screenshot
             {
@@ -4101,83 +4141,83 @@ namespace XagSurveillanceGCS
                 return true;
             }
 
-            if (keyData == (Keys.Control | Keys.G)) // nmea out
-            {
-                Form frm = new SerialOutputNMEA();
-                ThemeManager.ApplyThemeTo(frm);
-                frm.Show();
-                return true;
-            }
+            // if (keyData == (Keys.Control | Keys.G)) // nmea out
+            // {
+            //     Form frm = new SerialOutputNMEA();
+            //     ThemeManager.ApplyThemeTo(frm);
+            //     frm.Show();
+            //     return true;
+            // }
 
-            if (keyData == (Keys.Control | Keys.X))
-            {
-                new GMAPCache().ShowUserControl();
-                return true;
-            }
+            // if (keyData == (Keys.Control | Keys.X))
+            // {
+            //     new GMAPCache().ShowUserControl();
+            //     return true;
+            // }
 
-            if (keyData == (Keys.Control | Keys.L)) // limits
-            {
-                //new DigitalSkyUI().ShowUserControl();
+            // if (keyData == (Keys.Control | Keys.L)) // limits
+            // {
+            //     //new DigitalSkyUI().ShowUserControl();
 
-                new SpectrogramUI().Show();
+            //     new SpectrogramUI().Show();
 
-                return true;
-            }
+            //     return true;
+            // }
 
-            if (keyData == (Keys.Control | Keys.W)) // test ac config
-            {
-                new PropagationSettings().Show();
+            // if (keyData == (Keys.Control | Keys.W)) // test ac config
+            // {
+            //     new PropagationSettings().Show();
 
-                return true;
-            }
+            //     return true;
+            // }
 
-            if (keyData == (Keys.Control | Keys.Z))
-            {
-                //ScanHW.Scan(comPort);
-                new Camera().test(MainV2.comPort);
-                return true;
-            }
+            // if (keyData == (Keys.Control | Keys.Z))
+            // {
+            //     //ScanHW.Scan(comPort);
+            //     new Camera().test(MainV2.comPort);
+            //     return true;
+            // }
 
-            if (keyData == (Keys.Control | Keys.T)) // for override connect
-            {
-                try
-                {
-                    MainV2.comPort.Open(false);
-                }
-                catch (Exception ex)
-                {
-                    CustomMessageBox.Show(ex.ToString());
-                }
+            // if (keyData == (Keys.Control | Keys.T)) // for override connect
+            // {
+            //     try
+            //     {
+            //         MainV2.comPort.Open(false);
+            //     }
+            //     catch (Exception ex)
+            //     {
+            //         CustomMessageBox.Show(ex.ToString());
+            //     }
 
-                return true;
-            }
+            //     return true;
+            // }
 
-            if (keyData == (Keys.Control | Keys.Y)) // for ryan beall and ollyw42
-            {
-                // write
-                try
-                {
-                    MainV2.comPort.doCommand((byte) MainV2.comPort.sysidcurrent, (byte) MainV2.comPort.compidcurrent,
-                        MAVLink.MAV_CMD.PREFLIGHT_STORAGE, 1.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f);
-                }
-                catch
-                {
-                    CustomMessageBox.Show("Invalid command");
-                    return true;
-                }
+            // if (keyData == (Keys.Control | Keys.Y)) // for ryan beall and ollyw42
+            // {
+            //     // write
+            //     try
+            //     {
+            //         MainV2.comPort.doCommand((byte) MainV2.comPort.sysidcurrent, (byte) MainV2.comPort.compidcurrent,
+            //             MAVLink.MAV_CMD.PREFLIGHT_STORAGE, 1.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f);
+            //     }
+            //     catch
+            //     {
+            //         CustomMessageBox.Show("Invalid command");
+            //         return true;
+            //     }
 
-                //read
-                ///////MainV2.comPort.doCommand(MAVLink09.MAV_CMD.PREFLIGHT_STORAGE, 1.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f);
-                CustomMessageBox.Show("Done MAV_ACTION_STORAGE_WRITE");
-                return true;
-            }
+            //     //read
+            //     ///////MainV2.comPort.doCommand(MAVLink09.MAV_CMD.PREFLIGHT_STORAGE, 1.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f);
+            //     CustomMessageBox.Show("Done MAV_ACTION_STORAGE_WRITE");
+            //     return true;
+            // }
 
-            if (keyData == (Keys.Control | Keys.J))
-            {
-                new DevopsUI().ShowUserControl();
+            // if (keyData == (Keys.Control | Keys.J))
+            // {
+            //     new DevopsUI().ShowUserControl();
 
-                return true;
-            }
+            //     return true;
+            // }
 
             if (ProcessCmdKeyCallback != null)
             {

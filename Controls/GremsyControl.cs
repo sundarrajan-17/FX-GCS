@@ -106,7 +106,9 @@ namespace XagSurveillanceGCS.Controls
             this._parentController = parentController;
             this._virtualJoystick = new VirtualJoystick(this._parentController);
             this.tableLayoutPanel1.Controls.Add(this._virtualJoystick,0,0);
-            this.tableLayoutPanel1.Controls.Add(this.trackZoom,1,0);
+            this.tableLayoutPanel4.Controls.Add(this.ZoomInButton,0,0);
+            this.tableLayoutPanel4.Controls.Add(this.ZoomOutButton,0,1);
+            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel4,1,0);
             this.parentTableLayoutPanel.Controls.Add(this.tableLayoutPanel1,1,0);
             MainV2.comPort.OnPacketReceived += LoadCameraParameters;
             // this._parentController._flightData.GremsySwitchCameraModeToPhoto();
@@ -230,6 +232,23 @@ namespace XagSurveillanceGCS.Controls
 
             zoomInActive = false;
             zoomOutActive = false;
+        }
+
+        private void BtnZoomIn_MouseDown(object sender, MouseEventArgs e)
+        {
+            this._parentController._flightData.GremsyZoomIn();
+        }
+        private void BtnZoomIn_MouseUp(object sender, MouseEventArgs e)
+        {
+            this._parentController._flightData.GremsyZoomStop();
+        }
+        private void BtnZoomOut_MouseDown(object sender, MouseEventArgs e)
+        {
+            this._parentController._flightData.GremsyZoomOut();
+        }
+        private void BtnZoomOut_MouseUp(object sender, MouseEventArgs e)
+        {
+            this._parentController._flightData.GremsyZoomStop();
         }
         private void BtnStartRecording_Click(object sender, EventArgs e)
         {

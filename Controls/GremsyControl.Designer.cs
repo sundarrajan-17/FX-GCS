@@ -29,6 +29,9 @@ namespace XagSurveillanceGCS.Controls
         private XagSurveillanceGCS.Controls.VirtualJoystick virtualJoystick;    
         private System.Windows.Forms.GroupBox camControlGroup;
         private System.Windows.Forms.TrackBar trackZoom;
+        private System.Windows.Forms.Button ZoomInButton;
+        private System.Windows.Forms.Button ZoomOutButton;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
 
          /// <summary>
         protected override void Dispose(bool disposing)
@@ -72,6 +75,16 @@ namespace XagSurveillanceGCS.Controls
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33F));
+
+            // Zoomtablelayoutpanel
+            // tableLayoutPanel1
+            this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel4.RowCount = 2;
+            this.tableLayoutPanel4.ColumnCount = 1;
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.00F));
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.00F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.00F));
 
             // trackzoom
 
@@ -191,6 +204,40 @@ namespace XagSurveillanceGCS.Controls
             // EVENTS
             this.trackZoom.ValueChanged += TrackZoom_ValueChanged;
             this.trackZoom.MouseUp += TrackZoom_MouseUp;
+
+            //
+            //Zoom in Button
+            //
+            this.ZoomInButton = new System.Windows.Forms.Button();
+            this.ZoomInButton.Text = "+";
+            this.ZoomInButton.Height = 35;
+            this.ZoomInButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ZoomInButton.Font = new System.Drawing.Font(
+            "Segoe UI",
+            16F,
+            System.Drawing.FontStyle.Bold,
+            System.Drawing.GraphicsUnit.Point,
+            ((byte)(0)));
+            // this.ZoomInButton.Click += new System.EventHandler(this.BtnZoomIn_Click);
+            this.ZoomInButton.MouseDown += new System.Windows.Forms.MouseEventHandler(this.BtnZoomIn_MouseDown);
+            this.ZoomInButton.MouseUp += new System.Windows.Forms.MouseEventHandler(this.BtnZoomIn_MouseUp);
+
+            //
+            //Zoom out Button
+            //
+            this.ZoomOutButton = new System.Windows.Forms.Button();
+            this.ZoomOutButton.Text = "-";
+            this.ZoomOutButton.Height = 35;
+            this.ZoomOutButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ZoomOutButton.Font = new System.Drawing.Font(
+            "Segoe UI",
+            16F,
+            System.Drawing.FontStyle.Bold,
+            System.Drawing.GraphicsUnit.Point,
+            ((byte)(0)));
+            // this.ZoomOutButton.Click += new System.EventHandler(this.BtnZoomOut_Click);
+            this.ZoomOutButton.MouseDown += new System.Windows.Forms.MouseEventHandler(this.BtnZoomOut_MouseDown);
+            this.ZoomOutButton.MouseUp += new System.Windows.Forms.MouseEventHandler(this.BtnZoomOut_MouseUp);
 
 
             this.btnGremsyTest.Text = "Photo Mode";

@@ -421,7 +421,7 @@
     <value>58</value>
   </data>
   <data name="chk_manualcontrol.Text" xml:space="preserve">
-    <value>Manual Control</value>
+    <value>Gimbal Control</value>
   </data>
   <data name="&gt;&gt;chk_manualcontrol.Name" xml:space="preserve">
     <value>chk_manualcontrol</value>

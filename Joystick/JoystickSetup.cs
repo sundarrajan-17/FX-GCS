@@ -137,7 +137,7 @@ namespace XagSurveillanceGCS.Joystick
             return temp;
         }
 
-        private void BUT_enable_Click(object sender, EventArgs e)
+        public void BUT_enable_Click(object sender, EventArgs e)
         {
             if (MainV2.joystick == null || MainV2.joystick.enabled == false)
             {
@@ -169,6 +169,8 @@ namespace XagSurveillanceGCS.Joystick
                 MainV2.joystick.enabled = true;
 
                 BUT_enable.Text = "Disable";
+
+                Console.WriteLine("Updatingggggggggggggggggggggggggg");
 
                 //timer1.Start();
             }
@@ -309,7 +311,7 @@ namespace XagSurveillanceGCS.Joystick
             } // this is for buttons - silent fail
         }
 
-        private void CMB_joysticks_Click(object sender, EventArgs e)
+        public void CMB_joysticks_Click(object sender, EventArgs e)
         {
             CMB_joysticks.Items.Clear();
 

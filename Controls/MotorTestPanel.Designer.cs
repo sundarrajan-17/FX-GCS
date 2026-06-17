@@ -57,7 +57,7 @@ namespace XagSurveillanceGCS.GCSViews.ConfigurationView
             -2147483648});
             this.NUM_thr_percent.Name = "NUM_thr_percent";
             this.NUM_thr_percent.Value = new decimal(new int[] {
-            5,
+            12,
             0,
             0,
             0});
@@ -102,18 +102,18 @@ namespace XagSurveillanceGCS.GCSViews.ConfigurationView
             // groupBox1
             // 
             resources.ApplyResources(this.groupBox1, "groupBox1");
-            this.groupBox1.Controls.Add(this.FrameType);
-            this.groupBox1.Controls.Add(this.FrameClass);
-            this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.but_mot_spin_min);
-            this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.but_mot_spin_arm);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.NUM_thr_percent);
-            this.groupBox1.Controls.Add(this.NUM_duration);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.linkLabel1);
+            // this.groupBox1.Controls.Add(this.FrameType);
+            // this.groupBox1.Controls.Add(this.FrameClass);
+            // this.groupBox1.Controls.Add(this.label5);
+            // this.groupBox1.Controls.Add(this.but_mot_spin_min);
+            // this.groupBox1.Controls.Add(this.label4);
+            // this.groupBox1.Controls.Add(this.but_mot_spin_arm);
+            // this.groupBox1.Controls.Add(this.label1);
+            // this.groupBox1.Controls.Add(this.label3);
+            // this.groupBox1.Controls.Add(this.NUM_thr_percent);
+            // this.groupBox1.Controls.Add(this.NUM_duration);
+            // this.groupBox1.Controls.Add(this.label2);
+            // this.groupBox1.Controls.Add(this.linkLabel1);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.TabStop = false;
             // 

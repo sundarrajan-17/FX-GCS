@@ -598,7 +598,7 @@
     <value>True</value>
   </data>
   <data name="tableLayoutPanel1.ColumnCount" type="System.Int32, mscorlib">
-    <value>5</value>
+    <value>4</value>
   </data>
   <data name="BUT_SendMSG.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
@@ -1009,7 +1009,7 @@
     <value>77</value>
   </data>
   <data name="BUT_joystick.Text" xml:space="preserve">
-    <value>Joystick</value>
+    <value>JoyStick OFF</value>
   </data>
   <data name="BUT_joystick.ToolTip" xml:space="preserve">
     <value>Setup and enable your joystick</value>
@@ -2531,7 +2531,7 @@
     <value>Motor Test</value>
   </data>
   <data name="&gt;&gt;tabGauges.Name" xml:space="preserve">
-    <value>tabGauges</value>
+    <value>tabMotorTest</value>
   </data>
   <data name="&gt;&gt;tabGauges.Type" xml:space="preserve">
     <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>

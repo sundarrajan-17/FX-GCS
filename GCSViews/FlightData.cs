@@ -198,20 +198,9 @@ namespace XagSurveillanceGCS.GCSViews
             Loiter_Unlim,
             Return_To_Launch,
             Preflight_Calibration,
-            Mission_Start,
             Preflight_Reboot_Shutdown,
-            Trigger_Camera,
-            System_Time,
-            Battery_Reset,
-            ADSB_Out_Ident,
             Scripting_cmd_stop_and_restart,
             Scripting_cmd_stop,
-            HighLatency_Enable,
-            HighLatency_Disable,
-            Toggle_Safety_Switch,
-            Do_Parachute,
-            Engine_Start,
-            Engine_Stop,
         }
 
         private double target_latitude = 0.0;
@@ -1310,7 +1299,16 @@ namespace XagSurveillanceGCS.GCSViews
 
         private void BUT_joystick_Click(object sender, EventArgs e)
         {
-            new JoystickSetup().ShowUserControl();
+            JoystickSetup joy = new JoystickSetup();
+            if(BUT_joystick.Text == "JoyStick OFF")
+            {
+                joy.CMB_joysticks_Click(null, null);
+                joy.BUT_enable_Click(null, null);
+            }
+            else
+            {
+                joy.BUT_enable_Click(null, null);
+            }
         }
 
 
@@ -1741,19 +1739,19 @@ namespace XagSurveillanceGCS.GCSViews
 
         private void BUTactiondo_Click(object sender, EventArgs e)
         {
-            try
-            {
-                if (CMB_action.Text == actions.Trigger_Camera.ToString())
-                {
-                    MainV2.comPort.setDigicamControl(true);
-                    return;
-                }
-            }
-            catch
-            {
-                CustomMessageBox.Show(Strings.CommandFailed, Strings.ERROR);
-                return;
-            }
+            // try
+            // {
+            //     if (CMB_action.Text == actions.Trigger_Camera.ToString())
+            //     {
+            //         MainV2.comPort.setDigicamControl(true);
+            //         return;
+            //     }
+            // }
+            // catch
+            // {
+            //     CustomMessageBox.Show(Strings.CommandFailed, Strings.ERROR);
+            //     return;
+            // }
 
             if (CMB_action.Text == actions.Scripting_cmd_stop_and_restart.ToString())
             {
@@ -1783,24 +1781,24 @@ namespace XagSurveillanceGCS.GCSViews
                 }
             }
 
-            if (CMB_action.Text == actions.System_Time.ToString())
-            {
-                var now = DateTime.UtcNow;
-                var epoch = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
-                ulong time_unix_us = Convert.ToUInt64((now - epoch).TotalMilliseconds * 1000);
-                try
-                {
-                    MainV2.comPort.sendPacket(
-                        new MAVLink.mavlink_system_time_t() {time_unix_usec = time_unix_us, time_boot_ms = 0},
-                        MainV2.comPort.sysidcurrent, MainV2.comPort.compidcurrent);
-                }
-                catch
-                {
-                    CustomMessageBox.Show(Strings.CommandFailed, Strings.ERROR);
-                }
+            // if (CMB_action.Text == actions.System_Time.ToString())
+            // {
+            //     var now = DateTime.UtcNow;
+            //     var epoch = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
+            //     ulong time_unix_us = Convert.ToUInt64((now - epoch).TotalMilliseconds * 1000);
+            //     try
+            //     {
+            //         MainV2.comPort.sendPacket(
+            //             new MAVLink.mavlink_system_time_t() {time_unix_usec = time_unix_us, time_boot_ms = 0},
+            //             MainV2.comPort.sysidcurrent, MainV2.comPort.compidcurrent);
+            //     }
+            //     catch
+            //     {
+            //         CustomMessageBox.Show(Strings.CommandFailed, Strings.ERROR);
+            //     }
 
-                return;
-            }
+            //     return;
+            // }
 
             if (
                 CustomMessageBox.Show("Are you sure you want to do " + CMB_action.Text + " ?", "Action",
@@ -1828,50 +1826,50 @@ namespace XagSurveillanceGCS.GCSViews
                         ((Control) sender).Enabled = true;
                         return;
                     }
-                    if (CMB_action.Text == actions.HighLatency_Enable.ToString())
-                    {
-                        MainV2.comPort.doHighLatency(true);
-                        ((Control)sender).Enabled = true;
-                        return;
-                    }
-                    if (CMB_action.Text == actions.HighLatency_Disable.ToString())
-                    {
-                        MainV2.comPort.doHighLatency(false);
-                        ((Control)sender).Enabled = true;
-                        return;
-                    }
-                    if (CMB_action.Text == actions.Toggle_Safety_Switch.ToString())
-                    {
-                        var target_system = (byte)MainV2.comPort.sysidcurrent;
-                        if (target_system == 0) {
-                            log.Info("Not toggling safety on sysid 0");
-                            return;
-                        }
-                        var custom_mode = (MainV2.comPort.MAV.cs.sensors_enabled.motor_control && MainV2.comPort.MAV.cs.sensors_enabled.seen) ? 1u : 0u;
-                        var mode = new MAVLink.mavlink_set_mode_t() { custom_mode = custom_mode, target_system = target_system };
-                        MainV2.comPort.setMode(mode, MAVLink.MAV_MODE_FLAG.SAFETY_ARMED);
-                        ((Control)sender).Enabled = true;
-                        return;
-                    }
-                    if (CMB_action.Text == actions.Engine_Start.ToString())
-                    {
-                        MainV2.comPort.doEngineControl((byte)MainV2.comPort.sysidcurrent, (byte)MainV2.comPort.compidcurrent, true);
-                        ((Control)sender).Enabled = true;
-                        return;
-                    }
-                    if (CMB_action.Text == actions.Engine_Stop.ToString())
-                    {
-                        MainV2.comPort.doEngineControl((byte)MainV2.comPort.sysidcurrent, (byte)MainV2.comPort.compidcurrent, false);
-                        ((Control)sender).Enabled = true;
-                        return;
-                    }
+                    // if (CMB_action.Text == actions.HighLatency_Enable.ToString())
+                    // {
+                    //     MainV2.comPort.doHighLatency(true);
+                    //     ((Control)sender).Enabled = true;
+                    //     return;
+                    // }
+                    // if (CMB_action.Text == actions.HighLatency_Disable.ToString())
+                    // {
+                    //     MainV2.comPort.doHighLatency(false);
+                    //     ((Control)sender).Enabled = true;
+                    //     return;
+                    // }
+                    // if (CMB_action.Text == actions.Toggle_Safety_Switch.ToString())
+                    // {
+                    //     var target_system = (byte)MainV2.comPort.sysidcurrent;
+                    //     if (target_system == 0) {
+                    //         log.Info("Not toggling safety on sysid 0");
+                    //         return;
+                    //     }
+                    //     var custom_mode = (MainV2.comPort.MAV.cs.sensors_enabled.motor_control && MainV2.comPort.MAV.cs.sensors_enabled.seen) ? 1u : 0u;
+                    //     var mode = new MAVLink.mavlink_set_mode_t() { custom_mode = custom_mode, target_system = target_system };
+                    //     MainV2.comPort.setMode(mode, MAVLink.MAV_MODE_FLAG.SAFETY_ARMED);
+                    //     ((Control)sender).Enabled = true;
+                    //     return;
+                    // }
+                    // if (CMB_action.Text == actions.Engine_Start.ToString())
+                    // {
+                    //     MainV2.comPort.doEngineControl((byte)MainV2.comPort.sysidcurrent, (byte)MainV2.comPort.compidcurrent, true);
+                    //     ((Control)sender).Enabled = true;
+                    //     return;
+                    // }
+                    // if (CMB_action.Text == actions.Engine_Stop.ToString())
+                    // {
+                    //     MainV2.comPort.doEngineControl((byte)MainV2.comPort.sysidcurrent, (byte)MainV2.comPort.compidcurrent, false);
+                    //     ((Control)sender).Enabled = true;
+                    //     return;
+                    // }
 
-                    if (CMB_action.Text == actions.Battery_Reset.ToString())
-                    {
-                        param1 = 0xff; // batt 1
-                        param2 = 100; // 100%
-                        param3 = 0;
-                    }
+                    // if (CMB_action.Text == actions.Battery_Reset.ToString())
+                    // {
+                    //     param1 = 0xff; // batt 1
+                    //     param2 = 100; // 100%
+                    //     param3 = 0;
+                    // }
 
                     MAVLink.MAV_CMD cmd;
                     try
@@ -7669,12 +7667,40 @@ namespace XagSurveillanceGCS.GCSViews
             );
         }
 
-        public void GremsyControlCommand(double x,double y)
+        public void DoJoystickCommandsToGimbal(double PitchValue, double YawValue, double ZoomValue)
         {
-            Console.WriteLine("Command is Sent");
-            var q = new float[]{
-                    float.NaN, float.NaN, float.NaN, float.NaN
-                };
+            // Console.WriteLine("Pitch, Yaw, Zoom Valuessssssssssss: "+PitchValue+","+YawValue+","+ZoomValue);
+            if(this._baseCameraController.SelectedCamera == "XAGCAM2")
+            {
+                GremsyControlPitchYaw(YawValue,PitchValue);
+                if(ZoomValue > 0) GremsyZoomIn();
+                else if(ZoomValue < 0) GremsyZoomOut();
+                else GremsyZoomStop();
+            }else{
+                XagCamPitchYawCommand(PitchValue, YawValue);
+                if(ZoomValue > 0) XagCamZoomInCommand();
+                else if(ZoomValue < 0) XagCamZoomOutCommand();
+                else XagCamZoomStopCommand();
+            }
+        }
+
+        public void CurrentGNSSOperatingMode()
+        {
+            uint statusValue = MainV2.comPort.MAV.cs.eahrsStatusValue4;
+            if (statusValue == (uint)MAVLink.ILABS_EAHRS_GPS_FIX_STATUS.NO)
+            {
+                Console.WriteLine("GPS No fix");
+            }
+            else if (statusValue == (uint)MAVLink.ILABS_EAHRS_GPS_FIX_STATUS.FIX_2D ||
+                 statusValue == (uint)MAVLink.ILABS_EAHRS_GPS_FIX_STATUS.FIX_3D ||
+                 statusValue == (uint)MAVLink.ILABS_EAHRS_GPS_FIX_STATUS.OTHER)
+            {
+                Console.WriteLine("GPS Fix");
+            }
+            else
+            {
+                Console.WriteLine("GPS Error");
+            }
         }
     }
 }

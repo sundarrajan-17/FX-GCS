@@ -603,15 +603,15 @@ namespace XagSurveillanceGCS.GCSViews
             this.tabControlactions.Controls.Add(this.tabQuick);
             this.tabControlactions.Controls.Add(this.tabActions);
             this.tabControlactions.Controls.Add(this.tabPagemessages);
-            this.tabControlactions.Controls.Add(this.tabActionsSimple);
-            this.tabControlactions.Controls.Add(this.tabPagePreFlight);
+            // this.tabControlactions.Controls.Add(this.tabActionsSimple);
+            // this.tabControlactions.Controls.Add(this.tabPagePreFlight);
             this.tabControlactions.Controls.Add(this.tabGauges);
-            this.tabControlactions.Controls.Add(this.tabTransponder);
-            this.tabControlactions.Controls.Add(this.tabStatus);
-            this.tabControlactions.Controls.Add(this.tabServo);
-            this.tabControlactions.Controls.Add(this.tabAuxFunction);
-            this.tabControlactions.Controls.Add(this.tabScripts);
-            this.tabControlactions.Controls.Add(this.tabPayload);
+            // this.tabControlactions.Controls.Add(this.tabTransponder);
+            // this.tabControlactions.Controls.Add(this.tabStatus);
+            // this.tabControlactions.Controls.Add(this.tabServo);
+            // this.tabControlactions.Controls.Add(this.tabAuxFunction);
+            // this.tabControlactions.Controls.Add(this.tabScripts);
+            // this.tabControlactions.Controls.Add(this.tabPayload);
             this.tabControlactions.Controls.Add(this.tabTLogs);
             this.tabControlactions.Controls.Add(this.tablogbrowse);
             this.tabControlactions.Controls.Add(this.tabExternalAHRS);
@@ -754,23 +754,23 @@ namespace XagSurveillanceGCS.GCSViews
             // tableLayoutPanel1
             // 
             resources.ApplyResources(this.tableLayoutPanel1, "tableLayoutPanel1");
-            this.tableLayoutPanel1.Controls.Add(this.BUT_SendMSG, 2, 4);
-            this.tableLayoutPanel1.Controls.Add(this.BUT_abortland, 4, 4);
-            this.tableLayoutPanel1.Controls.Add(this.modifyandSetLoiterRad, 4, 2);
-            this.tableLayoutPanel1.Controls.Add(this.BUT_clear_track, 4, 3);
+            // this.tableLayoutPanel1.Controls.Add(this.BUT_SendMSG, 2, 4);
+            // this.tableLayoutPanel1.Controls.Add(this.BUT_abortland, 4, 4);
+            this.tableLayoutPanel1.Controls.Add(this.modifyandSetLoiterRad, 3, 2);
+            // this.tableLayoutPanel1.Controls.Add(this.BUT_clear_track, 4, 3);
             this.tableLayoutPanel1.Controls.Add(this.CMB_action, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.BUTactiondo, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.BUT_resumemis, 3, 4);
-            this.tableLayoutPanel1.Controls.Add(this.modifyandSetAlt, 4, 1);
-            this.tableLayoutPanel1.Controls.Add(this.modifyandSetSpeed, 4, 0);
+            // this.tableLayoutPanel1.Controls.Add(this.BUT_resumemis, 3, 4);
+            this.tableLayoutPanel1.Controls.Add(this.modifyandSetAlt, 3, 1);
+            this.tableLayoutPanel1.Controls.Add(this.modifyandSetSpeed, 3, 0);
             this.tableLayoutPanel1.Controls.Add(this.CMB_setwp, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.BUT_ARM, 3, 3);
-            this.tableLayoutPanel1.Controls.Add(this.BUT_mountmode, 1, 3);
-            this.tableLayoutPanel1.Controls.Add(this.BUT_joystick, 2, 3);
-            this.tableLayoutPanel1.Controls.Add(this.BUT_RAWSensor, 3, 2);
-            this.tableLayoutPanel1.Controls.Add(this.BUT_Homealt, 3, 0);
-            this.tableLayoutPanel1.Controls.Add(this.BUTrestartmission, 3, 1);
-            this.tableLayoutPanel1.Controls.Add(this.CMB_mountmode, 0, 3);
+            // this.tableLayoutPanel1.Controls.Add(this.BUT_mountmode, 1, 3);
+            this.tableLayoutPanel1.Controls.Add(this.BUT_joystick, 0, 3);
+            // this.tableLayoutPanel1.Controls.Add(this.BUT_RAWSensor, 3, 2);
+            // this.tableLayoutPanel1.Controls.Add(this.BUT_Homealt, 3, 0);
+            // this.tableLayoutPanel1.Controls.Add(this.BUTrestartmission, 3, 1);
+            // this.tableLayoutPanel1.Controls.Add(this.CMB_mountmode, 0, 3);
             this.tableLayoutPanel1.Controls.Add(this.BUT_quickrtl, 2, 2);
             this.tableLayoutPanel1.Controls.Add(this.BUT_quickmanual, 2, 1);
             this.tableLayoutPanel1.Controls.Add(this.BUT_setwp, 1, 1);
@@ -968,12 +968,14 @@ namespace XagSurveillanceGCS.GCSViews
             // 
             // BUT_joystick
             // 
-            this.BUT_joystick.ColorMouseDown = System.Drawing.Color.Empty;
-            this.BUT_joystick.ColorMouseOver = System.Drawing.Color.Empty;
-            this.BUT_joystick.ColorNotEnabled = System.Drawing.Color.Empty;
+            // this.BUT_joystick.ColorMouseDown = System.Drawing.Color.Empty;
+            // this.BUT_joystick.ColorMouseOver = System.Drawing.Color.Empty;
+            // this.BUT_joystick.ColorNotEnabled = System.Drawing.Color.Empty;
+            this.BUT_joystick.BGGradTop = System.Drawing.Color.Red;
+            this.BUT_joystick.BGGradBot = System.Drawing.Color.Red;
             resources.ApplyResources(this.BUT_joystick, "BUT_joystick");
             this.BUT_joystick.Name = "BUT_joystick";
-            this.BUT_joystick.TextColorNotEnabled = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(87)))), ((int)(((byte)(4)))));
+            // this.BUT_joystick.TextColorNotEnabled = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(87)))), ((int)(((byte)(4)))));
             this.toolTip1.SetToolTip(this.BUT_joystick, resources.GetString("BUT_joystick.ToolTip"));
             this.BUT_joystick.UseVisualStyleBackColor = true;
             this.BUT_joystick.Click += new System.EventHandler(this.BUT_joystick_Click);
@@ -3097,7 +3099,7 @@ namespace XagSurveillanceGCS.GCSViews
         private Controls.MyButton BUT_quickrtl;
         private Controls.MyButton BUT_quickauto;
         private Controls.MyButton BUT_log2kml;
-        private Controls.MyButton BUT_joystick;
+        public Controls.MyButton BUT_joystick;
         private System.Windows.Forms.ToolTip toolTip1;
         private Label lbl_logpercent;
         private System.Windows.Forms.ToolStripMenuItem pointCameraHereToolStripMenuItem;
