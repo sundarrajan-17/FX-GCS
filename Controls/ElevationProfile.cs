@@ -306,6 +306,35 @@ namespace XagSurveillanceGCS.Controls
                 myPane.GraphObjList.Add(text);
             }
 
+            double checkInterval = 10.0; // meters
+
+            for (double dist = 0; dist <= distance; dist += checkInterval)
+            {
+                double plannedAlt = GetYAtDistance(list1, dist);
+                double terrainAlt = GetYAtDistance(list3, dist);
+
+                if (plannedAlt <= terrainAlt)
+                {
+                    Console.WriteLine(
+                        $"Collision at {dist:F1}m. Planned={plannedAlt:F1}, Terrain={terrainAlt:F1}");
+                }
+            }
+
+            // foreach (PointPair red in list1)
+            // {
+            //     foreach (PointPair blue in list3)
+            //     {
+            //         if (Math.Abs(red.X - blue.X) < 0.1)
+            //         {
+            //             if (red.Y <= blue.Y)
+            //             {
+            //                 Console.WriteLine(
+            //                     $"Collision at Distance={red.X:F2}, Elevation={red.Y:F2}");
+            //             }
+            //         }
+            //     }
+            // }
+
             // Show the x axis grid
             myPane.XAxis.MajorGrid.IsVisible = true;
 
@@ -337,6 +366,24 @@ namespace XagSurveillanceGCS.Controls
             catch
             {
             }
+        }
+
+        private double GetYAtDistance(PointPairList list, double x)
+        {
+            for (int i = 1; i < list.Count; i++)
+            {
+                if (x >= list[i - 1].X && x <= list[i].X)
+                {
+                    double ratio =
+                        (x - list[i - 1].X) /
+                        (list[i].X - list[i - 1].X);
+
+                    return list[i - 1].Y +
+                        ratio * (list[i].Y - list[i - 1].Y);
+                }
+            }
+
+            return double.NaN;
         }
     }
 }

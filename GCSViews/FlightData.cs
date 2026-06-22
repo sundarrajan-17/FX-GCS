@@ -463,6 +463,7 @@ namespace XagSurveillanceGCS.GCSViews
             motorTest = new MotorTestPanel();
             motorTest.Activate();
             this.tabGauges.Controls.Add(motorTest);
+            GNSSModeStartThread();
         }
 
         public void loadTargetLatLon(object sender,MAVLink.MAVLinkMessage packet)
@@ -864,6 +865,7 @@ namespace XagSurveillanceGCS.GCSViews
             base.Dispose(disposing);
 
             MainV2.comPort.logreadmode = false;
+            this.GNSSModeStop = false;
             try
             {
                 if (hud1 != null)
@@ -6785,6 +6787,52 @@ namespace XagSurveillanceGCS.GCSViews
                 GimbalConnectStopThread();
             }
         }
+        private Thread GNSSModeThread;
+        private bool GNSSModeStop = false;
+
+        public void GNSSModeStartThread()
+        {
+            GNSSModeStop = true;
+            GNSSModeThread = new Thread(() =>
+            {
+                while (GNSSModeStop)
+                {
+                    try
+                    {
+                        // Run the async task synchronously (on a thread, this is OK)
+                        CurrentGNSSOperatingMode();
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine("❌ Thread error: " + ex.Message);
+                    }
+
+                    Thread.Sleep(1000); // Delay between updates (in milliseconds)
+                }
+            });
+            GNSSModeThread.IsBackground = true;
+            GNSSModeThread.Start();
+        }
+
+        public void GNSSModeStopThread()
+        {
+            GNSSModeStop = false;
+
+            if (GNSSModeThread != null && GNSSModeThread.IsAlive)
+            {
+                GNSSModeThread.Join(); 
+                GNSSModeThread = null;
+            } 
+        }
+
+        // public void GNSSModeStatus()
+        // {
+        //     while(GNSSModeStop)
+        //     {
+        //         CurrentGNSSOperatingMode();
+        //     }
+        // }
+
 
         public void SendCommand(byte[] command)
         {
@@ -7689,17 +7737,41 @@ namespace XagSurveillanceGCS.GCSViews
             uint statusValue = MainV2.comPort.MAV.cs.eahrsStatusValue4;
             if (statusValue == (uint)MAVLink.ILABS_EAHRS_GPS_FIX_STATUS.NO)
             {
-                Console.WriteLine("GPS No fix");
+                Console.WriteLine("INS Mode");
+                if (this._baseCameraController.GnssModeStatus.InvokeRequired){
+                    this._baseCameraController.GnssModeStatus.Invoke((MethodInvoker)delegate
+                    {
+                        this._baseCameraController.GnssModeStatus.Text = "GNSS Mode: INS";
+                    });
+                }else{
+                    this._baseCameraController.GnssModeStatus.Text = "GNSS Mode: INS";
+                }
             }
             else if (statusValue == (uint)MAVLink.ILABS_EAHRS_GPS_FIX_STATUS.FIX_2D ||
                  statusValue == (uint)MAVLink.ILABS_EAHRS_GPS_FIX_STATUS.FIX_3D ||
                  statusValue == (uint)MAVLink.ILABS_EAHRS_GPS_FIX_STATUS.OTHER)
             {
-                Console.WriteLine("GPS Fix");
+                Console.WriteLine("GNSS Mode");
+                if (this._baseCameraController.GnssModeStatus.InvokeRequired){
+                    this._baseCameraController.GnssModeStatus.Invoke((MethodInvoker)delegate
+                    {
+                        this._baseCameraController.GnssModeStatus.Text = "GNSS Mode: GNSS Receiver";
+                    });
+                }else{
+                    this._baseCameraController.GnssModeStatus.Text = "GNSS Mode: GNSS Receiver";
+                }
             }
             else
             {
-                Console.WriteLine("GPS Error");
+                Console.WriteLine("Unknown GNSS Mode");
+                if (this._baseCameraController.GnssModeStatus.InvokeRequired){
+                    this._baseCameraController.GnssModeStatus.Invoke((MethodInvoker)delegate
+                    {
+                        this._baseCameraController.GnssModeStatus.Text = "GNSS Mode: Unknown";
+                    });
+                }else{
+                    this._baseCameraController.GnssModeStatus.Text = "GNSS Mode: Unknown";
+                }
             }
         }
     }

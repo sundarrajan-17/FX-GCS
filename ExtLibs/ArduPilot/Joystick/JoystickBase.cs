@@ -1016,7 +1016,19 @@ namespace XagSurveillanceGCS.Joystick
             };
             t11.Start();
 
+            JoyChannels[1].axis = joystickaxis.Z;
+            JoyChannels[2].axis = joystickaxis.Rz;
+            JoyChannels[3].axis = joystickaxis.Y;
+            JoyChannels[4].axis = joystickaxis.X;
+
+            JoyChannels[3].reverse = true;
+
             Console.WriteLine("Joystick started");
+
+            Console.WriteLine("Joystick axis 1: " + JoyChannels[1].axis);
+            Console.WriteLine("Joystick axis 2: " + JoyChannels[2].axis);
+            Console.WriteLine("Joystick axis 3: " + JoyChannels[3].axis.ToString() + " " + JoyChannels[3].reverse);
+            Console.WriteLine("Joystick axis 4: " + JoyChannels[4].axis);
 
             return true;
         }

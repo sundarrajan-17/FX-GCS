@@ -11,6 +11,7 @@ namespace XagSurveillanceGCS.Controls
         public System.Windows.Forms.Label TargetDistance;
         public System.Windows.Forms.Label DooafX;
         public System.Windows.Forms.Label DooafY;
+        public System.Windows.Forms.Label GnssModeStatus;
 
         protected override void Dispose(bool disposing)
         {
@@ -28,6 +29,7 @@ namespace XagSurveillanceGCS.Controls
             this.TargetDistance = new System.Windows.Forms.Label();
             this.DooafX = new System.Windows.Forms.Label();
             this.DooafY = new System.Windows.Forms.Label();
+            this.GnssModeStatus = new System.Windows.Forms.Label();
 
             // Label
             this.lblCamera.Text = "Camera Type:";
@@ -63,7 +65,14 @@ namespace XagSurveillanceGCS.Controls
             this.DooafY.Text = "DOOAFY: 0.00 m";
             this.DooafY.ForeColor = System.Drawing.Color.White;
             this.DooafY.Location = new System.Drawing.Point(240,12);
-            this.DooafY.Size = new System.Drawing.Size(250, 20);
+            // this.DooafY.Size = new System.Drawing.Size(250, 20);
+
+            // GnssModeStatus
+            this.GnssModeStatus.Name = "GnssModeStatus";
+            this.GnssModeStatus.Text = "GNSS Mode: Unknown";
+            this.GnssModeStatus.ForeColor = System.Drawing.Color.White;
+            this.GnssModeStatus.Location = new System.Drawing.Point(360, 12);
+            this.GnssModeStatus.Size = new System.Drawing.Size(200, 20);
 
             // Camera Host Panel
             this.pnlCameraHost.Location = new System.Drawing.Point(10, 40);
@@ -74,6 +83,7 @@ namespace XagSurveillanceGCS.Controls
             this.Controls.Add(this.DooafX);
             this.Controls.Add(this.DooafY);
             this.Controls.Add(this.TargetDistance);
+            this.Controls.Add(this.GnssModeStatus);
             this.Controls.Add(this.pnlCameraHost);
 
             this.Size = new System.Drawing.Size(600, 320);

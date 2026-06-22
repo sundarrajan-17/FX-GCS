@@ -37,7 +37,7 @@ namespace XagSurveillanceGCS
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(447, 310);
+            this.label1.Location = new System.Drawing.Point(470, 180);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(113, 13);
             this.label1.TabIndex = 0;
@@ -49,7 +49,7 @@ namespace XagSurveillanceGCS
             // 
             this.TXT_version.BackColor = System.Drawing.Color.Transparent;
             this.TXT_version.ForeColor = System.Drawing.Color.White;
-            this.TXT_version.Location = new System.Drawing.Point(403, 290);
+            this.TXT_version.Location = new System.Drawing.Point(425, 160);
             this.TXT_version.Name = "TXT_version";
             this.TXT_version.Size = new System.Drawing.Size(155, 25);
             this.TXT_version.TabIndex = 1;
@@ -59,7 +59,7 @@ namespace XagSurveillanceGCS
             // txtUsername
             this.txtUsername.BackColor = System.Drawing.Color.Black;
             this.txtUsername.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(193)))), ((int)(((byte)(78)))));;
-            this.txtUsername.Location = new System.Drawing.Point(250, 100);
+            this.txtUsername.Location = new System.Drawing.Point(200, 80);
             this.txtUsername.Text = "XAGGCS";
             // this.txtUsername.ForeColor = Color.Gray;
             this.txtUsername.Enter += new System.EventHandler(this.txtUsername_Enter);
@@ -70,7 +70,7 @@ namespace XagSurveillanceGCS
             // txtPassword
             this.txtPassword.BackColor = System.Drawing.Color.Black;
             this.txtPassword.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(193)))), ((int)(((byte)(78)))));;
-            this.txtPassword.Location = new System.Drawing.Point(100, 145);
+            this.txtPassword.Location = new System.Drawing.Point(200, 125);
             this.txtPassword.Text = "xag@12345";
             // this.txtPassword.ForeColor = Color.Gray;
             this.txtPassword.Enter += new System.EventHandler(this.txtPassword_Enter);
@@ -83,7 +83,7 @@ namespace XagSurveillanceGCS
             this.btnLogin.BackColor = System.Drawing.Color.Black;
             this.btnLogin.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(193)))), ((int)(((byte)(78)))));;
             // this.btnLogin. = System.Drawing.Color.Transparent;
-            this.btnLogin.Location = new System.Drawing.Point(150, 180);
+            this.btnLogin.Location = new System.Drawing.Point(250, 160);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(100, 30);
             this.btnLogin.TabIndex = 2;
