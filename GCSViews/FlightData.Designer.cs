@@ -63,6 +63,7 @@ namespace XagSurveillanceGCS.GCSViews
             this.BUT_ARM = new XagSurveillanceGCS.Controls.MyButton();
             this.BUT_mountmode = new XagSurveillanceGCS.Controls.MyButton();
             this.BUT_joystick = new XagSurveillanceGCS.Controls.MyButton();
+            this.BUT_joystick_gimbal = new XagSurveillanceGCS.Controls.MyButton();
             this.BUT_RAWSensor = new XagSurveillanceGCS.Controls.MyButton();
             this.BUT_Homealt = new XagSurveillanceGCS.Controls.MyButton();
             this.BUTrestartmission = new XagSurveillanceGCS.Controls.MyButton();
@@ -765,7 +766,7 @@ namespace XagSurveillanceGCS.GCSViews
             this.tableLayoutPanel1.Controls.Add(this.modifyandSetSpeed, 3, 0);
             this.tableLayoutPanel1.Controls.Add(this.CMB_setwp, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.BUT_ARM, 3, 3);
-            // this.tableLayoutPanel1.Controls.Add(this.BUT_mountmode, 1, 3);
+            this.tableLayoutPanel1.Controls.Add(this.BUT_joystick_gimbal, 1, 3);
             this.tableLayoutPanel1.Controls.Add(this.BUT_joystick, 0, 3);
             // this.tableLayoutPanel1.Controls.Add(this.BUT_RAWSensor, 3, 2);
             // this.tableLayoutPanel1.Controls.Add(this.BUT_Homealt, 3, 0);
@@ -979,6 +980,17 @@ namespace XagSurveillanceGCS.GCSViews
             this.toolTip1.SetToolTip(this.BUT_joystick, resources.GetString("BUT_joystick.ToolTip"));
             this.BUT_joystick.UseVisualStyleBackColor = true;
             this.BUT_joystick.Click += new System.EventHandler(this.BUT_joystick_Click);
+            //
+            // BUT_joystick_gimbal
+            //
+            this.BUT_joystick_gimbal.BGGradTop = System.Drawing.Color.Red;
+            this.BUT_joystick_gimbal.BGGradBot = System.Drawing.Color.Red;
+            resources.ApplyResources(this.BUT_joystick_gimbal, "BUT_joystick_gimbal");
+            this.BUT_joystick_gimbal.Name = "BUT_joystick_gimbal";
+            // this.BUT_joystick.TextColorNotEnabled = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(87)))), ((int)(((byte)(4)))));
+            this.toolTip1.SetToolTip(this.BUT_joystick_gimbal, resources.GetString("BUT_joystick_gimbal.ToolTip"));
+            this.BUT_joystick_gimbal.UseVisualStyleBackColor = true;
+            this.BUT_joystick_gimbal.Click += new System.EventHandler(this.BUT_joystick_gimbal_Click);
             // 
             // BUT_RAWSensor
             // 
@@ -3100,6 +3112,7 @@ namespace XagSurveillanceGCS.GCSViews
         private Controls.MyButton BUT_quickauto;
         private Controls.MyButton BUT_log2kml;
         public Controls.MyButton BUT_joystick;
+        public Controls.MyButton BUT_joystick_gimbal;
         private System.Windows.Forms.ToolTip toolTip1;
         private Label lbl_logpercent;
         private System.Windows.Forms.ToolStripMenuItem pointCameraHereToolStripMenuItem;

@@ -43,8 +43,7 @@ namespace XagSurveillanceGCS.Controls
 
             // ---- ADD SETTINGS ----
             AddCombo("Camera", new[] { "R1", "R2", "R3" });
-            // AddCombo("Thermal View Mode", new[] { "None","Full", "Picture-In-Picture", "Blend" });
-            // AddSlider("Blend Opacity", 0, 100, 30);
+            AddCombo("Camera Mode", new[] {"Photo","Video"});
             AddCombo("Camera EV", new[] {"-4.5","-3", "-1.5", "0", "+1.5", "+3","4.5"});
             AddCombo("White Balance", new[] { "Auto", "Indoor", "Outdoor", "OnePushWB", "ATW", "Manual", "OutdoorAuto", "SodiumLampAuto", "SodiumLamp", "SodiumLampOutdoorAuto"});
             AddToggle("High Sensitivity", (bool)this._parentControl.cameraSettings["EO_HS"] == false ? false : true);
@@ -57,6 +56,7 @@ namespace XagSurveillanceGCS.Controls
             // AddSlider("Gimbal Speed", 0, 100, 40);
             AddCombo("Yaw Mode", new[] { "Head", "Global" });
             AddCombo("Track Algorithm", new[] { "None", "OSTrack", "Nano", "SiamRPN" });
+            AddToggle("Track AutoZoom", (bool)_parentControl.cameraSettings["TRACK_AUTOZOOM"]);
             AddCombo("Smart Select",new[] {"None","Yolo11","Yolo26","Yolov8"});
             AddCombo("AI Resolution", new[] {"640X480","1280X720","1920X1080"});
             AddToggle("AI OSD", (bool)this._parentControl.cameraSettings["AI_OSD"] == false ? false : true);
@@ -78,6 +78,7 @@ namespace XagSurveillanceGCS.Controls
             table.RowCount = 0;
 
             AddCombo("Camera", new[] { "R1", "R2", "R3" });
+            AddCombo("Camera Mode", new[] {"Photo","Video"});
             AddCombo("Camera EV", new[] {"-4.5","-3", "-1.5", "0", "+1.5", "+3","4.5"});
             AddCombo("White Balance", new[] { "Auto", "Indoor", "Outdoor", "OnePushWB", "ATW", "Manual", "OutdoorAuto", "SodiumLampAuto", "SodiumLamp", "SodiumLampOutdoorAuto" });
             AddToggle("High Sensitivity", (bool)_parentControl.cameraSettings["EO_HS"]);
@@ -88,6 +89,7 @@ namespace XagSurveillanceGCS.Controls
             AddCombo("Infrared Palette", new[] { "White Hot","Sepia","Ironbow","Rainbow","Night","Aurora","Red Hot","Jungle","Medical","Black Hot","Glory Hot" });
             AddCombo("Yaw Mode", new[] { "Head", "Global" });
             AddCombo("Track Algorithm", new[] { "None", "OSTrack", "Nano", "SiamRPN" });
+            AddToggle("Track AutoZoom", (bool)_parentControl.cameraSettings["TRACK_AUTOZOOM"]);
             AddCombo("Smart Select", new[] {"None","Yolo11","Yolo26","Yolov8"});
             AddCombo("AI Resolution", new[] {"640X480","1280X720","1920X1080"});
             AddToggle("AI OSD", (bool)_parentControl.cameraSettings["AI_OSD"]);
@@ -116,18 +118,16 @@ namespace XagSurveillanceGCS.Controls
                 source = "ir";
             }
             string text = "AI_SOURCE";
-            byte[] id_bytes = new byte[16];
-            byte[] text_bytes = Encoding.ASCII.GetBytes(text);
-            // Array.Copy(text_bytes, 0, id_bytes, 0, Math.Min(text_bytes.Length, id_bytes.Length));
-            // byte[] value_bytes = new byte[128];
-            byte[] source_bytes = Encoding.ASCII.GetBytes(source);
-            // Array.Copy(source_bytes, 0, value_bytes, 0, Math.Min(source_bytes.Length, value_bytes.Length));
+            byte[] id_bytes = Encoding.ASCII.GetBytes(text);
+            byte[] paramValue = new byte[128];
+            byte[] valueBytes = Encoding.ASCII.GetBytes(source);
+            Array.Copy(valueBytes, paramValue, Math.Min(valueBytes.Length, paramValue.Length));
 
             var msg = new MAVLink.mavlink_param_ext_set_t();
             msg.target_system = (byte)MainV2.comPort.sysidcurrent;
             msg.target_component = (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_CAMERA;
             msg.param_id = id_bytes;
-            msg.param_value = source_bytes;
+            msg.param_value = paramValue;
             msg.param_type = 11;
 
             MainV2.comPort.sendPacket(
@@ -343,17 +343,17 @@ namespace XagSurveillanceGCS.Controls
         private void ApplyTrackAlgorithm(string algorithm)
         {
             Console.WriteLine($"Applying Track Algorithm: {algorithm}");
-            // Example: call your Gremsy / Viewpro / MAVLink command to set tracking algorithm
-            // _parentControl.SetTrackAlgorithm(algorithm);
             string text = "TRACK_ALGORITHM";
             byte[] id_bytes = Encoding.ASCII.GetBytes(text);
-            byte[] value_bytes = Encoding.ASCII.GetBytes(algorithm);
+            byte[] paramValue = new byte[128];
+            byte[] valueBytes = Encoding.ASCII.GetBytes(algorithm);
+            Array.Copy(valueBytes, paramValue, Math.Min(valueBytes.Length, paramValue.Length));
 
             var msg = new MAVLink.mavlink_param_ext_set_t();
             msg.target_system = (byte)MainV2.comPort.sysidcurrent;
             msg.target_component = (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_CAMERA;
             msg.param_id = id_bytes;
-            msg.param_value = value_bytes;
+            msg.param_value = paramValue;
             msg.param_type = 11;
 
             MainV2.comPort.sendPacket(
@@ -366,17 +366,17 @@ namespace XagSurveillanceGCS.Controls
         private void ApplySmartSelect(string option)
         {
             Console.WriteLine($"Applying Smart Select: {option}");
-            // Example: call your Gremsy / Viewpro / MAVLink command to set smart select option
-            // _parentControl.SetSmartSelect(option);
             string text = "SMART_SELECT";
             byte[] id_bytes = Encoding.ASCII.GetBytes(text);
-            byte[] value_bytes = Encoding.ASCII.GetBytes(option);
+            byte[] paramValue = new byte[128];
+            byte[] valueBytes = Encoding.ASCII.GetBytes(option);
+            Array.Copy(valueBytes, paramValue, Math.Min(valueBytes.Length, paramValue.Length));
 
             var msg = new MAVLink.mavlink_param_ext_set_t();
             msg.target_system = (byte)MainV2.comPort.sysidcurrent;
             msg.target_component = (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_CAMERA;
             msg.param_id = id_bytes;
-            msg.param_value = value_bytes;
+            msg.param_value = paramValue;
             msg.param_type = 11;
 
             MainV2.comPort.sendPacket(
@@ -466,6 +466,18 @@ namespace XagSurveillanceGCS.Controls
             );
         }
 
+        private void ApplyCameraMode(int camera_mode)
+        {
+            if(camera_mode == 0)
+            {
+                this._parentControl._parentController._flightData.GremsySwitchCameraModeToPhoto();
+            }
+            else if(camera_mode == 1)
+            {
+                this._parentControl._parentController._flightData.GremsySwitchCameraModeToVideo();
+            }
+        }
+
         private void Combo_SelectedIndexChanged(object sender, EventArgs e)
         {
             ComboBox cmb = (ComboBox)sender;
@@ -519,6 +531,9 @@ namespace XagSurveillanceGCS.Controls
             }else if(settingName == "Track Mode")
             {
                 ApplyTrackMode(index+=2);
+            }else if(settingName == "Camera Mode")
+            {
+                ApplyCameraMode(index);
             }
         }
         // ---------- Helpers ----------
@@ -564,6 +579,9 @@ namespace XagSurveillanceGCS.Controls
             }else if(settingName == "RangeFinder")
             {
                 ApplyCheckBoxChangeCommon("TOF_EN",value);
+            }else if(settingName == "Track AutoZoom")
+            {
+                ApplyCheckBoxChangeCommon("TRACK_AUTOZOOM",value);
             }
         }
 
@@ -614,8 +632,10 @@ namespace XagSurveillanceGCS.Controls
             }else if(label == "Track Mode")
             {
                 cb.SelectedIndex = (int)this._parentControl.cameraSettings["TRACK_MODE"] == 2 ? 0 : 1;
-            }
-            else
+            }else if(label == "Camera Mode")
+            {
+                cb.SelectedIndex = this._parentControl.current_camera_mode;
+            }else
             {
                 cb.SelectedIndex = 0;
             }
@@ -665,6 +685,12 @@ namespace XagSurveillanceGCS.Controls
             AddRow(MakeLabel(label), tb);
         }
 
+        private void btnResetSettings_Click(object sender, EventArgs e)
+        {
+            MainV2.comPort.doCommand((byte)MainV2.comPort.sysidcurrent, (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_CAMERA,
+                    MAVLink.MAV_CMD.RESET_CAMERA_SETTINGS, (float)1.0, 0,0 , 0, 0, 0,0,false);
+        }
+
         private void AddButton(string text)
         {
             Button btn = new Button
@@ -677,6 +703,8 @@ namespace XagSurveillanceGCS.Controls
             };
 
             btn.FlatAppearance.BorderSize = 0;
+
+            btn.Click+=new System.EventHandler(btnResetSettings_Click);
 
             AddRow(new Label(), btn);
         }

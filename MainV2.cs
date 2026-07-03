@@ -1876,6 +1876,7 @@ namespace XagSurveillanceGCS
             else
             {
                 doConnect(comPort, _connectionControl.CMB_serialport.Text, _connectionControl.CMB_baudrate.Text);
+                // doConnect(comPort,"UDP","115200");
             }
 
             _connectionControl.UpdateSysIDS();
@@ -2274,6 +2275,21 @@ namespace XagSurveillanceGCS
                                 FlightData.BUT_joystick.BGGradTop = System.Drawing.Color.Green;
                                 FlightData.BUT_joystick.BGGradBot = System.Drawing.Color.Green;
                             }
+                            if (FlightData.BUT_joystick_gimbal.InvokeRequired)
+                            {
+                                FlightData.BUT_joystick_gimbal.Invoke((MethodInvoker)delegate
+                                {
+                                    FlightData.BUT_joystick_gimbal.Text = "Gimbal JoyStick OFF";
+                                    FlightData.BUT_joystick_gimbal.BGGradTop = System.Drawing.Color.Red;
+                                    FlightData.BUT_joystick_gimbal.BGGradBot = System.Drawing.Color.Red;
+                                });
+                            }
+                            else
+                            {
+                                FlightData.BUT_joystick_gimbal.Text = "Gimbal JoyStick OFF";
+                                FlightData.BUT_joystick_gimbal.BGGradTop = System.Drawing.Color.Red;
+                                FlightData.BUT_joystick_gimbal.BGGradBot = System.Drawing.Color.Red;
+                            }
                             if (!joystick.manual_control)
                             {
                                 MAVLink.mavlink_rc_channels_override_t
@@ -2409,43 +2425,58 @@ namespace XagSurveillanceGCS
                             }
                             else
                             {
-                                MAVLink.mavlink_manual_control_t rc = new MAVLink.mavlink_manual_control_t();
-
-                                rc.target = comPort.MAV.compid;
-
-                                if (joystick.getJoystickAxis(1) != Joystick.joystickaxis.None)
-                                    rc.x = MainV2.comPort.MAV.cs.rcoverridech1;
-                                if (joystick.getJoystickAxis(2) != Joystick.joystickaxis.None)
-                                    rc.y = MainV2.comPort.MAV.cs.rcoverridech2;
-                                if (joystick.getJoystickAxis(3) != Joystick.joystickaxis.None)
-                                    rc.z = MainV2.comPort.MAV.cs.rcoverridech3;
-                                if (joystick.getJoystickAxis(4) != Joystick.joystickaxis.None)
-                                    rc.r = MainV2.comPort.MAV.cs.rcoverridech4;
-
-                                if (lastjoystick.AddMilliseconds(rate) < DateTime.Now)
+                                if (FlightData.BUT_joystick_gimbal.InvokeRequired)
                                 {
-                                    if (!comPort.BaseStream.IsOpen)
-                                        continue;
-
-                                    if (comPort.BaseStream.BytesToWrite < 50)
+                                    FlightData.BUT_joystick_gimbal.Invoke((MethodInvoker)delegate
                                     {
-                                        if (sitl)
-                                        {
-                                            XagSurveillanceGCS.GCSViews.SITL.rcinput();
-                                        }
-                                        else
-                                        {
-                                            comPort.sendPacket(rc, comPort.MAV.sysid, comPort.MAV.compid);
-                                        }
-
-                                        count++;
-                                        lastjoystick = DateTime.Now;
-                                    }
+                                        FlightData.BUT_joystick_gimbal.Text = "Gimbal JoyStick ON";
+                                        FlightData.BUT_joystick_gimbal.BGGradTop = System.Drawing.Color.Green;
+                                        FlightData.BUT_joystick_gimbal.BGGradBot = System.Drawing.Color.Green;
+                                    });
                                 }
-                                // double camera_pitch = (double) MainV2.comPort.MAV.cs.rcoverridech3/1000.0;
-                                // double camera_yaw = (double) MainV2.comPort.MAV.cs.rcoverridech4/1000.0;
-                                // double camera_zoom = (double) -MainV2.comPort.MAV.cs.rcoverridech2/1000.0;
-                                // FlightData.DoJoystickCommandsToGimbal(camera_pitch, camera_yaw, camera_zoom);
+                                else
+                                {
+                                    FlightData.BUT_joystick_gimbal.Text = "Gimbal JoyStick ON";
+                                    FlightData.BUT_joystick_gimbal.BGGradTop = System.Drawing.Color.Green;
+                                    FlightData.BUT_joystick_gimbal.BGGradBot = System.Drawing.Color.Green;
+                                }
+                                // MAVLink.mavlink_manual_control_t rc = new MAVLink.mavlink_manual_control_t();
+
+                                // rc.target = comPort.MAV.compid;
+
+                                // if (joystick.getJoystickAxis(1) != Joystick.joystickaxis.None)
+                                //     rc.x = MainV2.comPort.MAV.cs.rcoverridech1;
+                                // if (joystick.getJoystickAxis(2) != Joystick.joystickaxis.None)
+                                //     rc.y = MainV2.comPort.MAV.cs.rcoverridech2;
+                                // if (joystick.getJoystickAxis(3) != Joystick.joystickaxis.None)
+                                //     rc.z = MainV2.comPort.MAV.cs.rcoverridech3;
+                                // if (joystick.getJoystickAxis(4) != Joystick.joystickaxis.None)
+                                //     rc.r = MainV2.comPort.MAV.cs.rcoverridech4;
+
+                                // if (lastjoystick.AddMilliseconds(rate) < DateTime.Now)
+                                // {
+                                //     if (!comPort.BaseStream.IsOpen)
+                                //         continue;
+
+                                //     if (comPort.BaseStream.BytesToWrite < 50)
+                                //     {
+                                //         if (sitl)
+                                //         {
+                                //             XagSurveillanceGCS.GCSViews.SITL.rcinput();
+                                //         }
+                                //         else
+                                //         {
+                                //             comPort.sendPacket(rc, comPort.MAV.sysid, comPort.MAV.compid);
+                                //         }
+
+                                //         count++;
+                                //         lastjoystick = DateTime.Now;
+                                //     }
+                                // }
+                                double camera_pitch = (double) MainV2.comPort.MAV.cs.rcoverridech3/1000.0;
+                                double camera_yaw = (double) MainV2.comPort.MAV.cs.rcoverridech4/1000.0;
+                                double camera_zoom = (double) -MainV2.comPort.MAV.cs.rcoverridech2/1000.0;
+                                FlightData.DoJoystickCommandsToGimbal(camera_pitch, camera_yaw, camera_zoom);
                             }
                         }
                         else

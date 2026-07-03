@@ -28205,8 +28205,7 @@ public partial class MAVLink
             this.time_boot_ms = time_boot_ms;
             this.mode_id = mode_id;
             this.zoomLevel = zoomLevel;
-            this.focusLevel = focusLevel;
-            
+            this.focusLevel = focusLevel;  
         }
         
         /// packet xml order

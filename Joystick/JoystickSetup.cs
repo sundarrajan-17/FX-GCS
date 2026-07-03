@@ -90,11 +90,6 @@ namespace XagSurveillanceGCS.Joystick
 
                 ax.Detect = () => JoystickBase.getMovingAxis(CMB_joysticks.Text, 16000).ToString();
                 ax.Reverse = () => MainV2.joystick?.setReverse(ax.ChannelNo, ax.ReverseValue);
-                if (a == 1)
-                {
-                  ax.SetAxis = () => MainV2.joystick?.setAxis(ax.ChannelNo,
-                    (joystickaxis)Enum.Parse(typeof(joystickaxis), ax.ChannelValue));  
-                }
                 ax.SetAxis = () => MainV2.joystick?.setAxis(ax.ChannelNo,
                     (joystickaxis)Enum.Parse(typeof(joystickaxis), ax.ChannelValue));
                 ax.GetValue = () =>

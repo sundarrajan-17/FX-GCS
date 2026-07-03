@@ -165,7 +165,7 @@ namespace XagSurveillanceGCS.Controls
             Console.WriteLine($"Joystick Updated: X={XValue:F2}, Y={YValue:F2}");
             if(this._parentControl.SelectedCamera == "XAGCAM2")
             {     
-                this._parentControl._flightData.GremsyControlPitchYaw(XValue/0.5, YValue/0.5);
+                this._parentControl._flightData.GremsyControlPitchYaw(XValue*0.5, YValue*0.5);
             }
             else
             {

@@ -27,12 +27,14 @@ namespace XagSurveillanceGCS.Controls
             {
                 { "XAGCAM1", () => new XagCamControl(this) },
                 { "XAGCAM2", () => new GremsyControl(this) },
+                { "XAGCAM3", () => new GremsyVioControl(this) },
             };
 
             cmbCameraSelect.Items.AddRange(new object[]
             {
                 "XAGCAM1",
                 "XAGCAM2",
+                "XAGCAM3"
             });
 
             cmbCameraSelect.SelectedIndex = 1;

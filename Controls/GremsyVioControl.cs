@@ -10,17 +10,13 @@ using System.Windows.Forms;
 
 namespace XagSurveillanceGCS.Controls
 {
-    public partial class GremsyControl : UserControl
+    public partial class GremsyVioControl : UserControl
     {
         public BaseCameraController _parentController;
         private VirtualJoystick _virtualJoystick;
         private float camera_Storage = 0.0f;
         private bool zoomInActive = false;
         private bool zoomOutActive = false;
-
-        public int current_camera_mode = 0;
-
-        private float IR_CurrentZoom = 1.0f;
         // private int EO_EV = 0;
         // private int EO_WB = 0;
         // private int EO_HS = 0;
@@ -72,7 +68,6 @@ namespace XagSurveillanceGCS.Controls
             // ===== Tracking =====
             { "TRACK_GAIN", 50 },                   // int32
             { "TRACK_ALGORITHM", "None" },          // string
-            { "TRACK_AUTOZOOM", false },             // bool
             { "SMART_SELECT", "None" },             // string
             // { "TRACK_PLUGINS", "" },                // readonly string
             // { "DETECT_PLUGINS", "" },               // readonly string
@@ -95,8 +90,6 @@ namespace XagSurveillanceGCS.Controls
             // { "JSON_TR_REQ", "" },                  // readonly string
             { "CAM_FLIP", false },                  // bool
             { "TOF_EN", false },                    // bool
-            {"TRACK_MODE",0},
-            {"MERGE_DISPLAY",0}
 
             // ===== Detection =====
             // { "DETECT_OBJECTS", "" },               // readonly custom
@@ -105,18 +98,15 @@ namespace XagSurveillanceGCS.Controls
         // this.cameraSettings["EO_EV"] = 0;
         // cameraSettings["EO_WB"] = 0;
 
-        public GremsyControl(BaseCameraController parentController)
+        public GremsyVioControl(BaseCameraController parentController)
         {
             InitializeComponent();
             this._parentController = parentController;
             this._virtualJoystick = new VirtualJoystick(this._parentController);
             this.tableLayoutPanel1.Controls.Add(this._virtualJoystick,0,0);
-            this.tableLayoutPanel4.Controls.Add(this.ZoomInButton,0,0);
-            this.tableLayoutPanel4.Controls.Add(this.ZoomOutButton,0,1);
-            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel4,1,0);
+            this.tableLayoutPanel1.Controls.Add(this.trackZoom,1,0);
             this.parentTableLayoutPanel.Controls.Add(this.tableLayoutPanel1,1,0);
             MainV2.comPort.OnPacketReceived += LoadCameraParameters;
-            // this._parentController._flightData.GremsySwitchCameraModeToPhoto();
         }
 
         public void LoadCameraParameters(object sender,MAVLink.MAVLinkMessage packet)
@@ -125,15 +115,13 @@ namespace XagSurveillanceGCS.Controls
             {
                 case (uint)MAVLink.MAVLINK_MSG_ID.STORAGE_INFORMATION:
                     var storagestatus = packet.ToStructure<MAVLink.mavlink_storage_information_t>();
-                    Console.WriteLine("Storage Status" + storagestatus.available_capacity + " " +storagestatus.total_capacity);
+                    // Console.WriteLine("Storage Status" + storagestatus.available_capacity + " " +storagestatus.total_capacity);
                     this.camera_Storage = storagestatus.available_capacity;
-                    Console.WriteLine("Camera Storage "+this.camera_Storage);
+                    // Console.WriteLine("Camera Storage "+this.camera_Storage);
                     break; 
                 case (uint)MAVLink.MAVLINK_MSG_ID.CAMERA_SETTINGS:
                     var camerasettings = packet.ToStructure<MAVLink.mavlink_camera_settings_t>();
-                    int decodedcameramode = camerasettings.mode_id;
-                    this.current_camera_mode = decodedcameramode;
-                    Console.WriteLine("Camera Settings" + this.current_camera_mode + " " +camerasettings.zoomLevel);
+                    // Console.WriteLine("Camera Settings" + camerasettings.mode_id + " " +camerasettings.zoomLevel);
                     break;
                 case (uint)MAVLink.MAVLINK_MSG_ID.PARAM_EXT_VALUE:
 
@@ -185,7 +173,6 @@ namespace XagSurveillanceGCS.Controls
 
                     if(paramName == "IR_ZOOM")
                     {
-                        IR_CurrentZoom = (float)decodedValue;
                         foreach (var item in cameraSettings)
                         {
                             Console.WriteLine($"{item.Key} : {item.Value}");
@@ -193,87 +180,36 @@ namespace XagSurveillanceGCS.Controls
                     }
                     // 4️⃣ Print clean output
                     Console.WriteLine($"Updated {paramName} → {decodedValue}");
+
                     break;
-                case (uint)MAVLink.MAVLINK_MSG_ID.CAMERA_TRACKING_GEO_STATUS:
-                    var camGeoStatus = packet.ToStructure<MAVLink.mavlink_camera_tracking_geo_status_t>();
-                    Console.WriteLine("Camera Geo Status {0} {1} {2}",camGeoStatus.tracking_status,camGeoStatus.lat,camGeoStatus.dist);
-                    break; 
                 default:
                     break;   
             } 
         }
-        private void BtnIrZoomPlus_Click(object sender, EventArgs e)
-        {
-            string text = "IR_ZOOM";
-            byte[] id_bytes = Encoding.ASCII.GetBytes(text);
-            float value = IR_CurrentZoom + (float)0.2;
-            if(value >= 1.0 && value <= 2.0)
-            {
-                byte[] value_bytes = BitConverter.GetBytes(value);
-                var msg = new MAVLink.mavlink_param_ext_set_t();
-                msg.target_system = (byte)MainV2.comPort.sysidcurrent;
-                msg.target_component = (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_CAMERA;
-                msg.param_id = id_bytes;
-                msg.param_value = value_bytes;
-                msg.param_type = 9;
-
-                MainV2.comPort.sendPacket(
-                    msg,
-                    (byte)MainV2.comPort.sysidcurrent,
-                    (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_CAMERA
-                );
-                IR_CurrentZoom = value;
-            }
-            // MAVLink.MAV_PARAM_TYPE param_type = MAVLink.MAV_PARAM_TYPE.MAV_PARAM_TYPE_UINT8;
-        }
-        private void BtnIrZoomMinus_Click(object sender, EventArgs e)
-        {
-            string text = "IR_ZOOM";
-            byte[] id_bytes = Encoding.ASCII.GetBytes(text);
-            float value = IR_CurrentZoom - (float)0.2;
-            if(value >= 1.0 && value <= 2.0)
-            {
-                byte[] value_bytes = BitConverter.GetBytes(value);
-                var msg = new MAVLink.mavlink_param_ext_set_t();
-                msg.target_system = (byte)MainV2.comPort.sysidcurrent;
-                msg.target_component = (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_CAMERA;
-                msg.param_id = id_bytes;
-                msg.param_value = value_bytes;
-                msg.param_type = 9;
-
-                MainV2.comPort.sendPacket(
-                    msg,
-                    (byte)MainV2.comPort.sysidcurrent,
-                    (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_CAMERA
-                );
-                IR_CurrentZoom = value;
-            }
-            // MAVLink.MAV_PARAM_TYPE param_type = MAVLink.MAV_PARAM_TYPE.MAV_PARAM_TYPE_UINT8;
-        }
         private void TrackZoom_ValueChanged(object sender, EventArgs e)
         {
-            if (trackZoom.Value > 25)
+            if (trackZoom.Value > 10)
             {
                 if (!zoomInActive)
                 {
                     // SendZoomIn();
-                    this._parentController._flightData.GremsyZoomIn();
+                    this._parentController._flightData.GremsyVioZoomIn();
                     zoomInActive = true;
                     zoomOutActive = false;
                 }
             }
-            else if (trackZoom.Value < -25)
+            else if (trackZoom.Value < -10)
             {
                 if (!zoomOutActive)
                 {
-                    this._parentController._flightData.GremsyZoomOut();
+                    this._parentController._flightData.GremsyVioZoomOut();
                     zoomOutActive = true;
                     zoomInActive = false;
                 }
             }
             else
             {
-                this._parentController._flightData.GremsyZoomStop();
+                this._parentController._flightData.GremsyVioZoomStop();
                 zoomInActive = false;
                 zoomOutActive = false;
             }
@@ -284,33 +220,16 @@ namespace XagSurveillanceGCS.Controls
             trackZoom.Value = 0;
 
             // Stop zoom motor
-            this._parentController._flightData.GremsyZoomStop();
+            this._parentController._flightData.GremsyVioZoomStop();
 
             zoomInActive = false;
             zoomOutActive = false;
         }
-
-        private void BtnZoomIn_MouseDown(object sender, MouseEventArgs e)
-        {
-            this._parentController._flightData.GremsyZoomIn();
-        }
-        private void BtnZoomIn_MouseUp(object sender, MouseEventArgs e)
-        {
-            this._parentController._flightData.GremsyZoomStop();
-        }
-        private void BtnZoomOut_MouseDown(object sender, MouseEventArgs e)
-        {
-            this._parentController._flightData.GremsyZoomOut();
-        }
-        private void BtnZoomOut_MouseUp(object sender, MouseEventArgs e)
-        {
-            this._parentController._flightData.GremsyZoomStop();
-        }
         private void BtnStartRecording_Click(object sender, EventArgs e)
         {
-            Console.WriteLine("Gremsy Camera Recording Started.");
-            bool result =this._parentController._flightData.GremsyStartRecording();
-            if (result){
+            Console.WriteLine("GremsyVio Camera Recording Started.");
+            bool result =this._parentController._flightData.GremsyVioStartRecording();
+            if (result)            {
                 Console.WriteLine("Start Recording Command Acknowledged.");
             }
             else
@@ -326,8 +245,8 @@ namespace XagSurveillanceGCS.Controls
 
         private void BtnStopRecording_Click(object sender, EventArgs e)
         {
-            Console.WriteLine("Gremsy Camera Recording Stopped.");
-            bool result = this._parentController._flightData.GremsyStopRecording();
+            Console.WriteLine("GremsyVio Camera Recording Stopped.");
+            bool result = this._parentController._flightData.GremsyVioStopRecording();
             if (result)            {
                 Console.WriteLine("Stop Recording Command Acknowledged.");
             }
@@ -343,8 +262,8 @@ namespace XagSurveillanceGCS.Controls
         }
         private void BtnTakePhoto_Click(object sender, EventArgs e)
         {
-            Console.WriteLine("Gremsy Camera Photo Taken.");
-            bool result = this._parentController._flightData.GremsyTakePhoto();
+            Console.WriteLine("GremsyVio Camera Photo Taken.");
+            bool result = this._parentController._flightData.GremsyVioTakePhoto();
             if (result)            {
                 Console.WriteLine("Take Photo Command Acknowledged.");
             }
@@ -360,7 +279,7 @@ namespace XagSurveillanceGCS.Controls
         }
         private void BtnCameraSettings_Click(object sender, EventArgs e)
         {
-            Console.WriteLine("Gremsy Camera Settings Applied.");
+            Console.WriteLine("GremsyVio Camera Settings Applied.");
             // PARAM_EXT_REQUEST_LIST
             var msg = new MAVLink.mavlink_param_ext_request_list_t();
             msg.target_system = (byte)MainV2.comPort.sysidcurrent;
@@ -371,7 +290,7 @@ namespace XagSurveillanceGCS.Controls
                 (byte)MainV2.comPort.sysidcurrent,
                 (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_CAMERA
             );
-            using (CameraSettingsForm settings = new CameraSettingsForm(this))
+            using (CameraVioSettingsForm settings = new CameraVioSettingsForm(this))
             {
                 if (settings.ShowDialog() == DialogResult.OK)
                 {
@@ -383,103 +302,119 @@ namespace XagSurveillanceGCS.Controls
 
         private void BtnZoomIn_Click(object sender, EventArgs e)
         {
-            Console.WriteLine("Gremsy Camera Zooming In.");
-            this._parentController._flightData.GremsyZoomIn();
+            Console.WriteLine("GremsyVio Camera Zooming In.");
+            this._parentController._flightData.GremsyVioZoomIn();
         }
         private void BtnZoomOut_Click(object sender, EventArgs e)
         {
-            Console.WriteLine("Gremsy Camera Zooming Out.");
-            this._parentController._flightData.GremsyHomeCommand();
+            Console.WriteLine("GremsyVio Camera Zooming Out.");
+            this._parentController._flightData.GremsyVioControlPitchYaw(100.0,100.0);
+        }
+
+        private void handleIrzoom_Click(object sender, EventArgs e)
+        {
+            this._parentController._flightData.GremsyVioIRZoom(cmbCameraSelect.SelectedIndex);
         }
 
         private void BtnZoomStop_Click(object sender, EventArgs e)
         {
-            Console.WriteLine("Gremsy Camera Zoom Stopped.");
-            this._parentController._flightData.GremsyPointDownCommand();
+            Console.WriteLine("GremsyVio Camera Zoom Stopped.");
+            this._parentController._flightData.GremsyVioZoomStop();
+            // Console.WriteLine("Setting Name {0}, Param Value {1}",name,value);
+            byte[] id_bytes = new byte[16];
+            id_bytes = Encoding.ASCII.GetBytes("GB_MODE");
+            // Array.Copy(text_bytes, 0, id_bytes, 0, Math.Min(text_bytes.Length, id_bytes.Length));
+            // byte[] value_bytes = new byte[128];
+            byte[] value_bytes = new byte[128];
+            value_bytes = BitConverter.GetBytes(int.Parse("4"));
+            // char[] id_chars = new char[16];
+            // id_chars = name.ToCharArray();
+            // char[] value_chars = new char[128];
+            // value_chars = value.ToCharArray();
+            // Array.Copy(source_bytes, 0, value_bytes, 0, Math.Min(source_bytes.Length, value_bytes.Length));
+
+            var msg = new MAVLink.mavlink_param_ext_set_t();
+            msg.target_system = (byte)MainV2.comPort.sysidcurrent;
+            msg.target_component = (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_CAMERA2;
+            msg.param_id = id_bytes;
+            msg.param_value = value_bytes;
+            msg.param_type = 5;
+
+            MainV2.comPort.sendPacket(
+                msg,
+                (byte)MainV2.comPort.sysidcurrent,
+                (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_CAMERA2
+            );
         }
         private void BtnStopTracking_Click(object sender, EventArgs e)
         {
-            Console.WriteLine("Gremsy Camera Stopped Tracking.");
-            this._parentController._flightData.GremsyStopTracking();
+           Console.WriteLine("GremsyVio Camera Zoom Stopped.");
+            this._parentController._flightData.GremsyVioZoomStop();
+            // Console.WriteLine("Setting Name {0}, Param Value {1}",name,value);
+            byte[] id_bytes = new byte[16];
+            id_bytes = Encoding.ASCII.GetBytes("GB_MODE");
+            // Array.Copy(text_bytes, 0, id_bytes, 0, Math.Min(text_bytes.Length, id_bytes.Length));
+            // byte[] value_bytes = new byte[128];
+            byte[] value_bytes = new byte[128];
+            value_bytes = BitConverter.GetBytes(int.Parse("3"));
+            // char[] id_chars = new char[16];
+            // id_chars = name.ToCharArray();
+            // char[] value_chars = new char[128];
+            // value_chars = value.ToCharArray();
+            // Array.Copy(source_bytes, 0, value_bytes, 0, Math.Min(source_bytes.Length, value_bytes.Length));
+
+            var msg = new MAVLink.mavlink_param_ext_set_t();
+            msg.target_system = (byte)MainV2.comPort.sysidcurrent;
+            msg.target_component = (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_CAMERA2;
+            msg.param_id = id_bytes;
+            msg.param_value = value_bytes;
+            msg.param_type = 5;
+
+            MainV2.comPort.sendPacket(
+                msg,
+                (byte)MainV2.comPort.sysidcurrent,
+                (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_CAMERA2
+            );
         }
-        // private void BtnUp_Click(object sender, EventArgs e)
-        // {
-        //     Console.WriteLine("Gremsy Camera Moving Up.");
-        //     this._parentController._flightData.GremsyPitchYawControl(1,0);
-        // }   
-        // private void BtnDown_Click(object sender, EventArgs e)
-        // {
-        //     Console.WriteLine("Gremsy Camera Moving Down.");
-        //     this._parentController._flightData.GremsyPitchYawControl(-1,0);
-        // }
-        // private void BtnLeft_Click(object sender, EventArgs e)
-        // {
-        //     Console.WriteLine("Gremsy Camera Moving Left.");
-        //     this._parentController._flightData.GremsyPitchYawControl(0,-1);
-        // }
-        // private void BtnRight_Click(object sender, EventArgs e)
-        // {
-        //     Console.WriteLine("Gremsy Camera Moving Right.");
-        //     this._parentController._flightData.GremsyPitchYawControl(0,1);
-        // }
-        // private void BtnHome_Click(object sender, EventArgs e)
-        // {
-        //     Console.WriteLine("Gremsy Camera Movement Stopped.");
-        //     this._parentController._flightData.GremsyHomeCommand();
-        // }
         private void ChkRecordMode_CheckedChanged(object sender, EventArgs e)
         {
-            if (btnGremsyTest.Text == "Photo Mode")
+            bool result = this._parentController._flightData.GremsyVioStopCaptureImage();
+            if (result)
             {
-                bool result = StartRecordingMode();
-                if (result)
-                {
-                    btnGremsyTest.Text = "Recording Mode";
-                }
-                else
-                {
-                    CustomMessageBox.Show(
-                    "Failed to Switch to Video Mode Try Again",
-                    "Camera Mode Status",
-                    MessageBoxButtons.OK,
-                    CustomMessageBox.MessageBoxIcon.Error
-                    );
-                }
-                
-                // Send gimbal command → start video recording mode
+                CustomMessageBox.Show(
+                "Image Capture Stopped",
+                "Capture Status",
+                MessageBoxButtons.OK,
+                CustomMessageBox.MessageBoxIcon.Error
+                );
             }
             else
-            {   
-                // Send gimbal command → photo mode
-                bool result = SetPhotoMode();
-                if (result)
-                {
-                    btnGremsyTest.Text = "Photo Mode";
-                }
-                else
-                {
-                    CustomMessageBox.Show(
-                    "Failed to Switch to Photo Mode Try Again",
-                    "Camera Mode Status",
-                    MessageBoxButtons.OK,
-                    CustomMessageBox.MessageBoxIcon.Error
-                    );
-                }
+            {
+                CustomMessageBox.Show(
+                "Failed to Stop Image Captured",
+                "Capture Status",
+                MessageBoxButtons.OK,
+                CustomMessageBox.MessageBoxIcon.Error
+                );
             }
         }
         private bool StartRecordingMode()
         {
-            // Example: call your Gremsy / Viewpro / MAVLink command
+            // Example: call your GremsyVio / Viewpro / MAVLink command
             Console.WriteLine("Recording Mode Enabled");
-            bool result = this._parentController._flightData.GremsySwitchCameraModeToVideo();
-            return result;
+            // bool result = this._parentController._flightData.GremsyVioSwitchCameraModeToVideo();
+            // return result;
+            return true;
         }
 
         private bool SetPhotoMode()
         {
             Console.WriteLine("Photo Mode Enabled");
-            bool result = this._parentController._flightData.GremsySwitchCameraModeToPhoto();
-            return result;
+            // bool result = this._parentController._flightData.GremsyVioSwitchCameraModeToPhoto();
+            // return result;
+            return  true;
         }
+
+
     }
 }

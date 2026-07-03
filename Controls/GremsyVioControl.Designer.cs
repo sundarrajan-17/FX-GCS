@@ -1,6 +1,6 @@
 namespace XagSurveillanceGCS.Controls
 {
-    partial class GremsyControl
+    partial class GremsyVioControl
     {
         private System.Windows.Forms.TableLayoutPanel mainFlow;
         private System.Windows.Forms.TableLayoutPanel cameraSettingsLayoutPanel;
@@ -9,31 +9,27 @@ namespace XagSurveillanceGCS.Controls
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.ComponentModel.IContainer components = null;
-        private System.Windows.Forms.Button btnGremsyTest;
-        private System.Windows.Forms.Button btnGremsyStartRecording;
-        private System.Windows.Forms.Button btnGremsyStopRecording;
-        private System.Windows.Forms.Button btnGremsyTakePhoto;
-        private System.Windows.Forms.Button btnGremsyZoomIn;
-        private System.Windows.Forms.Button btnGremsyZoomOut;
-        private System.Windows.Forms.Button btnGremsyZoomStop;
-        private System.Windows.Forms.Button btnGremsyTrackStop;
-        // private System.Windows.Forms.Button btnGremsyDoUp;
-        // private System.Windows.Forms.Button btnGremsyDoDown;
-        // private System.Windows.Forms.Button btnGremsyDoLeft;
-        // private System.Windows.Forms.Button btnGremsyDoRight;
-        // private System.Windows.Forms.Button btnGremsyDoStop;
-        private new System.Windows.Forms.TableLayoutPanel tblGremsy;
+        private System.Windows.Forms.Button btnGremsyVioTest;
+        private System.Windows.Forms.Button btnGremsyVioStartRecording;
+        private System.Windows.Forms.Button btnGremsyVioStopRecording;
+        private System.Windows.Forms.Button btnGremsyVioTakePhoto;
+        private System.Windows.Forms.Button btnGremsyVioZoomIn;
+        private System.Windows.Forms.Button btnGremsyVioZoomOut;
+        private System.Windows.Forms.Button btnGremsyVioZoomStop;
+        private System.Windows.Forms.Button btnGremsyVioTrackStop;
+        // private System.Windows.Forms.Button btnGremsyVioDoUp;
+        // private System.Windows.Forms.Button btnGremsyVioDoDown;
+        // private System.Windows.Forms.Button btnGremsyVioDoLeft;
+        // private System.Windows.Forms.Button btnGremsyVioDoRight;
+        // private System.Windows.Forms.Button btnGremsyVioDoStop;
+        private new System.Windows.Forms.TableLayoutPanel tblGremsyVio;
         private System.Windows.Forms.CheckBox chkRecordMode;
         private System.Windows.Forms.Label recordingPhotoMode;
         // private System.Windows.Forms.GroupBox groupSmartTracker;
         private XagSurveillanceGCS.Controls.VirtualJoystick virtualJoystick;    
         private System.Windows.Forms.GroupBox camControlGroup;
         private System.Windows.Forms.TrackBar trackZoom;
-        private System.Windows.Forms.Button ZoomInButton;
-        private System.Windows.Forms.Button ZoomOutButton;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
-        private System.Windows.Forms.Button btnIrZoomPlus;
-        private System.Windows.Forms.Button btnIrZoomMinus;
+        private System.Windows.Forms.ComboBox cmbCameraSelect;
 
          /// <summary>
         protected override void Dispose(bool disposing)
@@ -77,16 +73,6 @@ namespace XagSurveillanceGCS.Controls
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33F));
-
-            // Zoomtablelayoutpanel
-            // tableLayoutPanel1
-            this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
-            this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel4.RowCount = 2;
-            this.tableLayoutPanel4.ColumnCount = 1;
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.00F));
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.00F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.00F));
 
             // trackzoom
 
@@ -147,21 +133,20 @@ namespace XagSurveillanceGCS.Controls
             this.cameraSettingsLayoutPanel.TabIndex = 0;
 
 
-            this.btnGremsyTest = new System.Windows.Forms.Button();
-            this.btnGremsyStartRecording = new System.Windows.Forms.Button();
-            this.btnGremsyStopRecording = new System.Windows.Forms.Button();
-            this.btnGremsyTakePhoto = new System.Windows.Forms.Button();
-            this.btnGremsyZoomIn = new System.Windows.Forms.Button();
-            this.btnGremsyZoomOut = new System.Windows.Forms.Button();
-            this.btnGremsyZoomStop = new System.Windows.Forms.Button();
-            this.btnGremsyTrackStop = new System.Windows.Forms.Button();
-            this.btnIrZoomPlus = new System.Windows.Forms.Button();
-            this.btnIrZoomMinus = new System.Windows.Forms.Button();
+            this.btnGremsyVioTest = new System.Windows.Forms.Button();
+            this.btnGremsyVioStartRecording = new System.Windows.Forms.Button();
+            this.btnGremsyVioStopRecording = new System.Windows.Forms.Button();
+            this.btnGremsyVioTakePhoto = new System.Windows.Forms.Button();
+            this.btnGremsyVioZoomIn = new System.Windows.Forms.Button();
+            this.btnGremsyVioZoomOut = new System.Windows.Forms.Button();
+            this.btnGremsyVioZoomStop = new System.Windows.Forms.Button();
+            this.btnGremsyVioTrackStop = new System.Windows.Forms.Button();
             this.recordingPhotoMode = new System.Windows.Forms.Label();
             this.chkRecordMode = new System.Windows.Forms.CheckBox();
             this.camControlGroup = new System.Windows.Forms.GroupBox();
+            this.cmbCameraSelect = new System.Windows.Forms.ComboBox();
             this.camControlGroup.SuspendLayout();
-            // this.virtualJoystick = new XagSurveillanceGCS.Controls.VirtualJoystick();
+            // this.virtualJoystick = new DumsLogisticsGCS.Controls.VirtualJoystick();
 
             // Camera Control Group
             this.camControlGroup.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -209,112 +194,72 @@ namespace XagSurveillanceGCS.Controls
             this.trackZoom.ValueChanged += TrackZoom_ValueChanged;
             this.trackZoom.MouseUp += TrackZoom_MouseUp;
 
-            //
-            //Zoom in Button
-            //
-            this.ZoomInButton = new System.Windows.Forms.Button();
-            this.ZoomInButton.Text = "+";
-            this.ZoomInButton.Height = 35;
-            this.ZoomInButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ZoomInButton.Font = new System.Drawing.Font(
-            "Segoe UI",
-            16F,
-            System.Drawing.FontStyle.Bold,
-            System.Drawing.GraphicsUnit.Point,
-            ((byte)(0)));
-            // this.ZoomInButton.Click += new System.EventHandler(this.BtnZoomIn_Click);
-            this.ZoomInButton.MouseDown += new System.Windows.Forms.MouseEventHandler(this.BtnZoomIn_MouseDown);
-            this.ZoomInButton.MouseUp += new System.Windows.Forms.MouseEventHandler(this.BtnZoomIn_MouseUp);
+
+            this.btnGremsyVioTest.Text = "Stop Capture";
+            this.btnGremsyVioTest.Height = 35;
+            this.btnGremsyVioTest.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnGremsyVioTest.AutoSize = false;
+            this.btnGremsyVioTest.Click += new System.EventHandler(this.ChkRecordMode_CheckedChanged);
+
+            this.btnGremsyVioStartRecording.Text = "Start Recording";
+            this.btnGremsyVioStartRecording.Height = 35;
+            this.btnGremsyVioStartRecording.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnGremsyVioStartRecording.Click += new System.EventHandler(this.BtnStartRecording_Click);
+
+            this.btnGremsyVioStopRecording.Text = "Stop Recording";
+            this.btnGremsyVioStopRecording.Height = 35;
+            this.btnGremsyVioStopRecording.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnGremsyVioStopRecording.Click += new System.EventHandler(this.BtnStopRecording_Click);
+
+            this.btnGremsyVioTakePhoto.Text = "Start Capture";
+            this.btnGremsyVioTakePhoto.Height = 35;
+            this.btnGremsyVioTakePhoto.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnGremsyVioTakePhoto.Click += new System.EventHandler(this.BtnTakePhoto_Click);
+
+            this.btnGremsyVioZoomIn.Text = "Camera Settings";
+            this.btnGremsyVioZoomIn.Height = 35;
+            this.btnGremsyVioZoomIn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnGremsyVioZoomIn.Click += new System.EventHandler(this.BtnCameraSettings_Click);
+
+            this.btnGremsyVioZoomOut.Text = "IR Zoom +";
+            this.btnGremsyVioZoomOut.Height = 35;
+            this.btnGremsyVioZoomOut.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnGremsyVioZoomOut.Click += new System.EventHandler(this.BtnZoomOut_Click);
+
+            this.btnGremsyVioZoomStop.Text = "Point Home";
+            this.btnGremsyVioZoomStop.Height = 35;
+            this.btnGremsyVioZoomStop.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnGremsyVioZoomStop.Click += new System.EventHandler(this.BtnZoomStop_Click);
+
+            this.btnGremsyVioTrackStop.Text = "Point Down";
+            this.btnGremsyVioTrackStop.Height = 35;
+            this.btnGremsyVioTrackStop.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnGremsyVioTrackStop.Click += new System.EventHandler(this.BtnStopTracking_Click);
+
+            this.cmbCameraSelect.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbCameraSelect.Height = 35;
+            this.cmbCameraSelect.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cmbCameraSelect.Items.AddRange(new string[] {"1X","2X","3X","4X","5X","6X","7X","8X"});
+            this.cmbCameraSelect.SelectedIndexChanged += new System.EventHandler(this.handleIrzoom_Click);
+
+            this.cameraSettingsLayoutPanel.Controls.Add(this.btnGremsyVioTest, 0, 0);
+            this.cameraSettingsLayoutPanel.Controls.Add(this.btnGremsyVioStartRecording, 1, 0);
+            this.cameraSettingsLayoutPanel.Controls.Add(this.btnGremsyVioStopRecording, 2, 0);
+            this.cameraSettingsLayoutPanel.Controls.Add(this.btnGremsyVioTakePhoto, 3, 0);
+            this.cameraSettingsLayoutPanel.Controls.Add(this.btnGremsyVioZoomIn, 0, 1);
+            this.cameraSettingsLayoutPanel.Controls.Add(this.btnGremsyVioZoomOut, 1,1);    
+            this.cameraSettingsLayoutPanel.Controls.Add(this.btnGremsyVioZoomStop, 2,1);
+            this.cameraSettingsLayoutPanel.Controls.Add(this.btnGremsyVioTrackStop, 3,1);
 
             //
-            //Zoom out Button
-            //
-            this.ZoomOutButton = new System.Windows.Forms.Button();
-            this.ZoomOutButton.Text = "-";
-            this.ZoomOutButton.Height = 35;
-            this.ZoomOutButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ZoomOutButton.Font = new System.Drawing.Font(
-            "Segoe UI",
-            16F,
-            System.Drawing.FontStyle.Bold,
-            System.Drawing.GraphicsUnit.Point,
-            ((byte)(0)));
-            // this.ZoomOutButton.Click += new System.EventHandler(this.BtnZoomOut_Click);
-            this.ZoomOutButton.MouseDown += new System.Windows.Forms.MouseEventHandler(this.BtnZoomOut_MouseDown);
-            this.ZoomOutButton.MouseUp += new System.Windows.Forms.MouseEventHandler(this.BtnZoomOut_MouseUp);
-
-
-            this.btnGremsyTest.Text = "Photo Mode";
-            this.btnGremsyTest.Height = 35;
-            this.btnGremsyTest.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnGremsyTest.AutoSize = false;
-            this.btnGremsyTest.Click += new System.EventHandler(this.ChkRecordMode_CheckedChanged);
-
-            this.btnGremsyStartRecording.Text = "Start Recording";
-            this.btnGremsyStartRecording.Height = 35;
-            this.btnGremsyStartRecording.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnGremsyStartRecording.Click += new System.EventHandler(this.BtnStartRecording_Click);
-
-            this.btnGremsyStopRecording.Text = "Stop Recording";
-            this.btnGremsyStopRecording.Height = 35;
-            this.btnGremsyStopRecording.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnGremsyStopRecording.Click += new System.EventHandler(this.BtnStopRecording_Click);
-
-            this.btnGremsyTakePhoto.Text = "Take Photo";
-            this.btnGremsyTakePhoto.Height = 35;
-            this.btnGremsyTakePhoto.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnGremsyTakePhoto.Click += new System.EventHandler(this.BtnTakePhoto_Click);
-
-            this.btnGremsyZoomIn.Text = "Camera Settings";
-            this.btnGremsyZoomIn.Height = 35;
-            this.btnGremsyZoomIn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnGremsyZoomIn.Click += new System.EventHandler(this.BtnCameraSettings_Click);
-
-            this.btnGremsyZoomOut.Text = "Point Home";
-            this.btnGremsyZoomOut.Height = 35;
-            this.btnGremsyZoomOut.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnGremsyZoomOut.Click += new System.EventHandler(this.BtnZoomOut_Click);
-
-            this.btnIrZoomPlus.Text = "IR Zoom+";
-            this.btnIrZoomPlus.Height = 35;
-            this.btnIrZoomPlus.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnIrZoomPlus.Click += new System.EventHandler(this.BtnIrZoomPlus_Click);
-
-            this.btnIrZoomMinus.Text = "IR Zoom-";
-            this.btnIrZoomMinus.Height = 35;
-            this.btnIrZoomMinus.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnIrZoomMinus.Click += new System.EventHandler(this.BtnIrZoomMinus_Click);
-
-            this.btnGremsyZoomStop.Text = "Point Down";
-            this.btnGremsyZoomStop.Height = 35;
-            this.btnGremsyZoomStop.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnGremsyZoomStop.Click += new System.EventHandler(this.BtnZoomStop_Click);
-
-            this.btnGremsyTrackStop.Text = "Stop Tracking";
-            this.btnGremsyTrackStop.Height = 35;
-            this.btnGremsyTrackStop.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnGremsyTrackStop.Click += new System.EventHandler(this.BtnStopTracking_Click);
-
-            this.cameraSettingsLayoutPanel.Controls.Add(this.btnGremsyTest, 0, 0);
-            this.cameraSettingsLayoutPanel.Controls.Add(this.btnGremsyStartRecording, 1, 0);
-            this.cameraSettingsLayoutPanel.Controls.Add(this.btnGremsyStopRecording, 2, 0);
-            this.cameraSettingsLayoutPanel.Controls.Add(this.btnGremsyTakePhoto, 3, 0);
-            this.cameraSettingsLayoutPanel.Controls.Add(this.btnGremsyZoomIn, 0, 1);
-            this.cameraSettingsLayoutPanel.Controls.Add(this.btnGremsyZoomOut, 1,1);    
-            this.cameraSettingsLayoutPanel.Controls.Add(this.btnGremsyZoomStop, 2,1);
-            this.cameraSettingsLayoutPanel.Controls.Add(this.btnGremsyTrackStop, 3,1);
-
-            //
-            // this.tableLayoutPanel2.Controls.Add(this.btnGremsyTest, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.btnGremsyStartRecording, 1, 0);
-            this.tableLayoutPanel2.Controls.Add(this.btnGremsyStopRecording, 2, 0);
-            this.tableLayoutPanel2.Controls.Add(this.btnGremsyTakePhoto, 3, 0);
-            this.tableLayoutPanel2.Controls.Add(this.btnGremsyZoomIn, 0, 1);
-            this.tableLayoutPanel2.Controls.Add(this.btnGremsyZoomOut, 1,1);    
-            this.tableLayoutPanel2.Controls.Add(this.btnGremsyZoomStop, 2,1);
-            this.tableLayoutPanel2.Controls.Add(this.btnGremsyTrackStop, 3,1);
-            this.tableLayoutPanel2.Controls.Add(this.btnIrZoomPlus,0,2);
-            this.tableLayoutPanel2.Controls.Add(this.btnIrZoomMinus,1,2);
+            this.tableLayoutPanel2.Controls.Add(this.btnGremsyVioTest, 3, 0);
+            this.tableLayoutPanel2.Controls.Add(this.btnGremsyVioStartRecording, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.btnGremsyVioStopRecording, 1, 0);
+            this.tableLayoutPanel2.Controls.Add(this.btnGremsyVioTakePhoto, 2, 0);
+            this.tableLayoutPanel2.Controls.Add(this.btnGremsyVioZoomIn, 0, 1);
+            this.tableLayoutPanel2.Controls.Add(this.cmbCameraSelect, 1,1);    
+            this.tableLayoutPanel2.Controls.Add(this.btnGremsyVioZoomStop, 2,1);
+            this.tableLayoutPanel2.Controls.Add(this.btnGremsyVioTrackStop, 3,1);
 
             // this.groupSmartTracker = new System.Windows.Forms.GroupBox();
             // this.groupSmartTracker.Text = "Gimbal Control";
@@ -322,7 +267,7 @@ namespace XagSurveillanceGCS.Controls
             // this.groupSmartTracker.Size = new System.Drawing.Size(180, 150);
 
             // this.groupSmartTracker.Controls.AddRange(new System.Windows.Forms.Control[] {
-            //     this.btnGremsyDoUp, this.btnGremsyDoDown, this.btnGremsyDoLeft, this.btnGremsyDoRight, this.btnGremsyDoStop
+            //     this.btnGremsyVioDoUp, this.btnGremsyVioDoDown, this.btnGremsyVioDoLeft, this.btnGremsyVioDoRight, this.btnGremsyVioDoStop
             // });
             // ---- Add TableLayoutPanel to Control ----
             // this.mainFlow.Controls.Add(this.groupSmartTracker);
@@ -331,20 +276,20 @@ namespace XagSurveillanceGCS.Controls
             // this.tableLayoutPanel3.Controls.Add(this.trackZoom, 1, 0);
             this.parentTableLayoutPanel.Controls.Add(this.tableLayoutPanel2,0,0);
             this.Controls.Add(this.parentTableLayoutPanel);
-            // // ---- GremsyControl ----
-            // this.Name = "GremsyControl";
+            // // ---- GremsyVioControl ----
+            // this.Name = "GremsyVioControl";
             this.Size = new System.Drawing.Size(650, 800);
         }
 
         // Helper method for adding rows
         private void AddRow(System.Windows.Forms.Control c1, System.Windows.Forms.Control c2,System.Windows.Forms.Control c3,System.Windows.Forms.Control c4)
         {
-            int row = this.tblGremsy.RowCount++;
-            this.tblGremsy.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.AutoSize));
-            this.tblGremsy.Controls.Add(c1, 0, row);
-            this.tblGremsy.Controls.Add(c2, 1, row);
-            this.tblGremsy.Controls.Add(c3, 2, row);
-            this.tblGremsy.Controls.Add(c4, 3, row);
+            int row = this.tblGremsyVio.RowCount++;
+            this.tblGremsyVio.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.AutoSize));
+            this.tblGremsyVio.Controls.Add(c1, 0, row);
+            this.tblGremsyVio.Controls.Add(c2, 1, row);
+            this.tblGremsyVio.Controls.Add(c3, 2, row);
+            this.tblGremsyVio.Controls.Add(c4, 3, row);
         }
     }
 }

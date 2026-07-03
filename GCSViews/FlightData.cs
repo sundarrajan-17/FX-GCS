@@ -64,7 +64,10 @@ namespace XagSurveillanceGCS.GCSViews
         internal static GMapOverlay rallypointoverlay;
         internal static GMapOverlay tfrpolygons;
         internal GMapMarker CurrentGMapMarker;
-
+        UdpClient udp = new UdpClient();
+        IPEndPoint remoteEP = new IPEndPoint(IPAddress.Parse("192.168.199.240"), 14566);
+        MAVLink.MavlinkParse parse = new MAVLink.MavlinkParse();
+        byte onboardComp = (byte) MAVLink.MAV_COMPONENT.MAV_COMP_ID_ONBOARD_COMPUTER3;
         private float pitch = 0.0f;
         private float yaw = 0.0f;
         private Thread _cameraUpdateThread;
@@ -176,6 +179,8 @@ namespace XagSurveillanceGCS.GCSViews
 
         //the thread the script is running on
         Thread scriptthread;
+
+        float[] quaternion = new float[4];
 
         public readonly List<TabPage> TabListOriginal = new List<TabPage>();
         public Dictionary<string,bool> TabListDisplay = new Dictionary<string, bool>();
@@ -466,6 +471,19 @@ namespace XagSurveillanceGCS.GCSViews
             GNSSModeStartThread();
         }
 
+        static double CalculateVFOV(double hfovDeg, double aspectWidth, double aspectHeight)
+        {
+            // Convert HFOV from degrees to radians
+            double hfovRad = hfovDeg * Math.PI / 180.0;
+
+            // Calculate VFOV in radians
+            double vfovRad = 2.0 * Math.Atan(
+                Math.Tan(hfovRad / 2.0) * (aspectHeight / aspectWidth));
+
+            // Convert back to degrees
+            return vfovRad * 180.0 / Math.PI;
+        }
+
         public void loadTargetLatLon(object sender,MAVLink.MAVLinkMessage packet)
         {
             switch (packet.msgid)
@@ -479,6 +497,19 @@ namespace XagSurveillanceGCS.GCSViews
                     vfov = gimbaltrackdata.vfov;
                     // Console.WriteLine("Target Latitude Longitude: " + gimbaltrackdata.hfov + ", " + gimbaltrackdata.vfov);
                     break; 
+                case (uint)MAVLink.MAVLINK_MSG_ID.CAMERA_TRACKING_GEO_STATUS:
+                    var gimbaltrackdata2 = packet.ToStructure<MAVLink.mavlink_camera_tracking_geo_status_t>();
+                    target_latitude = gimbaltrackdata2.lat * 1e-7;
+                    target_longitude = gimbaltrackdata2.lon * 1e-7;
+                    // Console.WriteLine("Target Latitude Longitude: " + gimbaltrackdata2.lat + ", " + gimbaltrackdata2.lon);
+                    break;
+                // case (uint)MAVLink.MAVLINK_MSG_ID.CAMERA_SETTINGS:
+                //     var camerasettings = packet.ToStructure<MAVLink.mavlink_camera_settings_t>();
+                //     hfov = 70.4 / (float)camerasettings.zoomLevel;
+                //     double aspectWidth = 16.0;
+                //     double aspectHeight = 9.0;
+                //     vfov = CalculateVFOV(hfov, aspectWidth, aspectHeight);
+                //     break;
                 default:
                     break;
             }
@@ -7293,6 +7324,7 @@ namespace XagSurveillanceGCS.GCSViews
                 var droneYaw = MainV2.comPort.MAV.cs.yaw;
 
                 var finalYaw = (targetYaw - droneYaw + 360)%360;
+                var yawValue = finalYaw;
 
                 if (finalYaw > 180) finalYaw -= 360;
 
@@ -7320,16 +7352,18 @@ namespace XagSurveillanceGCS.GCSViews
 
                 finalPitch = Math.Abs((int)(angleDeg / 1.40625));
 
+                mavlink_euler_to_quaternion(0.0f* MathHelper.deg2radf,(float)finalPitch* MathHelper.deg2radf,(float)yawValue* MathHelper.deg2radf);    
+
                 var msg = new MAVLink.mavlink_gimbal_manager_set_attitude_t
                 {
                     target_system = (byte)MainV2.comPort.sysidcurrent,
                     target_component = (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_GIMBAL,
                     gimbal_device_id = 0,
                     flags = 1024,
-                    q = mavlink_euler_to_quaternion(0.0f,(float)finalPitch,(float)commandValue),
-                    angular_velocity_x = 0.0f,
-                    angular_velocity_y = 0.0f,
-                    angular_velocity_z = 0.0f
+                    q = quaternion,
+                    angular_velocity_x = float.NaN,
+                    angular_velocity_y = float.NaN,
+                    angular_velocity_z = float.NaN
                 };
                 MainV2.comPort.sendPacket(
                     msg,
@@ -7574,7 +7608,7 @@ namespace XagSurveillanceGCS.GCSViews
         {
             Console.WriteLine("Start Tracking Command Sent {0}",(byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_CAMERA);
             MainV2.comPort.doCommand((byte)MainV2.comPort.sysidcurrent, (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_CAMERA,
-                    MAVLink.MAV_CMD.CAMERA_TRACK_POINT,x,y ,(float)0.1,0, 0, 0,0,false);
+                    MAVLink.MAV_CMD.CAMERA_TRACK_POINT,x,y ,(float)0.5,0, 0, 0,0,false);
         }
 
         public void GremsyStopTracking()
@@ -7601,7 +7635,7 @@ namespace XagSurveillanceGCS.GCSViews
                    MAVLink.MAV_CMD.DO_MOUNT_CONTROL, pitch, (float)0.0, yaw, 0, 0,0,0,false);
         }
 
-        public float[] mavlink_euler_to_quaternion(float roll, float pitch, float yaw)
+        public void mavlink_euler_to_quaternion(float roll, float pitch, float yaw)
         {
             float cosPhi_2 = Utils.cosf(roll / 2);
             float sinPhi_2 = Utils.sinf(roll / 2);
@@ -7609,7 +7643,6 @@ namespace XagSurveillanceGCS.GCSViews
             float sinTheta_2 = Utils.sinf(pitch / 2);
             float cosPsi_2 = Utils.cosf(yaw / 2);
             float sinPsi_2 = Utils.sinf(yaw / 2);
-            float[] quaternion = new float[4];
             quaternion[0] = (cosPhi_2 * cosTheta_2 * cosPsi_2 +
                              sinPhi_2 * sinTheta_2 * sinPsi_2);
             quaternion[1] = (sinPhi_2 * cosTheta_2 * cosPsi_2 -
@@ -7618,22 +7651,21 @@ namespace XagSurveillanceGCS.GCSViews
                              sinPhi_2 * cosTheta_2 * sinPsi_2);
             quaternion[3] = (cosPhi_2 * cosTheta_2 * sinPsi_2 -
                              sinPhi_2 * sinTheta_2 * cosPsi_2);
-            return quaternion;
         }
 
         public void GremsyHomeCommand()
         {
-            
+            mavlink_euler_to_quaternion(0.0f,0.0f,0.0f);
             var msg = new MAVLink.mavlink_gimbal_manager_set_attitude_t
             {
                 target_system = (byte)MainV2.comPort.sysidcurrent,
                 target_component = (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_GIMBAL,
                 gimbal_device_id = 0,
                 flags = 1024,
-                q = mavlink_euler_to_quaternion(0.0f,0.0f,0.0f),
-                angular_velocity_x =0.0f,
-                angular_velocity_y = 0.0f,
-                angular_velocity_z =  0.0f
+                q = quaternion,
+                angular_velocity_x = float.NaN,
+                angular_velocity_y = float.NaN,
+                angular_velocity_z = float.NaN
             };
             MainV2.comPort.sendPacket(
                 msg,
@@ -7644,17 +7676,17 @@ namespace XagSurveillanceGCS.GCSViews
 
         public void GremsyPointDownCommand()
         {
-            
+            mavlink_euler_to_quaternion(0.0f* MathHelper.deg2radf,-90.0f* MathHelper.deg2radf,0.0f* MathHelper.deg2radf);
             var msg = new MAVLink.mavlink_gimbal_manager_set_attitude_t
             {
                 target_system = (byte)MainV2.comPort.sysidcurrent,
                 target_component = (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_GIMBAL,
                 gimbal_device_id = 0,
                 flags = 1024,
-                q = mavlink_euler_to_quaternion(0.0f,-90.0f,0.0f),
-                angular_velocity_x = 0.0f,
-                angular_velocity_y = 0.0f,
-                angular_velocity_z = 0.0f
+                q = quaternion,
+                angular_velocity_x = float.NaN,
+                angular_velocity_y = float.NaN,
+                angular_velocity_z = float.NaN
             };
             MainV2.comPort.sendPacket(
                 msg,
@@ -7724,6 +7756,12 @@ namespace XagSurveillanceGCS.GCSViews
                 if(ZoomValue > 0) GremsyZoomIn();
                 else if(ZoomValue < 0) GremsyZoomOut();
                 else GremsyZoomStop();
+            }else if(this._baseCameraController.SelectedCamera == "XAGCAM3")
+            {
+                GremsyVioControlPitchYaw(YawValue,PitchValue);
+                if(ZoomValue > 0) GremsyVioZoomIn();
+                else if(ZoomValue < 0) GremsyVioZoomOut();
+                else GremsyVioZoomStop();
             }else{
                 XagCamPitchYawCommand(PitchValue, YawValue);
                 if(ZoomValue > 0) XagCamZoomInCommand();
@@ -7735,7 +7773,8 @@ namespace XagSurveillanceGCS.GCSViews
         public void CurrentGNSSOperatingMode()
         {
             uint statusValue = MainV2.comPort.MAV.cs.eahrsStatusValue4;
-            if (statusValue == (uint)MAVLink.ILABS_EAHRS_GPS_FIX_STATUS.NO)
+            Console.WriteLine("Current GNSS Operating Mode: " + MainV2.comPort.MAV.cs.satcount);
+            if ((int)MainV2.comPort.MAV.cs.satcount == 77)
             {
                 Console.WriteLine("INS Mode");
                 if (this._baseCameraController.GnssModeStatus.InvokeRequired){
@@ -7746,32 +7785,253 @@ namespace XagSurveillanceGCS.GCSViews
                 }else{
                     this._baseCameraController.GnssModeStatus.Text = "GNSS Mode: INS";
                 }
-            }
-            else if (statusValue == (uint)MAVLink.ILABS_EAHRS_GPS_FIX_STATUS.FIX_2D ||
-                 statusValue == (uint)MAVLink.ILABS_EAHRS_GPS_FIX_STATUS.FIX_3D ||
-                 statusValue == (uint)MAVLink.ILABS_EAHRS_GPS_FIX_STATUS.OTHER)
+            }else
             {
                 Console.WriteLine("GNSS Mode");
                 if (this._baseCameraController.GnssModeStatus.InvokeRequired){
                     this._baseCameraController.GnssModeStatus.Invoke((MethodInvoker)delegate
                     {
-                        this._baseCameraController.GnssModeStatus.Text = "GNSS Mode: GNSS Receiver";
+                        this._baseCameraController.GnssModeStatus.Text = "GNSS Mode: GNSS";
                     });
                 }else{
-                    this._baseCameraController.GnssModeStatus.Text = "GNSS Mode: GNSS Receiver";
+                    this._baseCameraController.GnssModeStatus.Text = "GNSS Mode: GNSS";
+                }
+            }
+        }
+
+        // Gremsy Vio Controls
+
+        public bool GremsyVioStartRecording()
+        {
+            Console.WriteLine("Start Recording Command Sent");
+            bool result = MainV2.comPort.doCommand((byte)MainV2.comPort.sysidcurrent, (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_CAMERA2,
+                    MAVLink.MAV_CMD.VIDEO_START_CAPTURE, 0, 0, 0, 0, 0, 0,0,true);
+            return result;
+        }
+
+        public bool GremsyVioStopRecording()
+        {
+            Console.WriteLine("Stop Recording Command Sent");
+            bool result =MainV2.comPort.doCommand((byte)MainV2.comPort.sysidcurrent, (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_CAMERA2,
+                    MAVLink.MAV_CMD.VIDEO_STOP_CAPTURE, 0, 0, 0, 0, 0, 0,0,true);
+            return result;
+        }
+
+        public void GremsyVioZoomIn()
+        {
+            Console.WriteLine("Zoom In Command Sent");
+            MainV2.comPort.doCommand((byte)MainV2.comPort.sysidcurrent, (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_CAMERA2,
+                    MAVLink.MAV_CMD.SET_CAMERA_ZOOM,1,1, 0, 0, 0,0,0,false);
+        }
+
+        public void GremsyVioZoomOut()
+        {
+            Console.WriteLine("Zoom Out Command Sent");
+            MainV2.comPort.doCommand((byte)MainV2.comPort.sysidcurrent, (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_CAMERA2,
+                    MAVLink.MAV_CMD.SET_CAMERA_ZOOM,1,-1, 0, 0, 0,0,0,false);
+        }
+
+        public void GremsyVioZoomStop()
+        {
+            Console.WriteLine("Zoom Stop Command Sent");
+            MainV2.comPort.doCommand((byte)MainV2.comPort.sysidcurrent, (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_CAMERA2,
+                    MAVLink.MAV_CMD.SET_CAMERA_ZOOM,1,0, 0, 0, 0,0,0,false);
+        }
+
+        public void GremsyVioStartTracking(float x, float y)
+        {
+            Console.WriteLine("Start Tracking Command Sent {0} {1}",x,y);
+            // MainV2.comPort.doCommand((byte)MainV2.comPort.sysidcurrent, (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_USER2,MAVLink.MAV_CMD.USER_4,4,0,1,x,y,128,128,false);
+            MAVLink.mavlink_command_long_t msg = new MAVLink.mavlink_command_long_t
+            {
+                target_system = (byte)MainV2.comPort.sysidcurrent,
+                target_component = (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_USER2,
+                command = (ushort) MAVLink.MAV_CMD.USER_4,
+                confirmation = 1,
+                param1 = 4,
+                param2 = 0,
+                param3 = 0,
+                param4 = 1,
+                param5 = 0,
+                param6 = 0,
+                param7 = 0
+            };
+            var pkt = parse.GenerateMAVLinkPacket20(
+                MAVLink.MAVLINK_MSG_ID.COMMAND_LONG,
+                msg,
+                false,
+                (byte) MainV2.comPort.sysidcurrent,
+                onboardComp
+            );
+            udp.Send(pkt, pkt.Length, remoteEP);
+            msg = new MAVLink.mavlink_command_long_t
+            {
+                target_system = (byte)MainV2.comPort.sysidcurrent,
+                target_component = (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_USER2,
+                command = (ushort) MAVLink.MAV_CMD.USER_4,
+                confirmation = 1,
+                param1 = 4,
+                param2 = 0,
+                param3 = 1,
+                param4 = x,
+                param5 = y,
+                param6 = 128,
+                param7 = 128
+            };
+            pkt = parse.GenerateMAVLinkPacket20(
+                MAVLink.MAVLINK_MSG_ID.COMMAND_LONG,
+                msg,
+                false,
+                (byte) MainV2.comPort.sysidcurrent,
+                onboardComp
+            );
+            udp.Send(pkt, pkt.Length, remoteEP);
+        }
+
+        public void GremsyVioStopTracking()
+        {
+            Console.WriteLine("Stop Tracking Command Sent");
+            // MainV2.comPort.doCommand((byte)MainV2.comPort.sysidcurrent, (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_USER2,MAVLink.MAV_CMD.USER_4,0,0 ,0,0, 0, 0,0,false);
+            MAVLink.mavlink_command_long_t msg = new MAVLink.mavlink_command_long_t
+            {
+                target_system = (byte)MainV2.comPort.sysidcurrent,
+                target_component = (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_USER2,
+                command = (ushort) MAVLink.MAV_CMD.USER_4,
+                confirmation = 1,
+                param1 = 4,
+                param2 = 0,
+                param3 = 0,
+                param4 = 0,
+                param5 = 0,
+                param6 = 0,
+                param7 = 0
+            };
+            var pkt = parse.GenerateMAVLinkPacket20(
+                MAVLink.MAVLINK_MSG_ID.COMMAND_LONG,
+                msg,
+                false,
+                (byte) MainV2.comPort.sysidcurrent,
+                onboardComp
+            );
+            udp.Send(pkt, pkt.Length, remoteEP);
+        }
+        public void GremsyVioPitchYawControl(int pitchFlag,int yawFlag)
+        {
+            if(pitchFlag == 1) pitch += 5.0f;
+            else if(pitchFlag == -1) pitch -=5.0f;
+            if(yawFlag == 1) yaw += 5.0f;
+            else if(yawFlag == -1) yaw -= 5.0f;
+            Console.WriteLine("Pitch/Yaw Control Command Sent");
+            MainV2.comPort.doCommand((byte)MainV2.comPort.sysidcurrent, (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_CAMERA,
+                   MAVLink.MAV_CMD.DO_MOUNT_CONTROL, pitch, (float)0.0, yaw, 0, 0,0,0,false);
+        }
+
+        public void GremsyVioHomeCommand()
+        {
+            float roll = 0.0f;
+            pitch = 0.0f;
+            yaw = 0.0f;
+            Console.WriteLine("Home Command Sent");
+            MainV2.comPort.doCommand((byte)MainV2.comPort.sysidcurrent,(byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_CAMERA,
+            MAVLink.MAV_CMD.DO_MOUNT_CONTROL, pitch, roll, yaw, 0, 0,0,0,false);
+        }
+
+        public bool GremsyVioTakePhoto()
+        {
+            Console.WriteLine("Take Photo Command Sent");
+            bool result = MainV2.comPort.doCommand((byte)MainV2.comPort.sysidcurrent, (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_CAMERA2,
+                    MAVLink.MAV_CMD.IMAGE_START_CAPTURE, 0, 0, 1, 0, 0, 0,0,true);
+            return result;
+        }
+
+        public bool GremsyVioStopCaptureImage()
+        {
+            bool result = MainV2.comPort.doCommand((byte)MainV2.comPort.sysidcurrent, (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_CAMERA2,
+                    MAVLink.MAV_CMD.IMAGE_STOP_CAPTURE, 0, 0, 0, 0, 0, 0,0,true);
+            return result;
+        }
+
+        public void GremsyVioIRZoom(int value)
+        {
+            byte[] id_bytes = new byte[16];
+            id_bytes = Encoding.ASCII.GetBytes("C_T_ZOOM");
+            // Array.Copy(text_bytes, 0, id_bytes, 0, Math.Min(text_bytes.Length, id_bytes.Length));
+            // byte[] value_bytes = new byte[128];
+            byte[] value_bytes = new byte[128];
+            value_bytes = BitConverter.GetBytes(value);
+            // char[] id_chars = new char[16];
+            // id_chars = name.ToCharArray();
+            // char[] value_chars = new char[128];
+            // value_chars = value.ToCharArray();
+            // Array.Copy(source_bytes, 0, value_bytes, 0, Math.Min(source_bytes.Length, value_bytes.Length));
+
+            var msg = new MAVLink.mavlink_param_ext_set_t();
+            msg.target_system = (byte)MainV2.comPort.sysidcurrent;
+            msg.target_component = (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_CAMERA2;
+            msg.param_id = id_bytes;
+            msg.param_value = value_bytes;
+            msg.param_type = 5;
+
+            MainV2.comPort.sendPacket(
+                msg,
+                (byte)MainV2.comPort.sysidcurrent,
+                (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_CAMERA2
+            );
+        }
+
+        public void GremsyVioControlPitchYaw(double x,double y)
+        {
+            Console.WriteLine("Pitch/Yaw Control Command Sent"+x+","+y);
+            float XRadian = (float)x;
+            float YRadian = (float)y;
+            // int pingSeq = 0;
+
+            var msg = new MAVLink.mavlink_gimbal_device_set_attitude_t{
+                target_system = (byte)MainV2.comPort.sysidcurrent,
+                target_component = (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_GIMBAL,
+                flags = (ushort)(MAVLink.GIMBAL_DEVICE_FLAGS.ROLL_LOCK | MAVLink.GIMBAL_DEVICE_FLAGS.PITCH_LOCK | 0 | MAVLink.GIMBAL_DEVICE_FLAGS.YAW_LOCK | 0 | 0),
+                q = new float[]{
+                    float.NaN, float.NaN, float.NaN, float.NaN
+                },
+                angular_velocity_x =0.0f,
+                angular_velocity_y = YRadian,
+                angular_velocity_z = XRadian,
+            };
+            var pkt = parse.GenerateMAVLinkPacket20(
+                MAVLink.MAVLINK_MSG_ID.GIMBAL_DEVICE_SET_ATTITUDE,
+                msg,
+                false,
+                (byte) MainV2.comPort.sysidcurrent,
+                onboardComp
+            );
+            udp.Send(pkt, pkt.Length, remoteEP);
+            Console.WriteLine("GremsyVio sended ");
+        }
+
+        private void BUT_joystick_gimbal_Click(object sender, EventArgs e)
+        {
+            // Implementation for joystick gimbal click event
+            if(BUT_joystick.Text == "JoyStick ON")
+            {
+                if(BUT_joystick_gimbal.Text == "Gimbal JoyStick OFF")
+                {               
+                    string current_mode = MainV2.comPort.MAV.cs.mode.ToLower();
+                    if(current_mode != "Loiter".ToLower() && current_mode != "Stabilize".ToLower() && current_mode != "Althold".ToLower() && current_mode != "Qloiter" && current_mode != "QStabilize".ToLower() && current_mode != "QHover".ToLower() && current_mode != "FBWA".ToLower() && current_mode != "FBWB".ToLower() && current_mode != "Manual".ToLower())
+                    {
+                        Console.WriteLine("Joystick Switched to the Gimbal Control Mode");
+                        MainV2.joystick.manual_control = true;
+                    }else{
+                        CustomMessageBox.Show("Please Switch to the Non-Joystick Control Mode.", "Joystick Error");
+                    }
+                }else
+                {
+                    MainV2.joystick.manual_control = false;
+                    Console.WriteLine("Joystick Switched to the Flight Control Mode");
                 }
             }
             else
             {
-                Console.WriteLine("Unknown GNSS Mode");
-                if (this._baseCameraController.GnssModeStatus.InvokeRequired){
-                    this._baseCameraController.GnssModeStatus.Invoke((MethodInvoker)delegate
-                    {
-                        this._baseCameraController.GnssModeStatus.Text = "GNSS Mode: Unknown";
-                    });
-                }else{
-                    this._baseCameraController.GnssModeStatus.Text = "GNSS Mode: Unknown";
-                }
+                CustomMessageBox.Show("Please ensure that the joystick is connected and configured properly.", "Joystick Error");
             }
         }
     }
