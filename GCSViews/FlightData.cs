@@ -7371,6 +7371,24 @@ namespace XagSurveillanceGCS.GCSViews
                     (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_GIMBAL
                 );
 
+                var gremsymsg = new MAVLink.mavlink_gimbal_device_set_attitude_t{
+                    target_system = (byte)MainV2.comPort.sysidcurrent,
+                    target_component = (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_GIMBAL,
+                    flags = (ushort)(MAVLink.GIMBAL_DEVICE_FLAGS.ROLL_LOCK | MAVLink.GIMBAL_DEVICE_FLAGS.PITCH_LOCK | 0 | MAVLink.GIMBAL_DEVICE_FLAGS.YAW_LOCK | 0 | 0),
+                    q = quaternion,
+                    angular_velocity_x =float.NaN,
+                    angular_velocity_y = float.NaN,
+                    angular_velocity_z = float.NaN,
+                };
+                var gremsypkt = parse.GenerateMAVLinkPacket20(
+                    MAVLink.MAVLINK_MSG_ID.GIMBAL_DEVICE_SET_ATTITUDE,
+                    gremsymsg,
+                    false,
+                    (byte) MainV2.comPort.sysidcurrent,
+                    onboardComp
+                );
+                udp.Send(gremsypkt, gremsypkt.Length, remoteEP);
+
                 byte[] finalPitchByte = BitConverter.GetBytes((short)finalPitch);
 
                 byte[] finalCommandBytes = BitConverter.GetBytes((short)commandValue);

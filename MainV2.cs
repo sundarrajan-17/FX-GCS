@@ -732,7 +732,7 @@ namespace XagSurveillanceGCS
             _connectionControl = toolStripConnectionControl.ConnectionControl;
             _connectionControl.CMB_baudrate.TextChanged += this.CMB_baudrate_TextChanged;
             _connectionControl.CMB_serialport.SelectedIndexChanged += this.CMB_serialport_SelectedIndexChanged;
-            _connectionControl.CMB_serialport.Click += this.CMB_serialport_Click;
+            // _connectionControl.CMB_serialport.Click += this.CMB_serialport_Click;
             _connectionControl.cmb_sysid.Click += cmb_sysid_Click;
 
             _connectionControl.ShowLinkStats += (sender, e) => ShowConnectionStatsForm();
