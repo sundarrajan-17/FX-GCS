@@ -26,7 +26,7 @@ namespace XagSurveillanceGCS.Controls
             XagSurveillanceGCS.Utilities.Tracking.AddPage(this.GetType().ToString(), this.Text);
         }
 
-        private void BUT_connect_Click(object sender, EventArgs e)
+        public void BUT_connect_Click(object sender, EventArgs e)
         {
             var mav = new MAVLinkInterface();
 
@@ -35,7 +35,7 @@ namespace XagSurveillanceGCS.Controls
                 // Connect, but don't try to get params yet, the serial reader thread doesn't try to
                 // read from this port until we add it to Comports, and it cannot be added to Comports
                 // until the BaseStream is open.
-                MainV2.instance.doConnect(mav, CMB_serialport.Text, CMB_baudrate.Text, getparams:false);
+                MainV2.instance.doConnect(mav, "UDP", "115200", getparams:false);
 
                 MainV2.Comports.Add(mav);
 

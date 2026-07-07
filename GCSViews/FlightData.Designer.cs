@@ -2970,7 +2970,7 @@ namespace XagSurveillanceGCS.GCSViews
             this.TopSplit.Dock = DockStyle.Fill;
             this.TopSplit.Orientation = Orientation.Vertical;
             this.TopSplit.SplitterDistance = (int)(this.TopSplit.Width * 0.55);
-            this.TopSplit.IsSplitterFixed = true;
+            // this.TopSplit.IsSplitterFixed = true;
             this.TopSplit.Panel2.Controls.Add(this.tableMap);
             //
             // MainH BottomPanel

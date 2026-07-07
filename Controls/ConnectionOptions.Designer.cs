@@ -68,9 +68,9 @@
             // 
             resources.ApplyResources(this, "$this");
             
-            this.Controls.Add(this.CMB_baudrate);
+            // this.Controls.Add(this.CMB_baudrate);
             this.Controls.Add(this.BUT_connect);
-            this.Controls.Add(this.CMB_serialport);
+            // this.Controls.Add(this.CMB_serialport);
             this.Name = "ConnectionOptions";
             this.ResumeLayout(false);
 

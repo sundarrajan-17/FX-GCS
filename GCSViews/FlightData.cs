@@ -153,38 +153,27 @@ namespace XagSurveillanceGCS.GCSViews
         PropertyInfo list20item;
         double LogPlayBackSpeed = 1.0;
         GMapMarker marker;
-
         private TcpClient tcpClient;
         private NetworkStream networkStream;
-
         int messagecount;
-
         //whether or not the output console has already started
         bool outputwindowstarted;
-
         bool playingLog;
         GMapOverlay polygons;
         private Propagation prop;
-
         GMapRoute route;
         GMapOverlay routes;
         GMapOverlay adsbais;
-
         Script script;
-
         //whether or not a script is running
         bool scriptrunning;
         // A simple variable does not work on release builds...
         Semaphore scriptstarted = new Semaphore(1,1);
-
         //the thread the script is running on
         Thread scriptthread;
-
         float[] quaternion = new float[4];
-
         public readonly List<TabPage> TabListOriginal = new List<TabPage>();
         public Dictionary<string,bool> TabListDisplay = new Dictionary<string, bool>();
-
         //List for setting colors of quick tab numbers
         List<Color> listQuickView = new List<Color>();
         //works well for dark background
@@ -193,11 +182,8 @@ namespace XagSurveillanceGCS.GCSViews
         int tickStart;
         List<PointLatLng> trackPoints = new List<PointLatLng>();
         volatile int updateBindingSourcecount;
-
         object updateBindingSourcelock = new object();
-
         string updateBindingSourceThreadName = "";
-
         public enum actions
         {
             Loiter_Unlim,
@@ -7973,15 +7959,8 @@ namespace XagSurveillanceGCS.GCSViews
         {
             byte[] id_bytes = new byte[16];
             id_bytes = Encoding.ASCII.GetBytes("C_T_ZOOM");
-            // Array.Copy(text_bytes, 0, id_bytes, 0, Math.Min(text_bytes.Length, id_bytes.Length));
-            // byte[] value_bytes = new byte[128];
             byte[] value_bytes = new byte[128];
             value_bytes = BitConverter.GetBytes(value);
-            // char[] id_chars = new char[16];
-            // id_chars = name.ToCharArray();
-            // char[] value_chars = new char[128];
-            // value_chars = value.ToCharArray();
-            // Array.Copy(source_bytes, 0, value_bytes, 0, Math.Min(source_bytes.Length, value_bytes.Length));
 
             var msg = new MAVLink.mavlink_param_ext_set_t();
             msg.target_system = (byte)MainV2.comPort.sysidcurrent;
@@ -8034,7 +8013,7 @@ namespace XagSurveillanceGCS.GCSViews
                 if(BUT_joystick_gimbal.Text == "Gimbal JoyStick OFF")
                 {               
                     string current_mode = MainV2.comPort.MAV.cs.mode.ToLower();
-                    if(current_mode != "Loiter".ToLower() && current_mode != "Stabilize".ToLower() && current_mode != "Althold".ToLower() && current_mode != "Qloiter" && current_mode != "QStabilize".ToLower() && current_mode != "QHover".ToLower() && current_mode != "FBWA".ToLower() && current_mode != "FBWB".ToLower() && current_mode != "Manual".ToLower())
+                    if(current_mode != "Loiter".ToLower() && current_mode != "Stabilize".ToLower() && current_mode != "Althold".ToLower() && current_mode != "Qloiter".ToLower() && current_mode != "QStabilize".ToLower() && current_mode != "QHover".ToLower() && current_mode != "FBWA".ToLower() && current_mode != "FBWB".ToLower() && current_mode != "Manual".ToLower() && current_mode != "UnKnown".ToLower())
                     {
                         Console.WriteLine("Joystick Switched to the Gimbal Control Mode");
                         MainV2.joystick.manual_control = true;

@@ -1833,6 +1833,7 @@ namespace XagSurveillanceGCS
             // save config
             SaveConfig();
         }
+        
 
         private void Connect()
         {
@@ -1875,8 +1876,8 @@ namespace XagSurveillanceGCS
             }
             else
             {
-                doConnect(comPort, _connectionControl.CMB_serialport.Text, _connectionControl.CMB_baudrate.Text);
-                // doConnect(comPort,"UDP","115200");
+                // doConnect(comPort, _connectionControl.CMB_serialport.Text, _connectionControl.CMB_baudrate.Text);
+                doConnect(comPort,"UDP","115200");
             }
 
             _connectionControl.UpdateSysIDS();
@@ -4721,7 +4722,7 @@ namespace XagSurveillanceGCS
 
         private void connectionOptionsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            new ConnectionOptions().Show(this);
+            new ConnectionOptions().BUT_connect_Click(null,null);
         }
 
         private void MenuArduPilot_Click(object sender, EventArgs e)
