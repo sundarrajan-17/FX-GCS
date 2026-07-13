@@ -74,6 +74,7 @@ namespace XagSurveillanceGCS.Controls
                 return;
 
             inOnPaint = true;
+            // Console.WriteLine("BGGradTOPPPPP,BGGradBottttttt {0},{1}", BGGradTop, BGGradBot);
 
             try
             {

@@ -679,8 +679,6 @@ namespace XagSurveillanceGCS.Controls
 
          public void SendNormalizedTrackingPoint(double xNorm, double yNorm, int width, int height)
         {
-            int x = (int)(xNorm * (width));
-            int y = (int)(yNorm * (height));
 
             if(this.flightData._baseCameraController.SelectedCamera == "XAGCAM2")
             {
@@ -689,7 +687,17 @@ namespace XagSurveillanceGCS.Controls
 
                 Console.WriteLine("Converted X Y Point {0} {1}", x01, y01);
                 flightData.GremsyStartTracking(x01, y01);
-            }else
+            }else if(this.flightData._baseCameraController.SelectedCamera == "XAGCAM3")
+            {
+                int x = (int)(xNorm * (width/2)) + 960;
+                int y = (int)(yNorm * (height/2)) + 540;
+                float x01 = (float)xNorm;
+                float y01 = (float)yNorm;
+
+                Console.WriteLine("Converted X Y Point {0} {1}", x01, y01);
+                flightData.GremsyVioStartTracking(x, y);
+            }
+            else
             {
                 int x01 = (int)(xNorm * (width / 2));
                 int y01 = (int)(yNorm * (height / 2));
@@ -836,6 +844,8 @@ namespace XagSurveillanceGCS.Controls
             if (e.Button == MouseButtons.Right)
             {
                 this.flightData.GremsyStopTracking();
+                this.flightData.GremsyVioStopTracking();
+                this.flightData.XagCamStopTrackCommand();
             }
         }
 

@@ -307,7 +307,7 @@
     <value>181, 22</value>
   </data>
   <data name="connectionOptionsToolStripMenuItem.Text" xml:space="preserve">
-    <value>Connection Options</value>
+    <value>ADR Connect</value>
   </data>
   <data name="connectionListToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>181, 22</value>

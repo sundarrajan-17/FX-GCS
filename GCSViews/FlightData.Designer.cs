@@ -969,9 +969,6 @@ namespace XagSurveillanceGCS.GCSViews
             // 
             // BUT_joystick
             // 
-            // this.BUT_joystick.ColorMouseDown = System.Drawing.Color.Empty;
-            // this.BUT_joystick.ColorMouseOver = System.Drawing.Color.Empty;
-            // this.BUT_joystick.ColorNotEnabled = System.Drawing.Color.Empty;
             this.BUT_joystick.BGGradTop = System.Drawing.Color.Red;
             this.BUT_joystick.BGGradBot = System.Drawing.Color.Red;
             resources.ApplyResources(this.BUT_joystick, "BUT_joystick");

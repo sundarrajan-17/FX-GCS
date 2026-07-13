@@ -135,6 +135,9 @@ namespace XagSurveillanceGCS.Controls
             if(this._parentControl.SelectedCamera == "XAGCAM2")
             {     
                 this._parentControl._flightData.GremsyControlPitchYaw(XValue, YValue);
+            }else if(this._parentControl.SelectedCamera == "XAGCAM3")
+            {
+                this._parentControl._flightData.GremsyVioControlPitchYaw(XValue, YValue);
             }
             else
             {
@@ -166,6 +169,9 @@ namespace XagSurveillanceGCS.Controls
             if(this._parentControl.SelectedCamera == "XAGCAM2")
             {     
                 this._parentControl._flightData.GremsyControlPitchYaw(XValue*0.5, YValue*0.5);
+            }else if(this._parentControl.SelectedCamera == "XAGCAM3")
+            {
+                this._parentControl._flightData.GremsyVioControlPitchYaw(XValue, YValue);
             }
             else
             {

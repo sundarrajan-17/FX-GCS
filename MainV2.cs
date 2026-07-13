@@ -2276,23 +2276,23 @@ namespace XagSurveillanceGCS
                                 FlightData.BUT_joystick.BGGradTop = System.Drawing.Color.Green;
                                 FlightData.BUT_joystick.BGGradBot = System.Drawing.Color.Green;
                             }
-                            if (FlightData.BUT_joystick_gimbal.InvokeRequired)
+                            if (!joystick.manual_control)
                             {
-                                FlightData.BUT_joystick_gimbal.Invoke((MethodInvoker)delegate
+                                if (FlightData.BUT_joystick_gimbal.InvokeRequired)
+                                {
+                                    FlightData.BUT_joystick_gimbal.Invoke((MethodInvoker)delegate
+                                    {
+                                        FlightData.BUT_joystick_gimbal.Text = "Gimbal JoyStick OFF";
+                                        FlightData.BUT_joystick_gimbal.BGGradTop = System.Drawing.Color.Red;
+                                        FlightData.BUT_joystick_gimbal.BGGradBot = System.Drawing.Color.Red;
+                                    });
+                                }
+                                else
                                 {
                                     FlightData.BUT_joystick_gimbal.Text = "Gimbal JoyStick OFF";
                                     FlightData.BUT_joystick_gimbal.BGGradTop = System.Drawing.Color.Red;
                                     FlightData.BUT_joystick_gimbal.BGGradBot = System.Drawing.Color.Red;
-                                });
-                            }
-                            else
-                            {
-                                FlightData.BUT_joystick_gimbal.Text = "Gimbal JoyStick OFF";
-                                FlightData.BUT_joystick_gimbal.BGGradTop = System.Drawing.Color.Red;
-                                FlightData.BUT_joystick_gimbal.BGGradBot = System.Drawing.Color.Red;
-                            }
-                            if (!joystick.manual_control)
-                            {
+                                }
                                 MAVLink.mavlink_rc_channels_override_t
                                     rc = new MAVLink.mavlink_rc_channels_override_t();
 
@@ -2496,6 +2496,21 @@ namespace XagSurveillanceGCS
                                 FlightData.BUT_joystick.Text = "JoyStick OFF";
                                 FlightData.BUT_joystick.BGGradTop = System.Drawing.Color.Red;
                                 FlightData.BUT_joystick.BGGradBot = System.Drawing.Color.Red;
+                            }
+                            if (FlightData.BUT_joystick_gimbal.InvokeRequired)
+                            {
+                                FlightData.BUT_joystick_gimbal.Invoke((MethodInvoker)delegate
+                                {
+                                    FlightData.BUT_joystick_gimbal.Text = "Gimbal JoyStick OFF";
+                                    FlightData.BUT_joystick_gimbal.BGGradTop = System.Drawing.Color.Red;
+                                    FlightData.BUT_joystick_gimbal.BGGradBot = System.Drawing.Color.Red;
+                                });
+                            }
+                            else
+                            {
+                                FlightData.BUT_joystick_gimbal.Text = "Gimbal JoyStick OFF";
+                                FlightData.BUT_joystick_gimbal.BGGradTop = System.Drawing.Color.Red;
+                                FlightData.BUT_joystick_gimbal.BGGradBot = System.Drawing.Color.Red;
                             }
                         }
                     }

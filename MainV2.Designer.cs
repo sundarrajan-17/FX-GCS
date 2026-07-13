@@ -86,9 +86,9 @@ namespace XagSurveillanceGCS
             this.CTX_mainmenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.autoHideToolStripMenuItem,
             this.fullScreenToolStripMenuItem,
-            this.readonlyToolStripMenuItem,
-            this.connectionOptionsToolStripMenuItem,
-            this.connectionListToolStripMenuItem});
+            // this.readonlyToolStripMenuItem,
+            this.connectionOptionsToolStripMenuItem});
+            // this.connectionListToolStripMenuItem});
             this.CTX_mainmenu.Name = "CTX_mainmenu";
             resources.ApplyResources(this.CTX_mainmenu, "CTX_mainmenu");
             // 
