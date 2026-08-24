@@ -17,7 +17,7 @@ namespace XagSurveillanceGCS.Utilities
     {
         static Settings _instance;
 
-        public static string AppConfigName { get; set; } = "XAGGCS";
+        public static string AppConfigName { get; set; } = "XagSurveillanceGcs";
 
         public static Settings Instance
         {

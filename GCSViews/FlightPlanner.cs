@@ -65,61 +65,7 @@ namespace XagSurveillanceGCS.GCSViews
         {
             InitializeComponent();
             Init();
-            this.panelWaypoints.Controls.Add(this.vtoltakeoffbtn);
-            this.panelWaypoints.Controls.Add(this.loiterunlimbtn);
-            this.panelWaypoints.Controls.Add(this.waypointbtn);
-            this.panelWaypoints.Controls.Add(this.dolandstartbtn);
-            this.panelWaypoints.Controls.Add(this.landbtn);
-            this.panelWaypoints.Controls.Add(this.BUT_Add);
         }
-        private void Button_Click(object sender, EventArgs e)
-        {
-            selectedButton = (MyButton)sender;
-            Console.WriteLine("Button Click Happensssssssssssssssss {0}", selectedButton.Text);
-
-            foreach (Control control in panelWaypoints.Controls)
-            {
-                if (control is MyButton btn)
-                {
-                    if(btn.Text == "VTOL-TAKEOFF" || btn.Text == "LOITER-UNLIM" || btn.Text == "WAYPOINT" || btn.Text == "DO-LAND-START" || btn.Text == "LAND")
-                    {
-                        if (btn == selectedButton)
-                        {
-                            if(btn.Text == "VTOL-TAKEOFF")
-                            {
-                                selectedMav_cmd = MAVLink.MAV_CMD.VTOL_TAKEOFF;
-                            }else if(btn.Text == "LOITER-UNLIM")
-                            {
-                                selectedMav_cmd = MAVLink.MAV_CMD.LOITER_UNLIM;
-                            }else if(btn.Text == "WAYPOINT")
-                            {
-                                selectedMav_cmd = MAVLink.MAV_CMD.WAYPOINT;
-                            }else if(btn.Text == "DO-LAND-START")
-                            {
-                                selectedMav_cmd = MAVLink.MAV_CMD.DO_LAND_START;
-                            }else if(btn.Text == "LAND")
-                            {
-                                selectedMav_cmd = MAVLink.MAV_CMD.LAND;
-                            }
-                            else
-                            {
-                                selectedMav_cmd = MAVLink.MAV_CMD.WAYPOINT;
-                            }
-                            btn.BGGradTop = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(193)))), ((int)(((byte)(31)))));
-                            btn.BGGradBot = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(226)))), ((int)(((byte)(150)))));
-                            // btn.FlatStyle = FlatStyle.Flat;
-                        }
-                        else
-                        {
-                            btn.BGGradTop = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(54)))), ((int)(((byte)(54)))));
-                            btn.BGGradBot = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(68)))), ((int)(((byte)(68)))));
-                            // btn.FlatStyle = FlatStyle.Standard;
-                        }
-                    }
-                }
-            }
-        }
-
 
         private void but_mincommands_Click(object sender, System.EventArgs e)
         {
@@ -190,7 +136,7 @@ namespace XagSurveillanceGCS.GCSViews
         private bool sethome;
         private bool splinemode;
         private PointLatLng startmeasure;
-        private MAVLink.MAV_CMD selectedMav_cmd = MAVLink.MAV_CMD.VTOL_TAKEOFF;
+        private MAVLink.MAV_CMD selectedMav_cmd = MAVLink.MAV_CMD.WAYPOINT;
         public GMapOverlay top;
         public GMapPolygon wppolygon;
         private GMapMarker CurrentMidLine;
@@ -373,7 +319,7 @@ namespace XagSurveillanceGCS.GCSViews
 
             chk_usemavftp.Checked = Settings.Instance.GetBoolean("UseMissionMAVFTP", false);
 
-            Button_Click(this.vtoltakeoffbtn, EventArgs.Empty);
+            // Button_Click(this.vtoltakeoffbtn, EventArgs.Empty);
 
             updateHome();
 
@@ -606,6 +552,51 @@ namespace XagSurveillanceGCS.GCSViews
             return selectedrow;
         }
 
+        private void Button_Click(object sender, EventArgs e)
+        {
+            selectedButton = (MyButton)sender;
+            Console.WriteLine("Button Click Happensssssssssssssssss {0}", selectedButton.Text);
+
+            foreach (Control control in panelWaypoints.Controls)
+            {
+                if (control is MyButton btn)
+                {
+                    if(btn.Text == "VTOL-TAKEOFF" || btn.Text == "LOITER-UNLIM" || btn.Text == "WAYPOINT" || btn.Text == "DO-LAND-START" || btn.Text == "LAND")
+                    {
+                        if (btn == selectedButton)
+                        {
+                            if(btn.Text == "VTOL-TAKEOFF")
+                            {
+                                Console.WriteLine("VTOL-TAKEOFF Button Click Happens");
+                                selectedMav_cmd = MAVLink.MAV_CMD.VTOL_TAKEOFF;
+                            }else if(btn.Text == "LOITER-UNLIM")
+                            {
+                                selectedMav_cmd = MAVLink.MAV_CMD.LOITER_UNLIM;
+                            }else if(btn.Text == "WAYPOINT")
+                            {
+                                selectedMav_cmd = MAVLink.MAV_CMD.WAYPOINT;
+                            }else if(btn.Text == "DO-LAND-START")
+                            {
+                                selectedMav_cmd = MAVLink.MAV_CMD.DO_LAND_START;
+                            }else if(btn.Text == "LAND")
+                            {
+                                selectedMav_cmd = MAVLink.MAV_CMD.LAND;
+                            }
+                            btn.BGGradTop = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(193)))), ((int)(((byte)(31)))));
+                            btn.BGGradBot = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(226)))), ((int)(((byte)(150)))));
+                            // btn.FlatStyle = FlatStyle.Flat;
+                        }
+                        else
+                        {
+                            btn.BGGradTop = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(54)))), ((int)(((byte)(54)))));
+                            btn.BGGradBot = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(68)))), ((int)(((byte)(68)))));
+                            // btn.FlatStyle = FlatStyle.Standard;
+                        }
+                    }
+                }
+            }
+        }
+
         /// <summary>
         /// Used to create a new WP
         /// </summary>
@@ -790,24 +781,34 @@ namespace XagSurveillanceGCS.GCSViews
                         return;
                 }
             }
-
-            IProgressReporterDialogue frmProgressReporter = new ProgressReporterDialogue
+            double homealt = MainV2.comPort.MAV.cs.HomeAlt;
+            ElevationProfile checkElevation = new ElevationProfile(pointlist, homealt,
+                (altmode) Enum.Parse(typeof(altmode), CMB_altmode.Text));
+            checkElevation.ElevationProfile_Load(null,null);
+            if(checkElevation.ElevationIsClear)
             {
-                StartPosition = FormStartPosition.CenterScreen,
-                Text = "Sending WP's"
-            };
+                IProgressReporterDialogue frmProgressReporter = new ProgressReporterDialogue
+                {
+                    StartPosition = FormStartPosition.CenterScreen,
+                    Text = "Sending WP's"
+                };
 
-            frmProgressReporter.DoWork += saveWPs;
+                frmProgressReporter.DoWork += saveWPs;
 
-            frmProgressReporter.UpdateProgressAndStatus(-1, "Sending WP's");
+                frmProgressReporter.UpdateProgressAndStatus(-1, "Sending WP's");
 
-            ThemeManager.ApplyThemeTo(frmProgressReporter);
+                ThemeManager.ApplyThemeTo(frmProgressReporter);
 
-            frmProgressReporter.RunBackgroundOperationAsync();
+                frmProgressReporter.RunBackgroundOperationAsync();
 
-            frmProgressReporter.Dispose();
+                frmProgressReporter.Dispose();
 
-            MainMap.Focus();
+                MainMap.Focus();
+            }
+            else
+            {
+                CustomMessageBox.Show("Altitude is lesser than terrain altitude. Please check the plan", "Elevation Warning", MessageBoxButtons.OKCancel);
+            }
         }
 
         /// <summary>
@@ -2050,23 +2051,34 @@ namespace XagSurveillanceGCS.GCSViews
                 }
             }
 
-            IProgressReporterDialogue frmProgressReporter = new ProgressReporterDialogue
+            double homealt = MainV2.comPort.MAV.cs.HomeAlt;
+            ElevationProfile checkElevation = new ElevationProfile(pointlist, homealt,
+                (altmode) Enum.Parse(typeof(altmode), CMB_altmode.Text));
+            checkElevation.ElevationProfile_Load(null,null);
+            if(checkElevation.ElevationIsClear)
             {
-                StartPosition = FormStartPosition.CenterScreen,
-                Text = "Sending WP's"
-            };
+                IProgressReporterDialogue frmProgressReporter = new ProgressReporterDialogue
+                {
+                    StartPosition = FormStartPosition.CenterScreen,
+                    Text = "Sending WP's"
+                };
 
-            frmProgressReporter.DoWork += saveWPsFast;
+                frmProgressReporter.DoWork += saveWPsFast;
 
-            frmProgressReporter.UpdateProgressAndStatus(-1, "Sending WP's");
+                frmProgressReporter.UpdateProgressAndStatus(-1, "Sending WP's");
 
-            ThemeManager.ApplyThemeTo(frmProgressReporter);
+                ThemeManager.ApplyThemeTo(frmProgressReporter);
 
-            frmProgressReporter.RunBackgroundOperationAsync();
+                frmProgressReporter.RunBackgroundOperationAsync();
 
-            frmProgressReporter.Dispose();
+                frmProgressReporter.Dispose();
 
-            MainMap.Focus();
+                MainMap.Focus();
+            }
+            else
+            {
+                CustomMessageBox.Show("Altitude is lesser than terrain altitude. Please check the plan", "Elevation Warning", MessageBoxButtons.OKCancel);
+            }
         }
 
         private double calcpolygonarea(List<PointLatLng> polygon)
@@ -5560,19 +5572,20 @@ namespace XagSurveillanceGCS.GCSViews
             {
                 reader.Read();
                 reader.ReadStartElement("CMD");
-                if (MainV2.comPort.MAV.cs.firmware == Firmwares.ArduPlane ||
-                    MainV2.comPort.MAV.cs.firmware == Firmwares.Ateryx)
-                {
-                    reader.ReadToFollowing("APM");
-                }
-                else if (MainV2.comPort.MAV.cs.firmware == Firmwares.ArduRover)
-                {
-                    reader.ReadToFollowing("APRover");
-                }
-                else
-                {
-                    reader.ReadToFollowing("AC2");
-                }
+                // if (MainV2.comPort.MAV.cs.firmware == Firmwares.ArduPlane ||
+                //     MainV2.comPort.MAV.cs.firmware == Firmwares.Ateryx)
+                // {
+                //     reader.ReadToFollowing("APM");
+                // }
+                // else if (MainV2.comPort.MAV.cs.firmware == Firmwares.ArduRover)
+                // {
+                //     reader.ReadToFollowing("APRover");
+                // }
+                // else
+                // {
+                //     reader.ReadToFollowing("AC2");
+                // }
+                reader.ReadToFollowing("APM");
 
                 XmlReader inner = reader.ReadSubtree();
 

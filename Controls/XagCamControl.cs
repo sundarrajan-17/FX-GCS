@@ -11,7 +11,7 @@ using System.Net;
 
 namespace XagSurveillanceGCS.Controls
 {
-    public partial class XagCamControl : UserControl
+    public partial class XagCamControl : MyUserControl
     {
         private BaseCameraController _parentController;
         private VirtualJoystick _virtualJoystick;

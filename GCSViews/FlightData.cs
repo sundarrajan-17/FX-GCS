@@ -72,7 +72,7 @@ namespace XagSurveillanceGCS.GCSViews
         private float yaw = 0.0f;
         private Thread _cameraUpdateThread;
         private bool _cameraUpdateRunning = false;
-        GimbalVideoControl _gimbalVideoControl;
+        public static GimbalVideoControl _gimbalVideoControl;
         internal PointLatLng MouseDownStart;
 
         //The file path of the selected script
@@ -184,6 +184,7 @@ namespace XagSurveillanceGCS.GCSViews
         volatile int updateBindingSourcecount;
         object updateBindingSourcelock = new object();
         string updateBindingSourceThreadName = "";
+        private ConfigFailSafe configFailSafe = new ConfigFailSafe();
         public enum actions
         {
             Loiter_Unlim,
@@ -196,6 +197,7 @@ namespace XagSurveillanceGCS.GCSViews
 
         private double target_latitude = 0.0;
         private double target_longitude = 0.0;
+        private double target_altitude = 0.0;
         private double hfov = 0.0;
         private double vfov = 0.0;
 
@@ -445,57 +447,93 @@ namespace XagSurveillanceGCS.GCSViews
 
             _baseCameraController = new BaseCameraController(this);
 
-            // this.tabPayload.Controls.Add(_baseCameraController);
-            this.BottomSplit.Panel1.Controls.Add(_baseCameraController);
+            this.tabPayload.Controls.Add(_baseCameraController);
+            // this.BottomSplit.Panel1.Controls.Add(_baseCameraController);
+            // this.splitBottom.Panel1.Controls.Add(_baseCameraController);
             _gimbalVideoControl = new GimbalVideoControl(this);
             _gimbalVideoControl.Dock = DockStyle.Fill;
-            this.TopSplit.Panel1.Controls.Add(_gimbalVideoControl);
+            // this.TopSplit.Panel1.Controls.Add(_gimbalVideoControl);
+            this.splitTop.Panel1.Controls.Add(_gimbalVideoControl);
 
-            motorTest = new MotorTestPanel();
-            motorTest.Activate();
-            this.tabGauges.Controls.Add(motorTest);
+            // motorTest = new MotorTestPanel();
+            // motorTest.Activate();
+            // this.tabGauges.Controls.Add(motorTest);
+            Messagetabtimer.Start();
+
+            // this.BottomSplit.Panel1.Controls.Add(_baseCameraController);
+            // _gimbalVideoControl = new GimbalVideoControl(this);
+            // _gimbalVideoControl.Dock = DockStyle.Fill;
+            // this.TopSplit.Panel1.Controls.Add(_gimbalVideoControl);
+
+            // motorTest = new MotorTestPanel();
+            // motorTest.Activate();
+            // configFailSafe.Activate();
+            // this.tabTransponder.Controls.Add(configFailSafe);
+            // this.tabGauges.Controls.Add(motorTest);
             GNSSModeStartThread();
+            if(this._baseCameraController.SelectedCamera == "XAGCAM3")
+            {
+                GremsyTargetUpdateStartThread();
+            }
+            // VideoMapHudRecorderThreadStartThread();
         }
-
-        static double CalculateVFOV(double hfovDeg, double aspectWidth, double aspectHeight)
+        // Get Zoom and Target Coordinates from Gimbal and Camera Tracking Data
+        public void GetFov(double zoom)
         {
-            // Convert HFOV from degrees to radians
-            double hfovRad = hfovDeg * Math.PI / 180.0;
+            if (zoom < 1) zoom = 1;
+            if (zoom > 30) zoom = 30;
 
-            // Calculate VFOV in radians
-            double vfovRad = 2.0 * Math.Atan(
-                Math.Tan(hfovRad / 2.0) * (aspectHeight / aspectWidth));
+            // Focal length
+            double focal;
+            if (zoom <= 20)
+                focal = 4.4 + (zoom - 1.0) * (84.0 / 19.0);
+            else
+                focal = 88.4 * (zoom / 20.0);   // effective focal length for super-resolution
 
-            // Convert back to degrees
-            return vfovRad * 180.0 / Math.PI;
+            const double sensorDiagonal = 7.18;
+            const double sensorWidth  = sensorDiagonal * 4.0 / 5.0;  // 5.744 mm
+            const double sensorHeight = sensorDiagonal * 3.0 / 5.0;  // 4.308 mm
+
+            hfov = 2.0 * Math.Atan(sensorWidth / (2.0 * focal)) * 180.0 / Math.PI;
+            vfov = 2.0 * Math.Atan(sensorHeight / (2.0 * focal)) * 180.0 / Math.PI;
+
+            // return (hfov, vfov);
         }
-
         public void loadTargetLatLon(object sender,MAVLink.MAVLinkMessage packet)
         {
             switch (packet.msgid)
             {
                 case (uint)MAVLink.MAVLINK_MSG_ID.CAMERA_FOV_STATUS:
                     var gimbaltrackdata = packet.ToStructure<MAVLink.mavlink_camera_fov_status_t>();
-                    target_latitude = gimbaltrackdata.lat_image * 1e-7;
-                    target_longitude = gimbaltrackdata.lon_image * 1e-7;
-                    // Console.WriteLine("Target Latitude Longitude: " + gimbaltrackdata.lat_image + ", " + gimbaltrackdata.lon_image);
+                    // target_latitude = gimbaltrackdata.lat_image * 1e-7;
+                    // target_longitude = gimbaltrackdata.lon_image * 1e-7;
                     hfov = gimbaltrackdata.hfov;
                     vfov = gimbaltrackdata.vfov;
-                    // Console.WriteLine("Target Latitude Longitude: " + gimbaltrackdata.hfov + ", " + gimbaltrackdata.vfov);
                     break; 
                 case (uint)MAVLink.MAVLINK_MSG_ID.CAMERA_TRACKING_GEO_STATUS:
                     var gimbaltrackdata2 = packet.ToStructure<MAVLink.mavlink_camera_tracking_geo_status_t>();
                     target_latitude = gimbaltrackdata2.lat * 1e-7;
                     target_longitude = gimbaltrackdata2.lon * 1e-7;
-                    // Console.WriteLine("Target Latitude Longitude: " + gimbaltrackdata2.lat + ", " + gimbaltrackdata2.lon);
                     break;
-                // case (uint)MAVLink.MAVLINK_MSG_ID.CAMERA_SETTINGS:
-                //     var camerasettings = packet.ToStructure<MAVLink.mavlink_camera_settings_t>();
-                //     hfov = 70.4 / (float)camerasettings.zoomLevel;
-                //     double aspectWidth = 16.0;
-                //     double aspectHeight = 9.0;
-                //     vfov = CalculateVFOV(hfov, aspectWidth, aspectHeight);
-                //     break;
+                case (uint)MAVLink.MAVLINK_MSG_ID.PARAM_VALUE:
+                    var targetlatlonalt = packet.ToStructure<MAVLink.mavlink_param_value_t>();
+                    Console.WriteLine("Param Value Data {0} {1}",targetlatlonalt.param_index,targetlatlonalt.param_value);
+                    if(targetlatlonalt.param_index == 10)
+                    {
+                        target_longitude = targetlatlonalt.param_value;
+                    }else if(targetlatlonalt.param_index == 11)
+                    {
+                        target_latitude = targetlatlonalt.param_value;
+                    }else if(targetlatlonalt.param_index == 12)
+                    {
+                        target_altitude = targetlatlonalt.param_value;
+                    }
+                    break;
+                case (uint)MAVLink.MAVLINK_MSG_ID.CAMERA_SETTINGS:
+                    var camerasettings = packet.ToStructure<MAVLink.mavlink_camera_settings_t>();
+                    Console.WriteLine("Camera Settings " + camerasettings.zoomLevel);
+                    GetFov(camerasettings.zoomLevel);
+                    break;
                 default:
                     break;
             }
@@ -883,6 +921,7 @@ namespace XagSurveillanceGCS.GCSViews
 
             MainV2.comPort.logreadmode = false;
             this.GNSSModeStop = false;
+            this.GremsyTargetUpdateStop = false;
             try
             {
                 if (hud1 != null)
@@ -1075,7 +1114,7 @@ namespace XagSurveillanceGCS.GCSViews
 
         private void addPoiToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            PointLatLng pos = new PointLatLng(target_latitude, target_longitude);
+            PointLatLngAlt pos = new PointLatLngAlt(target_latitude, target_longitude, target_altitude);
             POI.POIAdd(pos);
         }
 
@@ -1495,6 +1534,38 @@ namespace XagSurveillanceGCS.GCSViews
         {
             try
             {
+                // if (!MainV2.comPort.BaseStream.IsOpen)
+                // {
+                //     CustomMessageBox.Show("Please Connect First");
+                //     return;
+                // }
+                // ((Control) sender).Enabled = false;
+
+                // if(coords1.Alt > 15)
+                // {
+                //     MainV2.comPort.setMode("Auto");
+                // }
+                // else
+                // {    
+                //     if(FlightPlanner.instance.Commands.Rows.Count == 0)
+                //     {
+                //         CustomMessageBox.Show("Read The Mission or Write Mission to the Drone.", Strings.ERROR);
+                //         ((Control) sender).Enabled = true;
+                //         return;
+                //     }
+                //     double latitude = (double) FlightPlanner.instance.Commands.Rows[0].Cells[5].Value;
+                //     double longitude = (double) FlightPlanner.instance.Commands.Rows[0].Cells[6].Value;
+                //     double dronelatitude = coords1.Lat;
+                //     double dronelongitude = coords1.Lng;
+                //     (double distance1, double bearing1) = DistanceAndBearing(dronelatitude, dronelongitude, latitude, longitude);
+                //     if (MainV2.comPort.MAV.cs.yaw > bearing1-10 && MainV2.comPort.MAV.cs.yaw < bearing1+10)
+                //     {
+                //         MainV2.comPort.setMode("Auto");  
+                //     }else
+                //     {
+                //         CustomMessageBox.Show("Please Align the Drone Heading Towards Mission Heading." + MainV2.comPort.MAV.cs.yaw+ " " +bearing1, Strings.ERROR);
+                //     }
+                // }
                 ((Control) sender).Enabled = false;
                 MainV2.comPort.setMode("Auto");
             }
@@ -1502,7 +1573,6 @@ namespace XagSurveillanceGCS.GCSViews
             {
                 CustomMessageBox.Show(Strings.CommandFailed, Strings.ERROR);
             }
-
             ((Control) sender).Enabled = true;
         }
 
@@ -1730,6 +1800,43 @@ namespace XagSurveillanceGCS.GCSViews
                     return;
                 }
             }
+
+            if (!MainV2.comPort.BaseStream.IsOpen)
+            {
+                CustomMessageBox.Show("Please Connect First");
+                return;
+            }
+
+            // if(CMB_modes.Text == "Auto" && MainV2.comPort.MAV.cs.firmware == Firmwares.ArduPlane)
+            // {
+            //     if(coords1.Alt > 15)
+            //     {
+            //         MainV2.comPort.setMode("Auto");
+            //     }
+            //     else
+            //     {    
+            //         if(FlightPlanner.instance.Commands.Rows.Count == 0)
+            //         {
+            //             CustomMessageBox.Show("Read The Mission or Write Mission to the Drone.", Strings.ERROR);
+            //             return;
+            //         }
+            //         double latitude = (double) FlightPlanner.instance.Commands.Rows[0].Cells[5].Value;
+            //         double longitude = (double) FlightPlanner.instance.Commands.Rows[0].Cells[6].Value;
+            //         double dronelatitude = coords1.Lat;
+            //         double dronelongitude = coords1.Lng;
+            //         (double distance1, double bearing1) = DistanceAndBearing(dronelatitude, dronelongitude, latitude, longitude);
+            //         if (MainV2.comPort.MAV.cs.yaw > bearing1-10 && MainV2.comPort.MAV.cs.yaw < bearing1+10)
+            //         {
+            //             MainV2.comPort.setMode("Auto");  
+            //         }else
+            //         {
+            //             CustomMessageBox.Show("Please Align the Drone Heading Towards Mission Heading." + MainV2.comPort.MAV.cs.yaw+ " " +bearing1, Strings.ERROR);
+            //         }
+            //     }
+            // }else
+            // {
+            //     MainV2.comPort.setMode(CMB_modes.Text);
+            // }
 
             MainV2.comPort.setMode(CMB_modes.Text);
         }
@@ -3331,12 +3438,12 @@ namespace XagSurveillanceGCS.GCSViews
         {
             Console.WriteLine("HUD resize " + hud1.Width + " " + hud1.Height); // +"\n"+ System.Environment.StackTrace);
 
-            if (hud1.Parent == this.SubMainLeft.Panel1)
-            {
-                var ht = SubMainLeft.SplitterDistance;
-                if (ht >= hud1.Width + 5 || ht <= hud1.Width - 5)
-                    SubMainLeft.SplitterDistance = hud1.Width;
-            }
+            // if (hud1.Parent == this.SubMainLeft.Panel1)
+            // {
+            //     var ht = SubMainLeft.SplitterDistance;
+            //     if (ht >= hud1.Width + 5 || ht <= hud1.Width - 5)
+            //         SubMainLeft.SplitterDistance = hud1.Width;
+            // }
         }
 
         private void hud1_vibeclick(object sender, EventArgs e)
@@ -3424,8 +3531,6 @@ namespace XagSurveillanceGCS.GCSViews
             DateTime updatescreen = DateTime.Now;
 
             DateTime transponderUpdate = DateTime.Now;
-
-            // Console.WriteLine("Target Latitude Longitude: " + target_latitude + ", " + target_longitude);
  
             DateTime tsreal = DateTime.Now;
             double taketime = 0;
@@ -3439,7 +3544,6 @@ namespace XagSurveillanceGCS.GCSViews
 
             while (threadrun)
             {
-                // Console.WriteLine("Target Latitude Longitude: " + target_latitude + ", " + target_longitude);
                 if (MainV2.comPort.giveComport)
                 {
                     //await Task.Delay(50);
@@ -3447,8 +3551,6 @@ namespace XagSurveillanceGCS.GCSViews
                     updateBindingSource();
                     continue;
                 }
-                // Console.WriteLine("Camera Roll Pitch Yaw: {0}, {1}, {2}", MainV2.comPort.MAV.cs.campointa, MainV2.comPort.MAV.cs.campointb, MainV2.comPort.MAV.cs.campointc);
-
 
                 if (!MainV2.comPort.logreadmode)
                 {
@@ -3461,9 +3563,6 @@ namespace XagSurveillanceGCS.GCSViews
                     threadrun = false;
                     break;
                 }
-
-                // Console.WriteLine("Camera Roll Pitch Yaw: {0}, {1}, {2}", MainV2.comPort.MAV.cs.campointa, MainV2.comPort.MAV.cs.campointb, MainV2.comPort.MAV.cs.campointc);
-
 
                 try
                 {
@@ -3504,8 +3603,6 @@ namespace XagSurveillanceGCS.GCSViews
                     }
 
 
-                    //Console.WriteLine(DateTime.Now.Millisecond);
-
                     if (updatescreen.AddMilliseconds(300) < DateTime.Now)
                     {
                         try
@@ -3521,7 +3618,6 @@ namespace XagSurveillanceGCS.GCSViews
                         updatescreen = DateTime.Now;
                     }
 
-                    //Console.WriteLine(DateTime.Now.Millisecond + " done ");
 
                     DateTime logplayback = MainV2.comPort.lastlogread;
                     try
@@ -5260,15 +5356,15 @@ namespace XagSurveillanceGCS.GCSViews
 
         private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Messagetabtimer.Stop();
+            // Messagetabtimer.Stop();
 
             if (tabControlactions.SelectedTab == tabStatus)
             {
-                tabControlactions.Visible = false;
-                tabStatus.Visible = false;
-                tabStatus_Resize(sender, e);
-                tabStatus.Visible = true;
-                tabControlactions.Visible = true;
+                // tabControlactions.Visible = false;
+                // tabStatus.Visible = false;
+                // tabStatus_Resize(sender, e);
+                // tabStatus.Visible = true;
+                // tabControlactions.Visible = true;
             }
             else if (tabControlactions.SelectedTab == tabPagemessages)
             {
@@ -5569,6 +5665,8 @@ namespace XagSurveillanceGCS.GCSViews
                         MainV2.comPort.MAV.cs.UpdateCurrentSettings(
                             bindingSourcePayloadTab.UpdateDataSource(MainV2.comPort.MAV.cs));
                     }
+                    MainV2.comPort.MAV.cs.UpdateCurrentSettings(
+                            bindingSourceQuickTab.UpdateDataSource(MainV2.comPort.MAV.cs));
                 }
                 else
                 {
@@ -6646,6 +6744,8 @@ namespace XagSurveillanceGCS.GCSViews
         //**************************************************************
         // Addition Functions for Camera Speciific Controls And Features
         //**************************************************************
+
+        // Start a background thread to update camera and target positions
         public void StartCameraUpdateThread()
         {
             if (_cameraUpdateRunning)
@@ -6659,7 +6759,78 @@ namespace XagSurveillanceGCS.GCSViews
                 {
                     try
                     {
-                        // Run the async task synchronously (on a thread, this is OK)
+                        if(this._baseCameraController.SelectedCamera == "XAGCAM3")
+                        {
+                            MAVLink.mavlink_command_long_t msg = new MAVLink.mavlink_command_long_t
+                            {
+                                target_system = (byte)MainV2.comPort.sysidcurrent,
+                                target_component = (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_CAMERA2,
+                                command = (ushort) MAVLink.MAV_CMD.REQUEST_MESSAGE,
+                                confirmation = 1,
+                                param1 = (ushort) MAVLink.MAVLINK_MSG_ID.CAMERA_FOV_STATUS,
+                                param2 = 0,
+                                param3 = 0,
+                                param4 = 0,
+                                param5 = 0,
+                                param6 = 0,
+                                param7 = 0
+                            };
+                            MainV2.comPort.sendPacket(
+                                msg,
+                                (byte)MainV2.comPort.sysidcurrent,
+                                (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_CAMERA2
+                            );
+                            byte[] payload_param_id = new byte[16];
+
+                            payload_param_id = Encoding.ASCII.GetBytes("TARGET_LON");
+                            MAVLink.mavlink_param_request_read_t msg1 = new MAVLink.mavlink_param_request_read_t
+                            {
+                                target_system = (byte)MainV2.comPort.sysidcurrent,
+                                target_component = (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_USER2,
+                                param_id = payload_param_id,
+                                param_index = -1
+                            };
+                            var pkt = parse.GenerateMAVLinkPacket20(
+                                MAVLink.MAVLINK_MSG_ID.PARAM_REQUEST_READ,
+                                msg1,
+                                false,
+                                (byte) MainV2.comPort.sysidcurrent,
+                                onboardComp
+                            );
+                            udp.Send(pkt, pkt.Length, remoteEP);
+                            payload_param_id = Encoding.ASCII.GetBytes("TARGET_LAT");
+                            MAVLink.mavlink_param_request_read_t msg2 = new MAVLink.mavlink_param_request_read_t
+                            {
+                                target_system = (byte)MainV2.comPort.sysidcurrent,
+                                target_component = (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_USER2,
+                                param_id = payload_param_id,
+                                param_index = -1
+                            };
+                            pkt = parse.GenerateMAVLinkPacket20(
+                                MAVLink.MAVLINK_MSG_ID.PARAM_REQUEST_READ,
+                                msg2,
+                                false,
+                                (byte) MainV2.comPort.sysidcurrent,
+                                onboardComp
+                            );
+                            udp.Send(pkt, pkt.Length, remoteEP);
+                            payload_param_id = Encoding.ASCII.GetBytes("TARGET_ALT");
+                            MAVLink.mavlink_param_request_read_t msg3 = new MAVLink.mavlink_param_request_read_t
+                            {
+                                target_system = (byte)MainV2.comPort.sysidcurrent,
+                                target_component = (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_USER2,
+                                param_id = payload_param_id,
+                                param_index = -1
+                            };
+                            pkt = parse.GenerateMAVLinkPacket20(
+                                MAVLink.MAVLINK_MSG_ID.PARAM_REQUEST_READ,
+                                msg3,
+                                false,
+                                (byte) MainV2.comPort.sysidcurrent,
+                                onboardComp
+                            );
+                            udp.Send(pkt, pkt.Length, remoteEP);
+                        }
                         UpdateCameraAndTarget();
                     }
                     catch (Exception ex)
@@ -6667,7 +6838,7 @@ namespace XagSurveillanceGCS.GCSViews
                         Console.WriteLine("❌ Thread error: " + ex.Message);
                     }
 
-                    Thread.Sleep(1000); // Delay between updates (in milliseconds)
+                    Thread.Sleep(500); 
                 }
             });
 
@@ -6758,6 +6929,7 @@ namespace XagSurveillanceGCS.GCSViews
             }
         }
 
+        // Gimbal Connect Thread
         private Thread workerThread;
         private bool GimbalConnectStop = false;
 
@@ -6804,6 +6976,8 @@ namespace XagSurveillanceGCS.GCSViews
                 GimbalConnectStopThread();
             }
         }
+
+        // GNSS Mode Update Thread
         private Thread GNSSModeThread;
         private bool GNSSModeStop = false;
 
@@ -6842,15 +7016,206 @@ namespace XagSurveillanceGCS.GCSViews
             } 
         }
 
-        // public void GNSSModeStatus()
+        // Gremsy Target LatLon Update
+        private Thread GremsyTargetUpdateThread;
+        private bool GremsyTargetUpdateStop = false;
+
+        public void GremsyTargetUpdateStartThread()
+        {
+            Console.WriteLine("Gremsy Target Update Thread Started");
+            GremsyTargetUpdateStop = true;
+            GremsyTargetUpdateThread = new Thread(() =>
+            {
+                while (GremsyTargetUpdateStop)
+                {
+                    try
+                    {
+                        if (!MainV2.comPort.BaseStream.IsOpen)
+                        {   
+                            GremsyTargetUpdate();
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine("❌ Thread error: " + ex.Message);
+                    }
+
+                    Thread.Sleep(500); // Delay between updates (in milliseconds)
+                }
+            });
+            GremsyTargetUpdateThread.IsBackground = true;
+            GremsyTargetUpdateThread.Start();
+        }
+
+        public void GremsyTargetUpdateStopThread()
+        {
+            GremsyTargetUpdateStop = false;
+
+            if (GremsyTargetUpdateThread != null && GremsyTargetUpdateThread.IsAlive)
+            {
+                GremsyTargetUpdateThread.Join(); 
+                GremsyTargetUpdateThread = null;
+            } 
+        }
+
+        private void GremsyTargetUpdate()
+        {
+            try
+            {
+                byte[] payload_param_id = new byte[16];
+
+                payload_param_id = Encoding.ASCII.GetBytes("TARGET_LON");
+                MAVLink.mavlink_param_request_read_t msg1 = new MAVLink.mavlink_param_request_read_t
+                {
+                    target_system = (byte)MainV2.comPort.sysidcurrent,
+                    target_component = (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_USER2,
+                    param_id = payload_param_id,
+                    param_index = -1
+                };
+                var pkt = parse.GenerateMAVLinkPacket20(
+                    MAVLink.MAVLINK_MSG_ID.PARAM_REQUEST_READ,
+                    msg1,
+                    false,
+                    (byte) MainV2.comPort.sysidcurrent,
+                    onboardComp
+                );
+                udp.Send(pkt, pkt.Length, remoteEP);
+
+                payload_param_id = Encoding.ASCII.GetBytes("TARGET_LAT");
+                MAVLink.mavlink_param_request_read_t msg2 = new MAVLink.mavlink_param_request_read_t
+                {
+                    target_system = (byte)MainV2.comPort.sysidcurrent,
+                    target_component = (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_USER2,
+                    param_id = payload_param_id,
+                    param_index = -1
+                };
+                pkt = parse.GenerateMAVLinkPacket20(
+                    MAVLink.MAVLINK_MSG_ID.PARAM_REQUEST_READ,
+                    msg2,
+                    false,
+                    (byte) MainV2.comPort.sysidcurrent,
+                    onboardComp
+                );
+                udp.Send(pkt, pkt.Length, remoteEP);
+
+                payload_param_id = Encoding.ASCII.GetBytes("TARGET_ALT");
+                MAVLink.mavlink_param_request_read_t msg3 = new MAVLink.mavlink_param_request_read_t
+                {
+                    target_system = (byte)MainV2.comPort.sysidcurrent,
+                    target_component = (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_USER2,
+                    param_id = payload_param_id,
+                    param_index = -1
+                };
+                pkt = parse.GenerateMAVLinkPacket20(
+                    MAVLink.MAVLINK_MSG_ID.PARAM_REQUEST_READ,
+                    msg3,
+                    false,
+                    (byte) MainV2.comPort.sysidcurrent,
+                    onboardComp
+                );
+                udp.Send(pkt, pkt.Length, remoteEP);
+            }
+            catch
+            {
+                Console.WriteLine("Error Something");
+            }
+        }
+
+        // VideoMapHud Recorder Thread
+        // private Thread VideoMapHudRecorderThread;
+        // private bool VideoMapHudRecorderStop = false;
+
+        // public void VideoMapHudRecorderThreadStartThread()
         // {
-        //     while(GNSSModeStop)
+        //     VideoMapHudRecorderStop = true;
+        //     VideoMapHudRecorderThread = new Thread(() =>
         //     {
-        //         CurrentGNSSOperatingMode();
+        //         while (VideoMapHudRecorderStop)
+        //         {
+        //             try
+        //             {
+        //                 // Run the async task synchronously (on a thread, this is OK)
+        //                 RecordVideoMapHud();
+        //             }
+        //             catch (Exception ex)
+        //             {
+        //                 Console.WriteLine("❌ Thread error: " + ex.Message);
+        //             }
+
+        //             Thread.Sleep(200); // Delay between updates (in milliseconds)
+        //         }
+        //     });
+        //     VideoMapHudRecorderThread.IsBackground = true;
+        //     VideoMapHudRecorderThread.Start();
+        // }
+
+        // public void VideoMapHudRecorderStopThread()
+        // {
+        //     VideoMapHudRecorderStop = false;
+
+        //     if (VideoMapHudRecorderThread != null && VideoMapHudRecorderThread.IsAlive)
+        //     {
+        //         VideoMapHudRecorderThread.Join(); 
+        //         VideoMapHudRecorderThread = null;
+        //     } 
+        // }
+
+        // public void RecordVideoMapHud()
+        // {
+        //     // Base folder
+        //     string baseFolder = Settings.GetUserDataDirectory() + Path.DirectorySeparatorChar +"VideoMapHudRecordings";
+
+        //     string dateFolder = Path.Combine(baseFolder, DateTime.Now.ToString("yyyy-MM-dd"));
+
+        //     if (!Directory.Exists(dateFolder))
+        //     {
+        //         Directory.CreateDirectory(dateFolder);
+        //     }
+        //     GCSViews.FlightData.myhud.streamjpgenable = true;
+        //     // data = GCSViews.FlightData.myhud.streamjpg.ToArray();
+        //     if(MainV2.comPort.BaseStream.IsOpen)
+        //     {
+        //         Image img1 = GetControlJpeg(_gimbalVideoControl);
+        //         Image img2 = GetControlJpeg(mymap);
+        //         Image img3 = Image.FromStream(new MemoryStream(GCSViews.FlightData.myhud.streamjpg.ToArray())); // HUD
+
+        //         int biggestHeight = Math.Max(img1.Height, Math.Max(img2.Height, img3.Height));
+
+        //         // Total width of all three images
+        //         int totalWidth = img1.Width + img2.Width + img3.Width;
+
+        //         // Create output image
+        //         Image imgout = new Bitmap(totalWidth, biggestHeight);
+
+        //         using (Graphics grap = Graphics.FromImage(imgout))
+        //         {
+        //             grap.DrawImageUnscaled(img1, 0, 0);
+        //             grap.DrawImageUnscaled(img2, img1.Width, 0);
+        //             grap.DrawImageUnscaled(img3, img1.Width + img2.Width, 0);
+        //         }
+
+        //         string filename = Path.Combine(dateFolder,
+        //             $"frame_{DateTime.Now:yyyyMMdd_HHmmss_fff}.jpg");
+
+        //         // Save the combined image
+        //         if (MainV2.comPort.BaseStream.IsOpen)
+        //         {
+        //             imgout.Save(filename, System.Drawing.Imaging.ImageFormat.Jpeg);
+        //         }
         //     }
         // }
 
+        // public Image GetControlJpeg(Control ctl)
+        // {
+        //     //var g = ctl.CreateGraphics();
 
+        //     Bitmap bmp = new Bitmap(ctl.Width, ctl.Height);
+
+        //     MainV2.instance.Invoke(
+        //         (Action)delegate () { ctl.DrawToBitmap(bmp, new Rectangle(0, 0, ctl.Width, ctl.Height)); });
+
+        //     return bmp;
+        // }
         public void SendCommand(byte[] command)
         {
             if (networkStream != null && networkStream.CanWrite)
@@ -7260,21 +7625,7 @@ namespace XagSurveillanceGCS.GCSViews
             };
             SendCommand(DzoomMinus_Command);
         }
-        public void XagCamSetLockFollowCommand(string message)
-        {
-            if(message == "follow"){
-                var Yawfollow_Command = new byte[]{
-                    0xEB, 0x90, 0x14, 0x55, 0xAA, 0xDC, 0x11, 0x30, 0x03, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x22, 0x41
-                };
-                SendCommand(Yawfollow_Command);
-            }else{   
-                var Yawlock_Command = new byte[]
-                {
-                    0xEB, 0x90, 0x14, 0x55, 0xAA, 0xDC, 0x11, 0x30, 0x0A, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x2B, 0x51
-                };
-                SendCommand(Yawlock_Command);
-            }
-        }
+
         public void XagCamPointDownCommand()
         {
             var HomeCommand = new byte[]{
@@ -7302,10 +7653,10 @@ namespace XagSurveillanceGCS.GCSViews
                 var drone_latitude = coords1.Lat;
                 var drone_longitude = coords1.Lng;
                 double drone_altitude = coords1.Alt;
-                var target_latitude = MouseDownStart.Lat;
-                var target_longitude = MouseDownStart.Lng;
+                var target_Latitude = MouseDownStart.Lat;
+                var target_Longitude = MouseDownStart.Lng;
 
-                var (distance, targetYaw) = DistanceAndBearing(drone_latitude, drone_longitude, target_latitude, target_longitude);
+                var (distance, targetYaw) = DistanceAndBearing(drone_latitude, drone_longitude, target_Latitude, target_Longitude);
 
                 var droneYaw = MainV2.comPort.MAV.cs.yaw;
 
@@ -7340,67 +7691,71 @@ namespace XagSurveillanceGCS.GCSViews
 
                 mavlink_euler_to_quaternion(0.0f* MathHelper.deg2radf,(float)finalPitch* MathHelper.deg2radf,(float)yawValue* MathHelper.deg2radf);    
 
-                var msg = new MAVLink.mavlink_gimbal_manager_set_attitude_t
+                if(this._baseCameraController.SelectedCamera == "XAGCAM3")
                 {
-                    target_system = (byte)MainV2.comPort.sysidcurrent,
-                    target_component = (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_GIMBAL,
-                    gimbal_device_id = 0,
-                    flags = 1024,
-                    q = quaternion,
-                    angular_velocity_x = float.NaN,
-                    angular_velocity_y = float.NaN,
-                    angular_velocity_z = float.NaN
-                };
-                MainV2.comPort.sendPacket(
-                    msg,
-                    (byte)MainV2.comPort.sysidcurrent,
-                    (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_GIMBAL
-                );
+                    var gremsymsg = new MAVLink.mavlink_gimbal_device_set_attitude_t{
+                        target_system = (byte)MainV2.comPort.sysidcurrent,
+                        target_component = (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_GIMBAL,
+                        flags = (ushort)(MAVLink.GIMBAL_DEVICE_FLAGS.ROLL_LOCK | MAVLink.GIMBAL_DEVICE_FLAGS.PITCH_LOCK | 0 | MAVLink.GIMBAL_DEVICE_FLAGS.YAW_LOCK | 0 | 0),
+                        q = quaternion,
+                        angular_velocity_x =float.NaN,
+                        angular_velocity_y = float.NaN,
+                        angular_velocity_z = float.NaN,
+                    };
+                    var gremsypkt = parse.GenerateMAVLinkPacket20(
+                        MAVLink.MAVLINK_MSG_ID.GIMBAL_DEVICE_SET_ATTITUDE,
+                        gremsymsg,
+                        false,
+                        (byte) MainV2.comPort.sysidcurrent,
+                        onboardComp
+                    );
+                    udp.Send(gremsypkt, gremsypkt.Length, remoteEP);
+                }else if(this._baseCameraController.SelectedCamera == "XAGCAM2")
+                {
+                    var msg = new MAVLink.mavlink_gimbal_manager_set_attitude_t
+                    {
+                        target_system = (byte)MainV2.comPort.sysidcurrent,
+                        target_component = (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_GIMBAL,
+                        gimbal_device_id = 0,
+                        flags = 1024,
+                        q = quaternion,
+                        angular_velocity_x = float.NaN,
+                        angular_velocity_y = float.NaN,
+                        angular_velocity_z = float.NaN
+                    };
+                    MainV2.comPort.sendPacket(
+                        msg,
+                        (byte)MainV2.comPort.sysidcurrent,
+                        (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_GIMBAL
+                    );
+                }else{
+                    byte[] finalPitchByte = BitConverter.GetBytes((short)finalPitch);
 
-                var gremsymsg = new MAVLink.mavlink_gimbal_device_set_attitude_t{
-                    target_system = (byte)MainV2.comPort.sysidcurrent,
-                    target_component = (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_GIMBAL,
-                    flags = (ushort)(MAVLink.GIMBAL_DEVICE_FLAGS.ROLL_LOCK | MAVLink.GIMBAL_DEVICE_FLAGS.PITCH_LOCK | 0 | MAVLink.GIMBAL_DEVICE_FLAGS.YAW_LOCK | 0 | 0),
-                    q = quaternion,
-                    angular_velocity_x =float.NaN,
-                    angular_velocity_y = float.NaN,
-                    angular_velocity_z = float.NaN,
-                };
-                var gremsypkt = parse.GenerateMAVLinkPacket20(
-                    MAVLink.MAVLINK_MSG_ID.GIMBAL_DEVICE_SET_ATTITUDE,
-                    gremsymsg,
-                    false,
-                    (byte) MainV2.comPort.sysidcurrent,
-                    onboardComp
-                );
-                udp.Send(gremsypkt, gremsypkt.Length, remoteEP);
+                    byte[] finalCommandBytes = BitConverter.GetBytes((short)commandValue);
 
-                byte[] finalPitchByte = BitConverter.GetBytes((short)finalPitch);
+                    var point_camera_serial = new byte[]{
+                        0x55, 0xAA, 0xDC, 0x11, 0x30, 0x0B, finalCommandBytes[0], finalCommandBytes[1], finalPitchByte[0], finalPitchByte[1], 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+                    };
 
-                byte[] finalCommandBytes = BitConverter.GetBytes((short)commandValue);
+                    byte serialChecksum = CalculateSerialChecksum(point_camera_serial);
+                    byte[] serialFull = new byte[point_camera_serial.Length + 1];
+                    Array.Copy(point_camera_serial, serialFull, point_camera_serial.Length);
+                    serialFull[point_camera_serial.Length] = serialChecksum;
 
-                var point_camera_serial = new byte[]{
-                    0x55, 0xAA, 0xDC, 0x11, 0x30, 0x0B, finalCommandBytes[0], finalCommandBytes[1], finalPitchByte[0], finalPitchByte[1], 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
-                };
+                    // Add TCP header
+                    byte tcpLength = (byte)serialFull.Length; // +1 for tcp checksum
+                    byte[] tcpHeader = new byte[] { 0xEB, 0x90, tcpLength };
 
-                byte serialChecksum = CalculateSerialChecksum(point_camera_serial);
-                byte[] serialFull = new byte[point_camera_serial.Length + 1];
-                Array.Copy(point_camera_serial, serialFull, point_camera_serial.Length);
-                serialFull[point_camera_serial.Length] = serialChecksum;
+                    // Compose final TCP packet
+                    byte[] point_camera = new byte[tcpHeader.Length + serialFull.Length + 1];
+                    Array.Copy(tcpHeader, 0, point_camera, 0, tcpHeader.Length);
+                    Array.Copy(serialFull, 0, point_camera, tcpHeader.Length, serialFull.Length);
 
-                // Add TCP header
-                byte tcpLength = (byte)serialFull.Length; // +1 for tcp checksum
-                byte[] tcpHeader = new byte[] { 0xEB, 0x90, tcpLength };
+                    byte tcpChecksum = CalculateTcpChecksum(serialFull);
+                    point_camera[point_camera.Length - 1] = tcpChecksum;
 
-                // Compose final TCP packet
-                byte[] point_camera = new byte[tcpHeader.Length + serialFull.Length + 1];
-                Array.Copy(tcpHeader, 0, point_camera, 0, tcpHeader.Length);
-                Array.Copy(serialFull, 0, point_camera, tcpHeader.Length, serialFull.Length);
-
-                byte tcpChecksum = CalculateTcpChecksum(serialFull);
-                point_camera[point_camera.Length - 1] = tcpChecksum;
-
-                SendCommand(point_camera);
+                    SendCommand(point_camera);
+                }
             }
             catch
             {
@@ -7432,7 +7787,6 @@ namespace XagSurveillanceGCS.GCSViews
             ObservableCollection<PointLatLngAlt> result = POI.GetPOIS();
             List<DooafCoordinates> dooafPoints = new List<DooafCoordinates>();
             bool ArtilleryFlag = false;
-            bool HomeFlag = false;
             bool TargetFlag = false;
             foreach (var item in result)
             {
@@ -7443,12 +7797,6 @@ namespace XagSurveillanceGCS.GCSViews
                 {
                     dooafPoints.Insert(0, new DooafCoordinates(pnt.Lat, pnt.Lng, pnt.Alt));
                     ArtilleryFlag = true;
-                }
-                if (item.Tag.ToString().Contains("Home") || item.Tag.ToString().Contains("home"))
-                {
-                    if(dooafPoints.Count > 0)dooafPoints.Insert(1, new DooafCoordinates(pnt.Lat, pnt.Lng, pnt.Alt));
-                    else dooafPoints.Add(new DooafCoordinates(pnt.Lat, pnt.Lng, pnt.Alt));
-                    HomeFlag = true;
                 }
                 if(item.Tag.ToString().Contains("Target") || item.Tag.ToString().Contains("target"))
                 {
@@ -7465,7 +7813,6 @@ namespace XagSurveillanceGCS.GCSViews
                 string tag = pnt.Tag?.ToString() ?? "";
 
                 if (!tag.Contains("Artillery") &&
-                    !tag.Contains("Home") &&
                     !tag.Contains("Target"))
                 {
                     // If you want to insert
@@ -7473,16 +7820,11 @@ namespace XagSurveillanceGCS.GCSViews
                     break; // stop after first match
                 }
             }
-            if(ArtilleryFlag && HomeFlag && TargetFlag && dooafPoints.Count > 3)
+            if(ArtilleryFlag && TargetFlag && dooafPoints.Count > 2)
             {
-                for (int i = 0; i < dooafPoints.Count; i++)
-                {
-                    Console.WriteLine($"Point {i}: {dooafPoints[i]}");
-                }
                 DooafCoordinates artillery = dooafPoints[0];
-                DooafCoordinates home = dooafPoints[1];
-                DooafCoordinates target = dooafPoints[2];
-                DooafCoordinates dropped = dooafPoints[3];
+                DooafCoordinates target = dooafPoints[1];
+                DooafCoordinates dropped = dooafPoints[2];
                 var firingPointLat = artillery.Latitude;
                 var firingPointLon = artillery.Longitude;
                 var targetPointLat1 = target.Latitude;
@@ -7491,15 +7833,26 @@ namespace XagSurveillanceGCS.GCSViews
                 var targetPointLon2 = dropped.Longitude;
                 var (distance, bearing) = DistanceAndBearing(firingPointLat, firingPointLon, targetPointLat1, targetPointLon1);
                 var doOffval = latlon_to_xy_approx(targetPointLat2, targetPointLon2, targetPointLat1, targetPointLon1,bearing);
-                double roundedDooafX = Math.Round(doOffval[0], 4);
-                double roundedDooafY = Math.Round(doOffval[1], 4);
-                roundedDooafX = Math.Round(roundedDooafX,2);
-                roundedDooafY = Math.Round(roundedDooafY,2);
-                var dooffx = "DOOAFX: " + roundedDooafX.ToString() + " m";
-                var dooffy = "DOOAFY: " + roundedDooafY.ToString() + " m";
-                (double distance1, double bearing1) = DistanceAndBearing(targetPointLat2, targetPointLon2, targetPointLat1, targetPointLon1);
-                int distance2 = (int)distance1;
-                var dooffdistance = "Distance: " + distance2.ToString() + " m";
+                // double roundedDooafX = Math.Round(doOffval[0], 4);
+                // double roundedDooafY = Math.Round(doOffval[1], 4);
+                // roundedDooafX = Math.Round(roundedDooafX,2);
+                // roundedDooafY = Math.Round(roundedDooafY,2);
+                // var dooffx = "DOOAFX: " + roundedDooafX.ToString() + " m";
+                // var dooffy = "DOOAFY: " + roundedDooafY.ToString() + " m";
+                // (double distance1, double bearing1) = DistanceAndBearing(targetPointLat2, targetPointLon2, targetPointLat1, targetPointLon1);
+                // int distance2 = (int)distance1;
+                // var dooffdistance = "Distance: " + distance2.ToString() + " m";
+                double roundedDooafX = Math.Round(doOffval[0], 2);
+                double roundedDooafY = Math.Round(doOffval[1], 2);
+
+                string dooffx = $"DOOAFX: {roundedDooafX} m";
+                string dooffy = $"DOOAFY: {roundedDooafY} m";
+
+                (double distance1, double bearing1) = DistanceAndBearing(
+                    targetPointLat2, targetPointLon2,
+                    targetPointLat1, targetPointLon1);
+
+                string dooffdistance = $"Distance: {(int)distance1} m";
                 if (this._baseCameraController.DooafX.InvokeRequired){
                     this._baseCameraController.DooafX.Invoke((MethodInvoker)delegate
                     {
@@ -7527,7 +7880,7 @@ namespace XagSurveillanceGCS.GCSViews
             }
             else
             {
-                CustomMessageBox.Show("Please ensure that Artillery, Home, Target and Dropped points are all marked on the map.");
+                CustomMessageBox.Show("Please ensure that Artillery, Target and Dropped points are all marked on the map.");
             }
         }
 
@@ -7620,23 +7973,6 @@ namespace XagSurveillanceGCS.GCSViews
             Console.WriteLine("Stop Tracking Command Sent");
             MainV2.comPort.doCommand((byte)MainV2.comPort.sysidcurrent, (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_CAMERA,
                     MAVLink.MAV_CMD.CAMERA_STOP_TRACKING,0,0 ,0,0, 0, 0,0,false);
-        }
-
-        public void GremsyYawFollowMode()
-        {
-            Console.WriteLine("Yaw Follow Mode Command Sent");
-            MainV2.comPort.doCommand((byte)MainV2.comPort.sysidcurrent, (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_CAMERA,
-                    MAVLink.MAV_CMD.DO_MOUNT_CONFIGURE, 0, 0, 0, 0, 0,0,0,false);
-        }
-        public void GremsyPitchYawControl(int pitchFlag,int yawFlag)
-        {
-            if(pitchFlag == 1) pitch += 5.0f;
-            else if(pitchFlag == -1) pitch -=5.0f;
-            if(yawFlag == 1) yaw += 5.0f;
-            else if(yawFlag == -1) yaw -= 5.0f;
-            Console.WriteLine("Pitch/Yaw Control Command Sent");
-            MainV2.comPort.doCommand((byte)MainV2.comPort.sysidcurrent, (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_CAMERA,
-                   MAVLink.MAV_CMD.DO_MOUNT_CONTROL, pitch, (float)0.0, yaw, 0, 0,0,0,false);
         }
 
         public void mavlink_euler_to_quaternion(float roll, float pitch, float yaw)
@@ -7753,7 +8089,6 @@ namespace XagSurveillanceGCS.GCSViews
 
         public void DoJoystickCommandsToGimbal(double PitchValue, double YawValue, double ZoomValue)
         {
-            // Console.WriteLine("Pitch, Yaw, Zoom Valuessssssssssss: "+PitchValue+","+YawValue+","+ZoomValue);
             if(this._baseCameraController.SelectedCamera == "XAGCAM2")
             {
                 GremsyControlPitchYaw(YawValue,PitchValue);
@@ -7774,6 +8109,7 @@ namespace XagSurveillanceGCS.GCSViews
             }
         }
 
+        // Current GNSS Operating Mode
         public void CurrentGNSSOperatingMode()
         {
             uint statusValue = MainV2.comPort.MAV.cs.eahrsStatusValue4;
@@ -7804,7 +8140,6 @@ namespace XagSurveillanceGCS.GCSViews
         }
 
         // Gremsy Vio Controls
-
         public bool GremsyVioStartRecording()
         {
             Console.WriteLine("Start Recording Command Sent");
@@ -7845,7 +8180,6 @@ namespace XagSurveillanceGCS.GCSViews
         public void GremsyVioStartTracking(float x, float y)
         {
             Console.WriteLine("Start Tracking Command Sent {0} {1}",x,y);
-            // MainV2.comPort.doCommand((byte)MainV2.comPort.sysidcurrent, (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_USER2,MAVLink.MAV_CMD.USER_4,4,0,1,x,y,128,128,false);
             MAVLink.mavlink_command_long_t msg = new MAVLink.mavlink_command_long_t
             {
                 target_system = (byte)MainV2.comPort.sysidcurrent,
@@ -7895,7 +8229,6 @@ namespace XagSurveillanceGCS.GCSViews
         public void GremsyVioStopTracking()
         {
             Console.WriteLine("Stop Tracking Command Sent");
-            // MainV2.comPort.doCommand((byte)MainV2.comPort.sysidcurrent, (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_USER2,MAVLink.MAV_CMD.USER_4,0,0 ,0,0, 0, 0,0,false);
             MAVLink.mavlink_command_long_t msg = new MAVLink.mavlink_command_long_t
             {
                 target_system = (byte)MainV2.comPort.sysidcurrent,
@@ -7981,7 +8314,6 @@ namespace XagSurveillanceGCS.GCSViews
             Console.WriteLine("Pitch/Yaw Control Command Sent"+x+","+y);
             float XRadian = (float)x;
             float YRadian = (float)y;
-            // int pingSeq = 0;
 
             var msg = new MAVLink.mavlink_gimbal_device_set_attitude_t{
                 target_system = (byte)MainV2.comPort.sysidcurrent,
@@ -8007,7 +8339,6 @@ namespace XagSurveillanceGCS.GCSViews
 
         private void BUT_joystick_gimbal_Click(object sender, EventArgs e)
         {
-            // Implementation for joystick gimbal click event
             if(BUT_joystick.Text == "JoyStick ON")
             {
                 if(BUT_joystick_gimbal.Text == "Gimbal JoyStick OFF")
@@ -8029,6 +8360,30 @@ namespace XagSurveillanceGCS.GCSViews
             else
             {
                 CustomMessageBox.Show("Please ensure that the joystick is connected and configured properly.", "Joystick Error");
+            }
+        }
+
+        private void but_CircleLand_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if(MainV2.comPort.MAV.param.ContainsKey("Q_RTL_MODE"))
+                {
+                    MAVLink.MAVLinkParam x = MainV2.comPort.MAV.param["Q_RTL_MODE"];   
+                    int RtlParam = Convert.ToInt32(x.ToString());
+                    Console.WriteLine("Current Q_RTL_MODE: " + x); 
+                    if (CustomMessageBox.Show(RtlParam == 2 ? "RTL Mode is in Circle. Do you want to change to Direct?" : "RTL Mode is in Direct. Do you want to change Circle?", "RTL Param", MessageBoxButtons.YesNo) ==
+                    (int)DialogResult.Yes)
+                    {
+                        MainV2.comPort.setParam("Q_RTL_MODE" , RtlParam == 2 ? 1.0 : 2.0);
+                        but_CircleLand.Text = RtlParam == 2 ? "Direct Land" : "Circle Land";
+                        return;
+                    }
+                }
+            }
+            catch
+            {
+                CustomMessageBox.Show(Strings.ErrorCommunicating, Strings.ERROR);
             }
         }
     }

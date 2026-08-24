@@ -228,6 +228,7 @@ namespace XagSurveillanceGCS.GCSViews
             this.imHereToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label1 = new System.Windows.Forms.Label();
             this.but_disablejoystick = new XagSurveillanceGCS.Controls.MyButton();
+            this.but_CircleLand = new XagSurveillanceGCS.Controls.MyButton();
             this.Zoomlevel = new System.Windows.Forms.NumericUpDown();
             this.distanceBar1 = new XagSurveillanceGCS.Controls.DistanceBar();
             this.TRK_zoom = new XagSurveillanceGCS.Controls.MyTrackBar();
@@ -601,18 +602,18 @@ namespace XagSurveillanceGCS.GCSViews
             // tabControlactions
             // 
             this.tabControlactions.ContextMenuStrip = this.contextMenuStripactionstab;
-            this.tabControlactions.Controls.Add(this.tabQuick);
+            // this.tabControlactions.Controls.Add(this.tabQuick);
             this.tabControlactions.Controls.Add(this.tabActions);
-            this.tabControlactions.Controls.Add(this.tabPagemessages);
+            // this.tabControlactions.Controls.Add(this.tabPagemessages);
             // this.tabControlactions.Controls.Add(this.tabActionsSimple);
             // this.tabControlactions.Controls.Add(this.tabPagePreFlight);
-            this.tabControlactions.Controls.Add(this.tabGauges);
+            // this.tabControlactions.Controls.Add(this.tabGauges);
             // this.tabControlactions.Controls.Add(this.tabTransponder);
-            // this.tabControlactions.Controls.Add(this.tabStatus);
+            this.tabControlactions.Controls.Add(this.tabStatus);
             // this.tabControlactions.Controls.Add(this.tabServo);
             // this.tabControlactions.Controls.Add(this.tabAuxFunction);
             // this.tabControlactions.Controls.Add(this.tabScripts);
-            // this.tabControlactions.Controls.Add(this.tabPayload);
+            this.tabControlactions.Controls.Add(this.tabPayload);
             this.tabControlactions.Controls.Add(this.tabTLogs);
             this.tabControlactions.Controls.Add(this.tablogbrowse);
             this.tabControlactions.Controls.Add(this.tabExternalAHRS);
@@ -772,6 +773,7 @@ namespace XagSurveillanceGCS.GCSViews
             // this.tableLayoutPanel1.Controls.Add(this.BUT_Homealt, 3, 0);
             // this.tableLayoutPanel1.Controls.Add(this.BUTrestartmission, 3, 1);
             // this.tableLayoutPanel1.Controls.Add(this.CMB_mountmode, 0, 3);
+            this.tableLayoutPanel1.Controls.Add(this.but_CircleLand, 2,3);
             this.tableLayoutPanel1.Controls.Add(this.BUT_quickrtl, 2, 2);
             this.tableLayoutPanel1.Controls.Add(this.BUT_quickmanual, 2, 1);
             this.tableLayoutPanel1.Controls.Add(this.BUT_setwp, 1, 1);
@@ -1626,21 +1628,21 @@ namespace XagSurveillanceGCS.GCSViews
             // tabTransponder
             // 
             resources.ApplyResources(this.tabTransponder, "tabTransponder");
-            this.tabTransponder.Controls.Add(this.NACp_tb);
-            this.tabTransponder.Controls.Add(this.NIC_tb);
-            this.tabTransponder.Controls.Add(this.NACp_lbl);
-            this.tabTransponder.Controls.Add(this.NIC_lbl);
-            this.tabTransponder.Controls.Add(this.Squawk_nud);
-            this.tabTransponder.Controls.Add(this.FlightID_tb);
-            this.tabTransponder.Controls.Add(this.fault_clb);
-            this.tabTransponder.Controls.Add(this.XPDRConnect_btn);
-            this.tabTransponder.Controls.Add(this.Squawk_label);
-            this.tabTransponder.Controls.Add(this.FlightID_label);
-            this.tabTransponder.Controls.Add(this.IDENT_btn);
-            this.tabTransponder.Controls.Add(this.ALT_btn);
-            this.tabTransponder.Controls.Add(this.STBY_btn);
-            this.tabTransponder.Controls.Add(this.ON_btn);
-            this.tabTransponder.Controls.Add(this.Mode_clb);
+            // this.tabTransponder.Controls.Add(this.NACp_tb);
+            // this.tabTransponder.Controls.Add(this.NIC_tb);
+            // this.tabTransponder.Controls.Add(this.NACp_lbl);
+            // this.tabTransponder.Controls.Add(this.NIC_lbl);
+            // this.tabTransponder.Controls.Add(this.Squawk_nud);
+            // this.tabTransponder.Controls.Add(this.FlightID_tb);
+            // this.tabTransponder.Controls.Add(this.fault_clb);
+            // this.tabTransponder.Controls.Add(this.XPDRConnect_btn);
+            // this.tabTransponder.Controls.Add(this.Squawk_label);
+            // this.tabTransponder.Controls.Add(this.FlightID_label);
+            // this.tabTransponder.Controls.Add(this.IDENT_btn);
+            // this.tabTransponder.Controls.Add(this.ALT_btn);
+            // this.tabTransponder.Controls.Add(this.STBY_btn);
+            // this.tabTransponder.Controls.Add(this.ON_btn);
+            // this.tabTransponder.Controls.Add(this.Mode_clb);
             this.tabTransponder.Name = "tabTransponder";
             this.tabTransponder.UseVisualStyleBackColor = true;
             // 
@@ -1764,7 +1766,7 @@ namespace XagSurveillanceGCS.GCSViews
             // 
             resources.ApplyResources(this.tabStatus, "tabStatus");
             this.tabStatus.Name = "tabStatus";
-            this.tabStatus.Paint += new System.Windows.Forms.PaintEventHandler(this.tabStatus_Paint);
+            // this.tabStatus.Paint += new System.Windows.Forms.PaintEventHandler(this.tabStatus_Paint);
             // 
             // tabServo
             // 
@@ -2738,6 +2740,17 @@ namespace XagSurveillanceGCS.GCSViews
             this.but_disablejoystick.TextColorNotEnabled = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(87)))), ((int)(((byte)(4)))));
             this.but_disablejoystick.UseVisualStyleBackColor = true;
             this.but_disablejoystick.Click += new System.EventHandler(this.but_disablejoystick_Click);
+            //
+            // but_CircleLand
+            // 
+            this.but_CircleLand.ColorMouseDown = System.Drawing.Color.Empty;
+            this.but_CircleLand.ColorMouseOver = System.Drawing.Color.Empty;
+            this.but_CircleLand.ColorNotEnabled = System.Drawing.Color.Empty;
+            resources.ApplyResources(this.but_CircleLand, "but_CircleLand");
+            this.but_CircleLand.Name = "but_CircleLand";
+            this.but_CircleLand.TextColorNotEnabled = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(87)))), ((int)(((byte)(4)))));
+            this.but_CircleLand.UseVisualStyleBackColor = true;
+            this.but_CircleLand.Click += new System.EventHandler(this.but_CircleLand_Click);
             // 
             // Zoomlevel
             // 
@@ -2961,6 +2974,27 @@ namespace XagSurveillanceGCS.GCSViews
             // bindingSourceStatusTab
             // 
             this.bindingSourceStatusTab.DataSource = typeof(XagSurveillanceGCS.CurrentState);
+            // //
+            // // MainH TopPanel
+            // //
+            // this.TopSplit.Dock = DockStyle.Fill;
+            // this.TopSplit.Orientation = Orientation.Vertical;
+            // this.TopSplit.SplitterDistance = (int)(this.TopSplit.Width * 0.55);
+            // // this.TopSplit.IsSplitterFixed = true;
+            // this.TopSplit.Panel2.Controls.Add(this.tableMap);
+            // //
+            // // MainH BottomPanel
+            // //
+            // this.BottomSplit.Dock = DockStyle.Fill;
+            // this.BottomSplit.Orientation = Orientation.Vertical;
+            // this.BottomSplit.SplitterDistance = (int)(this.BottomSplit.Width * 0.40);
+            // this.BottomSplit.Panel2.Controls.Add(this.SubMainLeft);
+            // //
+            // // MainH Panel
+            // //
+            // this.MainH.SplitterDistance = (int)(MainH.Height * 0.65);
+            // this.MainH.Panel1.Controls.Add(this.TopSplit);
+            // this.MainH.Panel2.Controls.Add(this.BottomSplit);
             //
             // MainH TopPanel
             //
@@ -2976,12 +3010,77 @@ namespace XagSurveillanceGCS.GCSViews
             this.BottomSplit.Orientation = Orientation.Vertical;
             this.BottomSplit.SplitterDistance = (int)(this.BottomSplit.Width * 0.40);
             this.BottomSplit.Panel2.Controls.Add(this.SubMainLeft);
+
             //
-            // MainH Panel
             //
-            this.MainH.SplitterDistance = (int)(MainH.Height * 0.65);
-            this.MainH.Panel1.Controls.Add(this.TopSplit);
-            this.MainH.Panel2.Controls.Add(this.BottomSplit);
+            //
+            this.splitMain = new System.Windows.Forms.SplitContainer();
+            this.splitTop = new System.Windows.Forms.SplitContainer();
+            this.splitTopRight = new System.Windows.Forms.SplitContainer();
+            this.splitBottom = new System.Windows.Forms.SplitContainer();
+            this.splitLeft = new System.Windows.Forms.SplitContainer();
+            //--------------------------------------------------
+            // splitMain
+            //--------------------------------------------------
+
+            this.splitMain.Dock = DockStyle.Fill;
+            this.splitMain.Orientation = Orientation.Vertical;
+            this.splitMain.SplitterDistance = 300;
+            this.splitMain.SplitterWidth = 6;
+
+            //--------------------------------------------------
+            // splitTop
+            //--------------------------------------------------
+
+            this.splitTop.Dock = DockStyle.Fill;
+            this.splitTop.Orientation = Orientation.Horizontal;
+            this.splitTop.SplitterDistance = 700;
+            this.splitTop.SplitterWidth = 6;
+
+            //--------------------------------------------------
+            // splitBottom
+            //--------------------------------------------------
+
+            this.splitBottom.Dock = DockStyle.Fill;
+            this.splitBottom.Orientation = Orientation.Horizontal;
+            // this.splitBottom.SplitterDistance = 350;
+            this.splitBottom.SplitterWidth = 6;
+
+            //
+            // splitTopRight
+            //
+            this.splitTopRight.Dock = DockStyle.Fill;
+            this.splitTopRight.Orientation = Orientation.Horizontal;
+            this.splitTopRight.SplitterDistance = 250;
+            this.splitTopRight.SplitterWidth = 6;
+
+            //--------------------------------------------------
+            // splitLeft
+            //--------------------------------------------------
+
+            this.splitLeft.Dock = DockStyle.Fill;
+            this.splitLeft.Orientation = Orientation.Vertical;
+            this.splitLeft.SplitterDistance = 180;
+            this.splitLeft.SplitterWidth = 6;
+
+            //
+            this.splitTopRight.Panel2.Controls.Add(this.tableMap);
+            this.splitTopRight.Panel1.Controls.Add(this.hud1);
+
+            // this.splitTop.Panel1.Controls.Add(this.tabControlactions);
+            this.splitTop.Panel2.Controls.Add(this.splitMain);
+
+            this.splitLeft.Panel1.Controls.Add(this.splitTop);
+            this.splitLeft.Panel2.Controls.Add(this.splitTopRight);
+
+            // this.splitBottom.Panel1.Controls.Add(this.tableLayoutPanelQuick);
+            // this.splitBottom.Panel2.Controls.Add(this.splitTop);
+
+            this.splitMain.Panel1.Controls.Add(this.tabControlactions);
+            this.splitMain.Panel2.Controls.Add(this.txt_messagebox);
+
+            this.MainH.Panel1.Controls.Add(this.tableLayoutPanelQuick);
+            this.MainH.Panel2.Controls.Add(this.splitLeft);
             // 
             // FlightData
             // 
@@ -3309,5 +3408,11 @@ namespace XagSurveillanceGCS.GCSViews
         public System.Windows.Forms.TabPage tabExternalAHRS;
         private Controls.EAHRSControl eahrsControl1;
         private ToolStripMenuItem imHereToolStripMenuItem;
+        private Controls.MyButton but_CircleLand;
+        private System.Windows.Forms.SplitContainer splitMain;
+        private System.Windows.Forms.SplitContainer splitTop;
+        private System.Windows.Forms.SplitContainer splitTopRight;
+        private System.Windows.Forms.SplitContainer splitBottom;
+        private System.Windows.Forms.SplitContainer splitLeft;
     }
 }

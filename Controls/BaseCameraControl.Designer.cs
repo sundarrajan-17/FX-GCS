@@ -76,7 +76,7 @@ namespace XagSurveillanceGCS.Controls
 
             // Camera Host Panel
             this.pnlCameraHost.Location = new System.Drawing.Point(10, 40);
-            this.pnlCameraHost.Size = new System.Drawing.Size(600, 280);
+            this.pnlCameraHost.Size = new System.Drawing.Size(500, 200);
             this.pnlCameraHost.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 
             // BaseCameraController
@@ -86,7 +86,7 @@ namespace XagSurveillanceGCS.Controls
             this.Controls.Add(this.GnssModeStatus);
             this.Controls.Add(this.pnlCameraHost);
 
-            this.Size = new System.Drawing.Size(600, 320);
+            this.Size = new System.Drawing.Size(500, 200);
         }
     }
 }

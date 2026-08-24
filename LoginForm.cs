@@ -1,8 +1,11 @@
 // LoginForm.cs
 using System;
+using System.Management;
 using System.Runtime.CompilerServices;
 using System.Windows.Forms;
+using System.Linq;
 using System.Net.NetworkInformation;
+using XagSurveillanceGCS.Utilities;
 
 namespace XagSurveillanceGCS
 {
@@ -14,7 +17,8 @@ namespace XagSurveillanceGCS
 
         public string SystemMACAddress = "";
 
-        public string[] ValidMACAddress = new[] {"E89C2591620F","",""};
+        public string[] validUUids = new[] {"804DB1F8-BDAF-4426-A410-461AE527BB68","BF065C93-9FAC-3143-90FA-C5DC2182D911"};
+        public string[] validIdentifyingNumbers = new[] {"RS603S3052","RANRCX006007408"};
 
         public LoginForm()
         {
@@ -23,25 +27,41 @@ namespace XagSurveillanceGCS
             TXT_version.Text = "Version: 1.5.10";
         }
 
+        public static (string UUID, string IdentifyingNumber) GetSystemInfo()
+        {
+            string uuid = "";
+            string identifyingNumber = "";
+
+            using (ManagementObjectSearcher searcher =
+                new ManagementObjectSearcher("SELECT UUID, IdentifyingNumber FROM Win32_ComputerSystemProduct"))
+            {
+                foreach (ManagementObject obj in searcher.Get())
+                {
+                    uuid = obj["UUID"]?.ToString() ?? "";
+                    identifyingNumber = obj["IdentifyingNumber"]?.ToString() ?? "";
+                    break; // only one system product entry is expected
+                }
+            }
+
+            return (uuid, identifyingNumber);
+        }
+
         private void btnLogin_Click(object sender, EventArgs e)
         {
             string username = txtUsername.Text.Trim();
             string password = txtPassword.Text;
 
-            foreach (var nic in NetworkInterface.GetAllNetworkInterfaces())
-            {
-                Console.WriteLine($"{nic.Name} - {nic.GetPhysicalAddress()} - {nic.OperationalStatus}");
-                if(nic.Name == "Ethernet" )
-                {
-                    Console.WriteLine("Selected MAC Address: " + nic.GetPhysicalAddress());
-                    this.SystemMACAddress = nic.GetPhysicalAddress().ToString();
-                }
-            }
+            var (uuid, identifyingNumber) = GetSystemInfo();
 
-            // Console.WriteLine("MAC Address: " + mac);
-            // if(Array.Exists(ValidMACAddress, mac => mac == this.SystemMACAddress))
+            Console.WriteLine($"System UUID: {uuid}");
+            Console.WriteLine($"System Identifying Number: {identifyingNumber}");
+
+            string decodedPassword =  System.Text.Encoding.UTF8.GetString(Convert.FromBase64String(Settings.Instance["login_password"]));
+            
+            
+            // if (validUUids.Contains(uuid) && validIdentifyingNumbers.Contains(identifyingNumber))
             // {
-                if (username == "XAGGCS" && password == "xag@12345")
+                if(username == "XAGGCS" && password == decodedPassword)
                 {
                     LoginSuccess = true;
                     this.Close();
@@ -50,10 +70,21 @@ namespace XagSurveillanceGCS
                 {
                     MessageBox.Show("Invalid credentials!", "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
-            // } else
-            // {
-            //     MessageBox.Show("Unauthorized Device! No License For This PC.", "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
             // }
+            // else
+            // {
+            //     MessageBox.Show("This system is not authorized to run the application.", "Unauthorized System", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            // }   
+        }
+        private void btnChangePassword_Click(object sender, EventArgs e)
+        {
+            using (ChangePassword frm = new ChangePassword())
+            {
+                if (frm.ShowDialog(this) == DialogResult.OK)
+                {
+                    MessageBox.Show("Password changed successfully.");
+                }
+            }
         }
         private void txtUsername_Enter(object sender, EventArgs e)
         {

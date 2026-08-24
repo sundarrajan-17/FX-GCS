@@ -285,6 +285,7 @@ namespace XagSurveillanceGCS.Utilities
             //Copy color values to the ThemeManager color variables
             ThemeManager.thmColor.SetTheme();
             Settings.Instance["theme"] = ThemeManager.thmColor.strThemeName;
+            Console.WriteLine("Themeeeeeeeeeeeeeeeeee {0}",ThemeManager.thmColor.strThemeName);
         }
 
 

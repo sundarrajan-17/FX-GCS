@@ -8,7 +8,7 @@ namespace XagSurveillanceGCS
         private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.Button btnLogin;
         private System.Windows.Forms.Label label1;
-
+        private System.Windows.Forms.Button btnChangePassword;
         private System.Windows.Forms.Label TXT_version;
 
         protected override void Dispose(bool disposing)
@@ -25,6 +25,7 @@ namespace XagSurveillanceGCS
             this.txtUsername = new System.Windows.Forms.TextBox();
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.btnLogin = new System.Windows.Forms.Button();
+            this.btnChangePassword = new System.Windows.Forms.Button();
             // this.SuspendLayout();
 
             this.label1 = new System.Windows.Forms.Label();
@@ -91,12 +92,25 @@ namespace XagSurveillanceGCS
             this.btnLogin.UseVisualStyleBackColor = true;
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
 
+            // btnChangePassword
+            this.btnChangePassword.BackColor = System.Drawing.Color.Black;
+            this.btnChangePassword.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(193)))), ((int)(((byte)(78)))));;
+            // this.btnChangePassword. = System.Drawing.Color.Transparent;
+            this.btnChangePassword.Location = new System.Drawing.Point(250, 200);
+            this.btnChangePassword.Name = "btnChangePassword";
+            this.btnChangePassword.Size = new System.Drawing.Size(100, 30);
+            this.btnChangePassword.TabIndex = 3;
+            this.btnChangePassword.Text = "Change Password";
+            this.btnChangePassword.UseVisualStyleBackColor = true;
+            this.btnChangePassword.Click += new System.EventHandler(this.btnChangePassword_Click);
+
             this.BackgroundImage = global::XagSurveillanceGCS.Properties.Resources.splashdark;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ClientSize = new System.Drawing.Size(584, 336);
             this.Controls.Add(this.txtUsername);
             this.Controls.Add(this.txtPassword);
             this.Controls.Add(this.btnLogin);
+            this.Controls.Add(this.btnChangePassword);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.TXT_version);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;

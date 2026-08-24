@@ -2,6 +2,7 @@ using System;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using System.Collections.Generic;
 
 namespace XagSurveillanceGCS.Controls
 {   
@@ -10,6 +11,42 @@ namespace XagSurveillanceGCS.Controls
         private Panel scrollPanel;
         private TableLayoutPanel table;
         private GremsyControl _parentControl;
+
+        private bool _initializing = true;
+
+        private readonly Dictionary<string, Action<string, int>> comboHandlers =
+            new Dictionary<string, Action<string, int>>();
+
+        private readonly Dictionary<string, Action<bool>> toggleHandlers =
+            new Dictionary<string, Action<bool>>();
+
+        private readonly Dictionary<string, ComboBox> comboControls =
+            new Dictionary<string, ComboBox>();
+
+        private readonly Dictionary<string, CheckBox> toggleControls =
+            new Dictionary<string, CheckBox>();
+
+        private readonly Dictionary<string, int> rtspMap =
+            new Dictionary<string, int>
+            {
+                { "720p", 0 },
+                { "1080p", 1 }
+            };
+
+        private readonly Dictionary<string, int> zoomMap =
+            new Dictionary<string, int>
+            {
+                { "Normal", 2 },
+                { "Super Resolution", 4 }
+            };
+
+        private readonly Dictionary<string, int> videoQualityMap =
+            new Dictionary<string, int>
+            {
+                { "Default", 20 },
+                { "Medium", 30 },
+                { "High", 40 }
+            };
         // Dictionary<string, Control> settingsControls = new Dictionary<string, Control>();
 
 
@@ -69,6 +106,9 @@ namespace XagSurveillanceGCS.Controls
             }
             // AddButton("Apply Settings");
             AddButton("Reset Camera Defaults");
+
+            RegisterHandlers();
+            _initializing = false;
         }
 
         private void RefreshUI()
@@ -102,92 +142,88 @@ namespace XagSurveillanceGCS.Controls
             }
 
             AddButton("Reset Camera Defaults");
+            RegisterHandlers();
+            _initializing = false;
         }
 
-        private void ApplyAIVideoSource(string source)
-        {
-            Console.WriteLine($"Applying AI Video Source: {source}");
-            // Example: call your Gremsy / Viewpro / MAVLink command to set video source
-            // _parentControl.SetAIVideoSource(source);
-            if(source == "EO")
-            {
-                source = "eo";
-            }
-            else if(source == "IR")
-            {
-                source = "ir";
-            }
-            string text = "AI_SOURCE";
-            byte[] id_bytes = Encoding.ASCII.GetBytes(text);
-            byte[] paramValue = new byte[128];
-            byte[] valueBytes = Encoding.ASCII.GetBytes(source);
-            Array.Copy(valueBytes, paramValue, Math.Min(valueBytes.Length, paramValue.Length));
+        // private void ApplyAIVideoSource(string source)
+        // {
+        //     Console.WriteLine($"Applying AI Video Source: {source}");
+        //     // Example: call your Gremsy / Viewpro / MAVLink command to set video source
+        //     // _parentControl.SetAIVideoSource(source);
+        //     if(source == "EO")
+        //     {
+        //         source = "eo";
+        //     }
+        //     else if(source == "IR")
+        //     {
+        //         source = "ir";
+        //     }
+        //     string text = "AI_SOURCE";
+        //     byte[] id_bytes = Encoding.ASCII.GetBytes(text);
+        //     byte[] paramValue = new byte[128];
+        //     byte[] valueBytes = Encoding.ASCII.GetBytes(source);
+        //     Array.Copy(valueBytes, paramValue, Math.Min(valueBytes.Length, paramValue.Length));
 
-            var msg = new MAVLink.mavlink_param_ext_set_t();
-            msg.target_system = (byte)MainV2.comPort.sysidcurrent;
-            msg.target_component = (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_CAMERA;
-            msg.param_id = id_bytes;
-            msg.param_value = paramValue;
-            msg.param_type = 11;
+        //     var msg = new MAVLink.mavlink_param_ext_set_t();
+        //     msg.target_system = (byte)MainV2.comPort.sysidcurrent;
+        //     msg.target_component = (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_CAMERA;
+        //     msg.param_id = id_bytes;
+        //     msg.param_value = paramValue;
+        //     msg.param_type = 11;
 
-            MainV2.comPort.sendPacket(
-                msg,
-                (byte)MainV2.comPort.sysidcurrent,
-                (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_CAMERA
-            );
-        }
-        private void ApplyEVValue(int EvValue)
-        {
-            Console.WriteLine($"Applying EV Value: {EvValue}");
-            // Example: call your Gremsy / Viewpro / MAVLink command to set EV value
-            // _parentControl.SetEVValue(EvValue);
-            int value = 10 - EvValue;
-            string text = "EO_EV";
-            byte[] id_bytes = Encoding.ASCII.GetBytes(text);
-            byte[] value_bytes = BitConverter.GetBytes(value);
+        //     MainV2.comPort.sendPacket(
+        //         msg,
+        //         (byte)MainV2.comPort.sysidcurrent,
+        //         (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_CAMERA
+        //     );
+        // }
+        // private void ApplyEVValue(int EvValue)
+        // {
+        //     Console.WriteLine($"Applying EV Value: {EvValue}");
+        //     int value = 10 - EvValue;
+        //     string text = "EO_EV";
+        //     byte[] id_bytes = Encoding.ASCII.GetBytes(text);
+        //     byte[] value_bytes = BitConverter.GetBytes(value);
 
-            var msg = new MAVLink.mavlink_param_ext_set_t();
-            msg.target_system = (byte)MainV2.comPort.sysidcurrent;
-            msg.target_component = (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_CAMERA;
-            msg.param_id = id_bytes;
-            msg.param_value = value_bytes;
-            msg.param_type = 6;
+        //     var msg = new MAVLink.mavlink_param_ext_set_t();
+        //     msg.target_system = (byte)MainV2.comPort.sysidcurrent;
+        //     msg.target_component = (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_CAMERA;
+        //     msg.param_id = id_bytes;
+        //     msg.param_value = value_bytes;
+        //     msg.param_type = 6;
 
-            MainV2.comPort.sendPacket(
-                msg,
-                (byte)MainV2.comPort.sysidcurrent,
-                (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_CAMERA
-            );
-        } 
+        //     MainV2.comPort.sendPacket(
+        //         msg,
+        //         (byte)MainV2.comPort.sysidcurrent,
+        //         (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_CAMERA
+        //     );
+        // } 
 
-        private void ApplyWhiteBalance(int value)
-        {
-            Console.WriteLine($"Applying White Balance: {value}");
-            // Example: call your Gremsy / Viewpro / MAVLink command to set white balance
-            // _parentControl.SetWhiteBalance(mode);
+        // private void ApplyWhiteBalance(int value)
+        // {
+        //     Console.WriteLine($"Applying White Balance: {value}");
             
-            string text = "EO_WB";
-            byte[] id_bytes = Encoding.ASCII.GetBytes(text);
-            byte[] value_bytes = BitConverter.GetBytes(value);
+        //     string text = "EO_WB";
+        //     byte[] id_bytes = Encoding.ASCII.GetBytes(text);
+        //     byte[] value_bytes = BitConverter.GetBytes(value);
 
-            var msg = new MAVLink.mavlink_param_ext_set_t();
-            msg.target_system = (byte)MainV2.comPort.sysidcurrent;
-            msg.target_component = (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_CAMERA;
-            msg.param_id = id_bytes;
-            msg.param_value = value_bytes;
-            msg.param_type = 6;
+        //     var msg = new MAVLink.mavlink_param_ext_set_t();
+        //     msg.target_system = (byte)MainV2.comPort.sysidcurrent;
+        //     msg.target_component = (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_CAMERA;
+        //     msg.param_id = id_bytes;
+        //     msg.param_value = value_bytes;
+        //     msg.param_type = 6;
 
-            MainV2.comPort.sendPacket(
-                msg,
-                (byte)MainV2.comPort.sysidcurrent,
-                (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_CAMERA
-            );
-        }
+        //     MainV2.comPort.sendPacket(
+        //         msg,
+        //         (byte)MainV2.comPort.sysidcurrent,
+        //         (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_CAMERA
+        //     );
+        // }
         private void ApplyCameraSelection(string camera)
         {
             Console.WriteLine($"Applying Camera Selection: {camera}");
-            // Example: call your Gremsy / Viewpro / MAVLink command to set camera
-            // _parentControl.SetCameraSelection(camera);
             if(camera == "R3")
             {
                 var msg = new MAVLink.mavlink_param_ext_request_list_t();
@@ -201,270 +237,265 @@ namespace XagSurveillanceGCS.Controls
                 RefreshUI();
             }
         }
-        private void ApplyVideoQuality(string quality)
-        {
-            Console.WriteLine($"Applying Video Quality: {quality}");
-            int value =20;
-            if(quality == "Low")
-            {
-                value = 20;
-            }
-            else if(quality == "Medium")
-            {
-                value = 30;
-            }
-            else if(quality == "High")
-            {
-                value = 40;
-            }
-            string text = "EO_VIDEO_QUALITY";
-            byte[] id_bytes = Encoding.ASCII.GetBytes(text);
-            byte[] value_bytes = BitConverter.GetBytes(value);
+        // private void ApplyVideoQuality(string quality)
+        // {
+        //     Console.WriteLine($"Applying Video Quality: {quality}");
+        //     int value =20;
+        //     if(quality == "Low")
+        //     {
+        //         value = 20;
+        //     }
+        //     else if(quality == "Medium")
+        //     {
+        //         value = 30;
+        //     }
+        //     else if(quality == "High")
+        //     {
+        //         value = 40;
+        //     }
+        //     string text = "EO_VIDEO_QUALITY";
+        //     byte[] id_bytes = Encoding.ASCII.GetBytes(text);
+        //     byte[] value_bytes = BitConverter.GetBytes(value);
 
-            var msg = new MAVLink.mavlink_param_ext_set_t();
-            msg.target_system = (byte)MainV2.comPort.sysidcurrent;
-            msg.target_component = (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_CAMERA;
-            msg.param_id = id_bytes;
-            msg.param_value = value_bytes;
-            msg.param_type = 6;
+        //     var msg = new MAVLink.mavlink_param_ext_set_t();
+        //     msg.target_system = (byte)MainV2.comPort.sysidcurrent;
+        //     msg.target_component = (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_CAMERA;
+        //     msg.param_id = id_bytes;
+        //     msg.param_value = value_bytes;
+        //     msg.param_type = 6;
 
-            MainV2.comPort.sendPacket(
-                msg,
-                (byte)MainV2.comPort.sysidcurrent,
-                (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_CAMERA
-            );
-        }
+        //     MainV2.comPort.sendPacket(
+        //         msg,
+        //         (byte)MainV2.comPort.sysidcurrent,
+        //         (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_CAMERA
+        //     );
+        // }
 
-        private void ApplyRTSPResolution(string resolution)
-        {
-            Console.WriteLine($"Applying RTSP Resolution: {resolution}");
-            // Example: call your Gremsy / Viewpro / MAVLink command to set RTSP resolution
-            // _parentControl.SetRTSPResolution(resolution);
-            int value = 0;
-            if(resolution == "720p")
-            {
-                value = 0;
-            }
-            else if(resolution == "1080p")
-            {
-                value = 1;
-            }
-            string text = "EO_RESOLUTION";
-            byte[] id_bytes = Encoding.ASCII.GetBytes(text);
-            byte[] value_bytes =BitConverter.GetBytes(value);
+        // private void ApplyRTSPResolution(string resolution)
+        // {
+        //     Console.WriteLine($"Applying RTSP Resolution: {resolution}");
+        //     int value = 0;
+        //     if(resolution == "720p")
+        //     {
+        //         value = 0;
+        //     }
+        //     else if(resolution == "1080p")
+        //     {
+        //         value = 1;
+        //     }
+        //     string text = "EO_RESOLUTION";
+        //     byte[] id_bytes = Encoding.ASCII.GetBytes(text);
+        //     byte[] value_bytes =BitConverter.GetBytes(value);
 
-            var msg = new MAVLink.mavlink_param_ext_set_t();
-            msg.target_system = (byte)MainV2.comPort.sysidcurrent;
-            msg.target_component = (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_CAMERA;
-            msg.param_id = id_bytes;
-            msg.param_value = value_bytes;
-            msg.param_type = 6;
+        //     var msg = new MAVLink.mavlink_param_ext_set_t();
+        //     msg.target_system = (byte)MainV2.comPort.sysidcurrent;
+        //     msg.target_component = (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_CAMERA;
+        //     msg.param_id = id_bytes;
+        //     msg.param_value = value_bytes;
+        //     msg.param_type = 6;
 
-            MainV2.comPort.sendPacket(
-                msg,
-                (byte)MainV2.comPort.sysidcurrent,
-                (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_CAMERA
-            );
-        }
-        private void ApplyZoomFeature(string zoomMode)
-        {
-            Console.WriteLine($"Applying Zoom Feature: {zoomMode}");
-            // Example: call your Gremsy / Viewpro / MAVLink command to set zoom feature
-            // _parentControl.SetZoomFeature(zoomMode);
-            int value = 2;
-            if(zoomMode == "Normal")
-            {
-                value = 2;
-            }
-            else if(zoomMode == "Super Resolution")
-            {
-                value = 4;
-            }
-            string text = "EO_ZOOM_MODE";
-            byte[] id_bytes = Encoding.ASCII.GetBytes(text);
-            byte[] value_bytes = BitConverter.GetBytes(value);
+        //     MainV2.comPort.sendPacket(
+        //         msg,
+        //         (byte)MainV2.comPort.sysidcurrent,
+        //         (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_CAMERA
+        //     );
+        // }
+        // private void ApplyZoomFeature(string zoomMode)
+        // {
+        //     Console.WriteLine($"Applying Zoom Feature: {zoomMode}");
+        //     int value = 2;
+        //     if(zoomMode == "Normal")
+        //     {
+        //         value = 2;
+        //     }
+        //     else if(zoomMode == "Super Resolution")
+        //     {
+        //         value = 4;
+        //     }
+        //     string text = "EO_ZOOM_MODE";
+        //     byte[] id_bytes = Encoding.ASCII.GetBytes(text);
+        //     byte[] value_bytes = BitConverter.GetBytes(value);
 
-            // MAVLink.MAV_PARAM_TYPE param_type = MAVLink.MAV_PARAM_TYPE.MAV_PARAM_TYPE_UINT8;
-            var msg = new MAVLink.mavlink_param_ext_set_t();
-            msg.target_system = (byte)MainV2.comPort.sysidcurrent;
-            msg.target_component = (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_CAMERA;
-            msg.param_id = id_bytes;
-            msg.param_value = value_bytes;
-            msg.param_type = 6;
+        //     var msg = new MAVLink.mavlink_param_ext_set_t();
+        //     msg.target_system = (byte)MainV2.comPort.sysidcurrent;
+        //     msg.target_component = (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_CAMERA;
+        //     msg.param_id = id_bytes;
+        //     msg.param_value = value_bytes;
+        //     msg.param_type = 6;
 
-            MainV2.comPort.sendPacket(
-                msg,
-                (byte)MainV2.comPort.sysidcurrent,
-                (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_CAMERA
-            );
-        }
-        private void ApplyInfraredPalette(int palette)
-        {
-            Console.WriteLine($"Applying Infrared Palette: {palette}");
-            string text = "IR_PALETTE";
-            byte[] id_bytes = Encoding.ASCII.GetBytes(text);
-            byte[] value_bytes = BitConverter.GetBytes(palette);
-            var msg = new MAVLink.mavlink_param_ext_set_t();
+        //     MainV2.comPort.sendPacket(
+        //         msg,
+        //         (byte)MainV2.comPort.sysidcurrent,
+        //         (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_CAMERA
+        //     );
+        // }
+        // private void ApplyInfraredPalette(int palette)
+        // {
+        //     Console.WriteLine($"Applying Infrared Palette: {palette}");
+        //     string text = "IR_PALETTE";
+        //     byte[] id_bytes = Encoding.ASCII.GetBytes(text);
+        //     byte[] value_bytes = BitConverter.GetBytes(palette);
+        //     var msg = new MAVLink.mavlink_param_ext_set_t();
 
-            msg.target_system = (byte)MainV2.comPort.sysidcurrent;
-            msg.target_component = (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_CAMERA;
-            msg.param_id = id_bytes;
-            msg.param_value = value_bytes;
-            msg.param_type = 6;
+        //     msg.target_system = (byte)MainV2.comPort.sysidcurrent;
+        //     msg.target_component = (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_CAMERA;
+        //     msg.param_id = id_bytes;
+        //     msg.param_value = value_bytes;
+        //     msg.param_type = 6;
 
-            MainV2.comPort.sendPacket(
-                msg,
-                (byte)MainV2.comPort.sysidcurrent,
-                (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_CAMERA
-            );
-        }
+        //     MainV2.comPort.sendPacket(
+        //         msg,
+        //         (byte)MainV2.comPort.sysidcurrent,
+        //         (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_CAMERA
+        //     );
+        // }
 
-        private void ApplyCheckBoxChangeCommon(string settingName, bool value)
-        {
-            Console.WriteLine($"{settingName} toggled → {(value ? "On" : "Off")}");
-            // Here you can add any common logic that should happen whenever a checkbox changes
-            byte[] id_bytes = Encoding.ASCII.GetBytes(settingName);
-            byte[] value_bytes = BitConverter.GetBytes(value ? 1 : 0);
-            var msg = new MAVLink.mavlink_param_ext_set_t();
+        // private void ApplyCheckBoxChangeCommon(string settingName, bool value)
+        // {
+        //     Console.WriteLine($"{settingName} toggled → {(value ? "On" : "Off")}");
+        //     // Here you can add any common logic that should happen whenever a checkbox changes
+        //     byte[] id_bytes = Encoding.ASCII.GetBytes(settingName);
+        //     byte[] value_bytes = BitConverter.GetBytes(value ? 1 : 0);
+        //     var msg = new MAVLink.mavlink_param_ext_set_t();
 
-            msg.target_system = (byte)MainV2.comPort.sysidcurrent;
-            msg.target_component = (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_CAMERA;
-            msg.param_id = id_bytes;
-            msg.param_value = value_bytes;
-            msg.param_type = 1;
+        //     msg.target_system = (byte)MainV2.comPort.sysidcurrent;
+        //     msg.target_component = (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_CAMERA;
+        //     msg.param_id = id_bytes;
+        //     msg.param_value = value_bytes;
+        //     msg.param_type = 1;
 
-            MainV2.comPort.sendPacket(
-                msg,
-                (byte)MainV2.comPort.sysidcurrent,
-                (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_CAMERA
-            );
-        }
+        //     MainV2.comPort.sendPacket(
+        //         msg,
+        //         (byte)MainV2.comPort.sysidcurrent,
+        //         (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_CAMERA
+        //     );
+        // }
 
-        private void ApplyTrackAlgorithm(string algorithm)
-        {
-            Console.WriteLine($"Applying Track Algorithm: {algorithm}");
-            string text = "TRACK_ALGORITHM";
-            byte[] id_bytes = Encoding.ASCII.GetBytes(text);
-            byte[] paramValue = new byte[128];
-            byte[] valueBytes = Encoding.ASCII.GetBytes(algorithm);
-            Array.Copy(valueBytes, paramValue, Math.Min(valueBytes.Length, paramValue.Length));
+        // private void ApplyTrackAlgorithm(string algorithm)
+        // {
+        //     Console.WriteLine($"Applying Track Algorithm: {algorithm}");
+        //     string text = "TRACK_ALGORITHM";
+        //     byte[] id_bytes = Encoding.ASCII.GetBytes(text);
+        //     byte[] paramValue = new byte[128];
+        //     byte[] valueBytes = Encoding.ASCII.GetBytes(algorithm);
+        //     Array.Copy(valueBytes, paramValue, Math.Min(valueBytes.Length, paramValue.Length));
 
-            var msg = new MAVLink.mavlink_param_ext_set_t();
-            msg.target_system = (byte)MainV2.comPort.sysidcurrent;
-            msg.target_component = (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_CAMERA;
-            msg.param_id = id_bytes;
-            msg.param_value = paramValue;
-            msg.param_type = 11;
+        //     var msg = new MAVLink.mavlink_param_ext_set_t();
+        //     msg.target_system = (byte)MainV2.comPort.sysidcurrent;
+        //     msg.target_component = (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_CAMERA;
+        //     msg.param_id = id_bytes;
+        //     msg.param_value = paramValue;
+        //     msg.param_type = 11;
 
-            MainV2.comPort.sendPacket(
-                msg,
-                (byte)MainV2.comPort.sysidcurrent,
-                (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_CAMERA
-            );
-        }
+        //     MainV2.comPort.sendPacket(
+        //         msg,
+        //         (byte)MainV2.comPort.sysidcurrent,
+        //         (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_CAMERA
+        //     );
+        // }
 
-        private void ApplySmartSelect(string option)
-        {
-            Console.WriteLine($"Applying Smart Select: {option}");
-            string text = "SMART_SELECT";
-            byte[] id_bytes = Encoding.ASCII.GetBytes(text);
-            byte[] paramValue = new byte[128];
-            byte[] valueBytes = Encoding.ASCII.GetBytes(option);
-            Array.Copy(valueBytes, paramValue, Math.Min(valueBytes.Length, paramValue.Length));
+        // private void ApplySmartSelect(string option)
+        // {
+        //     Console.WriteLine($"Applying Smart Select: {option}");
+        //     string text = "SMART_SELECT";
+        //     byte[] id_bytes = Encoding.ASCII.GetBytes(text);
+        //     byte[] paramValue = new byte[128];
+        //     byte[] valueBytes = Encoding.ASCII.GetBytes(option);
+        //     Array.Copy(valueBytes, paramValue, Math.Min(valueBytes.Length, paramValue.Length));
 
-            var msg = new MAVLink.mavlink_param_ext_set_t();
-            msg.target_system = (byte)MainV2.comPort.sysidcurrent;
-            msg.target_component = (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_CAMERA;
-            msg.param_id = id_bytes;
-            msg.param_value = paramValue;
-            msg.param_type = 11;
+        //     var msg = new MAVLink.mavlink_param_ext_set_t();
+        //     msg.target_system = (byte)MainV2.comPort.sysidcurrent;
+        //     msg.target_component = (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_CAMERA;
+        //     msg.param_id = id_bytes;
+        //     msg.param_value = paramValue;
+        //     msg.param_type = 11;
 
-            MainV2.comPort.sendPacket(
-                msg,
-                (byte)MainV2.comPort.sysidcurrent,
-                (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_CAMERA
-            );
-        }
+        //     MainV2.comPort.sendPacket(
+        //         msg,
+        //         (byte)MainV2.comPort.sysidcurrent,
+        //         (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_CAMERA
+        //     );
+        // }
 
-        private void ApplyYawMode(int yawmode)
-        {
-            string text = "YAW_MODE";
-            byte[] id_bytes = Encoding.ASCII.GetBytes(text);
-            byte[] value_bytes = BitConverter.GetBytes(yawmode);
+        // private void ApplyYawMode(int yawmode)
+        // {
+        //     string text = "YAW_MODE";
+        //     byte[] id_bytes = Encoding.ASCII.GetBytes(text);
+        //     byte[] value_bytes = BitConverter.GetBytes(yawmode);
 
-            var msg = new MAVLink.mavlink_param_ext_set_t();
-            msg.target_system = (byte)MainV2.comPort.sysidcurrent;
-            msg.target_component = (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_CAMERA;
-            msg.param_id = id_bytes;
-            msg.param_value = value_bytes;
-            msg.param_type = 6;
+        //     var msg = new MAVLink.mavlink_param_ext_set_t();
+        //     msg.target_system = (byte)MainV2.comPort.sysidcurrent;
+        //     msg.target_component = (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_CAMERA;
+        //     msg.param_id = id_bytes;
+        //     msg.param_value = value_bytes;
+        //     msg.param_type = 6;
 
-            MainV2.comPort.sendPacket(
-                msg,
-                (byte)MainV2.comPort.sysidcurrent,
-                (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_CAMERA
-            );
-        }
+        //     MainV2.comPort.sendPacket(
+        //         msg,
+        //         (byte)MainV2.comPort.sysidcurrent,
+        //         (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_CAMERA
+        //     );
+        // }
 
-        private void ApplyAIResolution(int resolution)
-        {
-            string text = "AI_RESOLUTION";
-            byte[] id_bytes = Encoding.ASCII.GetBytes(text);
-            byte[] value_bytes = BitConverter.GetBytes(resolution);
+        // private void ApplyAIResolution(int resolution)
+        // {
+        //     string text = "AI_RESOLUTION";
+        //     byte[] id_bytes = Encoding.ASCII.GetBytes(text);
+        //     byte[] value_bytes = BitConverter.GetBytes(resolution);
 
-            var msg = new MAVLink.mavlink_param_ext_set_t();
-            msg.target_system = (byte)MainV2.comPort.sysidcurrent;
-            msg.target_component = (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_CAMERA;
-            msg.param_id = id_bytes;
-            msg.param_value = value_bytes;
-            msg.param_type = 6;
+        //     var msg = new MAVLink.mavlink_param_ext_set_t();
+        //     msg.target_system = (byte)MainV2.comPort.sysidcurrent;
+        //     msg.target_component = (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_CAMERA;
+        //     msg.param_id = id_bytes;
+        //     msg.param_value = value_bytes;
+        //     msg.param_type = 6;
 
-            MainV2.comPort.sendPacket(
-                msg,
-                (byte)MainV2.comPort.sysidcurrent,
-                (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_CAMERA
-            );
-        }
+        //     MainV2.comPort.sendPacket(
+        //         msg,
+        //         (byte)MainV2.comPort.sysidcurrent,
+        //         (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_CAMERA
+        //     );
+        // }
 
-        private void ApplyMergeVideo(int merge_video)
-        {
-            string text = "MERGE_DISPLAY";
-            byte[] id_bytes = Encoding.ASCII.GetBytes(text);
-            byte[] value_bytes = BitConverter.GetBytes(merge_video);
+        // private void ApplyMergeVideo(int merge_video)
+        // {
+        //     string text = "MERGE_DISPLAY";
+        //     byte[] id_bytes = Encoding.ASCII.GetBytes(text);
+        //     byte[] value_bytes = BitConverter.GetBytes(merge_video);
 
-            var msg = new MAVLink.mavlink_param_ext_set_t();
-            msg.target_system = (byte)MainV2.comPort.sysidcurrent;
-            msg.target_component = (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_CAMERA;
-            msg.param_id = id_bytes;
-            msg.param_value = value_bytes;
-            msg.param_type = 6;
+        //     var msg = new MAVLink.mavlink_param_ext_set_t();
+        //     msg.target_system = (byte)MainV2.comPort.sysidcurrent;
+        //     msg.target_component = (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_CAMERA;
+        //     msg.param_id = id_bytes;
+        //     msg.param_value = value_bytes;
+        //     msg.param_type = 6;
 
-            MainV2.comPort.sendPacket(
-                msg,
-                (byte)MainV2.comPort.sysidcurrent,
-                (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_CAMERA
-            );
-        }
+        //     MainV2.comPort.sendPacket(
+        //         msg,
+        //         (byte)MainV2.comPort.sysidcurrent,
+        //         (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_CAMERA
+        //     );
+        // }
 
-        private void ApplyTrackMode(int track_mode)
-        {
-            string text = "TRACK_MODE";
-            byte[] id_bytes = Encoding.ASCII.GetBytes(text);
-            byte[] value_bytes = BitConverter.GetBytes(track_mode);
+        // private void ApplyTrackMode(int track_mode)
+        // {
+        //     string text = "TRACK_MODE";
+        //     byte[] id_bytes = Encoding.ASCII.GetBytes(text);
+        //     byte[] value_bytes = BitConverter.GetBytes(track_mode);
 
-            var msg = new MAVLink.mavlink_param_ext_set_t();
-            msg.target_system = (byte)MainV2.comPort.sysidcurrent;
-            msg.target_component = (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_CAMERA;
-            msg.param_id = id_bytes;
-            msg.param_value = value_bytes;
-            msg.param_type = 6;
+        //     var msg = new MAVLink.mavlink_param_ext_set_t();
+        //     msg.target_system = (byte)MainV2.comPort.sysidcurrent;
+        //     msg.target_component = (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_CAMERA;
+        //     msg.param_id = id_bytes;
+        //     msg.param_value = value_bytes;
+        //     msg.param_type = 6;
 
-            MainV2.comPort.sendPacket(
-                msg,
-                (byte)MainV2.comPort.sysidcurrent,
-                (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_CAMERA
-            );
-        }
+        //     MainV2.comPort.sendPacket(
+        //         msg,
+        //         (byte)MainV2.comPort.sysidcurrent,
+        //         (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_CAMERA
+        //     );
+        // }
 
         private void ApplyCameraMode(int camera_mode)
         {
@@ -478,6 +509,131 @@ namespace XagSurveillanceGCS.Controls
             }
         }
 
+        private void SendCameraParam(string paramId, int value)
+        {
+            byte[] paramValue = new byte[128];
+            Array.Copy(BitConverter.GetBytes(value), paramValue, 4);
+
+            var msg = new MAVLink.mavlink_param_ext_set_t
+            {
+                target_system = (byte)MainV2.comPort.sysidcurrent,
+                target_component = (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_CAMERA,
+                param_id = Encoding.ASCII.GetBytes(paramId),
+                param_value = paramValue,
+                param_type = (byte)MAVLink.MAV_PARAM_EXT_TYPE.INT32
+            };
+
+            MainV2.comPort.sendPacket(msg,
+                (byte)MainV2.comPort.sysidcurrent,
+                (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_CAMERA);
+
+            _parentControl.cameraSettings[paramId] = value;
+        }
+
+        private void SendCameraParam(string paramId, bool value)
+        {
+            byte[] paramValue = new byte[128];
+            paramValue[0] = (byte)(value ? 1 : 0);
+
+            var msg = new MAVLink.mavlink_param_ext_set_t
+            {
+                target_system = (byte)MainV2.comPort.sysidcurrent,
+                target_component = (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_CAMERA,
+                param_id = Encoding.ASCII.GetBytes(paramId),
+                param_value = paramValue,
+                param_type = (byte)MAVLink.MAV_PARAM_EXT_TYPE.UINT8
+            };
+
+            MainV2.comPort.sendPacket(msg,
+                (byte)MainV2.comPort.sysidcurrent,
+                (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_CAMERA);
+
+            _parentControl.cameraSettings[paramId] = value;
+        }
+
+        private void SendCameraParam(string paramId, string value)
+        {
+            byte[] paramValue = new byte[128];
+            byte[] valueBytes = Encoding.ASCII.GetBytes(value);
+            Array.Copy(valueBytes, paramValue, Math.Min(valueBytes.Length, 128));
+
+            var msg = new MAVLink.mavlink_param_ext_set_t
+            {
+                target_system = (byte)MainV2.comPort.sysidcurrent,
+                target_component = (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_CAMERA,
+                param_id = Encoding.ASCII.GetBytes(paramId),
+                param_value = paramValue,
+                param_type = (byte)MAVLink.MAV_PARAM_EXT_TYPE.CUSTOM
+            };
+
+            MainV2.comPort.sendPacket(msg,
+                (byte)MainV2.comPort.sysidcurrent,
+                (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_CAMERA);
+
+            _parentControl.cameraSettings[paramId] = value;
+        }
+
+        private void ApplyCheckBoxChangeCommon(string settingName, bool value)
+        {
+            Console.WriteLine($"{settingName} -> {(value ? "On" : "Off")}");
+            SendCameraParam(settingName, value);
+        }
+
+        // ===================== REPLACE THESE Apply METHODS =====================
+
+        private void ApplyWhiteBalance(int value) => SendCameraParam("EO_WB", value);
+
+        private void ApplyRTSPResolution(string resolution) => SendCameraParam("EO_RESOLUTION", rtspMap[resolution]);
+
+        private void ApplyZoomFeature(string zoomMode) => SendCameraParam("EO_ZOOM_MODE", zoomMap[zoomMode]);
+
+        private void ApplyInfraredPalette(int palette) => SendCameraParam("IR_PALETTE", palette);
+
+        private void ApplyYawMode(int yawmode) => SendCameraParam("YAW_MODE", yawmode);
+
+        private void ApplyAIResolution(int resolution) => SendCameraParam("AI_RESOLUTION", resolution);
+
+        private void ApplyMergeVideo(int merge_video) => SendCameraParam("MERGE_DISPLAY", merge_video);
+
+        private void ApplyTrackMode(int track_mode) => SendCameraParam("TRACK_MODE", track_mode);
+
+        private void ApplyTrackAlgorithm(string algorithm) => SendCameraParam("TRACK_ALGORITHM", algorithm);
+
+        private void ApplySmartSelect(string option) => SendCameraParam("SMART_SELECT", option);
+
+        private void ApplyAIVideoSource(string source) => SendCameraParam("AI_SOURCE", source == "EO" ? "eo" : "ir");
+
+        private void ApplyVideoQuality(string quality) => SendCameraParam("EO_VIDEO_QUALITY", videoQualityMap[quality]);
+
+        private void ApplyEVValue(int evIndex) => SendCameraParam("EO_EV", 10 - evIndex);
+
+        private void RegisterHandlers()
+        {
+            comboHandlers["White Balance"] = (v, i) => ApplyWhiteBalance(i);
+            comboHandlers["RTSP Resolution"] = (v, i) => ApplyRTSPResolution(v);
+            comboHandlers["Zoom Feature"] = (v, i) => ApplyZoomFeature(v);
+            comboHandlers["Infrared Palette"] = (v, i) => ApplyInfraredPalette(i);
+            comboHandlers["Yaw Mode"] = (v, i) => ApplyYawMode(i);
+            comboHandlers["AI Resolution"] = (v, i) => ApplyAIResolution(i);
+            comboHandlers["Merge Display Mode"] = (v, i) => ApplyMergeVideo(i);
+            comboHandlers["Track Mode"] = (v, i) => ApplyTrackMode(i + 2);
+            comboHandlers["Track Algorithm"] = (v, i) => ApplyTrackAlgorithm(v);
+            comboHandlers["Smart Select"] = (v, i) => ApplySmartSelect(v);
+            comboHandlers["AI Video Source"] = (v, i) => ApplyAIVideoSource(v);
+            comboHandlers["Camera EV"] = (v, i) => ApplyEVValue(i);
+            comboHandlers["Video Quality"] = (v, i) => ApplyVideoQuality(v);
+            comboHandlers["Camera"] = (v, i) => ApplyCameraSelection(v);
+            comboHandlers["Camera Mode"] = (v, i) => ApplyCameraMode(i);
+
+            toggleHandlers["High Sensitivity"] = b => ApplyCheckBoxChangeCommon("EO_HS", b);
+            toggleHandlers["IR Thermometry"] = b => ApplyCheckBoxChangeCommon("IR_THERMOMETRY", b);
+            toggleHandlers["AI OSD"] = b => ApplyCheckBoxChangeCommon("AI_OSD", b);
+            toggleHandlers["RangeFinder"] = b => ApplyCheckBoxChangeCommon("TOF_EN", b);
+            toggleHandlers["Track AutoZoom"] = b => ApplyCheckBoxChangeCommon("TRACK_AUTOZOOM", b);
+        }
+
+
+
         private void Combo_SelectedIndexChanged(object sender, EventArgs e)
         {
             ComboBox cmb = (ComboBox)sender;
@@ -486,55 +642,58 @@ namespace XagSurveillanceGCS.Controls
             string value = cmb.SelectedItem.ToString();
             int index = cmb.SelectedIndex;
 
-            Console.WriteLine($"{settingName} changed → {value} (Index {index})");
+            Console.WriteLine($"{settingName} changed -> {value} (Index {index})");
+
+            if (comboHandlers.TryGetValue(settingName, out var handler))
+                handler(value, index);
 
             // Example: immediate action
-            if (settingName == "AI Video Source")
-            {
-                ApplyAIVideoSource(value);
-            }else if(settingName == "CAMERA EV")
-            {
-                ApplyEVValue(index);
-            }else if(settingName == "Camera")
-            {
-                ApplyCameraSelection(value);
-            }else if(settingName == "White Balance")
-            {
-                ApplyWhiteBalance(index);
-            }else if(settingName == "Video Quality")
-            {
-                ApplyVideoQuality(value);
-            }else if(settingName == "RTSP Resolution")
-            {
-                ApplyRTSPResolution(value);
-            }else if(settingName == "Zoom Feature")
-            {
-                ApplyZoomFeature(value);
-            }else if(settingName == "Infrared Palette")
-            {
-                ApplyInfraredPalette(index);
-            }else if(settingName == "Yaw Mode")
-            {
-                ApplyYawMode(index);
-            }else if(settingName == "Track Algorithm")
-            {
-                ApplyTrackAlgorithm(value);
-            }else if(settingName == "Smart Select")
-            {
-                ApplySmartSelect(value);
-            }else if(settingName == "AI Resolution")
-            {
-                ApplyAIResolution(index);
-            }else if(settingName == "Merge Display Mode")
-            {
-                ApplyMergeVideo(index);
-            }else if(settingName == "Track Mode")
-            {
-                ApplyTrackMode(index+=2);
-            }else if(settingName == "Camera Mode")
-            {
-                ApplyCameraMode(index);
-            }
+            // if (settingName == "AI Video Source")
+            // {
+            //     ApplyAIVideoSource(value);
+            // }else if(settingName == "Camera EV")
+            // {
+            //     ApplyEVValue(index);
+            // }else if(settingName == "Camera")
+            // {
+            //     ApplyCameraSelection(value);
+            // }else if(settingName == "White Balance")
+            // {
+            //     ApplyWhiteBalance(index);
+            // }else if(settingName == "Video Quality")
+            // {
+            //     ApplyVideoQuality(value);
+            // }else if(settingName == "RTSP Resolution")
+            // {
+            //     ApplyRTSPResolution(value);
+            // }else if(settingName == "Zoom Feature")
+            // {
+            //     ApplyZoomFeature(value);
+            // }else if(settingName == "Infrared Palette")
+            // {
+            //     ApplyInfraredPalette(index);
+            // }else if(settingName == "Yaw Mode")
+            // {
+            //     ApplyYawMode(index);
+            // }else if(settingName == "Track Algorithm")
+            // {
+            //     ApplyTrackAlgorithm(value);
+            // }else if(settingName == "Smart Select")
+            // {
+            //     ApplySmartSelect(value);
+            // }else if(settingName == "AI Resolution")
+            // {
+            //     ApplyAIResolution(index);
+            // }else if(settingName == "Merge Display Mode")
+            // {
+            //     ApplyMergeVideo(index);
+            // }else if(settingName == "Track Mode")
+            // {
+            //     ApplyTrackMode(index+=2);
+            // }else if(settingName == "Camera Mode")
+            // {
+            //     ApplyCameraMode(index);
+            // }
         }
         // ---------- Helpers ----------
         private void AddRow(Control left, Control right)
@@ -566,23 +725,26 @@ namespace XagSurveillanceGCS.Controls
             Console.WriteLine($"{settingName} toggled → {(value ? "On" : "Off")}");
             chk.Text = value ? "On" : "Off";
 
+            if (toggleHandlers.TryGetValue(settingName, out var handler))
+                handler(value);
+
             // Example: immediate action
-            if (settingName == "High Sensitivity")
-            {
-                ApplyCheckBoxChangeCommon("EO_HS",value);
-            }else if(settingName == "IR Thermometry")
-            {
-                ApplyCheckBoxChangeCommon("IR_THERMOMETRY",value);
-            }else if(settingName == "AI OSD")
-            {
-                ApplyCheckBoxChangeCommon("AI_OSD",value);
-            }else if(settingName == "RangeFinder")
-            {
-                ApplyCheckBoxChangeCommon("TOF_EN",value);
-            }else if(settingName == "Track AutoZoom")
-            {
-                ApplyCheckBoxChangeCommon("TRACK_AUTOZOOM",value);
-            }
+            // if (settingName == "High Sensitivity")
+            // {
+            //     ApplyCheckBoxChangeCommon("EO_HS",value);
+            // }else if(settingName == "IR Thermometry")
+            // {
+            //     ApplyCheckBoxChangeCommon("IR_THERMOMETRY",value);
+            // }else if(settingName == "AI OSD")
+            // {
+            //     ApplyCheckBoxChangeCommon("AI_OSD",value);
+            // }else if(settingName == "RangeFinder")
+            // {
+            //     ApplyCheckBoxChangeCommon("TOF_EN",value);
+            // }else if(settingName == "Track AutoZoom")
+            // {
+            //     ApplyCheckBoxChangeCommon("TRACK_AUTOZOOM",value);
+            // }
         }
 
         private void AddCombo(string label, string[] items)
@@ -641,21 +803,9 @@ namespace XagSurveillanceGCS.Controls
             }
             // cb.SelectedIndex = 0;
             cb.Tag = label; // Store label for identification in event handler
+            comboControls[label] = cb;
             cb.SelectedIndexChanged += Combo_SelectedIndexChanged;
             AddRow(MakeLabel(label), cb);
-        }
-
-        private void AddSlider(string label, int min, int max, int value)
-        {
-            TrackBar tb = new TrackBar
-            {
-                Minimum = min,
-                Maximum = max,
-                Value = value,
-                Dock = DockStyle.Fill
-            };
-
-            AddRow(MakeLabel(label), tb);
         }
 
         private void AddToggle(string label, bool value)
@@ -668,6 +818,8 @@ namespace XagSurveillanceGCS.Controls
                 Text = value ? "On" : "Off"
             };
             chk.Tag = label;
+
+            toggleControls[label] = chk;
 
             chk.CheckedChanged += checkBox_CheckedChanged;
 

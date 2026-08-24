@@ -198,7 +198,7 @@ namespace XagSurveillanceGCS.Controls
             // Main Controls
             this.parentTableLayoutPanel.Controls.Add(tableLayoutPanel2,1,0);
             this.Controls.Add(this.parentTableLayoutPanel);
-            this.Size = new System.Drawing.Size(600,280);
+            this.Size = new System.Drawing.Size(500,320);
         }
     }
 }

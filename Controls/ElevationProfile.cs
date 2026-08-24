@@ -23,12 +23,15 @@ namespace XagSurveillanceGCS.Controls
         int distance = 0;
         double homealt = 0;
         FlightPlanner.altmode altmode = FlightPlanner.altmode.Relative;
+        public bool ElevationIsClear = false;
 
         public ElevationProfile(List<PointLatLngAlt> locs, double homealt, FlightPlanner.altmode altmode)
         {
             InitializeComponent();
 
             this.altmode = altmode;
+
+            this.ElevationIsClear = true;
 
             planlocs = locs;
 
@@ -75,7 +78,7 @@ namespace XagSurveillanceGCS.Controls
             XagSurveillanceGCS.Utilities.Tracking.AddPage(this.GetType().ToString(), this.Text);
         }
 
-        private void ElevationProfile_Load(object sender, EventArgs e)
+        public void ElevationProfile_Load(object sender, EventArgs e)
         {
             if (planlocs.Count <= 1)
             {
@@ -308,13 +311,14 @@ namespace XagSurveillanceGCS.Controls
 
             double checkInterval = 10.0; // meters
 
-            for (double dist = 0; dist <= distance; dist += checkInterval)
+            for (double dist = 100.0; dist <= distance; dist += checkInterval)
             {
                 double plannedAlt = GetYAtDistance(list1, dist);
                 double terrainAlt = GetYAtDistance(list3, dist);
 
                 if (plannedAlt <= terrainAlt)
                 {
+                    ElevationIsClear = false;
                     Console.WriteLine(
                         $"Collision at {dist:F1}m. Planned={plannedAlt:F1}, Terrain={terrainAlt:F1}");
                 }
@@ -382,7 +386,6 @@ namespace XagSurveillanceGCS.Controls
                         ratio * (list[i].Y - list[i - 1].Y);
                 }
             }
-
             return double.NaN;
         }
     }

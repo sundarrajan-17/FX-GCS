@@ -530,6 +530,33 @@ namespace XagSurveillanceGCS.Utilities
                 }
             }
 
+            public static IntPtr gst_event_new_eos()
+            {
+                switch (Backend)
+                {
+                    default:
+                    case BackendEnum.Windows:
+                        return WinNativeMethods.gst_event_new_eos();
+                    case BackendEnum.Linux:
+                        return LinuxNativeMethods.gst_event_new_eos();
+                    case BackendEnum.Android:
+                        return AndroidNativeMethods.gst_event_new_eos();
+                }
+            }
+
+            public static bool gst_element_send_event(IntPtr element, IntPtr eos)
+            {
+                switch (Backend)
+                {
+                    default:
+                    case BackendEnum.Windows:
+                        return WinNativeMethods.gst_element_send_event(element, eos);
+                    case BackendEnum.Linux:
+                        return LinuxNativeMethods.gst_element_send_event(element, eos);
+                    case BackendEnum.Android:
+                        return AndroidNativeMethods.gst_element_send_event(element, eos);
+                }
+            }
 
             public static string Utf8PtrToString(IntPtr ptr)
             {
@@ -747,6 +774,12 @@ namespace XagSurveillanceGCS.Utilities
             // public static extern void gst_message_unref(IntPtr msg);
             [DllImport(lib, CallingConvention = CallingConvention.Cdecl)]
             public static extern void gst_object_unref(IntPtr obj);
+
+            [DllImport(lib, CallingConvention = CallingConvention.Cdecl)]
+            public static extern IntPtr gst_event_new_eos();
+
+            [DllImport(lib, CallingConvention = CallingConvention.Cdecl)]
+            public static extern bool gst_element_send_event(IntPtr element, IntPtr eos);
         }
 
         public static class LinuxNativeMethods
@@ -910,6 +943,12 @@ namespace XagSurveillanceGCS.Utilities
             // public static extern void gst_message_unref(IntPtr msg);
             [DllImport(lib, CallingConvention = CallingConvention.Cdecl)]
             public static extern void gst_object_unref(IntPtr obj);
+
+            [DllImport(lib, CallingConvention = CallingConvention.Cdecl)]
+            public static extern IntPtr gst_event_new_eos();
+
+            [DllImport(lib, CallingConvention = CallingConvention.Cdecl)]
+            public static extern bool gst_element_send_event(IntPtr element, IntPtr eos);
         }
 
         public static class WinNativeMethods
@@ -1091,6 +1130,11 @@ namespace XagSurveillanceGCS.Utilities
 
             [DllImport(lib, CallingConvention = CallingConvention.Cdecl)]
             public static extern void gst_object_unref(IntPtr obj);
+            [DllImport(lib, CallingConvention = CallingConvention.Cdecl)]
+            public static extern IntPtr gst_event_new_eos();
+
+            [DllImport(lib, CallingConvention = CallingConvention.Cdecl)]
+            public static extern bool gst_element_send_event(IntPtr element, IntPtr eos);
         }
 #pragma warning restore IDE1006 // Naming Styles
 
@@ -1665,12 +1709,12 @@ namespace XagSurveillanceGCS.Utilities
             if (System.Environment.Is64BitProcess)
             {
                 output = Settings.GetDataDirectory() + "gstreamer-1.0-x86_64-1.14.4.zip";
-                url = "https://firmware.ardupilot.org/XagSurveillanceGCS/gstreamer/gstreamer-1.0-x86_64-1.14.4.zip";
+                url = "https://firmware.ardupilot.org/MissionPlanner/gstreamer/gstreamer-1.0-x86_64-1.14.4.zip";
             }
             else
             {
                 output = Settings.GetDataDirectory() + "gstreamer-1.0-x86-1.14.4.zip";
-                url = "https://firmware.ardupilot.org/XagSurveillanceGCS/gstreamer/gstreamer-1.0-x86-1.14.4.zip";
+                url = "https://firmware.ardupilot.org/MissionPlanner/gstreamer/gstreamer-1.0-x86-1.14.4.zip";
             }
 
 
@@ -1706,6 +1750,159 @@ namespace XagSurveillanceGCS.Utilities
                 } 
                 retry--;
             }
+        }
+
+        private Thread _recordThread;
+        private bool _recordShouldRun = false;
+        private IntPtr _recordPipeline = IntPtr.Zero;
+        private IntPtr _recordBus = IntPtr.Zero;
+
+        public void StartRecording(string outputFile)
+        {
+            if (_recordThread != null && _recordThread.IsAlive)
+                return;
+
+            _recordShouldRun = true;
+
+            string file = outputFile.Replace("\\", "/");
+
+            string pipeline =
+                $"gdiscreencapsrc ! " +
+                "videoconvert ! " +
+                "x264enc bitrate=4000 speed-preset=ultrafast tune=zerolatency ! " +
+                "h264parse ! " +
+                $"mp4mux faststart=true ! filesink location=\"{file}\"";
+
+            _recordThread = new Thread(RecordThreadStart)
+            {
+                IsBackground = true,
+                Name = "GStreamer Recorder"
+            };
+
+            _recordThread.Start(pipeline);
+        }
+
+        private void RecordThreadStart(object datao)
+        {
+            string pipelineString = (string)datao;
+
+            try
+            {
+                Environment.SetEnvironmentVariable("GST_DEBUG", "*:2");
+
+                NativeMethods.gst_init(IntPtr.Zero, IntPtr.Zero);
+
+                NativeMethods.gst_version(out uint v1, out uint v2, out uint v3, out uint v4);
+                log.InfoFormat("GStreamer {0}.{1}.{2}.{3}", v1, v2, v3, v4);
+
+                NativeMethods.gst_init_check(IntPtr.Zero, IntPtr.Zero, out IntPtr error);
+
+                if (error != IntPtr.Zero)
+                {
+                    var er = Marshal.PtrToStructure<GError>(error);
+                    log.Error("gst_init_check: " + er.message);
+                    return;
+                }
+
+                log.InfoFormat("Recording pipeline: {0}", pipelineString);
+
+                _recordPipeline = NativeMethods.gst_parse_launch(pipelineString, out error);
+
+                if (_recordPipeline == IntPtr.Zero || error != IntPtr.Zero)
+                {
+                    if (error != IntPtr.Zero)
+                    {
+                        var er = Marshal.PtrToStructure<GError>(error);
+                        log.Error("gst_parse_launch: " + er.message);
+                    }
+
+                    return;
+                }
+
+                _recordBus = NativeMethods.gst_element_get_bus(_recordPipeline);
+
+                var ret = NativeMethods.gst_element_set_state(
+                    _recordPipeline,
+                    GstState.GST_STATE_PLAYING);
+
+                if (ret == GstStateChangeReturn.GST_STATE_CHANGE_FAILURE)
+                {
+                    log.Error("Failed to start recording pipeline");
+                    return;
+                }
+
+                log.Info("Recording started");
+
+                // Run until StopRecording() requests shutdown
+                while (_recordShouldRun)
+                {
+                    var msg = NativeMethods.gst_bus_pop(_recordBus);
+
+                    if (msg != IntPtr.Zero)
+                    {
+                        var type = NativeMethods.gst_message_type(msg);
+
+                        if (type == GstMessageType.GST_MESSAGE_ERROR)
+                        {
+                            log.Error("Recording pipeline error");
+                            NativeMethods.gst_mini_object_unref(msg);
+                            break;
+                        }
+
+                        NativeMethods.gst_mini_object_unref(msg);
+                    }
+
+                    Thread.Sleep(100);
+                }
+
+                log.Info("Sending EOS to recording pipeline");
+
+                // Send EOS
+                IntPtr eos = NativeMethods.gst_event_new_eos();
+                NativeMethods.gst_element_send_event(_recordPipeline, eos);
+
+                Thread.Sleep(2000);
+
+                // Wait until mp4mux finishes writing the file
+                NativeMethods.gst_bus_timed_pop_filtered(
+                    _recordBus,
+                    GST_CLOCK_TIME_NONE,
+                    (int)(GstMessageType.GST_MESSAGE_EOS |
+                        GstMessageType.GST_MESSAGE_ERROR));
+
+                log.Info("EOS received - finalizing MP4");
+
+                NativeMethods.gst_element_set_state(
+                    _recordPipeline,
+                    GstState.GST_STATE_NULL);
+
+                NativeMethods.gst_object_unref(_recordBus);
+                NativeMethods.gst_object_unref(_recordPipeline);
+
+                _recordBus = IntPtr.Zero;
+                _recordPipeline = IntPtr.Zero;
+
+                log.Info("Recording stopped cleanly");
+            }
+            catch (Exception ex)
+            {
+                log.Error("Recording thread exception: " + ex.Message);
+            }
+        }
+
+        public void StopRecording()
+        {
+            if (_recordThread == null)
+                return;
+
+            _recordShouldRun = false;
+
+            if (!_recordThread.Join(5000))
+            {
+                log.Warn("Recording thread did not exit in time");
+            }
+
+            _recordThread = null;
         }
     }
 }

@@ -2620,8 +2620,6 @@ namespace XagSurveillanceGCS
                         Console.WriteLine("Parameters Reading {0} {1} {2} {3}",parameter_extract.param_count,parameter_extract.param_index,parameter_extract.param_value,parameter_extract.param_type);
                         break;
                     case (uint)MAVLink.MAVLINK_MSG_ID.MOUNT_STATUS:
-
-
                         {
                             var status = mavLinkMessage.ToStructure<MAVLink.mavlink_mount_status_t>();
 
@@ -2629,7 +2627,6 @@ namespace XagSurveillanceGCS
                             campointb = status.pointing_b / 100.0f;
                             campointc = status.pointing_c / 100.0f;
                         }
-
                         break;
                     case (uint)MAVLink.MAVLINK_MSG_ID.VIBRATION:
 

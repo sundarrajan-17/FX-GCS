@@ -50,6 +50,7 @@ namespace XagSurveillanceGCS
             this.MenuSimulation = new System.Windows.Forms.ToolStripButton();
             this.MenuHelp = new System.Windows.Forms.ToolStripButton();
             this.MenuConnect = new System.Windows.Forms.ToolStripButton();
+            this.MenuPreFlightConfig = new System.Windows.Forms.ToolStripButton();
             this.toolStripConnectionControl = new XagSurveillanceGCS.Controls.ToolStripConnectionControl();
             this.MenuArduPilot = new System.Windows.Forms.ToolStripButton();
             this.menu = new XagSurveillanceGCS.Controls.MyButton();
@@ -69,13 +70,15 @@ namespace XagSurveillanceGCS
             this.MainMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.MenuFlightData,
             this.MenuFlightPlanner,
+            this.MenuPreFlightConfig,
             // this.MenuInitConfig,
             this.MenuConfigTune,
             this.MenuSimulation,
             // this.MenuHelp,
             this.MenuConnect,
             this.toolStripConnectionControl,
-            this.MenuArduPilot});
+            this.MenuArduPilot,
+            });
             this.MainMenu.Name = "MainMenu";
             this.MainMenu.ShowItemToolTips = true;
             this.MainMenu.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.MainMenu_ItemClicked);
@@ -181,6 +184,15 @@ namespace XagSurveillanceGCS
             this.MenuConnect.Margin = new System.Windows.Forms.Padding(0);
             this.MenuConnect.Name = "MenuConnect";
             this.MenuConnect.Click += new System.EventHandler(this.MenuConnect_Click);
+            //
+            // MenuPreFlightConfig
+            //
+            // this.MenuPreFlightConfig.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.MenuPreFlightConfig.ForeColor = System.Drawing.SystemColors.ControlLight;
+            resources.ApplyResources(this.MenuPreFlightConfig, "MenuPreFlightConfig");
+            this.MenuPreFlightConfig.Margin = new System.Windows.Forms.Padding(0);
+            this.MenuPreFlightConfig.Name = "MenuPreFlightConfig";
+            this.MenuPreFlightConfig.Click += new System.EventHandler(this.MenuPreFlightConfig_Click);
             // 
             // toolStripConnectionControl
             // 
@@ -250,6 +262,7 @@ namespace XagSurveillanceGCS
         public System.Windows.Forms.ToolStripButton MenuSimulation;
         public System.Windows.Forms.ToolStripButton MenuConfigTune;
         public System.Windows.Forms.ToolStripButton MenuConnect;
+        public System.Windows.Forms.ToolStripButton MenuPreFlightConfig;
         private Controls.ToolStripConnectionControl toolStripConnectionControl;
         private Controls.MyButton menu;
         public System.Windows.Forms.Panel panel1;

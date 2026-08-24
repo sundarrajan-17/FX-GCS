@@ -423,6 +423,13 @@ namespace XagSurveillanceGCS
                 System.Configuration.ConfigurationManager.AppSettings["UpdateLocationVersion"] = "";
             }
 
+            if(Settings.Instance["login_password"] == null)
+            {
+                string EncodedPassword = Convert.ToBase64String(Encoding.UTF8.GetBytes("xag@12345"));
+
+                Settings.Instance["login_password"] = EncodedPassword;
+            }
+
             Console.WriteLine("Setup CleanupFiles");
             CleanupFiles();
 

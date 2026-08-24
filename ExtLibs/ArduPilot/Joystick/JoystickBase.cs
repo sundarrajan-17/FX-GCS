@@ -1016,8 +1016,8 @@ namespace XagSurveillanceGCS.Joystick
             };
             t11.Start();
 
-            JoyChannels[1].axis = joystickaxis.Z;
-            JoyChannels[2].axis = joystickaxis.Rz;
+            JoyChannels[1].axis = joystickaxis.Rx;
+            JoyChannels[2].axis = joystickaxis.Ry;
             JoyChannels[3].axis = joystickaxis.Y;
             JoyChannels[4].axis = joystickaxis.X;
 

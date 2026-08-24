@@ -31,12 +31,12 @@ namespace XagSurveillanceGCS.GCSViews
         //https://regex101.com/r/cH3kV3/3
         Regex default_params_regex = new Regex(@"""([^""]+)""\s*:\s*\{\s*[^\{}]+""default_params_filename""\s*:\s*\[*""([^""]+)""\s*[^\}]*\}");
 
-        Uri sitlmasterurl = new Uri("https://firmware.ardupilot.org/Tools/XagSurveillanceGCS/sitl/");
-        Uri sitlbetaurl = new Uri("https://firmware.ardupilot.org/Tools/XagSurveillanceGCS/sitl/Beta/");
+        Uri sitlmasterurl = new Uri("https://firmware.ardupilot.org/Tools/MissionPlanner/sitl/");
+        Uri sitlbetaurl = new Uri("https://firmware.ardupilot.org/Tools/MissionPlanner/sitl/Beta/");
 
-        Uri sitlcopterstableurl = new Uri("https://firmware.ardupilot.org/Tools/XagSurveillanceGCS/sitl/CopterStable/");
-        Uri sitlplanestableurl = new Uri("https://firmware.ardupilot.org/Tools/XagSurveillanceGCS/sitl/PlaneStable/");
-        Uri sitlroverstableurl = new Uri("https://firmware.ardupilot.org/Tools/XagSurveillanceGCS/sitl/RoverStable/");
+        Uri sitlcopterstableurl = new Uri("https://firmware.ardupilot.org/Tools/MissionPlanner/sitl/CopterStable/");
+        Uri sitlplanestableurl = new Uri("https://firmware.ardupilot.org/Tools/MissionPlanner/sitl/PlaneStable/");
+        Uri sitlroverstableurl = new Uri("https://firmware.ardupilot.org/Tools/MissionPlanner/sitl/RoverStable/");
 
         string sitldirectory = Settings.GetUserDataDirectory() + "sitl" +
                                Path.DirectorySeparatorChar;
@@ -477,7 +477,7 @@ namespace XagSurveillanceGCS.GCSViews
             }
 
             if (await Download.getFilefromNetAsync(
-                    "https://firmware.ardupilot.org/Tools/XagSurveillanceGCS/vehicleinfo.py",
+                    "https://firmware.ardupilot.org/Tools/MissionPlanner/vehicleinfo.py",
                     sitldirectory + "vehicleinfo.py").ConfigureAwait(false) || File.Exists(sitldirectory + "vehicleinfo.py"))
             {
                 try

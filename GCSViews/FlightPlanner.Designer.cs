@@ -1595,6 +1595,12 @@ namespace XagSurveillanceGCS.GCSViews
             // 
             // FlightPlanner
             // 
+            this.panelWaypoints.Controls.Add(this.vtoltakeoffbtn);
+            this.panelWaypoints.Controls.Add(this.loiterunlimbtn);
+            this.panelWaypoints.Controls.Add(this.waypointbtn);
+            this.panelWaypoints.Controls.Add(this.dolandstartbtn);
+            this.panelWaypoints.Controls.Add(this.landbtn);
+            this.panelWaypoints.Controls.Add(this.BUT_Add);
             this.BackColor = System.Drawing.SystemColors.Control;
             this.Controls.Add(this.panelBASE);
             resources.ApplyResources(this, "$this");

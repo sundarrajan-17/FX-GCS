@@ -544,7 +544,7 @@
     <value>3</value>
   </data>
   <data name="tableLayoutPanelQuick.Size" type="System.Drawing.Size, System.Drawing">
-    <value>284, 169</value>
+    <value>400, 100</value>
   </data>
   <data name="tableLayoutPanelQuick.TabIndex" type="System.Int32, mscorlib">
     <value>73</value>
@@ -571,7 +571,7 @@
     <value>3, 3, 3, 3</value>
   </data>
   <data name="tabQuick.Size" type="System.Drawing.Size, System.Drawing">
-    <value>290, 175</value>
+    <value>300, 100</value>
   </data>
   <data name="tabQuick.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
@@ -1480,7 +1480,7 @@
     <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;tabPagemessages.Parent" xml:space="preserve">
-    <value>tabControlactions</value>
+    <value>splitTopRight.Panel2</value>
   </data>
   <data name="&gt;&gt;tabPagemessages.ZOrder" xml:space="preserve">
     <value>2</value>
@@ -3044,7 +3044,7 @@
     <value>12</value>
   </data>
   <data name="tabTransponder.Text" xml:space="preserve">
-    <value>Transponder</value>
+    <value>Failsafe Config</value>
   </data>
   <data name="&gt;&gt;tabTransponder.Name" xml:space="preserve">
     <value>tabTransponder</value>
@@ -5381,7 +5381,7 @@
     <value>0</value>
   </data>
   <data name="MainH.Panel1MinSize" type="System.Int32, mscorlib">
-    <value>300</value>
+    <value>65</value>
   </data>
   <data name="tableMap.CellBorderStyle" type="System.Windows.Forms.TableLayoutPanelCellBorderStyle, System.Windows.Forms">
     <value>Single</value>
@@ -5649,6 +5649,39 @@
   </data>
   <data name="&gt;&gt;but_disablejoystick.ZOrder" xml:space="preserve">
     <value>1</value>
+  </data>
+  <data name="but_CircleLand.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="but_CircleLand.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="but_CircleLand.Location" type="System.Drawing.Point, System.Drawing">
+    <value>174, 75</value>
+  </data>
+  <data name="but_CircleLand.Size" type="System.Drawing.Size, System.Drawing">
+    <value>51, 30</value>
+  </data>
+  <data name="but_CircleLand.TabIndex" type="System.Int32, mscorlib">
+    <value>68</value>
+  </data>
+  <data name="but_CircleLand.Text" xml:space="preserve">
+    <value>Circle Land</value>
+  </data>
+  <data name="but_CircleLand.ToolTip" xml:space="preserve">
+    <value>Circle Land</value>
+  </data>
+  <data name="&gt;&gt;but_CircleLand.Name" xml:space="preserve">
+    <value>but_CircleLand</value>
+  </data>
+  <data name="&gt;&gt;but_CircleLand.Type" xml:space="preserve">
+    <value>XagSurveillanceGCS.Controls.MyButton, XagSurveillanceGCS.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;but_CircleLand.Parent" xml:space="preserve">
+    <value>tableLayoutPanel1</value>
+  </data>
+  <data name="&gt;&gt;but_CircleLand.ZOrder" xml:space="preserve">
+    <value>13</value>
   </data>
   <data name="Zoomlevel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
@@ -6296,7 +6329,7 @@
     <value>System.Windows.Forms.TableLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;tableMap.Parent" xml:space="preserve">
-    <value>TopSplit.Panel2</value>
+    <value>splitTopRight.Panel1</value>
   </data>
   <data name="&gt;&gt;tableMap.ZOrder" xml:space="preserve">
     <value>0</value>
@@ -6320,7 +6353,7 @@
     <value>909, 447</value>
   </data>
   <data name="MainH.SplitterDistance" type="System.Int32, mscorlib">
-    <value>300</value>
+    <value>65</value>
   </data>
   <data name="MainH.TabIndex" type="System.Int32, mscorlib">
     <value>68</value>

@@ -50,8 +50,8 @@ namespace XagSurveillanceGCS.Controls
             this.parentTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.parentTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.parentTableLayoutPanel.ColumnCount = 2; 
-            this.parentTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 65.00F));
-            this.parentTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 35.00F));
+            this.parentTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 55.00F));
+            this.parentTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 45.00F));
             this.parentTableLayoutPanel.RowCount = 2;
             this.parentTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 60.00F));
             this.parentTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 40.00F));
@@ -68,7 +68,7 @@ namespace XagSurveillanceGCS.Controls
             // tableLayoutPanel2
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.RowCount = 3;
+            this.tableLayoutPanel2.RowCount = 2;
             this.tableLayoutPanel2.ColumnCount = 4;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.00F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.00F));
@@ -306,15 +306,15 @@ namespace XagSurveillanceGCS.Controls
 
             //
             // this.tableLayoutPanel2.Controls.Add(this.btnGremsyTest, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.btnGremsyStartRecording, 1, 0);
-            this.tableLayoutPanel2.Controls.Add(this.btnGremsyStopRecording, 2, 0);
-            this.tableLayoutPanel2.Controls.Add(this.btnGremsyTakePhoto, 3, 0);
+            this.tableLayoutPanel2.Controls.Add(this.btnGremsyStartRecording, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.btnGremsyStopRecording, 1, 0);
+            this.tableLayoutPanel2.Controls.Add(this.btnGremsyTakePhoto, 2, 0);
             this.tableLayoutPanel2.Controls.Add(this.btnGremsyZoomIn, 0, 1);
             this.tableLayoutPanel2.Controls.Add(this.btnGremsyZoomOut, 1,1);    
             this.tableLayoutPanel2.Controls.Add(this.btnGremsyZoomStop, 2,1);
-            this.tableLayoutPanel2.Controls.Add(this.btnGremsyTrackStop, 3,1);
-            this.tableLayoutPanel2.Controls.Add(this.btnIrZoomPlus,0,2);
-            this.tableLayoutPanel2.Controls.Add(this.btnIrZoomMinus,1,2);
+            // this.tableLayoutPanel2.Controls.Add(this.btnGremsyTrackStop, 3,1);
+            this.tableLayoutPanel2.Controls.Add(this.btnIrZoomPlus,3,0);
+            this.tableLayoutPanel2.Controls.Add(this.btnIrZoomMinus,3,1);
 
             // this.groupSmartTracker = new System.Windows.Forms.GroupBox();
             // this.groupSmartTracker.Text = "Gimbal Control";
@@ -333,7 +333,7 @@ namespace XagSurveillanceGCS.Controls
             this.Controls.Add(this.parentTableLayoutPanel);
             // // ---- GremsyControl ----
             // this.Name = "GremsyControl";
-            this.Size = new System.Drawing.Size(650, 800);
+            this.Size = new System.Drawing.Size(500, 200);
         }
 
         // Helper method for adding rows

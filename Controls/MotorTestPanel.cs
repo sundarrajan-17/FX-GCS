@@ -80,7 +80,6 @@ namespace XagSurveillanceGCS.GCSViews.ConfigurationView
                         }
                     }
                 }
-
                 y += 39;
             }
 

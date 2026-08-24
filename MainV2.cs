@@ -582,6 +582,7 @@ namespace XagSurveillanceGCS
         /// ie configuration gets reloaded on every click
         /// </summary>
         public GCSViews.FlightData FlightData;
+        public GCSViews.PreFlightConfig PreFlightConfig;
 
         public GCSViews.FlightPlanner FlightPlanner;
         GCSViews.SITL Simulation;
@@ -858,6 +859,8 @@ namespace XagSurveillanceGCS
                 //Configuration = new GCSViews.ConfigurationView.Setup();
                 log.Info("Create SIM");
                 Simulation = new GCSViews.SITL();
+                log.Info("Create PreFlightConfig");
+                PreFlightConfig = new GCSViews.PreFlightConfig();
                 //Firmware = new GCSViews.Firmware();
                 //Terminal = new GCSViews.Terminal();
 
@@ -1170,16 +1173,19 @@ namespace XagSurveillanceGCS
             MenuFlightData.Image = displayicons.fd;
             MenuFlightPlanner.Image = displayicons.fp;
             MenuInitConfig.Image = displayicons.initsetup;
+            MenuPreFlightConfig.Image = displayicons.fp;
             MenuSimulation.Image = displayicons.sim;
             MenuConfigTune.Image = displayicons.config_tuning;
             MenuConnect.Image = displayicons.connect;
             MenuHelp.Image = displayicons.help;
 
 
+
             MenuFlightData.ForeColor = ThemeManager.TextColor;
             MenuFlightPlanner.ForeColor = ThemeManager.TextColor;
             MenuInitConfig.ForeColor = ThemeManager.TextColor;
             MenuSimulation.ForeColor = ThemeManager.TextColor;
+            MenuPreFlightConfig.ForeColor = ThemeManager.TextColor;
             MenuConfigTune.ForeColor = ThemeManager.TextColor;
             MenuConnect.ForeColor = ThemeManager.TextColor;
             MenuHelp.ForeColor = ThemeManager.TextColor;
@@ -1305,6 +1311,14 @@ namespace XagSurveillanceGCS
         private void MenuFlightPlanner_Click(object sender, EventArgs e)
         {
             MyView.ShowScreen("FlightPlanner");
+
+            // save config
+            SaveConfig();
+        }
+
+        private void MenuPreFlightConfig_Click(object sender, EventArgs e)
+        {
+            MyView.ShowScreen("PreFlightConfig");
 
             // save config
             SaveConfig();
@@ -2146,6 +2160,14 @@ namespace XagSurveillanceGCS
             catch
             {
             }
+            // log.Info("closing PreFlightConfig");
+            // try
+            // {
+            //     PreFlightConfig.Dispose();
+            // }
+            // catch
+            // {
+            // }
 
             try
             {
@@ -2512,6 +2534,8 @@ namespace XagSurveillanceGCS
                                 FlightData.BUT_joystick_gimbal.BGGradTop = System.Drawing.Color.Red;
                                 FlightData.BUT_joystick_gimbal.BGGradBot = System.Drawing.Color.Red;
                             }
+
+                            await Task.Delay(200).ConfigureAwait(false);
                         }
                     }
 
@@ -3225,9 +3249,7 @@ namespace XagSurveillanceGCS
 
                 //send to current connected
                 MainV2.comPort.sendPacket(packet, MainV2.comPort.MAV.sysid, MainV2.comPort.MAV.compid);
-
             }
-
         }
 
 
@@ -3253,6 +3275,7 @@ namespace XagSurveillanceGCS
             MyView.AddScreen(new MainSwitcher.Screen("SWConfig", typeof(GCSViews.SoftwareConfig), false));
             MyView.AddScreen(new MainSwitcher.Screen("Simulation", Simulation, true));
             MyView.AddScreen(new MainSwitcher.Screen("Help", typeof(GCSViews.Help), false));
+            MyView.AddScreen(new MainSwitcher.Screen("PreFlightConfig", PreFlightConfig, true));
 
             try
             {
@@ -4243,7 +4266,7 @@ namespace XagSurveillanceGCS
             //     try
             //     {
             //         MainV2.comPort.doCommand((byte) MainV2.comPort.sysidcurrent, (byte) MainV2.comPort.compidcurrent,
-            //             MAVLink.MAV_CMD.PREFLIGHT_STORAGE, 1.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f);
+            //             MAVLink.MAV_CMD.PreFlightConfig_STORAGE, 1.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f);
             //     }
             //     catch
             //     {
@@ -4252,7 +4275,7 @@ namespace XagSurveillanceGCS
             //     }
 
             //     //read
-            //     ///////MainV2.comPort.doCommand(MAVLink09.MAV_CMD.PREFLIGHT_STORAGE, 1.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f);
+            //     ///////MainV2.comPort.doCommand(MAVLink09.MAV_CMD.PreFlightConfig_STORAGE, 1.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f);
             //     CustomMessageBox.Show("Done MAV_ACTION_STORAGE_WRITE");
             //     return true;
             // }

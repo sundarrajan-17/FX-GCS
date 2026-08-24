@@ -159,28 +159,28 @@ namespace XagSurveillanceGCS.GCSViews
 
                         if (MainV2.comPort.MAV.cs.firmware == Firmwares.ArduCopter2)
                         {
-                            if (MainV2.DisplayConfiguration.displayBasicTuning)
-                            {
-                                start = AddBackstageViewPage(typeof(ConfigSimplePids), Strings.BasicTuning);
-                            }
+                            // if (MainV2.DisplayConfiguration.displayBasicTuning)
+                            // {
+                            //     start = AddBackstageViewPage(typeof(ConfigSimplePids), Strings.BasicTuning);
+                            // }
 
-                            if (MainV2.DisplayConfiguration.displayExtendedTuning)
-                            {
-                                AddBackstageViewPage(typeof(ConfigArducopter), Strings.ExtendedTuning);
-                            }
+                            // if (MainV2.DisplayConfiguration.displayExtendedTuning)
+                            // {
+                            //     AddBackstageViewPage(typeof(ConfigArducopter), Strings.ExtendedTuning);
+                            // }
                         }
 
                         if (MainV2.comPort.MAV.cs.firmware == Firmwares.ArduPlane)
                         {
-                            if (MainV2.DisplayConfiguration.displayBasicTuning)
-                            {
-                                start = AddBackstageViewPage(typeof(ConfigArduplane), Strings.BasicTuning);
-                            }
+                            // if (MainV2.DisplayConfiguration.displayBasicTuning)
+                            // {
+                            //     start = AddBackstageViewPage(typeof(ConfigArduplane), Strings.BasicTuning);
+                            // }
 
-                            if (MainV2.DisplayConfiguration.displayExtendedTuning)
-                            {
-                                AddBackstageViewPage(typeof(ConfigArducopter), "QP " + Strings.ExtendedTuning);
-                            }
+                            // if (MainV2.DisplayConfiguration.displayExtendedTuning)
+                            // {
+                            //     AddBackstageViewPage(typeof(ConfigArducopter), "QP " + Strings.ExtendedTuning);
+                            // }
                         }
 
                         if (MainV2.comPort.MAV.cs.firmware == Firmwares.ArduRover)
@@ -216,18 +216,18 @@ namespace XagSurveillanceGCS.GCSViews
                             }
                         }
 
-                        if (MainV2.DisplayConfiguration.displayUserParam)
-                        {
-                            AddBackstageViewPage(typeof(ConfigUserDefined), Strings.User_Params);
-                        }
+                        // if (MainV2.DisplayConfiguration.displayUserParam)
+                        // {
+                        //     AddBackstageViewPage(typeof(ConfigUserDefined), Strings.User_Params);
+                        // }
                     }
                 }
 
-                if (MainV2.DisplayConfiguration.displayFullParamList)
-                {
-                    if(!MainV2.comPort.BaseStream.IsOpen || gotAllParams)
-                        AddBackstageViewPage(typeof(ConfigRawParams), Strings.FullParameterList, null, false);
-                }
+                // if (MainV2.DisplayConfiguration.displayFullParamList)
+                // {
+                //     if(!MainV2.comPort.BaseStream.IsOpen || gotAllParams)
+                //         AddBackstageViewPage(typeof(ConfigRawParams), Strings.FullParameterList, null, false);
+                // }
                 if (MainV2.comPort.BaseStream.IsOpen)
                 {
                     if (MainV2.comPort.MAV.cs.firmware == Firmwares.Ateryx)

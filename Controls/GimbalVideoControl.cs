@@ -428,22 +428,18 @@ namespace XagSurveillanceGCS.Controls
             float yaw = 0;
             if (heldKeys.Contains(preferences.SlewDown))
             {
-                flightData.GremsyPitchYawControl(-1,0);
                 pitch -= 1;
             }
             if (heldKeys.Contains(preferences.SlewUp))
             {
-                flightData.GremsyPitchYawControl(1,0);
                 pitch += 1;
             }
             if (heldKeys.Contains(preferences.SlewLeft))
             {
-                flightData.GremsyPitchYawControl(0,-1);
                 yaw -= 1;
             }
             if (heldKeys.Contains(preferences.SlewRight))
             {
-                flightData.GremsyPitchYawControl(0,1);
                 yaw += 1;
             }
 
@@ -562,14 +558,6 @@ namespace XagSurveillanceGCS.Controls
             string message = locked ? "lock" : "follow";
             yaw_lock = locked;
             yawLockToolStripMenuItem.Checked = locked;
-            if(this.flightData._baseCameraController.SelectedCamera == "XAGCAM2")
-            {
-                // flightData.GremsyHomeCommand();
-            }
-            else
-            {
-                flightData.XagCamSetLockFollowCommand(message);
-            }
         }
 
         private void Retract()
@@ -604,7 +592,6 @@ namespace XagSurveillanceGCS.Controls
             {
                 flightData.XagCamHomeCommand();
             }
-
         }
 
     

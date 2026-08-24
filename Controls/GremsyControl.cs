@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
 using System.Text;
+using System.Threading;
 using System.Reflection;
 using System.Windows.Forms;
 
@@ -207,7 +208,7 @@ namespace XagSurveillanceGCS.Controls
             string text = "IR_ZOOM";
             byte[] id_bytes = Encoding.ASCII.GetBytes(text);
             float value = IR_CurrentZoom + (float)0.2;
-            if(value >= 1.0 && value <= 2.0)
+            if(value >= 1.0 && value <= 8.0)
             {
                 byte[] value_bytes = BitConverter.GetBytes(value);
                 var msg = new MAVLink.mavlink_param_ext_set_t();
@@ -224,14 +225,13 @@ namespace XagSurveillanceGCS.Controls
                 );
                 IR_CurrentZoom = value;
             }
-            // MAVLink.MAV_PARAM_TYPE param_type = MAVLink.MAV_PARAM_TYPE.MAV_PARAM_TYPE_UINT8;
         }
         private void BtnIrZoomMinus_Click(object sender, EventArgs e)
         {
             string text = "IR_ZOOM";
             byte[] id_bytes = Encoding.ASCII.GetBytes(text);
             float value = IR_CurrentZoom - (float)0.2;
-            if(value >= 1.0 && value <= 2.0)
+            if(value >= 0.9 && value <= 8.0)
             {
                 byte[] value_bytes = BitConverter.GetBytes(value);
                 var msg = new MAVLink.mavlink_param_ext_set_t();
@@ -345,7 +345,7 @@ namespace XagSurveillanceGCS.Controls
         {
             Console.WriteLine("Gremsy Camera Photo Taken.");
             bool result = this._parentController._flightData.GremsyTakePhoto();
-            if (result)            {
+            if (result){
                 Console.WriteLine("Take Photo Command Acknowledged.");
             }
             else
@@ -371,6 +371,7 @@ namespace XagSurveillanceGCS.Controls
                 (byte)MainV2.comPort.sysidcurrent,
                 (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_CAMERA
             );
+            Thread.Sleep(500);
             using (CameraSettingsForm settings = new CameraSettingsForm(this))
             {
                 if (settings.ShowDialog() == DialogResult.OK)

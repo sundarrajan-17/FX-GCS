@@ -697,7 +697,7 @@ namespace XagSurveillanceGCS.Utilities
                             else
                             {
                                 GCSViews.FlightData.myhud.streamjpgenable = true;
-                                Image img1 = Image.FromStream(GCSViews.FlightData.myhud.streamjpg);
+                                Image img1 = GetControlJpeg(GCSViews.FlightData._gimbalVideoControl);
                                 Image img2 = GetControlJpeg(GCSViews.FlightData.mymap);
                                 int bigger = img1.Height > img2.Height ? img1.Height : img2.Height;
                                 Image imgout = new Bitmap(img1.Width + img2.Width, bigger);
@@ -706,6 +706,23 @@ namespace XagSurveillanceGCS.Utilities
 
                                 grap.DrawImageUnscaled(img1, 0, 0);
                                 grap.DrawImageUnscaled(img2, img1.Width, 0);
+
+                                // Folder where frames will be saved
+                                // string folder = @"C:\GCSFrames";
+                                // if (!Directory.Exists(folder))
+                                // {
+                                //     Directory.CreateDirectory(folder);
+                                // }
+
+                                // // Create a unique filename using timestamp
+                                // string filename = Path.Combine(folder,
+                                //     $"frame_{DateTime.Now:yyyyMMdd_HHmmss_fff}.jpg");
+
+                                // // Save the combined image
+                                // // if(MainV2.comPort.BaseStream.IsOpen)
+                                // // {
+                                // //     imgout.Save(filename, System.Drawing.Imaging.ImageFormat.Jpeg);
+                                // // }
 
                                 MemoryStream streamjpg = new MemoryStream();
                                 imgout.Save(streamjpg, System.Drawing.Imaging.ImageFormat.Jpeg);
