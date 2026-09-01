@@ -200,7 +200,10 @@ namespace XagSurveillanceGCS.GCSViews
         private double target_altitude = 0.0;
         private double hfov = 0.0;
         private double vfov = 0.0;
-
+        private double cam_tilt = -25;
+        private double cam_pan = -45;
+        private double cam_roll = 0;
+        private double focal_length = 4.4;
         private Dictionary<int, string> NIC_table = new Dictionary<int, string>()
         {
             {0, "UNKNOWN" },
@@ -475,7 +478,8 @@ namespace XagSurveillanceGCS.GCSViews
             {
                 GremsyTargetUpdateStartThread();
             }
-            // VideoMapHudRecorderThreadStartThread();
+            setAspectRatioToolStripMenuItem_Click(null,null);
+            // GcsBatteryRecorderThreadStartThread();
         }
         // Get Zoom and Target Coordinates from Gimbal and Camera Tracking Data
         public void GetFov(double zoom)
@@ -532,7 +536,14 @@ namespace XagSurveillanceGCS.GCSViews
                 case (uint)MAVLink.MAVLINK_MSG_ID.CAMERA_SETTINGS:
                     var camerasettings = packet.ToStructure<MAVLink.mavlink_camera_settings_t>();
                     Console.WriteLine("Camera Settings " + camerasettings.zoomLevel);
+                    focal_length = 4.4*camerasettings.zoomLevel;
                     GetFov(camerasettings.zoomLevel);
+                    break;
+                case (uint)MAVLink.MAVLINK_MSG_ID.MOUNT_ORIENTATION:
+                    var mountorientation = packet.ToStructure<MAVLink.mavlink_mount_orientation_t>();
+                    cam_tilt = mountorientation.pitch;
+                    cam_pan = mountorientation.yaw_absolute;
+                    cam_roll = mountorientation.roll;
                     break;
                 default:
                     break;
@@ -922,6 +933,7 @@ namespace XagSurveillanceGCS.GCSViews
             MainV2.comPort.logreadmode = false;
             this.GNSSModeStop = false;
             this.GremsyTargetUpdateStop = false;
+            // this.GcsBatteryRecorderStop = false;
             try
             {
                 if (hud1 != null)
@@ -1948,7 +1960,10 @@ namespace XagSurveillanceGCS.GCSViews
 
                     if (CMB_action.Text == actions.Preflight_Reboot_Shutdown.ToString())
                     {
-                        MainV2.comPort.doReboot();
+                        if(!MainV2.comPort.MAV.cs.armed)
+                        {
+                            MainV2.comPort.doReboot();
+                        }
                         ((Control) sender).Enabled = true;
                         return;
                     }
@@ -3404,25 +3419,25 @@ namespace XagSurveillanceGCS.GCSViews
             selectform.ShowDialog(this);
         }
 
-        private void hud1_DoubleClick(object sender, EventArgs e)
-        {
-            if (huddropout)
-                return;
+        // private void hud1_DoubleClick(object sender, EventArgs e)
+        // {
+        //     if (huddropout)
+        //         return;
 
-            if(hud1.Parent == SubMainLeft.Panel1)
-                SubMainLeft.Panel1Collapsed = true;
-            Form dropout = new Form();
-            dropout.Text = "HUD Dropout";
-            dropout.Size = new Size(hud1.Width, hud1.Height + 20);
-            dropout.Tag = hud1.Parent;
-            SubMainLeft.Panel1.Controls.Remove(hud1);
-            dropout.Controls.Add(hud1);
-            dropout.Resize += dropout_Resize;
-            dropout.FormClosed += dropout_FormClosed;
-            dropout.RestoreStartupLocation();
-            dropout.Show();
-            huddropout = true;
-        }
+        //     if(hud1.Parent == SubMainLeft.Panel1)
+        //         SubMainLeft.Panel1Collapsed = true;
+        //     Form dropout = new Form();
+        //     dropout.Text = "HUD Dropout";
+        //     dropout.Size = new Size(hud1.Width, hud1.Height + 20);
+        //     dropout.Tag = hud1.Parent;
+        //     SubMainLeft.Panel1.Controls.Remove(hud1);
+        //     dropout.Controls.Add(hud1);
+        //     dropout.Resize += dropout_Resize;
+        //     dropout.FormClosed += dropout_FormClosed;
+        //     dropout.RestoreStartupLocation();
+        //     dropout.Show();
+        //     huddropout = true;
+        // }
 
         private void hud1_ekfclick(object sender, EventArgs e)
         {
@@ -6746,6 +6761,574 @@ namespace XagSurveillanceGCS.GCSViews
         //**************************************************************
 
         // Start a background thread to update camera and target positions
+
+        private void UpdateTargetLatitudeLongitude(
+            double latitude,
+            double longitude,
+            double altitude,
+            double droneHeading,
+            double sensorWidth,
+            double sensorHeight,
+            double focalLength,
+            double camTilt,
+            double camRoll,
+            int pixelX,
+            int pixelY)
+        {
+            const double DEG_TO_RAD = Math.PI / 180.0;
+
+            // ---------------------------------------------------------
+            // Image dimensions
+            // ---------------------------------------------------------
+
+            double widthPixel = 1920.0;
+            double heightPixel = 1080.0;
+
+            double tempX = widthPixel / 1920.0;
+            double tempY = heightPixel / 1080.0;
+
+            // ---------------------------------------------------------
+            // IMPORTANT:
+            // Focal length cannot be zero
+            // ---------------------------------------------------------
+
+            if (Math.Abs(focalLength) < 0.000001)
+            {
+                Console.WriteLine("ERROR: Focal length cannot be zero.");
+                // return (latitude, longitude);
+            }
+
+            // ---------------------------------------------------------
+            // Convert drone position to UTM
+            // ---------------------------------------------------------
+
+            UTMCoordinate droneUtm = LatLonToUTM(latitude, longitude);
+
+            double X0 = droneUtm.Easting;
+            double Y0 = droneUtm.Northing;
+
+            int zone = droneUtm.Zone;
+            bool northernHemisphere = droneUtm.NorthernHemisphere;
+
+            // ---------------------------------------------------------
+            // Camera angles
+            // ---------------------------------------------------------
+
+            // Same as Python:
+            //
+            // pitch_cam = 0
+            // cam_pitch = pitch_cam * rad1
+            //
+            // Therefore camTilt is currently not used.
+            //
+            double camPitch = (-camTilt - 90) * DEG_TO_RAD;
+
+            double camRollRad = camRoll * DEG_TO_RAD;
+            double camYaw = droneHeading * DEG_TO_RAD;
+
+            double H = altitude;
+
+            // ---------------------------------------------------------
+            // Convert selected pixel to sensor coordinates
+            // ---------------------------------------------------------
+
+            double w = widthPixel / 2.0;
+            double h = heightPixel / 2.0;
+
+            int x5 = (int)(pixelX * tempX);
+            int y5 = (int)(pixelY * tempY);
+
+            double xPixel;
+            double yPixel;
+
+            if (x5 < w && y5 < h)
+            {
+                xPixel = (sensorWidth / widthPixel) * x5;
+                xPixel = -((sensorWidth / 2.0) - xPixel);
+
+                yPixel = (sensorHeight / heightPixel) * y5;
+                yPixel = (sensorHeight / 2.0) - yPixel;
+            }
+            else if (x5 > w && y5 < h)
+            {
+                double remPixel = x5 - widthPixel / 2.0;
+
+                double xPixelReq =
+                    (sensorWidth / widthPixel) * remPixel;
+
+                xPixel = xPixelReq;
+
+                yPixel =
+                    (sensorHeight / heightPixel) * y5;
+
+                yPixel =
+                    (sensorHeight / 2.0) - yPixel;
+            }
+            else if (x5 < w && y5 > h)
+            {
+                xPixel =
+                    (sensorWidth / widthPixel) * x5;
+
+                xPixel =
+                    -((sensorWidth / 2.0) - xPixel);
+
+                double remPixel =
+                    y5 - heightPixel / 2.0;
+
+                double yPixelReq =
+                    (sensorHeight / heightPixel) * remPixel;
+
+                yPixel = -yPixelReq;
+            }
+            else if (x5 > w && y5 > h)
+            {
+                double xRemPixel =
+                    x5 - widthPixel / 2.0;
+
+                double yRemPixel =
+                    y5 - heightPixel / 2.0;
+
+                xPixel =
+                    (sensorWidth / widthPixel) * xRemPixel;
+
+                double tempYPixel =
+                    (sensorHeight / heightPixel) * yRemPixel;
+
+                yPixel = -tempYPixel;
+            }
+            else if (x5 == w && y5 < h)
+            {
+                xPixel = 0;
+
+                yPixel =
+                    (sensorHeight / heightPixel) * y5;
+
+                yPixel =
+                    (sensorHeight / 2.0) - yPixel;
+            }
+            else if (x5 == w && y5 == h)
+            {
+                xPixel = 0;
+                yPixel = 0;
+            }
+            else
+            {
+                xPixel = 0;
+                yPixel = 0;
+            }
+
+            // ---------------------------------------------------------
+            // Rotation matrix
+            // ---------------------------------------------------------
+
+            double m11 =
+                Math.Cos(camRollRad) *
+                Math.Cos(camYaw);
+
+            double m12 =
+                -Math.Cos(camRollRad) *
+                Math.Sin(camYaw);
+
+            double m13 =
+                Math.Sin(camRollRad);
+
+            double m21 =
+                Math.Cos(camPitch) *
+                Math.Sin(camYaw)
+                +
+                Math.Sin(camPitch) *
+                Math.Sin(camRollRad) *
+                Math.Cos(camYaw);
+
+            double m22 =
+                Math.Cos(camPitch) *
+                Math.Cos(camYaw)
+                -
+                Math.Sin(camPitch) *
+                Math.Sin(camRollRad) *
+                Math.Sin(camYaw);
+
+            double m23 =
+                -Math.Sin(camPitch) *
+                Math.Cos(camRollRad);
+
+            double m31 =
+                Math.Sin(camPitch) *
+                Math.Sin(camYaw)
+                -
+                Math.Cos(camPitch) *
+                Math.Sin(camRollRad) *
+                Math.Cos(camYaw);
+
+            double m32 =
+                Math.Sin(camPitch) *
+                Math.Cos(camYaw)
+                +
+                Math.Cos(camPitch) *
+                Math.Sin(camRollRad) *
+                Math.Sin(camYaw);
+
+            double m33 =
+                Math.Cos(camPitch) *
+                Math.Cos(camRollRad);
+
+            // ---------------------------------------------------------
+            // Target point calculation
+            // ---------------------------------------------------------
+
+            double denominator =
+                m13 * xPixel +
+                m23 * yPixel -
+                m33 * focalLength;
+
+            if (Math.Abs(denominator) < 0.0000001)
+            {
+                Console.WriteLine(
+                    "ERROR: Camera ray is parallel to ground plane.");
+
+                // return (latitude, longitude);
+            }
+
+            double X_R =
+                -H *
+                (
+                    (
+                        m11 * xPixel +
+                        m21 * yPixel -
+                        m31 * focalLength
+                    )
+                    /
+                    denominator
+                )
+                + X0;
+
+            double Y_R =
+                -H *
+                (
+                    (
+                        m12 * xPixel +
+                        m22 * yPixel -
+                        m32 * focalLength
+                    )
+                    /
+                    denominator
+                )
+                + Y0;
+
+            // ---------------------------------------------------------
+            // Convert UTM back to latitude / longitude
+            // ---------------------------------------------------------
+
+            (double targetLat, double targetLon) =
+                UTMToLatLon(
+                    X_R,
+                    Y_R,
+                    zone,
+                    northernHemisphere);
+
+            target_latitude = Math.Round(targetLat, 9);
+            target_longitude = Math.Round(targetLon, 9);
+
+            Console.WriteLine(
+                $"Target Latitude : {target_latitude}");
+
+            Console.WriteLine(
+                $"Target Longitude: {target_longitude}");
+
+            // return (targetLat, targetLon);
+        }
+
+        private struct UTMCoordinate
+        {
+            public double Easting;
+            public double Northing;
+            public int Zone;
+            public bool NorthernHemisphere;
+        }
+
+        private UTMCoordinate LatLonToUTM(double latitude, double longitude)
+        {
+            const double a = 6378137.0;
+            const double eccSquared = 0.00669438;
+            const double k0 = 0.9996;
+
+            double latRad = latitude * Math.PI / 180.0;
+
+            int zone =
+                (int)Math.Floor((longitude + 180.0) / 6.0) + 1;
+
+            double longOrigin =
+                (zone - 1) * 6 - 180 + 3;
+
+            double longOriginRad =
+                longOrigin * Math.PI / 180.0;
+
+            double eccPrimeSquared =
+                eccSquared / (1 - eccSquared);
+
+            double N =
+                a /
+                Math.Sqrt(
+                    1 -
+                    eccSquared *
+                    Math.Sin(latRad) *
+                    Math.Sin(latRad));
+
+            double T =
+                Math.Tan(latRad) *
+                Math.Tan(latRad);
+
+            double C =
+                eccPrimeSquared *
+                Math.Cos(latRad) *
+                Math.Cos(latRad);
+
+            double A =
+                Math.Cos(latRad) *
+                (longitude * Math.PI / 180.0 -
+                longOriginRad);
+
+            double M =
+                a *
+                (
+                    (1 -
+                    eccSquared / 4 -
+                    3 * eccSquared * eccSquared / 64 -
+                    5 * eccSquared * eccSquared * eccSquared / 256)
+                    * latRad
+
+                    -
+
+                    (3 * eccSquared / 8 +
+                    3 * eccSquared * eccSquared / 32 +
+                    45 * eccSquared * eccSquared * eccSquared / 1024)
+                    * Math.Sin(2 * latRad)
+
+                    +
+
+                    (15 * eccSquared * eccSquared / 256 +
+                    45 * eccSquared * eccSquared * eccSquared / 1024)
+                    * Math.Sin(4 * latRad)
+
+                    -
+
+                    (35 * eccSquared * eccSquared * eccSquared / 3072)
+                    * Math.Sin(6 * latRad)
+                );
+
+            double easting =
+                k0 *
+                N *
+                (
+                    A +
+                    (1 - T + C) *
+                    A * A * A / 6.0 +
+
+                    (5 - 18 * T + T * T +
+                    72 * C -
+                    58 * eccPrimeSquared) *
+                    A * A * A * A * A / 120.0
+                )
+                + 500000.0;
+
+            double northing =
+                k0 *
+                (
+                    M +
+                    N *
+                    Math.Tan(latRad) *
+                    (
+                        A * A / 2.0 +
+
+                        (5 - T + 9 * C +
+                        4 * C * C) *
+                        A * A * A * A / 24.0 +
+
+                        (61 - 58 * T +
+                        T * T +
+                        600 * C -
+                        330 * eccPrimeSquared) *
+                        A * A * A * A * A * A / 720.0
+                    )
+                );
+
+            bool northernHemisphere = latitude >= 0;
+
+            if (!northernHemisphere)
+                northing += 10000000.0;
+
+            return new UTMCoordinate
+            {
+                Easting = easting,
+                Northing = northing,
+                Zone = zone,
+                NorthernHemisphere = northernHemisphere
+            };
+        }
+
+        private (double latitude, double longitude) UTMToLatLon(
+            double easting,
+            double northing,
+            int zone,
+            bool northernHemisphere)
+        {
+            const double a = 6378137.0;
+            const double eccSquared = 0.00669438;
+            const double k0 = 0.9996;
+
+            double eccPrimeSquared =
+                eccSquared / (1 - eccSquared);
+
+            double x = easting - 500000.0;
+
+            double y = northing;
+
+            if (!northernHemisphere)
+                y -= 10000000.0;
+
+            double M = y / k0;
+
+            double mu =
+                M /
+                (
+                    a *
+                    (
+                        1 -
+                        eccSquared / 4 -
+                        3 * eccSquared * eccSquared / 64 -
+                        5 * eccSquared * eccSquared * eccSquared / 256
+                    )
+                );
+
+            double e1 =
+                (
+                    1 -
+                    Math.Sqrt(1 - eccSquared)
+                )
+                /
+                (
+                    1 +
+                    Math.Sqrt(1 - eccSquared)
+                );
+
+            double phi1 =
+                mu
+                +
+                (3 * e1 / 2 -
+                27 * Math.Pow(e1, 3) / 32)
+                * Math.Sin(2 * mu)
+
+                +
+
+                (21 * e1 * e1 / 16 -
+                55 * Math.Pow(e1, 4) / 32)
+                * Math.Sin(4 * mu)
+
+                +
+
+                (151 * Math.Pow(e1, 3) / 96)
+                * Math.Sin(6 * mu)
+
+                +
+
+                (1097 * Math.Pow(e1, 4) / 512)
+                * Math.Sin(8 * mu);
+
+            double N1 =
+                a /
+                Math.Sqrt(
+                    1 -
+                    eccSquared *
+                    Math.Sin(phi1) *
+                    Math.Sin(phi1));
+
+            double T1 =
+                Math.Tan(phi1) *
+                Math.Tan(phi1);
+
+            double C1 =
+                eccPrimeSquared *
+                Math.Cos(phi1) *
+                Math.Cos(phi1);
+
+            double R1 =
+                a *
+                (1 - eccSquared) /
+                Math.Pow(
+                    1 -
+                    eccSquared *
+                    Math.Sin(phi1) *
+                    Math.Sin(phi1),
+                    1.5);
+
+            double D = x / (N1 * k0);
+
+            double latitudeRad =
+                phi1 -
+                (N1 * Math.Tan(phi1) / R1)
+                *
+                (
+                    D * D / 2.0
+                    -
+
+                    (5 +
+                    3 * T1 +
+                    10 * C1 -
+                    4 * C1 * C1 -
+                    9 * eccPrimeSquared)
+                    * Math.Pow(D, 4) / 24.0
+
+                    +
+
+                    (61 +
+                    90 * T1 +
+                    298 * C1 +
+                    45 * T1 * T1 -
+                    252 * eccPrimeSquared -
+                    3 * C1 * C1)
+                    * Math.Pow(D, 6) / 720.0
+                );
+
+            double longitudeRad =
+                (
+                    (zone - 1) * 6 -
+                    180 +
+                    3
+                )
+                * Math.PI / 180.0
+
+                +
+
+                (
+                    D
+                    -
+
+                    (1 +
+                    2 * T1 +
+                    C1)
+                    * Math.Pow(D, 3) / 6.0
+
+                    +
+
+                    (5 -
+                    2 * C1 +
+                    28 * T1 -
+                    3 * C1 * C1 +
+                    8 * eccPrimeSquared +
+                    24 * T1 * T1)
+                    * Math.Pow(D, 5) / 120.0
+                )
+                /
+                Math.Cos(phi1);
+
+            double latitude =
+                latitudeRad * 180.0 / Math.PI;
+
+            double longitude =
+                longitudeRad * 180.0 / Math.PI;
+
+            return (latitude, longitude);
+        }
         public void StartCameraUpdateThread()
         {
             if (_cameraUpdateRunning)
@@ -6830,6 +7413,15 @@ namespace XagSurveillanceGCS.GCSViews
                                 onboardComp
                             );
                             udp.Send(pkt, pkt.Length, remoteEP);
+                        }else if(this._baseCameraController.SelectedCamera == "XAGCAM2")
+                        {
+                            double latitude = coords1.Lat;
+                            double longitude = coords1.Lng;
+                            double altitude = coords1.Alt;
+                            double drone_roll = MainV2.comPort.MAV.cs.roll;
+                            double sensor_width = 5.76;
+                            double sensor_height = 4.29;
+                            UpdateTargetLatitudeLongitude(latitude,longitude,altitude,cam_pan,sensor_width,sensor_height,focal_length,cam_tilt,drone_roll,960,540);
                         }
                         UpdateCameraAndTarget();
                     }
@@ -6837,7 +7429,6 @@ namespace XagSurveillanceGCS.GCSViews
                     {
                         Console.WriteLine("❌ Thread error: " + ex.Message);
                     }
-
                     Thread.Sleep(500); 
                 }
             });
@@ -6881,7 +7472,6 @@ namespace XagSurveillanceGCS.GCSViews
                     camTargetMarker = null;
 
                     if (cameraPos.HasValue)
-
                     {
 
                         if (camMarker == null)
@@ -7122,100 +7712,61 @@ namespace XagSurveillanceGCS.GCSViews
         }
 
         // VideoMapHud Recorder Thread
-        // private Thread VideoMapHudRecorderThread;
-        // private bool VideoMapHudRecorderStop = false;
+        // private Thread GcsBatteryRecorderThread;
+        // private bool GcsBatteryRecorderStop = false;
 
-        // public void VideoMapHudRecorderThreadStartThread()
+        // public void GcsBatteryRecorderThreadStartThread()
         // {
-        //     VideoMapHudRecorderStop = true;
-        //     VideoMapHudRecorderThread = new Thread(() =>
+        //     GcsBatteryRecorderStop = true;
+        //     GcsBatteryRecorderThread = new Thread(() =>
         //     {
-        //         while (VideoMapHudRecorderStop)
+        //         while (GcsBatteryRecorderStop)
         //         {
         //             try
         //             {
         //                 // Run the async task synchronously (on a thread, this is OK)
-        //                 RecordVideoMapHud();
+        //                 RecordGcsBattery();
         //             }
         //             catch (Exception ex)
         //             {
         //                 Console.WriteLine("❌ Thread error: " + ex.Message);
         //             }
 
-        //             Thread.Sleep(200); // Delay between updates (in milliseconds)
+        //             Thread.Sleep(1000); // Delay between updates (in milliseconds)
         //         }
         //     });
-        //     VideoMapHudRecorderThread.IsBackground = true;
-        //     VideoMapHudRecorderThread.Start();
+        //     GcsBatteryRecorderThread.IsBackground = true;
+        //     GcsBatteryRecorderThread.Start();
         // }
 
-        // public void VideoMapHudRecorderStopThread()
+        // public void GcsBatteryRecorderStopThread()
         // {
-        //     VideoMapHudRecorderStop = false;
+        //     GcsBatteryRecorderStop = false;
 
-        //     if (VideoMapHudRecorderThread != null && VideoMapHudRecorderThread.IsAlive)
+        //     if (GcsBatteryRecorderThread != null && GcsBatteryRecorderThread.IsAlive)
         //     {
-        //         VideoMapHudRecorderThread.Join(); 
-        //         VideoMapHudRecorderThread = null;
+        //         GcsBatteryRecorderThread.Join(); 
+        //         GcsBatteryRecorderThread = null;
         //     } 
         // }
 
-        // public void RecordVideoMapHud()
+        // public void RecordGcsBattery()
         // {
-        //     // Base folder
-        //     string baseFolder = Settings.GetUserDataDirectory() + Path.DirectorySeparatorChar +"VideoMapHudRecordings";
+        //     int batteryPercentage = (int)(
+        //     SystemInformation.PowerStatus.BatteryLifePercent * 100);
 
-        //     string dateFolder = Path.Combine(baseFolder, DateTime.Now.ToString("yyyy-MM-dd"));
+        //     Console.WriteLine("System Battery: " + batteryPercentage + "%");
 
-        //     if (!Directory.Exists(dateFolder))
-        //     {
-        //         Directory.CreateDirectory(dateFolder);
-        //     }
-        //     GCSViews.FlightData.myhud.streamjpgenable = true;
-        //     // data = GCSViews.FlightData.myhud.streamjpg.ToArray();
-        //     if(MainV2.comPort.BaseStream.IsOpen)
-        //     {
-        //         Image img1 = GetControlJpeg(_gimbalVideoControl);
-        //         Image img2 = GetControlJpeg(mymap);
-        //         Image img3 = Image.FromStream(new MemoryStream(GCSViews.FlightData.myhud.streamjpg.ToArray())); // HUD
-
-        //         int biggestHeight = Math.Max(img1.Height, Math.Max(img2.Height, img3.Height));
-
-        //         // Total width of all three images
-        //         int totalWidth = img1.Width + img2.Width + img3.Width;
-
-        //         // Create output image
-        //         Image imgout = new Bitmap(totalWidth, biggestHeight);
-
-        //         using (Graphics grap = Graphics.FromImage(imgout))
-        //         {
-        //             grap.DrawImageUnscaled(img1, 0, 0);
-        //             grap.DrawImageUnscaled(img2, img1.Width, 0);
-        //             grap.DrawImageUnscaled(img3, img1.Width + img2.Width, 0);
-        //         }
-
-        //         string filename = Path.Combine(dateFolder,
-        //             $"frame_{DateTime.Now:yyyyMMdd_HHmmss_fff}.jpg");
-
-        //         // Save the combined image
-        //         if (MainV2.comPort.BaseStream.IsOpen)
-        //         {
-        //             imgout.Save(filename, System.Drawing.Imaging.ImageFormat.Jpeg);
-        //         }
-        //     }
+        //     int fontsize = this.Height / 30;
+        //     Font font = new Font(HUDT.Font, 10);
+        //     int halfheight = this.Height / 2;
+        //     // this.BeginInvokeIfRequired(() =>
+        //     // {
+        //     //     myhud.drawstring(batteryPercentage.ToString(), font, fontsize + 20, (SolidBrush) Brushes.Red, -85,
+        //     //                 halfheight / -HUDT.FailsafeH);
+        //     // });
         // }
 
-        // public Image GetControlJpeg(Control ctl)
-        // {
-        //     //var g = ctl.CreateGraphics();
-
-        //     Bitmap bmp = new Bitmap(ctl.Width, ctl.Height);
-
-        //     MainV2.instance.Invoke(
-        //         (Action)delegate () { ctl.DrawToBitmap(bmp, new Rectangle(0, 0, ctl.Width, ctl.Height)); });
-
-        //     return bmp;
-        // }
         public void SendCommand(byte[] command)
         {
             if (networkStream != null && networkStream.CanWrite)
@@ -7905,7 +8456,7 @@ namespace XagSurveillanceGCS.GCSViews
                 var drone_longitude = coords1.Lng;
 
                 var (distance, targetYaw) = DistanceAndBearing(drone_latitude, drone_longitude, target_latitude, target_longitude);
-                var targetDistance = "Distance : " + distance.ToString() + " m";
+                var targetDistance = "Distance : " + Math.Round(distance, 2).ToString() + " m";
                 if (this._baseCameraController.TargetDistance.InvokeRequired)
                 {
                     this._baseCameraController.TargetDistance.Invoke((MethodInvoker)delegate

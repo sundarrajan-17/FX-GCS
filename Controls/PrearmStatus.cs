@@ -60,7 +60,8 @@ namespace XagSurveillanceGCS.Controls
             // If prearm prearm checks are passing, display a message
             if (MainV2.comPort.MAV.cs.prearmstatus)
             {
-                TXT_PrearmErrors.Text = "Ready to Arm";
+                var prearmMessages1 = new[] {"GCS Battery Level: " + (int)(SystemInformation.PowerStatus.BatteryLifePercent * 100) + "%", "Ready to Arm"};
+                TXT_PrearmErrors.Text = string.Join(Environment.NewLine, prearmMessages1);
                 return;
             }
 

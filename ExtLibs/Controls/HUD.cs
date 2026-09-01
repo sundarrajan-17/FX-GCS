@@ -1405,14 +1405,14 @@ namespace XagSurveillanceGCS.Controls
                     vertices[(int)((i - start) * 2)] = x;
                     vertices[(int)((i - start) * 2 + 1)] = y;
                     length += 2;
-                    //GL.Vertex2(x, y);
+                    GL.Vertex2(x, y);
                 }
 
-                //GL.End();                
-                GL.VertexPointer(2, VertexPointerType.Float, 0, vertices);
-                GL.EnableClientState(ArrayCap.VertexArray);
-                GL.DrawArrays(PrimitiveType.LineStrip, 0, length/2);
-                GL.DisableClientState(ArrayCap.VertexArray);
+                GL.End();                
+                // GL.VertexPointer(2, VertexPointerType.Float, 0, vertices);
+                // GL.EnableClientState(ArrayCap.VertexArray);
+                // GL.DrawArrays(PrimitiveType.LineStrip, 0, length/2);
+                // GL.DisableClientState(ArrayCap.VertexArray);
             }
             else
             {
@@ -1442,14 +1442,14 @@ namespace XagSurveillanceGCS.Controls
                     vertices[(int)((i) * 2)] = x;
                     vertices[(int)((i) * 2 + 1)] = y;
                     length += 2;
-                    //GL.Vertex2(x, y);
+                    GL.Vertex2(x, y);
                 }
 
-                //GL.End();                
-                GL.VertexPointer(2, VertexPointerType.Float, 0, vertices);
-                GL.EnableClientState(ArrayCap.VertexArray);
-                GL.DrawArrays(PrimitiveType.LineLoop, 0, length / 2);
-                GL.DisableClientState(ArrayCap.VertexArray);
+                GL.End();                
+                // GL.VertexPointer(2, VertexPointerType.Float, 0, vertices);
+                // GL.EnableClientState(ArrayCap.VertexArray);
+                // GL.DrawArrays(PrimitiveType.LineLoop, 0, length / 2);
+                // GL.DisableClientState(ArrayCap.VertexArray);
             }
             else
             {
@@ -1918,15 +1918,15 @@ namespace XagSurveillanceGCS.Controls
                 GL.Color4(penn.Color);
                 GL.LineWidth(penn.Width);
 
-                //GL.Begin(PrimitiveType.Lines);
-                //GL.Vertex2(x1, y1);
-                //GL.Vertex2(x2, y2);
-                //GL.End();
+                GL.Begin(PrimitiveType.Lines);
+                GL.Vertex2(x1, y1);
+                GL.Vertex2(x2, y2);
+                GL.End();
 
-                GL.VertexPointer(2, VertexPointerType.Float, 0, new float[] { x1, y1, x2, y2 });
-                GL.EnableClientState(ArrayCap.VertexArray);
-                GL.DrawArrays(PrimitiveType.Lines, 0, 2);
-                GL.DisableClientState(ArrayCap.VertexArray);
+                // GL.VertexPointer(2, VertexPointerType.Float, 0, new float[] { x1, y1, x2, y2 });
+                // GL.EnableClientState(ArrayCap.VertexArray);
+                // GL.DrawArrays(PrimitiveType.Lines, 0, 2);
+                // GL.DisableClientState(ArrayCap.VertexArray);
             }
             else
             {
@@ -2564,6 +2564,10 @@ namespace XagSurveillanceGCS.Controls
                             1, scrollbg.Bottom + fontsize + 2 + 10);
                     }
                 }
+
+                string GCSBatteryStatus = "GCS Battery: " + (SystemInformation.PowerStatus.BatteryLifePercent * 100).ToString() + "%";
+
+                drawstring(GCSBatteryStatus, font, fontsize, _whiteBrush, 1, scrollbg.Bottom + fontsize + 2 + 26);
 
                 //drawstring(e,, new Font("Arial", fontsize + 2), whiteBrush, 1, scrollbg.Bottom + fontsize + 2 + 10);
 
@@ -3344,7 +3348,7 @@ namespace XagSurveillanceGCS.Controls
                     return;
                 }
 
-                //                Console.WriteLine("HUD 1 " + (DateTime.Now - starttime).TotalMilliseconds + " " + DateTime.Now.Millisecond);
+                //Console.WriteLine("HUD 1 " + (DateTime.Now - starttime).TotalMilliseconds + " " + DateTime.Now.Millisecond);
 
                 lock (streamlock)
                 {
@@ -3486,7 +3490,7 @@ namespace XagSurveillanceGCS.Controls
 
         readonly float[] texCoords = { 0.0f, 1.0f, 1.0f, 1.0f, 1.0f, 0.0f, 0.0f, 0.0f };
 
-        void drawstring(string text, Font font, float fontsize, SolidBrush brush, float x, float y)
+        public void drawstring(string text, Font font, float fontsize, SolidBrush brush, float x, float y)
         {
             if (!opengl)
             {

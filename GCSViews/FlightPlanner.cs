@@ -71,7 +71,7 @@ namespace XagSurveillanceGCS.GCSViews
         {
             if (panelWaypoints.Height <= 30)
             {
-                panelWaypoints.Height = 166;
+                panelWaypoints.Height = 220;
                 but_mincommands.Text = @"˅";
             }
             else
@@ -86,6 +86,7 @@ namespace XagSurveillanceGCS.GCSViews
         public static GMapOverlay poioverlay = new GMapOverlay("POI");
         public static GMapOverlay polygonsoverlay;
         public static GMapOverlay routesoverlay;
+        private ElevationGraphControl elevationGraph;
         static public Object thisLock = new Object();
         public bool quickadd;
         internal GMapPolygon drawnpolygon;
@@ -140,7 +141,6 @@ namespace XagSurveillanceGCS.GCSViews
         public GMapOverlay top;
         public GMapPolygon wppolygon;
         private GMapMarker CurrentMidLine;
-
 
         public void Init()
         {
@@ -548,6 +548,7 @@ namespace XagSurveillanceGCS.GCSViews
             FillCommand(this.selectedrow, cmd, p1, p2, p3, p4, x, y, z, tag);
 
             writeKML();
+            RefreshElevationProfile();
 
             return selectedrow;
         }
@@ -781,11 +782,8 @@ namespace XagSurveillanceGCS.GCSViews
                         return;
                 }
             }
-            double homealt = MainV2.comPort.MAV.cs.HomeAlt;
-            ElevationProfile checkElevation = new ElevationProfile(pointlist, homealt,
-                (altmode) Enum.Parse(typeof(altmode), CMB_altmode.Text));
-            checkElevation.ElevationProfile_Load(null,null);
-            if(checkElevation.ElevationIsClear)
+            
+            if(elevationGraph.ElevationIsClear)
             {
                 IProgressReporterDialogue frmProgressReporter = new ProgressReporterDialogue
                 {
@@ -1067,6 +1065,8 @@ namespace XagSurveillanceGCS.GCSViews
             FillCommand(this.selectedrow, cmd, p1, p2, p3, p4, x, y, z, tag);
 
             writeKML();
+
+            RefreshElevationProfile();
         }
 
         public void readQGC110wpfile(string file, bool append = false)
@@ -1084,6 +1084,7 @@ namespace XagSurveillanceGCS.GCSViews
                 processToScreen(cmds, append);
 
                 writeKML();
+                RefreshElevationProfile();
 
                 MainMap.ZoomAndCenterMarkers("WPOverlay");
             }
@@ -1336,6 +1337,7 @@ namespace XagSurveillanceGCS.GCSViews
             }
 
             writeKML();
+            RefreshElevationProfile();
             Commands.EndEdit();
         }
 
@@ -1449,6 +1451,7 @@ namespace XagSurveillanceGCS.GCSViews
                     BUT_read.Enabled = true;
 
                     writeKML();
+                    RefreshElevationProfile();
                 });
             }
             catch (Exception exx)
@@ -1706,6 +1709,185 @@ namespace XagSurveillanceGCS.GCSViews
             ChangeColumnHeader(MAVLink.MAV_CMD.DO_DIGICAM_CONTROL.ToString());
 
             writeKML();
+        }
+
+        private void RefreshElevationProfile()
+        {
+            if (elevationGraph == null || quickadd) return;
+
+            if (Commands.Rows.Count == 0)
+            {
+                tableWayPointsElevation.Visible = true;
+                elevationGraph.Clear();
+                return;
+            }
+
+            if (!tableWayPointsElevation.Visible)
+            {
+                tableWayPointsElevation.Visible = true;
+            }
+
+            List<ElevationGraphControl.EvaluatedWpInfo> evaluatedPoints = new List<ElevationGraphControl.EvaluatedWpInfo>();
+            for (int i = 0; i < Commands.Rows.Count; i++)
+            {
+                var row = Commands.Rows[i];
+                string cmd = row.Cells[Command.Index].Value?.ToString() ?? "WAYPOINT";
+
+                double lat = 0, lng = 0, alt = 0, p2 = 0, p3 = 0;
+                double.TryParse(row.Cells[Lat.Index].Value?.ToString(), NumberStyles.Any, CultureInfo.InvariantCulture, out lat);
+                double.TryParse(row.Cells[Lon.Index].Value?.ToString(), NumberStyles.Any, CultureInfo.InvariantCulture, out lng);
+                double.TryParse(row.Cells[Alt.Index].Value?.ToString(), NumberStyles.Any, CultureInfo.InvariantCulture, out alt);
+                double.TryParse(row.Cells[Param2.Index].Value?.ToString(), NumberStyles.Any, CultureInfo.InvariantCulture, out p2);
+                double.TryParse(row.Cells[Param3.Index].Value?.ToString(), NumberStyles.Any, CultureInfo.InvariantCulture, out p3);
+
+                if (lat != 0 && lng != 0)
+                {
+                    double customRadius = 0;
+                    if (cmd.Contains("LOITER"))
+                    {
+                        customRadius = Math.Abs(p2 > 0 ? p2 : p3);
+                    }
+
+                    evaluatedPoints.Add(new ElevationGraphControl.EvaluatedWpInfo
+                    {
+                        Location = new PointLatLngAlt(lat, lng, alt, (i + 1).ToString()),
+                        Command = cmd,
+                        CustomRadius = customRadius
+                    });
+                }
+            }
+
+            if (evaluatedPoints.Count == 0)
+            {
+                elevationGraph.Clear();
+                return;
+            }
+
+            double homeAltitude = 0;
+            double.TryParse(TXT_homealt.Text, NumberStyles.Any, CultureInfo.InvariantCulture, out homeAltitude);
+
+            var altMode = altmode.Relative;
+            if (CMB_altmode.SelectedValue is altmode mode)
+                altMode = mode;
+
+            double loiterRad = 30.0;
+            if (!double.TryParse(TXT_loiterrad.Text, NumberStyles.Any, CultureInfo.InvariantCulture, out loiterRad) || loiterRad <= 0)
+                loiterRad = 30.0;
+
+            double wpRad = 5.0;
+            if (!double.TryParse(TXT_WPRad.Text, NumberStyles.Any, CultureInfo.InvariantCulture, out wpRad) || wpRad <= 0)
+                wpRad = 5.0;
+
+            elevationGraph.UpdateElevation(evaluatedPoints, homeAltitude, altMode, loiterRad, wpRad);
+        }
+
+        private PointLatLng CalculateRadialOffset(double lat, double lng, double bearingDeg, double distanceMeters)
+        {
+            const double R = 6371000.0;
+            double rad = bearingDeg * (Math.PI / 180.0);
+            double latRad = lat * (Math.PI / 180.0);
+            double lngRad = lng * (Math.PI / 180.0);
+
+            double dByR = distanceMeters / R;
+            double radialLat = Math.Asin(Math.Sin(latRad) * Math.Cos(dByR) + Math.Cos(latRad) * Math.Sin(dByR) * Math.Cos(rad));
+            double radialLng = lngRad + Math.Atan2(Math.Sin(rad) * Math.Sin(dByR) * Math.Cos(latRad), Math.Cos(dByR) - Math.Sin(latRad) * Math.Sin(radialLat));
+
+            return new PointLatLng(radialLat * (180.0 / Math.PI), radialLng * (180.0 / Math.PI));
+        }
+
+        private void ElevationGraph_OnElevationEvaluated(
+        bool isClear,
+        HashSet<int> collisionIndices,
+        HashSet<int> warningIndices,
+        List<ElevationGraphControl.RadialArcSector> circleSectors)
+        {
+            this.BeginInvokeIfRequired(() =>
+            {
+                // 1. Update DataGridView Rows
+                for (int i = 0; i < Commands.Rows.Count; i++)
+                {
+                    int wpNumber = i + 1;
+                    if (collisionIndices.Contains(wpNumber))
+                    {
+                        Commands.Rows[i].DefaultCellStyle.BackColor = Color.DarkRed;
+                        Commands.Rows[i].DefaultCellStyle.ForeColor = Color.White;
+                    }
+                    else if (warningIndices.Contains(wpNumber))
+                    {
+                        Commands.Rows[i].DefaultCellStyle.BackColor = Color.FromArgb(200, 80, 80);
+                        Commands.Rows[i].DefaultCellStyle.ForeColor = Color.White;
+                    }
+                    else
+                    {
+                        Commands.Rows[i].DefaultCellStyle.BackColor = Color.FromArgb(67, 68, 69);
+                        Commands.Rows[i].DefaultCellStyle.ForeColor = Color.White;
+                    }
+                }
+
+                // 2. Update Map Overlay Elements
+                var overlay = MainMap.Overlays.FirstOrDefault(a => a.Id == "WPOverlay");
+                if (overlay != null)
+                {
+                    // Clear previous dynamic circle arc routes
+                    var oldArcs = overlay.Routes.Where(r => r.Name != null && r.Name.StartsWith("circle_arc_")).ToList();
+                    foreach (var r in oldArcs)
+                        overlay.Routes.Remove(r);
+
+                    // A. Update Linear Flight Segments (Between WPs)
+                    foreach (var r in overlay.Routes.Where(r => r.Name == null || !r.Name.StartsWith("circle_arc_")))
+                    {
+                        if (r.Tag != null && int.TryParse(r.Tag.ToString(), out int segWp))
+                        {
+                            if (collisionIndices.Contains(segWp))
+                                r.Stroke = new Pen(Color.Red, 5); // Line collision
+                            else if (warningIndices.Contains(segWp))
+                                r.Stroke = new Pen(Color.FromArgb(255, 102, 102), 4); // Line warning
+                            else
+                                r.Stroke = new Pen(Color.LimeGreen, 4); // Safe Line
+                        }
+                    }
+
+                    // B. Clear standard rectangular border to prioritize single circle arc display
+                    foreach (var marker in overlay.Markers.OfType<GMapMarkerRect>())
+                    {
+                        marker.Color = Color.Transparent;
+                        marker.Pen = new Pen(Color.Transparent, 1);
+                    }
+
+                    // C. Render Inner Circle (Full 360) and Outer +200m Hazard Warning Arcs Only
+                    if (circleSectors != null && circleSectors.Count > 0)
+                    {
+                        int arcIdx = 0;
+                        foreach (var sector in circleSectors)
+                        {
+                            List<PointLatLng> arcPts = new List<PointLatLng>();
+
+                            for (double a = sector.StartAngleDeg; a <= sector.EndAngleDeg; a += 3.0)
+                            {
+                                arcPts.Add(CalculateRadialOffset(sector.Center.Lat, sector.Center.Lng, a, sector.RadiusMeters));
+                            }
+
+                            bool isOuterBuffer = sector.RadiusMeters > 50.0;
+
+                            int lineWidth = sector.Hazard == ElevationGraphControl.HazardLevel.Collision ? 4 : 2;
+
+                            GMapRoute arcRoute = new GMapRoute(arcPts, $"circle_arc_{arcIdx++}")
+                            {
+                                Stroke = new Pen(sector.DisplayColor, lineWidth)
+                                {
+                                    DashStyle = isOuterBuffer ? DashStyle.Dash : DashStyle.Solid
+                                }
+                            };
+
+                            overlay.Routes.Add(arcRoute);
+                        }
+                    }
+
+                    MainMap.HoldInvalidation = false;
+                    MainMap.Refresh();
+                    MainMap.Invalidate(true);
+                }
+            });
         }
 
         internal static void addpolygonmarker(Control src, string tag, double lng, double lat, int alt, Color? color, GMapOverlay overlay)
@@ -2051,11 +2233,7 @@ namespace XagSurveillanceGCS.GCSViews
                 }
             }
 
-            double homealt = MainV2.comPort.MAV.cs.HomeAlt;
-            ElevationProfile checkElevation = new ElevationProfile(pointlist, homealt,
-                (altmode) Enum.Parse(typeof(altmode), CMB_altmode.Text));
-            checkElevation.ElevationProfile_Load(null,null);
-            if(checkElevation.ElevationIsClear)
+            if(elevationGraph.ElevationIsClear)
             {
                 IProgressReporterDialogue frmProgressReporter = new ProgressReporterDialogue
                 {
@@ -2380,6 +2558,7 @@ namespace XagSurveillanceGCS.GCSViews
                     Commands.Rows.Insert(e.RowIndex + 1, myrow);
                     writeKML();
                 }
+                RefreshElevationProfile();
             }
             catch (Exception)
             {
@@ -2425,6 +2604,7 @@ namespace XagSurveillanceGCS.GCSViews
             try
             {
                 writeKML();
+                RefreshElevationProfile();
             }
             catch (FormatException)
             {
@@ -2493,6 +2673,8 @@ namespace XagSurveillanceGCS.GCSViews
                 if (cmd == "WAYPOINT")
                 {
                 }
+
+                RefreshElevationProfile();
 
                 //  writeKML();
             }
@@ -2565,6 +2747,7 @@ namespace XagSurveillanceGCS.GCSViews
         public void Commands_RowsRemoved(object sender, DataGridViewRowsRemovedEventArgs e)
         {
             writeKML();
+            RefreshElevationProfile();
         }
 
         public void Commands_RowValidating(object sender, DataGridViewCellCancelEventArgs e)
@@ -3576,6 +3759,18 @@ namespace XagSurveillanceGCS.GCSViews
             {
                 log.Error(ex);
             }
+
+            elevationGraph = new ElevationGraphControl
+            {
+                Dock = DockStyle.Fill
+            };
+
+            elevationGraph.OnElevationEvaluated += ElevationGraph_OnElevationEvaluated;
+
+            // tableWayPointsElevation.Panel2.Controls.Add(elevationGraph);
+
+            // Initial state: Hidden until waypoints are added
+            tableWayPointsElevation.Visible = true;
 
             panelMap.Refresh();
 
@@ -6692,6 +6887,7 @@ Column 1: Field type (RALLY is the only one at the moment -- may have RALLY_LAND
             ChangeColumnHeader(MAVLink.MAV_CMD.TAKEOFF.ToString());
 
             writeKML();
+            RefreshElevationProfile();
         }
 
         public void textToolStripMenuItem_Click(object sender, EventArgs e)
@@ -6869,6 +7065,7 @@ Column 1: Field type (RALLY is the only one at the moment -- may have RALLY_LAND
             }
 
             writeKML();
+            RefreshElevationProfile();
         }
 
         public void TXT_homelat_Enter(object sender, EventArgs e)
@@ -6876,7 +7073,7 @@ Column 1: Field type (RALLY is the only one at the moment -- may have RALLY_LAND
             if (!sethome)
                 CustomMessageBox.Show("Click on the Map to set Home ");
             sethome = true;
-
+            // RefreshElevationProfile();
         }
 
         public void TXT_homelat_TextChanged(object sender, EventArgs e)
@@ -6892,6 +7089,7 @@ Column 1: Field type (RALLY is the only one at the moment -- may have RALLY_LAND
             }
 
             writeKML();
+            RefreshElevationProfile();
         }
 
         public void TXT_homelng_TextChanged(object sender, EventArgs e)
@@ -6907,6 +7105,7 @@ Column 1: Field type (RALLY is the only one at the moment -- may have RALLY_LAND
             }
 
             writeKML();
+            RefreshElevationProfile();
         }
 
         public void TXT_loiterrad_KeyPress(object sender, KeyPressEventArgs e)
@@ -6960,6 +7159,7 @@ Column 1: Field type (RALLY is the only one at the moment -- may have RALLY_LAND
             {
                 writeKML();
             }
+            RefreshElevationProfile();
         }
 
         public void updateCMDParams()
@@ -7074,6 +7274,8 @@ Column 1: Field type (RALLY is the only one at the moment -- may have RALLY_LAND
 
                 writeKML();
             }
+
+            RefreshElevationProfile();
         }
 
         private void updateMapPosition(PointLatLng currentloc)

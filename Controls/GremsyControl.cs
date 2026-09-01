@@ -401,7 +401,7 @@ namespace XagSurveillanceGCS.Controls
         private void BtnStopTracking_Click(object sender, EventArgs e)
         {
             Console.WriteLine("Gremsy Camera Stopped Tracking.");
-            this._parentController._flightData.GremsyStopTracking();
+            this._parentController._flightData.calculateTargetDistance();
         }
         // private void BtnUp_Click(object sender, EventArgs e)
         // {

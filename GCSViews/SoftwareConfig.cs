@@ -6,6 +6,7 @@ using XagSurveillanceGCS.GCSViews.ConfigurationView;
 using XagSurveillanceGCS.Utilities;
 using System;
 using System.Collections.Generic;
+using System.Resources;
 using System.Reflection;
 using System.Windows.Forms;
 
@@ -203,10 +204,10 @@ namespace XagSurveillanceGCS.GCSViews
                             AddBackstageViewPage(typeof(ConfigFriendlyParamsAdv), Strings.AdvancedParams, null, true);
                         }
 
-                        if (!Program.MONO && ConfigOSD.IsApplicable() && MainV2.DisplayConfiguration.displayOSD)
-                        {
-                            AddBackstageViewPage(typeof(ConfigOSD), Strings.OnboardOSD);
-                        }
+                        // if (!Program.MONO && ConfigOSD.IsApplicable() && MainV2.DisplayConfiguration.displayOSD)
+                        // {
+                        //     AddBackstageViewPage(typeof(ConfigOSD), Strings.OnboardOSD);
+                        // }
 
                         if (MainV2.DisplayConfiguration.displayMavFTP)
                         {
@@ -214,6 +215,12 @@ namespace XagSurveillanceGCS.GCSViews
                             {
                                 AddBackstageViewPage(typeof(MavFTPUI), Strings.MAVFtp);
                             }
+                        }
+
+                        if (MainV2.DisplayConfiguration.displayFailSafe)
+                        {
+                            ResourceManager rm = new ResourceManager(this.GetType());
+                            AddBackstageViewPage(typeof(ConfigFailSafe), Strings.FailSafe);
                         }
 
                         // if (MainV2.DisplayConfiguration.displayUserParam)

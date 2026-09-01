@@ -577,15 +577,29 @@ namespace XagSurveillanceGCS.ArduPilot
                 if (homepoint.GetDistance(lastpoint) < 5000 && homepoint.GetDistance(firstpoint) < 5000)
                     homeroute.Stroke.DashStyle = DashStyle.Dash;
 
-
                 if (includehomeroute)
                 {
                     overlay.Routes.Add(homeroute);
                 }
 
-                route.Stroke = new Pen(Color.Yellow, 4);
-                route.Stroke.DashStyle = DashStyle.Custom;
-                overlay.Routes.Add(route);
+                // route.Stroke = new Pen(Color.Yellow, 4);
+                // route.Stroke.DashStyle = DashStyle.Custom;
+                // overlay.Routes.Add(route);
+
+                for (int i = 0; i < wproute.Count - 1; i++)
+                {
+                    var p1 = wproute[i];
+                    var p2 = wproute[i + 1];
+
+                    GMapRoute segmentRoute = new GMapRoute(new List<PointLatLng> { p1, p2 }, $"segment_{i + 1}");
+                    segmentRoute.Tag = p2.Tag ?? (i + 1).ToString(); // Store waypoint number in Tag
+
+                    // Default line style
+                    segmentRoute.Stroke = new Pen(Color.Yellow, 4);
+                    overlay.Routes.Add(segmentRoute);
+                }
+
+                Console.WriteLine("Home Route Stroke, Route Stroke {0}",homeroute.Stroke);
             }
         }
     }

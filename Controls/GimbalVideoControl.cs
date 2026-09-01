@@ -345,7 +345,7 @@ namespace XagSurveillanceGCS.Controls
                 }
                 if (this.flightData._baseCameraController.SelectedCamera == "XAGCAM2")
                 {  
-                    _stream.Start("rtspsrc location=rtsp://192.168.199.119:8554/merge latency=0 dulation=-1 ! decodebin ! videoconvert ! video/x-raw,format=BGRA ! appsink name=outsink");
+                    _stream.Start("rtspsrc location=rtsp://192.168.199.119:8554/ir latency=0 dulation=-1 ! decodebin ! videoconvert ! video/x-raw,format=BGRA ! appsink name=outsink");
                 }else if(this.flightData._baseCameraController.SelectedCamera == "XAGCAM3")
                 {
                     _stream.Start("rtspsrc location=rtsp://192.168.199.240:8554/payload latency=0 dulation=-1 ! decodebin ! videoconvert ! video/x-raw,format=BGRA ! appsink name=outsink");

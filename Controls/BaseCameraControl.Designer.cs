@@ -51,13 +51,13 @@ namespace XagSurveillanceGCS.Controls
             this.TargetDistance.Text = "Distance: 0.00 m";
             this.TargetDistance.ForeColor = System.Drawing.Color.White;
             this.TargetDistance.Location = new System.Drawing.Point(10,12);
-            this.TargetDistance.Size = new System.Drawing.Size(110, 20);
+            this.TargetDistance.Size = new System.Drawing.Size(130, 20);
 
             // DooafX
             this.DooafX.Name = "DOOAFX";
             this.DooafX.Text = "DOOAFX: 0.00 m";
             this.DooafX.ForeColor = System.Drawing.Color.White;
-            this.DooafX.Location = new System.Drawing.Point(120,12);
+            this.DooafX.Location = new System.Drawing.Point(140,12);
             // this.DooafX.Size = new System.Drawing.Size(250, 20);
 
             // DooafY

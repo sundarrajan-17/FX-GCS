@@ -2496,9 +2496,9 @@ namespace XagSurveillanceGCS
                                 //         lastjoystick = DateTime.Now;
                                 //     }
                                 // }
-                                double camera_pitch = (double) MainV2.comPort.MAV.cs.rcoverridech3/1000.0;
-                                double camera_yaw = (double) MainV2.comPort.MAV.cs.rcoverridech4/1000.0;
-                                double camera_zoom = (double) -MainV2.comPort.MAV.cs.rcoverridech2/1000.0;
+                                double camera_pitch = (double) (MainV2.comPort.MAV.cs.rcoverridech3 - 1500.0)/1000.0;
+                                double camera_yaw = (double) (MainV2.comPort.MAV.cs.rcoverridech4 - 1500.0)/1000.0;
+                                double camera_zoom = (double) MainV2.comPort.MAV.cs.rcoverridech2/1000.0;
                                 FlightData.DoJoystickCommandsToGimbal(camera_pitch, camera_yaw, camera_zoom);
                             }
                         }

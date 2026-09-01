@@ -43,6 +43,7 @@ namespace XagSurveillanceGCS.Controls
         private Button btnYawRight;
         private Button btnYawLeft;
         private Button btnSequence;
+        private GroupBox groupBox1;
 
 
         // ============================================================
@@ -74,6 +75,8 @@ namespace XagSurveillanceGCS.Controls
 
             this.btnSequence = new Button();
 
+            this.groupBox1 = new GroupBox();
+
             this.SuspendLayout();
 
             // ========================================================
@@ -102,7 +105,7 @@ namespace XagSurveillanceGCS.Controls
                 new RowStyle(SizeType.Percent, 33.34F));
 
             // this.tableLayoutPanel.Dock = DockStyle.Fill;
-            this.tableLayoutPanel.Size = new Size(400, 300);
+            this.tableLayoutPanel.Size = new Size(380, 300);
             this.tableLayoutPanel.Margin = new Padding(0);
             this.tableLayoutPanel.Padding = new Padding(20);
 
@@ -214,11 +217,20 @@ namespace XagSurveillanceGCS.Controls
             this.tableLayoutPanel.Controls.Add(
                 btnSequence, 0, 3);
 
+            this.tableLayoutPanel.Location = new System.Drawing.Point(20, 12);
+
             // ========================================================
             // CONTROL SURFACE
             // ========================================================
 
-            this.Controls.Add(this.tableLayoutPanel);
+            this.groupBox1.Text = "Control Surface";
+            // this.groupBox1.Dock = DockStyle.Fill;
+            this.groupBox1.Location = new System.Drawing.Point(0, 0);
+            this.groupBox1.Name = "Control Surface";
+            this.groupBox1.Size = new System.Drawing.Size(420, 316);
+            this.groupBox1.Controls.Add(this.tableLayoutPanel);
+
+            this.Controls.Add(this.groupBox1);
 
             this.Dock = DockStyle.Fill;
             this.Name = "ControlSurface";
@@ -278,14 +290,14 @@ namespace XagSurveillanceGCS.Controls
 
         private void BtnPitchUp_Click(object sender, EventArgs e)
         {
-            SendRCOverride(UInt16.MaxValue, 1100, UInt16.MaxValue);
+            SendRCOverride(UInt16.MaxValue, 1900, UInt16.MaxValue);
             Thread.Sleep(1000);
             SendRCOverride(1500, 1500, 1500);
         }
 
         private void BtnPitchDown_Click(object sender, EventArgs e)
         {
-            SendRCOverride(UInt16.MaxValue, 1900, UInt16.MaxValue);
+            SendRCOverride(UInt16.MaxValue, 1100, UInt16.MaxValue);
             Thread.Sleep(1000);
             SendRCOverride(1500, 1500, 1500);
         }
@@ -310,9 +322,9 @@ namespace XagSurveillanceGCS.Controls
             Thread.Sleep(1000);
             SendRCOverride(1100, UInt16.MaxValue, UInt16.MaxValue);
             Thread.Sleep(1000);
-            SendRCOverride(UInt16.MaxValue, 1100, UInt16.MaxValue);
-            Thread.Sleep(1000);
             SendRCOverride(UInt16.MaxValue, 1900, UInt16.MaxValue);
+            Thread.Sleep(1000);
+            SendRCOverride(UInt16.MaxValue, 1100, UInt16.MaxValue);
             Thread.Sleep(1000);
             SendRCOverride(UInt16.MaxValue, UInt16.MaxValue, 1900);
             Thread.Sleep(1000);

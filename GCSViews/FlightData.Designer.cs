@@ -327,7 +327,7 @@ namespace XagSurveillanceGCS.GCSViews
             // 
             // SubMainLeft.Panel1
             // 
-            this.SubMainLeft.Panel1.Controls.Add(this.hud1);
+            // this.SubMainLeft.Panel1.Controls.Add(this.hud1);
             // 
             // SubMainLeft.Panel2
             // 
@@ -459,7 +459,7 @@ namespace XagSurveillanceGCS.GCSViews
             this.hud1.prearmclick += new System.EventHandler(this.hud1_prearmclick);
             this.hud1.eahrsclick += new System.EventHandler(this.hud1_eahrsclick);
             this.hud1.Load += new System.EventHandler(this.hud1_Load);
-            this.hud1.DoubleClick += new System.EventHandler(this.hud1_DoubleClick);
+            // this.hud1.DoubleClick += new System.EventHandler(this.hud1_DoubleClick);
             this.hud1.Resize += new System.EventHandler(this.hud1_Resize);
             // 
             // contextMenuStripHud
@@ -471,7 +471,7 @@ namespace XagSurveillanceGCS.GCSViews
             this.userItemsToolStripMenuItem,
             this.russianHudToolStripMenuItem,
             this.groundColorToolStripMenuItem,
-            this.setBatteryCellCountToolStripMenuItem,
+            // this.setBatteryCellCountToolStripMenuItem,
             this.showIconsToolStripMenuItem});
             this.contextMenuStripHud.Name = "contextMenuStrip2";
             resources.ApplyResources(this.contextMenuStripHud, "contextMenuStripHud");
@@ -764,7 +764,7 @@ namespace XagSurveillanceGCS.GCSViews
             this.tableLayoutPanel1.Controls.Add(this.BUTactiondo, 1, 0);
             // this.tableLayoutPanel1.Controls.Add(this.BUT_resumemis, 3, 4);
             this.tableLayoutPanel1.Controls.Add(this.modifyandSetAlt, 3, 1);
-            this.tableLayoutPanel1.Controls.Add(this.modifyandSetSpeed, 3, 0);
+            // this.tableLayoutPanel1.Controls.Add(this.modifyandSetSpeed, 3, 0);
             this.tableLayoutPanel1.Controls.Add(this.CMB_setwp, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.BUT_ARM, 3, 3);
             this.tableLayoutPanel1.Controls.Add(this.BUT_joystick_gimbal, 1, 3);
@@ -773,7 +773,7 @@ namespace XagSurveillanceGCS.GCSViews
             // this.tableLayoutPanel1.Controls.Add(this.BUT_Homealt, 3, 0);
             // this.tableLayoutPanel1.Controls.Add(this.BUTrestartmission, 3, 1);
             // this.tableLayoutPanel1.Controls.Add(this.CMB_mountmode, 0, 3);
-            this.tableLayoutPanel1.Controls.Add(this.but_CircleLand, 2,3);
+            this.tableLayoutPanel1.Controls.Add(this.but_CircleLand, 3,0);
             this.tableLayoutPanel1.Controls.Add(this.BUT_quickrtl, 2, 2);
             this.tableLayoutPanel1.Controls.Add(this.BUT_quickmanual, 2, 1);
             this.tableLayoutPanel1.Controls.Add(this.BUT_setwp, 1, 1);
@@ -3060,7 +3060,8 @@ namespace XagSurveillanceGCS.GCSViews
 
             this.splitLeft.Dock = DockStyle.Fill;
             this.splitLeft.Orientation = Orientation.Vertical;
-            this.splitLeft.SplitterDistance = 180;
+            this.splitLeft.Panel1MinSize = 300;
+            this.splitLeft.SplitterDistance = 320;
             this.splitLeft.SplitterWidth = 6;
 
             //

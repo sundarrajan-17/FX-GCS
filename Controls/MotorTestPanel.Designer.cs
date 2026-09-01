@@ -164,7 +164,6 @@ namespace XagSurveillanceGCS.GCSViews.ConfigurationView
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
-
         }
 
         #endregion
