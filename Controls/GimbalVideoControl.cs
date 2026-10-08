@@ -345,7 +345,7 @@ namespace XagSurveillanceGCS.Controls
                 }
                 if (this.flightData._baseCameraController.SelectedCamera == "XAGCAM2")
                 {  
-                    _stream.Start("rtspsrc location=rtsp://192.168.199.119:8554/ir latency=0 dulation=-1 ! decodebin ! videoconvert ! video/x-raw,format=BGRA ! appsink name=outsink");
+                    _stream.Start("rtspsrc location=rtsp://192.168.199.119:8554/merge latency=0 dulation=-1 ! decodebin ! videoconvert ! video/x-raw,format=BGRA ! appsink name=outsink");
                 }else if(this.flightData._baseCameraController.SelectedCamera == "XAGCAM3")
                 {
                     _stream.Start("rtspsrc location=rtsp://192.168.199.240:8554/payload latency=0 dulation=-1 ! decodebin ! videoconvert ! video/x-raw,format=BGRA ! appsink name=outsink");
@@ -669,11 +669,15 @@ namespace XagSurveillanceGCS.Controls
 
             if(this.flightData._baseCameraController.SelectedCamera == "XAGCAM2")
             {
-                float x01 = ((float)xNorm + 1f) / 2f;
-                float y01 = ((float)yNorm + 1f) / 2f;
+                float x01 = ((float)xNorm - 0.1f + 1f) / 2f;
+                float y01 = ((float)yNorm - 0.1f + 1f) / 2f;
 
                 Console.WriteLine("Converted X Y Point {0} {1}", x01, y01);
-                flightData.GremsyStartTracking(x01, y01);
+                // flightData.GremsyStartTracking(x01, y01);
+                float x02 = ((float)xNorm + 0.1f + 1f) / 2f;
+                float y02 = ((float)yNorm + 0.1f + 1f) / 2f;
+                flightData.GremsyRectangleTracking(x01, y01, x02, y02);
+
             }else if(this.flightData._baseCameraController.SelectedCamera == "XAGCAM3")
             {
                 int x = (int)(xNorm * (width/2)) + 960;
@@ -689,6 +693,7 @@ namespace XagSurveillanceGCS.Controls
                 int x01 = (int)(xNorm * (width / 2));
                 int y01 = (int)(yNorm * (height / 2));
                 flightData.BuildTrackingCommand(x01, y01);
+                
             }
         }
 
@@ -709,8 +714,7 @@ namespace XagSurveillanceGCS.Controls
             {
                 var imageWidth = VideoBox.Image.Width;
                 var imageHeight = VideoBox.Image.Height;
-                SendNormalizedTrackingPoint(point.Value.x, point.Value.y, 1920, 1080);
-               
+                SendNormalizedTrackingPoint(point.Value.x, point.Value.y, 1920, 1080); 
             }
             else if ((Control.ModifierKeys, me.Button) == preferences.MoveCameraPOIToMouseLocation)
             {

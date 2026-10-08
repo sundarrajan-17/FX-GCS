@@ -317,7 +317,7 @@ namespace XagSurveillanceGCS.GCSViews
             resources.ApplyResources(this.MainH, "MainH");
             this.MainH.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
             this.MainH.Name = "MainH";
-            this.MainH.Orientation = Orientation.Horizontal;
+            this.MainH.Orientation = Orientation.Vertical;
             // 
             // SubMainLeft
             // 
@@ -626,10 +626,10 @@ namespace XagSurveillanceGCS.GCSViews
             // tabQuick
             // 
             resources.ApplyResources(this.tabQuick, "tabQuick");
-            this.tabQuick.Controls.Add(this.tableLayoutPanelQuick);
+            // this.tabQuick.Controls.Add(this.tableLayoutPanelQuick);
             this.tabQuick.Name = "tabQuick";
             this.tabQuick.UseVisualStyleBackColor = true;
-            this.tabQuick.Resize += new System.EventHandler(this.tabQuick_Resize);
+            // this.tabQuick.Resize += new System.EventHandler(this.tabQuick_Resize);
             // 
             // tableLayoutPanelQuick
             // 
@@ -3034,7 +3034,7 @@ namespace XagSurveillanceGCS.GCSViews
 
             this.splitTop.Dock = DockStyle.Fill;
             this.splitTop.Orientation = Orientation.Horizontal;
-            this.splitTop.SplitterDistance = 700;
+            this.splitTop.SplitterDistance = 500;
             this.splitTop.SplitterWidth = 6;
 
             //--------------------------------------------------
@@ -3043,7 +3043,9 @@ namespace XagSurveillanceGCS.GCSViews
 
             this.splitBottom.Dock = DockStyle.Fill;
             this.splitBottom.Orientation = Orientation.Horizontal;
-            // this.splitBottom.SplitterDistance = 350;
+            // this.splitBottom.Panel1MinSize = 75;
+            // this.splitBottom.Panel2MinSize = 200;
+            // this.splitBottom.SplitterDistance = 85;
             this.splitBottom.SplitterWidth = 6;
 
             //
@@ -3051,7 +3053,7 @@ namespace XagSurveillanceGCS.GCSViews
             //
             this.splitTopRight.Dock = DockStyle.Fill;
             this.splitTopRight.Orientation = Orientation.Horizontal;
-            this.splitTopRight.SplitterDistance = 250;
+            // this.splitTopRight.SplitterDistance = 100;
             this.splitTopRight.SplitterWidth = 6;
 
             //--------------------------------------------------
@@ -3071,17 +3073,17 @@ namespace XagSurveillanceGCS.GCSViews
             // this.splitTop.Panel1.Controls.Add(this.tabControlactions);
             this.splitTop.Panel2.Controls.Add(this.splitMain);
 
-            this.splitLeft.Panel1.Controls.Add(this.splitTop);
-            this.splitLeft.Panel2.Controls.Add(this.splitTopRight);
+            // this.splitLeft.Panel1.Controls.Add(this.splitTop);
+            // this.splitLeft.Panel2.Controls.Add(this.splitTopRight);
 
-            // this.splitBottom.Panel1.Controls.Add(this.tableLayoutPanelQuick);
-            // this.splitBottom.Panel2.Controls.Add(this.splitTop);
+            this.splitBottom.Panel1.Controls.Add(this.tableLayoutPanelQuick);
+            this.splitBottom.Panel2.Controls.Add(this.splitTop);
 
             this.splitMain.Panel1.Controls.Add(this.tabControlactions);
             this.splitMain.Panel2.Controls.Add(this.txt_messagebox);
 
-            this.MainH.Panel1.Controls.Add(this.tableLayoutPanelQuick);
-            this.MainH.Panel2.Controls.Add(this.splitLeft);
+            this.MainH.Panel1.Controls.Add(this.splitBottom);
+            this.MainH.Panel2.Controls.Add(this.splitTopRight);
             // 
             // FlightData
             // 

@@ -8,7 +8,7 @@ namespace XagSurveillanceGCS.Controls
     public partial class BaseCameraController : UserControl
     {
         private Dictionary<string, Func<UserControl>> _cameraFactories;
-        private UserControl _activeCameraControl;
+        public UserControl _activeCameraControl;
 
         public FlightData _flightData;
 
@@ -27,7 +27,7 @@ namespace XagSurveillanceGCS.Controls
             {
                 { "XAGCAM1", () => new XagCamControl(this) },
                 { "XAGCAM2", () => new GremsyControl(this) },
-                { "XAGCAM3", () => new GremsyVioControl(this) },
+                { "XAGCAM3", () => new GremsyVioControl(this) }
             };
 
             cmbCameraSelect.Items.AddRange(new object[]

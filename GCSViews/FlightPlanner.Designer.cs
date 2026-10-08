@@ -969,14 +969,9 @@ namespace XagSurveillanceGCS.GCSViews
             // 
             this.mapToolToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.ContextMeasure,
-            this.rotateMapToolStripMenuItem,
             this.zoomToToolStripMenuItem,
-            this.prefetchToolStripMenuItem,
-            this.prefetchWPPathToolStripMenuItem,
             this.kMLOverlayToolStripMenuItem,
-            this.elevationGraphToolStripMenuItem,
-            this.reverseWPsToolStripMenuItem,
-            this.gDALOpacityToolStripMenuItem});
+            this.elevationGraphToolStripMenuItem});
             this.mapToolToolStripMenuItem.Name = "mapToolToolStripMenuItem";
             resources.ApplyResources(this.mapToolToolStripMenuItem, "mapToolToolStripMenuItem");
             // 

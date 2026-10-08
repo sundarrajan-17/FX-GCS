@@ -11,7 +11,7 @@ using System.Net;
 
 namespace XagSurveillanceGCS.Controls
 {
-    public partial class XagCamControl : MyUserControl
+    public partial class XagCamControl : UserControl
     {
         private BaseCameraController _parentController;
         private VirtualJoystick _virtualJoystick;
@@ -81,19 +81,19 @@ namespace XagSurveillanceGCS.Controls
         }
         private void BtnOsdOn_Click(object sender,EventArgs e)
         {
-            this._parentController._flightData.XagCamOsdOnCommand();
+            this._parentController._flightData.GimbalConnectStartThread();
         }
         private void BtnOsdOff_Click(object sender,EventArgs e)
         {
-            this._parentController._flightData.XagCamOsdOffCommand();
+            this._parentController._flightData.XagCamHomeCommand();
         }
         private void BtnAiOsdOn_Click(object sender,EventArgs e)
         {
-            this._parentController._flightData.XagCamAiOsdOnCommand();
+            this._parentController._flightData.XagCamPointDownCommand();
         }
         private void BtnAiOsdOff_Click(object sender,EventArgs e)
         {
-            this._parentController._flightData.XagCamAiOsdOffCommand();
+            this._parentController._flightData.XagCamStopTrackCommand();
         }
         private void BtnDZoomPlus_Click(object sender,EventArgs e)
         {

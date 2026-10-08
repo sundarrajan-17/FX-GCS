@@ -315,9 +315,9 @@
   <data name="tableLayoutPanelQuick.AutoScroll" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="tableLayoutPanelQuick.AutoSizeMode" type="System.Windows.Forms.AutoSizeMode, System.Windows.Forms">
-    <value>GrowAndShrink</value>
-  </data>
+  <!-- <data name="tableLayoutPanelQuick.AutoSize" type="System.Windows.Forms.AutoSize, System.Windows.Forms">
+    <value>false</value>
+  </data> -->
   <data name="tableLayoutPanelQuick.ColumnCount" type="System.Int32, mscorlib">
     <value>2</value>
   </data>
@@ -544,7 +544,7 @@
     <value>3</value>
   </data>
   <data name="tableLayoutPanelQuick.Size" type="System.Drawing.Size, System.Drawing">
-    <value>400, 100</value>
+    <value>70,500</value>
   </data>
   <data name="tableLayoutPanelQuick.TabIndex" type="System.Int32, mscorlib">
     <value>73</value>
@@ -556,7 +556,7 @@
     <value>System.Windows.Forms.TableLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;tableLayoutPanelQuick.Parent" xml:space="preserve">
-    <value>tabQuick</value>
+    <value>splitBottom.Panel1</value>
   </data>
   <data name="&gt;&gt;tableLayoutPanelQuick.ZOrder" xml:space="preserve">
     <value>0</value>
@@ -5381,7 +5381,7 @@
     <value>0</value>
   </data>
   <data name="MainH.Panel1MinSize" type="System.Int32, mscorlib">
-    <value>65</value>
+    <value>600</value>
   </data>
   <data name="tableMap.CellBorderStyle" type="System.Windows.Forms.TableLayoutPanelCellBorderStyle, System.Windows.Forms">
     <value>Single</value>
@@ -6353,7 +6353,7 @@
     <value>909, 447</value>
   </data>
   <data name="MainH.SplitterDistance" type="System.Int32, mscorlib">
-    <value>65</value>
+    <value>250</value>
   </data>
   <data name="MainH.TabIndex" type="System.Int32, mscorlib">
     <value>68</value>

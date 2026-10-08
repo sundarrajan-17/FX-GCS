@@ -37,8 +37,8 @@ namespace XagSurveillanceGCS.Controls
             this.parentTableLayoutPanel.ColumnCount = 2;
             this.parentTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 31.95876F));
             this.parentTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 68.04124F));
-            this.parentTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 65.00F));
-            this.parentTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 35.00F));
+            this.parentTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.00F));
+            this.parentTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.00F));
             // this.parentTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25.00F));
 
             // tableLayoutPanel1
@@ -46,20 +46,21 @@ namespace XagSurveillanceGCS.Controls
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.ColumnCount = 2;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 70.00F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30.00F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60.00F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40.00F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.00F));
 
             // tableLayoutPanel2
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.RowCount = 3;
-            this.tableLayoutPanel2.ColumnCount = 5;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20.00F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20.00F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20.00F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20.00F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20.00F));
+            this.tableLayoutPanel2.RowCount = 2;
+            this.tableLayoutPanel2.ColumnCount = 6;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.67F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.67F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.67F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.67F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.67F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.67F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33F));
@@ -113,26 +114,26 @@ namespace XagSurveillanceGCS.Controls
             // osd on
 
             this.btnOsdOn = new System.Windows.Forms.Button();
-            this.btnOsdOn.Text = "OSD On";
+            this.btnOsdOn.Text = "Connect Gimbal";
             this.btnOsdOn.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnOsdOn.Click += new System.EventHandler(this.BtnOsdOn_Click);
             // osd off
 
             this.btnOsdOff = new System.Windows.Forms.Button();
-            this.btnOsdOff.Text = "OSD Off";
+            this.btnOsdOff.Text = "Point Home";
             this.btnOsdOff.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnOsdOff.Click += new System.EventHandler(this.BtnOsdOff_Click);
 
             // Ai osd on
 
             this.btnAiOsdOn = new System.Windows.Forms.Button();
-            this.btnAiOsdOn.Text = "AI OSD On";
+            this.btnAiOsdOn.Text = "Point Down";
             this.btnAiOsdOn.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnAiOsdOn.Click += new System.EventHandler(this.BtnAiOsdOn_Click);
             // Ai osd off
 
             this.btnAiOsdOff = new System.Windows.Forms.Button();
-            this.btnAiOsdOff.Text = "AI OSD Off";
+            this.btnAiOsdOff.Text = "Stop Track";
             this.btnAiOsdOff.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnAiOsdOff.Click += new System.EventHandler(this.BtnAiOsdOff_Click);
             // Digital Zoom +
@@ -185,20 +186,20 @@ namespace XagSurveillanceGCS.Controls
             this.tableLayoutPanel2.Controls.Add(this.btnOsdOn,0,1);
             this.tableLayoutPanel2.Controls.Add(this.btnOsdOff,1,1);
             this.tableLayoutPanel2.Controls.Add(this.btnAiOsdOn,2,1);
-            this.tableLayoutPanel2.Controls.Add(this.btnAiOsdOff,3,1);
-            this.tableLayoutPanel2.Controls.Add(this.btnDZoomPlus,0,2);
-            this.tableLayoutPanel2.Controls.Add(this.btnDZoomMinus,1,2);
-            this.tableLayoutPanel2.Controls.Add(this.CMB_setEoIrMode,2,2);
-            this.tableLayoutPanel2.Controls.Add(this.setEoIrMode,3,2);
+            // this.tableLayoutPanel2.Controls.Add(this.btnAiOsdOff,3,1);
+            this.tableLayoutPanel2.Controls.Add(this.btnDZoomPlus,3,0);
+            this.tableLayoutPanel2.Controls.Add(this.btnDZoomMinus,3,1);
+            this.tableLayoutPanel2.Controls.Add(this.CMB_setEoIrMode,4,0);
+            this.tableLayoutPanel2.Controls.Add(this.setEoIrMode,5,0);
 
             // tablelayoutPanel3 Controls
-            this.tableLayoutPanel2.Controls.Add(this.btnCalculateDooaf,4,0);
+            this.tableLayoutPanel2.Controls.Add(this.btnCalculateDooaf,5,1);
             this.tableLayoutPanel2.Controls.Add(this.btnCalculateTargetDistance,4,1);
 
             // Main Controls
             this.parentTableLayoutPanel.Controls.Add(tableLayoutPanel2,1,0);
             this.Controls.Add(this.parentTableLayoutPanel);
-            this.Size = new System.Drawing.Size(500,320);
+            this.Size = new System.Drawing.Size(550,240);
         }
     }
 }

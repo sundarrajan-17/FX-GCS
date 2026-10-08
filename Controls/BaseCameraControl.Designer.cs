@@ -86,7 +86,7 @@ namespace XagSurveillanceGCS.Controls
             this.Controls.Add(this.GnssModeStatus);
             this.Controls.Add(this.pnlCameraHost);
 
-            this.Size = new System.Drawing.Size(500, 200);
+            this.Size = new System.Drawing.Size(500,200);
         }
     }
 }

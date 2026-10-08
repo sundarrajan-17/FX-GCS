@@ -2066,6 +2066,7 @@ namespace XagSurveillanceGCS.GCSViews
             }
 
             writeKML();
+            RefreshElevationProfile();
         }
 
         private void BUT_grid_Click(object sender, EventArgs e)
@@ -2130,6 +2131,7 @@ namespace XagSurveillanceGCS.GCSViews
                             processToScreen(cmds);
 
                             writeKML();
+                            RefreshElevationProfile();
 
                             MainMap.ZoomAndCenterMarkers("WPOverlay");
                         }
@@ -2355,6 +2357,7 @@ namespace XagSurveillanceGCS.GCSViews
             selectedrow = 0;
             quickadd = false;
             writeKML();
+            RefreshElevationProfile();
         }
 
         public void clearPolygonToolStripMenuItem_Click(object sender, EventArgs e)
@@ -2367,6 +2370,7 @@ namespace XagSurveillanceGCS.GCSViews
             MainMap.Invalidate();
 
             writeKML();
+            RefreshElevationProfile();
         }
 
         public void clearRallyPointsToolStripMenuItem_Click(object sender, EventArgs e)
@@ -2480,6 +2484,7 @@ namespace XagSurveillanceGCS.GCSViews
             }
 
             writeKML();
+            RefreshElevationProfile();
         }
 
         private void comboBoxMapType_SelectedValueChanged(object sender, EventArgs e)
@@ -3462,6 +3467,7 @@ namespace XagSurveillanceGCS.GCSViews
                 CurentRectMarker = null;
 
             writeKML();
+            RefreshElevationProfile();
         }
 
         private void Dxf_newLine(dxf sender, netDxf.Entities.Line line)
@@ -3529,6 +3535,7 @@ namespace XagSurveillanceGCS.GCSViews
         public void elevationGraphToolStripMenuItem_Click(object sender, EventArgs e)
         {
             writeKML();
+            RefreshElevationProfile();
             double homealt = MainV2.comPort.MAV.cs.HomeAlt;
             Form temp = new ElevationProfile(pointlist, homealt,
                 (altmode) Enum.Parse(typeof(altmode), CMB_altmode.Text));
@@ -3777,6 +3784,7 @@ namespace XagSurveillanceGCS.GCSViews
             panelMap.Visible = true;
 
             writeKML();
+            RefreshElevationProfile();
 
             // switch the action and wp table
             if (Settings.Instance["FP_docking"] == "Bottom")
@@ -4584,6 +4592,7 @@ namespace XagSurveillanceGCS.GCSViews
                 writeKML();
 
                 zoomToHomeToolStripMenuItem_Click(null, null);
+                RefreshElevationProfile();
             }
             else
             {
@@ -5003,6 +5012,7 @@ namespace XagSurveillanceGCS.GCSViews
                 quickadd = false;
 
                 writeKML();
+                RefreshElevationProfile();
 
                 MainMap.ZoomAndCenterMarkers("WPOverlay");
             }
@@ -5051,6 +5061,7 @@ namespace XagSurveillanceGCS.GCSViews
             setfromMap(MouseDownEnd.Lat, MouseDownEnd.Lng, (int) float.Parse(TXT_DefaultAlt.Text));
 
             writeKML();
+            RefreshElevationProfile();
         }
 
         public void loiterForeverToolStripMenuItem_Click(object sender, EventArgs e)
@@ -5064,6 +5075,7 @@ namespace XagSurveillanceGCS.GCSViews
             setfromMap(MouseDownEnd.Lat, MouseDownEnd.Lng, (int) float.Parse(TXT_DefaultAlt.Text));
 
             writeKML();
+            RefreshElevationProfile();
         }
 
         public void loitertimeToolStripMenuItem_Click(object sender, EventArgs e)
@@ -5084,6 +5096,7 @@ namespace XagSurveillanceGCS.GCSViews
             setfromMap(MouseDownEnd.Lat, MouseDownEnd.Lng, (int) float.Parse(TXT_DefaultAlt.Text));
 
             writeKML();
+            RefreshElevationProfile();
         }
 
         public void MainMap_Paint(object sender, PaintEventArgs e)
@@ -5738,6 +5751,7 @@ namespace XagSurveillanceGCS.GCSViews
             quickadd = false;
 
             writeKML();
+            RefreshElevationProfile();
 
             MainMap_OnMapZoomChanged();
         }
@@ -5947,12 +5961,14 @@ namespace XagSurveillanceGCS.GCSViews
             ChangeColumnHeader(MAVLink.MAV_CMD.RETURN_TO_LAUNCH.ToString());
 
             writeKML();
+            RefreshElevationProfile();
         }
 
         private void SaveFile_Click(object sender, EventArgs e)
         {
             savewaypoints();
             writeKML();
+            RefreshElevationProfile();
         }
 
         public void savePolygonToolStripMenuItem_Click(object sender, EventArgs e)
@@ -6935,6 +6951,7 @@ Column 1: Field type (RALLY is the only one at the moment -- may have RALLY_LAND
 
                 quickadd = false;
                 writeKML();
+                RefreshElevationProfile();
             }
         }
 
@@ -7734,6 +7751,7 @@ Column 1: Field type (RALLY is the only one at the moment -- may have RALLY_LAND
                     CurrentMidLine = null;
 
                     writeKML();
+                    RefreshElevationProfile();
                     return;
                 }
 
@@ -7822,6 +7840,7 @@ Column 1: Field type (RALLY is the only one at the moment -- may have RALLY_LAND
                         groupmarkers.Clear();
                         // redraw to remove selection
                         writeKML();
+                        RefreshElevationProfile();
 
                         CurentRectMarker = null;
                     }

@@ -200,10 +200,34 @@ namespace XagSurveillanceGCS.GCSViews
         private double target_altitude = 0.0;
         private double hfov = 0.0;
         private double vfov = 0.0;
-        private double cam_tilt = -25;
-        private double cam_pan = -45;
-        private double cam_roll = 0;
-        private double focal_length = 4.4;
+        private double cam_tilt = 0.0;
+        private double cam_pan = -45.0;
+        private double cam_roll = 0.0;
+        private double focal_length = 4.3;
+        private MAVLink.MAV_CMD EngineStatus1 = MAVLink.MAV_CMD.WAYPOINT_USER_1;
+        private MAVLink.MAV_CMD EngineStatus2 = MAVLink.MAV_CMD.WAYPOINT_USER_2;
+        private MAVLink.MAV_CMD EngineStatus3 = MAVLink.MAV_CMD.WAYPOINT_USER_3;
+        private MAVLink.MAV_CMD EngineStatus4 = MAVLink.MAV_CMD.WAYPOINT_USER_4;
+        public int Engine_overall_status = -1;
+        public int Engine_ecu_power = -1;
+        public int Engine_rpm_sensor = -1;
+        public int Engine_maintanance = -1;
+        public string Engine_overall_runtime_hours = "";
+        public string Engine_current_runtime_minutes = "";
+        public string Engine_total_fuel_ml = "";
+        public string Engine_instant_fuel_lph = "";
+        public string Engine_pwm_throttle = "";
+        public string Engine_rpm = "";
+        public string Engine_cylinder1_temperature = "";
+        public string Engine_cylinder2_temperature = "";
+        public string Engine_set_low_pressure_fuel = "";
+        public string Engine_actual_low_pressure_fuel = "";
+        public string Engine_low_pressure_fuel_pump_speed = "";
+        public string Engine_set_rail_fuel_pressure = "";
+        public string Engine_actual_rail_fuel_pressure = "";
+        public string Engine_throttle1_opening_deviation = "";
+        public string Engine_throttle1_current_opening = "";
+        public string Engine_system_voltage = "";
         private Dictionary<int, string> NIC_table = new Dictionary<int, string>()
         {
             {0, "UNKNOWN" },
@@ -516,8 +540,8 @@ namespace XagSurveillanceGCS.GCSViews
                     break; 
                 case (uint)MAVLink.MAVLINK_MSG_ID.CAMERA_TRACKING_GEO_STATUS:
                     var gimbaltrackdata2 = packet.ToStructure<MAVLink.mavlink_camera_tracking_geo_status_t>();
-                    target_latitude = gimbaltrackdata2.lat * 1e-7;
-                    target_longitude = gimbaltrackdata2.lon * 1e-7;
+                    // target_latitude = gimbaltrackdata2.lat * 1e-7;
+                    // target_longitude = gimbaltrackdata2.lon * 1e-7;
                     break;
                 case (uint)MAVLink.MAVLINK_MSG_ID.PARAM_VALUE:
                     var targetlatlonalt = packet.ToStructure<MAVLink.mavlink_param_value_t>();
@@ -536,7 +560,7 @@ namespace XagSurveillanceGCS.GCSViews
                 case (uint)MAVLink.MAVLINK_MSG_ID.CAMERA_SETTINGS:
                     var camerasettings = packet.ToStructure<MAVLink.mavlink_camera_settings_t>();
                     Console.WriteLine("Camera Settings " + camerasettings.zoomLevel);
-                    focal_length = 4.4*camerasettings.zoomLevel;
+                    focal_length = 4.3*camerasettings.zoomLevel;
                     GetFov(camerasettings.zoomLevel);
                     break;
                 case (uint)MAVLink.MAVLINK_MSG_ID.MOUNT_ORIENTATION:
@@ -544,6 +568,42 @@ namespace XagSurveillanceGCS.GCSViews
                     cam_tilt = mountorientation.pitch;
                     cam_pan = mountorientation.yaw_absolute;
                     cam_roll = mountorientation.roll;
+                    break;
+                case (uint)MAVLink.MAVLINK_MSG_ID.COMMAND_LONG:
+                    var waypointuser = packet.ToStructure<MAVLink.mavlink_command_long_t>();
+                    if(waypointuser.command == (ushort)EngineStatus1)
+                    {
+                        Engine_overall_status = (int)waypointuser.param1;
+                        Engine_ecu_power = (int)waypointuser.param2;
+                        Engine_rpm_sensor = (int)waypointuser.param4;
+                        Engine_maintanance = (int)waypointuser.param5;
+                        Engine_overall_runtime_hours = waypointuser.param6.ToString();
+                        Engine_current_runtime_minutes = waypointuser.param7.ToString(); 
+                        Console.WriteLine("Engine Status Data 1st {0} {1} {2} {3} {4} {5}", Engine_overall_status,Engine_ecu_power,Engine_rpm_sensor,Engine_maintanance,Engine_overall_runtime_hours,Engine_current_runtime_minutes);  
+                    }else if(waypointuser.command == (ushort)EngineStatus2)
+                    {
+                        Engine_total_fuel_ml = waypointuser.param1.ToString();
+                        Engine_instant_fuel_lph = waypointuser.param2.ToString();
+                        Engine_pwm_throttle = waypointuser.param3.ToString();
+                        Engine_rpm = waypointuser.param4.ToString();
+                        Engine_cylinder1_temperature = waypointuser.param5.ToString();
+                        Engine_cylinder2_temperature = waypointuser.param6.ToString();
+                        Console.WriteLine("Engine Status Data 1st {0} {1} {2} {3} {4} {5}", Engine_total_fuel_ml,Engine_instant_fuel_lph,Engine_pwm_throttle,Engine_rpm,Engine_cylinder1_temperature,Engine_cylinder2_temperature);
+                    }else if(waypointuser.command == (ushort)EngineStatus3)
+                    {
+                        Engine_set_low_pressure_fuel = waypointuser.param2.ToString();
+                        Engine_actual_low_pressure_fuel = waypointuser.param3.ToString();
+                        Engine_low_pressure_fuel_pump_speed = waypointuser.param4.ToString();
+                        Engine_set_rail_fuel_pressure = waypointuser.param5.ToString();
+                        Engine_actual_rail_fuel_pressure = waypointuser.param6.ToString();
+                        Engine_throttle1_opening_deviation = waypointuser.param7.ToString();
+                        Console.WriteLine("Engine Status Data 1st {0} {1} {2} {3} {4} {5}",Engine_set_low_pressure_fuel,Engine_actual_low_pressure_fuel,Engine_low_pressure_fuel_pump_speed,Engine_set_rail_fuel_pressure,Engine_actual_rail_fuel_pressure,Engine_throttle1_opening_deviation);
+                    }else if(waypointuser.command == (ushort)EngineStatus4)
+                    {
+                        Engine_throttle1_current_opening = waypointuser.param1.ToString();
+                        Engine_system_voltage = waypointuser.param2.ToString();
+                        Console.WriteLine("Engine Status Data 1st {0} {1}",Engine_throttle1_current_opening,Engine_system_voltage);
+                    }
                     break;
                 default:
                     break;
@@ -7026,8 +7086,10 @@ namespace XagSurveillanceGCS.GCSViews
                     zone,
                     northernHemisphere);
 
-            target_latitude = Math.Round(targetLat, 9);
-            target_longitude = Math.Round(targetLon, 9);
+            if(targetLat != null)
+                target_latitude = Math.Round(targetLat, 9);
+            if(targetLon!= null)
+                target_longitude = Math.Round(targetLon, 9);
 
             Console.WriteLine(
                 $"Target Latitude : {target_latitude}");
@@ -7423,6 +7485,13 @@ namespace XagSurveillanceGCS.GCSViews
                             double sensor_height = 4.29;
                             UpdateTargetLatitudeLongitude(latitude,longitude,altitude,cam_pan,sensor_width,sensor_height,focal_length,cam_tilt,drone_roll,960,540);
                         }
+                        // double latitude1 = coords1.Lat;
+                        // double longitude1 = coords1.Lng;
+                        // double altitude1 = coords1.Alt;
+                        // double drone_roll1 = MainV2.comPort.MAV.cs.roll;
+                        // double sensor_width1 = 5.44;
+                        // double sensor_height1 = 3.09;
+                        // UpdateTargetLatitudeLongitude(latitude1,longitude1,altitude1,cam_pan,sensor_width1,sensor_height1,focal_length,cam_tilt,drone_roll1,960,540);
                         UpdateCameraAndTarget();
                     }
                     catch (Exception ex)
@@ -8642,6 +8711,7 @@ namespace XagSurveillanceGCS.GCSViews
         {
             if(this._baseCameraController.SelectedCamera == "XAGCAM2")
             {
+                // Console.WriteLine("Pitchvalue Yawvalue {0} {1}",PitchValue,YawValue);
                 GremsyControlPitchYaw(YawValue,PitchValue);
                 if(ZoomValue > 0) GremsyZoomIn();
                 else if(ZoomValue < 0) GremsyZoomOut();
